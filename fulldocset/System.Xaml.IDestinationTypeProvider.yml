@@ -10,8 +10,8 @@ items:
   nameWithType: IDestinationTypeProvider
   fullName: System.Xaml.IDestinationTypeProvider
   type: Interface
-  summary: "Represents a service that can return a CLR type system identifier for the destination type. The destination type is relevant when the destination type for a property-setting operation is indirectly reported by reflection or other mechanisms."
-  remarks: "The type that is returned by <xref:System.Xaml.IDestinationTypeProvider.GetDestinationType%2A> is resolved from the current position of the XAML node stream by using current XAML schema context.       If you use the XAML type system as implemented by .NET Framework XAML Services and access the service context under these conditions, <xref:System.Xaml.IDestinationTypeProvider.GetDestinationType%2A> returns the <xref:System.Xaml.XamlType.UnderlyingType%2A> based on available XAML type system information and CLR-based XAML schema context.       This service is relevant for situations where pure CLR reflection or other mechanisms might not provide enough information about a destination type. The following is a list of some relevant scenarios for IDestinationTypeProvider:      -   The CLR type system reports an indirect type because of how the CLR defines and uses types, and you want a true destination type. For example, the APIs in .NET Framework XAML Services use this service internally when they process event members. Events are reported by pure CLR reflection as a <xref:System.Delegate>.      -   You want to ensure that the destination type of a type converter usage matches the expected type that the type converter can produce. This scenario is useful when the destination type is parameterized or generic.      -   Your value converter is being called from a usage that nested in another value converter. In this case, <xref:System.Xaml.IDestinationTypeProvider.GetDestinationType%2A> unwinds the nesting and returns the destination type of the actual property being set, instead of returning the output type of any intervening value converter.       Type converters and markup extensions can query for IDestinationTypeProvider as a service on the service context that is provided by a XAML object writer, when the XAML object writer invokes value conversion behavior. For more information, see [Type Converters and Markup Extensions for XAML](~/add/includes/ajax-current-ext-md.md) and [Service Contexts Available to Type Converters and Markup Extensions](~/add/includes/ajax-current-ext-md.md)."
+  summary: "変換先の型の CLR 型システム識別子を返すことができるサービスを表します。 変換先の型は変換先プロパティ設定操作の種類は直接リフレクションまたはその他のメカニズムによって報告されたときです。"
+  remarks: "によって返される型<xref:System.Xaml.IDestinationTypeProvider.GetDestinationType%2A>は XAML ノード ストリームの現在位置から現在の XAML スキーマ コンテキストを使用して解決します</xref:System.Xaml.IDestinationTypeProvider.GetDestinationType%2A>。       .NET Framework XAML サービスとこれらの条件下で、サービス コンテキストのアクセスによって実装される XAML 型システムを使用する場合<xref:System.Xaml.IDestinationTypeProvider.GetDestinationType%2A>を返します、<xref:System.Xaml.XamlType.UnderlyingType%2A>使用可能な XAML 型システム情報と CLR ベースの XAML スキーマ コンテキストに基づく</xref:System.Xaml.XamlType.UnderlyingType%2A></xref:System.Xaml.IDestinationTypeProvider.GetDestinationType%2A>。       このサービスは、純粋な CLR リフレクションまたはその他のメカニズム可能性があります十分なに関する情報は提供先の種類の状況です。 IDestinationTypeProvider のいくつかの関連するシナリオの一覧を次に示します: - CLR 型のシステム CLR を定義しの型を使用するための間接的な型のレポートし、する場合は true。 送信先の種類。 たとえば、.NET Framework XAML サービスの Api イベント メンバーを処理するときにこのサービスは内部的に使用します。 イベントが<xref:System.Delegate>。</xref:System.Delegate>純粋な CLR リフレクションによって報告されます。      -する型コンバーターの使用法の変換先の型が、型コンバーターを作成できる、予期された型と一致していることを確認します。 このシナリオは、変換先の型がパラメーター化されたときに便利です。 またはジェネリックです。      値コンバーターは、別の値コンバーターで入れ子になった使用法から呼び出されています。 この場合、<xref:System.Xaml.IDestinationTypeProvider.GetDestinationType%2A>入れ子をアンワインドし、値コンバーターの介在するすべての出力の種類を返す代わりに、設定されている実際のプロパティの変換先の型を返します</xref:System.Xaml.IDestinationTypeProvider.GetDestinationType%2A>。       型コンバーターおよびマークアップ拡張機能は、XAML オブジェクト ライターは、値変換の動作を呼び出すときは、XAML オブジェクト ライターによって提供されるサービスのコンテキストでサービスとして IDestinationTypeProvider をクエリできます。 詳細については、次を参照してください。[型コンバーターと XAML のマークアップ拡張機能](~/add/includes/ajax-current-ext-md.md)と[サービスで使用できるコンテキスト型コンバーターおよびマークアップ拡張機能を](~/add/includes/ajax-current-ext-md.md)です。"
   syntax:
     content: public interface IDestinationTypeProvider
   implements: []
@@ -29,14 +29,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns the CLR <xref:System.Type> that identifies the destination type for the relevant type converter or markup extension."
-  remarks: "This method has no input parameter. What to return (and whether to return anything other than `null`) is determined by the current node position in the XAML node stream.      ## Service Implementers    If you reimplement this service, the GetDestinationType method should return the type that a markup extension or type converter expects to check against its most specific conversion or output type."
+  summary: "CLR を返します<xref:System.Type>変換先、関連する型コンバーターまたはマークアップ拡張機能の種類を識別します</xref:System.Type>。"
+  remarks: "このメソッドには、入力パラメーターがありません。 何を返す (以外の何も返すかどうかと`null`) は、XAML ノード ストリームの現在のノードの位置によって決まります。      ## サービス実装側場合、このサービスでは、メソッドは、その最も固有の変換または出力の種類に対して確認が必要ですが、マークアップ拡張機能または型コンバーターの型を返す必要があります GetDestinationType が再実装します。"
   syntax:
     content: public Type GetDestinationType ();
     parameters: []
     return:
       type: System.Type
-      description: "A CLR <xref:System.Type> value for the destination type."
+      description: "CLR<xref:System.Type>変換先の型の値</xref:System.Type>。"
   overload: System.Xaml.IDestinationTypeProvider.GetDestinationType*
   exceptions: []
   platform:

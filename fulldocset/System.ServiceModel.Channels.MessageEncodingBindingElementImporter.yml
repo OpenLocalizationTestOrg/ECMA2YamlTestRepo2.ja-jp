@@ -14,8 +14,8 @@ items:
   nameWithType: MessageEncodingBindingElementImporter
   fullName: System.ServiceModel.Channels.MessageEncodingBindingElementImporter
   type: Class
-  summary: "Converts WSDL-based policies and contracts about message encoding into descriptions of the binding elements that can implement these policies for the service."
-  remarks: "Override this class to extend the standard mapping between WSDL and a message encoding binding element. Then attach your custom object to a `WsdlImporter` either programmatically or by using an application configuration file. You can also attach your custom object to the internal `WsdlImporter` used by the [Service Trace Viewer Tool (SvcTraceViewer.exe)](~/add/includes/ajax-current-ext-md.md) using an application configuration file.       Use the <xref:System.ServiceModel.Channels.MessageEncodingBindingElementImporter.System%23ServiceModel%23Description%23IWsdlImportExtension%23BeforeImport%2A> method to directly modify the metadata that is then imported into message encoding binding elements."
+  summary: "WSDL ベースのポリシーおよびメッセージ サービスに対してこれらのポリシーを実装できるバインド要素の記述にエンコーディングに関するコントラクトに変換します。"
+  remarks: "WSDL とメッセージ エンコーディング バインド要素の間の標準マッピングを拡張するには、このクラスをオーバーライドします。 カスタム オブジェクトをアタッチ、`WsdlImporter`プログラムまたはアプリケーション構成ファイルを使用します。 内部に、カスタム オブジェクトをアタッチすることもできます`WsdlImporter`で使用される、[サービス トレース ビューアー ツール (SvcTraceViewer.exe)](~/add/includes/ajax-current-ext-md.md)アプリケーション構成ファイルを使用します。       使用して、<xref:System.ServiceModel.Channels.MessageEncodingBindingElementImporter.System%23ServiceModel%23Description%23IWsdlImportExtension%23BeforeImport%2A>メッセージ エンコーディング バインド要素にインポートするメタデータを直接変更するメソッド</xref:System.ServiceModel.Channels.MessageEncodingBindingElementImporter.System%23ServiceModel%23Description%23IWsdlImportExtension%23BeforeImport%2A>。"
   syntax:
     content: 'public class MessageEncodingBindingElementImporter : System.ServiceModel.Description.IPolicyImportExtension, System.ServiceModel.Description.IWsdlImportExtension'
   inheritance:
@@ -38,7 +38,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Channels.MessageEncodingBindingElementImporter&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ServiceModel.Channels.MessageEncodingBindingElementImporter&quot;> </xref>クラスです。"
   syntax:
     content: public MessageEncodingBindingElementImporter ();
     parameters: []
@@ -59,21 +59,21 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Defines a method that can import custom policy assertions for message encoding and that adds the binding elements that implement the policy."
+  summary: "メッセージ エンコーディングに関するカスタム ポリシー アサーションをインポートできるポリシーを実装するバインド要素を追加するメソッドを定義します。"
   syntax:
     content: void IPolicyImportExtension.ImportPolicy (System.ServiceModel.Description.MetadataImporter importer, System.ServiceModel.Description.PolicyConversionContext context);
     parameters:
     - id: importer
       type: System.ServiceModel.Description.MetadataImporter
-      description: "The <xref href=&quot;System.ServiceModel.Description.MetadataImporter&quot;></xref> that imports the metadata information."
+      description: "<xref href=&quot;System.ServiceModel.Description.MetadataImporter&quot;> </xref>メタデータ情報をインポートします。"
     - id: context
       type: System.ServiceModel.Description.PolicyConversionContext
-      description: "The <xref href=&quot;System.ServiceModel.Description.PolicyConversionContext&quot;></xref> object that contains the policy assertions that can be imported and the collections of binding elements to which custom binding elements that implement the encoding policy can be added."
+      description: "<xref href=&quot;System.ServiceModel.Description.PolicyConversionContext&quot;> </xref>インポートできるポリシー アサーションを格納するオブジェクトおよびエンコーディング ポリシーを実装するカスタム バインディング要素を追加できるバインディング要素のコレクション。"
   overload: System.ServiceModel.Channels.MessageEncodingBindingElementImporter.System#ServiceModel#Description#IPolicyImportExtension#ImportPolicy*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>importer</code> or <code>policyContext</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>importer</code>or <code>policyContext</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ServiceModel.Channels.MessageEncodingBindingElementImporter.System#ServiceModel#Description#IWsdlImportExtension#BeforeImport(System.Web.Services.Description.ServiceDescriptionCollection,System.Xml.Schema.XmlSchemaSet,System.Collections.Generic.ICollection{System.Xml.XmlElement})
@@ -89,20 +89,20 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Called prior to importing the metadata documents associated with the encoding."
-  remarks: "This method is used to inspect, modify and interpret the policy and WSDL before the <xref:System.ServiceModel.Channels.MessageEncodingBindingElementImporter> does the import."
+  summary: "エンコーディングと関連付けられたメタデータ ドキュメントをインポートする前に呼び出されます。"
+  remarks: "このメソッドは、検査、変更、およびポリシーとする前に WSDL の解釈に使用、<xref:System.ServiceModel.Channels.MessageEncodingBindingElementImporter>インポートします</xref:System.ServiceModel.Channels.MessageEncodingBindingElementImporter>。"
   syntax:
     content: void IWsdlImportExtension.BeforeImport (System.Web.Services.Description.ServiceDescriptionCollection wsdlDocuments, System.Xml.Schema.XmlSchemaSet xmlSchemas, System.Collections.Generic.ICollection<System.Xml.XmlElement> policy);
     parameters:
     - id: wsdlDocuments
       type: System.Web.Services.Description.ServiceDescriptionCollection
-      description: "The <xref href=&quot;System.Web.Services.Description.ServiceDescriptionCollection&quot;></xref> that describes the services."
+      description: "<xref href=&quot;System.Web.Services.Description.ServiceDescriptionCollection&quot;> </xref>サービスを説明します。"
     - id: xmlSchemas
       type: System.Xml.Schema.XmlSchemaSet
-      description: "The <xref href=&quot;System.Xml.Schema.XmlSchemaSet&quot;></xref> that contains the schema for the `wsdlDocuments`."
+      description: "<xref href=&quot;System.Xml.Schema.XmlSchemaSet&quot;> </xref>のスキーマを格納している、`wsdlDocuments`です。"
     - id: policy
       type: System.Collections.Generic.ICollection{System.Xml.XmlElement}
-      description: "The &lt;xref:System.Collections.Generic.ICollection%601&gt; of type <xref href=&quot;System.Xml.XmlElement&quot;></xref> that contains the policy elements."
+      description: "&lt;Xref:System.Collections.Generic.ICollection%601&gt;型の<xref href=&quot;System.Xml.XmlElement&quot;></xref>ポリシー要素を格納します。"
   overload: System.ServiceModel.Channels.MessageEncodingBindingElementImporter.System#ServiceModel#Description#IWsdlImportExtension#BeforeImport*
   exceptions: []
   platform:
@@ -120,16 +120,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Called when importing a contract."
+  summary: "コントラクトをインポートするときに呼び出されます。"
   syntax:
     content: void IWsdlImportExtension.ImportContract (System.ServiceModel.Description.WsdlImporter importer, System.ServiceModel.Description.WsdlContractConversionContext context);
     parameters:
     - id: importer
       type: System.ServiceModel.Description.WsdlImporter
-      description: "The contract importer."
+      description: "コントラクト インポーター。"
     - id: context
       type: System.ServiceModel.Description.WsdlContractConversionContext
-      description: "The import context."
+      description: "インポート コンテキスト。"
   overload: System.ServiceModel.Channels.MessageEncodingBindingElementImporter.System#ServiceModel#Description#IWsdlImportExtension#ImportContract*
   exceptions: []
   platform:
@@ -147,16 +147,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Maps the custom WSDL extensions for encoding messages to the service description."
+  summary: "エンコーディング メッセージのカスタム WSDL 拡張をサービスの説明にマップされます。"
   syntax:
     content: void IWsdlImportExtension.ImportEndpoint (System.ServiceModel.Description.WsdlImporter importer, System.ServiceModel.Description.WsdlEndpointConversionContext context);
     parameters:
     - id: importer
       type: System.ServiceModel.Description.WsdlImporter
-      description: "The <xref href=&quot;System.ServiceModel.Description.WsdlImporter&quot;></xref> that imports the WSDL extensions."
+      description: "<xref href=&quot;System.ServiceModel.Description.WsdlImporter&quot;> </xref> WSDL 拡張をインポートします。"
     - id: context
       type: System.ServiceModel.Description.WsdlEndpointConversionContext
-      description: "The <xref href=&quot;System.ServiceModel.Description.WsdlEndpointConversionContext&quot;></xref> that provides the context for the mapping."
+      description: "<xref href=&quot;System.ServiceModel.Description.WsdlEndpointConversionContext&quot;> </xref>マッピングのコンテキストを提供します。"
   overload: System.ServiceModel.Channels.MessageEncodingBindingElementImporter.System#ServiceModel#Description#IWsdlImportExtension#ImportEndpoint*
   exceptions: []
   platform:
