@@ -14,8 +14,8 @@ items:
   nameWithType: IPersistComponentSettings
   fullName: System.Configuration.IPersistComponentSettings
   type: Interface
-  summary: "Defines standard functionality for controls or libraries that store and retrieve application settings."
-  remarks: "Typically, you can add application settings support to an application by creating a settings wrapper class, which is derived from <xref:System.Configuration.ApplicationSettingsBase>, and then add special properties to this class. However, this approach does not sufficiently encapsulate application settings for a control so that its container is shielded from the details. The IPersistComponentSettings interface provides an application with a standard interface for communicating application settings state change requests to a control, component, or library module. Design-time tools also depend on this interface to properly manage controls and components."
+  summary: "コントロールまたは格納およびアプリケーションの設定を取得するライブラリの標準的な機能を定義します。"
+  remarks: "派生する設定のラッパー クラスを作成することで、アプリケーションにアプリケーション設定のサポートを追加する通常、 <xref:System.Configuration.ApplicationSettingsBase>、このクラスに特殊なプロパティを追加および</xref:System.Configuration.ApplicationSettingsBase> ただし、このアプローチ十分にカプセル化しないコントロール用のアプリケーション設定の詳細から、コンテナーがシールドされてようにします。 IPersistComponentSettings インターフェイスでは、コントロール、コンポーネント、またはライブラリ モジュールにアプリケーション設定の状態変更要求を通信するための標準のインターフェイスを持つアプリケーションを提供します。 デザイン時ツールは、コントロールおよびコンポーネントを適切に管理するには、このインターフェイスによっても異なります。"
   syntax:
     content: public interface IPersistComponentSettings
   implements: []
@@ -33,8 +33,8 @@ items:
   assemblies:
   - System
   namespace: System.Configuration
-  summary: "Reads the control&quot;s application settings into their corresponding properties and updates the control&quot;s state."
-  remarks: "In general, the LoadComponentSettings method performs two essential operations:      -   It causes each application settings instance contained by the control to refresh the values of its application settings properties, typically by calling their <xref:System.Configuration.ApplicationSettingsBase.Reload%2A> methods.      -   As required, it updates those general properties that depend on these reloaded settings properties. For example, if the settings class contained a `location` settings property, LoadComponentSettings should ensure that the control&quot;s <xref:System.Windows.Forms.Control.Location%2A> property is updated to reflect this reloaded setting."
+  summary: "対応するプロパティとコントロールのアプリケーション設定を読み込んで、コントロールの状態を更新します。"
+  remarks: "一般に、LoadComponentSettings メソッドが&2; つの重要な操作を実行します:-を呼び出すことによって通常のアプリケーション設定のプロパティの値を更新するコントロールに含まれる各アプリケーションの設定インスタンスになります、<xref:System.Configuration.ApplicationSettingsBase.Reload%2A>メソッド</xref:System.Configuration.ApplicationSettingsBase.Reload%2A>。      必要に応じてプロパティを再読み込みされたこれらの設定に依存する全般プロパティを更新します。 設定クラスが含まれている場合など、`location`設定プロパティ、LoadComponentSettings できるように、コントロールの<xref:System.Windows.Forms.Control.Location%2A>プロパティが再読み込みされたこの設定を反映するように更新します</xref:System.Windows.Forms.Control.Location%2A>。"
   syntax:
     content: public void LoadComponentSettings ();
     parameters: []
@@ -54,8 +54,8 @@ items:
   assemblies:
   - System
   namespace: System.Configuration
-  summary: "Resets the control&quot;s application settings properties to their default values."
-  remarks: "The implementation of the ResetComponentSettings method typically calls the <xref:System.Configuration.ApplicationSettingsBase.Reset%2A> method on each instance of an application settings class it contains."
+  summary: "コントロールのアプリケーション設定のプロパティを既定値にリセットします。"
+  remarks: "ResetComponentSettings メソッドの実装を呼び出す通常、<xref:System.Configuration.ApplicationSettingsBase.Reset%2A>が含まれているアプリケーション設定クラスの各インスタンス上のメソッド</xref:System.Configuration.ApplicationSettingsBase.Reset%2A>。"
   syntax:
     content: public void ResetComponentSettings ();
     parameters: []
@@ -75,8 +75,8 @@ items:
   assemblies:
   - System
   namespace: System.Configuration
-  summary: "Persists the control&quot;s application settings properties."
-  remarks: "The SaveComponentSettings method writes the values of the control&quot;s application settings properties to the associated data store. The data store and serialization technique the method uses is determined by the settings provider associated with each settings class through the <xref:System.Configuration.SettingsProviderAttribute>. You can override the choice of the settings provider by using the <xref:System.Configuration.ISettingsProviderService> interface.      > [!NOTE] >  If the <xref:System.Configuration.IPersistComponentSettings.SaveSettings%2A> property is `true`, the control should call SaveComponentSettings in its own <xref:System.Windows.Forms.Control.Dispose%2A> method so that the control&quot;s configuration data is stored automatically before the application ends."
+  summary: "コントロールのアプリケーション設定のプロパティが保持されます。"
+  remarks: "SaveComponentSettings メソッドは、コントロールのアプリケーション設定のプロパティの値を関連するデータ ストアに書き込みます。 メソッドを使用してデータ ストアとシリアル化技法は<xref:System.Configuration.SettingsProviderAttribute>。</xref:System.Configuration.SettingsProviderAttribute>を介して各設定クラスに関連付けられている設定プロバイダーによって決定されます。 使用して設定プロバイダーの選択をオーバーライドすることができます、<xref:System.Configuration.ISettingsProviderService>インターフェイス</xref:System.Configuration.ISettingsProviderService>。      > [!NOTE] > 場合、<xref:System.Configuration.IPersistComponentSettings.SaveSettings%2A>プロパティは`true`、コントロール呼び出す必要があります SaveComponentSettings 独自<xref:System.Windows.Forms.Control.Dispose%2A>メソッド、アプリケーションが終了する前に、コントロールの構成データは自動的に格納できるようにします</xref:System.Windows.Forms.Control.Dispose%2A></xref:System.Configuration.IPersistComponentSettings.SaveSettings%2A>。"
   syntax:
     content: public void SaveComponentSettings ();
     parameters: []
@@ -96,15 +96,15 @@ items:
   assemblies:
   - System
   namespace: System.Configuration
-  summary: "Gets or sets a value indicating whether the control should automatically persist its application settings properties."
-  remarks: "If a control contains configuration data, it will typically persist this data in response to an explicit call to the <xref:System.Configuration.IPersistComponentSettings.SaveComponentSettings%2A> method or sometimes implicitly when the control&quot;s <xref:System.Windows.Forms.Control.Dispose%2A> method is invoked. The SaveSettings property determines whether a control automatically persists its configuration data when it is disposed.       The default value of SaveSettings depends on the implementation of the control. The documentation for the control should indicate whether it uses application settings, what data is persisted, and what the default value of the SaveSettings property is."
+  summary: "取得またはコントロールがそのアプリケーション設定のプロパティを自動的に保持する必要があるかどうかを示す値を設定します。"
+  remarks: "明示的に呼び出すへの応答でこのデータが保持されます通常コントロール構成データが含まれている場合、<xref:System.Configuration.IPersistComponentSettings.SaveComponentSettings%2A>メソッドも暗黙的にまたはときに、コントロールの<xref:System.Windows.Forms.Control.Dispose%2A>メソッドが呼び出されます</xref:System.Windows.Forms.Control.Dispose%2A></xref:System.Configuration.IPersistComponentSettings.SaveComponentSettings%2A>。 SaveSettings プロパティが破棄されるとき、コントロールがその、構成データを自動的に保持するかどうかを判断します。       SaveSettings の既定値は、コントロールの実装に依存します。 ドキュメント コントロールには、アプリケーションの設定を使用するかどうか、どのようなデータが保持され、SaveSettings プロパティの既定値は、新機能を示す必要があります。"
   example:
   - "The following code example shows the proper way for a control to check the value of the SaveSettings property before it attempts to automatically persist its configuration data.  \n  \n `protected override void Dispose( bool disposing ) {`  \n  \n `if(disposing) {`  \n  \n `try {`  \n  \n `if (SaveSettings) {`  \n  \n `SaveComponentSettings();`  \n  \n `}`  \n  \n `}`  \n  \n `finally {`  \n  \n `//...`  \n  \n `}`  \n  \n `}`"
   syntax:
     content: public bool SaveSettings { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the control should automatically persist its state; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、コントロールを自動的に保持の状態です。それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Configuration.IPersistComponentSettings.SaveSettings*
   exceptions: []
   platform:
@@ -121,13 +121,13 @@ items:
   assemblies:
   - System
   namespace: System.Configuration
-  summary: "Gets or sets the value of the application settings key for the current instance of the control."
-  remarks: "Use the SettingsKey property to disambiguate groups of application settings properties when there are multiple instances of the same wrapper class. For example, if a control contains an associated wrapper class, then placing multiple instances of the same control in the same application will typically result in multiple instances of the wrapper class. A settings key is required only when the configuration data differs on a per-instance basis; for example, the location of dynamically positioned controls.       The following general rules apply to the use of SettingsKey:      -   A control, like any class, may contain zero or more application settings classes, derived from <xref:System.Configuration.ApplicationSettingsBase>. Each settings class contains its own <xref:System.Configuration.ApplicationSettingsBase.SettingsKey%2A?displayProperty=fullName> property, which helps disambiguate multiple instances of that class.      -   A control should separate its per-instance data and its shared data into different settings classes.      -   For a control with any per-instance configuration data, the `get` accessor of the SettingsKey property should default to the <xref:System.Windows.Forms.Control.Name%2A> of the control. In most cases the name of the control will be unique within an application. If the control contains only shared configuration data, `get` should default to `null`.      -   The `set` accessor for this property should be implemented to distinguish between settings classes containing per-instance and shared configuration data. For each settings class containing per-instance data, `set` should just pass-through to the <xref:System.Configuration.ApplicationSettingsBase.SettingsKey%2A?displayProperty=fullName> property of the settings class. For settings classes containing shared data, `set` should perform no action for that settings class."
+  summary: "取得またはコントロールの現在のインスタンスのアプリケーション設定キーの値を設定します。"
+  remarks: "同一のラッパー クラスの複数のインスタンスがある場合は、アプリケーション設定のプロパティのグループを区別するために、SettingsKey プロパティを使用します。 たとえば、コントロールが含まれている、関連付けられているラッパー クラスでは、通常は、同じアプリケーション内の同じコントロールの複数のインスタンスを配置する場合は、ラッパー クラスの複数のインスタンスで発生します。 インスタンスごとの単位で構成データが異なる場合にのみ、設定キーが必要たとえば、動的に配置されているコントロールの場所です。       次の一般的な規則が SettingsKey の使用に適用します-任意のクラスと同様に、コントロールが&0; 個以上のアプリケーション設定クラスを含む可能性があります<xref:System.Configuration.ApplicationSettingsBase>。</xref:System.Configuration.ApplicationSettingsBase>から派生。 各設定クラスには、独自の<xref:System.Configuration.ApplicationSettingsBase.SettingsKey%2A?displayProperty=fullName>プロパティ、そのクラスの複数のインスタンスのあいまいさを解消するのに役立ちます</xref:System.Configuration.ApplicationSettingsBase.SettingsKey%2A?displayProperty=fullName>が含まれています。      -コントロールには、異なる設定クラスに、インスタンスごとのデータおよび共有データは別です。      インスタンスごとの構成データを使用して、コントロールの`get`SettingsKey プロパティのアクセサーが既定にする必要があります、<xref:System.Windows.Forms.Control.Name%2A>コントロールの</xref:System.Windows.Forms.Control.Name%2A>。 ほとんどの場合、コントロールの名前は、アプリケーション内で一意になります。 コントロールには、構成データを共有のみが含まれている場合`get`既定にする必要があります`null`です。      -`set`設定クラスのインスタンスおよび共有構成データを含む区別するためにこのプロパティのアクセサーを実装する必要があります。 各設定クラスのインスタンスごとにデータを含む`set`<xref:System.Configuration.ApplicationSettingsBase.SettingsKey%2A?displayProperty=fullName>設定クラスのプロパティ</xref:System.Configuration.ApplicationSettingsBase.SettingsKey%2A?displayProperty=fullName>にだけでパススルーする必要があります 共有のデータを含む設定クラスの`set`必要がありますいないのアクションを実行する設定クラスです。"
   syntax:
     content: public string SettingsKey { get; set; }
     return:
       type: System.String
-      description: "A <xref:System.String> containing the settings key for the current instance of the control."
+      description: "A <xref:System.String>、コントロールの現在のインスタンスの設定キーを含むします</xref:System.String>。"
   overload: System.Configuration.IPersistComponentSettings.SettingsKey*
   exceptions: []
   platform:

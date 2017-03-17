@@ -15,8 +15,8 @@ items:
   nameWithType: IDesignerFilter
   fullName: System.ComponentModel.Design.IDesignerFilter
   type: Interface
-  summary: "Provides an interface that enables a designer to access and filter the dictionaries of a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref> that stores the property, attribute, and event descriptors that a component designer can expose to the design-time environment."
-  remarks: "IDesignerFilter enables a designer to filter the set of property, attribute, and event descriptors that its associated component exposes through a <xref:System.ComponentModel.TypeDescriptor>. The methods of this interface whose names begin with `Pre` are called immediately before the methods whose names begin with `Post`.       If you want to add attribute, event, or property descriptors, use a <xref:System.ComponentModel.Design.IDesignerFilter.PreFilterAttributes%2A>, <xref:System.ComponentModel.Design.IDesignerFilter.PreFilterEvents%2A>, or <xref:System.ComponentModel.Design.IDesignerFilter.PreFilterProperties%2A> method.       If you want to change or remove attribute, event, or property descriptors, use a <xref:System.ComponentModel.Design.IDesignerFilter.PostFilterAttributes%2A>, <xref:System.ComponentModel.Design.IDesignerFilter.PostFilterEvents%2A>, or <xref:System.ComponentModel.Design.IDesignerFilter.PostFilterProperties%2A> method."
+  summary: "デザイナーへのアクセスし、の辞書をフィルター処理できるようにするインターフェイスを提供、 <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;> </xref>コンポーネント デザイナーによってデザイン時環境に公開されるプロパティ、属性、およびイベント記述子を格納します。"
+  remarks: "IDesignerFilter <xref:System.ComponentModel.TypeDescriptor>。</xref:System.ComponentModel.TypeDescriptor>を通じて、関連付けられているコンポーネントを公開するプロパティ、属性、およびイベントの記述子のセットをフィルター処理するデザイナーを使用にします。 このインターフェイスのメソッドを名前で始まる`Pre`メソッドの名前が始まる直前に呼び出されます`Post`です。       属性、イベント、またはプロパティ記述子を追加する場合は、使用、 <xref:System.ComponentModel.Design.IDesignerFilter.PreFilterAttributes%2A>、 <xref:System.ComponentModel.Design.IDesignerFilter.PreFilterEvents%2A>、または<xref:System.ComponentModel.Design.IDesignerFilter.PreFilterProperties%2A>メソッド</xref:System.ComponentModel.Design.IDesignerFilter.PreFilterProperties%2A></xref:System.ComponentModel.Design.IDesignerFilter.PreFilterEvents%2A></xref:System.ComponentModel.Design.IDesignerFilter.PreFilterAttributes%2A>。       変更または削除する属性、イベント、またはプロパティ記述子を使用する場合、 <xref:System.ComponentModel.Design.IDesignerFilter.PostFilterAttributes%2A>、 <xref:System.ComponentModel.Design.IDesignerFilter.PostFilterEvents%2A>、または<xref:System.ComponentModel.Design.IDesignerFilter.PostFilterProperties%2A>メソッド</xref:System.ComponentModel.Design.IDesignerFilter.PostFilterProperties%2A></xref:System.ComponentModel.Design.IDesignerFilter.PostFilterEvents%2A></xref:System.ComponentModel.Design.IDesignerFilter.PostFilterAttributes%2A>。"
   example:
   - "The following example demonstrates an override of <xref:System.ComponentModel.Design.IDesignerFilter.PreFilterProperties%2A> that adds a property of the designer to the Properties window when the designer's control is selected at design time. See the example for the <xref:System.Windows.Forms.Design.ControlDesigner> class for a complete designer example that uses the IDesignerFilter interface.  \n  \n [!code-cpp[ControlDesignerExample#2](~/add/codesnippet/cpp/t-system.componentmodel._159_1.cpp)]\n [!code-vb[ControlDesignerExample#2](~/add/codesnippet/visualbasic/t-system.componentmodel._159_1.vb)]\n [!code-cs[ControlDesignerExample#2](~/add/codesnippet/csharp/t-system.componentmodel._159_1.cs)]"
   syntax:
@@ -36,14 +36,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "When overridden in a derived class, allows a designer to change or remove items from the set of attributes that it exposes through a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>."
-  remarks: "This method provides a way to change or remove items within the dictionary of attributes that the associated component of the designer implementing this interface exposes through a <xref:System.ComponentModel.TypeDescriptor>.       The keys in the dictionary of attributes are the type IDs of the attributes. The objects are of type <xref:System.Attribute>. This method is called immediately after <xref:System.ComponentModel.Design.IDesignerFilter.PreFilterAttributes%2A>.       The type ID of an attribute can be any object. By default, <xref:System.Attribute> returns its <xref:System.Type> as the value of its <xref:System.Attribute.TypeId%2A> property. You can check the <xref:System.Attribute.TypeId%2A> of an attribute in the dictionary for equivalence with a known <xref:System.Attribute.TypeId%2A> for an attribute to identify it, or use <xref:System.Reflection> to identify the attribute object itself.       When an attribute that has the same <xref:System.Attribute.TypeId%2A> as an existing or inherited attribute is added to a component, the new attribute replaces the old attribute. For many attributes, a new attribute of the same type will replace any previous attribute of the type. However, some types of attributes return a <xref:System.Attribute.TypeId%2A> that distinguishes the attribute selectively. For example, in order to provide different types of simultaneously active designers for a type, such as an <xref:System.ComponentModel.Design.IRootDesigner> and an <xref:System.ComponentModel.Design.IDesigner>, the <xref:System.ComponentModel.DesignerAttribute> class returns a <xref:System.Attribute.TypeId%2A> that uniquely identifies both the attribute and the base designer type. The <xref:System.ComponentModel.DesignerAttribute> constructor allows you to specify the base designer type of the designer in addition to its specific type, and <xref:System.ComponentModel.DesignerAttribute> returns a <xref:System.Attribute.TypeId%2A> that reflects this. Therefore when you add a new <xref:System.ComponentModel.DesignerAttribute> with a base designer type of the same type as the base designer type of an existing <xref:System.ComponentModel.DesignerAttribute>, the old attribute is replaced with the new attribute."
+  summary: "派生クラスでオーバーライドされると、により、デザイナーを変更またはを通じて公開される属性のセットから項目を削除するのには、 <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>です。"
+  remarks: "このメソッドは、変更、またはこのインターフェイスを実装しているデザイナーの関連付けられているコンポーネントが<xref:System.ComponentModel.TypeDescriptor>。</xref:System.ComponentModel.TypeDescriptor>を通じて公開される属性のディクショナリ内の項目を削除する方法を提供します。       属性のディクショナリのキーは、属性の型の Id です。 このオブジェクトは型<xref:System.Attribute>。</xref:System.Attribute> <xref:System.ComponentModel.Design.IDesignerFilter.PreFilterAttributes%2A>。</xref:System.ComponentModel.Design.IDesignerFilter.PreFilterAttributes%2A>後すぐにこのメソッドが呼び出されます       属性の型 ID は、任意のオブジェクトをすることができます。 既定では、<xref:System.Attribute>返しますその<xref:System.Type>の値としてその<xref:System.Attribute.TypeId%2A>プロパティ</xref:System.Attribute.TypeId%2A></xref:System.Type></xref:System.Attribute>。 チェックすることができます、<xref:System.Attribute.TypeId%2A>既知と同等のディクショナリ内の属性の<xref:System.Attribute.TypeId%2A>を指定するか、またはを使用して、属性の<xref:System.Reflection>、属性オブジェクト自体を識別します</xref:System.Reflection></xref:System.Attribute.TypeId%2A></xref:System.Attribute.TypeId%2A>。       ときに属性を同じ<xref:System.Attribute.TypeId%2A>古い属性が、この新しい属性に置き換えられますコンポーネントに、既存または継承された属性が追加されるため、.</xref:System.Attribute.TypeId%2A> 多くの属性は、型の以前の属性が同じ型の新しい属性に置き換わります。 ただし、一部の属性の型を返す、<xref:System.Attribute.TypeId%2A>属性を選択的に区別される</xref:System.Attribute.TypeId%2A>。 例については、型の場合など、さまざまな種類の同時にアクティブなデザイナーを提供するために、<xref:System.ComponentModel.Design.IRootDesigner>と<xref:System.ComponentModel.Design.IDesigner>、<xref:System.ComponentModel.DesignerAttribute>クラスを返します、<xref:System.Attribute.TypeId%2A>属性と基本デザイナー型の両方を一意に識別する</xref:System.Attribute.TypeId%2A></xref:System.ComponentModel.DesignerAttribute></xref:System.ComponentModel.Design.IDesigner></xref:System.ComponentModel.Design.IRootDesigner>。 <xref:System.ComponentModel.DesignerAttribute>コンス トラクターを使用して、特定の種類に加えて、デザイナーのデザイナー ベースの種類を指定し、<xref:System.ComponentModel.DesignerAttribute>返します、<xref:System.Attribute.TypeId%2A>これを反映する</xref:System.Attribute.TypeId%2A></xref:System.ComponentModel.DesignerAttribute></xref:System.ComponentModel.DesignerAttribute>。 したがってを追加すると、新しい<xref:System.ComponentModel.DesignerAttribute>を既存の基本デザイナー型と同じ型の基本デザイナー型<xref:System.ComponentModel.DesignerAttribute>、古い属性が、この新しい属性に置き換えられます</xref:System.ComponentModel.DesignerAttribute></xref:System.ComponentModel.DesignerAttribute>。"
   syntax:
     content: public void PostFilterAttributes (System.Collections.IDictionary attributes);
     parameters:
     - id: attributes
       type: System.Collections.IDictionary
-      description: "The <xref:System.Attribute> objects for the class of the component. The keys in the dictionary of attributes are the <xref:System.Attribute.TypeId*> values of the attributes."
+      description: "<xref:System.Attribute>コンポーネントのクラスのオブジェクト</xref:System.Attribute>。 属性のディクショナリ内のキー、<xref:System.Attribute.TypeId*>属性の値</xref:System.Attribute.TypeId*>。"
   overload: System.ComponentModel.Design.IDesignerFilter.PostFilterAttributes*
   exceptions: []
   platform:
@@ -60,14 +60,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "When overridden in a derived class, allows a designer to change or remove items from the set of events that it exposes through a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>."
-  remarks: "This method provides a way to change or remove items within the dictionary of events that are exposed through a <xref:System.ComponentModel.TypeDescriptor>.       The keys in the dictionary of events are the names of the events. The objects are of type <xref:System.ComponentModel.EventDescriptor>. This method is called immediately after <xref:System.ComponentModel.Design.IDesignerFilter.PreFilterEvents%2A>."
+  summary: "派生クラスでオーバーライドされると、により、デザイナーを変更またはを通じて公開しているイベントのセットから項目を削除するのには、 <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>です。"
+  remarks: "このメソッドは、変更または<xref:System.ComponentModel.TypeDescriptor>。</xref:System.ComponentModel.TypeDescriptor>を通じて公開されているイベントのディクショナリ内の項目を削除する方法を提供します。       イベントのディクショナリのキーは、イベントの名前です。 このオブジェクトは型<xref:System.ComponentModel.EventDescriptor>。</xref:System.ComponentModel.EventDescriptor> <xref:System.ComponentModel.Design.IDesignerFilter.PreFilterEvents%2A>。</xref:System.ComponentModel.Design.IDesignerFilter.PreFilterEvents%2A>後すぐにこのメソッドが呼び出されます"
   syntax:
     content: public void PostFilterEvents (System.Collections.IDictionary events);
     parameters:
     - id: events
       type: System.Collections.IDictionary
-      description: "The <xref href=&quot;System.ComponentModel.EventDescriptor&quot;></xref> objects that represent the events of the class of the component. The keys in the dictionary of events are event names."
+      description: "<xref href=&quot;System.ComponentModel.EventDescriptor&quot;> </xref>コンポーネントのクラスのイベントを表すオブジェクト。 イベントのディクショナリのキーは、イベント名です。"
   overload: System.ComponentModel.Design.IDesignerFilter.PostFilterEvents*
   exceptions: []
   platform:
@@ -84,14 +84,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "When overridden in a derived class, allows a designer to change or remove items from the set of properties that it exposes through a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>."
-  remarks: "This method provides a way to change or remove items within the dictionary of properties that are exposed through a <xref:System.ComponentModel.TypeDescriptor>.       The keys in the dictionary of properties are the names of the properties. The objects are of type <xref:System.ComponentModel.PropertyDescriptor>. This method is called immediately after <xref:System.ComponentModel.Design.IDesignerFilter.PreFilterProperties%2A>."
+  summary: "派生クラスでオーバーライドされると、により、デザイナーを変更またはを通じて公開されるプロパティのセットから項目を削除するのには、 <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>です。"
+  remarks: "このメソッドは、変更または<xref:System.ComponentModel.TypeDescriptor>。</xref:System.ComponentModel.TypeDescriptor>を通じて公開されるプロパティのディクショナリ内の項目を削除する方法を提供します。       プロパティのディクショナリのキーは、プロパティの名前です。 このオブジェクトは型<xref:System.ComponentModel.PropertyDescriptor>。</xref:System.ComponentModel.PropertyDescriptor> <xref:System.ComponentModel.Design.IDesignerFilter.PreFilterProperties%2A>。</xref:System.ComponentModel.Design.IDesignerFilter.PreFilterProperties%2A>後すぐにこのメソッドが呼び出されます"
   syntax:
     content: public void PostFilterProperties (System.Collections.IDictionary properties);
     parameters:
     - id: properties
       type: System.Collections.IDictionary
-      description: "The <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> objects that represent the properties of the class of the component. The keys in the dictionary of properties are property names."
+      description: "<xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref>コンポーネントのクラスのプロパティを表すオブジェクト。 プロパティのディクショナリのキーは、プロパティ名です。"
   overload: System.ComponentModel.Design.IDesignerFilter.PostFilterProperties*
   exceptions: []
   platform:
@@ -108,14 +108,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "When overridden in a derived class, allows a designer to add items to the set of attributes that it exposes through a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>."
-  remarks: "This method provides a way to add items to the dictionary of attributes that the associated component of the designer implementing this interface exposes through a <xref:System.ComponentModel.TypeDescriptor>.       The keys in the dictionary of attributes are the type IDs of the attributes. The objects are of type <xref:System.Attribute>. This method is called immediately before <xref:System.ComponentModel.Design.IDesignerFilter.PostFilterAttributes%2A>.       The type ID of an attribute can be any object. By default, <xref:System.Attribute> returns its <xref:System.Type> as the value of its <xref:System.Attribute.TypeId%2A> property. You can check the <xref:System.Attribute.TypeId%2A> of an attribute in the dictionary for equivalence with a known <xref:System.Attribute.TypeId%2A> for an attribute to identify it, or use <xref:System.Reflection> to identify the attribute object itself.       When an attribute that has the same <xref:System.Attribute.TypeId%2A> as an existing or inherited attribute is added to a component, the new attribute replaces the old attribute. For many attributes, a new attribute of the same type will replace any previous attribute of the type. However, some types of attributes return a <xref:System.Attribute.TypeId%2A> that distinguishes the attribute selectively. For example, in order to provide different types of simultaneously active designers for a type, such as an <xref:System.ComponentModel.Design.IRootDesigner> and an <xref:System.ComponentModel.Design.IDesigner>, the <xref:System.ComponentModel.DesignerAttribute> class returns a <xref:System.Attribute.TypeId%2A> that uniquely identifies both the attribute and the base designer type. The <xref:System.ComponentModel.DesignerAttribute> constructor allows you to specify the base designer type of the designer in addition to its specific type, and <xref:System.ComponentModel.DesignerAttribute> returns a <xref:System.Attribute.TypeId%2A> that reflects this. Therefore when you add a new <xref:System.ComponentModel.DesignerAttribute> with a base designer type of the same type as the base designer type of an existing <xref:System.ComponentModel.DesignerAttribute>, the old attribute is replaced with the new attribute."
+  summary: "派生クラスでオーバーライドされると、により、を通じて公開される属性のセットに項目を追加するデザイナー、 <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>です。"
+  remarks: "このメソッドは、このインターフェイスを実装しているデザイナーの関連付けられているコンポーネントが<xref:System.ComponentModel.TypeDescriptor>。</xref:System.ComponentModel.TypeDescriptor>を通じて公開される属性のディクショナリに項目を追加する方法を提供します。       属性のディクショナリのキーは、属性の型の Id です。 このオブジェクトは型<xref:System.Attribute>。</xref:System.Attribute> このメソッドが<xref:System.ComponentModel.Design.IDesignerFilter.PostFilterAttributes%2A>。</xref:System.ComponentModel.Design.IDesignerFilter.PostFilterAttributes%2A>の直前に呼び出されます       属性の型 ID は、任意のオブジェクトをすることができます。 既定では、<xref:System.Attribute>返しますその<xref:System.Type>の値としてその<xref:System.Attribute.TypeId%2A>プロパティ</xref:System.Attribute.TypeId%2A></xref:System.Type></xref:System.Attribute>。 チェックすることができます、<xref:System.Attribute.TypeId%2A>既知と同等のディクショナリ内の属性の<xref:System.Attribute.TypeId%2A>を指定するか、またはを使用して、属性の<xref:System.Reflection>、属性オブジェクト自体を識別します</xref:System.Reflection></xref:System.Attribute.TypeId%2A></xref:System.Attribute.TypeId%2A>。       ときに属性を同じ<xref:System.Attribute.TypeId%2A>古い属性が、この新しい属性に置き換えられますコンポーネントに、既存または継承された属性が追加されるため、.</xref:System.Attribute.TypeId%2A> 多くの属性は、型の以前の属性が同じ型の新しい属性に置き換わります。 ただし、一部の属性の型を返す、<xref:System.Attribute.TypeId%2A>属性を選択的に区別される</xref:System.Attribute.TypeId%2A>。 例については、型の場合など、さまざまな種類の同時にアクティブなデザイナーを提供するために、<xref:System.ComponentModel.Design.IRootDesigner>と<xref:System.ComponentModel.Design.IDesigner>、<xref:System.ComponentModel.DesignerAttribute>クラスを返します、<xref:System.Attribute.TypeId%2A>属性と基本デザイナー型の両方を一意に識別する</xref:System.Attribute.TypeId%2A></xref:System.ComponentModel.DesignerAttribute></xref:System.ComponentModel.Design.IDesigner></xref:System.ComponentModel.Design.IRootDesigner>。 <xref:System.ComponentModel.DesignerAttribute>コンス トラクターを使用して、特定の種類に加えて、デザイナーのデザイナー ベースの種類を指定し、<xref:System.ComponentModel.DesignerAttribute>返します、<xref:System.Attribute.TypeId%2A>これを反映する</xref:System.Attribute.TypeId%2A></xref:System.ComponentModel.DesignerAttribute></xref:System.ComponentModel.DesignerAttribute>。 したがってを追加すると、新しい<xref:System.ComponentModel.DesignerAttribute>を既存の基本デザイナー型と同じ型の基本デザイナー型<xref:System.ComponentModel.DesignerAttribute>、古い属性が、この新しい属性に置き換えられます</xref:System.ComponentModel.DesignerAttribute></xref:System.ComponentModel.DesignerAttribute>。"
   syntax:
     content: public void PreFilterAttributes (System.Collections.IDictionary attributes);
     parameters:
     - id: attributes
       type: System.Collections.IDictionary
-      description: "The <xref:System.Attribute> objects for the class of the component. The keys in the dictionary of attributes are the <xref:System.Attribute.TypeId*> values of the attributes."
+      description: "<xref:System.Attribute>コンポーネントのクラスのオブジェクト</xref:System.Attribute>。 属性のディクショナリ内のキー、<xref:System.Attribute.TypeId*>属性の値</xref:System.Attribute.TypeId*>。"
   overload: System.ComponentModel.Design.IDesignerFilter.PreFilterAttributes*
   exceptions: []
   platform:
@@ -132,14 +132,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "When overridden in a derived class, allows a designer to add items to the set of events that it exposes through a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>."
-  remarks: "This method provides a way to add items to the dictionary of events that a designer exposes through a <xref:System.ComponentModel.TypeDescriptor>.       The keys in the dictionary of events are the names of the events. The objects are of type <xref:System.ComponentModel.EventDescriptor>. This method is called immediately before <xref:System.ComponentModel.Design.IDesignerFilter.PostFilterEvents%2A>."
+  summary: "派生クラスでオーバーライドされると、許可を公開しているイベントのセットに項目を追加するデザイナー、 <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>です。"
+  remarks: "このメソッドは、デザイナーが<xref:System.ComponentModel.TypeDescriptor>。</xref:System.ComponentModel.TypeDescriptor>を介して公開するイベントのディクショナリに項目を追加する方法を提供します。       イベントのディクショナリのキーは、イベントの名前です。 このオブジェクトは型<xref:System.ComponentModel.EventDescriptor>。</xref:System.ComponentModel.EventDescriptor> このメソッドが<xref:System.ComponentModel.Design.IDesignerFilter.PostFilterEvents%2A>。</xref:System.ComponentModel.Design.IDesignerFilter.PostFilterEvents%2A>の直前に呼び出されます"
   syntax:
     content: public void PreFilterEvents (System.Collections.IDictionary events);
     parameters:
     - id: events
       type: System.Collections.IDictionary
-      description: "The <xref href=&quot;System.ComponentModel.EventDescriptor&quot;></xref> objects that represent the events of the class of the component. The keys in the dictionary of events are event names."
+      description: "<xref href=&quot;System.ComponentModel.EventDescriptor&quot;> </xref>コンポーネントのクラスのイベントを表すオブジェクト。 イベントのディクショナリのキーは、イベント名です。"
   overload: System.ComponentModel.Design.IDesignerFilter.PreFilterEvents*
   exceptions: []
   platform:
@@ -156,14 +156,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "When overridden in a derived class, allows a designer to add items to the set of properties that it exposes through a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>."
-  remarks: "This method provides a way to add items to the dictionary of properties that a designer exposes through a <xref:System.ComponentModel.TypeDescriptor>.       The keys in the dictionary of properties are the names of the properties. The objects are of type <xref:System.ComponentModel.PropertyDescriptor>. This method is called immediately before <xref:System.ComponentModel.Design.IDesignerFilter.PostFilterProperties%2A>."
+  summary: "派生クラスでオーバーライドされると、により、を通じて公開されるプロパティのセットに項目を追加するデザイナー、 <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>です。"
+  remarks: "このメソッドは、デザイナーが<xref:System.ComponentModel.TypeDescriptor>。</xref:System.ComponentModel.TypeDescriptor>を通じて公開されるプロパティのディクショナリに項目を追加する方法を提供します。       プロパティのディクショナリのキーは、プロパティの名前です。 このオブジェクトは型<xref:System.ComponentModel.PropertyDescriptor>。</xref:System.ComponentModel.PropertyDescriptor> このメソッドが<xref:System.ComponentModel.Design.IDesignerFilter.PostFilterProperties%2A>。</xref:System.ComponentModel.Design.IDesignerFilter.PostFilterProperties%2A>の直前に呼び出されます"
   syntax:
     content: public void PreFilterProperties (System.Collections.IDictionary properties);
     parameters:
     - id: properties
       type: System.Collections.IDictionary
-      description: "The <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> objects that represent the properties of the class of the component. The keys in the dictionary of properties are property names."
+      description: "<xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref>コンポーネントのクラスのプロパティを表すオブジェクト。 プロパティのディクショナリのキーは、プロパティ名です。"
   overload: System.ComponentModel.Design.IDesignerFilter.PreFilterProperties*
   exceptions: []
   platform:

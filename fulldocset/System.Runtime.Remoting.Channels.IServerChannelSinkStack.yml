@@ -14,7 +14,7 @@ items:
   nameWithType: IServerChannelSinkStack
   fullName: System.Runtime.Remoting.Channels.IServerChannelSinkStack
   type: Interface
-  summary: "Provides the stack functionality for a stack of server channel sinks."
+  summary: "シンクのサーバー チャネル スタックのスタックの機能を提供します。"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -36,21 +36,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Pops the information associated with all the sinks from the sink stack up to and including the specified sink."
+  summary: "最大シンク スタックからすべてのシンクに関連付けられているし、指定したシンクの情報が表示されます。"
   syntax:
     content: public object Pop (System.Runtime.Remoting.Channels.IServerChannelSink sink);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "The sink to remove and return from the sink stack."
+      description: "削除して、シンク スタックからシンクです。"
     return:
       type: System.Object
-      description: "Information generated on the request side and associated with the specified sink."
+      description: "情報は、要求側で生成され、指定したシンクに関連付けられています。"
   overload: System.Runtime.Remoting.Channels.IServerChannelSinkStack.Pop*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "直前の呼び出し元には、インフラストラクチャのアクセス許可がありません。"
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.IServerChannelSinkStack.Push(System.Runtime.Remoting.Channels.IServerChannelSink,System.Object)
@@ -65,22 +65,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Pushes the specified sink and information associated with it onto the sink stack."
-  remarks: "The information generated on the request side and specified in the `state` parameter is returned in the `state` parameter of the <xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A> method on the corresponding sink."
+  summary: "指定したシンクとシンク スタックに関連付けられている情報をプッシュします。"
+  remarks: "情報が要求側で生成されで指定された、`state`でパラメーターが返される、`state`のパラメーター、<xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A>メソッドを対応するシンク</xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A>。"
   syntax:
     content: public void Push (System.Runtime.Remoting.Channels.IServerChannelSink sink, object state);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "The sink to push onto the sink stack."
+      description: "シンク スタックにプッシュするシンクです。"
     - id: state
       type: System.Object
-      description: "Information generated on the request side that is needed on the response side."
+      description: "応答側で必要な要求側で生成された情報です。"
   overload: System.Runtime.Remoting.Channels.IServerChannelSinkStack.Push*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "直前の呼び出し元には、インフラストラクチャのアクセス許可がありません。"
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.IServerChannelSinkStack.ServerCallback(System.IAsyncResult)
@@ -95,14 +95,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Presents a callback delegate to handle a callback after a message has been dispatched asynchronously."
-  remarks: "The dispatched message represents a request method call on a remote object.       The ServerCallback method is intended for use only by the .NET Framework remoting infrastructure."
+  summary: "メッセージが非同期的にディスパッチされた後にコールバックを処理するコールバック デリゲートを表示します。"
+  remarks: "ディスパッチされたメッセージでは、リモート オブジェクトに対するメソッド呼び出しで要求を表します。       ServerCallback メソッドはため、.NET Framework リモート処理インフラストラクチャによってのみ使用します。"
   syntax:
     content: public void ServerCallback (IAsyncResult ar);
     parameters:
     - id: ar
       type: System.IAsyncResult
-      description: "The status and state of an asynchronous operation on a remote object."
+      description: "状態と、リモート オブジェクトでの非同期操作の状態。"
   overload: System.Runtime.Remoting.Channels.IServerChannelSinkStack.ServerCallback*
   exceptions: []
   platform:
@@ -119,17 +119,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Stores a message sink and its associated state for later asynchronous processing."
-  remarks: "The Store method is intended for use only by the .NET Framework remoting infrastructure."
+  summary: "メッセージのシンクと後の非同期処理に関連付けられた状態を格納します。"
+  remarks: "Store メソッドはため、.NET Framework リモート処理インフラストラクチャによってのみ使用します。"
   syntax:
     content: public void Store (System.Runtime.Remoting.Channels.IServerChannelSink sink, object state);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "A server channel sink."
+      description: "サーバー チャネル シンク。"
     - id: state
       type: System.Object
-      description: "The state associated with `sink`."
+      description: "関連付けられた状態`sink`です。"
   overload: System.Runtime.Remoting.Channels.IServerChannelSinkStack.Store*
   exceptions: []
   platform:
@@ -146,17 +146,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Stores a message sink and its associated state, and then dispatches a message asynchronously, using the sink just stored and any other stored sinks."
-  remarks: "The StoreAndDispatch method is intended for use only by the .NET Framework remoting infrastructure.       Also, the method should only be called by a transport sink to complete an asynchronous dispatch."
+  summary: "メッセージのシンクと関連付けられた状態を格納し、メッセージをディスパッチ、非同期的にだけ格納されている、シンクと他のストアド シンクを使用します。"
+  remarks: "StoreAndDispatch メソッドはため、.NET Framework リモート処理インフラストラクチャによってのみ使用します。       また、メソッドは、非同期のディスパッチが完了する転送シンクによってのみ呼び出す必要があります。"
   syntax:
     content: public void StoreAndDispatch (System.Runtime.Remoting.Channels.IServerChannelSink sink, object state);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "A server channel sink."
+      description: "サーバー チャネル シンク。"
     - id: state
       type: System.Object
-      description: "The state associated with `sink`."
+      description: "関連付けられた状態`sink`です。"
   overload: System.Runtime.Remoting.Channels.IServerChannelSinkStack.StoreAndDispatch*
   exceptions: []
   platform:

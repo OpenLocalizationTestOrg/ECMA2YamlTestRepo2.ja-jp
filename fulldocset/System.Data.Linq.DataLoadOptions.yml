@@ -14,8 +14,8 @@ items:
   nameWithType: DataLoadOptions
   fullName: System.Data.Linq.DataLoadOptions
   type: Class
-  summary: "Provides for immediate loading and filtering of related data."
-  remarks: "## General    When you query for an object, you actually retrieve only the object you requested. The *related* objects are not automatically fetched at the same time. (For more information, see [Querying Across Relationships](~/add/includes/ajax-current-ext-md.md).)       The DataLoadOptions class provides two methods to achieve immediate loading of specified related data. The <xref:System.Data.Linq.DataLoadOptions.LoadWith%2A> method allows for immediate loading of data related to the main target. The <xref:System.Data.Linq.DataLoadOptions.AssociateWith%2A> method allows for filtering related objects.      ## Rules    Note the following rules regarding DataLoadOptions usage:      -   Assigning a DataLoadOptions to a <xref:System.Data.Linq.DataContext> after the first query has been executed generates an exception.      -   Modifying a DataLoadOptions after it has been assigned to a <xref:System.Data.Linq.DataContext> generates an exception      ## Cycle Handling    <xref:System.Data.Linq.DataLoadOptions.LoadWith%2A> and <xref:System.Data.Linq.DataLoadOptions.AssociateWith%2A> directives must not create cycles. The following represent examples of such graphs:      -   Example 1: Self recursive          -   `dlo.LoadWith<Employee>(e => e.Reports);`      -   Example 2: Back-pointers          -   `dlo.LoadWith <Customer>(c => C.Orders);`          -   `dlo.LoadWith <Order>(o => o.Customer);`      -   Example 3: Longer cycles           Although this should not occur in a well-normalized model, it is possible.          -   `dlo.LoadWith <A>(a => a.Bs);`          -   `dlo.LoadWith <B>(b => b.Cs);`          -   `dlo.LoadWith <C>(c => c.As);`      -   Example 4: Self recursive subQueries          -   `dlo.AssociateWith<A>(a=>a.As.Where(a=>a.Id=33));`      -   Example 5: Longer recursive subqueries          -   `dlo.AssociateWith<A>(a=>a.Bs.Where(b=>b.Id==3));`          -   `dlo.AssociateWith<B>(b=>b.As.Where(a=>a.Id==3));`       The following are some general rules that help you understand what occurs in these scenarios.       **LoadWith** Each call to <xref:System.Data.Linq.DataLoadOptions.LoadWith%2A> checks whether cycles have been introduced into the graph. If there are, as in Examples 1, 2, and 3, an exception is thrown.       **AssociateWith** The engine at run time does not apply the existing SubQuery clauses to the relationship inside the expression.      -   In Example 4, the `Where` clause is executed against all `A`, not just the ones sub-filtered by the SubQuery expression itself (because that would be recursive)      -   In Example 5, the first `Where` clause is applied to all the `B`s, even though there are subqueries on `B`. The second `Where` clause is applied to all the `A`s even though there are subqueries on `A`."
+  summary: "即時読み込みおよび関連するデータのフィルター処理を提供します。"
+  remarks: "##オブジェクトを照会するときに一般的な実際に要求したオブジェクトのみを取得します。 *関連*オブジェクトは自動的に同時にフェッチされません。 (詳細については、次を参照してください[リレーションシップ間でクエリを実行する](~/add/includes/ajax-current-ext-md.md)。)。     DataLoadOptions クラスは、指定された関連データの即時読み込みを実現するために&2; つのメソッドを提供します。 <xref:System.Data.Linq.DataLoadOptions.LoadWith%2A>メイン ターゲットに関連するデータの即時読み込みメソッドを使用します</xref:System.Data.Linq.DataLoadOptions.LoadWith%2A>。 <xref:System.Data.Linq.DataLoadOptions.AssociateWith%2A>メソッドにより、関連するオブジェクトをフィルター処理します</xref:System.Data.Linq.DataLoadOptions.AssociateWith%2A>。      ## ルールの DataLoadOptions 使用状況に関する次の規則に注意してください:-の DataLoadOptions を割り当て、<xref:System.Data.Linq.DataContext>最初のクエリが実行された後に例外が生成されます</xref:System.Data.Linq.DataContext>。      後に割り当てられているの DataLoadOptions を変更、<xref:System.Data.Linq.DataContext>例外が発生する ## サイクル処理<xref:System.Data.Linq.DataLoadOptions.LoadWith%2A>と<xref:System.Data.Linq.DataLoadOptions.AssociateWith%2A>ディレクティブは、サイクルを作成しないでください</xref:System.Data.Linq.DataLoadOptions.AssociateWith%2A></xref:System.Data.Linq.DataLoadOptions.LoadWith%2A></xref:System.Data.Linq.DataContext>。 次はそのようなグラフの例を表す:-例 1: 自己 - 再帰的な`dlo.LoadWith<Employee>(e => e.Reports);`-例 2: バック ポインター - `dlo.LoadWith <Customer>(c => C.Orders);`           -    `dlo.LoadWith <Order>(o => o.Customer);` -例 3: 長いサイクル整形正規化されたモデルでこれは発生しませんも可能です。          - `dlo.LoadWith <A>(a => a.Bs);`           -    `dlo.LoadWith <B>(b => b.Cs);`           -    `dlo.LoadWith <C>(c => c.As);` -例 4: 自己再帰的なサブクエリの`dlo.AssociateWith<A>(a=>a.As.Where(a=>a.Id=33));`-例 5: 長いの再帰的なサブクエリの`dlo.AssociateWith<A>(a=>a.Bs.Where(b=>b.Id==3));`           -    `dlo.AssociateWith<B>(b=>b.As.Where(a=>a.Id==3));`次に、これらのシナリオで発生するのに役立ついくつかの一般的な規則を理解します。       **LoadWith**呼び出しごとに<xref:System.Data.Linq.DataLoadOptions.LoadWith%2A>をグラフにサイクルが導入されているかどうかを確認します</xref:System.Data.Linq.DataLoadOptions.LoadWith%2A>。 ある場合、例 1 のように、2 および 3、例外がスローされます。       **AssociateWith**実行時にエンジンでは、式内のリレーションシップには、既存のサブクエリ句は当てはまりません。      第 4 の例で、`Where`すべてに対して句が実行される`A`、ものだけでなくサブでフィルター処理されたサブクエリ式自体 (再帰する) ため - 第 5 の例で最初`Where`句は、すべてに適用されます、`B`にサブクエリがある場合でも、s`B`です。 2 番目`Where`句は、すべてに適用されます、`A`で導かれるサブクエリがある場合でも s`A`です。"
   example:
   - When you retrieve `Customers` from the Northwind sample database, you can use DataLoadOptions to specify that `Orders` is also to be retrieved. You can even specify which subset of `Orders` to retrieve.
   syntax:
@@ -38,7 +38,7 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Linq.DataLoadOptions&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Data.Linq.DataLoadOptions&quot;> </xref>クラスです。"
   syntax:
     content: public DataLoadOptions ();
     parameters: []
@@ -58,8 +58,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Filters the objects retrieved for a particular relationship."
-  remarks: "In the following example, the inner loop iterates only over those `Orders` that have not been shipped today."
+  summary: "特定のリレーションシップに対して取得されたオブジェクトをフィルター処理します。"
+  remarks: "次の例では、内側のループ反復のみもの`Orders`今日を出荷されていません。"
   example:
   - >-
     [!code-vb[System.Data.Linq.DataLoadOptions#1](~/add/codesnippet/visualbasic/snip/module1.vb#1)]
@@ -69,7 +69,7 @@ items:
     parameters:
     - id: expression
       type: System.Linq.Expressions.LambdaExpression
-      description: "Identifies the query to be used on a particular one-to-many field or property. Note the following:       If the expression does not start with a field or property that represents a one-to-many relationship, an exception is thrown.       If an operator other than a valid operator appears in the expression, an exception is thrown. Valid operators are as follows:       Where       OrderBy       ThenBy       OrderByDescending       ThenByDescending       Take"
+      description: "一対多の特定のフィールドまたはプロパティで使用するクエリを識別します。 次に注意してください。 フィールドまたは一対多のリレーションシップを表すプロパティに式が起動しない場合、例外がスローされます。       有効な演算子以外の演算子は、式が表示されたら、例外がスローされます。 有効な演算子は次のように、:、OrderBy ThenBy OrderByDescending ThenByDescending を取る"
   overload: System.Data.Linq.DataLoadOptions.AssociateWith*
   exceptions: []
   platform:
@@ -91,7 +91,7 @@ items:
     parameters:
     - id: expression
       type: System.Linq.Expressions.Expression{System.Func{T,System.Object}}
-      description: "To be added."
+      description: "追加します。"
   overload: System.Data.Linq.DataLoadOptions.AssociateWith<T>*
   exceptions: []
   platform:
@@ -108,8 +108,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Retrieves specified data related to the main target by using a lambda expression."
-  remarks: "In the following example, all the `Orders` for all the `Customers` who are located in London are retrieved when the query is executed. As a result, successive access to the `Orders` property on a `Customer` object does not trigger a new database query."
+  summary: "指定したラムダ式を使用してメイン ターゲットに関連するデータを取得します。"
+  remarks: "次の例ではすべて、`Orders`すべてに対して、`Customers`ロンドンに住んでいる、クエリの実行時に取得されます。 その結果、後続のアクセスを`Orders`プロパティを`Customer`オブジェクトも、新しいデータベース クエリはトリガーされません。"
   example:
   - >-
     [!code-vb[System.Data.Linq.DataLoadOptions#2](~/add/codesnippet/visualbasic/snip/module1.vb#2)]
@@ -119,7 +119,7 @@ items:
     parameters:
     - id: expression
       type: System.Linq.Expressions.LambdaExpression
-      description: "A lambda expression that identifies the related material."
+      description: "関連資料を表すラムダ式です。"
   overload: System.Data.Linq.DataLoadOptions.LoadWith*
   exceptions: []
   platform:
@@ -141,7 +141,7 @@ items:
     parameters:
     - id: expression
       type: System.Linq.Expressions.Expression{System.Func{T,System.Object}}
-      description: "To be added."
+      description: "追加します。"
   overload: System.Data.Linq.DataLoadOptions.LoadWith<T>*
   exceptions: []
   platform:

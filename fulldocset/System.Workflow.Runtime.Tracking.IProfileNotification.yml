@@ -11,8 +11,8 @@ items:
   nameWithType: IProfileNotification
   fullName: System.Workflow.Runtime.Tracking.IProfileNotification
   type: Interface
-  summary: "Provides a notification mechanism for a tracking service to inform the runtime tracking infrastructure about changes to the <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> for a particular workflow <xref:System.Type>."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       Tracking services manage the tracking profiles available to the runtime tracking infrastructure. A tracking service that implements IProfileNotification can provide notifications to the runtime tracking infrastructure when a <xref:System.Workflow.Runtime.Tracking.TrackingProfile> for a particular workflow <xref:System.Type> either changes or is no longer valid. The runtime tracking infrastructure subscribes to the <xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileUpdated> and <xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileRemoved> events and updates its cache when these events are raised. This decreases the number of requests for tracking profiles that the runtime tracking infrastructure makes to a tracking service. Note: the runtime tracking infrastructure still uses the overloaded <xref:System.Workflow.Runtime.Tracking.TrackingService.GetProfile%2A> methods of the tracking service, but it does not call them as frequently."
+  summary: "追跡サービスへの変更については、ランタイム追跡インフラストラクチャに通知を通知メカニズムを提供、 <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;> </xref> 、特定のワークフロー <xref:System.Type>.</xref:System.Type>"
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]追跡サービスは、ランタイム追跡インフラストラクチャに使用される追跡プロファイルを管理します。 IProfileNotification を実装する追跡サービスがランタイム追跡インフラストラクチャに通知を提供できるときに、 <xref:System.Workflow.Runtime.Tracking.TrackingProfile>、特定のワークフロー<xref:System.Type>変更されたか、無効です</xref:System.Type></xref:System.Workflow.Runtime.Tracking.TrackingProfile>。 ランタイム追跡インフラストラクチャをサブスクライブしている、<xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileUpdated>と<xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileRemoved>イベントし、これらのイベントが発生したときに、そのキャッシュを更新します</xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileRemoved></xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileUpdated>。 これは、ランタイム追跡インフラストラクチャは追跡サービスに、プロファイルを追跡するための要求の数を減らします。 メモ: ランタイム追跡インフラストラクチャ現在も使用して、オーバー ロードされた<xref:System.Workflow.Runtime.Tracking.TrackingService.GetProfile%2A>が追跡サービスのメソッドは呼び出しませんにその頻度が下がります</xref:System.Workflow.Runtime.Tracking.TrackingService.GetProfile%2A>。"
   syntax:
     content: >-
       [System.Obsolete("The System.Workflow.* types are deprecated.  Instead, please use the new types from System.Activities.*")]
@@ -33,13 +33,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Occurs when a <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> for a specific workflow Type is removed."
-  remarks: "A tracking service can raise the ProfileRemoved event to inform the runtime tracking infrastructure that new instances of the workflow <xref:System.Type> specified in <xref:System.Workflow.Runtime.Tracking.ProfileRemovedEventArgs> should not be tracked."
+  summary: "発生したときに、 <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;> </xref>特定のワークフローの種類を削除します。"
+  remarks: "追跡サービスできるイベントを発生させる ProfileRemoved、ランタイム追跡インフラストラクチャに通知するワークフローの新しいインスタンスをする<xref:System.Type>で指定された<xref:System.Workflow.Runtime.Tracking.ProfileRemovedEventArgs>を追跡しないようにします</xref:System.Workflow.Runtime.Tracking.ProfileRemovedEventArgs></xref:System.Type>。"
   syntax:
     content: public event EventHandler<System.Workflow.Runtime.Tracking.ProfileRemovedEventArgs> ProfileRemoved;
     return:
       type: System.EventHandler{System.Workflow.Runtime.Tracking.ProfileRemovedEventArgs}
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -55,13 +55,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Occurs when a <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> for a specific workflow <xref:System.Type> is updated."
-  remarks: "A tracking service can raise the ProfileUpdated event to inform the runtime tracking infrastructure that a new <xref:System.Workflow.Runtime.Tracking.TrackingProfile> is available for the indicated workflow <xref:System.Type>. The workflow <xref:System.Type> and the <xref:System.Workflow.Runtime.Tracking.TrackingProfile> are passed in a <xref:System.Workflow.Runtime.Tracking.ProfileUpdatedEventArgs>."
+  summary: "発生したときに、 <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;> </xref> 、特定のワークフロー<xref:System.Type>が更新されます</xref:System.Type>。"
+  remarks: "追跡サービスは、ランタイム追跡インフラストラクチャに通知する ProfileUpdated イベントを発生させることができますを新しい<xref:System.Workflow.Runtime.Tracking.TrackingProfile>は指定されたワークフロー <xref:System.Type>.</xref:System.Type>の使用</xref:System.Workflow.Runtime.Tracking.TrackingProfile> ワークフロー <xref:System.Type> <xref:System.Workflow.Runtime.Tracking.TrackingProfile> <xref:System.Workflow.Runtime.Tracking.ProfileUpdatedEventArgs>。</xref:System.Workflow.Runtime.Tracking.ProfileUpdatedEventArgs>で渡される</xref:System.Workflow.Runtime.Tracking.TrackingProfile>と</xref:System.Type>"
   syntax:
     content: public event EventHandler<System.Workflow.Runtime.Tracking.ProfileUpdatedEventArgs> ProfileUpdated;
     return:
       type: System.EventHandler{System.Workflow.Runtime.Tracking.ProfileUpdatedEventArgs}
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462

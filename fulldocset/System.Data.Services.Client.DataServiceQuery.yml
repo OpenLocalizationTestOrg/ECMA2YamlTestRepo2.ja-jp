@@ -15,8 +15,8 @@ items:
   nameWithType: DataServiceQuery
   fullName: System.Data.Services.Client.DataServiceQuery
   type: Class
-  summary: "An abstract class that represents a single query request to [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]."
-  remarks: "No public constructors are defined on this class. Object instances are created by using <xref:System.Data.Services.Client.DataServiceContext.CreateQuery%2A> or <xref:System.Data.Services.Client.DataServiceContext.CreateQuery%2A> on the <xref:System.Data.Services.Client.DataServiceContext> class."
+  summary: "1 つのクエリ要求を表す抽象クラス[!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]です。"
+  remarks: "このクラスにパブリック コンス トラクターが定義されていません。 <xref:System.Data.Services.Client.DataServiceContext.CreateQuery%2A><xref:System.Data.Services.Client.DataServiceContext.CreateQuery%2A><xref:System.Data.Services.Client.DataServiceContext>クラス</xref:System.Data.Services.Client.DataServiceContext>の</xref:System.Data.Services.Client.DataServiceContext.CreateQuery%2A>または</xref:System.Data.Services.Client.DataServiceContext.CreateQuery%2A>を使用してオブジェクト インスタンスが作成されます。"
   syntax:
     content: 'public abstract class DataServiceQuery : System.Data.Services.Client.DataServiceRequest, System.Collections.IEnumerable, System.Linq.IQueryable'
   inheritance:
@@ -43,20 +43,20 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Client
-  summary: "Asynchronously sends a request to execute the data service query."
-  remarks: "The returned <xref:System.IAsyncResult> object is used to determine when the asynchronous operation has completed. For more information, see [Asynchronous Operations](~/add/includes/ajax-current-ext-md.md).       The BeginExecute method uses the same semantics as the <xref:System.Data.Services.Client.DataServiceQuery.Execute%2A> method, however BeginExecute asynchronously sends the request so that the call does not block processing while waiting for the results from the service. According to the standard begin-end asynchronous pattern, the provided callback is invoked when query results are retrieved."
+  summary: "データ サービス クエリを実行する要求を非同期的に送信します。"
+  remarks: "返された<xref:System.IAsyncResult>オブジェクトを使用して、非同期操作が完了すると判断します</xref:System.IAsyncResult>。 詳細については、次を参照してください。[非同期操作を](~/add/includes/ajax-current-ext-md.md)です。       BeginExecute メソッドと同じセマンティクスを使用して、<xref:System.Data.Services.Client.DataServiceQuery.Execute%2A>メソッド、ただし BeginExecute 非同期的に送信要求の呼び出しで、サービスからの結果を待っている間に処理がブロックされないようにします</xref:System.Data.Services.Client.DataServiceQuery.Execute%2A>。 標準の begin/end 非同期パターンに従って、指定されたコールバックがクエリの結果が取得されたときに呼び出されます。"
   syntax:
     content: public IAsyncResult BeginExecute (AsyncCallback callback, object state);
     parameters:
     - id: callback
       type: System.AsyncCallback
-      description: "Delegate to invoke when results are available for client consumption."
+      description: "結果はクライアントで使用するために使用できるときに呼び出されるデリゲート。"
     - id: state
       type: System.Object
-      description: "User-defined state object passed to the callback."
+      description: "コールバックに渡されるユーザー定義の状態オブジェクト。"
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> object that is used to track the status of the asynchronous operation."
+      description: "<xref:System.IAsyncResult>非同期操作の状態を追跡するために使用されるオブジェクト</xref:System.IAsyncResult>。"
   overload: System.Data.Services.Client.DataServiceQuery.BeginExecute*
   exceptions: []
   platform:
@@ -73,21 +73,21 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Client
-  summary: "Called to complete the asynchronous operation of executing a data service query."
+  summary: "データ サービス クエリを実行する非同期操作を完了すると呼ばれます。"
   syntax:
     content: public System.Collections.IEnumerable EndExecute (IAsyncResult asyncResult);
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "The result from the <xref:System.Data.Services.Client.DataServiceQuery.BeginExecute*> operation that contains the query results."
+      description: "結果、<xref:System.Data.Services.Client.DataServiceQuery.BeginExecute*>クエリ結果が含まれる操作</xref:System.Data.Services.Client.DataServiceQuery.BeginExecute*>。"
     return:
       type: System.Collections.IEnumerable
-      description: "An &lt;xref:System.Collections.Generic.IEnumerable%601&gt; that contains the results of the query operation."
+      description: "&lt;Xref:System.Collections.Generic.IEnumerable%601&gt;クエリ操作の結果を格納しています。"
   overload: System.Data.Services.Client.DataServiceQuery.EndExecute*
   exceptions:
   - type: System.Data.Services.Client.DataServiceQueryException
     commentId: T:System.Data.Services.Client.DataServiceQueryException
-    description: 'When the data service returns an HTTP 404: Resource Not Found error.'
+    description: 'データ サービスに HTTP 404 が返されるときに: エラーのリソースが見つかりません。'
   platform:
   - net462
 - uid: System.Data.Services.Client.DataServiceQuery.Execute
@@ -102,19 +102,19 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Client
-  summary: "Executes the query against the data service."
-  remarks: "The Execute method is used to execute the given data service query.       The Execute method generates an HTTP GET request that is set to the data service."
+  summary: "データ サービスに対してクエリを実行します。"
+  remarks: "Execute メソッドは、指定されたデータ サービス クエリの実行に使用されます。       Execute メソッドは、データ サービスに設定されている HTTP GET 要求を生成します。"
   syntax:
     content: public System.Collections.IEnumerable Execute ();
     parameters: []
     return:
       type: System.Collections.IEnumerable
-      description: "An &lt;xref:System.Collections.Generic.IEnumerable%601&gt; that contains the results of the query operation."
+      description: "&lt;Xref:System.Collections.Generic.IEnumerable%601&gt;クエリ操作の結果を格納しています。"
   overload: System.Data.Services.Client.DataServiceQuery.Execute*
   exceptions:
   - type: System.Data.Services.Client.DataServiceQueryException
     commentId: T:System.Data.Services.Client.DataServiceQueryException
-    description: 'When the data service returns an HTTP 404: Resource Not Found error.'
+    description: 'データ サービスに HTTP 404 が返されるときに: エラーのリソースが見つかりません。'
   platform:
   - net462
 - uid: System.Data.Services.Client.DataServiceQuery.Expression
@@ -129,12 +129,12 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Client
-  summary: "Represents an expression that contains the query to the data service."
+  summary: "データ サービスに対するクエリを含む式を表します。"
   syntax:
     content: public abstract System.Linq.Expressions.Expression Expression { get; }
     return:
       type: System.Linq.Expressions.Expression
-      description: "An <xref:System.Linq.Expressions.Expression> object that represents the query."
+      description: "<xref:System.Linq.Expressions.Expression>クエリを表すオブジェクト</xref:System.Linq.Expressions.Expression>。"
   overload: System.Data.Services.Client.DataServiceQuery.Expression*
   exceptions: []
   platform:
@@ -151,12 +151,12 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Client
-  summary: "Represents the query provider instance."
+  summary: "クエリ プロバイダー インスタンスを表します。"
   syntax:
     content: public abstract System.Linq.IQueryProvider Provider { get; }
     return:
       type: System.Linq.IQueryProvider
-      description: "An <xref:System.Linq.IQueryProvider> representing the data source provider."
+      description: "<xref:System.Linq.IQueryProvider>データ ソース プロバイダーを表すします</xref:System.Linq.IQueryProvider>。"
   overload: System.Data.Services.Client.DataServiceQuery.Provider*
   exceptions: []
   platform:
@@ -174,14 +174,14 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Client
-  summary: "Gets the <xref:System.Collections.IEnumerator> object that can be used to iterate through the collection returned by the query."
-  remarks: "Enumerators can be used to read the data in the collection, but they cannot be used to modify the underlying collection."
+  summary: "取得、<xref:System.Collections.IEnumerator>クエリによって返されるコレクションを反復処理するために使用できるオブジェクト</xref:System.Collections.IEnumerator>。"
+  remarks: "列挙子を使用して、コレクション内のデータを読み取ることができますが、基になるコレクションを変更するのには使用できません。"
   syntax:
     content: System.Collections.IEnumerator IEnumerable.GetEnumerator ();
     parameters: []
     return:
       type: System.Collections.IEnumerator
-      description: "An enumerator over the query results."
+      description: "クエリの結果に対する列挙子。"
   overload: System.Data.Services.Client.DataServiceQuery.System#Collections#IEnumerable#GetEnumerator*
   exceptions: []
   platform:

@@ -29,8 +29,8 @@ items:
   nameWithType: OracleCommandBuilder
   fullName: System.Data.OracleClient.OracleCommandBuilder
   type: Class
-  summary: "Automatically generates single-table commands used to reconcile changes made to a <xref href=&quot;System.Data.DataSet&quot;></xref> with the associated database. This class cannot be inherited."
-  remarks: "This type is deprecated and will be removed in a future version of the .NET Framework. For more information, see [Oracle and ADO.NET](~/add/includes/ajax-current-ext-md.md).       The <xref:System.Data.OracleClient.OracleDataAdapter> does not automatically generate the SQL statements required to reconcile changes made to a <xref:System.Data.DataSet> associated with the database. However, you can create an OracleCommandBuilder object that generates SQL statements for single-table updates by setting the <xref:System.Data.OracleClient.OracleDataAdapter.SelectCommand%2A> property of the <xref:System.Data.OracleClient.OracleDataAdapter>. Then, the OracleCommandBuilder generates any additional SQL statements that you do not set.       The relationship between an <xref:System.Data.OracleClient.OracleDataAdapter> and its corresponding OracleCommandBuilder is always one-to-one. To create this correspondence, you set the <xref:System.Data.OracleClient.OracleDataAdapter> property of the OracleCommandBuilder object. This causes the OracleCommandBuilder to register itself as a listener, which produces the output of <xref:System.Data.OracleClient.OracleDataAdapter.RowUpdating> events that affect the <xref:System.Data.DataSet>.       To generate INSERT, UPDATE, or DELETE statements, the OracleCommandBuilder uses the <xref:System.Data.OracleClient.OracleDataAdapter.SelectCommand%2A> property to retrieve a required set of metadata.       The OracleCommandBuilder also uses the <xref:System.Data.OracleClient.OracleCommand.Connection%2A>, and <xref:System.Data.OracleClient.OracleCommand.Transaction%2A> properties referenced by the <xref:System.Data.OracleClient.OracleDataAdapter.SelectCommand%2A>.       If you call <xref:System.Data.Common.DbDataAdapter.Dispose%2A>, the OracleCommandBuilder is disassociated from the <xref:System.Data.OracleClient.OracleDataAdapter>, and the generated commands are no longer used."
+  summary: "変更を調整するために使用される単一テーブル コマンドを自動的に生成、 <xref href=&quot;System.Data.DataSet&quot;> </xref>データベースに関連付けられました。 このクラスは継承できません。"
+  remarks: "この型は廃止されており、.NET Framework の将来のバージョンで削除される予定です。 詳細については、次を参照してください。 [Oracle および ADO.NET](~/add/includes/ajax-current-ext-md.md)です。       <xref:System.Data.OracleClient.OracleDataAdapter>に加えられた変更を調整するために必要な SQL ステートメントを自動的に生成しない、<xref:System.Data.DataSet>データベースに関連付けられている</xref:System.Data.DataSet></xref:System.Data.OracleClient.OracleDataAdapter>。 ただし、 <xref:System.Data.OracleClient.OracleDataAdapter.SelectCommand%2A> <xref:System.Data.OracleClient.OracleDataAdapter>。</xref:System.Data.OracleClient.OracleDataAdapter>のプロパティ</xref:System.Data.OracleClient.OracleDataAdapter.SelectCommand%2A>を設定して&1; つのテーブルの更新プログラムの SQL ステートメントを生成する OracleCommandBuilder オブジェクトを作成できます。 次に、OracleCommandBuilder は設定しない追加の SQL ステートメントを生成します。       間のリレーションシップ、<xref:System.Data.OracleClient.OracleDataAdapter>あり、その対応する OracleCommandBuilder 常に一対一です</xref:System.Data.OracleClient.OracleDataAdapter>。 この対応関係を作成するに設定する、 <xref:System.Data.OracleClient.OracleDataAdapter>OracleCommandBuilder オブジェクトのプロパティ</xref:System.Data.OracleClient.OracleDataAdapter>。 これが原因で、リスナーを<xref:System.Data.OracleClient.OracleDataAdapter.RowUpdating><xref:System.Data.DataSet>。</xref:System.Data.DataSet>影響を与えるイベント</xref:System.Data.OracleClient.OracleDataAdapter.RowUpdating>の出力を生成するとして登録 OracleCommandBuilder       INSERT、UPDATE、または DELETE ステートメントを生成する、OracleCommandBuilder を使用して、<xref:System.Data.OracleClient.OracleDataAdapter.SelectCommand%2A>必要な一連のメタデータを取得するプロパティ</xref:System.Data.OracleClient.OracleDataAdapter.SelectCommand%2A>。       また、OracleCommandBuilder、使用、 <xref:System.Data.OracleClient.OracleCommand.Connection%2A>、 <xref:System.Data.OracleClient.OracleCommand.Transaction%2A> <xref:System.Data.OracleClient.OracleDataAdapter.SelectCommand%2A>.</xref:System.Data.OracleClient.OracleDataAdapter.SelectCommand%2A>によって参照されるプロパティ</xref:System.Data.OracleClient.OracleCommand.Transaction%2A>と</xref:System.Data.OracleClient.OracleCommand.Connection%2A>       呼び出す場合<xref:System.Data.Common.DbDataAdapter.Dispose%2A>、OracleCommandBuilder 関連付けが解除され、 <xref:System.Data.OracleClient.OracleDataAdapter>、され、生成されたコマンドは使用されなく</xref:System.Data.OracleClient.OracleDataAdapter></xref:System.Data.Common.DbDataAdapter.Dispose%2A>。"
   example:
   - "The following example uses <xref:System.Data.OracleClient.OracleCommand>, along with <xref:System.Data.OracleClient.OracleDataAdapter> and <xref:System.Data.OracleClient.OracleConnection>, to select rows from a database. The example is passed an initialized <xref:System.Data.DataSet>, a connection string, a query string that is an SQL SELECT statement, and a string that is the name of the database table. The example then creates an OracleCommandBuilder.  \n  \n [Visual Basic]  \n  \n```  \nPrivate Function SelectOracleRows(connection As String, queryString As String, tableName As String) As DataSet  \n  \n   Dim connection As New OracleConnection(connection)  \n   Dim dataAdapter As New OracleDataAdapter()  \n   Dim dataSet As DataSet = New DataSet  \n  \n   dataAdapter.SelectCommand = New OracleCommand(queryString, connection)  \n  \n   Dim cmdBuilder As OracleCommandBuilder = New OracleCommandBuilder(dataAdapter)  \n  \n   connection.Open()  \n   dataAdapter.Fill(dataSet, tableName)  \n      ' Code to modify data in DataSet here   \n      ' Without the OracleCommandBuilder this line would fail.  \n   dataAdapter.Update(dataSet, tableName)  \n   connection.Close()  \nEnd Function  \n```  \n  \n [C#]  \n  \n```  \npublic static DataSet SelectOracleSrvRows(string myConnection, string mySelectQuery, string myTableName)  \n{  \n   OracleConnection myConn = new OracleConnection(myConnection);  \n   OracleDataAdapter myDataAdapter = new OracleDataAdapter();  \n   myDataAdapter.SelectCommand = new OracleCommand(mySelectQuery, myConn);  \n   OracleCommandBuilder cb = new OracleCommandBuilder(myDataAdapter);  \n  \n   myConn.Open();  \n   DataSet ds = new DataSet();  \n   myDataAdapter.Fill(ds, myTableName);  \n  \n   //Code to modify data in DataSet goes here...  \n  \n   //Without the OracleCommandBuilder this line would fail.  \n   myDataAdapter.Update(ds, myTableName);  \n   myConn.Close();  \n   return ds;  \n}  \n```"
   syntax:
@@ -81,8 +81,8 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OracleClient.OracleCommandBuilder&quot;></xref>."
-  remarks: "The <xref:System.Data.OracleClient.OracleCommandBuilder> registers itself as a listener for <xref:System.Data.OracleClient.OracleDataAdapter.RowUpdating> events that are generated by the <xref:System.Data.OracleClient.OracleDataAdapter> specified in this property.       When you create a new instance of <xref:System.Data.OracleClient.OracleCommandBuilder>, any existing <xref:System.Data.OracleClient.OracleCommandBuilder> associated with this <xref:System.Data.OracleClient.OracleDataAdapter> is released."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Data.OracleClient.OracleCommandBuilder&quot;></xref>です。"
+  remarks: "<xref:System.Data.OracleClient.OracleCommandBuilder>自体のリスナーとして登録<xref:System.Data.OracleClient.OracleDataAdapter.RowUpdating>によって生成されるイベント、<xref:System.Data.OracleClient.OracleDataAdapter>このプロパティで指定します</xref:System.Data.OracleClient.OracleDataAdapter></xref:System.Data.OracleClient.OracleDataAdapter.RowUpdating></xref:System.Data.OracleClient.OracleCommandBuilder>。       新しいインスタンスを作成する場合<xref:System.Data.OracleClient.OracleCommandBuilder>、既存<xref:System.Data.OracleClient.OracleCommandBuilder>これに関連付けられている<xref:System.Data.OracleClient.OracleDataAdapter>を解放します</xref:System.Data.OracleClient.OracleDataAdapter></xref:System.Data.OracleClient.OracleCommandBuilder></xref:System.Data.OracleClient.OracleCommandBuilder>。"
   syntax:
     content: public OracleCommandBuilder ();
     parameters: []
@@ -102,14 +102,14 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OracleClient.OracleCommandBuilder&quot;></xref> class with the associated <xref href=&quot;System.Data.OracleClient.OracleDataAdapter&quot;></xref> object."
-  remarks: "The <xref:System.Data.OracleClient.OracleCommandBuilder> registers itself as a listener for <xref:System.Data.OracleClient.OracleDataAdapter.RowUpdating> events that are generated by the <xref:System.Data.OracleClient.OracleDataAdapter> specified in this property.       When you create a new instance of <xref:System.Data.OracleClient.OracleCommandBuilder>, any existing <xref:System.Data.OracleClient.OracleCommandBuilder> associated with this <xref:System.Data.OracleClient.OracleDataAdapter> is released."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Data.OracleClient.OracleCommandBuilder&quot;> </xref> 、関連付けられているクラス<xref href=&quot;System.Data.OracleClient.OracleDataAdapter&quot;></xref>オブジェクト。"
+  remarks: "<xref:System.Data.OracleClient.OracleCommandBuilder>自体のリスナーとして登録<xref:System.Data.OracleClient.OracleDataAdapter.RowUpdating>によって生成されるイベント、<xref:System.Data.OracleClient.OracleDataAdapter>このプロパティで指定します</xref:System.Data.OracleClient.OracleDataAdapter></xref:System.Data.OracleClient.OracleDataAdapter.RowUpdating></xref:System.Data.OracleClient.OracleCommandBuilder>。       新しいインスタンスを作成する場合<xref:System.Data.OracleClient.OracleCommandBuilder>、既存<xref:System.Data.OracleClient.OracleCommandBuilder>これに関連付けられている<xref:System.Data.OracleClient.OracleDataAdapter>を解放します</xref:System.Data.OracleClient.OracleDataAdapter></xref:System.Data.OracleClient.OracleCommandBuilder></xref:System.Data.OracleClient.OracleCommandBuilder>。"
   syntax:
     content: public OracleCommandBuilder (System.Data.OracleClient.OracleDataAdapter adapter);
     parameters:
     - id: adapter
       type: System.Data.OracleClient.OracleDataAdapter
-      description: "An <xref href=&quot;System.Data.OracleClient.OracleDataAdapter&quot;></xref> object to associate with this <xref href=&quot;System.Data.OracleClient.OracleCommandBuilder&quot;></xref>."
+      description: "<xref href=&quot;System.Data.OracleClient.OracleDataAdapter&quot;> </xref>オブジェクトに関連付けられているこの<xref href=&quot;System.Data.OracleClient.OracleCommandBuilder&quot;></xref>です。"
   overload: System.Data.OracleClient.OracleCommandBuilder.#ctor*
   exceptions: []
   platform:
@@ -131,16 +131,16 @@ items:
     parameters:
     - id: parameter
       type: System.Data.Common.DbParameter
-      description: "To be added."
+      description: "追加します。"
     - id: datarow
       type: System.Data.DataRow
-      description: "To be added."
+      description: "追加します。"
     - id: statementType
       type: System.Data.StatementType
-      description: "To be added."
+      description: "追加します。"
     - id: whereClause
       type: System.Boolean
-      description: "To be added."
+      description: "追加します。"
   overload: System.Data.OracleClient.OracleCommandBuilder.ApplyParameterInfo*
   exceptions: []
   platform:
@@ -157,7 +157,7 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Sets or gets the <xref href=&quot;System.Data.Common.CatalogLocation&quot;></xref> for an instance of the <xref href=&quot;System.Data.Common.DbCommandBuilder&quot;></xref> class."
+  summary: "取得または設定、 <xref href=&quot;System.Data.Common.CatalogLocation&quot;> </xref>のインスタンスの<xref href=&quot;System.Data.Common.DbCommandBuilder&quot;></xref>クラスです。"
   syntax:
     content: public override System.Data.Common.CatalogLocation CatalogLocation { get; set; }
     return:
@@ -179,12 +179,12 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Sets or gets a string used as the catalog separator for an instance of the <xref href=&quot;System.Data.Common.DbCommandBuilder&quot;></xref> class."
+  summary: "インスタンスのカタログの区切り記号として使用する文字列を取得または設定、 <xref href=&quot;System.Data.Common.DbCommandBuilder&quot;> </xref>クラスです。"
   syntax:
     content: public override string CatalogSeparator { get; set; }
     return:
       type: System.String
-      description: "A string indicating the catalog separator for use with an instance of the <xref href=&quot;System.Data.Common.DbCommandBuilder&quot;></xref> class."
+      description: "インスタンスで使用するカタログの区切り記号を示す文字列、 <xref href=&quot;System.Data.Common.DbCommandBuilder&quot;> </xref>クラスです。"
   overload: System.Data.OracleClient.OracleCommandBuilder.CatalogSeparator*
   exceptions: []
   platform:
@@ -201,13 +201,13 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets or sets an <xref href=&quot;System.Data.OracleClient.OracleDataAdapter&quot;></xref> object for which this <xref href=&quot;System.Data.OracleClient.OracleCommandBuilder&quot;></xref> object will generate SQL statements."
-  remarks: "The <xref:System.Data.OracleClient.OracleCommandBuilder> registers itself as a listener for <xref:System.Data.OracleClient.OracleDataAdapter.RowUpdating> events that are generated by the <xref:System.Data.OracleClient.OracleDataAdapter> specified in this property.       When you create a new instance of <xref:System.Data.OracleClient.OracleCommandBuilder>, any existing <xref:System.Data.OracleClient.OracleCommandBuilder> associated with this <xref:System.Data.OracleClient.OracleDataAdapter> is released."
+  summary: "取得または設定、 <xref href=&quot;System.Data.OracleClient.OracleDataAdapter&quot;> </xref>対象のオブジェクト<xref href=&quot;System.Data.OracleClient.OracleCommandBuilder&quot;></xref>オブジェクトが SQL ステートメントを生成します。"
+  remarks: "<xref:System.Data.OracleClient.OracleCommandBuilder>自体のリスナーとして登録<xref:System.Data.OracleClient.OracleDataAdapter.RowUpdating>によって生成されるイベント、<xref:System.Data.OracleClient.OracleDataAdapter>このプロパティで指定します</xref:System.Data.OracleClient.OracleDataAdapter></xref:System.Data.OracleClient.OracleDataAdapter.RowUpdating></xref:System.Data.OracleClient.OracleCommandBuilder>。       新しいインスタンスを作成する場合<xref:System.Data.OracleClient.OracleCommandBuilder>、既存<xref:System.Data.OracleClient.OracleCommandBuilder>これに関連付けられている<xref:System.Data.OracleClient.OracleDataAdapter>を解放します</xref:System.Data.OracleClient.OracleDataAdapter></xref:System.Data.OracleClient.OracleCommandBuilder></xref:System.Data.OracleClient.OracleCommandBuilder>。"
   syntax:
     content: public System.Data.OracleClient.OracleDataAdapter DataAdapter { get; set; }
     return:
       type: System.Data.OracleClient.OracleDataAdapter
-      description: "An <xref href=&quot;System.Data.OracleClient.OracleDataAdapter&quot;></xref> object that is associated with this <xref href=&quot;System.Data.OracleClient.OracleCommandBuilder&quot;></xref>."
+      description: "<xref href=&quot;System.Data.OracleClient.OracleDataAdapter&quot;> </xref>これに関連付けられているオブジェクト<xref href=&quot;System.Data.OracleClient.OracleCommandBuilder&quot;></xref>です。"
   overload: System.Data.OracleClient.OracleCommandBuilder.DataAdapter*
   exceptions: []
   platform:
@@ -224,19 +224,19 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Retrieves parameter information from the stored procedure specified in the <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> and populates the <xref:System.Data.OracleClient.OracleCommand.Parameters*> collection of the specified <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> object."
-  remarks: "DeriveParameters overwrites any existing parameter information for the <xref:System.Data.OracleClient.OracleCommand>.       DeriveParameters requires an extra call to the database to obtain the information. If the parameter information is known in advance, it is more efficient to populate the parameters collection by setting the information explicitly.       You can only use DeriveParameters with stored procedures. You cannot use DeriveParameters to populate the <xref:System.Data.OracleClient.OracleParameterCollection> with arbitrary Transact-SQL statements, such as a parameterized SELECT statement.       For more information, see [Configuring Parameters and Parameter Data Types](~/add/includes/ajax-current-ext-md.md)."
+  summary: "指定されたストアド プロシージャからパラメーター情報を取得、 <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;> </xref>取り込んで、<xref:System.Data.OracleClient.OracleCommand.Parameters*>の指定されたコレクション<xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref>オブジェクト</xref:System.Data.OracleClient.OracleCommand.Parameters*>。"
+  remarks: "DeriveParameters <xref:System.Data.OracleClient.OracleCommand>。</xref:System.Data.OracleClient.OracleCommand>の既存のパラメーター情報が上書きされます。       DeriveParameters は、情報を取得するデータベースに追加の呼び出しが必要です。 パラメーター情報が事前にわかっている場合は、コレクションを設定する、パラメーター情報を明示的に設定する方が効率的です。       DeriveParameters は、ストアド プロシージャでのみ使用できます。 DeriveParameters は設定に使用することはできません、<xref:System.Data.OracleClient.OracleParameterCollection>パラメーター化された SELECT ステートメントなど、任意の TRANSACT-SQL ステートメントを使用します</xref:System.Data.OracleClient.OracleParameterCollection>。       詳細については、次を参照してください。[構成パラメーターとパラメーターのデータ型](~/add/includes/ajax-current-ext-md.md)です。"
   syntax:
     content: public static void DeriveParameters (System.Data.OracleClient.OracleCommand command);
     parameters:
     - id: command
       type: System.Data.OracleClient.OracleCommand
-      description: "The <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> referencing the stored procedure from which the parameter information is to be derived. The derived parameters are added to the <xref:System.Data.OracleClient.OracleCommand.Parameters*> collection of the <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref>."
+      description: "<xref href=&quot;System.Data.OracleClient.OracleCommand&quot;> </xref>が、パラメーター情報の派生元となるストアド プロシージャを参照します。 派生パラメーターに追加されます、<xref:System.Data.OracleClient.OracleCommand.Parameters*>のコレクション、 <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;> </xref></xref:System.Data.OracleClient.OracleCommand.Parameters*> 。"
   overload: System.Data.OracleClient.OracleCommandBuilder.DeriveParameters*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The command text is not a valid stored procedure name, or the <xref href=&quot;System.Data.CommandType&quot;></xref> specified was not <xref href=&quot;System.Data.CommandType&quot;></xref>."
+    description: "コマンド テキストが有効なストアド プロシージャ名、または<xref href=&quot;System.Data.CommandType&quot;></xref>でした指定<xref href=&quot;System.Data.CommandType&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleCommandBuilder.GetDeleteCommand
@@ -251,14 +251,14 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets the automatically generated <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> object required to perform deletions on the database."
-  remarks: "You can use the GetDeleteCommand method for informational or troubleshooting purposes because it returns the <xref:System.Data.OracleClient.OracleCommand> object to be executed.       You can also use GetDeleteCommand as the basis of a modified command. For example, you might call GetDeleteCommand and modify the <xref:System.Data.OracleClient.OracleCommand.CommandText%2A> value, and then explicitly set that on the <xref:System.Data.OracleClient.OracleDataAdapter>.       The SQL statements are first generated when the application calls either <xref:System.Data.Common.DbDataAdapter.Update%2A> or GetDeleteCommand.       For more information, see [Generating Commands with CommandBuilders](~/add/includes/ajax-current-ext-md.md)."
+  summary: "自動的に生成された取得<xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref>オブジェクト、データベースの削除を実行するために必要です。"
+  remarks: "返すので、情報やトラブルシューティングの目的で GetDeleteCommand メソッドを使用することができます、<xref:System.Data.OracleClient.OracleCommand>を実行するオブジェクト</xref:System.Data.OracleClient.OracleCommand>。       また、変更されたコマンドの基礎として GetDeleteCommand を使用することができます。 たとえば、可能性があります GetDeleteCommand を呼び出し<xref:System.Data.OracleClient.OracleCommand.CommandText%2A>値、および<xref:System.Data.OracleClient.OracleDataAdapter>。</xref:System.Data.OracleClient.OracleDataAdapter>ことを明示的に設定</xref:System.Data.OracleClient.OracleCommand.CommandText%2A>を変更       SQL ステートメントは、アプリケーションがいずれかを呼び出したときに<xref:System.Data.Common.DbDataAdapter.Update%2A>または GetDeleteCommand</xref:System.Data.Common.DbDataAdapter.Update%2A> 。       詳細については、次を参照してください。 [Commandbuilder でのコマンドを生成する](~/add/includes/ajax-current-ext-md.md)です。"
   syntax:
     content: public System.Data.OracleClient.OracleCommand GetDeleteCommand ();
     parameters: []
     return:
       type: System.Data.OracleClient.OracleCommand
-      description: "The automatically generated <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> object required to perform deletions."
+      description: "自動的に生成された<xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref>削除を実行するために必要なオブジェクトです。"
   overload: System.Data.OracleClient.OracleCommandBuilder.GetDeleteCommand*
   exceptions: []
   platform:
@@ -275,17 +275,17 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets the automatically generated <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> object required to perform deletions on the database."
-  remarks: "You can use the <xref:System.Data.OracleClient.OracleCommandBuilder.GetDeleteCommand%2A> method for informational or troubleshooting purposes because it returns the <xref:System.Data.OracleClient.OracleCommand> object to be executed.       You can also use <xref:System.Data.OracleClient.OracleCommandBuilder.GetDeleteCommand%2A> as the basis of a modified command. For example, you might call <xref:System.Data.OracleClient.OracleCommandBuilder.GetDeleteCommand%2A> and modify the <xref:System.Data.OracleClient.OracleCommand.CommandText%2A> value, and then explicitly set that on the <xref:System.Data.OracleClient.OracleDataAdapter>.       The SQL statements are first generated when the application calls either <xref:System.Data.Common.DbDataAdapter.Update%2A> or <xref:System.Data.OracleClient.OracleCommandBuilder.GetDeleteCommand%2A>.       The default behavior, when generating parameter names, is to use @p1, @p2, and so on for the various parameters. Passing `true` for the `useColumnsForParameterNames` parameter allows you to force the <xref:System.Data.Common.DbCommandBuilder> to generate parameters based on the column names instead. . This succeeds only if the following conditions are met:      -   The <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength> has been specified and its length is equal to or greater than the generated parameter name.      -   The generated parameter name meets the criteria specified in the <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern> regular expression.      -   A <xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat> is specified.       For more information, see [Generating Commands with CommandBuilders](~/add/includes/ajax-current-ext-md.md)."
+  summary: "自動的に生成された取得<xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref>オブジェクト、データベースの削除を実行するために必要です。"
+  remarks: "使用することができます、<xref:System.Data.OracleClient.OracleCommandBuilder.GetDeleteCommand%2A>メソッド情報やトラブルシューティングの目的を返すので、<xref:System.Data.OracleClient.OracleCommand>を実行するオブジェクト</xref:System.Data.OracleClient.OracleCommand></xref:System.Data.OracleClient.OracleCommandBuilder.GetDeleteCommand%2A>。       使用することも<xref:System.Data.OracleClient.OracleCommandBuilder.GetDeleteCommand%2A>変更されたコマンドの基礎として</xref:System.Data.OracleClient.OracleCommandBuilder.GetDeleteCommand%2A>。 たとえば、呼び出すことができます<xref:System.Data.OracleClient.OracleCommandBuilder.GetDeleteCommand%2A>し<xref:System.Data.OracleClient.OracleCommand.CommandText%2A>値、および<xref:System.Data.OracleClient.OracleDataAdapter>。</xref:System.Data.OracleClient.OracleDataAdapter>ことを明示的に設定</xref:System.Data.OracleClient.OracleCommand.CommandText%2A>を変更</xref:System.Data.OracleClient.OracleCommandBuilder.GetDeleteCommand%2A>       SQL ステートメントは、アプリケーションがいずれか<xref:System.Data.Common.DbDataAdapter.Update%2A>または<xref:System.Data.OracleClient.OracleCommandBuilder.GetDeleteCommand%2A>。</xref:System.Data.OracleClient.OracleCommandBuilder.GetDeleteCommand%2A> </xref:System.Data.Common.DbDataAdapter.Update%2A>       パラメーター名を生成するときに、既定の動作は、使用する@p1、 @p2、さまざまなパラメーターについてです。 渡す`true`の`useColumnsForParameterNames`パラメーターでは、強制的にすることができます、<xref:System.Data.Common.DbCommandBuilder>を代わりに、列名に基づいたパラメーターを生成します</xref:System.Data.Common.DbCommandBuilder>。 。 これが成功したら、次の条件が満たされた場合にのみ: -<xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength>が指定されている、生成されたパラメーター名以上の長さ</xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength>。      -生成されたパラメーターの名前で指定した条件を満たしている、<xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern>正規表現</xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern>。      A<xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat>が指定されています</xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat>。       詳細については、次を参照してください。 [Commandbuilder でのコマンドを生成する](~/add/includes/ajax-current-ext-md.md)です。"
   syntax:
     content: public System.Data.OracleClient.OracleCommand GetDeleteCommand (bool useColumnsForParameterNames);
     parameters:
     - id: useColumnsForParameterNames
       type: System.Boolean
-      description: "If true, generate parameter names matching column names, if possible. If false, generate @p1, @p2, and so on."
+      description: "True の場合は、可能な場合は、列名を一致するパラメーター名を生成します。 False の場合、生成@p1、@p2のようにします。"
     return:
       type: System.Data.OracleClient.OracleCommand
-      description: "The automatically generated <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> object required to perform deletions."
+      description: "自動的に生成された<xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref>削除を実行するために必要なオブジェクトです。"
   overload: System.Data.OracleClient.OracleCommandBuilder.GetDeleteCommand*
   exceptions: []
   platform:
@@ -302,14 +302,14 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets the automatically generated <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> object required to perform insertions on the database."
-  remarks: "You can use the GetInsertCommand method for informational or troubleshooting purposes because it returns the <xref:System.Data.OracleClient.OracleCommand> object to be executed.       You can also use GetInsertCommand as the basis of a modified command. For example, you might call GetInsertCommand and modify the <xref:System.Data.OracleClient.OracleCommand.CommandText%2A> value, and then explicitly set that on the <xref:System.Data.OracleClient.OracleDataAdapter>.       The SQL statements are first generated when the application calls either <xref:System.Data.Common.DbDataAdapter.Update%2A> or GetInsertCommand.       For more information, see [Generating Commands with CommandBuilders](~/add/includes/ajax-current-ext-md.md)."
+  summary: "自動的に生成された取得<xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref>データベースでの挿入を実行するために必要なオブジェクトです。"
+  remarks: "返すので、情報やトラブルシューティングの目的で GetInsertCommand メソッドを使用することができます、<xref:System.Data.OracleClient.OracleCommand>を実行するオブジェクト</xref:System.Data.OracleClient.OracleCommand>。       また、変更されたコマンドの基礎として GetInsertCommand を使用することができます。 など、呼び出す GetInsertCommand および<xref:System.Data.OracleClient.OracleCommand.CommandText%2A>値、および<xref:System.Data.OracleClient.OracleDataAdapter>。</xref:System.Data.OracleClient.OracleDataAdapter>ことを明示的に設定</xref:System.Data.OracleClient.OracleCommand.CommandText%2A>を変更する可能性があります。       SQL ステートメントは、アプリケーションがいずれかの<xref:System.Data.Common.DbDataAdapter.Update%2A>または GetInsertCommand</xref:System.Data.Common.DbDataAdapter.Update%2A> 。       詳細については、次を参照してください。 [Commandbuilder でのコマンドを生成する](~/add/includes/ajax-current-ext-md.md)です。"
   syntax:
     content: public System.Data.OracleClient.OracleCommand GetInsertCommand ();
     parameters: []
     return:
       type: System.Data.OracleClient.OracleCommand
-      description: "The automatically generated <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> object required to perform insertions."
+      description: "自動的に生成された<xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref>挿入を実行するために必要なオブジェクトです。"
   overload: System.Data.OracleClient.OracleCommandBuilder.GetInsertCommand*
   exceptions: []
   platform:
@@ -326,17 +326,17 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets the automatically generated <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> object required to perform insertions on the database."
-  remarks: "You can use the <xref:System.Data.OracleClient.OracleCommandBuilder.GetInsertCommand%2A> method for informational or troubleshooting purposes because it returns the <xref:System.Data.OracleClient.OracleCommand> object to be executed.       You can also use <xref:System.Data.OracleClient.OracleCommandBuilder.GetInsertCommand%2A> as the basis of a modified command. For example, you might call <xref:System.Data.OracleClient.OracleCommandBuilder.GetInsertCommand%2A> and modify the <xref:System.Data.OracleClient.OracleCommand.CommandText%2A> value, and then explicitly set that on the <xref:System.Data.OracleClient.OracleDataAdapter>.       The SQL statements are first generated when the application calls either <xref:System.Data.Common.DbDataAdapter.Update%2A> or <xref:System.Data.OracleClient.OracleCommandBuilder.GetInsertCommand%2A>.       The default behavior, when generating parameter names, is to use @p1, @p2, and so on for the various parameters. Passing `true` for the `useColumnsForParameterNames` parameter allows you to force the <xref:System.Data.Common.DbCommandBuilder> to generate parameters based on the column names instead. . This succeeds only if the following conditions are met:      -   The <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength> has been specified and its length is equal to or greater than the generated parameter name.      -   The generated parameter name meets the criteria specified in the <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern> regular expression.      -   A <xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat> is specified.       For more information, see [Generating Commands with CommandBuilders](~/add/includes/ajax-current-ext-md.md)."
+  summary: "自動的に生成された取得<xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref>データベースでの挿入を実行するために必要なオブジェクトです。"
+  remarks: "使用することができます、<xref:System.Data.OracleClient.OracleCommandBuilder.GetInsertCommand%2A>メソッド情報やトラブルシューティングの目的を返すので、<xref:System.Data.OracleClient.OracleCommand>を実行するオブジェクト</xref:System.Data.OracleClient.OracleCommand></xref:System.Data.OracleClient.OracleCommandBuilder.GetInsertCommand%2A>。       使用することも<xref:System.Data.OracleClient.OracleCommandBuilder.GetInsertCommand%2A>変更されたコマンドの基礎として</xref:System.Data.OracleClient.OracleCommandBuilder.GetInsertCommand%2A>。 たとえば、呼び出すことができます<xref:System.Data.OracleClient.OracleCommandBuilder.GetInsertCommand%2A>し<xref:System.Data.OracleClient.OracleCommand.CommandText%2A>値、および<xref:System.Data.OracleClient.OracleDataAdapter>。</xref:System.Data.OracleClient.OracleDataAdapter>ことを明示的に設定</xref:System.Data.OracleClient.OracleCommand.CommandText%2A>を変更</xref:System.Data.OracleClient.OracleCommandBuilder.GetInsertCommand%2A>       SQL ステートメントは、アプリケーションがいずれか<xref:System.Data.Common.DbDataAdapter.Update%2A>または<xref:System.Data.OracleClient.OracleCommandBuilder.GetInsertCommand%2A>。</xref:System.Data.OracleClient.OracleCommandBuilder.GetInsertCommand%2A> </xref:System.Data.Common.DbDataAdapter.Update%2A>       パラメーター名を生成するときに、既定の動作は、使用する@p1、 @p2、さまざまなパラメーターについてです。 渡す`true`の`useColumnsForParameterNames`パラメーターでは、強制的にすることができます、<xref:System.Data.Common.DbCommandBuilder>を代わりに、列名に基づいたパラメーターを生成します</xref:System.Data.Common.DbCommandBuilder>。 。 これが成功したら、次の条件が満たされた場合にのみ: -<xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength>が指定されている、生成されたパラメーター名以上の長さ</xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength>。      -生成されたパラメーターの名前で指定した条件を満たしている、<xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern>正規表現</xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern>。      A<xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat>が指定されています</xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat>。       詳細については、次を参照してください。 [Commandbuilder でのコマンドを生成する](~/add/includes/ajax-current-ext-md.md)です。"
   syntax:
     content: public System.Data.OracleClient.OracleCommand GetInsertCommand (bool useColumnsForParameterNames);
     parameters:
     - id: useColumnsForParameterNames
       type: System.Boolean
-      description: "If true, generate parameter names matching column names, if possible. If false, generate @p1, @p2, and so on."
+      description: "True の場合は、可能な場合は、列名を一致するパラメーター名を生成します。 False の場合、生成@p1、@p2のようにします。"
     return:
       type: System.Data.OracleClient.OracleCommand
-      description: "The automatically generated <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> object required to perform insertions."
+      description: "自動的に生成された<xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref>挿入を実行するために必要なオブジェクトです。"
   overload: System.Data.OracleClient.OracleCommandBuilder.GetInsertCommand*
   exceptions: []
   platform:
@@ -358,10 +358,10 @@ items:
     parameters:
     - id: parameterOrdinal
       type: System.Int32
-      description: "To be added."
+      description: "追加します。"
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   overload: System.Data.OracleClient.OracleCommandBuilder.GetParameterName*
   exceptions: []
   platform:
@@ -383,10 +383,10 @@ items:
     parameters:
     - id: parameterName
       type: System.String
-      description: "To be added."
+      description: "追加します。"
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   overload: System.Data.OracleClient.OracleCommandBuilder.GetParameterName*
   exceptions: []
   platform:
@@ -408,10 +408,10 @@ items:
     parameters:
     - id: parameterOrdinal
       type: System.Int32
-      description: "To be added."
+      description: "追加します。"
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   overload: System.Data.OracleClient.OracleCommandBuilder.GetParameterPlaceholder*
   exceptions: []
   platform:
@@ -428,14 +428,14 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets the automatically generated <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> object required to perform updates on the database."
-  remarks: "You can use the GetUpdateCommand method for informational or troubleshooting purposes because it returns the <xref:System.Data.OracleClient.OracleCommand> object to be executed.       You can also use GetUpdateCommand as the basis of a modified command. For example, you might call GetUpdateCommand and modify the <xref:System.Data.OracleClient.OracleCommand.CommandText%2A> value, and then explicitly set that on the <xref:System.Data.OracleClient.OracleDataAdapter>.       The SQL statements are first generated when the application calls either <xref:System.Data.Common.DbDataAdapter.Update%2A> or GetUpdateCommand.       For more information, see [Generating Commands with CommandBuilders](~/add/includes/ajax-current-ext-md.md)."
+  summary: "自動的に生成された取得<xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref>オブジェクト、データベースに対する更新を実行するために必要です。"
+  remarks: "返すので、情報やトラブルシューティングの目的で GetUpdateCommand メソッドを使用することができます、<xref:System.Data.OracleClient.OracleCommand>を実行するオブジェクト</xref:System.Data.OracleClient.OracleCommand>。       また、変更されたコマンドの基礎として GetUpdateCommand を使用することができます。 たとえば、可能性があります GetUpdateCommand を呼び出し<xref:System.Data.OracleClient.OracleCommand.CommandText%2A>値、および<xref:System.Data.OracleClient.OracleDataAdapter>。</xref:System.Data.OracleClient.OracleDataAdapter>ことを明示的に設定</xref:System.Data.OracleClient.OracleCommand.CommandText%2A>を変更       SQL ステートメントは、アプリケーションがいずれかの<xref:System.Data.Common.DbDataAdapter.Update%2A>または GetUpdateCommand</xref:System.Data.Common.DbDataAdapter.Update%2A> 。       詳細については、次を参照してください。 [Commandbuilder でのコマンドを生成する](~/add/includes/ajax-current-ext-md.md)です。"
   syntax:
     content: public System.Data.OracleClient.OracleCommand GetUpdateCommand ();
     parameters: []
     return:
       type: System.Data.OracleClient.OracleCommand
-      description: "The automatically generated <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> object required to perform updates."
+      description: "自動的に生成された<xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref>オブジェクトの更新を実行するために必要です。"
   overload: System.Data.OracleClient.OracleCommandBuilder.GetUpdateCommand*
   exceptions: []
   platform:
@@ -452,17 +452,17 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets the automatically generated <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> object required to perform updates on the database."
-  remarks: "You can use the <xref:System.Data.OracleClient.OracleCommandBuilder.GetUpdateCommand%2A> method for informational or troubleshooting purposes because it returns the <xref:System.Data.OracleClient.OracleCommand> object to be executed.       You can also use <xref:System.Data.OracleClient.OracleCommandBuilder.GetUpdateCommand%2A> as the basis of a modified command. For example, you might call <xref:System.Data.OracleClient.OracleCommandBuilder.GetUpdateCommand%2A> and modify the <xref:System.Data.OracleClient.OracleCommand.CommandText%2A> value, and then explicitly set that on the <xref:System.Data.OracleClient.OracleDataAdapter>.       The SQL statements are first generated when the application calls either <xref:System.Data.Common.DbDataAdapter.Update%2A> or <xref:System.Data.OracleClient.OracleCommandBuilder.GetUpdateCommand%2A>.       The default behavior, when generating parameter names, is to use @p1, @p2, and so on for the various parameters. Passing `true` for the `useColumnsForParameterNames` parameter allows you to force the <xref:System.Data.Common.DbCommandBuilder> to generate parameters based on the column names instead. . This succeeds only if the following conditions are met:      -   The <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength> has been specified and its length is equal to or greater than the generated parameter name.      -   The generated parameter name meets the criteria specified in the <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern> regular expression.      -   A <xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat> is specified.       For more information, see [Generating Commands with CommandBuilders](~/add/includes/ajax-current-ext-md.md)."
+  summary: "自動的に生成された取得<xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref>オブジェクト、データベースに対する更新を実行するために必要です。"
+  remarks: "使用することができます、<xref:System.Data.OracleClient.OracleCommandBuilder.GetUpdateCommand%2A>メソッド情報やトラブルシューティングの目的を返すので、<xref:System.Data.OracleClient.OracleCommand>を実行するオブジェクト</xref:System.Data.OracleClient.OracleCommand></xref:System.Data.OracleClient.OracleCommandBuilder.GetUpdateCommand%2A>。       使用することも<xref:System.Data.OracleClient.OracleCommandBuilder.GetUpdateCommand%2A>変更されたコマンドの基礎として</xref:System.Data.OracleClient.OracleCommandBuilder.GetUpdateCommand%2A>。 たとえば、呼び出すことができます<xref:System.Data.OracleClient.OracleCommandBuilder.GetUpdateCommand%2A>し<xref:System.Data.OracleClient.OracleCommand.CommandText%2A>値、および<xref:System.Data.OracleClient.OracleDataAdapter>。</xref:System.Data.OracleClient.OracleDataAdapter>ことを明示的に設定</xref:System.Data.OracleClient.OracleCommand.CommandText%2A>を変更</xref:System.Data.OracleClient.OracleCommandBuilder.GetUpdateCommand%2A>       SQL ステートメントは、アプリケーションがいずれか<xref:System.Data.Common.DbDataAdapter.Update%2A>または<xref:System.Data.OracleClient.OracleCommandBuilder.GetUpdateCommand%2A>。</xref:System.Data.OracleClient.OracleCommandBuilder.GetUpdateCommand%2A> </xref:System.Data.Common.DbDataAdapter.Update%2A>       パラメーター名を生成するときに、既定の動作は、使用する@p1、 @p2、さまざまなパラメーターについてです。 渡す`true`の`useColumnsForParameterNames`パラメーターでは、強制的にすることができます、<xref:System.Data.Common.DbCommandBuilder>を代わりに、列名に基づいたパラメーターを生成します</xref:System.Data.Common.DbCommandBuilder>。 。 これが成功したら、次の条件が満たされた場合にのみ: -<xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength>が指定されている、生成されたパラメーター名以上の長さ</xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength>。      -生成されたパラメーターの名前で指定した条件を満たしている、<xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern>正規表現</xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern>。      A<xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat>が指定されています</xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat>。       詳細については、次を参照してください。 [Commandbuilder でのコマンドを生成する](~/add/includes/ajax-current-ext-md.md)です。"
   syntax:
     content: public System.Data.OracleClient.OracleCommand GetUpdateCommand (bool useColumnsForParameterNames);
     parameters:
     - id: useColumnsForParameterNames
       type: System.Boolean
-      description: "If true, generate parameter names matching column names, if possible. If false, generate @p1, @p2, and so on."
+      description: "True の場合は、可能な場合は、列名を一致するパラメーター名を生成します。 False の場合、生成@p1、@p2のようにします。"
     return:
       type: System.Data.OracleClient.OracleCommand
-      description: "The automatically generated <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> object required to perform updates."
+      description: "自動的に生成された<xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref>オブジェクトの更新を実行するために必要です。"
   overload: System.Data.OracleClient.OracleCommandBuilder.GetUpdateCommand*
   exceptions: []
   platform:
@@ -479,16 +479,16 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Given an unquoted identifier in the correct catalog case, returns the correct quoted form of that identifier, including properly escaping any embedded quotes in the identifier."
+  summary: "特定の正しいカタログ ケースで囲まれていない識別子を返します、正しい識別子に埋め込まれた引用符を正しくエスケープを含め、その識別子の形式を引用符で囲まれました。"
   syntax:
     content: public override string QuoteIdentifier (string unquotedIdentifier);
     parameters:
     - id: unquotedIdentifier
       type: System.String
-      description: "The original unquoted identifier."
+      description: "元の囲まれていない識別子です。"
     return:
       type: System.String
-      description: "The quoted version of the identifier. Embedded quotes within the identifier are properly escaped."
+      description: "引用符で囲まれた識別子のバージョンです。 Id 内に埋め込まれた引用符が適切にエスケープします。"
   overload: System.Data.OracleClient.OracleCommandBuilder.QuoteIdentifier*
   exceptions: []
   platform:
@@ -505,13 +505,13 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets or sets the character to be used for the separator between the schema identifier and any other identifiers."
-  remarks: "Generally, database servers indicate the schema for a identifier by separating the schema name from the identifier with some character. For example, SQL Server uses a colon, creating complete identifiers such as Person:CustomerName, where &quot;Person&quot; is the schema name and &quot;CustomerName&quot; is the identifier. Setting this property allows developers to modify this behavior."
+  summary: "取得またはスキーマ識別子とその他の id の間の区切り記号に使用する文字を設定します。"
+  remarks: "一般に、データベース サーバーは、いくつかの文字を持つ id からスキーマ名を区切ることによって、識別子のスキーマを示します。 たとえば、SQL Server は、コロン、Person: CustomerName、&quot;Person&quot;、スキーマ名があり、識別子は、&quot;CustomerName&quot;などの完全な識別子を作成します。 このプロパティを設定すると、この動作を変更する開発者ができます。"
   syntax:
     content: public override string SchemaSeparator { get; set; }
     return:
       type: System.String
-      description: "The character to be used as the schema separator."
+      description: "スキーマの区切り記号として使用する文字。"
   overload: System.Data.OracleClient.OracleCommandBuilder.SchemaSeparator*
   exceptions: []
   platform:
@@ -533,7 +533,7 @@ items:
     parameters:
     - id: adapter
       type: System.Data.Common.DbDataAdapter
-      description: "To be added."
+      description: "追加します。"
   overload: System.Data.OracleClient.OracleCommandBuilder.SetRowUpdatingHandler*
   exceptions: []
   platform:
@@ -550,16 +550,16 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Given a quoted identifier, returns the correct unquoted form of that identifier, including properly un-escaping any embedded quotes in the identifier."
+  summary: "引用符で囲まれた識別子では、指定したには、埋め込まれた引用符など、正しくエスケープされていないと、その id の正しい囲まれていない形式を返します、識別子にします。"
   syntax:
     content: public override string UnquoteIdentifier (string quotedIdentifier);
     parameters:
     - id: quotedIdentifier
       type: System.String
-      description: "The identifier that will have its embedded quotes removed."
+      description: "埋め込まれた引用符が削除される id。"
     return:
       type: System.String
-      description: "The unquoted identifier, with embedded quotes properly un-escaped."
+      description: "正しくエスケープされていない埋め込み文字を引用符で囲まれていない識別子です。"
   overload: System.Data.OracleClient.OracleCommandBuilder.UnquoteIdentifier*
   exceptions: []
   platform:

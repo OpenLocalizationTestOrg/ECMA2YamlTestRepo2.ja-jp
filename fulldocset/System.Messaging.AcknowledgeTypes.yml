@@ -17,8 +17,8 @@ items:
   nameWithType: AcknowledgeTypes
   fullName: System.Messaging.AcknowledgeTypes
   type: Enum
-  summary: "Specifies the types of acknowledgment message that Message Queuing returns to the sending application."
-  remarks: "The AcknowledgeTypes class provides a set of flags that you can combine to request one or more categories of acknowledgment messages.       When an application sends a message, it can request that Message Queuing return acknowledgment messages indicating the success or failure of the original message. Message Queuing sends these acknowledgment messages to the administration queue you specify. Acknowledgment types can be divided broadly into four groups: positive arrival acknowledgments, positive read acknowledgments, negative arrival acknowledgments, and negative read acknowledgments. Requesting acknowledgments enables your application to receive notification of certain occurrences—for example, a message reaching its destination queue, a message being retrieved, or a time-out preventing a message from reaching or being retrieved from the destination queue.       When you are using the <xref:System.Messaging.Message> class to send messages to a queue, you specify the types of acknowledgments your application should receive in the <xref:System.Messaging.Message.AcknowledgeType%2A> property, as well as the administration queue that receives the acknowledgment messages in the <xref:System.Messaging.Message.AdministrationQueue%2A> property.       When you use the <xref:System.Messaging.Message> class to read acknowledgment messages in the administration queue, the instance&quot;s <xref:System.Messaging.Message.Acknowledgment%2A> property indicates the condition responsible for the acknowledgment message, for example, if a time-out expired before the original message was read from the queue."
+  summary: "メッセージ キュー、送信元アプリケーションに返す受信確認メッセージの種類を指定します。"
+  remarks: "AcknowledgeTypes クラスは、受信確認メッセージの&1; つまたは複数のカテゴリを要求する結合できます、フラグのセットを提供します。       アプリケーションでは、メッセージを送信するときに、メッセージ キューによって元のメッセージの成否を示す受信確認メッセージが返されることを要求することです。 メッセージ キューは、指定した管理キューにこれらの受信確認メッセージを送信します。 受信確認の種類は&4; つのグループに大別できます: 正到着受信確認、正の値の読み取り受信確認、負の値の到着の確認、および負の値の読み取り受信確認します。 特定の状況の通知を受信するアプリケーションを有効に受信確認を要求する — など、メッセージ送信先キューに到達、取得されるメッセージまたはによりメッセージに到達するか、送信先キューから取得されているタイムアウトします。       使用する場合、<xref:System.Messaging.Message>クラスのキューにメッセージを送信、受信確認で、アプリケーションを受信する必要がありますの種類を指定する、<xref:System.Messaging.Message.AcknowledgeType%2A>管理キューの受信確認メッセージを受信すると、プロパティ、<xref:System.Messaging.Message.AdministrationQueue%2A>プロパティ</xref:System.Messaging.Message.AdministrationQueue%2A></xref:System.Messaging.Message.AcknowledgeType%2A></xref:System.Messaging.Message>。       使用すると、<xref:System.Messaging.Message>が管理キューに、インスタンスの受信確認メッセージを読み取るクラス<xref:System.Messaging.Message.Acknowledgment%2A>プロパティの条件を示します、受信確認メッセージを担当するなど、元のメッセージがキューから読み取られる前にタイムアウトが期限切れの場合</xref:System.Messaging.Message.Acknowledgment%2A></xref:System.Messaging.Message>。"
   example:
   - "The following code example sends and receives a message that contains an order to and from a queue. It specifically requests a positive acknowledgment when the original message reaches or is retrieved from the queue.  \n  \n [!code-cs[Message.Acknowledgment#1](~/add/codesnippet/csharp/t-system.messaging.ackno_1_1.cs)]\n [!code-cpp[Message.Acknowledgment#1](~/add/codesnippet/cpp/t-system.messaging.ackno_1_1.cpp)]\n [!code-vb[Message.Acknowledgment#1](~/add/codesnippet/visualbasic/t-system.messaging.ackno_1_1.vb)]"
   syntax:
@@ -42,12 +42,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request positive acknowledgment if the original message reaches the queue or negative acknowledgment if the time-to-reach-queue timer expires or if the original message cannot be authenticated."
+  summary: "キューに到達時刻タイマーが切れた場合、または元のメッセージを認証できない場合、キューまたは否定受信確認を元のメッセージが到着する場合は、肯定受信確認を要求するために使用するマスクです。"
   syntax:
     content: FullReachQueue
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -63,12 +63,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request positive acknowledgment if the original message is received from the queue before its time-to-be-received timer expires or negative acknowledgment otherwise."
+  summary: "時間を受信のタイマーが切れる前に、元のメッセージがキューから受信した場合、肯定受信確認を要求または否定受信確認をそれ以外の場合に使用されるマスク。"
   syntax:
     content: FullReceive
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -84,13 +84,13 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request a negative acknowledgment when the original message fails to be received from the queue."
-  remarks: "Using the <xref:System.Messaging.MessageQueue.Peek%2A?displayProperty=fullName> method does not remove a message from the queue, so this acknowledgment type could be returned even if you did peek the message. Only the <xref:System.Messaging.MessageQueue.Receive%2A?displayProperty=fullName> method (or the related asynchronous <xref:System.Messaging.MessageQueue.BeginReceive%2A?displayProperty=fullName> method) removes a message from the queue."
+  summary: "キューから受信されるまで、元のメッセージが失敗した場合は、否定受信確認を要求するために使用するマスクです。"
+  remarks: "使用して、<xref:System.Messaging.MessageQueue.Peek%2A?displayProperty=fullName>メッセージをピークするした場合でも、この受信確認の種類が返される可能性がありますので、メソッドが、キューからメッセージを削除できません</xref:System.Messaging.MessageQueue.Peek%2A?displayProperty=fullName>。 のみ、<xref:System.Messaging.MessageQueue.Receive%2A?displayProperty=fullName>メソッド (または、関連する非同期<xref:System.Messaging.MessageQueue.BeginReceive%2A?displayProperty=fullName>メソッド)、キューからメッセージを削除します</xref:System.Messaging.MessageQueue.BeginReceive%2A?displayProperty=fullName></xref:System.Messaging.MessageQueue.Receive%2A?displayProperty=fullName>。"
   syntax:
     content: NegativeReceive
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -106,12 +106,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request that no acknowledgment messages (positive or negative) be posted."
+  summary: "通知されます (正または負の値) の受信確認メッセージがないことを要求するために使用するマスクです。"
   syntax:
     content: None
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -127,12 +127,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request a negative acknowledgment when the original message cannot reach the queue. This can happen when the time-to-reach-queue timer expires or if a message cannot be authenticated."
+  summary: "元のメッセージがキューに到達できない場合に、否定受信確認を要求するために使用するマスクです。 これは、キューに到達時タイマーが切れたときに、またはメッセージを認証できない場合に発生することができます。"
   syntax:
     content: NotAcknowledgeReachQueue
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -148,12 +148,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request a negative acknowledgment when an error occurs that prevents the original message from being received from the queue before its time-to-be-received timer expires."
+  summary: "エラーが発生するときに、否定受信確認を要求するために使用するマスクは、元のメッセージが、時間を受信のタイマーが切れる前に、キューから受信されていることを防止します。"
   syntax:
     content: NotAcknowledgeReceive
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -169,12 +169,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request a positive acknowledgment when the original message reaches the queue."
+  summary: "元のメッセージ キューに到達したときに、肯定受信確認を要求するために使用するマスクです。"
   syntax:
     content: PositiveArrival
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -190,12 +190,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request a positive acknowledgment when the original message is successfully retrieved from the queue."
+  summary: "元のメッセージがキューから正常に取得されたときに、肯定受信確認を要求するために使用するマスクです。"
   syntax:
     content: PositiveReceive
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
