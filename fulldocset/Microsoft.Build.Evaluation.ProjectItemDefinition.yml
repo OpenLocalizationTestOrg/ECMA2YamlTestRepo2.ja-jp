@@ -16,8 +16,8 @@ items:
   nameWithType: ProjectItemDefinition
   fullName: Microsoft.Build.Evaluation.ProjectItemDefinition
   type: Class
-  summary: "Represents an evaluated item definition for a particular item-type."
-  remarks: "Item definitions are not the same as items. Like items, item definitions can have metadata. Like properties, new metadata can override old metadata with the same name.       During evaluation, all the item definitions for an item type are collected together (assuming their conditions are true) to create one ProjectItemDefinition for each type. For this reason, a project item definition can refer to more than one project item definition element. The metadata within a project item definition, however, refers to a single project metadata element, which can be added, removed, and modified."
+  summary: "特定の項目の種類に評価された項目定義を表します。"
+  remarks: "項目定義は、アイテムと同じではありません。 項目など項目の定義はメタデータを持つことができます。 新しいメタデータは、プロパティと同様に、古いメタデータと同じ名前をオーバーライドできます。       評価中に、項目の種類のすべてのアイテム定義が収集され (その条件と仮定した場合は true です) を種類ごとに&1; つの ProjectItemDefinition を作成します。 このため、プロジェクト項目の定義は、1 つ以上のプロジェクト項目定義要素を参照してください。 ただし、プロジェクト項目の定義内のメタデータは、追加、削除、および変更できますが、1 つのプロジェクト メタデータ要素を参照します。"
   syntax:
     content: >-
       [System.Diagnostics.DebuggerDisplay("{itemType} #Metadata={MetadataCount}")]
@@ -41,16 +41,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Get any metadata in the item definition with the given name."
+  summary: "指定した名前の項目の定義のメタデータを取得します。"
   syntax:
     content: public Microsoft.Build.Evaluation.ProjectMetadata GetMetadata (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the metadata to retrieve."
+      description: "取得するメタデータの名前。"
     return:
       type: Microsoft.Build.Evaluation.ProjectMetadata
-      description: "Get any metadata in the item definition with the given name. Returns null if no metadata exists with that name."
+      description: "指定した名前の項目の定義のメタデータを取得します。 その名前のメタデータが存在しない場合は null を返します。"
   overload: Microsoft.Build.Evaluation.ProjectItemDefinition.GetMetadata*
   exceptions: []
   platform:
@@ -67,16 +67,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Get the value of any metadata in the item that has the specified name."
+  summary: "指定した名前を持つ項目のすべてのメタデータの値を取得します。"
   syntax:
     content: public string GetMetadataValue (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the item whose metadata value is to be retrieved."
+      description: "メタデータ値を取得する項目の名前。"
     return:
       type: System.String
-      description: "Returns the value of any metadata in the item that has the specified name; otherwise returns null."
+      description: "指定した名前を持つ項目のすべてのメタデータの値を返しますそれ以外の場合は null を返します。"
   overload: Microsoft.Build.Evaluation.ProjectItemDefinition.GetMetadataValue*
   exceptions: []
   platform:
@@ -93,12 +93,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the item type of this item definition."
+  summary: "この項目の定義の項目の種類を取得します。"
   syntax:
     content: public string ItemType { get; }
     return:
       type: System.String
-      description: "Returns the item type of this item definition."
+      description: "この項目の定義の項目の種類を返します。"
   overload: Microsoft.Build.Evaluation.ProjectItemDefinition.ItemType*
   exceptions: []
   platform:
@@ -115,13 +115,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets an enumerator over all metadata for the item definition."
-  remarks: "This is a read-only collection."
+  summary: "項目の定義のすべてのメタデータに対する列挙子を取得します。"
+  remarks: "これは、読み取り専用コレクションです。"
   syntax:
     content: public System.Collections.Generic.IEnumerable<Microsoft.Build.Evaluation.ProjectMetadata> Metadata { get; }
     return:
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Evaluation.ProjectMetadata}
-      description: "Returns an enumerator over all metadata for the item definition."
+      description: "項目の定義のすべてのメタデータに対する列挙子を返します。"
   overload: Microsoft.Build.Evaluation.ProjectItemDefinition.Metadata*
   exceptions: []
   platform:
@@ -138,12 +138,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the count of the metadata on the item definition."
+  summary: "項目の定義のメタデータの数を取得します。"
   syntax:
     content: public int MetadataCount { get; }
     return:
       type: System.Int32
-      description: "Returns the count of the metadata on the item definition."
+      description: "項目定義のメタデータの数を返します。"
   overload: Microsoft.Build.Evaluation.ProjectItemDefinition.MetadataCount*
   exceptions: []
   platform:
@@ -160,12 +160,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the project that contains this item definition."
+  summary: "この項目の定義を含むプロジェクトを取得します。"
   syntax:
     content: public Microsoft.Build.Evaluation.Project Project { get; }
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: "Returns the project that contains this item definition, which is never null."
+      description: "Null は、この項目定義を含むプロジェクトを返します。"
   overload: Microsoft.Build.Evaluation.ProjectItemDefinition.Project*
   exceptions: []
   platform:
@@ -182,20 +182,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Sets the value of the given metadata in the item definition."
-  remarks: "The unevaluated value is assumed to contain character escape sequences as needed."
+  summary: "項目の定義で指定したメタデータの値を設定します。"
+  remarks: "未評価の値は、必要に応じて文字エスケープ シーケンスを格納すると見なされます。"
   syntax:
     content: public Microsoft.Build.Evaluation.ProjectMetadata SetMetadataValue (string name, string unevaluatedValue);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the metadata to set."
+      description: "設定するメタデータの名前。"
     - id: unevaluatedValue
       type: System.String
-      description: "The new unevaluated value of the metadata."
+      description: "メタデータの新しい未評価の値。"
     return:
       type: Microsoft.Build.Evaluation.ProjectMetadata
-      description: "Returns the metadata with the given name."
+      description: "指定した名前のメタデータを返します。"
   overload: Microsoft.Build.Evaluation.ProjectItemDefinition.SetMetadataValue*
   exceptions: []
   platform:

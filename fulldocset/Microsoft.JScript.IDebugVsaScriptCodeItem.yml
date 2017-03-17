@@ -11,7 +11,7 @@ items:
   nameWithType: IDebugVsaScriptCodeItem
   fullName: Microsoft.JScript.IDebugVsaScriptCodeItem
   type: Interface
-  summary: "Defines methods that evaluate expressions and parse strings. This interface is typically implemented by an object that represents a code block, and it is typically called by a debugger. This interface provides extra functionality that is needed by an IActiveScript host."
+  summary: "式を評価し、文字列を解析するメソッドを定義します。 このインターフェイスは通常、コード ブロックを表すオブジェクトによって実装し、は通常、デバッガーによって呼び出されます。 このインターフェイスは、IActiveScript ホストが必要とする追加の機能を提供します。"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -34,14 +34,14 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: "When implemented in a class, evaluates the block, expression, or statement represented by the code item and returns the value. It is typically called by a debugger that needs to evaluate an expression (in a Watch window, for example). For expressions, the value is the result of the expression. For blocks and statements, the resulting expression is the last expression calculated by the block or statement."
-  remarks: "Note that the Evaluate method is functionally identical to the <xref:Microsoft.JScript.IVsaScriptCodeItem.Execute%2A> method. Only the marshaling attributes differ. This version of the interface allows an unmanaged debugger to obtain the return value as an `IUnknown` pointer rather than a `VARIANT`."
+  summary: "クラスで実装された場合、ブロック、式、またはコード項目で表されるステートメントを評価し、値を返します。 通常呼び出されます (たとえば、ウォッチ ウィンドウ) で式を評価する必要があるデバッガーによってです。 式の場合は、値は、式の結果です。 ブロックとステートメントの場合は、結果の式は最後のブロックまたはステートメントによって計算式です。"
+  remarks: "Evaluate メソッドは機能と同じことに注意してください、<xref:Microsoft.JScript.IVsaScriptCodeItem.Execute%2A>メソッド</xref:Microsoft.JScript.IVsaScriptCodeItem.Execute%2A>。 マーシャ リング属性のみが異なります。 このバージョンのインターフェイスを使用すると、として戻り値を取得するアンマネージのデバッガー、`IUnknown`ポインターではなく、`VARIANT`です。"
   syntax:
     content: public object Evaluate ();
     parameters: []
     return:
       type: System.Object
-      description: "Returns a value that represents the evaluation of the statement, expression, or block."
+      description: "ステートメント、式、またはブロックの評価を表す値を返します。"
   overload: Microsoft.JScript.IDebugVsaScriptCodeItem.Evaluate*
   exceptions: []
   platform:
@@ -58,31 +58,31 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: 'When implemented in a class, parses strings and returns the parsed-out information. This method is typically called by a debugger that needs to parse information about a breakpoint that is represented as a <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;></xref>. The debugger might have a breakpoint typed in by the user in the form *functionname-arguments-ILoffset*. A named breakpoint string can have a complex format, for example, `F.B(C.D[], int, arg : double ) : C.Abc + 123.` The parameter list is optional, as is the IL offset.'
+  summary: 'クラスで実装された場合、文字列を解析し、解析された出力情報を返します。 このメソッドと通常呼ばれるとして表されるブレークポイントに関する情報を解析する必要があるデバッガーによって、 <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;></xref>です。 デバッガーは、フォーム内のユーザーによって入力されたブレークポイントがある可能性があります*functionname 引数-ILoffset*です。 ブレークポイントの名前付き文字列はなど、複雑な形式を持つことができます`F.B(C.D[], int, arg : double ) : C.Abc + 123.`IL オフセットは、パラメーター リストはオプションです。'
   syntax:
     content: public bool ParseNamedBreakPoint (string input, out string functionName, out int nargs, out string arguments, out string returnType, out ulong offset);
     parameters:
     - id: input
       type: System.String
-      description: "A well-formed named breakpoint string giving a function, optional argument list, and optional IL offset."
+      description: "整形式では、関数、省略可能な引数リスト、および省略可能な IL オフセットを与えるブレークポイント文字列という名前です。"
     - id: functionName
       type: System.String
-      description: "Out parameter returning the name of the function parsed out of the input string, or the empty string if the input string is not well formed."
+      description: "Out パラメーター、関数の名前を返す場合に解析、入力文字列または空の文字列から、入力文字列の形式が正しくありません。"
     - id: nargs
       type: System.Int32
-      description: "Out parameter returning the number of arguments in the optional argument list. Returns zero if there is no arguments list or if the string is not well formed."
+      description: "省略可能な引数リストの引数の数を返す出力パラメーター。 引数リストがない場合、または文字列が整形式でない場合は、0 を返します。"
     - id: arguments
       type: System.String
-      description: "Out parameter returning a space-separated list of the names of the types of all the arguments in the arguments list, or an empty string if the arguments list was missing or the input string was not well formed."
+      description: "返す出力パラメーターのすべての引数の型の名前をスペースで区切って、引数リスト、または空の文字列引数のリストが見つからないか、入力文字列の形式は正しくありません。"
     - id: returnType
       type: System.String
-      description: "Out parameter returning a string containing the return type of the function named in the input, or the empty string if the return type was missing or the input string was not well formed."
+      description: "Out パラメーターで、入力をという名前の関数の戻り値の型を含む文字列または戻り値の型が見つからない場合は、空の文字列または入力文字列を取得するもの形式がありません。"
     - id: offset
       type: System.UInt64
-      description: "Unsigned long integer giving the IL offset from the input string, or zero if there was no IL offset or the string was not well formed."
+      description: "IL オフセットがないか、文字列の形式が正しくありませんは、入力文字列、または&0; から IL オフセットを指定する符号なし long 整数。"
     return:
       type: System.Boolean
-      description: "Returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the named breakpoint is successfully parsed, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> otherwise."
+      description: "返します<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>名前付きのブレークポイントが正常に解析された場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>それ以外の場合。"
   overload: Microsoft.JScript.IDebugVsaScriptCodeItem.ParseNamedBreakPoint*
   exceptions: []
   platform:

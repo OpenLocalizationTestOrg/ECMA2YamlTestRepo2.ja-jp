@@ -15,7 +15,7 @@ items:
   nameWithType: ITaskFactory
   fullName: Microsoft.Build.Framework.ITaskFactory
   type: Interface
-  summary: "Interface that a task factory Instance should implement."
+  summary: "インターフェイスをタスク ファクトリのインスタンスを実装する必要があります。"
   syntax:
     content: public interface ITaskFactory
   implements: []
@@ -33,13 +33,13 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Cleans up any context or state that may have been built up for a given task."
+  summary: "任意のコンテキストまたは可能性があります用に構築された指定したタスクの状態をクリーンアップします。"
   syntax:
     content: public void CleanupTask (Microsoft.Build.Framework.ITask task);
     parameters:
     - id: task
       type: Microsoft.Build.Framework.ITask
-      description: "The task to clean up."
+      description: "クリーンアップするタスクです。"
   overload: Microsoft.Build.Framework.ITaskFactory.CleanupTask*
   exceptions: []
   platform:
@@ -56,16 +56,16 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Creates an instance of the task to be used in a batch. The task factory logging host will log messages in the context of the task."
+  summary: "バッチ内で使用するタスクのインスタンスを作成します。 タスク ファクトリのログ記録のホストは、タスクのコンテキストでメッセージを記録します。"
   syntax:
     content: public Microsoft.Build.Framework.ITask CreateTask (Microsoft.Build.Framework.IBuildEngine taskFactoryLoggingHost);
     parameters:
     - id: taskFactoryLoggingHost
       type: Microsoft.Build.Framework.IBuildEngine
-      description: "The logging host for the task factory."
+      description: "タスク ファクトリのログ記録のホスト。"
     return:
       type: Microsoft.Build.Framework.ITask
-      description: "Returns an instance of the task to be used in a batch."
+      description: "バッチ内で使用するタスクのインスタンスを返します。"
   overload: Microsoft.Build.Framework.ITaskFactory.CreateTask*
   exceptions: []
   platform:
@@ -82,12 +82,12 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets the name of the factory."
+  summary: "ファクトリの名前を取得します。"
   syntax:
     content: public string FactoryName { get; }
     return:
       type: System.String
-      description: "The name of the factory."
+      description: "ファクトリの名前です。"
   overload: Microsoft.Build.Framework.ITaskFactory.FactoryName*
   exceptions: []
   platform:
@@ -104,13 +104,13 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Get the descriptions for all the task&quot;s parameters."
+  summary: "タスクのすべてのパラメーターの説明を取得します。"
   syntax:
     content: public Microsoft.Build.Framework.TaskPropertyInfo[] GetTaskParameters ();
     parameters: []
     return:
       type: Microsoft.Build.Framework.TaskPropertyInfo[]
-      description: "A non-null array of property descriptions."
+      description: "プロパティの説明の null 配列。"
   overload: Microsoft.Build.Framework.ITaskFactory.GetTaskParameters*
   exceptions: []
   platform:
@@ -127,26 +127,26 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Initializes this factory for instantiating tasks with a particular inline task block."
-  remarks: "The MSBuild engine calls this method to initialize the factory. After initialization, the factory can be asked whether or not task names can be created by the factory.       The `taskFactoryLoggingHost` will log messages in the context of the target where the task is first used."
+  summary: "特定のインライン タスクのブロックを使用してインスタンス化するタスクのこのファクトリを初期化します。"
+  remarks: "MSBuild エンジンは、ファクトリの初期化には、このメソッドを呼び出します。 初期化後は、ファクトリ問い合わせることができるタスク名をファクトリによって作成できるかどうか。       `taskFactoryLoggingHost`タスクが最初に使用されているターゲットのコンテキストにメッセージが記録されます。"
   syntax:
     content: public bool Initialize (string taskName, System.Collections.Generic.IDictionary<string,Microsoft.Build.Framework.TaskPropertyInfo> parameterGroup, string taskBody, Microsoft.Build.Framework.IBuildEngine taskFactoryLoggingHost);
     parameters:
     - id: taskName
       type: System.String
-      description: "Name of the task."
+      description: "タスクの名前です。"
     - id: parameterGroup
       type: System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo}
-      description: "The parameter group."
+      description: "パラメーターのグループです。"
     - id: taskBody
       type: System.String
-      description: "The task body."
+      description: "タスクの本体。"
     - id: taskFactoryLoggingHost
       type: Microsoft.Build.Framework.IBuildEngine
-      description: "The task factory logging host."
+      description: "タスク ファクトリのログ記録のホスト。"
     return:
       type: System.Boolean
-      description: "A value indicating whether initialization was successful."
+      description: "初期化が成功したかどうかを示す値。"
   overload: Microsoft.Build.Framework.ITaskFactory.Initialize*
   exceptions: []
   platform:
@@ -163,12 +163,12 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets the type of the task this factory will instantiate."
+  summary: "このファクトリがインスタンス化され、タスクの種類を取得します。"
   syntax:
     content: public Type TaskType { get; }
     return:
       type: System.Type
-      description: "The type of task."
+      description: "タスクの型。"
   overload: Microsoft.Build.Framework.ITaskFactory.TaskType*
   exceptions: []
   platform:

@@ -10,8 +10,8 @@ items:
   nameWithType: HasRunnableWorkflowEvent
   fullName: System.Activities.DurableInstancing.HasRunnableWorkflowEvent
   type: Class
-  summary: "Represents an event that the SQL Workflow Instance Store raises to notify workflow hosts about the existence of runnable instances in the persistence database."
-  remarks: "An instance is *runnable*, if it is not in the suspended state or the completed state and satisfies the following conditions:      -   The instance is unlocked and has a pending timer that has expired.      -   The instance is unlocked and its status is **Executing**.      -   The instance has an invalid lock on it.       An instance store should periodically search for runnable instances that belong to a workflow host that uses the store. It should raise the HasRunnableWorkflowEvent when it finds a runnable instance in the persistence store that matches its workflow host type. If the instance store does not find a runnable instance in the persistence store, it should continue to monitor the persistence store for any runnable instances.       After raising the HasRunnableWorkflowEvent, the instance store should stop monitoring the persistence store for runnable instances until it receives and executes the <xref:System.Activities.DurableInstancing.TryLoadRunnableWorkflowCommand>. The monitoring continues only if the TryLoadRunnableWorkflowCommand execution does not return any runnable instances.       When a workflow host receives the HasRunnableWorkflowEvent, it executes the <xref:System.Activities.DurableInstancing.TryLoadRunnableWorkflowCommand> against the instance store to load the instance into the memory."
+  summary: "永続性データベースで実行可能インスタンスの存在についてワークフロー ホストに通知する、SQL Workflow Instance Store を発生させるイベントを表します。"
+  remarks: "インスタンスが*runnable*中断状態または完了状態ではありませんし、次の条件を満たす場合は、:-インスタンス ロックが解除されていて、保留タイマーの期限が切れています。      -インスタンスのロックが解除されていると、その状態が**Executing**です。      インスタンスに無効なロックなっています。       インスタンス ストアは、ストアを使用するワークフロー ホストに属している実行可能インスタンスを定期的に検索する必要があります。 発生させます、HasRunnableWorkflowEvent ワークフロー ホスト型に一致する永続化ストアの実行可能インスタンスが検出した場合。 インスタンス ストアが永続化ストアで、実行可能インスタンスを見つけられない場合、実行可能インスタンスの永続化ストアの監視を続行します。       インスタンス ストア hasrunnableworkflowevent を受け取って<xref:System.Activities.DurableInstancing.TryLoadRunnableWorkflowCommand>。</xref:System.Activities.DurableInstancing.TryLoadRunnableWorkflowCommand>を実行するまで実行可能インスタンスの永続化ストアの監視を停止する必要があります。 監視を続行のみ TryLoadRunnableWorkflowCommand の実行が、実行可能インスタンスを返さないかどうかです。       実行するワークフロー ホスト、HasRunnableWorkflowEvent を受信すると、<xref:System.Activities.DurableInstancing.TryLoadRunnableWorkflowCommand>メモリに読み込むインスタンス、インスタンス ストアに対して</xref:System.Activities.DurableInstancing.TryLoadRunnableWorkflowCommand>。"
   syntax:
     content: 'public sealed class HasRunnableWorkflowEvent : System.Runtime.DurableInstancing.InstancePersistenceEvent<System.Activities.DurableInstancing.HasRunnableWorkflowEvent>'
   inheritance:
@@ -41,7 +41,7 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.DurableInstancing
-  summary: "Initializes an instance of the <xref href=&quot;System.Activities.DurableInstancing.HasRunnableWorkflowEvent&quot;></xref> class."
+  summary: "インスタンスを初期化、 <xref href=&quot;System.Activities.DurableInstancing.HasRunnableWorkflowEvent&quot;> </xref>クラスです。"
   syntax:
     content: public HasRunnableWorkflowEvent ();
     parameters: []

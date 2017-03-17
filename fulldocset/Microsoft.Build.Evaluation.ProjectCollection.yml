@@ -59,8 +59,8 @@ items:
   nameWithType: ProjectCollection
   fullName: Microsoft.Build.Evaluation.ProjectCollection
   type: Class
-  summary: "Encapsulates a set of related projects, their toolsets, a default set of global properties, and the loggers that should be used to build them. A global version of this class acts as the default project collection."
-  remarks: "Multiple project collections can exist within an app domain. However, these must not build concurrently."
+  summary: "一連の関連プロジェクト、それらのツールセットのグローバル プロパティの既定のセットおよびそれらをビルドするために使用する必要がありますのロガーをカプセル化します。 このクラスのグローバル バージョンは、既定のプロジェクト コレクションとして機能します。"
+  remarks: "アプリ ドメイン内で複数のプロジェクト コレクションが存在できます。 ただし、これら必要があります同時にビルドできません。"
   syntax:
     content: 'public class ProjectCollection : IDisposable'
   inheritance:
@@ -82,7 +82,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Creates a project collection with no global properties or loggers. The project collection toolset is initialized from the configuration file and registry."
+  summary: "グローバル プロパティやロガーを持たないプロジェクト コレクションを作成します。 プロジェクト コレクションのツールセットは、構成ファイルとレジストリから初期化します。"
   syntax:
     content: public ProjectCollection ();
     parameters: []
@@ -102,13 +102,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Creates a project collection with no global properties or loggers. The project collection toolset is initialized from toolsets in the given locations."
+  summary: "グローバル プロパティやロガーを持たないプロジェクト コレクションを作成します。 プロジェクト コレクションのツールセットは、指定した場所にあるツールセットから初期化します。"
   syntax:
     content: public ProjectCollection (Microsoft.Build.Evaluation.ToolsetDefinitionLocations toolsetLocations);
     parameters:
     - id: toolsetLocations
       type: Microsoft.Build.Evaluation.ToolsetDefinitionLocations
-      description: "The locations from which to load toolsets."
+      description: "ツールセットの読み込み元の場所です。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.#ctor*
   exceptions: []
   platform:
@@ -125,14 +125,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Instantiates a project collection with specified global properties, no loggers, and that reads toolset information from the configuration file and registry."
-  remarks: "May throw InvalidToolsetDefinitionException."
+  summary: "指定したグローバル プロパティ、ロガー、および構成ファイルとレジストリからツールセット情報を読み込むことで、プロジェクト コレクションをインスタンス化します。"
+  remarks: "InvalidToolsetDefinitionException をスローすることがあります。"
   syntax:
     content: public ProjectCollection (System.Collections.Generic.IDictionary<string,string> globalProperties);
     parameters:
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "The default global properties to use. May be null."
+      description: "使用する既定のグローバル プロパティ。 Null にすることがあります。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.#ctor*
   exceptions: []
   platform:
@@ -149,20 +149,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Instantiates a project collection with specified global properties and loggers and using the specified toolset locations."
-  remarks: "May throw InvalidToolsetDefinitionException."
+  summary: "指定したグローバル プロパティ、ロガー、およびツールセットの場所を使用して、プロジェクト コレクションをインスタンス化します。"
+  remarks: "InvalidToolsetDefinitionException をスローすることがあります。"
   syntax:
     content: public ProjectCollection (System.Collections.Generic.IDictionary<string,string> globalProperties, System.Collections.Generic.IEnumerable<Microsoft.Build.Framework.ILogger> loggers, Microsoft.Build.Evaluation.ToolsetDefinitionLocations toolsetDefinitionLocations);
     parameters:
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "The default global properties to use. May be null."
+      description: "使用する既定のグローバル プロパティ。 Null にすることがあります。"
     - id: loggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Framework.ILogger}
-      description: "The loggers to register. May be null."
+      description: "登録するロガー。 Null にすることがあります。"
     - id: toolsetDefinitionLocations
       type: Microsoft.Build.Evaluation.ToolsetDefinitionLocations
-      description: "The locations from which to load toolsets."
+      description: "ツールセットの読み込み元の場所です。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.#ctor*
   exceptions: []
   platform:
@@ -179,29 +179,29 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Creates a project collection with specified global properties, loggers, node count, and onlyLogCriticalEvents value. The project collection toolset is initialized from toolsets in the given locations."
-  remarks: "Throws InvalidProjectFileException if any of the global properties are reserved."
+  summary: "指定したグローバル プロパティ、ロガー、ノード数、および onlyLogCriticalEvents 値をプロジェクト コレクションを作成します。 プロジェクト コレクションのツールセットは、指定した場所にあるツールセットから初期化します。"
+  remarks: "任意のグローバル プロパティは予約されている場合は、InvalidProjectFileException をスローします。"
   syntax:
     content: public ProjectCollection (System.Collections.Generic.IDictionary<string,string> globalProperties, System.Collections.Generic.IEnumerable<Microsoft.Build.Framework.ILogger> loggers, System.Collections.Generic.IEnumerable<Microsoft.Build.Logging.ForwardingLoggerRecord> remoteLoggers, Microsoft.Build.Evaluation.ToolsetDefinitionLocations toolsetDefinitionLocations, int maxNodeCount, bool onlyLogCriticalEvents);
     parameters:
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "The default global properties to use. May be null."
+      description: "使用する既定のグローバル プロパティ。 Null にすることがあります。"
     - id: loggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Framework.ILogger}
-      description: "The loggers to register. May be null and specified to any build instead."
+      description: "登録するロガー。 可能性があります null を指定するすべてのビルドを代わりにします。"
     - id: remoteLoggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Logging.ForwardingLoggerRecord}
-      description: "Any remote loggers to register. May be null and specified to any build instead."
+      description: "登録するリモート ロガー。 可能性があります null を指定するすべてのビルドを代わりにします。"
     - id: toolsetDefinitionLocations
       type: Microsoft.Build.Evaluation.ToolsetDefinitionLocations
-      description: "The locations from which to load toolsets."
+      description: "ツールセットの読み込み元の場所です。"
     - id: maxNodeCount
       type: System.Int32
-      description: "The maximum number of nodes to use for building."
+      description: "構築に使用するノードの最大数。"
     - id: onlyLogCriticalEvents
       type: System.Boolean
-      description: "If set to true, only critical events will be logged."
+      description: "場合に設定する場合は true、重大なエラーのみのイベント ログに記録されます。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.#ctor*
   exceptions: []
   platform:
@@ -218,13 +218,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Adds a new toolset to the project collection. Replaces any existing toolset with the same tools version."
+  summary: "新しいツールセットをプロジェクト コレクションに追加します。 同じツール バージョンの既存のツールセットを置換します。"
   syntax:
     content: public void AddToolset (Microsoft.Build.Evaluation.Toolset toolset);
     parameters:
     - id: toolset
       type: Microsoft.Build.Evaluation.Toolset
-      description: "The toolset to be added."
+      description: "追加するツールセット。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.AddToolset*
   exceptions: []
   platform:
@@ -241,16 +241,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Determines whether a toolset is defined for the given tools version."
+  summary: "指定したツール バージョンのツールセットが定義されているかどうかを判断します。"
   syntax:
     content: public bool ContainsToolset (string toolsVersion);
     parameters:
     - id: toolsVersion
       type: System.String
-      description: "The tools version to search for."
+      description: "検索するツール バージョン。"
     return:
       type: System.Boolean
-      description: "Returns true if there is a toolset defined for the given tools version; false otherwise."
+      description: "指定したツール バージョン; に対して定義されているツールセットがある場合、true を返しますfalse それ以外の場合。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.ContainsToolset*
   exceptions: []
   platform:
@@ -267,12 +267,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the number of projects currently loaded into this collection."
+  summary: "このコレクションに現在読み込まれているプロジェクトの数を取得します。"
   syntax:
     content: public int Count { get; }
     return:
       type: System.Int32
-      description: "Returns the number of projects currently loaded into this collection."
+      description: "このコレクションに現在読み込まれているプロジェクトの数を返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.Count*
   exceptions: []
   platform:
@@ -289,13 +289,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the default tools version of this project collection."
-  remarks: "This default value is obtained from the .exe.config file, from the system registry, or if neither is present, from the hard-coded tools version &quot;2.0&quot;.       The set method throws InvalidOperationException if a toolset with the provided tools version has not been defined."
+  summary: "このプロジェクト コレクションの既定のツール バージョンを取得します。"
+  remarks: "この既定値は、。 *.exe.config ファイルをシステム レジストリから、またはどちらも存在、ハード コーディングされたツール バージョン&quot;2.0&quot;からです。       セット メソッドでのスロー InvalidOperationException 場合、指定したツール バージョンのツールセットが定義されていません。"
   syntax:
     content: public string DefaultToolsVersion { get; set; }
     return:
       type: System.String
-      description: "Returns the default tools version of this project collection, which is always defined."
+      description: "定義が常に、このプロジェクト コレクションの既定のツール バージョンを返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.DefaultToolsVersion*
   exceptions: []
   platform:
@@ -312,12 +312,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets or sets a flag that determines whether <xref:Microsoft.Build.Evaluation.Project.MarkDirty*> is temporarily disabled on projects in this collection. This allows, for example, a global properties to be set without projects getting marked dirty for reevaluation as a consequence."
+  summary: "取得または設定を決定するフラグかどうか<xref:Microsoft.Build.Evaluation.Project.MarkDirty*>は、このコレクション内のプロジェクトで一時的に無効になります</xref:Microsoft.Build.Evaluation.Project.MarkDirty*>。 これにより、たとえば、グローバル プロパティを設定しても、結果として再評価マーク プロジェクト。"
   syntax:
     content: public bool DisableMarkDirty { get; set; }
     return:
       type: System.Boolean
-      description: "Returns a flag that determines whether <xref uid=&quot;langword_csharp_MarkDirty&quot; name=&quot;MarkDirty&quot; href=&quot;&quot;></xref> is temporarily disabled."
+      description: "決定するフラグを返すかどうか<xref uid=&quot;langword_csharp_MarkDirty&quot; name=&quot;MarkDirty&quot; href=&quot;&quot;></xref>一時的に無効にします。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.DisableMarkDirty*
   exceptions: []
   platform:
@@ -334,8 +334,8 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Releases both managed and unmanaged resources.  Called when a host no longer needs the project collection."
-  remarks: "In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject() before the ProjectCollection goes out of scope.”"
+  summary: "マネージ コードとアンマネージ リソースを解放します。  ホストが不要になったプロジェクト コレクションを必要時に呼び出されます。"
+  remarks: ".Net 4.5 と Visual Studio 12.0 に配信された MSBuild のバージョンで呼び出す必要があります UnloadProject()、ProjectCollection スコープ外に出る前にします。&quot;"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -355,14 +355,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Releases both managed and unmanaged resources.  Called when a host no longer needs the project collection.. Shuts down any logging services that the project collection owns and releases the logger thread."
-  remarks: "Follows the garbage disposal guidelines of .NET."
+  summary: "マネージ コードとアンマネージ リソースを解放します。  ホストには、プロジェクト コレクションが必要がなくなったときに呼び出されます. シャット ダウン ログ サービスをすべて、プロジェクト コレクションが所有し、ロガー スレッドを解放します。"
+  remarks: ".NET のガベージ破棄のガイドラインを次に示します。"
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "If true, releases both managed and unmanaged resources; otherwise releases only unmanaged resources.."
+      description: "True の場合、マネージ コードとアンマネージ リソースを解放します。それ以外の場合、アンマネージ リソースだけを解放."
   overload: Microsoft.Build.Evaluation.ProjectCollection.Dispose*
   exceptions: []
   platform:
@@ -379,17 +379,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Converts special characters in a string to MSBuild escape format."
-  remarks: "For example, &quot;%3b&quot; for &quot;;&quot;. Only characters that are especially significant to MSBuild parsing are converted. Callers can use this method to make a string safe to be parsed by other methods that would otherwise expand it. Callers can also use this method to make a string safe to be written to a project file."
+  summary: "文字列内の特殊文字を MSBuild エスケープ形式に変換します。"
+  remarks: "たとえば、&quot;%3b&quot;for&quot;;&quot;です。 MSBuild の解析中に特に重要である文字のみが変換されます。 呼び出し元は、このメソッドを使用して、文字列を安全にそれを展開するその他のメソッドによって解析できません。 呼び出し元は、このメソッドを使用して、プロジェクト ファイルに書き込まれるセーフである文字列を作成できます。"
   syntax:
     content: public static string Escape (string unescapedString);
     parameters:
     - id: unescapedString
       type: System.String
-      description: "The string to be converted."
+      description: "変換する文字列。"
     return:
       type: System.String
-      description: "Returns the converted string."
+      description: "変換後の文字列を返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.Escape*
   exceptions: []
   platform:
@@ -406,16 +406,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Get any global property on the project collection that has the specified name."
+  summary: "指定した名前のプロジェクト コレクションにグローバル プロパティを取得します。"
   syntax:
     content: public Microsoft.Build.Execution.ProjectPropertyInstance GetGlobalProperty (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the property to be retrieved."
+      description: "取得するプロパティの名前。"
     return:
       type: Microsoft.Build.Execution.ProjectPropertyInstance
-      description: "Returns any global property on the project collection that has the specified name; otherwise returns null."
+      description: "指定した名前のあるプロジェクト コレクションのグローバル プロパティを返しますそれ以外の場合は null を返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.GetGlobalProperty*
   exceptions: []
   platform:
@@ -432,17 +432,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets all projects whose project path matches the given path."
-  remarks: "There may be more than one project with the given path because projects are also distinguished by global properties and/or tools version."
+  summary: "プロジェクト パスを持つ指定したパスに一致するすべてのプロジェクトを取得します。"
+  remarks: "プロジェクトは、グローバル プロパティやツールのバージョンでは区別もため、指定されたパスに&1; つ以上のプロジェクトがかかることがあります。"
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.Project> GetLoadedProjects (string fullPath);
     parameters:
     - id: fullPath
       type: System.String
-      description: "The path to a project file to be matched."
+      description: "照合するプロジェクト ファイルへのパス。"
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Evaluation.Project}
-      description: "Returns all projects whose project path matches the given path."
+      description: "プロジェクト パスを持つ指定したパスに一致するすべてのプロジェクトを返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.GetLoadedProjects*
   exceptions: []
   platform:
@@ -459,16 +459,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Get the toolset with the specified tools version."
+  summary: "指定したツール バージョンのツールセットを取得します。"
   syntax:
     content: public Microsoft.Build.Evaluation.Toolset GetToolset (string toolsVersion);
     parameters:
     - id: toolsVersion
       type: System.String
-      description: "The tools version to match."
+      description: "一致するツール バージョン。"
     return:
       type: Microsoft.Build.Evaluation.Toolset
-      description: "Returns the toolset with the specified tools version. Returns null if no toolset matching this tools version exists."
+      description: "指定したツール バージョンのツールセットを返します。 一致するツールセット ツール バージョンがない場合、null を返しますが存在します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.GetToolset*
   exceptions: []
   platform:
@@ -485,13 +485,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the global project collection object."
-  remarks: "Thread safe."
+  summary: "グローバル プロジェクト コレクション オブジェクトを取得します。"
+  remarks: "スレッド セーフであります。"
   syntax:
     content: public static Microsoft.Build.Evaluation.ProjectCollection GlobalProjectCollection { get; }
     return:
       type: Microsoft.Build.Evaluation.ProjectCollection
-      description: "Returns the global project collection object. This is a singleton project collection with no global properties or loggers. Toolset information is obtained from the configuration file and registry."
+      description: "グローバル プロジェクト コレクション オブジェクトを返します。 これは、グローバル プロパティやロガーを持たないシングルトン プロジェクト コレクションです。 ツールセットの情報は、構成ファイルとレジストリから取得されます。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.GlobalProjectCollection*
   exceptions: []
   platform:
@@ -508,13 +508,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the read-only default global properties for all projects in this collection."
-  remarks: "Use <xref:Microsoft.Build.Evaluation.ProjectCollection.SetGlobalProperty%2A> and <xref:Microsoft.Build.Evaluation.ProjectCollection.RemoveGlobalProperty%2A> to add, set, and remove global properties."
+  summary: "このコレクション内のすべてのプロジェクトの既定の読み取り専用のグローバル プロパティを取得します。"
+  remarks: "使用して<xref:Microsoft.Build.Evaluation.ProjectCollection.SetGlobalProperty%2A>と<xref:Microsoft.Build.Evaluation.ProjectCollection.RemoveGlobalProperty%2A>グローバル プロパティを追加、設定、および削除します</xref:Microsoft.Build.Evaluation.ProjectCollection.RemoveGlobalProperty%2A></xref:Microsoft.Build.Evaluation.ProjectCollection.SetGlobalProperty%2A>。"
   syntax:
     content: public System.Collections.Generic.IDictionary<string,string> GlobalProperties { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Returns the read-only default global properties for all projects in this collection."
+      description: "このコレクション内の既定の読み取り専用すべてのプロジェクトのグローバル プロパティを返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.GlobalProperties*
   exceptions: []
   platform:
@@ -531,13 +531,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets or sets an object that provides host services to tasks during builds of projects contained in the project collection."
-  remarks: "By default, returns HostServices, which may be null."
+  summary: "取得またはプロジェクト コレクションに含まれるプロジェクトのビルド時に、タスクにホスト サービスを提供するオブジェクトを設定します。"
+  remarks: "既定では、これを null にすることがあります、HostServices を返します。"
   syntax:
     content: public Microsoft.Build.Execution.HostServices HostServices { get; set; }
     return:
       type: Microsoft.Build.Execution.HostServices
-      description: "Returns the host services object."
+      description: "ホストを返すサービス オブジェクト。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.HostServices*
   exceptions: []
   platform:
@@ -554,13 +554,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets or sets a property that selects by default whether the targets and tasks of projects in the project collection can be built."
-  remarks: "Can be used for security purposes. By default, a new project has the same IsBuildEnabled setting as the parent project collection that contains it. When IsBuildEnabled is false, the Build method on this project fails."
+  summary: "取得またはターゲットとプロジェクト コレクション内のプロジェクトのタスクを作成できるかどうかを既定で選択するプロパティを設定します。"
+  remarks: "セキュリティのために使用できます。 既定では、新しいプロジェクトは、それを含む親プロジェクト コレクションと同じ IsBuildEnabled 設定にします。 IsBuildEnabled が false の場合は、このプロジェクトでビルド メソッドが失敗します。"
   syntax:
     content: public bool IsBuildEnabled { get; set; }
     return:
       type: System.Boolean
-      description: "Gets or sets a property that selects by default whether the targets and tasks of projects in this project collection can be built."
+      description: "取得またはターゲットとタスクがこのプロジェクト コレクション内のプロジェクトを作成できるかどうかを既定で選択するプロパティを設定します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.IsBuildEnabled*
   exceptions: []
   platform:
@@ -577,13 +577,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets all the projects currently loaded into this collection."
-  remarks: "Each project has a unique combination of path, global properties, and tools version."
+  summary: "このコレクションに現在読み込まれているすべてのプロジェクトを取得します。"
+  remarks: "各プロジェクトには、パス、グローバル プロパティ、およびツールのバージョンの一意の組み合わせがあります。"
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.Project> LoadedProjects { get; }
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Evaluation.Project}
-      description: "Returns all the projects currently loaded into this collection."
+      description: "このコレクションに現在読み込まれているすべてのプロジェクトを返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadedProjects*
   exceptions: []
   platform:
@@ -600,17 +600,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Evaluates a project from the source code in the given project file. The source code is evaluated with the global properties and tools version of this project collection."
-  remarks: "In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope."
+  summary: "指定したプロジェクト ファイル内のソース コードからプロジェクトを評価します。 ソース コードは、このプロジェクト コレクションのグローバル プロパティとツール バージョンと評価されます。"
+  remarks: "ProjectCollection がスコープ外に出る前に、MSBuild のバージョンで .Net 4.5 と Visual Studio 12.0 に配信された、UnloadProject を呼び出す必要があります。"
   syntax:
     content: public Microsoft.Build.Evaluation.Project LoadProject (string fileName);
     parameters:
     - id: fileName
       type: System.String
-      description: "The project file to evaluate."
+      description: "評価するプロジェクト ファイルです。"
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: "If an existing project in the collection has already been evaluated from the given project file, the existing project is returned. Otherwise, a new project is created, evaluated, added to the project collection, and returned."
+      description: "既存のプロジェクト コレクションには、指定したプロジェクト ファイルから既に評価されている、既存のプロジェクトが返されます。 それ以外の場合、新しいプロジェクトが作成、評価、プロジェクト コレクションに追加され返されます。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadProject*
   exceptions: []
   platform:
@@ -627,17 +627,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Evaluates a project from the source code read from the given XML reader. The source code is evaluated with the global properties and tools version of this project collection."
-  remarks: "The project is added to this project collection when either this project or the given project root is given the full path to a project file.       In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope."
+  summary: "指定した XML リーダーから読み取り、ソース コードからプロジェクトを評価します。 ソース コードは、このプロジェクト コレクションのグローバル プロパティとツール バージョンと評価されます。"
+  remarks: "このプロジェクトまたは指定されたプロジェクトのルートには、プロジェクト ファイルへの完全パスを指定した場合、プロジェクトはこのプロジェクト コレクションに追加します。       ProjectCollection がスコープ外に出る前に、MSBuild のバージョンで .Net 4.5 と Visual Studio 12.0 に配信された、UnloadProject を呼び出す必要があります。"
   syntax:
     content: public Microsoft.Build.Evaluation.Project LoadProject (System.Xml.XmlReader xmlReader);
     parameters:
     - id: xmlReader
       type: System.Xml.XmlReader
-      description: "Xml reader to read project source code from."
+      description: "プロジェクトのソース コードを読み取る Xml リーダー。"
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: "Returns the new project."
+      description: "新しいプロジェクトを返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadProject*
   exceptions: []
   platform:
@@ -654,20 +654,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Evaluates a project from the source code read from the given project file. The source code is evaluated with the global properties of this project collection and the given tools version."
-  remarks: "In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope."
+  summary: "指定したプロジェクト ファイルからの読み取り、ソース コードからプロジェクトを評価します。 ソース コードは、このプロジェクト コレクションと指定したツール バージョンのグローバル プロパティを使用して評価します。"
+  remarks: "ProjectCollection がスコープ外に出る前に、MSBuild のバージョンで .Net 4.5 と Visual Studio 12.0 に配信された、UnloadProject を呼び出す必要があります。"
   syntax:
     content: public Microsoft.Build.Evaluation.Project LoadProject (string fileName, string toolsVersion);
     parameters:
     - id: fileName
       type: System.String
-      description: "The project file to evaluate."
+      description: "評価するプロジェクト ファイルです。"
     - id: toolsVersion
       type: System.String
-      description: "The tools version to use. May be null."
+      description: "使用するツール バージョン。 Null にすることがあります。"
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: "If an existing project in the collection has already been evaluated from the given project file, and with the given tools version, then the existing project is returned. Otherwise, a new project is created, evaluated, added to the project collection, and returned."
+      description: "既存のプロジェクト コレクションには、指定したツール バージョンを使用して、指定したプロジェクト ファイルから既に評価されている、既存のプロジェクトが返されます。 それ以外の場合、新しいプロジェクトが作成、評価、プロジェクト コレクションに追加され返されます。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadProject*
   exceptions: []
   platform:
@@ -684,20 +684,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Evaluates a project from the source code read from the given XML reader. The source code is evaluated with the global properties of this project collection and the given tools version."
-  remarks: "The project is added to this project collection when either this project or the given project root is given the full path to a project file.       In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope."
+  summary: "指定した XML リーダーから読み取り、ソース コードからプロジェクトを評価します。 ソース コードは、このプロジェクト コレクションと指定したツール バージョンのグローバル プロパティを使用して評価します。"
+  remarks: "このプロジェクトまたは指定されたプロジェクトのルートには、プロジェクト ファイルへの完全パスを指定した場合、プロジェクトはこのプロジェクト コレクションに追加します。       ProjectCollection がスコープ外に出る前に、MSBuild のバージョンで .Net 4.5 と Visual Studio 12.0 に配信された、UnloadProject を呼び出す必要があります。"
   syntax:
     content: public Microsoft.Build.Evaluation.Project LoadProject (System.Xml.XmlReader xmlReader, string toolsVersion);
     parameters:
     - id: xmlReader
       type: System.Xml.XmlReader
-      description: "Xml reader to read project source code from."
+      description: "プロジェクトのソース コードを読み取る Xml リーダー。"
     - id: toolsVersion
       type: System.String
-      description: "The tools version to use. May be null."
+      description: "使用するツール バージョン。 Null にすることがあります。"
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: "Returns the new project."
+      description: "新しいプロジェクトを返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadProject*
   exceptions: []
   platform:
@@ -714,23 +714,23 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Evaluates a project from the source code read from the given project file. The source code is evaluated with the given global properties and tools version."
-  remarks: "In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope."
+  summary: "指定したプロジェクト ファイルからの読み取り、ソース コードからプロジェクトを評価します。 ソース コードは、指定したグローバル プロパティとツール バージョン評価されます。"
+  remarks: "ProjectCollection がスコープ外に出る前に、MSBuild のバージョンで .Net 4.5 と Visual Studio 12.0 に配信された、UnloadProject を呼び出す必要があります。"
   syntax:
     content: public Microsoft.Build.Evaluation.Project LoadProject (string fileName, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion);
     parameters:
     - id: fileName
       type: System.String
-      description: "The project file to be evaluated."
+      description: "評価するプロジェクト ファイルです。"
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "The global properties to use. May be null, in which case the containing project collection&quot;s global properties will be used."
+      description: "使用するグローバル プロパティ。 Null も指定できます、この場合、親プロジェクト コレクションのグローバル プロパティが使用されます。"
     - id: toolsVersion
       type: System.String
-      description: "The tools version. May be null."
+      description: "ツール バージョン。 Null にすることがあります。"
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: "If an existing project in the collection has already been evaluated from the given project file, and with the given global properties and tools version, then the existing project is returned. Otherwise, a new project is created, evaluated, added to the project collection, and returned."
+      description: "既存のプロジェクト コレクションには、指定のグローバル プロパティとツール バージョンを使用して、指定したプロジェクト ファイルから既に評価されている、既存のプロジェクトが返されます。 それ以外の場合、新しいプロジェクトが作成、評価、プロジェクト コレクションに追加され返されます。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadProject*
   exceptions: []
   platform:
@@ -747,23 +747,23 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Evaluates a project from the source code read from the given XML reader. The source code is evaluated with the given global properties and tools version."
-  remarks: "The project is added to this project collection when either this project or the given project root is given the full path to a project file.       In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope."
+  summary: "指定した XML リーダーから読み取り、ソース コードからプロジェクトを評価します。 ソース コードは、指定したグローバル プロパティとツール バージョン評価されます。"
+  remarks: "このプロジェクトまたは指定されたプロジェクトのルートには、プロジェクト ファイルへの完全パスを指定した場合、プロジェクトはこのプロジェクト コレクションに追加します。       ProjectCollection がスコープ外に出る前に、MSBuild のバージョンで .Net 4.5 と Visual Studio 12.0 に配信された、UnloadProject を呼び出す必要があります。"
   syntax:
     content: public Microsoft.Build.Evaluation.Project LoadProject (System.Xml.XmlReader xmlReader, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion);
     parameters:
     - id: xmlReader
       type: System.Xml.XmlReader
-      description: "Xml reader to read project from"
+      description: "プロジェクトを読み取る Xml リーダー"
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "The global properties to use. May be null in which case the containing project collection&quot;s global properties will be used."
+      description: "使用するグローバル プロパティ。 Null の場合、親プロジェクト コレクションのグローバル プロパティが使用する場合があります。"
     - id: toolsVersion
       type: System.String
-      description: "The tools version. May be null."
+      description: "ツール バージョン。 Null にすることがあります。"
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: "Returns the new project."
+      description: "新しいプロジェクトを返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadProject*
   exceptions: []
   platform:
@@ -780,13 +780,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets all loggers that projects in this collection can use for their builds."
-  remarks: "Loggers are added with the <xref:Microsoft.Build.Evaluation.ProjectCollection.RegisterLogger%2A> method."
+  summary: "このコレクション内のプロジェクトは、ビルドに使用できるすべてのロガーを取得します。"
+  remarks: "ロガーを使用して追加、<xref:Microsoft.Build.Evaluation.ProjectCollection.RegisterLogger%2A>メソッド</xref:Microsoft.Build.Evaluation.ProjectCollection.RegisterLogger%2A>。"
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Framework.ILogger> Loggers { get; }
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Framework.ILogger}
-      description: "Returns all loggers that projects in this collection can use for their builds."
+      description: "ビルドに使用できるは、このコレクション内のプロジェクトのすべてのロガーを返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.Loggers*
   exceptions: []
   platform:
@@ -803,12 +803,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets or sets a switch that determines whether only critical events such as warnings and errors are logged."
+  summary: "取得または警告やエラーなどの重大なイベントだけを記録するかどうかを決定するスイッチを設定します。"
   syntax:
     content: public bool OnlyLogCriticalEvents { get; set; }
     return:
       type: System.Boolean
-      description: "If true, only critical events such as warnings and errors are logged; false otherwise."
+      description: "True の場合は、警告やエラーなどの重大なイベントだけが記録されます。false それ以外の場合。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.OnlyLogCriticalEvents*
   exceptions: []
   platform:
@@ -825,12 +825,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Event that is fired when a project is added to the ProjectRootElementCache of this project collection."
+  summary: "プロジェクトがこのプロジェクト コレクションの ProjectRootElementCache に追加されたときに発生するイベントです。"
   syntax:
     content: public event Microsoft.Build.Evaluation.ProjectCollection.ProjectAddedEventHandler ProjectAdded;
     return:
       type: Microsoft.Build.Evaluation.ProjectCollection.ProjectAddedEventHandler
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -846,13 +846,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Raised when a <xref href=&quot;Microsoft.Build.Evaluation.Project&quot;></xref> contained by this instance is directly changed."
-  remarks: "This event is NOT raised for direct project XML changes via the construction model."
+  summary: "いつ発生するか、 <xref href=&quot;Microsoft.Build.Evaluation.Project&quot;> </xref>これに含まれているインスタンスを直接変更します。"
+  remarks: "このイベントは、構築モデルを使用して直接プロジェクト XML の変更は発生しません。"
   syntax:
     content: public event EventHandler<Microsoft.Build.Evaluation.ProjectChangedEventArgs> ProjectChanged;
     return:
       type: System.EventHandler{Microsoft.Build.Evaluation.ProjectChangedEventArgs}
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -868,13 +868,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Raised when state is changed on this instance."
-  remarks: "This event is NOT raised for changes in individual projects."
+  summary: "このインスタンスの状態が変更されたときに発生します。"
+  remarks: "このイベントは、個々 のプロジェクト内の変更は発生しません。"
   syntax:
     content: public event EventHandler<Microsoft.Build.Evaluation.ProjectCollectionChangedEventArgs> ProjectCollectionChanged;
     return:
       type: System.EventHandler{Microsoft.Build.Evaluation.ProjectCollectionChangedEventArgs}
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -890,13 +890,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Raised when a <xref href=&quot;Microsoft.Build.Construction.ProjectRootElement&quot;></xref> contained by this instance is changed."
-  remarks: "This event is NOT raised for changes to global properties, or any other change that doesn&quot;t actually dirty the XML."
+  summary: "いつ発生するか、 <xref href=&quot;Microsoft.Build.Construction.ProjectRootElement&quot;> </xref>これに含まれているインスタンスを変更します。"
+  remarks: "このイベントは、グローバル プロパティに対する変更の XML をダーティが実際にその他のすべての変更は発生しません。"
   syntax:
     content: public event EventHandler<Microsoft.Build.Evaluation.ProjectXmlChangedEventArgs> ProjectXmlChanged;
     return:
       type: System.EventHandler{Microsoft.Build.Evaluation.ProjectXmlChangedEventArgs}
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -912,13 +912,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Adds the given remote loggers to the collection of remote loggers used for builds of projects in this collection."
+  summary: "このコレクション内のプロジェクトのビルドに使用されるリモート ロガーのコレクションを指定したリモート ロガーを追加します。"
   syntax:
     content: public void RegisterForwardingLoggers (System.Collections.Generic.IEnumerable<Microsoft.Build.Logging.ForwardingLoggerRecord> remoteLoggers);
     parameters:
     - id: remoteLoggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Logging.ForwardingLoggerRecord}
-      description: "The remote loggers to add. May be null."
+      description: "追加するリモート ロガー。 Null にすることがあります。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.RegisterForwardingLoggers*
   exceptions: []
   platform:
@@ -935,14 +935,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Adds the given logger to the collection of loggers used for builds of projects in this collection."
-  remarks: "If the logger object is already in the collection, does nothing."
+  summary: "このコレクション内のプロジェクトのビルドに使用されるロガーのコレクションに指定したロガーを追加します。"
+  remarks: "ロガー オブジェクトがコレクション内で既に場合は、何も行われません。"
   syntax:
     content: public void RegisterLogger (Microsoft.Build.Framework.ILogger logger);
     parameters:
     - id: logger
       type: Microsoft.Build.Framework.ILogger
-      description: "The logger to add."
+      description: "追加するロガー。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.RegisterLogger*
   exceptions: []
   platform:
@@ -959,14 +959,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Adds the given loggers to the collection of loggers used for builds of projects in this collection."
-  remarks: "Skips any logger objects that are already in the collection."
+  summary: "このコレクション内のプロジェクトのビルドに使用されるロガーのコレクションを指定したロガーを追加します。"
+  remarks: "コレクションに既に存在するすべてのロガー オブジェクトをスキップします。"
   syntax:
     content: public void RegisterLoggers (System.Collections.Generic.IEnumerable<Microsoft.Build.Framework.ILogger> loggers);
     parameters:
     - id: loggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Framework.ILogger}
-      description: "The loggers to be added. May be null."
+      description: "追加するロガー。 Null にすることがあります。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.RegisterLoggers*
   exceptions: []
   platform:
@@ -983,7 +983,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes all toolsets from the project collection."
+  summary: "プロジェクト コレクションからすべてのツールセットを削除します。"
   syntax:
     content: public void RemoveAllToolsets ();
     parameters: []
@@ -1003,16 +1003,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes a global property from the set of default global properties."
+  summary: "既定のグローバル プロパティのセットからグローバル プロパティを削除します。"
   syntax:
     content: public bool RemoveGlobalProperty (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the default global property to remove."
+      description: "削除する既定のグローバル プロパティの名前。"
     return:
       type: System.Boolean
-      description: "Returns true if the global property is present before removal; false otherwise."
+      description: "グローバル プロパティが削除前に存在する場合、true を返しますfalse それ以外の場合。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.RemoveGlobalProperty*
   exceptions: []
   platform:
@@ -1029,16 +1029,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes a toolset from the project collection."
+  summary: "プロジェクト コレクションからツールセットを削除します。"
   syntax:
     content: public bool RemoveToolset (string toolsVersion);
     parameters:
     - id: toolsVersion
       type: System.String
-      description: "The toolset to be removed."
+      description: "削除するツールセット。"
     return:
       type: System.Boolean
-      description: "Returns true if the toolset is present before removal; false otherwise."
+      description: "ツールセットが削除前に存在する場合、true を返しますfalse それ以外の場合。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.RemoveToolset*
   exceptions: []
   platform:
@@ -1055,17 +1055,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Sets the value of a property in the default set of global properties."
-  remarks: "If no matching property is found, the property is created and initialized with the given value."
+  summary: "グローバル プロパティの既定値では、プロパティの値セットを設定します。"
+  remarks: "一致するプロパティが見つからない場合は、プロパティが作成され、指定された値で初期化します。"
   syntax:
     content: public void SetGlobalProperty (string name, string value);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the default global property to be added or set."
+      description: "追加またはに設定する既定のグローバル プロパティの名前。"
     - id: value
       type: System.String
-      description: "The new value of the default global property."
+      description: "既定のグローバル プロパティの新しい値。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.SetGlobalProperty*
   exceptions: []
   platform:
@@ -1082,12 +1082,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets or sets a flag the determines whether ReevaluateIfNecessary is temporarily disabled on projects in this collection. This is useful when the host expects to make a number of reads and writes to projects, and wants to temporarily sacrifice correctness for performance."
+  summary: "フラグの設定を取得または、このコレクション内のプロジェクトで、ReevaluateIfNecessary を一時的に無効するかどうかを決定します。 これは、ホストが多数の読み書きを行う必要がプロジェクトに対してときに、一時的にパフォーマンスの正確性を犠牲にする必要があり。"
   syntax:
     content: public bool SkipEvaluation { get; set; }
     return:
       type: System.Boolean
-      description: "Returns a flag the determines whether ReevaluateIfNecessary is temporarily disabled."
+      description: "フラグを返します、ReevaluateIfNecessary を一時的に無効にするかどうかを決定します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.SkipEvaluation*
   exceptions: []
   platform:
@@ -1104,12 +1104,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the locations used to find the toolsets."
+  summary: "ツールセットを検索する場所を取得します。"
   syntax:
     content: public Microsoft.Build.Evaluation.ToolsetDefinitionLocations ToolsetLocations { get; }
     return:
       type: Microsoft.Build.Evaluation.ToolsetDefinitionLocations
-      description: "Returns the locations used to find the toolsets."
+      description: "ツールセットを検索する場所を返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.ToolsetLocations*
   exceptions: []
   platform:
@@ -1126,12 +1126,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the toolsets available to this project collection."
+  summary: "このプロジェクト コレクションに使用できるツールセットを取得します。"
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.Toolset> Toolsets { get; }
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Evaluation.Toolset}
-      description: "Returns the toolsets available to this project collection."
+      description: "このプロジェクト コレクションに使用できるツールセットを返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.Toolsets*
   exceptions: []
   platform:
@@ -1148,16 +1148,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Attempts to remove a project from the collection."
+  summary: "プロジェクト コレクションから削除しようとしています。"
   syntax:
     content: public bool TryUnloadProject (Microsoft.Build.Construction.ProjectRootElement projectRootElement);
     parameters:
     - id: projectRootElement
       type: Microsoft.Build.Construction.ProjectRootElement
-      description: "The root element of the project to unload."
+      description: "アンロードするプロジェクトのルート要素です。"
     return:
       type: System.Boolean
-      description: "Returns true if the project was unloaded."
+      description: "プロジェクトが読み込まれなかった場合は true を返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.TryUnloadProject*
   exceptions: []
   platform:
@@ -1174,17 +1174,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Converts escaped characters in a string to MSBuild characters with special meaning."
-  remarks: "For example, &quot;%3b&quot; is converted to &quot;;&quot;."
+  summary: "変換では、特別な意味を持つ MSBuild の文字に文字列の文字がエスケープされます。"
+  remarks: "たとえば、&quot;%3b&quot;に変換は「;」です。"
   syntax:
     content: public static string Unescape (string escapedString);
     parameters:
     - id: escapedString
       type: System.String
-      description: "The string to be converted."
+      description: "変換する文字列。"
     return:
       type: System.String
-      description: "Returns the converted string."
+      description: "変換後の文字列を返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.Unescape*
   exceptions: []
   platform:
@@ -1201,8 +1201,8 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes all projects in this project collection."
-  remarks: "The host should call this method when it no longer needs the projects."
+  summary: "このプロジェクト コレクション内のすべてのプロジェクトを削除します。"
+  remarks: "ホストは、プロジェクトが必要がなくなったときに、このメソッドを呼び出す必要があります。"
   syntax:
     content: public void UnloadAllProjects ();
     parameters: []
@@ -1222,19 +1222,19 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes a project root element from the project root cache."
-  remarks: "This method is useful for the case where the host knows that all projects using this root element have been removed, and that any unsaved changes should be discarded."
+  summary: "プロジェクトのルート要素をプロジェクト ルート キャッシュから削除します。"
+  remarks: "このメソッドは、ホストがこのルート要素を使用してすべてのプロジェクトが削除されていると、未保存の変更を破棄する必要があることを認識する場合に役立ちます。"
   syntax:
     content: public void UnloadProject (Microsoft.Build.Construction.ProjectRootElement projectRootElement);
     parameters:
     - id: projectRootElement
       type: Microsoft.Build.Construction.ProjectRootElement
-      description: "The project root element to unload."
+      description: "アンロードするプロジェクトのルート要素です。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.UnloadProject*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Thrown if the project root element to unload is still in use by a loaded project or its imports."
+    description: "アンロードするプロジェクトのルート要素は、読み込まれたプロジェクトまたはそのインポートで使用されている場合にスローされます。"
   platform:
   - net462
 - uid: Microsoft.Build.Evaluation.ProjectCollection.UnloadProject(Microsoft.Build.Evaluation.Project)
@@ -1249,14 +1249,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes the given project from the project collection."
-  remarks: "The host should call this method when it no longer needs the project.       Throws InvalidOperationException if the given project is not present in the project collection."
+  summary: "プロジェクト コレクションから指定したプロジェクトを削除します。"
+  remarks: "ホストは、プロジェクトが必要がなくなったときに、このメソッドを呼び出す必要があります。       指定されたプロジェクトが、プロジェクト コレクションで存在しない場合は、InvalidOperationException をスローします。"
   syntax:
     content: public void UnloadProject (Microsoft.Build.Evaluation.Project project);
     parameters:
     - id: project
       type: Microsoft.Build.Evaluation.Project
-      description: "The project to remove."
+      description: "プロジェクトを削除します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.UnloadProject*
   exceptions: []
   platform:
@@ -1273,7 +1273,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes all loggers from the collection of loggers used by project builds in this collection."
+  summary: "このコレクション内でビルドするプロジェクトで使用されるロガーのコレクションからすべてのロガーを削除します。"
   syntax:
     content: public void UnregisterAllLoggers ();
     parameters: []
@@ -1293,13 +1293,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the file version of the assembly file that contains the MSBuild engine."
-  remarks: "This is the Windows file version (specifically the value of the ProductVersion resource), which is not necessarily the assembly version. To obtain the assembly version, use Constants.AssemblyVersion.       See also the <xref:Microsoft.Build.Evaluation.ProjectCollection.ToolsetsVersion%2A>."
+  summary: "MSBuild エンジンを含むアセンブリ ファイルのファイル バージョンを取得します。"
+  remarks: "これは Windows ファイル バージョン (具体的には、ProductVersion リソースの値)、アセンブリのバージョンとは限りません。 アセンブリのバージョンを取得するには、Constants.AssemblyVersion を使用します。       <xref:Microsoft.Build.Evaluation.ProjectCollection.ToolsetsVersion%2A>。</xref:Microsoft.Build.Evaluation.ProjectCollection.ToolsetsVersion%2A>も参照してください。"
   syntax:
     content: public static Version Version { get; }
     return:
       type: System.Version
-      description: "Returns the file version of the assembly file that contains the MSBuild engine."
+      description: "MSBuild エンジンを含むアセンブリ ファイルのファイル バージョンを返します。"
   overload: Microsoft.Build.Evaluation.ProjectCollection.Version*
   exceptions: []
   platform:

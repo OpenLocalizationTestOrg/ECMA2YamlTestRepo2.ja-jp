@@ -28,8 +28,8 @@ items:
   nameWithType: ModelItem
   fullName: System.Activities.Presentation.Model.ModelItem
   type: Class
-  summary: "Represents a single item in the editing model. An item can be anything from a complex data structure down to a color or integer."
-  remarks: "You can access the item’s properties through its <xref:System.Activities.Presentation.Model.ModelItem.Properties%2A> collection and make changes to the values of the properties.       A ModelItem is a wrapper around the underlying data model of the designer. You can access the underlying model through the <xref:System.Activities.Presentation.Model.ModelItem.GetCurrentValue%2A> method.      > [!NOTE] >  Any changes you make to an object returned from the <xref:System.Activities.Presentation.Model.ModelItem.GetCurrentValue%2A> method will not be reflected by the serialization and undo systems of the designer."
+  summary: "編集モデル内の&1; つの項目を表します。 色や整数まで、複雑なデータ構造から何も項目があることができます。"
+  remarks: "を介して、項目のプロパティにアクセスすることができます、<xref:System.Activities.Presentation.Model.ModelItem.Properties%2A>プロパティの値を収集して設定を変更します</xref:System.Activities.Presentation.Model.ModelItem.Properties%2A>。       ModelItem は、デザイナーの基になるデータ モデルのラッパーです。 使用して、基になるモデルにアクセスすることができます、<xref:System.Activities.Presentation.Model.ModelItem.GetCurrentValue%2A>メソッド</xref:System.Activities.Presentation.Model.ModelItem.GetCurrentValue%2A>。      > [!NOTE] > から返されたオブジェクトに加えた変更はすべて、<xref:System.Activities.Presentation.Model.ModelItem.GetCurrentValue%2A>メソッドは、デザイナーのシリアル化と取り消しシステムでは反映されません</xref:System.Activities.Presentation.Model.ModelItem.GetCurrentValue%2A>。"
   example:
   - "The ModelItem can be thought of as a thin proxy for an object at which it points. First define a simple `Animal` object.  \n  \n```  \n  \npublic class Animal  \n{  \n    // simple property  \n    public string Name { get; set; }  \n    // complex property   \n    public Location Residence { get; set; }   \n    // list   \n    public List<Animal> CloseRelatives { get; set; }  \n    // dictionary  \n    public Dictionary<string, object> Features { get; set; }   \n}  \n  \npublic class Location  \n{  \n    public string StreetAddress { get; set; }  \n    public string City { get; set; }  \n    public string State { get; set; }   \n}  \n  \n```  \n  \n Secondly, create an instance of that `Animal` and a ModelItem that is a proxy for it. The object can then be retrieved by calling <xref:System.Activities.Presentation.Model.ModelItem.GetCurrentValue%2A>. The following code also shows how to use other properties defined by ModelItem.  \n  \n```  \n  \nEditingContext ec = new EditingContext();  \nvar companion1 = new Animal { Name = \"Houdini the parakeet\" };  \nvar companion2 = new Animal { Name = \"Groucho the fish\" };  \nvar animal = new Animal   \n   {  \n      Name = \"Sasha the pug\",  \n      Residence = new Location   \n      {  \n         StreetAddress = \"123 Main Street\",  \n         City = \"AnyTown\",  \n         State = \"Washington\"  \n      },  \n      Features = new Dictionary<string, object> {   \n         {\"noise\", \"snort\" },  \n         {\"MeanTimeUntilNaps\", TimeSpan.FromMinutes(15) }  \n      },  \n      CloseRelatives = new List<Animal> { companion1, companion2 }   \n   };  \nModelTreeManager mtm = new ModelTreeManager(ec);  mtm.Load(animal);  \nModelItem mi = mtm.Root;  \n  \n//Testing other properties of the class  \nModelItem root = mtm.Root;  \nAssert.IsTrue(root.GetCurrentValue() == animal, \"GetCurrentValue() returns same object\");  \nAssert.IsTrue(root.ItemType == typeof(Animal),\"ItemType describes the item\");  \nAssert.IsTrue(root.Parent == null,\"root parent is null\");  \nAssert.IsTrue(root.Source == null, \"root source is null\");  \nAssert.IsTrue(((List<Animal>)root.Properties[\"CloseRelatives\"].ComputedValue)[0] == companion1,   \n   \"ComputedValue of prop == actual object\");  \nAssert.IsFalse(((List<Animal>)root.Properties[\"CloseRelatives\"].ComputedValue)[0] == companion2,   \n   \"ComputedValue of prop == actual object\");  \nAssert.AreEqual(root.Properties[\"Residence\"].  \n   Value.  \n   Properties[\"StreetAddress\"].  \n   Value.GetCurrentValue(), \"123 Main Street\", \"get actual value back out\");  \nAssert.AreEqual(root, root.Properties[\"Residence\"].Parent, \"property points to owner\");  \nModelItem location = root.Properties[\"Residence\"].Value;  \nAssert.AreEqual(root.Properties[\"Residence\"], location.Source, \"sources point to the right place\");  \n  \n```"
   syntax:
@@ -53,7 +53,7 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Creates a new instance of the <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref> class."
+  summary: "新しいインスタンスを作成、 <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;> </xref>クラスです。"
   syntax:
     content: protected ModelItem ();
     parameters: []
@@ -73,12 +73,12 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Gets the attributes declared on this item."
+  summary: "この項目で宣言された属性を取得します。"
   syntax:
     content: public abstract System.ComponentModel.AttributeCollection Attributes { get; }
     return:
       type: System.ComponentModel.AttributeCollection
-      description: "A collection that contains the attributes of the item."
+      description: "項目の属性を含むコレクション。"
   overload: System.Activities.Presentation.Model.ModelItem.Attributes*
   exceptions: []
   platform:
@@ -95,14 +95,14 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Opens an editing scope for the designer. After an editing scope is open, all changes across all objects will be saved into the scope until the transaction is completed or reverted. Editing scopes can be nested, but must be committed in order."
-  remarks: "An editing scope allows multiple changes to the model to be applied as a single transaction. All of the changes made within the editing scope can be reverted at any time before the transaction is completed.       Editing scopes are global to the designer. An editing scope can be created for any item in the designer; you do not need to create an editing scope for the specific item you are changing."
+  summary: "デザイナーの編集スコープを開きます。 編集スコープを開いた後、トランザクションが完了するか元に戻すまですべてのオブジェクトの変更はすべてはスコープに保存されます。 編集スコープは、入れ子にすることができますが、順序でコミットする必要があります。"
+  remarks: "編集スコープには、1 つのトランザクションとして適用されるモデルに複数の変更ができます。 トランザクションが完了前にいつでも編集スコープ内で行われた変更はすべて元に戻すことができます。       編集スコープはデザイナーに対してグローバルです。 デザイナー内のすべての項目について編集スコープを作成できます。変更する特定の項目の編集スコープを作成する必要はありません。"
   syntax:
     content: public abstract System.Activities.Presentation.Model.ModelEditingScope BeginEdit ();
     parameters: []
     return:
       type: System.Activities.Presentation.Model.ModelEditingScope
-      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelEditingScope&quot;></xref>, which must be either completed or reverted."
+      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelEditingScope&quot;> </xref>、する必要がある完了したか元に戻します。"
   overload: System.Activities.Presentation.Model.ModelItem.BeginEdit*
   exceptions: []
   platform:
@@ -119,16 +119,16 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Opens an editing scope for the designer."
+  summary: "デザイナーの編集スコープを開きます。"
   syntax:
     content: public virtual System.Activities.Presentation.Model.ModelEditingScope BeginEdit (bool shouldApplyChangesImmediately);
     parameters:
     - id: shouldApplyChangesImmediately
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to indicate that the changes should be applied immediately; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>変更する必要があります。 すぐに適用されることを示すためにそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
     return:
       type: System.Activities.Presentation.Model.ModelEditingScope
-      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelEditingScope&quot;></xref>, which must be either completed or reverted."
+      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelEditingScope&quot;> </xref>、する必要がある完了したか元に戻します。"
   overload: System.Activities.Presentation.Model.ModelItem.BeginEdit*
   exceptions: []
   platform:
@@ -145,17 +145,17 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Opens an editing scope for the designer. After an editing scope is open, all changes across all objects will be saved into the scope until the transaction is completed or reverted. Editing scopes can be nested, but must be committed in order."
-  remarks: "An editing scope allows multiple changes to the model to be applied as a single transaction. All of the changes made within the editing scope can be reverted at any time before the transaction is completed.       Editing scopes are global to the designer. An editing scope can be created for any item in the designer; you do not need to create an editing scope for the specific item you are changing."
+  summary: "デザイナーの編集スコープを開きます。 編集スコープを開いた後、トランザクションが完了するか元に戻すまですべてのオブジェクトの変更はすべてはスコープに保存されます。 編集スコープは、入れ子にすることができますが、順序でコミットする必要があります。"
+  remarks: "編集スコープには、1 つのトランザクションとして適用されるモデルに複数の変更ができます。 トランザクションが完了前にいつでも編集スコープ内で行われた変更はすべて元に戻すことができます。       編集スコープはデザイナーに対してグローバルです。 デザイナー内のすべての項目について編集スコープを作成できます。変更する特定の項目の編集スコープを作成する必要はありません。"
   syntax:
     content: public abstract System.Activities.Presentation.Model.ModelEditingScope BeginEdit (string description);
     parameters:
     - id: description
       type: System.String
-      description: "An optional description of the change. This will be set into the <xref:System.Activities.Presentation.Model.ModelEditingScope.Description*> property of the editing scope."
+      description: "変更のオプションの説明。 設定されます、 <xref:System.Activities.Presentation.Model.ModelEditingScope.Description*>、編集スコープのプロパティ。</xref:System.Activities.Presentation.Model.ModelEditingScope.Description*> 。"
     return:
       type: System.Activities.Presentation.Model.ModelEditingScope
-      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelEditingScope&quot;></xref>, which must be either completed or reverted."
+      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelEditingScope&quot;> </xref>、する必要がある完了したか元に戻します。"
   overload: System.Activities.Presentation.Model.ModelItem.BeginEdit*
   exceptions: []
   platform:
@@ -172,19 +172,19 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Opens an editing scope for the designer."
+  summary: "デザイナーの編集スコープを開きます。"
   syntax:
     content: public virtual System.Activities.Presentation.Model.ModelEditingScope BeginEdit (string description, bool shouldApplyChangesImmediately);
     parameters:
     - id: description
       type: System.String
-      description: "An optional description of the change. This will be set into the <xref:System.Activities.Presentation.Model.ModelEditingScope.Description*> property of the editing scope."
+      description: "変更のオプションの説明。 設定されます、 <xref:System.Activities.Presentation.Model.ModelEditingScope.Description*>、編集スコープのプロパティ。</xref:System.Activities.Presentation.Model.ModelEditingScope.Description*> 。"
     - id: shouldApplyChangesImmediately
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to indicate that the changes should be applied immediately; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>変更する必要があります。 すぐに適用されることを示すためにそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
     return:
       type: System.Activities.Presentation.Model.ModelEditingScope
-      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelEditingScope&quot;></xref>, which must be either completed or reverted."
+      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelEditingScope&quot;> </xref>、する必要がある完了したか元に戻します。"
   overload: System.Activities.Presentation.Model.ModelItem.BeginEdit*
   exceptions: []
   platform:
@@ -201,12 +201,12 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Gets the <xref uid=&quot;langword_csharp_ContentPropertyAttribute&quot; name=&quot;ContentPropertyAttribute&quot; href=&quot;&quot;></xref> of the item, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+  summary: "取得、 <xref uid=&quot;langword_csharp_ContentPropertyAttribute&quot; name=&quot;ContentPropertyAttribute&quot; href=&quot;&quot;> </xref> 、アイテムのまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   syntax:
     content: public abstract System.Activities.Presentation.Model.ModelProperty Content { get; }
     return:
       type: System.Activities.Presentation.Model.ModelProperty
-      description: "The <xref uid=&quot;langword_csharp_ContentPropertyAttribute&quot; name=&quot;ContentPropertyAttribute&quot; href=&quot;&quot;></xref> of the item as a <xref href=&quot;System.Activities.Presentation.Model.ModelProperty&quot;></xref>. If the <xref uid=&quot;langword_csharp_ContentPropertyAttribute&quot; name=&quot;ContentPropertyAttribute&quot; href=&quot;&quot;></xref> is not declared by the <xref:System.Activities.Presentation.Model.ModelItem.ItemType*> of this item, Content returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "The <xref uid=&quot;langword_csharp_ContentPropertyAttribute&quot; name=&quot;ContentPropertyAttribute&quot; href=&quot;&quot;></xref> of the item as a <xref href=&quot;System.Activities.Presentation.Model.ModelProperty&quot;></xref>. 場合、 <xref uid=&quot;langword_csharp_ContentPropertyAttribute&quot; name=&quot;ContentPropertyAttribute&quot; href=&quot;&quot;> </xref>で宣言されていません、<xref:System.Activities.Presentation.Model.ModelItem.ItemType*>この項目のコンテンツを返します<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref></xref:System.Activities.Presentation.Model.ModelItem.ItemType*> 。"
   overload: System.Activities.Presentation.Model.ModelItem.Content*
   exceptions: []
   platform:
@@ -223,14 +223,14 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Returns the current value of the underlying model object that the <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref> is wrapping."
-  remarks: "You can inspect this object, but you should not make any changes to it. Changes made to the object returned will not be incorporated into the designer. The GetCurrentValue method can return either an existing or new cloned instance of the object."
+  summary: "基になるモデル オブジェクトの現在の値を返します、 <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;> </xref>折り返しがします。"
+  remarks: "このオブジェクトを検査することができます、それを変更しないようにします。 返されるオブジェクトに加えられた変更をデザイナーに組み込まれていません。 GetCurrentValue メソッドには、いずれか、既存または新規複製されたオブジェクトのインスタンスを返すことができます。"
   syntax:
     content: public abstract object GetCurrentValue ();
     parameters: []
     return:
       type: System.Object
-      description: "The current value of the underlying model object that the <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref> is wrapping as an <xref:System.Object>."
+      description: "基になるモデルの現在の値がオブジェクトを<xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;> </xref> <xref:System.Object>.</xref:System.Object>としてラップには"
   overload: System.Activities.Presentation.Model.ModelItem.GetCurrentValue*
   exceptions: []
   platform:
@@ -247,12 +247,12 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Gets the type of object that the item represents."
+  summary: "項目を表すオブジェクトの種類を取得します。"
   syntax:
     content: public abstract Type ItemType { get; }
     return:
       type: System.Type
-      description: "The type of object that the item represents."
+      description: "項目を表すオブジェクトの型。"
   overload: System.Activities.Presentation.Model.ModelItem.ItemType*
   exceptions: []
   platform:
@@ -269,13 +269,13 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Gets or sets the name or ID of the item."
-  remarks: "Not all items need to have names, so this might return `null`. Depending on the type of item and where it sits in the hierarchy, it might not always be legal to set the Name on an item. If the <xref:System.Activities.Presentation.Model.ModelItem.ItemType%2A> of this item declares a `RuntimeNamePropertyAttribute`, the  Name property is a direct mapping to the property dictated by that attribute."
+  summary: "取得または名またはアイテムの ID を設定します。"
+  remarks: "名前を持つこと、ため、これを返す可能性がありますいないすべての項目が必要な`null`します。 によっては、項目の種類と、階層におけるその位置、そのできない可能性があります常にアイテムの名前を設定します。 場合、<xref:System.Activities.Presentation.Model.ModelItem.ItemType%2A>この項目の宣言、 `RuntimeNamePropertyAttribute`、Name プロパティがその属性で使用されるプロパティに直接マップします</xref:System.Activities.Presentation.Model.ModelItem.ItemType%2A>。"
   syntax:
     content: public abstract string Name { get; set; }
     return:
       type: System.String
-      description: "The name or ID of the item as a <xref:System.String>."
+      description: "名前または<xref:System.String>。</xref:System.String>アイテムの ID"
   overload: System.Activities.Presentation.Model.ModelItem.Name*
   exceptions: []
   platform:
@@ -292,12 +292,12 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Gets the item that is the parent of this item."
+  summary: "この項目の親である項目を取得します。"
   syntax:
     content: public abstract System.Activities.Presentation.Model.ModelItem Parent { get; }
     return:
       type: System.Activities.Presentation.Model.ModelItem
-      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref> that is the parent of this item. If an item is contained in a collection or dictionary, the object that owns the collection or dictionary is returned instead."
+      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;> </xref>この項目の親であります。 項目がコレクション内またはディクショナリ内に含まれる場合、そのコレクションまたはディクショナリを所有するオブジェクトが代わりに返されます。"
   overload: System.Activities.Presentation.Model.ModelItem.Parent*
   exceptions: []
   platform:
@@ -314,12 +314,12 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Gets all parents of this item."
+  summary: "この項目のすべての親を取得します。"
   syntax:
     content: public abstract System.Collections.Generic.IEnumerable<System.Activities.Presentation.Model.ModelItem> Parents { get; }
     return:
       type: System.Collections.Generic.IEnumerable{System.Activities.Presentation.Model.ModelItem}
-      description: "The parents of this item."
+      description: "この項目の親。"
   overload: System.Activities.Presentation.Model.ModelItem.Parents*
   exceptions: []
   platform:
@@ -336,13 +336,13 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Gets the public properties on this item."
-  remarks: "The set of properties returned might change based on attached properties or changes to the editing scope."
+  summary: "この項目上のパブリック プロパティを取得します。"
+  remarks: "返されるプロパティのセットは、編集スコープに接続されているプロパティ、または変更に応じて異なる可能性があります。"
   syntax:
     content: public abstract System.Activities.Presentation.Model.ModelPropertyCollection Properties { get; }
     return:
       type: System.Activities.Presentation.Model.ModelPropertyCollection
-      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelItemCollection&quot;></xref> that contains the public properties of this item."
+      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelItemCollection&quot;> </xref>この項目のパブリック プロパティを格納します。"
   overload: System.Activities.Presentation.Model.ModelItem.Properties*
   exceptions: []
   platform:
@@ -359,13 +359,13 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Implements <xref uid=&quot;langword_csharp_INotifyPropertyChanged&quot; name=&quot;INotifyPropertyChanged&quot; href=&quot;&quot;></xref>. Use this event to listen for changes to the model. This is also used by the data binding features of WPF."
-  remarks: "Disconnect events from items when you are finished with them. Otherwise, you might prevent the garbage collector from disposing of an item that is no longer in use."
+  summary: "実装して<xref uid=&quot;langword_csharp_INotifyPropertyChanged&quot; name=&quot;INotifyPropertyChanged&quot; href=&quot;&quot;></xref>です。 このイベントを使用して、モデルに変更をリッスンします。 これは、WPF のデータ バインディング機能によっても使用されます。"
+  remarks: "処理が完了したときに、項目からイベントを切断します。 それ以外の場合、ガベージ コレクターを防ぐため、不要になった使用されている項目の破棄から可能性があります。"
   syntax:
     content: public abstract event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     return:
       type: System.ComponentModel.PropertyChangedEventHandler
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -381,12 +381,12 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Gets the item that is the root of this tree."
+  summary: "このツリーのルートであるアイテムを取得します。"
   syntax:
     content: public abstract System.Activities.Presentation.Model.ModelItem Root { get; }
     return:
       type: System.Activities.Presentation.Model.ModelItem
-      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref> that is the root of this tree, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if this item is not part of a tree."
+      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;> </xref>はこのツリーのルートまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>この項目は、ツリーの一部ではない場合。"
   overload: System.Activities.Presentation.Model.ModelItem.Root*
   exceptions: []
   platform:
@@ -403,13 +403,13 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Gets the property that provided this value."
-  remarks: "If the item represents the root of the object graph, this will return `null`. If an item is a member of a collection or dictionary, the property returned from Source will be a pseudo-property provided by the collection or dictionary. For other values, the Source property returns the property where the value was actually set. Therefore, if a value is being inherited, Source allows you to find out who originally provided the value."
+  summary: "この値を提供するプロパティを取得します。"
+  remarks: "かどうか、項目は、オブジェクト グラフのルートを表すが返されます`null`です。 項目がコレクションまたはディクショナリのメンバーである場合は、ソースから返されたプロパティはそのコレクションまたはディクショナリによって指定される擬似プロパティになります。 他の値では、基になるプロパティは、プロパティに対し、値が実際に設定を返します。 そのため、値が継承される場合ソース使用する本来の提供元の値を確認できます。"
   syntax:
     content: public abstract System.Activities.Presentation.Model.ModelProperty Source { get; }
     return:
       type: System.Activities.Presentation.Model.ModelProperty
-      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelProperty&quot;></xref> that indicates the source of this value."
+      description: "A <xref href=&quot;System.Activities.Presentation.Model.ModelProperty&quot;> </xref>この値のソースを示すです。"
   overload: System.Activities.Presentation.Model.ModelItem.Source*
   exceptions: []
   platform:
@@ -426,12 +426,12 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Gets all the properties that hold this value."
+  summary: "この値を保持するすべてのプロパティを取得します。"
   syntax:
     content: public abstract System.Collections.Generic.IEnumerable<System.Activities.Presentation.Model.ModelProperty> Sources { get; }
     return:
       type: System.Collections.Generic.IEnumerable{System.Activities.Presentation.Model.ModelProperty}
-      description: "The sources of this value."
+      description: "この値のソース。"
   overload: System.Activities.Presentation.Model.ModelItem.Sources*
   exceptions: []
   platform:
@@ -448,13 +448,13 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Returns a string representation of the underlying model object contained in this model item."
+  summary: "このモデル アイテムに含まれている基になるモデル オブジェクトの文字列表現を返します。"
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "A string representation of the underlying model object contained in this model item."
+      description: "このモデル アイテムに含まれている基になるモデル オブジェクトの文字列形式。"
   overload: System.Activities.Presentation.Model.ModelItem.ToString*
   exceptions: []
   platform:
@@ -471,12 +471,12 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Model
-  summary: "Gets a <xref href=&quot;System.Windows.DependencyObject&quot;></xref> that graphically represents this item."
+  summary: "取得、 <xref href=&quot;System.Windows.DependencyObject&quot;> </xref>この項目を表すグラフィカルに表示します。"
   syntax:
     content: public abstract System.Windows.DependencyObject View { get; }
     return:
       type: System.Windows.DependencyObject
-      description: "A <xref href=&quot;System.Windows.DependencyObject&quot;></xref> that graphically represents this item, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there is no such representation."
+      description: "A <xref href=&quot;System.Windows.DependencyObject&quot;> </xref>を視覚的に、この項目を表すまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>このような表現が存在しない場合。"
   overload: System.Activities.Presentation.Model.ModelItem.View*
   exceptions: []
   platform:
