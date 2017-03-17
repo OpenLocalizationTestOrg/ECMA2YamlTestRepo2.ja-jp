@@ -22,8 +22,8 @@ items:
   nameWithType: ObjectManager
   fullName: System.Runtime.Serialization.ObjectManager
   type: Class
-  summary: "Keeps track of objects as they are deserialized."
-  remarks: "During deserialization, the <xref:System.Runtime.Serialization.Formatter> queries the ObjectManager to determine whether a reference to an object in the serialized stream refers to an object that has already been deserialized (a backward reference), or to an object that has not yet been deserialized (a forward reference). If the reference in the serialized stream is a forward reference, then the <xref:System.Runtime.Serialization.Formatter> can register a fixup with the ObjectManager. If the reference in the serialized stream is a backward reference, the <xref:System.Runtime.Serialization.Formatter> immediately completes the reference. Fixup refers to the process of finalizing object references not already completed during the object deserialization process. After the required object has been deserialized, the ObjectManager will complete the reference.       The ObjectManager follows a set of rules that dictate the fixup order. All objects that implement <xref:System.Runtime.Serialization.ISerializable> or have a <xref:System.Runtime.Serialization.ISerializationSurrogate> can expect to have all the objects that they transmitted through <xref:System.Runtime.Serialization.SerializationInfo> available when the object tree is deserialized. However, a parent object cannot presume that all its child objects will be fully completed when it is fully deserialized. All child objects will be present but not all the grandchild objects will necessarily be present. If an object needs to take certain actions that depend on executing code on its child objects, it can delay these actions, implement the <xref:System.Runtime.Serialization.IDeserializationCallback> interface, and execute the code only when it is called back on this interface."
+  summary: "追跡オブジェクトとは逆シリアル化します。"
+  remarks: "逆シリアル化中に、<xref:System.Runtime.Serialization.Formatter>を逆シリアル化された、既にしているオブジェクト参照参照シリアル化ストリーム内のオブジェクトへの参照が、(旧バージョンとリファレンス) を使用するかどうかを判断する ObjectManager をクエリがないまだ逆シリアル化されたオブジェクトに (前方参照).</xref:System.Runtime.Serialization.Formatter> シリアル化ストリーム内の参照が前方参照の場合、 <xref:System.Runtime.Serialization.Formatter>ObjectManager で fixup を登録できます</xref:System.Runtime.Serialization.Formatter>。 シリアル化ストリーム内の参照が旧バージョンとの参照の場合、<xref:System.Runtime.Serialization.Formatter>参照をすぐに完了します</xref:System.Runtime.Serialization.Formatter>。 フィックス アップは、既に完了していないオブジェクトの逆シリアル化プロセス中にオブジェクト参照を最終処理中のプロセスを指します。 必要なオブジェクトが逆シリアル化、ObjectManager 参照によって完了します。       ObjectManager では、一連のフィックス アップ順序を指定するルールに従います。 実装するすべてのオブジェクト<xref:System.Runtime.Serialization.ISerializable>ことも、<xref:System.Runtime.Serialization.ISerializationSurrogate>経由で送信される、すべてのオブジェクトに予想される、<xref:System.Runtime.Serialization.SerializationInfo>オブジェクト ツリーが逆シリアル化されるときに使用できます</xref:System.Runtime.Serialization.SerializationInfo></xref:System.Runtime.Serialization.ISerializationSurrogate></xref:System.Runtime.Serialization.ISerializable>。 ただし、親オブジェクトでは、すべての子オブジェクトが完全に完了完全に逆シリアル化されることはできません推測します。 すべての子オブジェクトは存在しますが、孫のすべてのオブジェクトが存在するとは限りません。 オブジェクトは、その子オブジェクトでのコードの実行に依存する特定のアクションを実行する必要がある場合、これらのアクションの遅延、実装、<xref:System.Runtime.Serialization.IDeserializationCallback>インターフェイス、および戻るこのインターフェイスで呼び出されるときにのみ、コードを実行します</xref:System.Runtime.Serialization.IDeserializationCallback>。"
   example:
   - "The following code example shows how to use the ObjectManager class to walk through an object graph, traversing to each object only once.  \n  \n [!code-cs[ObjectManager#1](~/add/codesnippet/csharp/t-system.runtime.seriali_0_1.cs)]"
   syntax:
@@ -49,21 +49,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.Runtime.Serialization.ObjectManager&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Runtime.Serialization.ObjectManager&quot;> </xref>クラスです。"
   syntax:
     content: public ObjectManager (System.Runtime.Serialization.ISurrogateSelector selector, System.Runtime.Serialization.StreamingContext context);
     parameters:
     - id: selector
       type: System.Runtime.Serialization.ISurrogateSelector
-      description: "The surrogate selector to use. The <xref href=&quot;System.Runtime.Serialization.ISurrogateSelector&quot;></xref> determines the correct surrogate to use when deserializing objects of a given type. At deserialization time, the surrogate selector creates a new instance of the object from the information transmitted on the stream."
+      description: "使用するサロゲート セレクター。 <xref href=&quot;System.Runtime.Serialization.ISurrogateSelector&quot;> </xref>指定された型のオブジェクトを逆シリアル化時に使用する正しいサロゲートを決定します。 逆シリアル化時に、サロゲート セレクターは、ストリームで送信される情報からオブジェクトの新しいインスタンスを作成します。"
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "The streaming context. The <xref:System.Runtime.Serialization.StreamingContext> is not used by <xref uid=&quot;langword_csharp_ObjectManager&quot; name=&quot;ObjectManager&quot; href=&quot;&quot;></xref>, but is passed as a parameter to any objects implementing <xref href=&quot;System.Runtime.Serialization.ISerializable&quot;></xref> or having a <xref href=&quot;System.Runtime.Serialization.ISerializationSurrogate&quot;></xref>. These objects can take specific actions depending on the source of the information to deserialize."
+      description: "ストリーミング コンテキスト。 <xref:System.Runtime.Serialization.StreamingContext>で使用されていない<xref uid=&quot;langword_csharp_ObjectManager&quot; name=&quot;ObjectManager&quot; href=&quot;&quot;> </xref>、実装する任意のオブジェクトに対するパラメーターとして渡されますが、 <xref href=&quot;System.Runtime.Serialization.ISerializable&quot;> </xref>句または having、 <xref href=&quot;System.Runtime.Serialization.ISerializationSurrogate&quot;> </xref></xref:System.Runtime.Serialization.StreamingContext> 。 これらのオブジェクトは、逆シリアル化する情報のソースに応じて、特定のアクションを実行できます。"
   overload: System.Runtime.Serialization.ObjectManager.#ctor*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "呼び出し元には、必要なアクセス許可がありません。"
   platform:
   - net462
 - uid: System.Runtime.Serialization.ObjectManager.DoFixups
@@ -78,8 +78,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Performs all the recorded fixups."
-  remarks: "The fixups are carried out by any appropriate surrogate, the object itself (if it implements <xref:System.Runtime.Serialization.ISerializable>), or the default implementation."
+  summary: "記録されたすべてのフィックス アップを実行します。"
+  remarks: "フィックス アップがすべて該当するサロゲート、オブジェクト自体によって実行されます (実装している場合<xref:System.Runtime.Serialization.ISerializable>)、または既定の実装</xref:System.Runtime.Serialization.ISerializable>。"
   syntax:
     content: public virtual void DoFixups ();
     parameters: []
@@ -87,7 +87,7 @@ items:
   exceptions:
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: "A fixup was not successfully completed."
+    description: "Fixup が正常に完了しませんでした。"
   platform:
   - net462
 - uid: System.Runtime.Serialization.ObjectManager.GetObject(System.Int64)
@@ -102,22 +102,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Returns the object with the specified object ID."
-  remarks: "An object can be registered and issued an object ID with a call to the <xref:System.Runtime.Serialization.ObjectManager.RegisterObject%2A> method."
+  summary: "指定したオブジェクト ID を持つオブジェクトを返します"
+  remarks: "オブジェクトを登録およびへの呼び出しでオブジェクト ID を発行することができます、<xref:System.Runtime.Serialization.ObjectManager.RegisterObject%2A>メソッド</xref:System.Runtime.Serialization.ObjectManager.RegisterObject%2A>。"
   syntax:
     content: public virtual object GetObject (long objectID);
     parameters:
     - id: objectID
       type: System.Int64
-      description: "The ID of the requested object."
+      description: "要求されたオブジェクトの ID です。"
     return:
       type: System.Object
-      description: "The object with the specified object ID if it has been previously stored or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no such object has been registered."
+      description: "指定したオブジェクト ID が既に格納されている場合のオブジェクトまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>場合、このようなオブジェクトが登録されていません。"
   overload: System.Runtime.Serialization.ObjectManager.GetObject*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The <code>objectID</code> parameter is less than or equal to zero."
+    description: "<code> objectID </code>パラメーターが&0; 未満です。"
   platform:
   - net462
 - uid: System.Runtime.Serialization.ObjectManager.RaiseDeserializationEvent
@@ -132,7 +132,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Raises the deserialization event to any registered object that implements <xref href=&quot;System.Runtime.Serialization.IDeserializationCallback&quot;></xref>."
+  summary: "実装する登録済みのオブジェクトに逆シリアル化イベントを発生させます<xref href=&quot;System.Runtime.Serialization.IDeserializationCallback&quot;></xref>です。"
   syntax:
     content: public virtual void RaiseDeserializationEvent ();
     parameters: []
@@ -152,13 +152,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Invokes the method marked with the <xref:System.Runtime.Serialization.OnDeserializingAttribute>."
+  summary: "<xref:System.Runtime.Serialization.OnDeserializingAttribute>。</xref:System.Runtime.Serialization.OnDeserializingAttribute>でマークされたメソッドを呼び出します"
   syntax:
     content: public void RaiseOnDeserializingEvent (object obj);
     parameters:
     - id: obj
       type: System.Object
-      description: "The instance of the type that contains the method to be invoked."
+      description: "呼び出されるメソッドを含む型のインスタンス。"
   overload: System.Runtime.Serialization.ObjectManager.RaiseOnDeserializingEvent*
   exceptions: []
   platform:
@@ -175,25 +175,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Records a fixup for one element in an array."
-  remarks: "The fixup is for a specified element of a specified array. The value used during the fixup process is provided in the `objectRequired` parameter."
+  summary: "配列内の&1; つの要素のフィックス アップを記録します。"
+  remarks: "フィックス アップは、指定した配列の指定した要素のことです。 修正プロセス中に使用される値が提供される、`objectRequired`パラメーター。"
   syntax:
     content: public virtual void RecordArrayElementFixup (long arrayToBeFixed, int index, long objectRequired);
     parameters:
     - id: arrayToBeFixed
       type: System.Int64
-      description: "The ID of the array used to record a fixup."
+      description: "フィックス アップを記録するために使用する配列の ID。"
     - id: index
       type: System.Int32
-      description: "The index within `arrayFixup` that a fixup is requested for."
+      description: "内のインデックス`arrayFixup`フィックス アップが要求されます。"
     - id: objectRequired
       type: System.Int64
-      description: "The ID of the object that the current array element will point to after fixup is completed."
+      description: "フィックス アップが完了した後に、現在の配列要素が指すオブジェクトの ID。"
   overload: System.Runtime.Serialization.ObjectManager.RecordArrayElementFixup*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The <code>arrayToBeFixed</code> or <code>objectRequired</code> parameter is less than or equal to zero."
+    description: "<code> arrayToBeFixed </code>または<code> objectRequired </code>パラメーターが&0; 未満です。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: "The <code>index</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
@@ -211,25 +211,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Records fixups for the specified elements in an array, to be executed later."
-  remarks: "The fixup is for specified elements of a specified array. The value used during the fixup process is provided in the `objectRequired` parameter."
+  summary: "後で実行するために、配列内の指定した要素のフィックス アップを記録します。"
+  remarks: "フィックス アップは、指定した配列の指定した要素です。 修正プロセス中に使用される値が提供される、`objectRequired`パラメーター。"
   syntax:
     content: public virtual void RecordArrayElementFixup (long arrayToBeFixed, int[] indices, long objectRequired);
     parameters:
     - id: arrayToBeFixed
       type: System.Int64
-      description: "The ID of the array used to record a fixup."
+      description: "フィックス アップを記録するために使用する配列の ID。"
     - id: indices
       type: System.Int32[]
-      description: "The indexes within the multidimensional array that a fixup is requested for."
+      description: "Fixup が要求される多次元配列内のインデックス。"
     - id: objectRequired
       type: System.Int64
-      description: "The ID of the object the array elements will point to after fixup is completed."
+      description: "オブジェクトの ID、配列の要素が指すフィックス アップが完了した後です。"
   overload: System.Runtime.Serialization.ObjectManager.RecordArrayElementFixup*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The <code>arrayToBeFixed</code> or <code>objectRequired</code> parameter is less than or equal to zero."
+    description: "<code> arrayToBeFixed </code>または<code> objectRequired </code>パラメーターが&0; 未満です。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: "The <code>indices</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
@@ -247,25 +247,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Records a fixup for an object member, to be executed later."
-  remarks: "The fixup is for a specified member of a specified object. The value to be used during the fixup process is provided as the `objectRequired` argument."
+  summary: "後で実行するために、オブジェクト メンバーのフィックス アップを記録します。"
+  remarks: "フィックス アップは、指定したオブジェクトの指定したメンバーのことです。 としてフィックス アップ処理中に使用される値を指定、`objectRequired`引数。"
   syntax:
     content: public virtual void RecordDelayedFixup (long objectToBeFixed, string memberName, long objectRequired);
     parameters:
     - id: objectToBeFixed
       type: System.Int64
-      description: "The ID of the object that needs the reference to `objectRequired`."
+      description: "参照を必要とするオブジェクトの ID`objectRequired`です。"
     - id: memberName
       type: System.String
-      description: "The member name of `objectToBeFixed` where the fixup will be performed."
+      description: "メンバー名`objectToBeFixed`フィックス アップを実行します。"
     - id: objectRequired
       type: System.Int64
-      description: "The ID of the object required by `objectToBeFixed`."
+      description: "必要なオブジェクトの ID`objectToBeFixed`です。"
   overload: System.Runtime.Serialization.ObjectManager.RecordDelayedFixup*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>objectToBeFixed</code> or <code>objectRequired</code> parameter is less than or equal to zero."
+    description: "<code>objectToBeFixed</code>または<code>objectRequired</code>パラメーターが&0; 未満です。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: "The <code>memberName</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
@@ -283,25 +283,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Records a fixup for a member of an object, to be executed later."
-  remarks: "The fixup is for a specified member of a specified object. The value to be used during the fixup process is provided as the `objectRequired` parameter."
+  summary: "後で実行するには、オブジェクトのメンバーのフィックス アップを記録します。"
+  remarks: "フィックス アップは、指定したオブジェクトの指定したメンバーのことです。 としてフィックス アップ処理中に使用される値を指定、`objectRequired`のパラメーターです。"
   syntax:
     content: public virtual void RecordFixup (long objectToBeFixed, System.Reflection.MemberInfo member, long objectRequired);
     parameters:
     - id: objectToBeFixed
       type: System.Int64
-      description: "The ID of the object that needs the reference to the `objectRequired` object."
+      description: "参照を必要とするオブジェクトの ID、`objectRequired`オブジェクト。"
     - id: member
       type: System.Reflection.MemberInfo
-      description: "The member of `objectToBeFixed` where the fixup will be performed."
+      description: "メンバーの`objectToBeFixed`フィックス アップを実行します。"
     - id: objectRequired
       type: System.Int64
-      description: "The ID of the object required by `objectToBeFixed`."
+      description: "必要なオブジェクトの ID`objectToBeFixed`です。"
   overload: System.Runtime.Serialization.ObjectManager.RecordFixup*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The <code>objectToBeFixed</code> or <code>objectRequired</code> parameter is less than or equal to zero."
+    description: "<code> objectToBeFixed </code>または<code> objectRequired </code>パラメーターが&0; 未満です。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: "The <code>member</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
@@ -319,17 +319,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Registers an object as it is deserialized, associating it with <code>objectID</code>."
-  remarks: "<xref:System.Runtime.Serialization.ObjectManager> retains information about both the object and its ID. Later during deserialization, <xref:System.Runtime.Serialization.ObjectManager.GetObject%2A> can be used to determine whether a particular object ID has already been deserialized, or whether it is a forward reference to an object that has not yet been deserialized."
+  summary: "オブジェクトは、逆シリアル化に関連付けられたレジスタ<code> objectID</code>です。"
+  remarks: "<xref:System.Runtime.Serialization.ObjectManager>オブジェクトとその ID の両方に関する情報を保持します。</xref:System.Runtime.Serialization.ObjectManager> 逆シリアル化後<xref:System.Runtime.Serialization.ObjectManager.GetObject%2A>かどうかは、特定のオブジェクト ID は既に逆シリアル化された、または前方参照がないまだ逆シリアル化されたオブジェクトにあるかどうかを決定するために使用できます</xref:System.Runtime.Serialization.ObjectManager.GetObject%2A>。"
   syntax:
     content: public virtual void RegisterObject (object obj, long objectID);
     parameters:
     - id: obj
       type: System.Object
-      description: "The object to register."
+      description: "登録するオブジェクト。"
     - id: objectID
       type: System.Int64
-      description: "The ID of the object to register."
+      description: "登録するオブジェクトの ID。"
   overload: System.Runtime.Serialization.ObjectManager.RegisterObject*
   exceptions:
   - type: System.ArgumentNullException
@@ -337,10 +337,10 @@ items:
     description: "The <code>obj</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The <code>objectID</code> parameter is less than or equal to zero."
+    description: "<code> objectID </code>パラメーターが&0; 未満です。"
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: "The <code>objectID</code> has already been registered for an object other than <code>obj</code>."
+    description: "<code> objectID </code>は既に登録されて、オブジェクト以外の<code> obj</code>です。"
   platform:
   - net462
 - uid: System.Runtime.Serialization.ObjectManager.RegisterObject(System.Object,System.Int64,System.Runtime.Serialization.SerializationInfo)
@@ -355,20 +355,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Registers an object as it is deserialized, associating it with <code>objectID</code>, and recording the <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref> used with it."
-  remarks: "<xref:System.Runtime.Serialization.ObjectManager> retains the information about both the object and its ID. Later during deserialization, you can use <xref:System.Runtime.Serialization.ObjectManager.GetObject%2A> to discover whether a particular object ID has already been deserialized, or if it is a forward reference to an object that has not yet been deserialized."
+  summary: "オブジェクトは、逆シリアル化に関連付けられたレジスタ<code> objectID </code>、および録画、 <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;> </xref>一緒に使用します。"
+  remarks: "<xref:System.Runtime.Serialization.ObjectManager>オブジェクトとその ID の両方に関する情報を保持します。</xref:System.Runtime.Serialization.ObjectManager> 逆シリアル化中に後で行うこともできます<xref:System.Runtime.Serialization.ObjectManager.GetObject%2A>がないまだ逆シリアル化されたオブジェクトへの前方参照がある場合または ID は既に逆シリアル化された、特定のオブジェクトかどうかを検出します</xref:System.Runtime.Serialization.ObjectManager.GetObject%2A>。"
   syntax:
     content: public void RegisterObject (object obj, long objectID, System.Runtime.Serialization.SerializationInfo info);
     parameters:
     - id: obj
       type: System.Object
-      description: "The object to register."
+      description: "登録するオブジェクト。"
     - id: objectID
       type: System.Int64
-      description: "The ID of the object to register."
+      description: "登録するオブジェクトの ID。"
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref> used if `obj` implements <xref href=&quot;System.Runtime.Serialization.ISerializable&quot;></xref> or has a <xref href=&quot;System.Runtime.Serialization.ISerializationSurrogate&quot;></xref>. `info` will be completed with any required fixup information and then passed to the required object when that object is completed."
+      description: "The <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref> used if `obj` implements <xref href=&quot;System.Runtime.Serialization.ISerializable&quot;></xref> or has a <xref href=&quot;System.Runtime.Serialization.ISerializationSurrogate&quot;></xref>. `info`必要なフィックス アップについては、正常に完了せず、そのオブジェクトが完了したときに必要なオブジェクトに渡され、します。"
   overload: System.Runtime.Serialization.ObjectManager.RegisterObject*
   exceptions:
   - type: System.ArgumentNullException
@@ -376,10 +376,10 @@ items:
     description: "The <code>obj</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The <code>objectID</code> parameter is less than or equal to zero."
+    description: "<code> objectID </code>パラメーターが&0; 未満です。"
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: "The <code>objectID</code> has already been registered for an object other than <code>obj</code>."
+    description: "<code> objectID </code>は既に登録されて、オブジェクト以外の<code> obj</code>です。"
   platform:
   - net462
 - uid: System.Runtime.Serialization.ObjectManager.RegisterObject(System.Object,System.Int64,System.Runtime.Serialization.SerializationInfo,System.Int64,System.Reflection.MemberInfo)
@@ -394,26 +394,26 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Registers a member of an object as it is deserialized, associating it with <code>objectID</code>, and recording the <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref>."
-  remarks: "You need to provide the `member` and `idOfContainingObj` parameters if `obj` is a <xref:System.ValueType> because of the way fixups are performed on <xref:System.ValueType> objects. The space to store the information for a <xref:System.ValueType> is allocated inline with its containing object. However, when the <xref:System.ValueType> is boxed to be registered with the <xref:System.Runtime.Serialization.ObjectManager>, it loses the connection with its containing object. To guarantee that fixups occur in the instance of the <xref:System.ValueType> stored in the containing object and not in the boxed instance, the <xref:System.Runtime.Serialization.ObjectManager> retains some additional information.       <xref:System.Runtime.Serialization.ObjectManager> retains information about both the object and its ID. Later during deserialization, <xref:System.Runtime.Serialization.ObjectManager.GetObject%2A> can be used to discover whether a particular object ID has already been deserialized, or whether it is a forward reference to an object not yet deserialized."
+  summary: "オブジェクトのメンバーは、逆シリアル化に関連付けられたレジスタ<code> objectID </code>、および録画、 <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref>です。"
+  remarks: "指定する必要があります、`member`と`idOfContainingObj`パラメーター場合`obj`は、<xref:System.ValueType>方法により、フィックス アップを実行して、<xref:System.ValueType>オブジェクト</xref:System.ValueType></xref:System.ValueType>。 情報を格納する領域、<xref:System.ValueType>インラインで含まれるオブジェクトが割り当てられます</xref:System.ValueType>。 ただし、<xref:System.ValueType>を登録することをボックス化、 <xref:System.Runtime.Serialization.ObjectManager>、親オブジェクトとの接続は失われます</xref:System.Runtime.Serialization.ObjectManager></xref:System.ValueType>。 フィックス アップがのインスタンスで実行することを保証するために、<xref:System.ValueType>とボックス化されたインスタンスではなく親オブジェクトに格納、<xref:System.Runtime.Serialization.ObjectManager>いくつかの情報を保持します</xref:System.Runtime.Serialization.ObjectManager></xref:System.ValueType>。       <xref:System.Runtime.Serialization.ObjectManager>オブジェクトとその ID の両方に関する情報を保持します。</xref:System.Runtime.Serialization.ObjectManager> 逆シリアル化後<xref:System.Runtime.Serialization.ObjectManager.GetObject%2A>を特定のオブジェクト ID は既に逆シリアル化された、またはまだ逆シリアル化するかどうかは、オブジェクトへの前方参照かどうかを検出するために使用できます</xref:System.Runtime.Serialization.ObjectManager.GetObject%2A>。"
   syntax:
     content: public void RegisterObject (object obj, long objectID, System.Runtime.Serialization.SerializationInfo info, long idOfContainingObj, System.Reflection.MemberInfo member);
     parameters:
     - id: obj
       type: System.Object
-      description: "The object to register."
+      description: "登録するオブジェクト。"
     - id: objectID
       type: System.Int64
-      description: "The ID of the object to register."
+      description: "登録するオブジェクトの ID。"
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref> used if `obj` implements <xref href=&quot;System.Runtime.Serialization.ISerializable&quot;></xref> or has a <xref href=&quot;System.Runtime.Serialization.ISerializationSurrogate&quot;></xref>. `info` will be completed with any required fixup information and then passed to the required object when that object is completed."
+      description: "The <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref> used if `obj` implements <xref href=&quot;System.Runtime.Serialization.ISerializable&quot;></xref> or has a <xref href=&quot;System.Runtime.Serialization.ISerializationSurrogate&quot;></xref>. `info`必要なフィックス アップについては、正常に完了せず、そのオブジェクトが完了したときに必要なオブジェクトに渡され、します。"
     - id: idOfContainingObj
       type: System.Int64
-      description: "The ID of the object that contains `obj`. This parameter is required only if `obj` is a value type."
+      description: "含むオブジェクトの ID`obj`です。 場合にのみ、このパラメーターは必須`obj`は値型です。"
     - id: member
       type: System.Reflection.MemberInfo
-      description: "The field in the containing object where `obj` exists. This parameter has meaning only if `obj` is a value type."
+      description: "親オブジェクト内のフィールドを`obj`が存在します。 このパラメーターには意味がある場合にのみ`obj`は値型です。"
   overload: System.Runtime.Serialization.ObjectManager.RegisterObject*
   exceptions:
   - type: System.ArgumentNullException
@@ -421,10 +421,10 @@ items:
     description: "The <code>obj</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The <code>objectID</code> parameter is less than or equal to zero."
+    description: "<code> objectID </code>パラメーターが&0; 未満です。"
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: "The <code>objectID</code> has already been registered for an object other than <code>obj</code>, or <code>member</code> is not a <xref:System.Reflection.FieldInfo> and <code>member</code> is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "The <code>objectID</code> has already been registered for an object other than <code>obj</code>, or <code>member</code> is not a <xref:System.Reflection.FieldInfo> and <code>member</code> is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.</xref:System.Reflection.FieldInfo>"
   platform:
   - net462
 - uid: System.Runtime.Serialization.ObjectManager.RegisterObject(System.Object,System.Int64,System.Runtime.Serialization.SerializationInfo,System.Int64,System.Reflection.MemberInfo,System.Int32[])
@@ -439,29 +439,29 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Registers a member of an array contained in an object while it is deserialized, associating it with <code>objectID</code>, and recording the <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref>."
-  remarks: "You need to provide the `member` and `idOfContainingObj` parameters if `obj` is a <xref:System.ValueType> because of the way fixups are performed on <xref:System.ValueType> objects. The space to store the information for a <xref:System.ValueType> is allocated inline with its containing object. However, when the <xref:System.ValueType> is boxed to be registered with the <xref:System.Runtime.Serialization.ObjectManager>, it loses the connection with its containing object. To guarantee that fixups occur in the instance of the <xref:System.ValueType> stored in the containing object and not in the boxed instance, the <xref:System.Runtime.Serialization.ObjectManager> retains some additional information.       <xref:System.Runtime.Serialization.ObjectManager> retains information about both the object and its ID. Later during deserialization, <xref:System.Runtime.Serialization.ObjectManager.GetObject%2A> can be used to discover whether a particular object ID has already been deserialized, or whether it is a forward reference to an object not yet deserialized."
+  summary: "関連付けることが逆シリアル化中に、オブジェクトに含まれる配列のメンバーを登録<code> objectID </code>、および録画、 <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref>です。"
+  remarks: "指定する必要があります、`member`と`idOfContainingObj`パラメーター場合`obj`は、<xref:System.ValueType>方法により、フィックス アップを実行して、<xref:System.ValueType>オブジェクト</xref:System.ValueType></xref:System.ValueType>。 情報を格納する領域、<xref:System.ValueType>インラインで含まれるオブジェクトが割り当てられます</xref:System.ValueType>。 ただし、<xref:System.ValueType>を登録することをボックス化、 <xref:System.Runtime.Serialization.ObjectManager>、親オブジェクトとの接続は失われます</xref:System.Runtime.Serialization.ObjectManager></xref:System.ValueType>。 フィックス アップがのインスタンスで実行することを保証するために、<xref:System.ValueType>とボックス化されたインスタンスではなく親オブジェクトに格納、<xref:System.Runtime.Serialization.ObjectManager>いくつかの情報を保持します</xref:System.Runtime.Serialization.ObjectManager></xref:System.ValueType>。       <xref:System.Runtime.Serialization.ObjectManager>オブジェクトとその ID の両方に関する情報を保持します。</xref:System.Runtime.Serialization.ObjectManager> 逆シリアル化後<xref:System.Runtime.Serialization.ObjectManager.GetObject%2A>を特定のオブジェクト ID は既に逆シリアル化された、またはまだ逆シリアル化するかどうかは、オブジェクトへの前方参照かどうかを検出するために使用できます</xref:System.Runtime.Serialization.ObjectManager.GetObject%2A>。"
   syntax:
     content: public void RegisterObject (object obj, long objectID, System.Runtime.Serialization.SerializationInfo info, long idOfContainingObj, System.Reflection.MemberInfo member, int[] arrayIndex);
     parameters:
     - id: obj
       type: System.Object
-      description: "The object to register."
+      description: "登録するオブジェクト。"
     - id: objectID
       type: System.Int64
-      description: "The ID of the object to register."
+      description: "登録するオブジェクトの ID。"
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref> used if `obj` implements <xref href=&quot;System.Runtime.Serialization.ISerializable&quot;></xref> or has a <xref href=&quot;System.Runtime.Serialization.ISerializationSurrogate&quot;></xref>. `info` will be completed with any required fixup information and then passed to the required object when that object is completed."
+      description: "The <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref> used if `obj` implements <xref href=&quot;System.Runtime.Serialization.ISerializable&quot;></xref> or has a <xref href=&quot;System.Runtime.Serialization.ISerializationSurrogate&quot;></xref>. `info`必要なフィックス アップについては、正常に完了せず、そのオブジェクトが完了したときに必要なオブジェクトに渡され、します。"
     - id: idOfContainingObj
       type: System.Int64
-      description: "The ID of the object that contains `obj`. This parameter is required only if `obj` is a value type."
+      description: "含むオブジェクトの ID`obj`です。 場合にのみ、このパラメーターは必須`obj`は値型です。"
     - id: member
       type: System.Reflection.MemberInfo
-      description: "The field in the containing object where `obj` exists. This parameter has meaning only if `obj` is a value type."
+      description: "親オブジェクト内のフィールドを`obj`が存在します。 このパラメーターには意味がある場合にのみ`obj`は値型です。"
     - id: arrayIndex
       type: System.Int32[]
-      description: "If `obj` is a <xref:System.ValueType> and a member of an array, `arrayIndex` contains the index within that array where `obj` exists. `arrayIndex` is ignored if `obj` is not both a <xref:System.ValueType> and a member of an array."
+      description: "場合`obj`は、<xref:System.ValueType>であり、配列のメンバー`arrayIndex`その配列内のインデックスが含まれています、`obj`が存在します</xref:System.ValueType>。 `arrayIndex`場合は無視されます`obj`は両方とも、<xref:System.ValueType>であり、配列のメンバー</xref:System.ValueType> 。"
   overload: System.Runtime.Serialization.ObjectManager.RegisterObject*
   exceptions:
   - type: System.ArgumentNullException
@@ -469,10 +469,10 @@ items:
     description: "The <code>obj</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The <code>objectID</code> parameter is less than or equal to zero."
+    description: "<code> objectID </code>パラメーターが&0; 未満です。"
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: "The <code>objectID</code> has already been registered for an object other than <code>obj</code>, or <code>member</code> is not a <xref:System.Reflection.FieldInfo> and <code>member</code> isn&quot;t <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "The <code>objectID</code> has already been registered for an object other than <code>obj</code>, or <code>member</code> is not a <xref:System.Reflection.FieldInfo> and <code>member</code> isn&quot;t <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.</xref:System.Reflection.FieldInfo>"
   platform:
   - net462
 references:

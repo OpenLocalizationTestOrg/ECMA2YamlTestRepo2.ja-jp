@@ -14,8 +14,8 @@ items:
   nameWithType: IResourceWriter
   fullName: System.Resources.IResourceWriter
   type: Interface
-  summary: "Provides the base functionality for writing resources to an output file or stream."
-  remarks: "Resource writers are used to write resources to files in a particular file format. Implement this interface if you want to control the way in which a resource file is written (for example, to store resources in something other than a .txt, .resx, or binary .resources file). Otherwise, use the default <xref:System.Resources.ResourceWriter> class, which writes resources to a binary .resources file, or the <xref:System.Resources.ResXResourceWriter> class, which writes resources to an XML resource (.resx) file."
+  summary: "出力ファイルまたはストリームにリソースを書き込むための基本的な機能を提供します。"
+  remarks: "リソース ライターは、特定のファイル形式のファイルへのリソースの書き込みに使用されます。 リソース ファイル (たとえば、.txt、.resx、またはバイナリ .resources ファイル以外の何かのリソースを保管する場合など) を記述する方法を制御する場合は、このインターフェイスを実装します。 それ以外の場合、既定値を使用して<xref:System.Resources.ResourceWriter>クラスは、リソースをバイナリ .resources ファイルに書き込み、または<xref:System.Resources.ResXResourceWriter>クラスは、XML リソース (.resx) ファイルにリソースを書き込みます</xref:System.Resources.ResXResourceWriter></xref:System.Resources.ResourceWriter>。"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -37,17 +37,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Adds an 8-bit unsigned integer array as a named resource to the list of resources to be written."
-  remarks: "The resources are not written until the <xref:System.Resources.IResourceWriter.Generate%2A> method is called."
+  summary: "書き込むリソースの一覧に名前付きリソースとして、8 ビット符号なし整数の配列を追加します。"
+  remarks: "リソースがまで書き込まれていない、<xref:System.Resources.IResourceWriter.Generate%2A>メソッドが呼び出されます</xref:System.Resources.IResourceWriter.Generate%2A>。"
   syntax:
     content: public void AddResource (string name, byte[] value);
     parameters:
     - id: name
       type: System.String
-      description: "Name of a resource."
+      description: "リソースの名前です。"
     - id: value
       type: System.Byte[]
-      description: "Value of a resource as an 8-bit unsigned integer array."
+      description: "8 ビット符号なし整数の配列として、リソースの値です。"
   overload: System.Resources.IResourceWriter.AddResource*
   exceptions:
   - type: System.ArgumentNullException
@@ -67,17 +67,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Adds a named resource of type <xref:System.Object> to the list of resources to be written."
-  remarks: "The resource is not written until the <xref:System.Resources.IResourceWriter.Generate%2A> method is called.      > [!NOTE] >  `value` might have to be serializable, so you might have to provide a type converter, depending on which resource writer is used."
+  summary: "型の名前付きリソースの追加<xref:System.Object>書き込むリソースの一覧にします</xref:System.Object>。"
+  remarks: "リソースはまで書き込まれません、<xref:System.Resources.IResourceWriter.Generate%2A>メソッドが呼び出されます</xref:System.Resources.IResourceWriter.Generate%2A>。      > [!NOTE]  >   `value`シリアル化する必要があります、ため、型コンバーターを提供する必要があります、どのリソースに応じてライターが使用されます。"
   syntax:
     content: public void AddResource (string name, object value);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the resource."
+      description: "リソースの名前。"
     - id: value
       type: System.Object
-      description: "The value of the resource."
+      description: "リソースの値です。"
   overload: System.Resources.IResourceWriter.AddResource*
   exceptions:
   - type: System.ArgumentNullException
@@ -97,17 +97,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Adds a named resource of type <xref:System.String> to the list of resources to be written."
-  remarks: "The resource is not written until the <xref:System.Resources.IResourceWriter.Generate%2A> method is called."
+  summary: "型の名前付きリソースの追加<xref:System.String>書き込むリソースの一覧にします</xref:System.String>。"
+  remarks: "リソースはまで書き込まれません、<xref:System.Resources.IResourceWriter.Generate%2A>メソッドが呼び出されます</xref:System.Resources.IResourceWriter.Generate%2A>。"
   syntax:
     content: public void AddResource (string name, string value);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the resource."
+      description: "リソースの名前。"
     - id: value
       type: System.String
-      description: "The value of the resource."
+      description: "リソースの値です。"
   overload: System.Resources.IResourceWriter.AddResource*
   exceptions:
   - type: System.ArgumentException
@@ -127,8 +127,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Closes the underlying resource file or stream, ensuring all the data has been written to the file."
-  remarks: "If necessary, Close will call the <xref:System.Resources.IResourceWriter.Generate%2A> method to output the resources to the underlying file or stream before closing it."
+  summary: "基になるリソース ファイルまたはファイルにデータが書き込まれたすべてのことを確認して、ストリームを閉じます。"
+  remarks: "必要に応じて、閉じるが呼び出す<xref:System.Resources.IResourceWriter.Generate%2A>、基になるファイルまたはそれを閉じる前にストリームにリソースを出力する方法</xref:System.Resources.IResourceWriter.Generate%2A>"
   syntax:
     content: public void Close ();
     parameters: []
@@ -148,8 +148,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Writes all the resources added by the <xref:System.Resources.IResourceWriter.AddResource*> method to the output file or stream."
-  remarks: "Generate does not close the output file or output stream. Instead, consider calling the <xref:System.Resources.IResourceWriter.Close%2A> method. Generate is useful when you want to create a resource file, but you don&quot;t want to close the output stream. Generate can be called only once. After you call Generate, all <xref:System.Resources.IResourceWriter> methods other than <xref:System.Resources.IResourceWriter.Close%2A> will throw an exception."
+  summary: "によって追加されたすべてのリソースを書き込み、<xref:System.Resources.IResourceWriter.AddResource*>出力ファイルまたはストリームする方法</xref:System.Resources.IResourceWriter.AddResource*>。"
+  remarks: "生成する出力ファイルまたは出力ストリームは閉じません。 代わりに、通話、<xref:System.Resources.IResourceWriter.Close%2A>メソッド</xref:System.Resources.IResourceWriter.Close%2A>。 生成は、リソース ファイルを作成する出力ストリームを閉じるしたくない場合に役立ちます。 生成&1; 回だけ呼び出すことができます。 生成する、呼び出し後にすべて<xref:System.Resources.IResourceWriter>以外のメソッド<xref:System.Resources.IResourceWriter.Close%2A>例外がスローされます</xref:System.Resources.IResourceWriter.Close%2A></xref:System.Resources.IResourceWriter>。"
   syntax:
     content: public void Generate ();
     parameters: []
