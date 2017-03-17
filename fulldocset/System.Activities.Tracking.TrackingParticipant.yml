@@ -14,8 +14,8 @@ items:
   nameWithType: TrackingParticipant
   fullName: System.Activities.Tracking.TrackingParticipant
   type: Class
-  summary: "The base class for workflow extensions that interact with the workflow tracking infrastructure and access tracking records."
-  remarks: "A tracking participant is registered to receive tracking records. Currently, any class that implements the tracking participant can be registered with the workflow instance to receive tracking records. If the tracking participant is third party code, ensure that this is not malicious code. The tracking participants run in the same process as the workflow instance and in the case of malicious tracking participants, this code could affect the overall workflow execution. The tracking records are delivered to the registered tracking participants as the workflow executes, so the developer should ensure that the tracking participant does not affect the running workflow by performing unintended operations within the track method. Examples of this could be the alteration of workflow variables or operations that take a long time."
+  summary: "ワークフロー追跡インフラストラクチャおよびアクセス追跡レコードと対話するワークフロー拡張機能の基本クラスです。"
+  remarks: "追跡参加要素は、追跡レコードの受信に登録されています。 現時点では、追跡参加要素を実装するクラスは、追跡レコードを受信するワークフロー インスタンスに登録できます。 追跡参加要素がサード パーティのコードの場合は、悪意のあるコードではないことを確認します。 追跡参加要素をワークフロー インスタンスと、悪意のある追跡参加要素の場合は、同じプロセスで実行して、このコードには、全体的なワークフローの実行に影響する可能性です。 追跡レコードに配信されます登録済みの追跡参加要素、ワークフローの実行時ようにする開発者は、する必要がある、追跡参加要素には影響しません、実行中のワークフロー追跡メソッド内での意図しない操作によって。 この例には、ワークフロー変数または時間がかかる操作の変更を加える可能性があります。"
   syntax:
     content: public abstract class TrackingParticipant
   inheritance:
@@ -36,7 +36,7 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, creates a new instance of the derived class."
+  summary: "派生クラスとして実装された場合は、派生クラスの新しいインスタンスを作成します。"
   syntax:
     content: protected TrackingParticipant ();
     parameters: []
@@ -56,26 +56,26 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, begins asynchronous processing of the tracking record."
-  remarks: "Participants are expected to begin a job to process the records and return an <xref:System.IAsyncResult> that the workflow runtime uses to wait for completion. The default implementation is to call <xref:System.Activities.Tracking.TrackingParticipant.Track%2A> and return a Completed status."
+  summary: "派生クラスとして実装された場合は、追跡レコードの非同期処理を開始します。"
+  remarks: "参加者をレコードの処理を返すジョブの開始をすること、<xref:System.IAsyncResult>の完了を待機する、ワークフロー ランタイムを使用します</xref:System.IAsyncResult>。 既定の実装が呼び出されて<xref:System.Activities.Tracking.TrackingParticipant.Track%2A>し、完了ステータスを返します</xref:System.Activities.Tracking.TrackingParticipant.Track%2A>。"
   syntax:
     content: protected virtual IAsyncResult BeginTrack (System.Activities.Tracking.TrackingRecord record, TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: record
       type: System.Activities.Tracking.TrackingRecord
-      description: "The generated tracking record."
+      description: "生成された追跡レコード。"
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the provider aborts the attempt."
+      description: "その後、プロバイダーが試行を中止するまでの時間。"
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called on completion of the operation."
+      description: "操作の完了時に呼び出されるメソッド。"
     - id: state
       type: System.Object
-      description: "A user-defined object that uniquely identifies this asynchronous operation."
+      description: "この非同期操作を一意に識別するユーザー定義のオブジェクト。"
     return:
       type: System.IAsyncResult
-      description: "The result of the operation."
+      description: "操作の結果です。"
   overload: System.Activities.Tracking.TrackingParticipant.BeginTrack*
   exceptions: []
   platform:
@@ -92,14 +92,14 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, represents the end of an asynchronous tracking operation."
-  remarks: "This method is expected to block until the tracking operation is complete."
+  summary: "派生クラスとして実装された場合は、非同期追跡操作の終了を表します。"
+  remarks: "このメソッドは、追跡操作が完了するまでブロックすると想定されます。"
   syntax:
     content: protected virtual void EndTrack (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The status of the operation."
+      description: "操作の状態。"
   overload: System.Activities.Tracking.TrackingParticipant.EndTrack*
   exceptions: []
   platform:
@@ -116,17 +116,17 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, used to synchronously process the tracking record."
-  remarks: "The track method is called when the workflow instance emits a tracking record."
+  summary: "派生クラスで実装された場合、同期的に、追跡レコードを処理するために使用します。"
+  remarks: "ワークフロー インスタンスが追跡レコードを生成したときに、追跡メソッドが呼び出されます。"
   syntax:
     content: protected abstract void Track (System.Activities.Tracking.TrackingRecord record, TimeSpan timeout);
     parameters:
     - id: record
       type: System.Activities.Tracking.TrackingRecord
-      description: "The generated tracking record."
+      description: "生成された追跡レコード。"
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the provider aborts the attempt."
+      description: "その後、プロバイダーが試行を中止するまでの時間。"
   overload: System.Activities.Tracking.TrackingParticipant.Track*
   exceptions: []
   platform:
@@ -143,13 +143,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "The tracking profile object used by the tracking participant. Before adding the tracking participant to the workflow extensions, the tracking profile is set on the participant."
-  remarks: "The tracking profile defines which tracking events are sent to this tracking participant."
+  summary: "追跡は、追跡参加要素によって使用されるオブジェクトをプロファイルします。 追跡参加要素をワークフロー拡張機能に追加する前に、追跡プロファイルは、参加要素で設定されます。"
+  remarks: "追跡プロファイルは、この追跡参加要素に送信されるどの追跡イベントを定義します。"
   syntax:
     content: public virtual System.Activities.Tracking.TrackingProfile TrackingProfile { get; set; }
     return:
       type: System.Activities.Tracking.TrackingProfile
-      description: "The tracking profile."
+      description: "追跡プロファイル。"
   overload: System.Activities.Tracking.TrackingParticipant.TrackingProfile*
   exceptions: []
   platform:

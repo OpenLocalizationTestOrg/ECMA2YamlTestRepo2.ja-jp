@@ -23,8 +23,8 @@ items:
   nameWithType: XamlServices
   fullName: System.Xaml.XamlServices
   type: Class
-  summary: "Provides higher-level services (static methods) for the common XAML tasks of reading XAML and writing an object graph; or reading an object graph and writing XAML file output for serialization purposes."
-  remarks: "The modes of the XamlServices class that are used in the most common XAML reading and writing scenarios rely on creating instances of XAML readers and XAML writers. These readers and writers are specialized but internal implementations of public classes, such as <xref:System.Xml.XmlReader>, <xref:System.Xaml.XamlXmlReader>, and <xref:System.Xaml.XamlObjectWriter>. To use XamlServices for most scenarios, you can rely on the default internal implementations to obtain the results that you want. For more specialized scenarios, you might define readers and writers yourself, and then pass them as arguments for overloads of the XamlServices methods.      > [!IMPORTANT] >  XamlServices is not the recommended XAML reading or XAML writing API set if you are processing WPF-defined types, or types based on WPF. For [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] usage, use <xref:System.Windows.Markup.XamlReader?displayProperty=fullName> for reading or loading XAML (or BAML); and <xref:System.Windows.Markup.XamlWriter?displayProperty=fullName> for writing back XAML. These classes use .NET Framework XAML Services APIs and the XAML readers and XAML writers internally in their implementation; however, they also provide support and specialized XAML schema context for WPF-specific concepts, such as optimizations for dependency properties and WPF known types."
+  summary: "XAML の読み取りと書き込み、オブジェクト グラフの一般的な XAML タスクを上位レベル サービス (静的メソッド) を提供します。または、オブジェクト グラフに読み取ったり書き込んだりのシリアル化の目的で XAML ファイルを出力します。"
+  remarks: "XamlServices クラスの最も一般的な XAML 読み取りと書き込みのシナリオで使用されるモードは、XAML リーダーと XAML ライターのインスタンスの作成に依存します。 これらのリーダーとライターなどは、パブリック クラスの特殊化されたが、内部実装<xref:System.Xml.XmlReader>、 <xref:System.Xaml.XamlXmlReader>、 <xref:System.Xaml.XamlObjectWriter></xref:System.Xaml.XamlObjectWriter> </xref:System.Xaml.XamlXmlReader> </xref:System.Xml.XmlReader> 。 XamlServices ほとんどのシナリオを使用するのには、する結果が得られる既定の内部実装に依存することができます。 専門的なシナリオでは、リーダーとライターをユーザー自身で定義し、XamlServices メソッドのオーバー ロードの引数として渡したり可能性があります。      > [!IMPORTANT] > XamlServices が推奨される XAML の読み取りまたは XAML の WPF 定義の型を処理している場合は、設定 API または WPF に基づいての種類の書き込みではありません。 [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)]使用法を使用して<xref:System.Windows.Markup.XamlReader?displayProperty=fullName>の読み取りまたは XAML (BAML); の読み込みと<xref:System.Windows.Markup.XamlWriter?displayProperty=fullName>XAML の書き戻し用</xref:System.Windows.Markup.XamlWriter?displayProperty=fullName></xref:System.Windows.Markup.XamlReader?displayProperty=fullName>。 これらのクラス .NET Framework XAML サービス Api と XAML リーダーと XAML ライターで内部的に使用しての実装です。ただしも提供のサポートと特殊な XAML スキーマ コンテキストと WPF の既知の型の依存関係プロパティの最適化などの WPF 固有の概念について説明します。"
   syntax:
     content: public static class XamlServices
   inheritance:
@@ -45,22 +45,22 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Loads a <xref:System.IO.Stream> source for a XAML reader and writes its output as an object graph."
-  remarks: "Different signatures for the Load method specify different types of input for the source XAML. The Load internal implementation first creates an <xref:System.Xml.XmlReader> by calling <xref:System.Xml.XmlReader.Create%28System.IO.Stream%29> and then creates a new instance of a specialized <xref:System.Xaml.XamlReader> that processes the input.       In order for the Load call to successfully create an object graph, the following must be true:      -   The source is well-formed and valid XML.      -   The source is valid XAML at the language level.      -   The XAML types that are specified in the source XAML must resolve to backing types in the relevant XAML namespaces. For example, XAML types for WPF namespaces can resolve to a WPF XAML namespace as specified in the XAML; the assemblies for WPF must be included in the project or available in the run time; and so on.      > [!IMPORTANT] >  <xref:System.Xaml.XamlServices> is not the recommended XAML reading or XAML writing API set if you are processing [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] types, or types based on [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)]. For [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] usage, use <xref:System.Windows.Markup.XamlReader?displayProperty=fullName> for reading or loading XAML; and <xref:System.Windows.Markup.XamlWriter?displayProperty=fullName> for writing back XAML. These classes use <xref:System.Xaml> APIs internally in their implementation; however, they also provide support for WPF-specific concepts that influence the nature of XAML reading and writing, such as optimizations for dependency properties."
+  summary: "読み込み、 <xref:System.IO.Stream>XAML リーダーのソースとして、オブジェクト グラフには、その出力を書き込みます</xref:System.IO.Stream>。"
+  remarks: "Load メソッドのシグネチャでは、XAML ソースに対する入力のさまざまな種類を指定します。 負荷の内部実装の最初の作成、<xref:System.Xml.XmlReader>を呼び出して<xref:System.Xml.XmlReader.Create%28System.IO.Stream%29>し、専用の新しいインスタンスを作成<xref:System.Xaml.XamlReader>入力を処理します</xref:System.Xaml.XamlReader></xref:System.Xml.XmlReader.Create%28System.IO.Stream%29></xref:System.Xml.XmlReader>。       ロード呼び出しを正常にオブジェクト グラフを作成するためには、次を true にする必要があります:-ソースが適切な形式と有効な XML です。      -ソースは、言語レベルで有効な XAML です。      ソースで指定されている XAML 型 XAML は、関連の XAML 名前空間のバッキング型に解決される必要があります。 たとえば、XAML の WPF 名前空間の型は XAML; で指定されている WPF XAML 名前空間に解決します。WPF のアセンブリがプロジェクトに含まれているか、実行時に使用可能にする必要があります。などなど。      > [!IMPORTANT] ><xref:System.Xaml.XamlServices>が推奨される XAML の読み取り中か、API を記述する XAML を処理する場合の設定[!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)]型、または型に基づく[!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)]</xref:System.Xaml.XamlServices>。 [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)]使用法を使用して<xref:System.Windows.Markup.XamlReader?displayProperty=fullName>の読み取りまたは XAML での読み込みと<xref:System.Windows.Markup.XamlWriter?displayProperty=fullName>XAML の書き戻し用</xref:System.Windows.Markup.XamlWriter?displayProperty=fullName></xref:System.Windows.Markup.XamlReader?displayProperty=fullName>。 これらのクラスを使用して<xref:System.Xaml>; の実装で内部的に Api ただしもサポートして、XAML の読み取りと書き込みの依存関係プロパティの最適化などの性質に影響を与える WPF 固有概念について説明します</xref:System.Xaml>。"
   syntax:
     content: public static object Load (System.IO.Stream stream);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The stream to load as input."
+      description: "入力として読み込むストリーム。"
     return:
       type: System.Object
-      description: "The object graph that is written as output."
+      description: "オブジェクト グラフは、出力として書き込まれる。"
   overload: System.Xaml.XamlServices.Load*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>stream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Xaml.XamlServices.Load(System.IO.TextReader)
@@ -75,22 +75,22 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Creates a XAML reader from a <xref:System.IO.TextReader>, and returns an object graph."
-  remarks: "In order to return the object graph, the `textReader` input should be constructed by using its relevant input. For example, it should pass a <xref:System.IO.StringReader> that is constructed by using a valid XAML-as-string input for the <xref:System.IO.StringReader.%23ctor%28System.String%29> constructor."
+  summary: "元の XAML リーダーの作成、 <xref:System.IO.TextReader>、オブジェクト グラフを返します</xref:System.IO.TextReader>。"
+  remarks: "オブジェクト グラフを返すために、`textReader`入力は、関連する入力を使用して構築する必要があります。 たとえば、渡す必要があります、<xref:System.IO.StringReader>の有効な XAML の文字列として入力を使用して構築する、<xref:System.IO.StringReader.%23ctor%28System.String%29>コンス トラクター</xref:System.IO.StringReader.%23ctor%28System.String%29> </xref:System.IO.StringReader> 。"
   syntax:
     content: public static object Load (System.IO.TextReader textReader);
     parameters:
     - id: textReader
       type: System.IO.TextReader
-      description: "The <xref:System.IO.TextReader> to use as the basis for the created <xref:System.Xml.XmlReader>."
+      description: "<xref:System.IO.TextReader>作成した<xref:System.Xml.XmlReader>。</xref:System.Xml.XmlReader>の基礎として使用するには</xref:System.IO.TextReader>"
     return:
       type: System.Object
-      description: "The object graph that is returned."
+      description: "オブジェクト グラフは、返されます。"
   overload: System.Xaml.XamlServices.Load*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>textReader</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>textReader</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Xaml.XamlServices.Load(System.String)
@@ -105,22 +105,22 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Loads a <xref:System.IO.Stream> source for a XAML reader and returns an object graph."
-  remarks: "Different signatures for the Load method specify different types of input for the source XAML. The Load internal implementation first creates an <xref:System.Xml.XmlReader> by calling <xref:System.Xml.XmlReader.Create%28System.String%29> and then creates a new instance of a specialized <xref:System.Xaml.XamlReader> that processes the input.       In order for the Load call to successfully create an object graph, the following must be true:      -   The source is well-formed and valid XML.      -   The source is valid XAML at the language level.      -   The XAML types that are specified in the source XAML must resolve to backing types in the relevant XAML namespaces. For example, XAML types for WPF namespaces can resolve to a WPF XAML namespace as specified in the XAML; the assemblies for WPF must be included in the project or be available in the run time; and so on."
+  summary: "読み込み、 <xref:System.IO.Stream>XAML リーダーのソース オブジェクト グラフを返します</xref:System.IO.Stream>。"
+  remarks: "Load メソッドのシグネチャでは、XAML ソースに対する入力のさまざまな種類を指定します。 負荷の内部実装を作成、<xref:System.Xml.XmlReader>を呼び出して<xref:System.Xml.XmlReader.Create%28System.String%29>し、専用の新しいインスタンスを作成<xref:System.Xaml.XamlReader>入力を処理します</xref:System.Xaml.XamlReader></xref:System.Xml.XmlReader.Create%28System.String%29></xref:System.Xml.XmlReader>。       ロード呼び出しを正常にオブジェクト グラフを作成するためには、次を true にする必要があります:-ソースが適切な形式と有効な XML です。      -ソースは、言語レベルで有効な XAML です。      ソースで指定されている XAML 型 XAML は、関連の XAML 名前空間のバッキング型に解決される必要があります。 たとえば、XAML の WPF 名前空間の型は XAML; で指定されている WPF XAML 名前空間に解決します。wpf アセンブリ プロジェクトに含める必要がありますか、実行時に使用できます。などなど。"
   syntax:
     content: public static object Load (string fileName);
     parameters:
     - id: fileName
       type: System.String
-      description: "The file name to load and use as source."
+      description: "読み込むし、ソースとして使用するファイル名。"
     return:
       type: System.Object
-      description: "The object graph that is returned."
+      description: "オブジェクト グラフは、返されます。"
   overload: System.Xaml.XamlServices.Load*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>fileName</code> input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>fileName</code>input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Xaml.XamlServices.Load(System.Xaml.XamlReader)
@@ -135,22 +135,22 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Loads a specific XAML reader implementation and returns an object graph."
-  remarks: "You should typically use this signature only in the following cases:      -   You defined your own implementation of a <xref:System.Xaml.XamlReader>.      -   You specified settings for a <xref:System.Xaml.XamlReader> that differ from the default settings."
+  summary: "特定の XAML リーダー実装をロードし、オブジェクト グラフを返します。"
+  remarks: "通常、次の場合にのみこの署名を使用する必要があります:- <xref:System.Xaml.XamlReader>.</xref:System.Xaml.XamlReader>の独自の実装を定義します。      -指定された設定を<xref:System.Xaml.XamlReader>すると、既定の設定は異なります</xref:System.Xaml.XamlReader>。"
   syntax:
     content: public static object Load (System.Xaml.XamlReader xamlReader);
     parameters:
     - id: xamlReader
       type: System.Xaml.XamlReader
-      description: "The XAML reader implementation to use as the reader for this <xref uid=&quot;langword_csharp_Load&quot; name=&quot;Load&quot; href=&quot;&quot;></xref> operation."
+      description: "このリーダーとして使用する XAML リーダー実装<xref uid=&quot;langword_csharp_Load&quot; name=&quot;Load&quot; href=&quot;&quot;></xref>操作します。"
     return:
       type: System.Object
-      description: "The object graph that is returned."
+      description: "オブジェクト グラフは、返されます。"
   overload: System.Xaml.XamlServices.Load*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>xamlReader</code> input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>xamlReader</code>input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Xaml.XamlServices.Load(System.Xml.XmlReader)
@@ -165,22 +165,22 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Loads a specific XML reader implementation and returns an object graph."
-  remarks: "You should typically use this signature only if you defined your own implementation of a <xref:System.Xml.XmlReader>."
+  summary: "特定の XML リーダー実装をロードし、オブジェクト グラフを返します。"
+  remarks: "<xref:System.Xml.XmlReader>。</xref:System.Xml.XmlReader>の独自の実装を定義する場合にのみ、通常この署名を使用する必要があります。"
   syntax:
     content: public static object Load (System.Xml.XmlReader xmlReader);
     parameters:
     - id: xmlReader
       type: System.Xml.XmlReader
-      description: "The <xref:System.Xml.XmlReader> implementation to use as the reader for this <xref uid=&quot;langword_csharp_Load&quot; name=&quot;Load&quot; href=&quot;&quot;></xref> operation."
+      description: "<xref:System.Xml.XmlReader>このリーダーとして使用する実装<xref uid=&quot;langword_csharp_Load&quot; name=&quot;Load&quot; href=&quot;&quot;></xref>操作</xref:System.Xml.XmlReader>。"
     return:
       type: System.Object
-      description: "The output object graph."
+      description: "出力されたオブジェクト グラフ。"
   overload: System.Xaml.XamlServices.Load*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>xamlReader</code> input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>xamlReader</code>input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Xaml.XamlServices.Parse(System.String)
@@ -195,22 +195,22 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Reads XAML as string output and returns an object graph."
-  remarks: "In order for the Parse call to successfully create an object tree, the following must be true:      -   The `xaml` input is well-formed and valid XML.      -   The `xaml` input is valid XAML at the language level.      -   The XAML types that are specified in the `xaml` input must resolve to backing types in the relevant XAML namespaces. For example, XAML types for a WPF namespace can resolve to a WPF XAML namespace as specified in the XAML; the assemblies for WPF must be included in the project or be available in the run time; and so on.      > [!IMPORTANT] >  <xref:System.Xaml.XamlServices> is not the recommended XAML reading or XAML writing API set if you are processing [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] types, or types based on [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)]. For [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] usage, use <xref:System.Windows.Markup.XamlReader?displayProperty=fullName> for reading or loading XAML, and <xref:System.Windows.Markup.XamlWriter?displayProperty=fullName> for writing back XAML. These classes use <xref:System.Xaml> APIs internally in their implementation; however, they also provide support for WPF-specific concepts that influence the nature of XAML reading and writing, such as optimizations for dependency properties."
+  summary: "文字列の出力としての XAML を読み取り、オブジェクト グラフを返します。"
+  remarks: "解析の呼び出しオブジェクト ツリーを正常に作成するためには、次を true にする必要があります: -`xaml`入力が適切な形式と有効な XML です。      -`xaml`入力が有効な XAML 言語レベルでします。      -XAML 型で指定されている、`xaml`入力がバックアップする関連の XAML 名前空間の型に解決する必要があります。 たとえば、XAML の WPF 名前空間の型は XAML; で指定されている WPF XAML 名前空間に解決します。wpf アセンブリがプロジェクトに含める必要がありますまたは実行時に使用できます。などなど。      > [!IMPORTANT] ><xref:System.Xaml.XamlServices>が推奨される XAML の読み取り中か、API を記述する XAML を処理する場合の設定[!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)]型、または型に基づく[!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)]</xref:System.Xaml.XamlServices>。 [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)]使用法]、使用<xref:System.Windows.Markup.XamlReader?displayProperty=fullName>の読み取りまたは XAML の読み込みと<xref:System.Windows.Markup.XamlWriter?displayProperty=fullName>XAML の書き戻し用</xref:System.Windows.Markup.XamlWriter?displayProperty=fullName></xref:System.Windows.Markup.XamlReader?displayProperty=fullName>。 これらのクラスを使用して<xref:System.Xaml>; の実装で内部的に Api ただしもサポートして、XAML の読み取りと書き込みの依存関係プロパティの最適化などの性質に影響を与える WPF 固有概念について説明します</xref:System.Xaml>。"
   syntax:
     content: public static object Parse (string xaml);
     parameters:
     - id: xaml
       type: System.String
-      description: "The XAML string input to parse."
+      description: "解析する XAML の文字列入力です。"
     return:
       type: System.Object
-      description: "The object graph that is returned."
+      description: "オブジェクト グラフは、返されます。"
   overload: System.Xaml.XamlServices.Parse*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>xaml</code> input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>xaml</code>input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Xaml.XamlServices.Save(System.Object)
@@ -225,17 +225,17 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Processes a provided object tree into a XAML node representation, and returns a string representation of the output XAML."
-  remarks: "The output from this method is the `ToString` result of an <xref:System.Xml.XmlWriter> that is created by the method call. That <xref:System.Xml.XmlWriter> is created by using the following settings: <xref:System.Xml.XmlWriterSettings.Indent%2A?displayProperty=fullName> is `true`; and <xref:System.Xml.XmlWriterSettings.OmitXmlDeclaration%2A?displayProperty=fullName> is `true`.       The returned string can be loaded as valid XML through the <xref:System.Xml.XmlReader.Create%2A> method if you processed the string into a stream, or into a reader more specifically dedicated for XAML."
+  summary: "XAML ノードの表現に提供されたオブジェクト ツリーを処理し、出力の XAML の文字列表現を返します。"
+  remarks: "このメソッドからの出力は、`ToString`の結果、<xref:System.Xml.XmlWriter>メソッドの呼び出しによって作成されます</xref:System.Xml.XmlWriter>。 <xref:System.Xml.XmlWriter>次の設定を使用して作成された:<xref:System.Xml.XmlWriterSettings.Indent%2A?displayProperty=fullName>は`true`; と<xref:System.Xml.XmlWriterSettings.OmitXmlDeclaration%2A?displayProperty=fullName>は`true`</xref:System.Xml.XmlWriterSettings.OmitXmlDeclaration%2A?displayProperty=fullName></xref:System.Xml.XmlWriterSettings.Indent%2A?displayProperty=fullName></xref:System.Xml.XmlWriter>。       有効な XML として返される文字列を読み込むことができます、<xref:System.Xml.XmlReader.Create%2A>メソッドに処理して、文字列、ストリーム、またはより具体的には専用のリーダーに XAML の場合</xref:System.Xml.XmlReader.Create%2A>。"
   syntax:
     content: public static string Save (object instance);
     parameters:
     - id: instance
       type: System.Object
-      description: "The root of the object graph to process."
+      description: "処理するオブジェクト グラフのルートです。"
     return:
       type: System.String
-      description: "The XAML markup output as a string."
+      description: "文字列としての XAML マークアップ出力します。"
   overload: System.Xaml.XamlServices.Save*
   exceptions: []
   platform:
@@ -252,7 +252,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Processes a provided object graph into a XAML node representation and then into an output stream for serialization."
+  summary: "XAML ノードの表現にした後、シリアル化の出力ストリームには、提供されたオブジェクト グラフを処理します。"
   remarks: >-
     > [!IMPORTANT]
 
@@ -262,15 +262,15 @@ items:
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The destination stream."
+      description: "コピー先のストリーム。"
     - id: instance
       type: System.Object
-      description: "The root of the object graph to process."
+      description: "処理するオブジェクト グラフのルートです。"
   overload: System.Xaml.XamlServices.Save*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>stream</code>input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Xaml.XamlServices.Save(System.IO.TextWriter,System.Object)
@@ -285,21 +285,21 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Processes a provided object graph into a XAML node representation and then into an output that goes to the provided <xref:System.IO.TextWriter>."
+  summary: "ノードに XAML 表現し、さらに、指定された<xref:System.IO.TextWriter>。</xref:System.IO.TextWriter>に移動する出力に指定されたオブジェクト グラフを処理します。"
   syntax:
     content: public static void Save (System.IO.TextWriter writer, object instance);
     parameters:
     - id: writer
       type: System.IO.TextWriter
-      description: "The <xref:System.IO.TextWriter> that writes the output."
+      description: "<xref:System.IO.TextWriter>出力を書き込みます</xref:System.IO.TextWriter>。"
     - id: instance
       type: System.Object
-      description: "The root of the object graph to process."
+      description: "処理するオブジェクト グラフのルートです。"
   overload: System.Xaml.XamlServices.Save*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>writer</code> input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>writer</code>input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Xaml.XamlServices.Save(System.String,System.Object)
@@ -314,25 +314,25 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Processes a provided object graph into a XAML node representation and then writes it to an output file at a provided location."
-  remarks: "The `fileName` parameter value is used as the `outputFileName` input for a call to <xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName>, which creates a <xref:System.Xml.XmlWriter> as part of the method call."
+  summary: "XAML ノードの表現に提供されたオブジェクト グラフを処理し、指定された場所に出力ファイルに書き込みます。"
+  remarks: "`fileName`パラメーター値として使用されます、`outputFileName`への呼び出しの入力を<xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName>、作成する、<xref:System.Xml.XmlWriter>メソッド呼び出しの一部として</xref:System.Xml.XmlWriter></xref:System.Xml.XmlWriter.Create%2A?displayProperty=fullName>。"
   syntax:
     content: public static void Save (string fileName, object instance);
     parameters:
     - id: fileName
       type: System.String
-      description: "The name and location of the file to write the output to."
+      description: "名前と、出力を書き込むファイルの場所。"
     - id: instance
       type: System.Object
-      description: "The root of the object graph to process."
+      description: "処理するオブジェクト グラフのルートです。"
   overload: System.Xaml.XamlServices.Save*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>fileName</code> is an empty string."
+    description: "<code>fileName</code>空の文字列です。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>fileName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>fileName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Xaml.XamlServices.Save(System.Xaml.XamlWriter,System.Object)
@@ -347,22 +347,22 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Processes a provided object graph into a XAML node representation and then writes it to the provided XAML writer."
-  remarks: "You should typically use this signature only in the following cases:      -   You defined your own implementation of a <xref:System.Xaml.XamlWriter>.      -   You specified settings for the <xref:System.Xaml.XamlWriter> that differ from the default settings."
+  summary: "XAML ノードの表現に提供されたオブジェクト グラフを処理し、指定された XAML ライターに書き込みます。"
+  remarks: "次の場合にのみこの署名を通常使用する必要があります:- <xref:System.Xaml.XamlWriter>.</xref:System.Xaml.XamlWriter>の独自の実装を定義します。      -指定された設定を<xref:System.Xaml.XamlWriter>すると、既定の設定は異なります</xref:System.Xaml.XamlWriter>。"
   syntax:
     content: public static void Save (System.Xaml.XamlWriter writer, object instance);
     parameters:
     - id: writer
       type: System.Xaml.XamlWriter
-      description: "The <xref href=&quot;System.Xaml.XamlWriter&quot;></xref> implementation to use."
+      description: "<xref href=&quot;System.Xaml.XamlWriter&quot;> </xref>使用する実装。"
     - id: instance
       type: System.Object
-      description: "The root of the object graph to process."
+      description: "処理するオブジェクト グラフのルートです。"
   overload: System.Xaml.XamlServices.Save*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>writer</code> input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>writer</code>input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Xaml.XamlServices.Save(System.Xml.XmlWriter,System.Object)
@@ -377,21 +377,21 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Processes a provided object graph into a XAML node representation and then writes it to the provided <xref:System.Xml.XmlWriter>."
+  summary: "指定されたオブジェクト グラフを XAML ノードの表現に処理し、それを指定された<xref:System.Xml.XmlWriter>。</xref:System.Xml.XmlWriter>に書き込みます"
   syntax:
     content: public static void Save (System.Xml.XmlWriter writer, object instance);
     parameters:
     - id: writer
       type: System.Xml.XmlWriter
-      description: "The <xref:System.Xml.XmlWriter> implementation to use."
+      description: "<xref:System.Xml.XmlWriter>使用する実装</xref:System.Xml.XmlWriter>。"
     - id: instance
       type: System.Object
-      description: "The root of the object graph to process."
+      description: "処理するオブジェクト グラフのルートです。"
   overload: System.Xaml.XamlServices.Save*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>writer</code> input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>writer</code>input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Xaml.XamlServices.Transform(System.Xaml.XamlReader,System.Xaml.XamlWriter)
@@ -406,14 +406,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Connects a <xref href=&quot;System.Xaml.XamlReader&quot;></xref> and a <xref href=&quot;System.Xaml.XamlWriter&quot;></xref> to use a common XAML node set intermediary. Potentially transforms the content, depending on the types of readers and writers that are provided."
-  remarks: "This method is a wrapper around <xref:System.Xaml.XamlServices.Transform%28System.Xaml.XamlReader%2CSystem.Xaml.XamlWriter%2CSystem.Boolean%29>, where `closeWriter` is specified as `true`."
+  summary: "接続、 <xref href=&quot;System.Xaml.XamlReader&quot;> </xref>と<xref href=&quot;System.Xaml.XamlWriter&quot;></xref>中間設定の一般的な XAML ノードを使用します。 可能性のある提供するリーダーおよびライターの種類に応じて、コンテンツを変換します。"
+  remarks: "このメソッドは、ラップするラッパー<xref:System.Xaml.XamlServices.Transform%28System.Xaml.XamlReader%2CSystem.Xaml.XamlWriter%2CSystem.Boolean%29>ここで、`closeWriter`として指定された`true`</xref:System.Xaml.XamlServices.Transform%28System.Xaml.XamlReader%2CSystem.Xaml.XamlWriter%2CSystem.Boolean%29>。"
   syntax:
     content: public static void Transform (System.Xaml.XamlReader xamlReader, System.Xaml.XamlWriter xamlWriter);
     parameters:
     - id: xamlReader
       type: System.Xaml.XamlReader
-      description: "The <xref href=&quot;System.Xaml.XamlReader&quot;></xref> implementation to use."
+      description: "<xref href=&quot;System.Xaml.XamlReader&quot;> </xref>使用する実装。"
     - id: xamlWriter
       type: System.Xaml.XamlWriter
       description: "The <xref href=&quot;System.Xaml.XamlWriter&quot;></xref> to use."
@@ -421,10 +421,10 @@ items:
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>xamlReader</code> or <code>xamlWriter</code> input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>xamlReader</code>or <code>xamlWriter</code> input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Xaml.XamlException
     commentId: T:System.Xaml.XamlException
-    description: "The XAML schema context does not match between the provided <code>xamlReader</code> and <code>xamlWriter</code>."
+    description: "XAML スキーマ コンテキストが一致しない、指定した<code> xamlReader </code>と<code> xamlWriter</code>です。"
   platform:
   - net462
 - uid: System.Xaml.XamlServices.Transform(System.Xaml.XamlReader,System.Xaml.XamlWriter,System.Boolean)
@@ -439,27 +439,27 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Connects a <xref href=&quot;System.Xaml.XamlReader&quot;></xref> and a <xref href=&quot;System.Xaml.XamlWriter&quot;></xref> to use a common XAML node set intermediary. Potentially transforms the content, depending on the types of readers and writers that are provided. Provides a parameter for specifying whether to close the writer after the call is completed."
+  summary: "接続、 <xref href=&quot;System.Xaml.XamlReader&quot;> </xref>と<xref href=&quot;System.Xaml.XamlWriter&quot;></xref>中間設定の一般的な XAML ノードを使用します。 可能性のある提供するリーダーおよびライターの種類に応じて、コンテンツを変換します。 呼び出しの完了後にライターを終了するかどうかを指定するためには、パラメーターを提供します。"
   syntax:
     content: public static void Transform (System.Xaml.XamlReader xamlReader, System.Xaml.XamlWriter xamlWriter, bool closeWriter);
     parameters:
     - id: xamlReader
       type: System.Xaml.XamlReader
-      description: "The <xref href=&quot;System.Xaml.XamlReader&quot;></xref> implementation to use."
+      description: "<xref href=&quot;System.Xaml.XamlReader&quot;> </xref>使用する実装。"
     - id: xamlWriter
       type: System.Xaml.XamlWriter
       description: "The <xref href=&quot;System.Xaml.XamlWriter&quot;></xref> to use."
     - id: closeWriter
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to close the writer after the call is complete; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to leave the writer active at the last written position."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>呼び出しの完了後にライターを終了するには<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>ライターを最後に書き込まれる位置にあるアクティブなままにします。"
   overload: System.Xaml.XamlServices.Transform*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>xamlReader</code> or <code>xamlWriter</code> input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>xamlReader</code>or <code>xamlWriter</code> input is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Xaml.XamlException
     commentId: T:System.Xaml.XamlException
-    description: "The XAML schema context does not match between the provided <code>xamlReader</code> and <code>xamlWriter</code>."
+    description: "XAML スキーマ コンテキストが一致しない、指定した<code> xamlReader </code>と<code> xamlWriter</code>です。"
   platform:
   - net462
 references:

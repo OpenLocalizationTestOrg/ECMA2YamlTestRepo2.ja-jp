@@ -24,8 +24,8 @@ items:
   nameWithType: XamlReader
   fullName: System.Xaml.XamlReader
   type: Class
-  summary: "Provides base definitions for classes that consume XAML input and produce XAML node streams."
-  remarks: "XamlReader is an abstract class and does not provide implementations or definitions that have a working result for all members. Members that do have an implementation in XamlReader are noted in the remarks for that member. Specifically, XamlReader has several abstract members that must be implemented, and several virtual members.       Of the virtual members, <xref:System.Xaml.XamlReader.ReadSubtree%2A> and <xref:System.Xaml.XamlReader.Skip%2A> each provide a default implementation that is appropriate for most cases. However, the <xref:System.Xaml.XamlReader.ReadSubtree%2A> and <xref:System.Xaml.XamlReader.Skip%2A> default implementations rely on other expected behavior of the implementing XAML reader; in particular, they rely on the <xref:System.Xaml.XamlReader.Read%2A> override. <xref:System.Xaml.XamlReader.Dispose%2A> is also a virtual member that has a working default implementation.       The following two classes are the most relevant and practical derived classes in .NET Framework XAML Services and the System.Xaml assembly:      -   <xref:System.Xaml.XamlObjectReader>, which reads an object graph, such as the active object graph of an application at run time.      -   <xref:System.Xaml.XamlXmlReader>, which reads XAML in the form of a XML text file by using a general <xref:System.Xml.XmlReader> that loads the file as an intermediary helper class.       Other XAML readers from other frameworks include <xref:System.Windows.Baml2006.Baml2006Reader> and <xref:System.Activities.Debugger.XamlDebuggerXmlReader>.       XamlReader differs from [!INCLUDE[TLA#tla_xmldom](~/add/includes/tlasharptla-xmldom-md.md)] and <xref:System.Xml.XmlReader> design principles because XamlReader does not have a `Create` method to return underlying default XAML reader implementations. You must instead instantiate specific derived XAML reader classes by calling their constructors or other class-specific helper APIs.      ## Subtree Readers    For the most part, you call XamlReader API in the context of specific XAML reader classes that derive from XamlReader. However, in one particular case, you access XamlReader API on a practical XAML reader instance that is not public and not derived from <xref:System.Xaml.XamlObjectReader> or <xref:System.Xaml.XamlXmlReader>. This case is when you call <xref:System.Xaml.XamlReader.ReadSubtree%2A>, which returns a XamlReader instance. In the default implementation, the XamlReader that is returned by this API is an internal class.       The XamlReader obtained for subtree reading has valid actions for APIs such as <xref:System.Xaml.XamlReader.Read%2A> and <xref:System.Xaml.XamlReader.NodeType%2A>, and those actions are based on the parent reader class. This design enables the internal class to track the frame level where the subtree was entered. The acting subtree XamlReader makes sure that if the current node position is moved beyond the bounds of the subtree, the specific subtree reader reports end-of-file or `null` at the current node.       Notes about subtree reader usage are included on certain XamlReader APIs."
+  summary: "XAML 入力を処理し、XAML ノード ストリームを生成するクラスの基本定義を提供します。"
+  remarks: "XamlReader は抽象クラスであり、実装や作業結果があるすべてのメンバーの定義を提供しません。 XamlReader で、実装ではメンバーは、そのメンバーの「解説」に記載されていますいます。 具体的には、XamlReader では、実装する必要があるいくつかの抽象メンバーといくつかの仮想メンバーがあります。       仮想メンバーの<xref:System.Xaml.XamlReader.ReadSubtree%2A>と<xref:System.Xaml.XamlReader.Skip%2A>各ほとんどの場合に適切な既定の実装を提供します</xref:System.Xaml.XamlReader.Skip%2A></xref:System.Xaml.XamlReader.ReadSubtree%2A>。 ただし、<xref:System.Xaml.XamlReader.ReadSubtree%2A>と<xref:System.Xaml.XamlReader.Skip%2A>実装の XAML リーダーの他の予期される動作に依存して既定の実装です具体的には、依存している、<xref:System.Xaml.XamlReader.Read%2A>をオーバーライドします。</xref:System.Xaml.XamlReader.Read%2A> </xref:System.Xaml.XamlReader.Skip%2A> </xref:System.Xaml.XamlReader.ReadSubtree%2A> 。 <xref:System.Xaml.XamlReader.Dispose%2A>作業用の既定の実装を持つ仮想メンバーです。</xref:System.Xaml.XamlReader.Dispose%2A>       次の&2; つのクラスは、最も関連して、実用的な派生と System.Xaml アセンブリの .NET Framework XAML サービスのクラス:- <xref:System.Xaml.XamlObjectReader>、実行時にアプリケーションのアクティブなオブジェクト グラフなど、オブジェクト グラフを読み取ります</xref:System.Xaml.XamlObjectReader>。      -<xref:System.Xaml.XamlXmlReader><xref:System.Xml.XmlReader>中間ヘルパー クラスとしてファイルを読み込む</xref:System.Xml.XmlReader>の [全般] を使用して XML テキスト ファイルの形式で XAML を読み取りますが、</xref:System.Xaml.XamlXmlReader>       その他のフレームワークから他の XAML リーダー、<xref:System.Windows.Baml2006.Baml2006Reader>および<xref:System.Activities.Debugger.XamlDebuggerXmlReader>。</xref:System.Activities.Debugger.XamlDebuggerXmlReader> </xref:System.Windows.Baml2006.Baml2006Reader>       XamlReader とは異なります[!INCLUDE[TLA#tla_xmldom](~/add/includes/tlasharptla-xmldom-md.md)]と<xref:System.Xml.XmlReader>XamlReader があるないためにのデザイン原則を`Create`基になる既定の XAML リーダーの実装を返すメソッドを</xref:System.Xml.XmlReader>。 代わりに、そのコンス トラクターまたはその他のクラスに固有のヘルパー Api を呼び出すことによって派生の特定の XAML リーダー クラスをインスタンス化する必要があります。      ## ほとんどのリーダーのサブツリー、XamlReader から派生する特定の XAML リーダー クラスのコンテキストで XamlReader API を呼び出します。 ただし、特定の&1; つのケースではアクセス XamlReader API とパブリックでない<xref:System.Xaml.XamlObjectReader>または<xref:System.Xaml.XamlXmlReader>.</xref:System.Xaml.XamlXmlReader></xref:System.Xaml.XamlObjectReader>から派生ではない実用的な XAML リーダー インスタンスの この例を呼び出すときは、 <xref:System.Xaml.XamlReader.ReadSubtree%2A>、XamlReader インスタンスが返されます</xref:System.Xaml.XamlReader.ReadSubtree%2A>。 既定の実装では、この API によって返される XamlReader は、内部クラスです。       サブツリーの読み取りなど、Api の有効なアクションには、XamlReader が取得された<xref:System.Xaml.XamlReader.Read%2A>と<xref:System.Xaml.XamlReader.NodeType%2A>、それらのアクションが親リーダー クラスに基づいています</xref:System.Xaml.XamlReader.NodeType%2A></xref:System.Xaml.XamlReader.Read%2A> この設計により、内部クラスのサブツリーが入力されたフレームのレベルを追跡するためになります。 機能を実行するサブツリー XamlReader により、現在のノードの位置は、サブツリーの境界外に移動する場合は、特定のサブツリー リーダー ファイルの終端と報告されることを確認または`null`現在のノードにします。       特定の XamlReader Api では、サブツリーのリーダーの使用状況に関する注意事項が含まれています。"
   syntax:
     content: 'public abstract class XamlReader : IDisposable'
   inheritance:
@@ -47,7 +47,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Initializes the <xref href=&quot;System.Xaml.XamlReader&quot;></xref> class."
+  summary: "初期化、 <xref href=&quot;System.Xaml.XamlReader&quot;> </xref>クラスです。"
   syntax:
     content: protected XamlReader ();
     parameters: []
@@ -67,8 +67,8 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Closes the XAML node stream."
-  remarks: "In the base implementation, calling Close calls <xref:System.Xaml.XamlReader.Dispose%2A> with the `isDisposing` parameter as `true`."
+  summary: "XAML ノード ストリームを閉じます。"
+  remarks: "基底クラスの実装では、Close の呼び出しを呼び出して<xref:System.Xaml.XamlReader.Dispose%2A>で、`isDisposing`パラメーターとして`true`</xref:System.Xaml.XamlReader.Dispose%2A>。"
   syntax:
     content: public void Close ();
     parameters: []
@@ -88,14 +88,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.Xaml.XamlReader&quot;></xref>, and optionally, releases the managed resources."
-  remarks: "You must call the base class to get <xref:System.Xaml.XamlReader.IsDisposed%2A> = `true`."
+  summary: "によって使用されるアンマネージ リソースを解放、 <xref href=&quot;System.Xaml.XamlReader&quot;> </xref>、し、必要に応じてマネージ リソースも解放します。"
+  remarks: "取得する基本クラスを呼び出す必要があります<xref:System.Xaml.XamlReader.IsDisposed%2A>= `true`</xref:System.Xaml.XamlReader.IsDisposed%2A> 。"
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release the managed resources; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>マネージ リソースを解放するにはそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Xaml.XamlReader.Dispose*
   exceptions: []
   platform:
@@ -112,12 +112,12 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets whether <xref:System.Xaml.XamlReader.Dispose*> has been called."
+  summary: "取得するかどうか<xref:System.Xaml.XamlReader.Dispose*>呼び出されました</xref:System.Xaml.XamlReader.Dispose*>。"
   syntax:
     content: protected bool IsDisposed { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <xref:System.Xaml.XamlReader.Dispose*> has been called; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合<xref:System.Xaml.XamlReader.Dispose*>と呼ばれる、それ以外のされました<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref></xref:System.Xaml.XamlReader.Dispose*> 。"
   overload: System.Xaml.XamlReader.IsDisposed*
   exceptions: []
   platform:
@@ -134,13 +134,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "When implemented in a derived class, gets a value that reports whether the reader position is at end-of-file."
-  remarks: "Subtree readers can call IsEof, with behavior that correctly reflects the bounds of the entered subtree. For more information, see the &quot;Subtree Readers&quot; section in <xref:System.Xaml.XamlReader>, or see <xref:System.Xaml.XamlReader.ReadSubtree%2A>."
+  summary: "派生クラスとして実装された場合は、リーダーの位置が、ファイルの終端にするかどうかを示す値を取得します。"
+  remarks: "サブツリーのリーダーは、入力されたサブツリーの境界を正しく反映して動作を持つ IsEof を呼び出すことができます。 詳細についてを参照してください「サブツリー リーダー」 <xref:System.Xaml.XamlReader>、または参照してください<xref:System.Xaml.XamlReader.ReadSubtree%2A>.</xref:System.Xaml.XamlReader.ReadSubtree%2A> </xref:System.Xaml.XamlReader>"
   syntax:
     content: public abstract bool IsEof { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the position is at the conceptual end-of-file of the XAML node stream; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>位置が、XAML ノード ストリームの概念ファイルの末尾にある場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Xaml.XamlReader.IsEof*
   exceptions: []
   platform:
@@ -157,13 +157,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "When implemented in a derived class, gets the current member at the reader position, if the reader position is on a <xref href=&quot;System.Xaml.XamlNodeType&quot;></xref>."
-  remarks: "Subtree readers can call Member, with behavior restrictions. For more information, see the &quot;Subtree Readers&quot; section in <xref:System.Xaml.XamlReader>, or see <xref:System.Xaml.XamlReader.ReadSubtree%2A>."
+  summary: "派生クラスで実装された場合、現在のメンバーを取得リーダーの位置では、リーダーの位置は場合、 <xref href=&quot;System.Xaml.XamlNodeType&quot;></xref>です。"
+  remarks: "サブツリーのリーダーは、動作の制限があります、メンバーを呼び出すことができます。 詳細についてを参照してください「サブツリー リーダー」 <xref:System.Xaml.XamlReader>、または参照してください<xref:System.Xaml.XamlReader.ReadSubtree%2A>.</xref:System.Xaml.XamlReader.ReadSubtree%2A> </xref:System.Xaml.XamlReader>"
   syntax:
     content: public abstract System.Xaml.XamlMember Member { get; }
     return:
       type: System.Xaml.XamlMember
-      description: "The current member; or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, if the reader position is not on a member."
+      description: "現在のメンバー。または<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>リーダーの位置がメンバーでない場合、します。"
   overload: System.Xaml.XamlReader.Member*
   exceptions: []
   platform:
@@ -180,13 +180,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "When implemented in a derived class, gets the XAML namespace information from the current node."
-  remarks: "The intended design of this API is to return a non-null result only if the <xref:System.Xaml.XamlReader.NodeType%2A> of the current node is <xref:System.Xaml.XamlNodeType>. The property does not report the XAML namespace that applies to objects or members in a general scoping sense, as interpreted under a XAML schema context. Your application must provide a means to cache information for the acting XAML namespace as it traverses XAML nodes, if you need that information in a manner other than how the XAML schema context reports it to a writer. See<xref:System.Xaml.XamlXmlReader.Namespace%2A> for notes on the reference implementation."
+  summary: "派生クラスとして実装された場合は、現在のノードから XAML 名前空間情報を取得します。"
+  remarks: "この API の目的の設計が<xref:System.Xaml.XamlReader.NodeType%2A><xref:System.Xaml.XamlNodeType>。</xref:System.Xaml.XamlNodeType>は、現在のノードの</xref:System.Xaml.XamlReader.NodeType%2A>場合は null 以外の結果のみを返すには プロパティでは、XAML スキーマ コンテキストで解釈されるよう、オブジェクトまたは一般的なスコープの意味、メンバーに適用される XAML 名前空間は報告されません。 アプリケーションは、機能の情報をキャッシュするための手段を提供する必要がありますのでの XAML 名前空間は、方法、XAML スキーマ コンテキストにレポートをそのライター以外の方法では、その情報が必要な場合、XAML ノードを通過する時間します。 参照してください<xref:System.Xaml.XamlXmlReader.Namespace%2A>の参照の実装に関する注意事項</xref:System.Xaml.XamlXmlReader.Namespace%2A>。"
   syntax:
     content: public abstract System.Xaml.NamespaceDeclaration Namespace { get; }
     return:
       type: System.Xaml.NamespaceDeclaration
-      description: "The XAML namespace information, if it is available; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "使用可能である場合の XAML 名前空間については、それ以外の場合、 <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   overload: System.Xaml.XamlReader.Namespace*
   exceptions: []
   platform:
@@ -203,13 +203,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "When implemented in a derived class, gets the type of the current node."
-  remarks: "Subtree readers can call NodeType, with behavior restrictions. For more information, see the &quot;Subtree Readers&quot; section in <xref:System.Xaml.XamlReader>, or see <xref:System.Xaml.XamlReader.ReadSubtree%2A>."
+  summary: "派生クラスとして実装された場合は、現在のノードの種類を取得します。"
+  remarks: "サブツリーのリーダーは、動作の制限があります NodeType を呼び出すことができます。 詳細についてを参照してください「サブツリー リーダー」 <xref:System.Xaml.XamlReader>、または参照してください<xref:System.Xaml.XamlReader.ReadSubtree%2A>.</xref:System.Xaml.XamlReader.ReadSubtree%2A> </xref:System.Xaml.XamlReader>"
   syntax:
     content: public abstract System.Xaml.XamlNodeType NodeType { get; }
     return:
       type: System.Xaml.XamlNodeType
-      description: "A value of the <xref href=&quot;System.Xaml.XamlNodeType&quot;></xref> enumeration."
+      description: "値、 <xref href=&quot;System.Xaml.XamlNodeType&quot;> </xref>列挙します。"
   overload: System.Xaml.XamlReader.NodeType*
   exceptions: []
   platform:
@@ -226,14 +226,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "When implemented in a derived class, provides the next XAML node from the source, if a node is available."
-  remarks: "Subtree readers can call Read, with behavior restrictions. For more information, see the &quot;Subtree Readers&quot; section in <xref:System.Xaml.XamlReader>, or see <xref:System.Xaml.XamlReader.ReadSubtree%2A>."
+  summary: "派生クラスとして実装された場合は、ノードがある場合、ソースから次の XAML ノードを提供します。"
+  remarks: "サブツリーのリーダーは、動作の制限を読み取りを呼び出すことができます。 詳細についてを参照してください「サブツリー リーダー」 <xref:System.Xaml.XamlReader>、または参照してください<xref:System.Xaml.XamlReader.ReadSubtree%2A>.</xref:System.Xaml.XamlReader.ReadSubtree%2A> </xref:System.Xaml.XamlReader>"
   syntax:
     content: public abstract bool Read ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a node is available; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>ノードがある場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Xaml.XamlReader.Read*
   exceptions: []
   platform:
@@ -250,14 +250,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns a <xref href=&quot;System.Xaml.XamlReader&quot;></xref> that is based on the current <xref href=&quot;System.Xaml.XamlReader&quot;></xref>, where the returned <xref href=&quot;System.Xaml.XamlReader&quot;></xref> is used to iterate through a subtree of the XAML node structure."
-  remarks: "This method has a default implementation and returns a valid <xref:System.Xaml.XamlReader>. The returned <xref:System.Xaml.XamlReader> is an internal class that restricts certain <xref:System.Xaml.XamlReader> actions. The restrictions are consistent with the purpose of reading only a dimensioned subtree of a larger source for a XAML node set, and of returning end-of-file or `null` at the current node when the subtree is exited.       Generally, you should check the current node from the initial <xref:System.Xaml.XamlReader.Read%2A> to determine whether you need a subtree reader. How you check this may be implementation-specific; however, avoid creating multiple subtree readers for every subtree. In addition, avoid invoking a subtree reader for certain node cases (for example, for <xref:System.Xaml.XamlNodeType>) that cannot contain a subtree of nodes.       After you obtain a subtree reader, you must call <xref:System.Xaml.XamlReader.Read%2A> on it to obtain a current node (or call <xref:System.Xaml.XamlReader.Skip%2A> to obtain a next node). You do not automatically obtain an initial node position from the subtree reader when you create it.       The reader you obtain by calling ReadSubtree from this default implementation is an internal class. The internal class bases its behavior on the <xref:System.Xaml.XamlReader> implementation that is being used when ReadSubtree is called. The purpose of the internal class is to wrap the <xref:System.Xaml.XamlReader.Read%2A> and general traversal behavior. The traversal stays within the intended subtree by keeping track of <xref:System.Xaml.XamlNodeType>/<xref:System.Xaml.XamlNodeType> pairs or <xref:System.Xaml.XamlNodeType>/<xref:System.Xaml.XamlNodeType> pairs. It also correctly returns `false` for <xref:System.Xaml.XamlReader.Read%2A> and `true` for <xref:System.Xaml.XamlReader.IsEof%2A> when the reader is at the end of the subtree, as defined by its entry point. In general, you assume that any <xref:System.Xaml.XamlReader> API you call from a subtree reader has the same implementation as the overall <xref:System.Xaml.XamlReader> except for the traversal bounding behavior.       However, ReadSubtree is virtual. Therefore, a specific <xref:System.Xaml.XamlReader> implementation can provide behavior that differs from the <xref:System.Xaml.XamlReader> internal wrapper behavior; and a <xref:System.Xaml.XamlReader> implementation can even disable subtree reader functionality by returning <xref:System.NotImplementedException> or other exceptions."
+  summary: "返します、 <xref href=&quot;System.Xaml.XamlReader&quot;> </xref>現在に基づく<xref href=&quot;System.Xaml.XamlReader&quot;></xref>ここで、返された<xref href=&quot;System.Xaml.XamlReader&quot;> </xref> XAML ノードの構造のサブツリーを反復処理するために使用します。"
+  remarks: "このメソッドは、既定の実装を持つし、有効な<xref:System.Xaml.XamlReader>。</xref:System.Xaml.XamlReader>を返します 返された<xref:System.Xaml.XamlReader>特定を制限する内部クラスは、<xref:System.Xaml.XamlReader>アクション</xref:System.Xaml.XamlReader></xref:System.Xaml.XamlReader>。 制限は次元設定されたサブツリーの XAML ノード セットは、大規模ソースとファイルの終端を返すだけに読み取り目的に設定された一貫性のあるまたは`null`サブツリーが終了したときに、現在のノードにします。       一般に、最初から現在のノードを確認する必要があります<xref:System.Xaml.XamlReader.Read%2A>サブツリー リーダーが必要かどうかを判断する</xref:System.Xaml.XamlReader.Read%2A>。 これをチェックする方法があります実装に固有です。ただし、すべてのサブツリーの複数のサブツリー リーダーを作成しないでください。 さらに、特定のノードのケースのサブツリー リーダーの呼び出しを回避する (たとえば、 <xref:System.Xaml.XamlNodeType>) ノードのサブツリーを含めることはできません</xref:System.Xaml.XamlNodeType>。       サブツリーのリーダーを取得した後に呼び出す必要があります<xref:System.Xaml.XamlReader.Read%2A>現在のノードを取得することで (呼び出しまたは<xref:System.Xaml.XamlReader.Skip%2A>次のノードを取得する).</xref:System.Xaml.XamlReader.Skip%2A> </xref:System.Xaml.XamlReader.Read%2A> 自動的に取得しない初期ノード位置サブツリー リーダーから作成するときにします。       この既定の実装から ReadSubtree を呼び出すことによって取得するリーダーは、内部クラスです。 内部クラスに基づいて、その動作、 <xref:System.Xaml.XamlReader>ReadSubtree が呼び出されたときに使用されている実装</xref:System.Xaml.XamlReader>。 内部クラスの目的は、ラップする、<xref:System.Xaml.XamlReader.Read%2A>と一般的な走査の各動作</xref:System.Xaml.XamlReader.Read%2A>。 走査まま、目的のサブツリー内で追跡することにより<xref:System.Xaml.XamlNodeType>/<xref:System.Xaml.XamlNodeType>ペアまたは<xref:System.Xaml.XamlNodeType>/<xref:System.Xaml.XamlNodeType>ペア</xref:System.Xaml.XamlNodeType></xref:System.Xaml.XamlNodeType></xref:System.Xaml.XamlNodeType></xref:System.Xaml.XamlNodeType>。 正しく返す`false`の<xref:System.Xaml.XamlReader.Read%2A>と`true`の<xref:System.Xaml.XamlReader.IsEof%2A>ときにリーダーが配置されて、サブツリーの最後のエントリ ポイントで定義されている</xref:System.Xaml.XamlReader.IsEof%2A></xref:System.Xaml.XamlReader.Read%2A>。 一般に、想定すること、<xref:System.Xaml.XamlReader>サブツリー リーダーから呼び出し API は、全体的なと同じ実装<xref:System.Xaml.XamlReader>動作を境界の検査を除く</xref:System.Xaml.XamlReader></xref:System.Xaml.XamlReader>。       ただし、ReadSubtree は、仮想です。 したがって、特定<xref:System.Xaml.XamlReader>実装とは異なる動作を提供できます、<xref:System.Xaml.XamlReader>内部ラッパーの動作と<xref:System.Xaml.XamlReader>実装でもを無効にできますサブツリー リーダー機能を返すことによって<xref:System.NotImplementedException>またはその他の例外です</xref:System.NotImplementedException></xref:System.Xaml.XamlReader></xref:System.Xaml.XamlReader></xref:System.Xaml.XamlReader>。"
   syntax:
     content: public virtual System.Xaml.XamlReader ReadSubtree ();
     parameters: []
     return:
       type: System.Xaml.XamlReader
-      description: "A new XAML reader instance for the subtree."
+      description: "サブツリーの新しい XAML リーダー インスタンス。"
   overload: System.Xaml.XamlReader.ReadSubtree*
   exceptions: []
   platform:
@@ -274,12 +274,12 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "When implemented in a derived class, gets an object that provides XAML schema context information for the information set."
+  summary: "派生クラスとして実装された場合は、情報セットの XAML スキーマ コンテキスト情報を提供するオブジェクトを取得します。"
   syntax:
     content: public abstract System.Xaml.XamlSchemaContext SchemaContext { get; }
     return:
       type: System.Xaml.XamlSchemaContext
-      description: "An object that provides XAML schema context information for the information set."
+      description: "については、XAML スキーマ コンテキスト情報を提供するオブジェクトを設定します。"
   overload: System.Xaml.XamlReader.SchemaContext*
   exceptions: []
   platform:
@@ -296,8 +296,8 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Skips the current node and advances the reader position to the next node."
-  remarks: "Once skipped, <xref:System.Xaml.XamlReader.Read%2A> is called by the default Skip implementation. You typically do not call Skip and <xref:System.Xaml.XamlReader.Read%2A> in sequence.       In the default Skip implementation, different actions are taken depending on which <xref:System.Xaml.XamlReader.NodeType%2A> the reader position is currently on. If the reader position is currently on a <xref:System.Xaml.XamlNodeType> or <xref:System.Xaml.XamlNodeType>, that member or object is skipped. For other <xref:System.Xaml.XamlReader.NodeType%2A> values, no action is taken other than calling <xref:System.Xaml.XamlReader.Read%2A> from the current position.       Subtree readers can call Skip, with behavior restrictions. For more information, see the &quot;Subtree Readers&quot; section in <xref:System.Xaml.XamlReader>, or see <xref:System.Xaml.XamlReader.ReadSubtree%2A>.       The node tree behavior of Skip is based on the XML equivalent <xref:System.Xml.XmlReader.Skip%2A?displayProperty=fullName>. Based on the <xref:System.Xml.XmlReader.Skip%2A?displayProperty=fullName> behavior equivalence, Skip skips the node and its subtree, not just the single entry node."
+  summary: "現在のノードをスキップし、次のノードにリーダーの位置を進めます。"
+  remarks: "1 回スキップ、 <xref:System.Xaml.XamlReader.Read%2A>Skip 実装、既定により呼び出されます</xref:System.Xaml.XamlReader.Read%2A>。 通常呼び出さない Skip と<xref:System.Xaml.XamlReader.Read%2A>順番</xref:System.Xaml.XamlReader.Read%2A>。       によって既定 Skip 実装では、さまざまな操作が実行される<xref:System.Xaml.XamlReader.NodeType%2A>リーダーの位置が現在オン</xref:System.Xaml.XamlReader.NodeType%2A>。 リーダーの位置が現在の場合、<xref:System.Xaml.XamlNodeType>または<xref:System.Xaml.XamlNodeType>、そのメンバーまたはオブジェクトはスキップされます</xref:System.Xaml.XamlNodeType></xref:System.Xaml.XamlNodeType>。 その他の<xref:System.Xaml.XamlReader.NodeType%2A>値、何も処理呼び出し以外<xref:System.Xaml.XamlReader.Read%2A>現在の位置から</xref:System.Xaml.XamlReader.Read%2A></xref:System.Xaml.XamlReader.NodeType%2A>。       サブツリー リーダーは、動作の制限をスキップ を呼び出すことができます。 詳細についてを参照してください「サブツリー リーダー」 <xref:System.Xaml.XamlReader>、または参照してください<xref:System.Xaml.XamlReader.ReadSubtree%2A>.</xref:System.Xaml.XamlReader.ReadSubtree%2A> </xref:System.Xaml.XamlReader>       スキップのノード ツリーの動作は同等の XML <xref:System.Xml.XmlReader.Skip%2A?displayProperty=fullName>.</xref:System.Xml.XmlReader.Skip%2A?displayProperty=fullName>に基づいてください。 に基づいて、<xref:System.Xml.XmlReader.Skip%2A?displayProperty=fullName>ノードとそのサブツリーでは、1 つのエントリのノードだけでなく動作の等価性、Skip をスキップします</xref:System.Xml.XmlReader.Skip%2A?displayProperty=fullName>。"
   syntax:
     content: public virtual void Skip ();
     parameters: []
@@ -318,7 +318,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Releases all resources used by the current instance of the <xref href=&quot;System.Xaml.XamlReader&quot;></xref> class."
+  summary: "現在のインスタンスによって使用されるすべてのリソースを解放、 <xref href=&quot;System.Xaml.XamlReader&quot;> </xref>クラスです。"
   syntax:
     content: void IDisposable.Dispose ();
     parameters: []
@@ -338,13 +338,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "When implemented in a derived class, gets the <xref href=&quot;System.Xaml.XamlType&quot;></xref> of the current node."
-  remarks: "Subtree readers can call Type, with behavior restrictions. For more information, see the &quot;Subtree Readers&quot; section in <xref:System.Xaml.XamlReader>, or see <xref:System.Xaml.XamlReader.ReadSubtree%2A>."
+  summary: "派生クラスで実装された場合、取得、 <xref href=&quot;System.Xaml.XamlType&quot;> </xref>現在のノードです。"
+  remarks: "サブツリーのリーダーは、動作の制限がありますの種類を呼び出すことができます。 詳細についてを参照してください「サブツリー リーダー」 <xref:System.Xaml.XamlReader>、または参照してください<xref:System.Xaml.XamlReader.ReadSubtree%2A>.</xref:System.Xaml.XamlReader.ReadSubtree%2A> </xref:System.Xaml.XamlReader>"
   syntax:
     content: public abstract System.Xaml.XamlType Type { get; }
     return:
       type: System.Xaml.XamlType
-      description: "The <xref href=&quot;System.Xaml.XamlType&quot;></xref> of the current node; or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, if the current reader position is not on an object."
+      description: "<xref href=&quot;System.Xaml.XamlType&quot;> </xref> ; 現在のノードのまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>現在リーダーが配置されていないオブジェクトの場合は、します。"
   overload: System.Xaml.XamlReader.Type*
   exceptions: []
   platform:
@@ -361,12 +361,12 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "When implemented in a derived class, gets the value of the current node."
+  summary: "派生クラスとして実装された場合は、現在のノードの値を取得します。"
   syntax:
     content: public abstract object Value { get; }
     return:
       type: System.Object
-      description: "The value of the current node; or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, if the current reader position is not on a <xref href=&quot;System.Xaml.XamlNodeType&quot;></xref> node type."
+      description: "現在のノードの値または<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>、現在のリーダーの位置に含まれていない場合、 <xref href=&quot;System.Xaml.XamlNodeType&quot;> </xref>ノードの種類。"
   overload: System.Xaml.XamlReader.Value*
   exceptions: []
   platform:
