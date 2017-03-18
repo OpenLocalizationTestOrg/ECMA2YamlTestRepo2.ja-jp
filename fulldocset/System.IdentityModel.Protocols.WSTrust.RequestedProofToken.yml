@@ -15,8 +15,8 @@ items:
   nameWithType: RequestedProofToken
   fullName: System.IdentityModel.Protocols.WSTrust.RequestedProofToken
   type: Class
-  summary: "Represents the contents of a wst:RequestedProofToken element."
-  remarks: "The content of a wst:RequestedProofToken element can be either an encrypted key or a key in clear text. In either of these cases, the <xref:System.IdentityModel.Protocols.WSTrust.RequestedProofToken.ProtectedKey%2A> property contains the key. If the security token is a regular token, such as a SCT, then its session key will be the material which gets encrypted. When the wst:RequestedProofToken contains only a wst:ComputedKey element as in the case of combined entropy, the <xref:System.IdentityModel.Protocols.WSTrust.RequestedProofToken.ComputedKeyAlgorithm%2A> property holds its contents.       For more information about the element that this class represents, see the version of the WS-Trust specification that applies to your scenario."
+  summary: "Wst:RequestedProofToken 要素の内容を表します。"
+  remarks: "Wst:RequestedProofToken 要素の内容は、クリア テキストで、暗号化されたキーまたはキーのいずれかを指定できます。 このような場合は、のいずれかで、<xref:System.IdentityModel.Protocols.WSTrust.RequestedProofToken.ProtectedKey%2A>プロパティには、キーが含まれています</xref:System.IdentityModel.Protocols.WSTrust.RequestedProofToken.ProtectedKey%2A>。 セキュリティ トークンが、SCT などの正規のトークンである場合、セッション キーの間で暗号化取得される情報になります。 Wst:RequestedProofToken では、結合エントロピは、場合に、wst:ComputedKey 要素のみが含まれている場合、<xref:System.IdentityModel.Protocols.WSTrust.RequestedProofToken.ComputedKeyAlgorithm%2A>プロパティはその内容を保持します</xref:System.IdentityModel.Protocols.WSTrust.RequestedProofToken.ComputedKeyAlgorithm%2A>。       このクラスが表す要素の詳細については、自分のシナリオに適用される Ws-trust 仕様のバージョンを参照してください。"
   syntax:
     content: public class RequestedProofToken
   inheritance:
@@ -37,14 +37,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestedProofToken&quot;></xref> class using the specified key material."
-  remarks: "Use this constructor when the key is plain text."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestedProofToken&quot;> </xref>クラス、指定されたキー マテリアルを使用します。"
+  remarks: "キーがプレーン テキストの場合は、このコンス トラクターを使用します。"
   syntax:
     content: public RequestedProofToken (byte[] secret);
     parameters:
     - id: secret
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains the key material."
+      description: "配列<xref:System.Byte>キー マテリアルを格納している</xref:System.Byte>。"
   overload: System.IdentityModel.Protocols.WSTrust.RequestedProofToken.#ctor*
   exceptions: []
   platform:
@@ -61,18 +61,18 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestedProofToken&quot;></xref> class using the specified <xref href=&quot;System.IdentityModel.Protocols.WSTrust.ProtectedKey&quot;></xref> object."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestedProofToken&quot;> </xref>クラス<xref href=&quot;System.IdentityModel.Protocols.WSTrust.ProtectedKey&quot;></xref>オブジェクト。"
   syntax:
     content: public RequestedProofToken (System.IdentityModel.Protocols.WSTrust.ProtectedKey protectedKey);
     parameters:
     - id: protectedKey
       type: System.IdentityModel.Protocols.WSTrust.ProtectedKey
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.ProtectedKey&quot;></xref> that represents the key, which can be either a binary secret or an encrypted key."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.ProtectedKey&quot;> </xref>を表す、キーは、バイナリ シークレットまたは暗号化されたキーのいずれかを指定できます。"
   overload: System.IdentityModel.Protocols.WSTrust.RequestedProofToken.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>protectedKey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>protectedKey</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Protocols.WSTrust.RequestedProofToken.#ctor(System.String)
@@ -87,19 +87,19 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestedProofToken&quot;></xref> class using the specified computed key algorithm."
-  remarks: "Use this constructor in the case of combined entropy to specify the algorithm used to calculate the session key."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestedProofToken&quot;> </xref>クラスの指定された計算されたキーのアルゴリズムを使用します。"
+  remarks: "結合されたエントロピの場合、このコンス トラクターを使用すると、セッション キーを計算に使用するアルゴリズムを指定します。"
   syntax:
     content: public RequestedProofToken (string computedKeyAlgorithm);
     parameters:
     - id: computedKeyAlgorithm
       type: System.String
-      description: "A string that contains a URI that indicates the algorithm used to compute the session key in the combined entropy case."
+      description: "組み合わせたエントロピの場合も、セッション キーの計算に使用するアルゴリズムを示す URI を含む文字列です。"
   overload: System.IdentityModel.Protocols.WSTrust.RequestedProofToken.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>computedKeyAlgorithm</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>computedKeyAlgorithm</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Protocols.WSTrust.RequestedProofToken.#ctor(System.Byte[],System.IdentityModel.Tokens.EncryptingCredentials)
@@ -114,17 +114,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestedProofToken&quot;></xref> class using the specified key material and encrypting credentials."
-  remarks: "Use this constructor when the key is encrypted."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestedProofToken&quot;> </xref>クラスの指定されたキー マテリアルを使用して、資格情報を暗号化します。"
+  remarks: "キーが暗号化されている場合は、このコンス トラクターを使用します。"
   syntax:
     content: public RequestedProofToken (byte[] secret, System.IdentityModel.Tokens.EncryptingCredentials wrappingCredentials);
     parameters:
     - id: secret
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains the key material."
+      description: "配列<xref:System.Byte>キー マテリアルを格納している</xref:System.Byte>。"
     - id: wrappingCredentials
       type: System.IdentityModel.Tokens.EncryptingCredentials
-      description: "A <xref:System.IdentityModel.SecurityTokenService.EncryptingCredentials> that represents the credentials used to encrypt the key material."
+      description: "A<xref:System.IdentityModel.SecurityTokenService.EncryptingCredentials>キー マテリアルの暗号化に使用する資格情報を表す</xref:System.IdentityModel.SecurityTokenService.EncryptingCredentials>。"
   overload: System.IdentityModel.Protocols.WSTrust.RequestedProofToken.#ctor*
   exceptions: []
   platform:
@@ -141,13 +141,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
-  summary: "Gets the computed key algorithm used to calculate the session key in the combined entropy case."
-  remarks: "Represents the contents of the wst:ComputedKey element. This element contains a URI that indicates the computed key algorithm used when keys must be computed; for example, in the combined entropy case when both the requestor and issuer specify entropy."
+  summary: "使用して組み合わせたエントロピ ケース内のセッション キーを計算計算されたキー アルゴリズムを取得します。"
+  remarks: "Wst:ComputedKey 要素の内容を表します。 この要素には、キーを計算する必要があります。 場合に使用される計算のキー アルゴリズムを示す URI が含まれています。たとえばでは、結合エントロピ場合、リクエスターと発行者エントロピを指定します。"
   syntax:
     content: public string ComputedKeyAlgorithm { get; }
     return:
       type: System.String
-      description: "A string that contains a URI that indicates the computed key algorithm."
+      description: "計算されたキー アルゴリズムを示す URI を含む文字列です。"
   overload: System.IdentityModel.Protocols.WSTrust.RequestedProofToken.ComputedKeyAlgorithm*
   exceptions: []
   platform:
@@ -164,13 +164,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Protocols.WSTrust
-  summary: "Gets the key in the case when the wst:RequestedProofToken element contains a key."
-  remarks: "Represents the contents of the wst:RequestedProofToken element when the element contains a key (rather than a wst:ComputedKeyElement)."
+  summary: "Wst:RequestedProofToken 要素には、キーが含まれている場合は、場合、キーを取得します。"
+  remarks: "要素には、(、wst:ComputedKeyElement ではなく)、キーが含まれている場合は、wst:RequestedProofToken 要素の内容を表します。"
   syntax:
     content: public System.IdentityModel.Protocols.WSTrust.ProtectedKey ProtectedKey { get; }
     return:
       type: System.IdentityModel.Protocols.WSTrust.ProtectedKey
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.ProtectedKey&quot;></xref> that represents the key, which can be either encrypted or clear text."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.ProtectedKey&quot;> </xref>を表す、キーは、暗号化された、あるいはクリア テキスト型であることができます。"
   overload: System.IdentityModel.Protocols.WSTrust.RequestedProofToken.ProtectedKey*
   exceptions: []
   platform:

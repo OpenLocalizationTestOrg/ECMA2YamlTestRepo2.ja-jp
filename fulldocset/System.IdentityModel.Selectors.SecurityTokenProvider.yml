@@ -30,8 +30,8 @@ items:
   nameWithType: SecurityTokenProvider
   fullName: System.IdentityModel.Selectors.SecurityTokenProvider
   type: Class
-  summary: "Represents a security token provider that handles security tokens for a SOAP message sender."
-  remarks: "Use the SecurityTokenProvider class when custom security tokens are required. The role of a security token provider is to get a security token when a SOAP message is sent by a client and a security token is used to authenticate the client or to protect the SOAP message. Specifically, the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A> method is called to get a security token. The security token provider can also be called to cancel and renew a security using the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelToken%2A> and <xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewToken%2A> methods.       Classes that derive from the <xref:System.IdentityModel.Selectors.SecurityTokenManager> class implement the <xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenProvider%2A> method to determine which security token provider is required for a given security token.       The <xref:System.ServiceModel.ClientCredentialsSecurityTokenManager> and <xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager> classes provide the default implementations for built-in security token types. For custom security token scenarios, you must derive a class from one of the <xref:System.IdentityModel.Selectors.SecurityTokenManager>, <xref:System.ServiceModel.ClientCredentialsSecurityTokenManager>, or <xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager> classes and provide the functionality to create the security token provider, security token authenticator, and security token serializer for the custom security token. [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)] creating a custom token, see [How to: Create a Custom Token](~/add/includes/ajax-current-ext-md.md)."
+  summary: "SOAP メッセージの送信者のセキュリティ トークンを処理するセキュリティ トークン プロバイダーを表します。"
+  remarks: "カスタム セキュリティ トークンが必要な場合は、SecurityTokenProvider クラスを使用します。 セキュリティ トークン プロバイダーの役割は、SOAP メッセージがクライアントによって送信され、セキュリティ トークンを使用すると、クライアントを認証したり、SOAP メッセージを保護セキュリティ トークンを取得します。 具体的には、<xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A>セキュリティ トークンを取得するメソッドが呼び出されます</xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A>。 セキュリティ トークン プロバイダーを呼び出してキャンセルやセキュリティを使用して、更新することもできます、<xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelToken%2A>と<xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewToken%2A>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewToken%2A></xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelToken%2A>。       派生したクラス、<xref:System.IdentityModel.Selectors.SecurityTokenManager>クラスの実装、<xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenProvider%2A>セキュリティ トークン プロバイダーが特定のセキュリティ トークンの要求を調べます</xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenProvider%2A></xref:System.IdentityModel.Selectors.SecurityTokenManager>。       <xref:System.ServiceModel.ClientCredentialsSecurityTokenManager>と<xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager>トークンの種類に組み込みのセキュリティの既定の実装を提供するクラス</xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager></xref:System.ServiceModel.ClientCredentialsSecurityTokenManager>。 カスタム セキュリティ トークンのシナリオでは、いずれかからクラスを派生する必要があります、 <xref:System.IdentityModel.Selectors.SecurityTokenManager>、 <xref:System.ServiceModel.ClientCredentialsSecurityTokenManager>、または<xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager>クラスし、セキュリティ トークン プロバイダー、セキュリティ トークン認証システム、およびカスタム セキュリティ トークンのセキュリティ トークン シリアライザーを作成する機能を提供します</xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager></xref:System.ServiceModel.ClientCredentialsSecurityTokenManager></xref:System.IdentityModel.Selectors.SecurityTokenManager>。 [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)]カスタム トークンを作成するを参照してください[する方法: カスタム トークンを作成する](~/add/includes/ajax-current-ext-md.md)です。"
   example:
   - >-
     [!code-vb[SecurityTokenProvider#0](~/add/codesnippet/visualbasic/t-system.identitymodel.s_9_1.vb)]
@@ -56,7 +56,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenProvider&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenProvider&quot;> </xref>クラスです。"
   syntax:
     content: protected SecurityTokenProvider ();
     parameters: []
@@ -76,26 +76,26 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Begins an asynchronous operation to cancel a security token."
-  remarks: "A security token that can be cancelled, such as one that is issued, allows a client that requested a security token to cancel it when it is done with it."
+  summary: "セキュリティ トークンをキャンセルする非同期操作を開始します。"
+  remarks: "いずれかが発行するなど、キャンセルできるセキュリティ トークンには、その処理が終わったら、[キャンセル] をセキュリティ トークンを要求したクライアントができます。"
   syntax:
     content: public IAsyncResult BeginCancelToken (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken token, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that cancels the security token."
+      description: "A<xref:System.TimeSpan>セキュリティ トークンをキャンセルするメッセージのタイムアウト値を指定します</xref:System.TimeSpan>。"
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to cancel."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を取り消します。"
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous close operation."
+      description: "<xref:System.AsyncCallback>非同期の close 操作の完了の通知を受信するデリゲート</xref:System.AsyncCallback>。"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous close operation."
+      description: "非同期の close 操作に関連付けられている状態情報を格納する、アプリケーションで指定されたオブジェクト。"
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous cancel operation."
+      description: "<xref:System.IAsyncResult>非同期取り消し操作を参照する</xref:System.IAsyncResult>。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelToken*
   exceptions: []
   platform:
@@ -112,26 +112,26 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Begins an asynchronous operation to cancel a security token."
-  remarks: "A security token that can be cancelled, such as one that is issued, allows a client that requested a security token to cancel it when it is done with it."
+  summary: "セキュリティ トークンをキャンセルする非同期操作を開始します。"
+  remarks: "いずれかが発行するなど、キャンセルできるセキュリティ トークンには、その処理が終わったら、[キャンセル] をセキュリティ トークンを要求したクライアントができます。"
   syntax:
     content: protected virtual IAsyncResult BeginCancelTokenCore (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken token, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that cancels the security token."
+      description: "A<xref:System.TimeSpan>セキュリティ トークンをキャンセルするメッセージのタイムアウト値を指定します</xref:System.TimeSpan>。"
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to cancel."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を取り消します。"
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous close operation."
+      description: "<xref:System.AsyncCallback>非同期の close 操作の完了の通知を受信するデリゲート</xref:System.AsyncCallback>。"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous close operation."
+      description: "非同期の close 操作に関連付けられている状態情報を格納する、アプリケーションで指定されたオブジェクト。"
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous cancel operation."
+      description: "<xref:System.IAsyncResult>非同期取り消し操作を参照する</xref:System.IAsyncResult>。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelTokenCore*
   exceptions: []
   platform:
@@ -148,23 +148,23 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Begins an asynchronous operation to get a security token."
-  remarks: "The BeginGetToken method calls the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetTokenCore%2A> method."
+  summary: "セキュリティ トークンを取得する非同期操作を開始します。"
+  remarks: "BeginGetToken メソッドの呼び出し、<xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetTokenCore%2A>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetTokenCore%2A>。"
   syntax:
     content: public IAsyncResult BeginGetToken (TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that gets the security token."
+      description: "A<xref:System.TimeSpan>セキュリティ トークンを取得するメッセージのタイムアウト値を指定します</xref:System.TimeSpan>。"
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous close operation."
+      description: "<xref:System.AsyncCallback>非同期の close 操作の完了の通知を受信するデリゲート</xref:System.AsyncCallback>。"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous close operation."
+      description: "非同期の close 操作に関連付けられている状態情報を格納する、アプリケーションで指定されたオブジェクト。"
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous close operation."
+      description: "<xref:System.IAsyncResult>非同期の close 操作を参照する</xref:System.IAsyncResult>。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetToken*
   exceptions: []
   platform:
@@ -181,23 +181,23 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Begins an asynchronous operation to get a security token."
-  remarks: "When you inherit from the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> class you are not required to override the asynchronous methods, as the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> base class provides asynchronous support based upon the synchronous methods. Therefore, you are not required to override the BeginGetTokenCore method, unless you must provide your own asynchronous implementation.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetToken%2A> method calls the BeginGetTokenCore method."
+  summary: "セキュリティ トークンを取得する非同期操作を開始します。"
+  remarks: "継承する場合、<xref:System.IdentityModel.Selectors.SecurityTokenProvider>クラスとして、非同期メソッドをオーバーライドする必要はありません、<xref:System.IdentityModel.Selectors.SecurityTokenProvider>基底クラスが同期メソッドに基づいて非同期のサポートを提供します</xref:System.IdentityModel.Selectors.SecurityTokenProvider></xref:System.IdentityModel.Selectors.SecurityTokenProvider>。 そのため、する必要はありません BeginGetTokenCore メソッドをオーバーライドする場合を除き、独自の非同期実装を提供する必要があります。       <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetToken%2A>メソッド BeginGetTokenCore メソッドを呼び出します</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetToken%2A>。"
   syntax:
     content: protected virtual IAsyncResult BeginGetTokenCore (TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that gets the security token."
+      description: "A<xref:System.TimeSpan>セキュリティ トークンを取得するメッセージのタイムアウト値を指定します</xref:System.TimeSpan>。"
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous close operation."
+      description: "<xref:System.AsyncCallback>非同期の close 操作の完了の通知を受信するデリゲート</xref:System.AsyncCallback>。"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous close operation."
+      description: "非同期の close 操作に関連付けられている状態情報を格納する、アプリケーションで指定されたオブジェクト。"
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous operation."
+      description: "<xref:System.IAsyncResult>非同期操作を参照する</xref:System.IAsyncResult>。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetTokenCore*
   exceptions: []
   platform:
@@ -214,26 +214,26 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Begins an asynchronous operation that renews a security token."
-  remarks: "The BeginRenewToken method calls the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewTokenCore%2A> method."
+  summary: "セキュリティ トークンを更新する非同期操作を開始します。"
+  remarks: "BeginRenewToken メソッドの呼び出し、<xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewTokenCore%2A>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewTokenCore%2A>。"
   syntax:
     content: public IAsyncResult BeginRenewToken (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken tokenToBeRenewed, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that renews the security token."
+      description: "A<xref:System.TimeSpan>をセキュリティ トークンを更新するメッセージのタイムアウト値を指定します</xref:System.TimeSpan>。"
     - id: tokenToBeRenewed
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to renew."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を更新します。"
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous close operation."
+      description: "<xref:System.AsyncCallback>非同期の close 操作の完了の通知を受信するデリゲート</xref:System.AsyncCallback>。"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous close operation."
+      description: "非同期の close 操作に関連付けられている状態情報を格納する、アプリケーションで指定されたオブジェクト。"
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous operation."
+      description: "<xref:System.IAsyncResult>非同期操作を参照する</xref:System.IAsyncResult>。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewToken*
   exceptions: []
   platform:
@@ -250,26 +250,26 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Begins an asynchronous operation that renews a security token."
-  remarks: "When you inherit from the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> class you are not required to override the asynchronous methods, as the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> base class provides asynchronous support based upon the synchronous methods. Therefore, you are not required to override the BeginRenewTokenCore method, unless you must provide your own asynchronous implementation.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewToken%2A> method calls the BeginRenewTokenCore method."
+  summary: "セキュリティ トークンを更新する非同期操作を開始します。"
+  remarks: "継承する場合、<xref:System.IdentityModel.Selectors.SecurityTokenProvider>クラスとして、非同期メソッドをオーバーライドする必要はありません、<xref:System.IdentityModel.Selectors.SecurityTokenProvider>基底クラスが同期メソッドに基づいて非同期のサポートを提供します</xref:System.IdentityModel.Selectors.SecurityTokenProvider></xref:System.IdentityModel.Selectors.SecurityTokenProvider>。 そのため、する必要はありません BeginRenewTokenCore メソッドをオーバーライドする場合を除き、独自の非同期実装を提供する必要があります。       <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewToken%2A>メソッド BeginRenewTokenCore メソッドを呼び出します</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewToken%2A>。"
   syntax:
     content: protected virtual IAsyncResult BeginRenewTokenCore (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken tokenToBeRenewed, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that renews the security token."
+      description: "A<xref:System.TimeSpan>をセキュリティ トークンを更新するメッセージのタイムアウト値を指定します</xref:System.TimeSpan>。"
     - id: tokenToBeRenewed
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to renew."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を更新します。"
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous close operation."
+      description: "<xref:System.AsyncCallback>非同期の close 操作の完了の通知を受信するデリゲート</xref:System.AsyncCallback>。"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous close operation."
+      description: "非同期の close 操作に関連付けられている状態情報を格納する、アプリケーションで指定されたオブジェクト。"
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous operation."
+      description: "<xref:System.IAsyncResult>非同期操作を参照する</xref:System.IAsyncResult>。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewTokenCore*
   exceptions: []
   platform:
@@ -286,17 +286,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Cancels a security token."
-  remarks: "A security token that can be cancelled, such as one that is issued, allows a client that requested a security token to cancel it when it is done with it.       The CancelToken method calls <xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelTokenCore%2A> method."
+  summary: "セキュリティ トークンをキャンセルします。"
+  remarks: "いずれかが発行するなど、キャンセルできるセキュリティ トークンには、その処理が終わったら、[キャンセル] をセキュリティ トークンを要求したクライアントができます。       CancelToken メソッド呼び出し<xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelTokenCore%2A>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelTokenCore%2A>。"
   syntax:
     content: public void CancelToken (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that cancels the security token."
+      description: "A<xref:System.TimeSpan>セキュリティ トークンをキャンセルするメッセージのタイムアウト値を指定します</xref:System.TimeSpan>。"
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to cancel."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を取り消します。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.CancelToken*
   exceptions: []
   platform:
@@ -313,17 +313,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Cancels a security token."
-  remarks: "A security token that can be cancelled, such as one that is issued, allows a client that requested a security token to cancel it when it is done with it.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelToken%2A> method calls CancelTokenCore method.       When the CancelTokenCore method is overridden and the security token passed into the token parameter cannot be canceled, throw the <xref:System.IdentityModel.Tokens.SecurityTokenException> exception."
+  summary: "セキュリティ トークンをキャンセルします。"
+  remarks: "いずれかが発行するなど、キャンセルできるセキュリティ トークンには、その処理が終わったら、[キャンセル] をセキュリティ トークンを要求したクライアントができます。       <xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelToken%2A>メソッド CancelTokenCore メソッドを呼び出します</xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelToken%2A>。       スロー、CancelTokenCore メソッドがオーバーライドされ、トークン パラメーターに渡したセキュリティ トークンをキャンセルすることはできません、<xref:System.IdentityModel.Tokens.SecurityTokenException>例外です</xref:System.IdentityModel.Tokens.SecurityTokenException>。"
   syntax:
     content: protected virtual void CancelTokenCore (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that cancels the security token."
+      description: "A<xref:System.TimeSpan>セキュリティ トークンをキャンセルするメッセージのタイムアウト値を指定します</xref:System.TimeSpan>。"
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to cancel."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を取り消します。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.CancelTokenCore*
   exceptions: []
   platform:
@@ -340,14 +340,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Completes an asynchronous operation to cancel a security token."
-  remarks: "A security token that can be cancelled, such as one that is issued, allows a client that requested a security token to cancel it when it is done with it.       The EndCancelToken method calls <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelTokenCore%2A> method."
+  summary: "セキュリティ トークンをキャンセルする非同期操作を完了します。"
+  remarks: "いずれかが発行するなど、キャンセルできるセキュリティ トークンには、その処理が終わったら、[キャンセル] をセキュリティ トークンを要求したクライアントができます。       EndCancelToken メソッド呼び出し<xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelTokenCore%2A>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelTokenCore%2A>。"
   syntax:
     content: public void EndCancelToken (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelToken*> method."
+      description: "<xref:System.IAsyncResult>への呼び出しによって返される、<xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelToken*>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelToken*></xref:System.IAsyncResult>。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelToken*
   exceptions: []
   platform:
@@ -364,14 +364,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Completes an asynchronous operation to cancel a security token."
-  remarks: "A security token that can be cancelled, such as one that is issued, allows a client that requested a security token to cancel it when it is done with it.       When you inherit from the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> class you are not required to override the asynchronous methods, as the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> base class provides asynchronous support based upon the synchronous methods. Therefore, you are not required to override the EndCancelTokenCore method, unless you must provide your own asynchronous implementation.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelToken%2A> method calls EndCancelTokenCore method."
+  summary: "セキュリティ トークンをキャンセルする非同期操作を完了します。"
+  remarks: "いずれかが発行するなど、キャンセルできるセキュリティ トークンには、その処理が終わったら、[キャンセル] をセキュリティ トークンを要求したクライアントができます。       継承する場合、<xref:System.IdentityModel.Selectors.SecurityTokenProvider>クラスとして、非同期メソッドをオーバーライドする必要はありません、<xref:System.IdentityModel.Selectors.SecurityTokenProvider>基底クラスが同期メソッドに基づいて非同期のサポートを提供します</xref:System.IdentityModel.Selectors.SecurityTokenProvider></xref:System.IdentityModel.Selectors.SecurityTokenProvider>。 そのため、する必要はありません EndCancelTokenCore メソッドをオーバーライドする場合を除き、独自の非同期実装を提供する必要があります。       <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelToken%2A>メソッド EndCancelTokenCore メソッドを呼び出します</xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelToken%2A>。"
   syntax:
     content: protected virtual void EndCancelTokenCore (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelTokenCore*> method."
+      description: "<xref:System.IAsyncResult>への呼び出しによって返される、<xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelTokenCore*>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelTokenCore*></xref:System.IAsyncResult>。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelTokenCore*
   exceptions: []
   platform:
@@ -388,17 +388,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Completes an asynchronous operation to get a security token."
-  remarks: "The EndGetToken method calls the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndGetTokenCore%2A> method."
+  summary: "セキュリティ トークンを取得する非同期操作を完了します。"
+  remarks: "EndGetToken メソッドの呼び出し、<xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndGetTokenCore%2A>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndGetTokenCore%2A>。"
   syntax:
     content: public System.IdentityModel.Tokens.SecurityToken EndGetToken (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetToken*> method."
+      description: "<xref:System.IAsyncResult>への呼び出しによって返される、<xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetToken*>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetToken*></xref:System.IAsyncResult>。"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>セキュリティ トークンを表すです。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.EndGetToken*
   exceptions: []
   platform:
@@ -415,17 +415,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Completes an asynchronous operation to get a security token."
-  remarks: "When you inherit from the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> class you are not required to override the asynchronous methods, as the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> base class provides asynchronous support based upon the synchronous methods. Therefore, you are not required to override the EndGetTokenCore method, unless you must provide your own asynchronous implementation.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndGetToken%2A> method calls the EndGetTokenCore method."
+  summary: "セキュリティ トークンを取得する非同期操作を完了します。"
+  remarks: "継承する場合、<xref:System.IdentityModel.Selectors.SecurityTokenProvider>クラスとして、非同期メソッドをオーバーライドする必要はありません、<xref:System.IdentityModel.Selectors.SecurityTokenProvider>基底クラスが同期メソッドに基づいて非同期のサポートを提供します</xref:System.IdentityModel.Selectors.SecurityTokenProvider></xref:System.IdentityModel.Selectors.SecurityTokenProvider>。 そのため、する必要はありません EndGetTokenCore メソッドをオーバーライドする場合を除き、独自の非同期実装を提供する必要があります。       <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndGetToken%2A>メソッド EndGetTokenCore メソッドを呼び出します</xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndGetToken%2A>。"
   syntax:
     content: protected virtual System.IdentityModel.Tokens.SecurityToken EndGetTokenCore (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetTokenCore*> method."
+      description: "<xref:System.IAsyncResult>への呼び出しによって返される、<xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetTokenCore*>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetTokenCore*></xref:System.IAsyncResult>。"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>セキュリティ トークンを表すです。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.EndGetTokenCore*
   exceptions: []
   platform:
@@ -442,17 +442,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Completes an asynchronous operation to renew a security token."
-  remarks: "The EndRenewToken method calls the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewTokenCore%2A> method."
+  summary: "セキュリティ トークンを更新する非同期操作を完了します。"
+  remarks: "EndRenewToken メソッドの呼び出し、<xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewTokenCore%2A>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewTokenCore%2A>。"
   syntax:
     content: public System.IdentityModel.Tokens.SecurityToken EndRenewToken (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewToken*> method."
+      description: "<xref:System.IAsyncResult>への呼び出しによって返される、<xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewToken*>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewToken*></xref:System.IAsyncResult>。"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token that is renewed."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を更新するセキュリティ トークンを表すです。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewToken*
   exceptions: []
   platform:
@@ -469,17 +469,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Completes an asynchronous operation to renew the security token."
-  remarks: "When you inherit from the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> class you are not required to override the asynchronous methods, as the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> base class provides asynchronous support based upon the synchronous methods. Therefore, you are not required to override the EndRenewTokenCore method, unless you must provide your own asynchronous implementation.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewToken%2A> method calls the EndRenewTokenCore method."
+  summary: "セキュリティ トークンを更新する非同期操作を完了します。"
+  remarks: "継承する場合、<xref:System.IdentityModel.Selectors.SecurityTokenProvider>クラスとして、非同期メソッドをオーバーライドする必要はありません、<xref:System.IdentityModel.Selectors.SecurityTokenProvider>基底クラスが同期メソッドに基づいて非同期のサポートを提供します</xref:System.IdentityModel.Selectors.SecurityTokenProvider></xref:System.IdentityModel.Selectors.SecurityTokenProvider>。 そのため、する必要はありません EndRenewTokenCore メソッドをオーバーライドする場合を除き、独自の非同期実装を提供する必要があります。       <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewToken%2A>メソッド EndRenewTokenCore メソッドを呼び出します</xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewToken%2A>。"
   syntax:
     content: protected virtual System.IdentityModel.Tokens.SecurityToken EndRenewTokenCore (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewTokenCore*> method."
+      description: "<xref:System.IAsyncResult>への呼び出しによって返される、<xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewTokenCore*>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewTokenCore*></xref:System.IAsyncResult>。"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token that is renewed."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を更新するセキュリティ トークンを表すです。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewTokenCore*
   exceptions: []
   platform:
@@ -496,17 +496,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Gets a security token."
-  remarks: "The GetToken method is called by the <xref:System.ServiceModel.Description.ClientCredentials> class when a client sends a SOAP message and a security token is required.       The GetToken method calls the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetTokenCore%2A> method.       In most cases the `timeout` parameter is not used by derived classes of <xref:System.IdentityModel.Selectors.SecurityTokenProvider> such as <xref:System.IdentityModel.Selectors.UserNameSecurityTokenProvider>. However, sometimes retrieving a security token involves distributed messaging. An example is <xref:System.ServiceModel.Security.Tokens.IssuedSecurityTokenProvider> used in a federated service. In these cases the `timeout` parameter is used to avoid exceptions caused by network failures, message loss, and other error conditions."
+  summary: "セキュリティ トークンを取得します。"
+  remarks: "GetToken メソッドによって呼び出されます、<xref:System.ServiceModel.Description.ClientCredentials>時、クライアントが SOAP メッセージを送信し、セキュリティ トークンが必要です</xref:System.ServiceModel.Description.ClientCredentials>。       GetToken メソッドの呼び出し、<xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetTokenCore%2A>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetTokenCore%2A>。       ほとんどの場合、 `timeout` <xref:System.IdentityModel.Selectors.SecurityTokenProvider> <xref:System.IdentityModel.Selectors.UserNameSecurityTokenProvider>.</xref:System.IdentityModel.Selectors.UserNameSecurityTokenProvider>など</xref:System.IdentityModel.Selectors.SecurityTokenProvider>の派生クラスではパラメーターは使用されません ただし、場合によって、セキュリティ トークンを取得するには、分散メッセージングが含まれます。 例としては<xref:System.ServiceModel.Security.Tokens.IssuedSecurityTokenProvider>がフェデレーション サービスで使用します</xref:System.ServiceModel.Security.Tokens.IssuedSecurityTokenProvider>。 このような場合、`timeout`パラメーターは、ネットワーク エラー、メッセージの紛失、およびその他のエラー条件によって引き起こされる例外を避けるために使用します。"
   syntax:
     content: public System.IdentityModel.Tokens.SecurityToken GetToken (TimeSpan timeout);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that gets the security token."
+      description: "A<xref:System.TimeSpan>セキュリティ トークンを取得するメッセージのタイムアウト値を指定します</xref:System.TimeSpan>。"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token to get."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を表す、セキュリティ トークンを取得します。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.GetToken*
   exceptions: []
   platform:
@@ -523,8 +523,8 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Gets a security token."
-  remarks: "When the GetTokenCore method is overridden and the security token passed into the token parameter cannot be obtained, throw the <xref:System.IdentityModel.Tokens.SecurityTokenException> exception.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A> method is called by the <xref:System.ServiceModel.Description.ClientCredentials> class when a client sends a SOAP message and a security token is required.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A> method calls the GetTokenCore method."
+  summary: "セキュリティ トークンを取得します。"
+  remarks: "GetTokenCore メソッドがオーバーライドされ、トークンのパラメーターに渡したセキュリティ トークンを取得できないと、スロー、<xref:System.IdentityModel.Tokens.SecurityTokenException>例外です</xref:System.IdentityModel.Tokens.SecurityTokenException>。       <xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A>メソッドによって呼び出されます、<xref:System.ServiceModel.Description.ClientCredentials>時、クライアントが SOAP メッセージを送信し、セキュリティ トークンが必要です</xref:System.ServiceModel.Description.ClientCredentials></xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A>。       <xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A>メソッド GetTokenCore メソッドを呼び出します</xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A>。"
   example:
   - >-
     [!code-vb[SecurityTokenProvider#1](~/add/codesnippet/visualbasic/501effc0-dded-4b3b-893a-_1.vb)]
@@ -534,10 +534,10 @@ items:
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that gets the security token."
+      description: "A<xref:System.TimeSpan>セキュリティ トークンを取得するメッセージのタイムアウト値を指定します</xref:System.TimeSpan>。"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token to get."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を表す、セキュリティ トークンを取得します。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.GetTokenCore*
   exceptions: []
   platform:
@@ -554,20 +554,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Renews a security token."
-  remarks: "An issued security token that is renewable allows a client to renew it when the security token is about to or has expired.       The RenewToken method calls the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewTokenCore%2A> method."
+  summary: "セキュリティ トークンを更新します。"
+  remarks: "更新可能である発行されたセキュリティ トークンには、それを更新し、セキュリティ トークンにまたは有効期限が切れたときに、クライアントができます。       RenewToken メソッドの呼び出し、<xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewTokenCore%2A>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewTokenCore%2A>。"
   syntax:
     content: public System.IdentityModel.Tokens.SecurityToken RenewToken (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken tokenToBeRenewed);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that renews the security token."
+      description: "A<xref:System.TimeSpan>をセキュリティ トークンを更新するメッセージのタイムアウト値を指定します</xref:System.TimeSpan>。"
     - id: tokenToBeRenewed
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to renew."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を更新します。"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token that is renewed."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を更新するセキュリティ トークンを表すです。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.RenewToken*
   exceptions: []
   platform:
@@ -584,20 +584,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Renews a security token."
-  remarks: "An issued security token that is renewable allows a client to renew it when the security token is about to or has expired.       When the RenewTokenCore method is overridden and the security token passed into the token parameter cannot be renewed, throw the <xref:System.IdentityModel.Tokens.SecurityTokenException> exception.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewToken%2A> method calls the RenewTokenCore method."
+  summary: "セキュリティ トークンを更新します。"
+  remarks: "更新可能である発行されたセキュリティ トークンには、それを更新し、セキュリティ トークンにまたは有効期限が切れたときに、クライアントができます。       スロー、RenewTokenCore メソッドがオーバーライドされ、トークン パラメーターに渡したセキュリティ トークンを更新することはできません、<xref:System.IdentityModel.Tokens.SecurityTokenException>例外です</xref:System.IdentityModel.Tokens.SecurityTokenException>。       <xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewToken%2A>メソッド RenewTokenCore メソッドを呼び出します</xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewToken%2A>。"
   syntax:
     content: protected virtual System.IdentityModel.Tokens.SecurityToken RenewTokenCore (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken tokenToBeRenewed);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that renews the security token."
+      description: "A<xref:System.TimeSpan>をセキュリティ トークンを更新するメッセージのタイムアウト値を指定します</xref:System.TimeSpan>。"
     - id: tokenToBeRenewed
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to renew."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を更新します。"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token that is renewed."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を更新するセキュリティ トークンを表すです。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.RenewTokenCore*
   exceptions: []
   platform:
@@ -614,13 +614,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Gets a value that indicates whether the security token can be cancelled."
-  remarks: "A security token that can be cancelled, such as one that is issued, allows a client that requested a security token to cancel it when it is done with it."
+  summary: "セキュリティ トークンをキャンセルできるかどうかを示す値を取得します。"
+  remarks: "いずれかが発行するなど、キャンセルできるセキュリティ トークンには、その処理が終わったら、[キャンセル] をセキュリティ トークンを要求したクライアントができます。"
   syntax:
     content: public virtual bool SupportsTokenCancellation { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the security token can be cancelled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、セキュリティ トークンをキャンセルできます。それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。 既定値は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.SupportsTokenCancellation*
   exceptions: []
   platform:
@@ -637,13 +637,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Gets a value that indicates whether the security token is renewable."
-  remarks: "An issued security token that is renewable allows a client to renew it when the security token is about to or has expired."
+  summary: "セキュリティ トークンを更新できるかどうかを示す値を取得します。"
+  remarks: "更新可能である発行されたセキュリティ トークンには、それを更新し、セキュリティ トークンにまたは有効期限が切れたときに、クライアントができます。"
   syntax:
     content: public virtual bool SupportsTokenRenewal { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the security token can be renewed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、セキュリティ トークンを更新することができます。それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。 既定値は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.SupportsTokenRenewal*
   exceptions: []
   platform:

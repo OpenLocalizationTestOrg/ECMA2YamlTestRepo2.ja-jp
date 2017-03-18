@@ -15,8 +15,8 @@ items:
   nameWithType: EvaluationContext
   fullName: System.IdentityModel.Policy.EvaluationContext
   type: Class
-  summary: "When overridden in a derived class, represents the results of the authorization policies that have been evaluated."
-  remarks: "Claims are added to an EvaluationContext by authorization policies. An authorization policy takes a set of claims, such as those found in a security token, and adds additional claims based on the current set. For instance, an authorization policy might evaluate a claim that contains the date of birth and add a claim that states the user is over 21 years old and add an Over21 claim to the EvaluationContext.       Classes that implement the <xref:System.IdentityModel.Policy.IAuthorizationPolicy> interface do not authorize users, but they enable the <xref:System.ServiceModel.ServiceAuthorizationManager> class to do so. The <xref:System.ServiceModel.ServiceAuthorizationManager> calls the <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> method for each authorization policy in effect. The <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> method determines whether additional claims should be added for the user based on the current claims. An authorization policy&quot;s <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> method may be called multiple times, as claims are added to the EvaluationContext by other authorization policies. When all authorization policies in effect are done, the <xref:System.ServiceModel.ServiceAuthorizationManager> class makes authorization decisions based upon the final set of claims. The <xref:System.ServiceModel.ServiceAuthorizationManager> class then creates an <xref:System.IdentityModel.Policy.AuthorizationContext> that contains an immutable set of claims that reflects these authorization decisions.       An evaluation context contains a set of <xref:System.IdentityModel.Claims.ClaimSet> objects: an expiration time, which specifies the span of time during which the evaluation context is valid, and a unique identifier."
+  summary: "派生クラスでオーバーライドされると、評価された承認ポリシーの結果を表します。"
+  remarks: "クレームは、承認ポリシーによって、EvaluationContext に追加されます。 承認ポリシーは、セキュリティ トークンに含まれるよう、クレームのセットを受け取りし、現在のセットに基づいて新しいクレームを追加します。 インスタンスの承認ポリシー可能性があります生年月日を含むクレームと追加ユーザーを表明するクレームが 21 歳をチェックし、EvaluationContext を Over21 クレームを追加します。       <xref:System.IdentityModel.Policy.IAuthorizationPolicy>インターフェイスは、ユーザーを承認しないが<xref:System.ServiceModel.ServiceAuthorizationManager>クラス</xref:System.ServiceModel.ServiceAuthorizationManager></xref:System.IdentityModel.Policy.IAuthorizationPolicy>に実装するクラス <xref:System.ServiceModel.ServiceAuthorizationManager>呼び出し、<xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A>各承認ポリシーの効果のメソッド</xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A></xref:System.ServiceModel.ServiceAuthorizationManager>。 <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A>メソッドは、現在のクレームに基づくユーザーの追加クレームを追加するかどうかを判断します</xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A>。 承認ポリシーの<xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A>メソッドが複数回呼び出す、その他の承認ポリシーによって、EvaluationContext にクレームを追加します</xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A>。 すべての承認ポリシーの適用が完了したら、ときに、<xref:System.ServiceModel.ServiceAuthorizationManager>クラスは、最終的な要求セットに基づいて承認決定を行います</xref:System.ServiceModel.ServiceAuthorizationManager>。 <xref:System.ServiceModel.ServiceAuthorizationManager>クラスを作成し、<xref:System.IdentityModel.Policy.AuthorizationContext>こうした承認決定を反映するクレームの変更できないセットを格納している</xref:System.IdentityModel.Policy.AuthorizationContext></xref:System.ServiceModel.ServiceAuthorizationManager>。       評価コンテキストは、一連の<xref:System.IdentityModel.Claims.ClaimSet>オブジェクト: 評価コンテキストが有効である時間の長さを指定するには、期限、および一意の識別子</xref:System.IdentityModel.Claims.ClaimSet>。"
   syntax:
     content: public abstract class EvaluationContext
   inheritance:
@@ -37,7 +37,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Policy.EvaluationContext&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.Policy.EvaluationContext&quot;> </xref>クラスです。"
   syntax:
     content: protected EvaluationContext ();
     parameters: []
@@ -57,17 +57,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: "Adds a set of claims to the evaluation context."
-  remarks: "The claims are added to the set of claims contained within the <xref:System.IdentityModel.Policy.EvaluationContext.ClaimSets%2A> property.       Each time the AddClaimSet method is called to add claims to the evaluation context, the <xref:System.IdentityModel.Policy.EvaluationContext.Generation%2A> property should be incremented."
+  summary: "評価コンテキストにクレームのセットを追加します。"
+  remarks: "要求に含まれるクレームのセットに追加されます、<xref:System.IdentityModel.Policy.EvaluationContext.ClaimSets%2A>プロパティ</xref:System.IdentityModel.Policy.EvaluationContext.ClaimSets%2A>。       評価コンテキストにクレームを追加する AddClaimSet メソッドが呼び出されるたびに、<xref:System.IdentityModel.Policy.EvaluationContext.Generation%2A>プロパティがインクリメントされる必要があります</xref:System.IdentityModel.Policy.EvaluationContext.Generation%2A>。"
   syntax:
     content: public abstract void AddClaimSet (System.IdentityModel.Policy.IAuthorizationPolicy policy, System.IdentityModel.Claims.ClaimSet claimSet);
     parameters:
     - id: policy
       type: System.IdentityModel.Policy.IAuthorizationPolicy
-      description: "An <xref href=&quot;System.IdentityModel.Policy.IAuthorizationPolicy&quot;></xref> that represents the authorization policy that is adding claims to the evaluation context."
+      description: "<xref href=&quot;System.IdentityModel.Policy.IAuthorizationPolicy&quot;> </xref>評価コンテキストにクレームを追加する承認ポリシーを表すです。"
     - id: claimSet
       type: System.IdentityModel.Claims.ClaimSet
-      description: "A <xref href=&quot;System.IdentityModel.Claims.ClaimSet&quot;></xref> that contains a set of claims."
+      description: "A <xref href=&quot;System.IdentityModel.Claims.ClaimSet&quot;> </xref>クレームのセットを格納します。"
   overload: System.IdentityModel.Policy.EvaluationContext.AddClaimSet*
   exceptions: []
   platform:
@@ -84,13 +84,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: "Gets a read-only collection of <xref href=&quot;System.IdentityModel.Claims.ClaimSet&quot;></xref> objects that contains the claims added by authorization policies that have been evaluated."
-  remarks: "To add claims to this collection, for example from an authorization policy, use the <xref:System.IdentityModel.Policy.EvaluationContext.AddClaimSet%2A> method."
+  summary: "読み取り専用コレクションを取得<xref href=&quot;System.IdentityModel.Claims.ClaimSet&quot;></xref>が評価された承認ポリシーによって追加されたクレームを格納するオブジェクト。"
+  remarks: "たとえば承認ポリシーなどから、このコレクションにクレームを追加するには、<xref:System.IdentityModel.Policy.EvaluationContext.AddClaimSet%2A>メソッド</xref:System.IdentityModel.Policy.EvaluationContext.AddClaimSet%2A>。"
   syntax:
     content: public abstract System.Collections.ObjectModel.ReadOnlyCollection<System.IdentityModel.Claims.ClaimSet> ClaimSets { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.IdentityModel.Claims.ClaimSet}
-      description: "A &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; objects that contains the claims added by authorization policies that have been evaluated."
+      description: "A &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt;が評価された承認ポリシーによって追加されたクレームを格納するオブジェクト。"
   overload: System.IdentityModel.Policy.EvaluationContext.ClaimSets*
   exceptions: []
   platform:
@@ -107,13 +107,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: "Gets the number of times that claims have been added to the evaluation context."
-  remarks: "The <xref:System.ServiceModel.ServiceAuthorizationManager> class uses the Generation property to determine if another evaluation round is required. Each time an authorization policy calls the `AddToTarget` method to add claims to the evaluation context, the Generation property is incremented.       The <xref:System.ServiceModel.ServiceAuthorizationManager> class examines the Generation property after calling the <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> method on all authorization policies again. If the Generation property has been incremented during evaluation, the <xref:System.ServiceModel.ServiceAuthorizationManager> class calls the <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> method on any authorization policies that returned `false` the last time the <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> method was called on that authorization policy."
+  summary: "評価コンテキストにクレームが追加された回数を取得します。"
+  remarks: "<xref:System.ServiceModel.ServiceAuthorizationManager>クラス生成プロパティを使用して別の評価ラウンドが必要かを判断します</xref:System.ServiceModel.ServiceAuthorizationManager>。 承認ポリシーを呼び出すたびに、`AddToTarget`メソッドを追加する要求を評価コンテキストに生成プロパティがインクリメントされます。       <xref:System.ServiceModel.ServiceAuthorizationManager>クラスは、呼び出した後に生成プロパティを調べ、<xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A>メソッドをもう一度すべての承認ポリシー</xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> </xref:System.ServiceModel.ServiceAuthorizationManager> 。 評価中に生成プロパティがインクリメントされている場合、<xref:System.ServiceModel.ServiceAuthorizationManager>クラスの呼び出し、<xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A>返された承認ポリシーに対してメソッド`false`最後に、<xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A>その承認ポリシーでメソッドが呼び出されました</xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A></xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A></xref:System.ServiceModel.ServiceAuthorizationManager>。"
   syntax:
     content: public abstract int Generation { get; }
     return:
       type: System.Int32
-      description: "The number of times that claims have been added to the evaluation context."
+      description: "評価コンテキストにクレームが追加された回数。"
   overload: System.IdentityModel.Policy.EvaluationContext.Generation*
   exceptions: []
   platform:
@@ -130,13 +130,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: "Gets a collection of non-claim properties associated with this <xref href=&quot;System.IdentityModel.Policy.EvaluationContext&quot;></xref>."
-  remarks: "The classes in the <xref:System.IdentityModel.Selectors> namespace that implement the <xref:System.IdentityModel.Policy.IAuthorizationPolicy> interface (authorization policies) add a property named `Identities` to the.<xref:System.IdentityModel.Policy.AuthorizationContext.Properties%2A> collection. The `Identities` property contains an object of type <xref:System.Collections.Generic.IList%601> that contains one or more <xref:System.Security.Principal.IIdentity> instances that represent identity information that is provided by the authorization policies."
+  summary: "これに関連付けられているクレーム以外のプロパティのコレクションを取得<xref href=&quot;System.IdentityModel.Policy.EvaluationContext&quot;></xref>です。"
+  remarks: "内のクラス、<xref:System.IdentityModel.Selectors>を実装する名前空間、<xref:System.IdentityModel.Policy.IAuthorizationPolicy>インターフェイス (承認ポリシー) という名前のプロパティを追加する`Identities`を<xref:System.IdentityModel.Policy.AuthorizationContext.Properties%2A>コレクションです。</xref:System.IdentityModel.Policy.AuthorizationContext.Properties%2A> </xref:System.IdentityModel.Policy.IAuthorizationPolicy> </xref:System.IdentityModel.Selectors> 。 `Identities`プロパティには、型のオブジェクトが含まれています<xref:System.Collections.Generic.IList%601>1 つまたは複数を格納している<xref:System.Security.Principal.IIdentity>承認ポリシーによって提供される id 情報を表すインスタンス。</xref:System.Security.Principal.IIdentity> </xref:System.Collections.Generic.IList%601> 。"
   syntax:
     content: public abstract System.Collections.Generic.IDictionary<string,object> Properties { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.Object}
-      description: "A &lt;xref:System.Collections.Generic.Dictionary%602&gt; that specifies a collection of non-claim properties."
+      description: "A &lt;xref:System.Collections.Generic.Dictionary%602&gt;非クレーム プロパティのコレクションを指定します。"
   overload: System.IdentityModel.Policy.EvaluationContext.Properties*
   exceptions: []
   platform:
@@ -153,14 +153,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: "Sets the date and time at which this <xref href=&quot;System.IdentityModel.Policy.EvaluationContext&quot;></xref> is no longer valid."
-  remarks: "Calling the RecordExpirationTime method multiple times only has an effect if the `expirationTime` parameter has a value that is earlier than the previously specified value."
+  summary: "こので日付と時刻を設定<xref href=&quot;System.IdentityModel.Policy.EvaluationContext&quot;></xref>は無効になりました。"
+  remarks: "複数回 RecordExpirationTime メソッドの呼び出しにのみ影響場合、`expirationTime`パラメーターに値が、以前に指定した値よりも前です。"
   syntax:
     content: public abstract void RecordExpirationTime (DateTime expirationTime);
     parameters:
     - id: expirationTime
       type: System.DateTime
-      description: "A <xref:System.DateTime> value that indicates the date and time when this <xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;></xref> object is no longer valid."
+      description: "A<xref:System.DateTime>日付し、時刻を表すこの<xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;></xref>オブジェクトが有効ではありません</xref:System.DateTime>。"
   overload: System.IdentityModel.Policy.EvaluationContext.RecordExpirationTime*
   exceptions: []
   platform:

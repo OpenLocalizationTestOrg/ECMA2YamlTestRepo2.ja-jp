@@ -16,8 +16,8 @@ items:
   nameWithType: RsaSignatureCookieTransform
   fullName: System.IdentityModel.RsaSignatureCookieTransform
   type: Class
-  summary: "Provides cookie integrity using an <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> signature."
-  remarks: "RsaSignatureCookieTransform adds an RSA MAC to the cookie data. This provides integrity but not confidentiality. By default, the MAC uses SHA-256, but SHA-1 may be requested.       Cookies protected with this transform may be read by any computer that shares the same RSA private key (generally associated with an X509 certificate).      > [!IMPORTANT] >  When using the RsaSignatureCookieTransform with a service, if a key provided by a certificate changes the service must be restarted."
+  summary: "Cookie の整合性を使用して、 <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref>署名します。"
+  remarks: "RsaSignatureCookieTransform は、cookie のデータに RSA MAC を追加します。 これは、整合性がない機密性を提供します。 既定では、MAC、sha-256 を使用してが sha-1 を要求する場合があります。       この変換で保護された cookie は、同じ RSA 秘密キーを共有するすべてのコンピューターで読み取ることができます (一般に、X509 に関連付けられている証明書)。      > [!IMPORTANT] > ときのサービス、RsaSignatureCookieTransform を使用して、証明書によって提供されるキーには、サービスが変更された場合の再起動が必要です。"
   syntax:
     content: 'public class RsaSignatureCookieTransform : System.IdentityModel.CookieTransform'
   inheritance:
@@ -39,19 +39,19 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.RsaSignatureCookieTransform&quot;></xref> class by using the specified RSA key."
-  remarks: "The <xref:System.IdentityModel.RsaSignatureCookieTransform.SigningKey%2A> property is initialized to `key`. The <xref:System.IdentityModel.RsaSignatureCookieTransform.VerificationKeys%2A> property is initialized to a collection that contains `key` as its only element."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.RsaSignatureCookieTransform&quot;> </xref>クラスを指定の RSA キーを使用します。"
+  remarks: "<xref:System.IdentityModel.RsaSignatureCookieTransform.SigningKey%2A>プロパティに初期化`key`</xref:System.IdentityModel.RsaSignatureCookieTransform.SigningKey%2A>。 <xref:System.IdentityModel.RsaSignatureCookieTransform.VerificationKeys%2A>を含むコレクションにプロパティが初期化`key`唯一の要素として</xref:System.IdentityModel.RsaSignatureCookieTransform.VerificationKeys%2A>。"
   syntax:
     content: public RsaSignatureCookieTransform (System.Security.Cryptography.RSA key);
     parameters:
     - id: key
       type: System.Security.Cryptography.RSA
-      description: "The RSA key to use as the default signing and verification key."
+      description: "検証キーと、既定の署名として使用する RSA キー。"
   overload: System.IdentityModel.RsaSignatureCookieTransform.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>key</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>key</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.RsaSignatureCookieTransform.#ctor(System.Security.Cryptography.X509Certificates.X509Certificate2)
@@ -66,22 +66,22 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.RsaSignatureCookieTransform&quot;></xref> class by using the private key of the specified certificate."
-  remarks: "The <xref:System.IdentityModel.RsaSignatureCookieTransform.SigningKey%2A> property is initialized to private key of the certificate. The <xref:System.IdentityModel.RsaSignatureCookieTransform.VerificationKeys%2A> property is initialized to a collection that contains the private key of the certificate as its only element."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.RsaSignatureCookieTransform&quot;> </xref>クラスによって指定された証明書の秘密キーを使用します。"
+  remarks: "<xref:System.IdentityModel.RsaSignatureCookieTransform.SigningKey%2A>プロパティは、証明書の秘密キーに初期化します</xref:System.IdentityModel.RsaSignatureCookieTransform.SigningKey%2A>。 <xref:System.IdentityModel.RsaSignatureCookieTransform.VerificationKeys%2A>プロパティは、唯一の要素としての証明書の秘密キーを格納しているコレクションに初期化します</xref:System.IdentityModel.RsaSignatureCookieTransform.VerificationKeys%2A>。"
   syntax:
     content: public RsaSignatureCookieTransform (System.Security.Cryptography.X509Certificates.X509Certificate2 certificate);
     parameters:
     - id: certificate
       type: System.Security.Cryptography.X509Certificates.X509Certificate2
-      description: "The certificate whose private key is to be used for signing and verifying."
+      description: "署名と検証のために使用するのには、秘密キーを持つ証明書。"
   overload: System.IdentityModel.RsaSignatureCookieTransform.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>certificate</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>certificate</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>certificate</code> has no private key       -or-       The private key of the <code>certificate</code> is not an RSA key."
+    description: "<code>certificate</code>秘密キーがありません - または - の秘密キーを持つ、 <code>certificate</code> RSA キーではありません。"
   platform:
   - net462
 - uid: System.IdentityModel.RsaSignatureCookieTransform.Decode(System.Byte[])
@@ -96,37 +96,37 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Verifies the specified signature and returns the original, unsigned data."
-  remarks: "All of the keys in the collection specified in the <xref:System.IdentityModel.RsaSignatureCookieTransform.VerificationKeys%2A> property are tried."
+  summary: "指定された署名を検証し、元の符号なしのデータを返します。"
+  remarks: "指定されたコレクション内のキーのすべての<xref:System.IdentityModel.RsaSignatureCookieTransform.VerificationKeys%2A>プロパティが試行されます</xref:System.IdentityModel.RsaSignatureCookieTransform.VerificationKeys%2A>。"
   syntax:
     content: public override byte[] Decode (byte[] encoded);
     parameters:
     - id: encoded
       type: System.Byte[]
-      description: "Data previously returned from the <xref:System.IdentityModel.RsaSignatureCookieTransform.Encode*> method."
+      description: "以前から返されたデータ、<xref:System.IdentityModel.RsaSignatureCookieTransform.Encode*>メソッド</xref:System.IdentityModel.RsaSignatureCookieTransform.Encode*>。"
     return:
       type: System.Byte[]
-      description: "The original data (unsigned)."
+      description: "元のデータ (符号なし)。"
   overload: System.IdentityModel.RsaSignatureCookieTransform.Decode*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>encoded</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>encoded</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>encoded</code> contains zero bytes."
+    description: "<code>encoded</code>0 バイトが含まれています。"
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The signature is not valid."
+    description: "署名が正しくありません。"
   - type: System.FormatException
     commentId: T:System.FormatException
-    description: "The data is in the wrong format."
+    description: "データは正しくない形式です。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "There are no verification keys."
+    description: "検証キーがありません。"
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The platform does not support the specified algorithm."
+    description: "プラットフォームは、指定したアルゴリズムをサポートしていません。"
   platform:
   - net462
 - uid: System.IdentityModel.RsaSignatureCookieTransform.Encode(System.Byte[])
@@ -141,31 +141,31 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Signs the specified data."
-  remarks: "The key specified by the <xref:System.IdentityModel.RsaSignatureCookieTransform.SigningKey%2A> property must include the private key in order to sign the data.       The signed data may be verified by calling the <xref:System.IdentityModel.RsaSignatureCookieTransform.Decode%2A> method."
+  summary: "指定されたデータに署名します。"
+  remarks: "指定されたキー、<xref:System.IdentityModel.RsaSignatureCookieTransform.SigningKey%2A>プロパティは、データに署名するために、秘密キーを含める必要があります</xref:System.IdentityModel.RsaSignatureCookieTransform.SigningKey%2A>。       確認された場合、署名されたデータを呼び出して、<xref:System.IdentityModel.RsaSignatureCookieTransform.Decode%2A>メソッド</xref:System.IdentityModel.RsaSignatureCookieTransform.Decode%2A>。"
   syntax:
     content: public override byte[] Encode (byte[] value);
     parameters:
     - id: value
       type: System.Byte[]
-      description: "The data to be signed."
+      description: "署名されるデータ。"
     return:
       type: System.Byte[]
-      description: "The signed data."
+      description: "署名されるデータ。"
   overload: System.IdentityModel.RsaSignatureCookieTransform.Encode*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>value</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>value</code> contains zero bytes."
+    description: "<code>value</code>0 バイトが含まれています。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref:System.IdentityModel.RsaSignatureCookieTransform.SigningKey*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The key specified by the <xref:System.IdentityModel.RsaSignatureCookieTransform.SigningKey*> property is not assignable as <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;></xref>.       -or-       The key specified by the <xref:System.IdentityModel.RsaSignatureCookieTransform.SigningKey*> property does not contain a private key."
+    description: "The <>*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.      - または - で指定されたキー、 <> </> *> として割り当てることができるプロパティは<xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;></xref>です。       - または - で指定されたキー、<xref:System.IdentityModel.RsaSignatureCookieTransform.SigningKey*>プロパティには秘密キーが含まれていません</xref:System.IdentityModel.RsaSignatureCookieTransform.SigningKey*>。"
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The operating system does not support the specified algorithm."
+    description: "オペレーティング システムは、指定したアルゴリズムをサポートしていません。"
   platform:
   - net462
 - uid: System.IdentityModel.RsaSignatureCookieTransform.HashName
@@ -180,13 +180,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets or sets the name of the hash algorithm to use."
-  remarks: "SHA256 is the default algorithm. This may require a minimum operating system of [!INCLUDE[winxpsvr](~/add/includes/winxpsvr-md.md)] and .NET 3.5 SP1.       If SHA256 is not supported, set the HashName property to &quot;SHA1&quot;."
+  summary: "取得または使用するハッシュ アルゴリズムの名前を設定します。"
+  remarks: "SHA256 は、既定のアルゴリズムです。 以降のオペレーティング システムが必要[!INCLUDE[winxpsvr](~/add/includes/winxpsvr-md.md)]および .NET 3.5 SP1。       SHA256 がサポートされていない場合は、&quot;SHA1&quot;を HashName プロパティを設定します。"
   syntax:
     content: public string HashName { get; set; }
     return:
       type: System.String
-      description: "The name of the hash algorithm. The default is “SHA256”."
+      description: "ハッシュ アルゴリズムの名前。 既定値は、&quot;SHA256&quot;です。"
   overload: System.IdentityModel.RsaSignatureCookieTransform.HashName*
   exceptions: []
   platform:
@@ -203,12 +203,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets or sets the RSA key that is used for signing."
+  summary: "取得または署名が使用される RSA キーを設定します。"
   syntax:
     content: public virtual System.Security.Cryptography.RSA SigningKey { get; set; }
     return:
       type: System.Security.Cryptography.RSA
-      description: "The RSA key that is used for signing."
+      description: "署名が使用される RSA キーです。"
   overload: System.IdentityModel.RsaSignatureCookieTransform.SigningKey*
   exceptions: []
   platform:
@@ -225,12 +225,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets the collection of keys used for signature verification.       By default, this property returns a list that contains only the signing key."
+  summary: "署名の検証に使用されるキーのコレクションを取得します。       既定では、このプロパティは、署名キーのみを含む一覧を返します。"
   syntax:
     content: protected virtual System.Collections.ObjectModel.ReadOnlyCollection<System.Security.Cryptography.RSA> VerificationKeys { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Security.Cryptography.RSA}
-      description: "The collection of keys used for signature verification."
+      description: "署名の検証に使用されるキーのコレクション。"
   overload: System.IdentityModel.RsaSignatureCookieTransform.VerificationKeys*
   exceptions: []
   platform:

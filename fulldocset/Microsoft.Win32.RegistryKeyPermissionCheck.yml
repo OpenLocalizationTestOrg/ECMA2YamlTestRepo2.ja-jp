@@ -12,8 +12,8 @@ items:
   nameWithType: RegistryKeyPermissionCheck
   fullName: Microsoft.Win32.RegistryKeyPermissionCheck
   type: Enum
-  summary: "Specifies whether security checks are performed when opening registry keys and accessing their name/value pairs."
-  remarks: "When an application saves or retrieves a large number of registry settings from a set of subkeys, numerous redundant security checks are performed. This enumeration specifies when security checks on a key are to be omitted.       The following table shows when security checks are performed, based on the way the parent key and the current key are opened.      |Parent key opened with|Current key opened with|Result|   |----------------------------|-----------------------------|------------|   |Default|Default|A security check is performed when accessing any value in the current key, or when attempting to access a subkey. This is the behavior in the .NET Framework versions 1.0 and 1.1.|   |Default|ReadSubTree|A security check is performed when trying to open the current key.|   |Default|ReadWriteSubTree|A security check is performed when trying to open the current key.|   |ReadSubTree|Default or ReadSubTree|No security checks are performed when opening the current key or its values.|   |ReadSubTree|ReadWriteSubTree|A security check is performed when trying to open the current key.|   |ReadWriteSubTree|Any|No security checks are performed when opening the current key or its values.|"
+  summary: "レジストリ キーを開くときに、セキュリティ チェックを実行するかどうかを指定し、名前/値ペアにアクセスします。"
+  remarks: "アプリケーションでは、保存またはサブキーのセットから多数のレジストリ設定を取得、各種の冗長なセキュリティ チェックが実行されます。 この列挙体は、キーに対するセキュリティ チェックが省略を指定します。       次の表の親キーや現在のキーを開く方法に基づいて、セキュリティ チェックが実行時に示します。      |親キーを開いた |現在のキーを開いた |結果 |  |----------------------------|-----------------------------|------------|  |既定の |既定の |現在のキーでは、任意の値にアクセスするとき、またはサブキーにアクセスしようとするとき、セキュリティ チェックは実行されます。 これは、.NET Framework version 1.0 および 1.1 で動作します |。  |既定の |ReadSubTree |現在のキーを開こうとしたときにセキュリティ チェックが実行されます |。  |既定の |ReadWriteSubTree |現在のキーを開こうとしたときにセキュリティ チェックが実行されます |。  |ReadSubTree |既定値または ReadSubTree |セキュリティのチェックは、現在のキーまたはその値を開くときに行われません |。  |ReadSubTree |ReadWriteSubTree |現在のキーを開こうとしたときにセキュリティ チェックが実行されます |。  |ReadWriteSubTree |どの |セキュリティのチェックは、現在のキーまたはその値を開くときに行われません |。"
   example:
   - "The following code example creates a subkey containing 100 key/value pairs and closes it. The example opens the subkey with Default and records the time it takes to read all the values. Then the example opens the subkey with ReadSubTree and records the time it takes to read all the values. Finally, the example computes and displays the percentage improvement.  \n  \n [!code-cs[RegistryKey.OpenSubKey_PermCheck#1](~/add/codesnippet/csharp/t-microsoft.win32.regist_3_1.cs)]\n [!code-vb[RegistryKey.OpenSubKey_PermCheck#1](~/add/codesnippet/visualbasic/t-microsoft.win32.regist_3_1.vb)]"
   syntax:
@@ -34,12 +34,12 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "The registry key inherits the mode of its parent. Security checks are performed when trying to access subkeys or values, unless the parent was opened with ReadSubTree or ReadWriteSubTree mode."
+  summary: "レジストリ キーは、その親のモードを継承します。 セキュリティ チェックは、親が ReadSubTree または ReadWriteSubTree モードで開かれた場合を除き、アクセス サブキーまたは値を試みると実行されます。"
   syntax:
     content: Default
     return:
       type: Microsoft.Win32.RegistryKeyPermissionCheck
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -55,12 +55,12 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Security checks are not performed when accessing subkeys or values. A security check is performed when trying to open the current key, unless the parent was opened with ReadSubTree or ReadWriteSubTree."
+  summary: "サブキーまたは値にアクセスするときに、セキュリティ チェックは実行されません。 セキュリティ チェックは、親が ReadSubTree または ReadWriteSubTree で開かれた場合を除き、現在のキーを開こうとしているときに実行されます。"
   syntax:
     content: ReadSubTree
     return:
       type: Microsoft.Win32.RegistryKeyPermissionCheck
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -76,12 +76,12 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Security checks are not performed when accessing subkeys or values. A security check is performed when trying to open the current key, unless the parent was opened with ReadWriteSubTree."
+  summary: "サブキーまたは値にアクセスするときに、セキュリティ チェックは実行されません。 セキュリティ チェックは、親が ReadWriteSubTree で開かれた場合を除き、現在のキーを開こうとしているときに実行されます。"
   syntax:
     content: ReadWriteSubTree
     return:
       type: Microsoft.Win32.RegistryKeyPermissionCheck
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462

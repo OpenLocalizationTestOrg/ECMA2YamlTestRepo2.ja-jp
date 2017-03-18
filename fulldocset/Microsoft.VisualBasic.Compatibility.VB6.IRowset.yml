@@ -14,7 +14,7 @@ items:
   nameWithType: IRowset
   fullName: Microsoft.VisualBasic.Compatibility.VB6.IRowset
   type: Interface
-  summary: "Provides an implementation of the OLE DB <xref uid=&quot;langword_csharp_IRowset&quot; name=&quot;IRowset&quot; href=&quot;&quot;></xref> interface for use by applications upgraded from Visual Basic 6.0."
+  summary: "OLE DB の実装を提供<xref uid=&quot;langword_csharp_IRowset&quot; name=&quot;IRowset&quot; href=&quot;&quot;> </xref> Visual Basic 6.0 からアップグレードしたアプリケーションで使用するためのインターフェイスです。"
   remarks: '[!INCLUDE[Note_compatibility](~/add/includes/ajax-current-ext-md.md)]'
   syntax:
     content: >-
@@ -40,23 +40,23 @@ items:
   assemblies:
   - Microsoft.VisualBasic.Compatibility.Data
   namespace: Microsoft.VisualBasic.Compatibility.VB6
-  summary: "Adds a reference count to an existing row handle."
+  summary: "既存の行ハンドルに参照カウントを追加します。"
   remarks: '[!INCLUDE[Note_compatibility](~/add/includes/ajax-current-ext-md.md)]'
   syntax:
     content: public void AddRefRows (int cRows, int[] hRows, out int[] refCounts, out int[] rowStatus);
     parameters:
     - id: cRows
       type: System.Int32
-      description: "The number of rows for which to increment the reference count."
+      description: "参照カウントをインクリメントする対象の行の数。"
     - id: hRows
       type: System.Int32[]
-      description: "An array of row handles for which to increment the reference count. The reference count of row handles is incremented by one for each time they appear in the array."
+      description: "参照カウントをインクリメントする対象の行ハンドルの配列。 行ハンドルの参照カウントは、配列に含まれるたびに&1; ずつインクリメントされます。"
     - id: refCounts
       type: System.Int32[]
-      description: "An array with `cRows` elements in which to return the new reference count for each row handle. The consumer allocates memory for this array. If `refCounts` is a null pointer, no reference counts are returned."
+      description: "格納された配列`cRows`を各の行ハンドルの新しい参照カウントを返す要素。 コンシューマーは、この配列のメモリを割り当てます。 場合`refCounts`が null ポインターでない参照カウントが返されます。"
     - id: rowStatus
       type: System.Int32[]
-      description: "An array with `cRows` elements in which to return values indicating the status of each row specified in `hRows`."
+      description: "格納された配列`cRows`要素で指定された行ごとの状態を示す値を返す`hRows`です。"
   overload: Microsoft.VisualBasic.Compatibility.VB6.IRowset.AddRefRows*
   exceptions: []
   platform:
@@ -73,20 +73,20 @@ items:
   assemblies:
   - Microsoft.VisualBasic.Compatibility.Data
   namespace: Microsoft.VisualBasic.Compatibility.VB6
-  summary: "Retrieves data from the rowset&quot;s copy of the row."
+  summary: "行の行セットのコピーからデータを取得します。"
   remarks: '[!INCLUDE[Note_compatibility](~/add/includes/ajax-current-ext-md.md)]'
   syntax:
     content: public void GetData (int hRow, int hAccessor, IntPtr pData);
     parameters:
     - id: hRow
       type: System.Int32
-      description: "The handle of the row from which to get the data."
+      description: "データの取得元の行のハンドル。"
     - id: hAccessor
       type: System.Int32
-      description: "The handle of the accessor to use."
+      description: "使用するアクセサーのハンドルです。"
     - id: pData
       type: System.IntPtr
-      description: "A pointer to a buffer in which to return the data."
+      description: "データを返すバッファーへのポインター。"
   overload: Microsoft.VisualBasic.Compatibility.VB6.IRowset.GetData*
   exceptions: []
   platform:
@@ -103,26 +103,26 @@ items:
   assemblies:
   - Microsoft.VisualBasic.Compatibility.Data
   namespace: Microsoft.VisualBasic.Compatibility.VB6
-  summary: "Fetches rows sequentially, remembering the previous position."
+  summary: "前の位置を記憶、順番に行をフェッチします。"
   remarks: '[!INCLUDE[Note_compatibility](~/add/includes/ajax-current-ext-md.md)]'
   syntax:
     content: public void GetNextRows (int hChapter, int lRowsOffset, int cRows, out int cRowsObtained, out int[] hRows);
     parameters:
     - id: hChapter
       type: System.Int32
-      description: "The chapter handle designating the rows to fetch."
+      description: "フェッチする行を指定するチャプターのハンドルです。"
     - id: lRowsOffset
       type: System.Int32
-      description: "The signed count of rows to skip before fetching rows. Deleted rows that the provider has removed from the rowset are not counted in the skip."
+      description: "行をフェッチする前にスキップする行数の符号付きの数。 プロバイダーが行セットから削除する削除された行はスキップはカウントされません。"
     - id: cRows
       type: System.Int32
-      description: "The number of rows to fetch. A negative number means to fetch backward."
+      description: "フェッチする行の数。 負の数は、逆方向フェッチを意味します。"
     - id: cRowsObtained
       type: System.Int32
-      description: "A pointer to memory in which to return the actual number of fetched rows."
+      description: "フェッチされる行の実際の数を返すメモリへのポインター。"
     - id: hRows
       type: System.Int32[]
-      description: "A pointer to memory in which to return an array of handles of the fetched rows."
+      description: "フェッチされた行のハンドルの配列を返すメモリへのポインター。"
   overload: Microsoft.VisualBasic.Compatibility.VB6.IRowset.GetNextRows*
   exceptions: []
   platform:
@@ -139,29 +139,29 @@ items:
   assemblies:
   - Microsoft.VisualBasic.Compatibility.Data
   namespace: Microsoft.VisualBasic.Compatibility.VB6
-  summary: "Releases rows."
+  summary: "行を解放します。"
   remarks: '[!INCLUDE[Note_compatibility](~/add/includes/ajax-current-ext-md.md)]'
   syntax:
     content: public int ReleaseRows (int cRows, int[] hRows, IntPtr rowOptions, IntPtr rowRefCounts, IntPtr rgRowStatus);
     parameters:
     - id: cRows
       type: System.Int32
-      description: "The number of rows to release."
+      description: "解放する行の数。"
     - id: hRows
       type: System.Int32[]
-      description: "An array of handles of the rows to be released. The row handles do not need to form a logical cluster; they may have been obtained at separate times and need not be for contiguous underlying rows. Row handles are decremented by one reference count for each time they appear in the array."
+      description: "解放される行のハンドルの配列。 行ハンドルは、論理クラスターを形成する必要はありません。複数回取得されている、連続する基になる行の必要はありません。 行ハンドルは、配列内に表示されるたびに&1; つの参照カウントをデクリメント、です。"
     - id: rowOptions
       type: System.IntPtr
-      description: "An array of `cRows` elements containing bitmasks indicating additional options to be specified when a row is released."
+      description: "配列`cRows`する追加のオプションを示すビットマスクを含む要素は、行の解放時期を指定します。"
     - id: rowRefCounts
       type: System.IntPtr
-      description: "An array with `cRows` elements in which to return the new reference count of each row."
+      description: "格納された配列`cRows`を各行の新しい参照カウントを返す要素。"
     - id: rgRowStatus
       type: System.IntPtr
-      description: "An array with `cRows` elements in which to return values indicating the status of each row specified in `hRows`."
+      description: "格納された配列`cRows`要素で指定された行ごとの状態を示す値を返す`hRows`です。"
     return:
       type: System.Int32
-      description: "An <xref uid=&quot;langword_csharp_Integer&quot; name=&quot;Integer&quot; href=&quot;&quot;></xref> representing the result."
+      description: "<xref uid=&quot;langword_csharp_Integer&quot; name=&quot;Integer&quot; href=&quot;&quot;> </xref>結果を表すです。"
   overload: Microsoft.VisualBasic.Compatibility.VB6.IRowset.ReleaseRows*
   exceptions: []
   platform:
@@ -178,17 +178,17 @@ items:
   assemblies:
   - Microsoft.VisualBasic.Compatibility.Data
   namespace: Microsoft.VisualBasic.Compatibility.VB6
-  summary: "Repositions the next fetch position to its initial position."
+  summary: "次のフェッチ位置を最初の位置に移動します。"
   remarks: '[!INCLUDE[Note_compatibility](~/add/includes/ajax-current-ext-md.md)]'
   syntax:
     content: public int RestartPosition (int hChapter);
     parameters:
     - id: hChapter
       type: System.Int32
-      description: "The chapter handle designating the rows on which to reposition."
+      description: "チャプター ハンドルの位置を変更する行を指定します。"
     return:
       type: System.Int32
-      description: "An <xref uid=&quot;langword_csharp_Integer&quot; name=&quot;Integer&quot; href=&quot;&quot;></xref> representing the result."
+      description: "<xref uid=&quot;langword_csharp_Integer&quot; name=&quot;Integer&quot; href=&quot;&quot;> </xref>結果を表すです。"
   overload: Microsoft.VisualBasic.Compatibility.VB6.IRowset.RestartPosition*
   exceptions: []
   platform:
