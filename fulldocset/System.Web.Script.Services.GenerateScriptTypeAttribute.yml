@@ -12,8 +12,8 @@ items:
   nameWithType: GenerateScriptTypeAttribute
   fullName: System.Web.Script.Services.GenerateScriptTypeAttribute
   type: Class
-  summary: "Specifies that the server type must be generated in the proxy object. This class cannot be inherited."
-  remarks: "In AJAX-enabled ASP.NET Web sites, ASP.NET can automatically generate proxy objects for methods of a Web service class. It does this for most top-level types for the input parameters and return values of any Web methods that are marked with <xref:System.Web.Script.Services.ScriptServiceAttribute>.       In other cases, if you proxy objects generated for server types, you must apply GenerateScriptTypeAttribute manually. You can apply GenerateScriptTypeAttribute to the Web service itself or to any Web service method or `static` page method marked with <xref:System.Web.Services.WebMethodAttribute>.       In some cases, even if the type corresponds to an input parameter or return value of a Web service method, the proxy will not be generated automatically. In that case, you must use the GenerateScriptTypeAttribute attribute to generate the proxy object for the type. This occurs for generic types and arrays that have more than one argument, such as `Dictionary<string,<T>>`.       One or more instances of GenerateScriptTypeAttribute can be applied to a Web service class or method. ASP.NET will then generate an ECMAScript (JavaScript) proxy class for each top-level type that is referenced by each declaration of GenerateScriptTypeAttribute.      > [!NOTE] >  If you want to generate proxy objects for nested types, you must manually apply GenerateScriptTypeAttribute to each nested type. ASP.NET generates proxies only for top-level types and does not automatically recursively apply the attribute to nested types.       For more information about how to use attributes, see [Attributes](~/add/includes/ajax-current-ext-md.md)."
+  summary: "プロキシ オブジェクトに、サーバーの種類を生成する必要があるかを指定します。 このクラスは継承できません。"
+  remarks: "AJAX 対応の ASP.NET Web サイトで ASP.NET が Web サービス クラスのメソッドのプロキシ オブジェクトを自動的に生成できます。 これは、入力パラメーターと<xref:System.Web.Script.Services.ScriptServiceAttribute>。</xref:System.Web.Script.Services.ScriptServiceAttribute>でマークされている任意の Web メソッドの戻り値の最上位のほとんどの型に       それ以外の場合に、サーバーの型に対して生成するプロキシ オブジェクト場合必要があります GenerateScriptTypeAttribute 手動で適用します。 GenerateScriptTypeAttribute を適用するには、Web サービス自体または任意の Web サービス メソッドにまたは`static` <xref:System.Web.Services.WebMethodAttribute>.</xref:System.Web.Services.WebMethodAttribute>とマークされたメソッドのページ       場合によっては、型が、入力パラメーターまたは Web サービス メソッドの戻り値に対応する場合でも、プロキシは生成されません自動的にします。 その場合は、型のプロキシ オブジェクトを生成する GenerateScriptTypeAttribute 属性を使用する必要があります。 これはジェネリック型およびなどを持つ複数の引数は、配列の場合に発生`Dictionary<string,<T>>`です。       GenerateScriptTypeAttribute の&1; つまたは複数のインスタンスは、Web サービス クラスまたはメソッドに適用できます。 ASP.NET は GenerateScriptTypeAttribute の各宣言によって参照される最上位レベルの種類ごとに、ECMAScript (JavaScript) のプロキシ クラスになります。      > [!NOTE] > 各入れ子にされた型に GenerateScriptTypeAttribute を適用する入れ子にされた型プロキシ オブジェクトを生成する場合は、手動でする必要があります。 ASP.NET はトップレベルの型にのみプロキシを生成しは自動的に再帰的に属性を適用しない入れ子にされた型にします。       属性を使用する方法の詳細については、次を参照してください。[属性](~/add/includes/ajax-current-ext-md.md)です。"
   example:
   - "The following example shows how to apply GenerateScriptTypeAttribute to a Web service class and to a Web method. As a result, the `ColorObject` type and its nested type `FavoriteColors` are included in the proxy object.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -39,8 +39,8 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.Script.Services
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Script.Services.GenerateScriptTypeAttribute&quot;></xref> class for the specified type."
-  remarks: "The <xref:System.Web.Script.Services.GenerateScriptTypeAttribute.ScriptTypeId%2A> property is an optional named parameter for this constructor."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Web.Script.Services.GenerateScriptTypeAttribute&quot;> </xref>指定した型のクラスです。"
+  remarks: "<xref:System.Web.Script.Services.GenerateScriptTypeAttribute.ScriptTypeId%2A>このコンス トラクターのパラメーターを名前付きプロパティはオプションです</xref:System.Web.Script.Services.GenerateScriptTypeAttribute.ScriptTypeId%2A>。"
   example:
   - "The following example shows how to use <xref:System.Web.Script.Services.GenerateScriptTypeAttribute> to generate a proxy object for the specified type that uses a specific type identifier for the metadata marker.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -48,12 +48,12 @@ items:
     parameters:
     - id: type
       type: System.Type
-      description: "The type to include in the proxy class."
+      description: "プロキシ クラスに含める型。"
   overload: System.Web.Script.Services.GenerateScriptTypeAttribute.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>type</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>type</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.Script.Services.GenerateScriptTypeAttribute.ScriptTypeId
@@ -68,13 +68,13 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.Script.Services
-  summary: "Gets or sets the type identifier for the type metadata marker."
-  remarks: "This is an optional property. If specified, the value of ScriptTypeId is used for the type metadata marker (&quot;__type&quot;) on the serialized JSON string instead of the assembly-qualified name of the type. During deserialization, the type resolver that is associated with the <xref:System.Web.Script.Serialization.JavaScriptSerializer> object will use the type metadata marker value to map back to the appropriate managed type."
+  summary: "取得または型のメタデータのマーカーの種類の識別子を設定します。"
+  remarks: "このプロパティは省略可能です。 指定すると、ScriptTypeId の値が、型のアセンブリ修飾名ではなく、シリアル化された JSON 文字列の型メタデータ マーカー (&quot;_ _type&quot;) に使用されます。 逆シリアル化型競合回避モジュールに関連付けられている、<xref:System.Web.Script.Serialization.JavaScriptSerializer>オブジェクトは適切なマネージ型にマップする型のメタデータのマーカー値を使用します</xref:System.Web.Script.Serialization.JavaScriptSerializer>。"
   syntax:
     content: public string ScriptTypeId { get; set; }
     return:
       type: System.String
-      description: "The type identifier for the type metadata marker on the serialized JavaScript Object Notation (JSON) string. The default value is the assembly-qualified name of the type."
+      description: "シリアル化された JavaScript Object Notation (JSON) 文字列の型メタデータ マーカーの種類の識別子です。 既定値は、型のアセンブリ修飾名です。"
   overload: System.Web.Script.Services.GenerateScriptTypeAttribute.ScriptTypeId*
   exceptions: []
   platform:
@@ -91,12 +91,12 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.Script.Services
-  summary: "Gets the type that is included in the proxy object."
+  summary: "プロキシ オブジェクトに含まれている型を取得します。"
   syntax:
     content: public Type Type { get; }
     return:
       type: System.Type
-      description: "The type object that is included in the generated proxy object."
+      description: "生成されたプロキシ オブジェクトに含まれている型のオブジェクト。"
   overload: System.Web.Script.Services.GenerateScriptTypeAttribute.Type*
   exceptions: []
   platform:

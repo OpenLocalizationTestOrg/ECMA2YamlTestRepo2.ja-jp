@@ -19,8 +19,8 @@ items:
   nameWithType: ProxyWebPartManager
   fullName: System.Web.UI.WebControls.WebParts.ProxyWebPartManager
   type: Class
-  summary: "Provides a way for developers to declare static connections in a content page when a <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPartManager&quot;></xref> control has been declared in the content page&quot;s associated master page."
-  remarks: "The ProxyWebPartManager control exists for the particular scenario of declaring static connections in content pages when a <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control has already been declared in a master page.       By design, a Web page that uses Web Parts controls must contain one (and only one) <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control that manages all Web Parts controls on the page. When a Web Parts application uses master pages, it is common to place the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control in the master page, because all the content pages are merged with the master page at run time and the single <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control will manage all the Web Parts controls from all content pages. However, when developers want to declare static connections in the content pages of such an application, they might seem to face a limitation. A static Web Parts connection can be declared only by adding an <`asp:webpartconnection>` element as a child of a `<staticconnections>` element, which itself must be a child of a `<asp:webpartmanager>` element. But because the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control was already declared in the master page, and is the one permitted <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control, developers cannot declare additional <xref:System.Web.UI.WebControls.WebParts.WebPartManager> controls in the content pages to add static connections.       The ProxyWebPartManager control takes the place of the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control in this scenario. Developers declare an `<asp:proxywebpartmanager>` element instead of an `<asp:webpartmanager>` element in their content pages, and can then declare static connections as child elements. At run time, the connections in the ProxyWebPartManager control are simply added to the <xref:System.Web.UI.WebControls.WebParts.WebPartManager.StaticConnections%2A> collection of the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control and treated like any other connection.       Because the ProxyWebPartManager control is used only in this particular development scenario, it has more limited functionality than the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> class. In fact, although the ProxyWebPartManager control acts as a proxy to contain static connections for the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control in content pages, it does not inherit from the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control. It inherits directly from the <xref:System.Web.UI.Control> class, and overrides only a few of the base members. The <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.EnableTheming%2A>, <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.Visible%2A>, and <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.SkinID%2A> properties are overridden and assigned values that prevent them from being used. Other inherited properties are overridden to adjust their design-time behavior, but otherwise they have the same behavior as the base properties. These include the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.Controls%2A> and <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.ClientID%2A> properties. Finally, the ProxyWebPartManager class has one non-inherited property. The <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.StaticConnections%2A> property returns its own collection of static connections (a <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartConnectionCollection> object).       As for methods, the ProxyWebPartManager class similarly overrides only a few methods, mostly to restrict their use. The inherited <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.Focus%2A> method is made unusable by throwing an exception if called. The <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.CreateControlCollection%2A> method always returns an empty control collection, which has the effect of preventing it from being able to contain a collection of controls. Finally, the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.OnInit%2A> method calls the base method, and then assigns the collection of connections referenced by the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.StaticConnections%2A> property to the <xref:System.Web.UI.WebControls.WebParts.WebPartManager.StaticConnections%2A?displayProperty=fullName> property of the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control. This has the effect of rolling up all the static connections declared in all content pages and making them part of the connections collection maintained by the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control in the master page."
+  summary: "開発者が static として宣言するための手段を提供、コンテンツ内の接続ページ、 <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPartManager&quot;> </xref>コントロールはコンテンツ ページの関連マスター ページで宣言されています。"
+  remarks: "ときに特定のシナリオのコンテンツで静的接続を宣言するコントロールが存在する ProxyWebPartManager ページ、<xref:System.Web.UI.WebControls.WebParts.WebPartManager>マスター ページで、コントロールは既に宣言されています</xref:System.Web.UI.WebControls.WebParts.WebPartManager>。       いずれか (および&1; つだけ) 仕様では、Web パーツ コントロールを使用する Web ページがあります<xref:System.Web.UI.WebControls.WebParts.WebPartManager>ページ上のすべての Web パーツ コントロールを管理するコントロール</xref:System.Web.UI.WebControls.WebParts.WebPartManager>。 Web パーツ アプリケーションでは、マスター ページを使用する場合は通常を配置する、<xref:System.Web.UI.WebControls.WebParts.WebPartManager>すべてのコンテンツ ページは、マスター ページと実行時間と、1 つにマージされますので、マスター ページで制御<xref:System.Web.UI.WebControls.WebParts.WebPartManager>コントロールは、すべてのコンテンツ ページのすべての Web パーツ コントロールを管理する</xref:System.Web.UI.WebControls.WebParts.WebPartManager></xref:System.Web.UI.WebControls.WebParts.WebPartManager>。 ただし、開発者は、このようなアプリケーションのコンテンツ ページで静的接続を宣言する場合は、制限が見えるかもしれません。 静的な Web パーツ接続を追加するだけで宣言することができます、`asp:webpartconnection>`の子要素として、`<staticconnections>`要素自体の子である必要があります、`<asp:webpartmanager>`要素。 ので、<xref:System.Web.UI.WebControls.WebParts.WebPartManager>コントロールがマスター ページで、既に宣言されて、許可、1 つは<xref:System.Web.UI.WebControls.WebParts.WebPartManager>コントロール、開発者は、追加で宣言できません<xref:System.Web.UI.WebControls.WebParts.WebPartManager>静的な接続を追加するコンテンツ ページのコントロールです</xref:System.Web.UI.WebControls.WebParts.WebPartManager></xref:System.Web.UI.WebControls.WebParts.WebPartManager></xref:System.Web.UI.WebControls.WebParts.WebPartManager>。       ProxyWebPartManager コントロールに代わる、<xref:System.Web.UI.WebControls.WebParts.WebPartManager>このシナリオでのコントロールです</xref:System.Web.UI.WebControls.WebParts.WebPartManager>。 開発者は、宣言、`<asp:proxywebpartmanager>`要素の代わりに、`<asp:webpartmanager>`要素、コンテンツ ページとは、宣言する静的な接続の子として要素。 追加するだけ ProxyWebPartManager コントロールでは、接続、実行時に、<xref:System.Web.UI.WebControls.WebParts.WebPartManager.StaticConnections%2A>のコレクション、<xref:System.Web.UI.WebControls.WebParts.WebPartManager>を制御し、その他の任意の接続と同様に扱われます</xref:System.Web.UI.WebControls.WebParts.WebPartManager></xref:System.Web.UI.WebControls.WebParts.WebPartManager.StaticConnections%2A>。       ProxyWebPartManager コントロールがこの特定の開発のシナリオでのみ使用され、その機能にはより制限<xref:System.Web.UI.WebControls.WebParts.WebPartManager>クラス</xref:System.Web.UI.WebControls.WebParts.WebPartManager>よりも 実際には、ProxyWebPartManager コントロール用の静的な接続を格納するプロキシとして動作ですが、<xref:System.Web.UI.WebControls.WebParts.WebPartManager>コントロール コンテンツ ページで、継承していないから、<xref:System.Web.UI.WebControls.WebParts.WebPartManager>コントロール</xref:System.Web.UI.WebControls.WebParts.WebPartManager></xref:System.Web.UI.WebControls.WebParts.WebPartManager>。 直接継承、<xref:System.Web.UI.Control>クラス、および基本メンバーの一部のみをオーバーライドします</xref:System.Web.UI.Control>。 <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.EnableTheming%2A>、 <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.Visible%2A>、および<xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.SkinID%2A>プロパティがオーバーライドされから使用されるように値を割り当てる</xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.SkinID%2A></xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.Visible%2A></xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.EnableTheming%2A>。 基本プロパティと同じ動作がそれ以外の場合では、デザイン時動作を調整するその他の継承されたプロパティが上書きされます。 ように、<xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.Controls%2A>と<xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.ClientID%2A>プロパティ</xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.ClientID%2A></xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.Controls%2A>。 最後に、ProxyWebPartManager クラスには、1 つの非継承プロパティがあります。 <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.StaticConnections%2A>プロパティは、静的な接続の独自のコレクションを返します (、<xref:System.Web.UI.WebControls.WebParts.ProxyWebPartConnectionCollection>オブジェクト).</xref:System.Web.UI.WebControls.WebParts.ProxyWebPartConnectionCollection> </xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.StaticConnections%2A>       メソッドと ProxyWebPartManager クラスは同様にそれらの使用を制限するには、ほとんどの場合のいくつかメソッドをオーバーライドします。 継承された<xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.Focus%2A>メソッドが呼び出された場合に例外をスローして使用不可に行った</xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.Focus%2A>。 <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.CreateControlCollection%2A>メソッドは常にコントロールのコレクションを含めることができない原因の影響は、空のコントロール コレクションを返します</xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.CreateControlCollection%2A>。 最後に、<xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.OnInit%2A>メソッドを選択し、基本のメソッドを呼び出しによって参照される接続のコレクションを割り当てます、<xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.StaticConnections%2A>プロパティを<xref:System.Web.UI.WebControls.WebParts.WebPartManager.StaticConnections%2A?displayProperty=fullName>のプロパティ、<xref:System.Web.UI.WebControls.WebParts.WebPartManager>コントロール</xref:System.Web.UI.WebControls.WebParts.WebPartManager></xref:System.Web.UI.WebControls.WebParts.WebPartManager.StaticConnections%2A?displayProperty=fullName></xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.StaticConnections%2A></xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.OnInit%2A>。 これは、ロールアップするすべてのコンテンツ ページで宣言されているすべての静的な接続の効果にすることによって管理される接続のコレクションの一部と、<xref:System.Web.UI.WebControls.WebParts.WebPartManager>マスター ページ内のコントロールです</xref:System.Web.UI.WebControls.WebParts.WebPartManager>。"
   example:
   - "The following code example demonstrates how to use the ProxyWebPartManager class to declare static connections on content pages in an application that uses master pages. The example has five parts:  \n  \n-   A user control that enables you to change the Web Parts display mode on a page.  \n  \n-   Source code for an interface and two <xref:System.Web.UI.WebControls.WebParts.WebPart> controls acting as the provider and the consumer for a connection.  \n  \n-   A master Web page that hosts the user control, the content pages, and the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control for the application.  \n  \n-   A content Web page that hosts a ProxyWebPartManager control, the two custom <xref:System.Web.UI.WebControls.WebParts.WebPart> controls, and a static connection to connect the two controls.  \n  \n-   An explanation of how to run the example page.  \n  \n The first part of this code example is the user control that enables users to change display modes on a Web page. Save the following source code to an .ascx file, giving it the file name that is assigned to the `Src` attribute of the `Register` directive for this user control, which is near the top of the hosting master page. For details about display modes and a description of the source code in this control, see [Walkthrough: Changing Display Modes on a Web Parts Page](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[WebParts_ProxyWebPartManager_Overview#6](~/add/codesnippet/csharp/t-system.web.ui.webcontr_112_1.ascx)]\n [!code-vb[WebParts_ProxyWebPartManager_Overview#6](~/add/codesnippet/visualbasic/t-system.web.ui.webcontr_112_1.ascx)]  \n  \n The second part of the code example is the source code for the interface and controls. The source file contains a simple interface named `IZipCode`. There is also a <xref:System.Web.UI.WebControls.WebParts.WebPart> class named `ZipCodeWebPart` that implements the interface and acts as the provider control. Its `ProvideIZipCode` method is the callback method that implements the interface's only member. The method simply returns an instance of the interface. Note that the method is marked with a `ConnectionProvider` attribute in its metadata. This is the mechanism for identifying the method as the callback method for the provider's connection point. The other <xref:System.Web.UI.WebControls.WebParts.WebPart> class is named `WeatherWebPart`, and it acts as the consumer for the connection. This class has a method named `GetZipCode` that gets an instance of the `IZipCode` interface from the provider control. Note that this method is marked as the consumer's connection point method with a `ConnectionConsumer` attribute in its metadata.  \n  \n For the code example to run, you must compile this source code. You can compile it explicitly and put the resulting assembly in your Web site's Bin folder or the global assembly cache. Alternatively, you can put the source code in your site's App_Code folder, where it will be dynamically compiled at run time. This code example uses dynamic compilation. For a walkthrough that demonstrates how to compile, see [Walkthrough: Developing and Using a Custom Web Server Control](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[WebParts_ProxyWebPartManager_Overview#4](~/add/codesnippet/csharp/t-system.web.ui.webcontr_112_2.cs)]\n [!code-vb[WebParts_ProxyWebPartManager_Overview#4](~/add/codesnippet/visualbasic/t-system.web.ui.webcontr_112_2.vb)]  \n  \n The third part of the code example is the master page. You should take the following source code and save it in a file, naming it MasterPageCS.master or MasterPageVB.master (depending on which language you use). Note that the master page contains a `Register` directive to register the user control, and it references the user control itself in the body of the page. The master page also declares the single `<asp:webpartmanager>` element used for this page and all related content pages. Finally, the master page has an `<asp: contentplaceholder>` element that declares the point in the page where the content page is inserted.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]  \n  \n The fourth part of the code example is the content page. You should copy the following source code and save it in a file with an .aspx extension. Notice that its `Page` directive contains a `MasterFile` attribute to refer to the master page. Also, this page has a `Register` directive to register the file in the App_Code folder that contains the dynamically compiled custom <xref:System.Web.UI.WebControls.WebParts.WebPart> controls that participate in the connection. Within the `<asp:content>` tags of the page, there is an <`asp:proxywebpartmanager>` element, with a child `<staticconnections>` element, which in turn has a child `<asp:webpartconnection>` element to declare the details of the connection. Within the `<script>` tags on the page, the `Button1_Click` method adds some code that accesses the main <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control in the master page and the ProxyWebPartManager control in the content page, and writes some of their details to the page.  \n  \n [!code-cs[WebParts_ProxyWebPartManager_Overview#2](~/add/codesnippet/csharp/t-system.web.ui.webcontr_112_4.aspx)]\n [!code-vb[WebParts_ProxyWebPartManager_Overview#2](~/add/codesnippet/visualbasic/t-system.web.ui.webcontr_112_4.aspx)]  \n  \n After you load the page in a browser, click the **WebPartManager Information** button and observe the information about the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control in the master page, and the ProxyWebPartManager control in the content page. For example, note that they both have the same count in their respective properties that track static connections (the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.StaticConnections%2A> property). Note also that although the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control has a <xref:System.Web.UI.WebControls.WebParts.WebPartManager.WebParts%2A> property that tracks the number of <xref:System.Web.UI.WebControls.WebParts.WebPart> controls it manages, the ProxyWebPartManager control has no such property, as its only purpose is to contain static connections."
   syntax:
@@ -156,7 +156,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.WebControls.WebParts.ProxyWebPartManager&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Web.UI.WebControls.WebParts.ProxyWebPartManager&quot;> </xref>クラスです。"
   syntax:
     content: public ProxyWebPartManager ();
     parameters: []
@@ -176,12 +176,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets the control ID for HTML markup that is generated by ASP.NET."
+  summary: "ASP.NET によって生成される HTML マークアップのコントロールの ID を取得します。"
   syntax:
     content: public override string ClientID { get; }
     return:
       type: System.String
-      description: "The control ID for HTML markup that is generated by ASP.NET."
+      description: "ASP.NET によって生成される HTML マークアップのコントロール ID。"
   overload: System.Web.UI.WebControls.WebParts.ProxyWebPartManager.ClientID*
   exceptions: []
   platform:
@@ -198,12 +198,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets a <xref href=&quot;System.Web.UI.ControlCollection&quot;></xref> object that represents the child controls for a specified server control in the UI hierarchy."
+  summary: "取得、 <xref href=&quot;System.Web.UI.ControlCollection&quot;> </xref> UI 階層内の指定されたサーバー コントロールの子コントロールを表すオブジェクト。"
   syntax:
     content: public override System.Web.UI.ControlCollection Controls { get; }
     return:
       type: System.Web.UI.ControlCollection
-      description: "The collection of child controls for the specified server control."
+      description: "指定されたサーバー コントロールの子コントロールのコレクションです。"
   overload: System.Web.UI.WebControls.WebParts.ProxyWebPartManager.Controls*
   exceptions: []
   platform:
@@ -220,14 +220,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Overrides the base property to prevent the <xref href=&quot;System.Web.UI.WebControls.WebParts.ProxyWebPartManager&quot;></xref> control from containing controls."
-  remarks: "The CreateControlCollection method overrides the base method to prevent the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager> control from containing and returning collections of controls. Its only purpose is to enable static connections to be declared in content pages within an application that uses master pages."
+  summary: "防ぐために基本プロパティをオーバーライドします<xref href=&quot;System.Web.UI.WebControls.WebParts.ProxyWebPartManager&quot;></xref>からコントロールを含むコントロールです。"
+  remarks: "CreateControlCollection メソッドのオーバーライドを防ぐために、基本メソッド、<xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager>コントロールが含まれていると、コントロールのコレクションを返すからです</xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager>。 唯一の目的では、マスター ページを使用するアプリケーション内のコンテンツ ページで宣言する静的な接続を有効にします。"
   syntax:
     content: protected override System.Web.UI.ControlCollection CreateControlCollection ();
     parameters: []
     return:
       type: System.Web.UI.ControlCollection
-      description: "Always returns an <xref href=&quot;System.Web.UI.EmptyControlCollection&quot;></xref>."
+      description: "常に返します、 <xref href=&quot;System.Web.UI.EmptyControlCollection&quot;></xref>です。"
   overload: System.Web.UI.WebControls.WebParts.ProxyWebPartManager.CreateControlCollection*
   exceptions: []
   platform:
@@ -244,18 +244,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Overrides the base property to prevent themes from being used."
-  remarks: "The EnableTheming property overrides the base property to prevent themes from being used with the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager> control. This is to prevent it coming into conflict with any themes being used with the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control in the master page (its <xref:System.Web.UI.WebControls.WebParts.WebPartManager.EnableTheming%2A?displayProperty=fullName> property always returns `true`)."
+  summary: "テーマが使用されていることを防ぐために、基本プロパティをオーバーライドします。"
+  remarks: "EnableTheming プロパティをテーマがで使用されていることを防ぐために基本プロパティをオーバーライドします<xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager>コントロール</xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager>。 これで使用されている任意のテーマでの競合に入ってくることがないように、<xref:System.Web.UI.WebControls.WebParts.WebPartManager>マスター ページ内のコントロール (その<xref:System.Web.UI.WebControls.WebParts.WebPartManager.EnableTheming%2A?displayProperty=fullName>プロパティは常に返します`true`).</xref:System.Web.UI.WebControls.WebParts.WebPartManager.EnableTheming%2A?displayProperty=fullName> </xref:System.Web.UI.WebControls.WebParts.WebPartManager>"
   syntax:
     content: public override bool EnableTheming { get; set; }
     return:
       type: System.Boolean
-      description: "Always returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, to prevent themes from being used."
+      description: "常に返します<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>をテーマが使用されていることを防ぐためにします。"
   overload: System.Web.UI.WebControls.WebParts.ProxyWebPartManager.EnableTheming*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "A caller tries to assign a value to this property."
+    description: "呼び出し元は、このプロパティに値を代入しようとします。"
   platform:
   - net462
 - uid: System.Web.UI.WebControls.WebParts.ProxyWebPartManager.Focus
@@ -270,8 +270,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Overrides the base method to prevent the method from being called."
-  remarks: "The Focus method overrides the base method and throws an exception if any caller attempts to call the method. This is because the inherited <xref:System.Web.UI.Control.Focus%2A?displayProperty=fullName> method is designed for controls with a user interface (UI), but the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager> control has no UI and therefore has no need to set the focus."
+  summary: "メソッドが呼び出されないようにする基本メソッドをオーバーライドします。"
+  remarks: "フォーカス メソッドは、基本メソッドをオーバーライドし、メソッドを呼び出すしようとしている任意の呼び出し元は例外をスローします。 これは、継承された<xref:System.Web.UI.Control.Focus%2A?displayProperty=fullName>メソッドがユーザー インターフェイス (UI) を持つコントロール用に設計されたが、<xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager>コントロールが UI がないと、そのため、フォーカスを設定する必要がない</xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager></xref:System.Web.UI.Control.Focus%2A?displayProperty=fullName>。"
   syntax:
     content: public override void Focus ();
     parameters: []
@@ -279,7 +279,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "A caller tries to call this method."
+    description: "呼び出し元は、このメソッドを呼び出すしようとします。"
   platform:
   - net462
 - uid: System.Web.UI.WebControls.WebParts.ProxyWebPartManager.OnInit(System.EventArgs)
@@ -294,19 +294,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Raises the <xref href=&quot;System.Web.UI.Control.Init&quot;></xref> event and initializes the control."
-  remarks: "The OnInit method calls the base method, and then carries out tasks to initialize the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager> control. An important task of this method is to assign the collection of connections referenced by the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.StaticConnections%2A> property to the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control&quot;s <xref:System.Web.UI.WebControls.WebParts.WebPartManager.StaticConnections%2A?displayProperty=fullName> collection."
+  summary: "発生させます、 <xref href=&quot;System.Web.UI.Control.Init&quot;> </xref>イベントと、コントロールを初期化します。"
+  remarks: "OnInit メソッドが基本メソッドを呼び出しおよび初期化するためにタスクを実行し、<xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager>コントロール</xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager>。 によって参照される接続のコレクションに割り当てるには、このメソッドの重要なタスク、<xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.StaticConnections%2A>プロパティを<xref:System.Web.UI.WebControls.WebParts.WebPartManager>コントロールの<xref:System.Web.UI.WebControls.WebParts.WebPartManager.StaticConnections%2A?displayProperty=fullName>コレクションです</xref:System.Web.UI.WebControls.WebParts.WebPartManager.StaticConnections%2A?displayProperty=fullName></xref:System.Web.UI.WebControls.WebParts.WebPartManager></xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager.StaticConnections%2A>。"
   syntax:
     content: protected override void OnInit (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> that contains the event data."
+      description: "<xref:System.EventArgs>イベント データを格納します</xref:System.EventArgs>。"
   overload: System.Web.UI.WebControls.WebParts.ProxyWebPartManager.OnInit*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPartManager&quot;></xref> control from the associated master page is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<xref href=&quot;System.Web.UI.WebControls.WebParts.WebPartManager&quot;> </xref>関連マスター ページからコントロールが<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Web.UI.WebControls.WebParts.ProxyWebPartManager.SkinID
@@ -321,18 +321,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Overrides the base property to prevent a value from being assigned."
-  remarks: "The SkinID property overrides the base property to prevent a value from being assigned to it, which has the effect of preventing skins from being used with the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager> control. This is done because the control never exposes a user interface (UI) on a page. The same behavior is implemented by the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control for its <xref:System.Web.UI.WebControls.WebParts.WebPartManager.SkinID%2A?displayProperty=fullName> property."
+  summary: "値が割り当てられていることを防ぐための基本プロパティをオーバーライドします。"
+  remarks: "使用されないプロパティを回避するという効果を持つ値が、それに割り当てられていることを防ぐための基本プロパティをオーバーライド SkinID スキン、<xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager>コントロール</xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager>。 これは、コントロールがページ上のユーザー インターフェイス (UI) を公開しないためです。 によって、同じ動作が実装される、<xref:System.Web.UI.WebControls.WebParts.WebPartManager>の制御、<xref:System.Web.UI.WebControls.WebParts.WebPartManager.SkinID%2A?displayProperty=fullName>プロパティ</xref:System.Web.UI.WebControls.WebParts.WebPartManager.SkinID%2A?displayProperty=fullName></xref:System.Web.UI.WebControls.WebParts.WebPartManager>。"
   syntax:
     content: public override string SkinID { get; set; }
     return:
       type: System.String
-      description: "Always returns an empty string (&quot;&quot;)."
+      description: "常に空の文字列を返します (&quot;&quot;) です。"
   overload: System.Web.UI.WebControls.WebParts.ProxyWebPartManager.SkinID*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "A caller tries to assign a value to this property."
+    description: "呼び出し元は、このプロパティに値を代入しようとします。"
   platform:
   - net462
 - uid: System.Web.UI.WebControls.WebParts.ProxyWebPartManager.StaticConnections
@@ -347,15 +347,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets a collection of static connections declared within the <xref uid=&quot;langword_csharp_&lt;asp:proxywebpartmanager&gt;&quot; name=&quot;&lt;asp:proxywebpartmanager&gt;&quot; href=&quot;&quot;></xref> element on a content page."
-  remarks: "The StaticConnections property references the collection of <xref:System.Web.UI.WebControls.WebParts.WebPartConnection> objects declared in an `<asp:proxywebpartmanager>` element. The connections contained in this collection are added to the static connections of the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> controls (referenced by its <xref:System.Web.UI.WebControls.WebParts.WebPartManager.StaticConnections%2A?displayProperty=fullName> collection), and treated exactly like any other connections associated with the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control.       The declarative element that corresponds to the StaticConnections property is the `<staticconnections>` element. In an application that uses master pages, the `<staticconnections>` element is added as a child of the `<asp:proxywebpartmanager>` element on a content page, and an `<asp:webpartconnection>` element in turn is added as a child of the `<staticconnections>` element. Multiple `<asp:webpartconnection>` elements can be added to one `<staticconnections>` element, and multiple content pages can declare static connections as part of a master pages application."
+  summary: "内で宣言された静的な接続のコレクションを取得、 <xref uid=&quot;langword_csharp_&lt;asp:proxywebpartmanager&gt;&quot; name=&quot;&lt;asp:proxywebpartmanager&gt;&quot; href=&quot;&quot;> </xref>コンテンツ ページの要素。"
+  remarks: "StaticConnections プロパティのコレクションを参照する<xref:System.Web.UI.WebControls.WebParts.WebPartConnection>で宣言されているオブジェクト、`<asp:proxywebpartmanager>`要素</xref:System.Web.UI.WebControls.WebParts.WebPartConnection>。 静的な接続をこのコレクションに含まれている接続が追加、<xref:System.Web.UI.WebControls.WebParts.WebPartManager>コントロール (により参照されているその<xref:System.Web.UI.WebControls.WebParts.WebPartManager.StaticConnections%2A?displayProperty=fullName>コレクション)、他の接続に関連付けられているのと同じように扱われます、<xref:System.Web.UI.WebControls.WebParts.WebPartManager>コントロール</xref:System.Web.UI.WebControls.WebParts.WebPartManager></xref:System.Web.UI.WebControls.WebParts.WebPartManager.StaticConnections%2A?displayProperty=fullName></xref:System.Web.UI.WebControls.WebParts.WebPartManager>。       StaticConnections プロパティに対応する宣言型の要素は、`<staticconnections>`要素。 マスター ページを使用するアプリケーションで、`<staticconnections>`の子として要素を追加、`<asp:proxywebpartmanager>`コンテンツ ページでは、上の要素と`<asp:webpartconnection>`要素が追加の子としてしてさらに、`<staticconnections>`要素。 複数`<asp:webpartconnection>`要素は、いずれかに追加できる`<staticconnections>`要素、および複数のコンテンツ ページは、マスター ページ アプリケーションの一部として静的接続を宣言できます。"
   example:
   - "The following code example demonstrates how to use the StaticConnections property on the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager> class. This code example shows only the relevant portion of the code from the content page that declares the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager> control and the static connection. For the other pages required to run the code example, and a description of how to set them up, see the Example section of the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager> class overview.  \n  \n The following code is the content page that declares the `<staticconnections>` element as a child of the `<asp:proxywebpartmanager>` element. Also note that the `Button1_Click` method checks the count of the StaticConnections property on the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager> control and writes it to the page.  \n  \n [!code-cs[WebParts_ProxyWebPartManager_Overview#2](~/add/codesnippet/csharp/p-system.web.ui.webcontr_1319_1.aspx)]\n [!code-vb[WebParts_ProxyWebPartManager_Overview#2](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_1319_1.aspx)]  \n  \n After you load the page in a browser, click the **WebPartManager Information** button and observe the information about the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control in the master page, and the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager> control in the content page. For example, note that they both have the same count in their respective properties that track static connections (the StaticConnections property)."
   syntax:
     content: public System.Web.UI.WebControls.WebParts.ProxyWebPartConnectionCollection StaticConnections { get; }
     return:
       type: System.Web.UI.WebControls.WebParts.ProxyWebPartConnectionCollection
-      description: "A <xref href=&quot;System.Web.UI.WebControls.WebParts.ProxyWebPartConnectionCollection&quot;></xref> that contains all static <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPartConnection&quot;></xref> objects declared within an <xref uid=&quot;langword_csharp_&lt;asp:proxywebpartmanager&gt;&quot; name=&quot;&lt;asp:proxywebpartmanager&gt;&quot; href=&quot;&quot;></xref> element."
+      description: "A <xref href=&quot;System.Web.UI.WebControls.WebParts.ProxyWebPartConnectionCollection&quot;> </xref>を含むすべての静的<xref href=&quot;System.Web.UI.WebControls.WebParts.WebPartConnection&quot;></xref>内で宣言されたオブジェクト、 <xref uid=&quot;langword_csharp_&lt;asp:proxywebpartmanager&gt;&quot; name=&quot;&lt;asp:proxywebpartmanager&gt;&quot; href=&quot;&quot;> </xref>要素。"
   overload: System.Web.UI.WebControls.WebParts.ProxyWebPartManager.StaticConnections*
   exceptions: []
   platform:
@@ -372,18 +372,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Overrides the base property to prevent a value from being assigned."
-  remarks: "The Visible property overrides the base property to prevent the <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager> control from ever being made visible. The <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager> control, like the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control, has no user interface (UI) and is never displayed to the user."
+  summary: "値が割り当てられていることを防ぐための基本プロパティをオーバーライドします。"
+  remarks: "Visible プロパティを防ぐために基本プロパティをオーバーライドする、<xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager>表示が行われるコントロール</xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager>。 <xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager>制御と同様に、<xref:System.Web.UI.WebControls.WebParts.WebPartManager>制御をユーザー インターフェイス (UI) を持たず、ユーザーには表示されません</xref:System.Web.UI.WebControls.WebParts.WebPartManager></xref:System.Web.UI.WebControls.WebParts.ProxyWebPartManager>。"
   syntax:
     content: public override bool Visible { get; set; }
     return:
       type: System.Boolean
-      description: "Always returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, to prevent the control from being made visible."
+      description: "常に返します<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>コントロールが表示されないようにします。"
   overload: System.Web.UI.WebControls.WebParts.ProxyWebPartManager.Visible*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "A caller tries to assign a value to this property."
+    description: "呼び出し元は、このプロパティに値を代入しようとします。"
   platform:
   - net462
 references:

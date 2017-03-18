@@ -24,8 +24,8 @@ items:
   nameWithType: ProfileBase
   fullName: System.Web.Profile.ProfileBase
   type: Class
-  summary: "Provides untyped access to profile property values and information."
-  remarks: "ASP.NET uses the ProfileBase class to create the class used for the user profile. When an application that has the user profile enabled is started, ASP.NET creates a new class of type `ProfileCommon`, which inherits from the ProfileBase class. Strongly typed accessors are added to the `ProfileCommon` class for each property defined in the  configuration section. The strongly typed accessors of the `ProfileCommon` class call the <xref:System.Web.Profile.ProfileBase.GetPropertyValue%2A> and <xref:System.Web.Profile.ProfileBase.SetPropertyValue%2A> methods of the ProfileBase base class to retrieve and set profile property values, respectively. An instance of the `ProfileCommon` class is set as the value of the <xref:System.Web.HttpContext.Profile%2A> property for the ASP.NET application.       To create an instance of a user profile in an ASP.NET application, it is recommended that you use the <xref:System.Web.Profile.ProfileBase.Create%2A> method."
+  summary: "プロファイル プロパティの値と情報への型指定されていないアクセスを提供します。"
+  remarks: "ASP.NET では、ProfileBase クラスを使用して、ユーザー プロファイルに使用されるクラスを作成します。 ASP.NET が型の新しいクラスを作成して有効になっているユーザー プロファイルを持つアプリケーションが開始されたときに`ProfileCommon`、ProfileBase クラスから継承します。 厳密に型指定されたアクセサーを追加、`ProfileCommon`構成セクションで定義されている各プロパティのクラスです。 厳密に型指定されたアクセサー、`ProfileCommon`クラスの呼び出し、<xref:System.Web.Profile.ProfileBase.GetPropertyValue%2A>と<xref:System.Web.Profile.ProfileBase.SetPropertyValue%2A>、ProfileBase のメソッドは基本クラスを取得し、プロファイル プロパティの値をそれぞれ設定します</xref:System.Web.Profile.ProfileBase.SetPropertyValue%2A></xref:System.Web.Profile.ProfileBase.GetPropertyValue%2A>。 インスタンス、`ProfileCommon`クラスは、の値として設定されて、 <xref:System.Web.HttpContext.Profile%2A>ASP.NET アプリケーションのプロパティ</xref:System.Web.HttpContext.Profile%2A>。       ASP.NET アプリケーションで、ユーザー プロファイルのインスタンスを作成するにはお勧めを使用すること、<xref:System.Web.Profile.ProfileBase.Create%2A>メソッド</xref:System.Web.Profile.ProfileBase.Create%2A>。"
   example:
   - "The following code example shows a Web.config file that specifies a user profile that contains a `ZipCode` property of type `string` and a `RecentSearchList` property of type <xref:System.Collections.Specialized.StringCollection>. The generated <xref:System.Web.HttpContext.Profile%2A> property of the current <xref:System.Web.HttpContext> will have strongly typed accessors for each of the specified properties.  \n  \n```  \n<configuration>  \n  <system.web>  \n    <anonymousIdentification enabled=\"true\" />  \n  \n    <profile enabled=\"true\" defaultProvider=\"SqlProvider\" >  \n      <properties>  \n        <add name=\"ZipCode\" allowAnonymous=\"true\" />  \n        <add name=\"RecentSearchList\"  \n          type=\"System.Collections.Specialized.StringCollection\"  \n          serializeAs=\"Xml\"  \n          allowAnonymous=\"true\" />  \n      </properties>  \n    </profile>  \n  </system.web>  \n</configuration>  \n```  \n  \n The following code example shows an ASP.NET page that reads and sets the `ZipCode` property specified for the user profile. Before attempting to run this code, set the provider to the default `AspNetSqlProvider` in the ASP.NET configuration settings for the Web site.  \n  \n [!code-vb[System.Web.Profile.HttpProfileBase#1](~/add/codesnippet/visualbasic/t-system.web.profile.pro_9_1.aspx)]\n [!code-cs[System.Web.Profile.HttpProfileBase#1](~/add/codesnippet/csharp/t-system.web.profile.pro_9_1.aspx)]  \n  \n The following code example defines a class that inherits from the ProfileBase class to create a custom profile. The type of the custom profile is specified in the `inherits` attribute of the  configuration element in the Web.config file for an application.  \n  \n> [!IMPORTANT]\n>  This example contains a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[System.Web.Profile.ProfileBase#1](~/add/codesnippet/csharp/t-system.web.profile.pro_9_2.cs)]\n [!code-vb[System.Web.Profile.ProfileBase#1](~/add/codesnippet/visualbasic/t-system.web.profile.pro_9_2.vb)]"
   syntax:
@@ -55,8 +55,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Profile
-  summary: "Creates an instance of the <xref href=&quot;System.Web.Profile.ProfileBase&quot;></xref> class."
-  remarks: "ASP.NET uses the <xref:System.Web.Profile.ProfileBase> class to create the class used for the user profile. When an application that has the user profile enabled is started, ASP.NET creates a new class of type `ProfileCommon`, which inherits from the <xref:System.Web.Profile.ProfileBase> class. Strongly typed accessors are added to the `ProfileCommon` class for each property defined in the  configuration section. The strongly typed accessors of the `ProfileCommon` class call the <xref:System.Web.Profile.ProfileBase.GetPropertyValue%2A> and <xref:System.Web.Profile.ProfileBase.SetPropertyValue%2A> methods of the <xref:System.Web.Profile.ProfileBase> base class to retrieve and set profile property values, respectively. An instance of the `ProfileCommon` class is set as the value of the <xref:System.Web.HttpContext.Profile%2A> property for the ASP.NET application.      > [!NOTE] >  The base class used to generate the class stored in the <xref:System.Web.HttpContext.Profile%2A> property can be overridden using the `inherits` attribute of the  section of the configuration file. In this case you would specify a custom class that inherits from the <xref:System.Web.Profile.ProfileBase> base class.       This constructor is not intended to be used from application code. To create an instance of a user profile, use the <xref:System.Web.Profile.ProfileBase.Create%2A> method."
+  summary: "インスタンスを作成、 <xref href=&quot;System.Web.Profile.ProfileBase&quot;> </xref>クラスです。"
+  remarks: "ASP.NET を使用して、<xref:System.Web.Profile.ProfileBase>ユーザー プロファイルに使用されるクラスを作成するクラス</xref:System.Web.Profile.ProfileBase>。 ASP.NET が型の新しいクラスを作成して有効になっているユーザー プロファイルを持つアプリケーションが開始されると、 `ProfileCommon`、<xref:System.Web.Profile.ProfileBase>クラス</xref:System.Web.Profile.ProfileBase>を継承します。 厳密に型指定されたアクセサーを追加、`ProfileCommon`構成セクションで定義されている各プロパティのクラスです。 厳密に型指定されたアクセサー、`ProfileCommon`クラスの呼び出し、<xref:System.Web.Profile.ProfileBase.GetPropertyValue%2A>と<xref:System.Web.Profile.ProfileBase.SetPropertyValue%2A>のメソッド、<xref:System.Web.Profile.ProfileBase>基底クラスを取得し、プロファイル プロパティの値をそれぞれ設定します</xref:System.Web.Profile.ProfileBase></xref:System.Web.Profile.ProfileBase.SetPropertyValue%2A></xref:System.Web.Profile.ProfileBase.GetPropertyValue%2A>。 インスタンス、`ProfileCommon`クラスは、の値として設定されて、 <xref:System.Web.HttpContext.Profile%2A>ASP.NET アプリケーションのプロパティ</xref:System.Web.HttpContext.Profile%2A>。      > [!NOTE] > に格納されているクラスの生成に使用される基本クラス、<xref:System.Web.HttpContext.Profile%2A>を使用してプロパティをオーバーライドすることができます、`inherits`構成ファイルのセクションの属性です</xref:System.Web.HttpContext.Profile%2A>。 ここでは、<xref:System.Web.Profile.ProfileBase>基底クラス</xref:System.Web.Profile.ProfileBase>から継承するカスタム クラスを指定すると       このコンス トラクターは、アプリケーション コードから使用するものではありません。 ユーザー プロファイルのインスタンスを作成するには、使用、<xref:System.Web.Profile.ProfileBase.Create%2A>メソッド</xref:System.Web.Profile.ProfileBase.Create%2A>。"
   example:
   - "The following Web.config file specifies a user profile that contains a `ZipCode` property of type `string` and a `RecentSearchList` property of type <xref:System.Collections.Specialized.StringCollection>. The generated <xref:System.Web.HttpContext.Profile%2A> property of the current <xref:System.Web.HttpContext> will have strongly typed accessors for each of the specified properties.  \n  \n```  \n<configuration>  \n   <connectionStrings>  \n       <add name=\"SqlServices\" connectionString=\"Data Source=localhost;Integrated Security=SSPI;Initial Catalog=aspnetdb;\" />  \n   </connectionStrings>  \n  \n  <system.web>  \n   <anonymousIdentification enabled=\"true\" />  \n  \n   <profile defaultProvider=\"SqlProvider\" >  \n     <providers>  \n       <add  \n         name=\"SqlProvider\"  \n         connectionStringName=\"SqlServices\"  \n         applicationName=\"ProfileBaseApplication\"  \n         type=\"System.Web.Profile.SqlProfileProvider\" />  \n     </providers>  \n  \n     <properties>  \n       <add name=\"ZipCode\" allowAnonymous=\"true\" />  \n       <add name=\"RecentSearchList\"  \n            type=\"System.Collections.Specialized.StringCollection\"  \n            serializeAs=\"Xml\"  \n            allowAnonymous=\"true\" />  \n      </properties>  \n    </profile>  \n   </system.web>  \n</configuration>  \n```  \n  \n The following ASP.NET page reads and sets the `ZipCode` property specified for the user profile.  \n  \n> [!IMPORTANT]\n>  This example contains a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-vb[System.Web.Profile.HttpProfileBase#1](~/add/codesnippet/visualbasic/m-system.web.profile.pro_1_1.aspx)]\n [!code-cs[System.Web.Profile.HttpProfileBase#1](~/add/codesnippet/csharp/m-system.web.profile.pro_1_1.aspx)]"
   syntax:
@@ -66,10 +66,10 @@ items:
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "The <xref uid=&quot;langword_csharp_enabled&quot; name=&quot;enabled&quot; href=&quot;&quot;></xref> attribute of the  section of the Web.config file is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "<xref uid=&quot;langword_csharp_enabled&quot; name=&quot;enabled&quot; href=&quot;&quot;> </xref> Web.config ファイルのセクションの属性は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   - type: System.Configuration.ConfigurationErrorsException
     commentId: T:System.Configuration.ConfigurationErrorsException
-    description: "A property type specified in the  section of the Web.config file could not be created.       -or-       The <xref uid=&quot;langword_csharp_allowAnonymous&quot; name=&quot;allowAnonymous&quot; href=&quot;&quot;></xref> attribute for a property in the  section of the Web.config file is set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and the <xref uid=&quot;langword_csharp_enabled&quot; name=&quot;enabled&quot; href=&quot;&quot;></xref> attribute of the  element is set to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.       -or-       The <xref uid=&quot;langword_csharp_serializeAs&quot; name=&quot;serializeAs&quot; href=&quot;&quot;></xref> attribute for a property in the  section of the Web.config file is set to <xref href=&quot;System.Configuration.SettingsSerializeAs&quot;></xref> and the <xref:System.Type.IsSerializable*> property of the specified <xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;></xref> returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.       -or-       The name of a provider specified using the <xref uid=&quot;langword_csharp_provider&quot; name=&quot;provider&quot; href=&quot;&quot;></xref> attribute of a profile property could not be found in the <xref:System.Web.Profile.ProfileManager.Providers*> collection.       -or-       The <xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;></xref> specified for a profile property could not be found.       -or-       A profile property was specified with a name that matches a property name on the base class specified in the <xref uid=&quot;langword_csharp_inherits&quot; name=&quot;inherits&quot; href=&quot;&quot;></xref> attribute of the  section."
+    description: "Web.config ファイルのセクションで指定されたプロパティの型を作成できませんでした。       - または -、 <xref uid=&quot;langword_csharp_allowAnonymous&quot; name=&quot;allowAnonymous&quot; href=&quot;&quot;> </xref>属性に、Web.config ファイルのセクションでは、プロパティを設定に<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>と<xref uid=&quot;langword_csharp_enabled&quot; name=&quot;enabled&quot; href=&quot;&quot;></xref>要素の属性に設定されている<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。       - または -、 <xref uid=&quot;langword_csharp_serializeAs&quot; name=&quot;serializeAs&quot; href=&quot;&quot;> </xref>属性に、Web.config ファイルのセクションでは、プロパティを設定<xref href=&quot;System.Configuration.SettingsSerializeAs&quot;></xref>と<> *> したプロパティの<xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;></xref>返します<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。      - または - を使用して指定されたプロバイダーの名前、 <xref uid=&quot;langword_csharp_provider&quot; name=&quot;provider&quot; href=&quot;&quot;> </xref>でプロファイル プロパティの属性が見つかりませんでした、 <> </> *> コレクション。       - または -、 <xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;> </xref>指定されたプロファイルのプロパティが見つかりませんでした。       - または - で指定された基本クラスのプロパティ名に一致する名前で、プロファイル プロパティが指定された、 <xref uid=&quot;langword_csharp_inherits&quot; name=&quot;inherits&quot; href=&quot;&quot;> </xref>セクションの属性です。"
   platform:
   - net462
 - uid: System.Web.Profile.ProfileBase.Create(System.String)
@@ -84,8 +84,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Profile
-  summary: "Used by ASP.NET to create an instance of a profile for the specified user name."
-  remarks: "The Create method creates and initializes a new profile instance and is useful for applications that use a custom profile object or manage user profiles in a non-ASP.NET environment.       This overload of the Create method assumes that the specified user name is an authenticated user."
+  summary: "ASP.NET で使用される、指定されたユーザー名のプロファイルのインスタンスを作成します。"
+  remarks: "Create メソッド作成プロファイルの新しいインスタンスを初期化、およびカスタム プロファイル オブジェクトを使用または ASP.NET 以外の環境でのユーザー プロファイルを管理するアプリケーションに適しています。       Create メソッドのこのオーバー ロードでは、指定されたユーザー名が、認証されたユーザーであると仮定します。"
   example:
   - "The following code example creates an instance of a custom profile object, sets a property, and saves the profile to the data source.  \n  \n [!code-vb[System.Web.Profile.ProfileBase.Create#1](~/add/codesnippet/visualbasic/m-system.web.profile.pro_2_1.vb)]\n [!code-cs[System.Web.Profile.ProfileBase.Create#1](~/add/codesnippet/csharp/m-system.web.profile.pro_2_1.cs)]"
   syntax:
@@ -93,21 +93,21 @@ items:
     parameters:
     - id: username
       type: System.String
-      description: "The name of the user to create a profile for."
+      description: "プロファイルを作成するユーザーの名前です。"
     return:
       type: System.Web.Profile.ProfileBase
-      description: "An <xref href=&quot;System.Web.Profile.ProfileBase&quot;></xref> that represents the profile for the specified user."
+      description: "<xref href=&quot;System.Web.Profile.ProfileBase&quot;> </xref>を表す、指定したユーザーのプロファイルです。"
   overload: System.Web.Profile.ProfileBase.Create*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "The <xref uid=&quot;langword_csharp_enabled&quot; name=&quot;enabled&quot; href=&quot;&quot;></xref> attribute of the  section of the Web.config file is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "<xref uid=&quot;langword_csharp_enabled&quot; name=&quot;enabled&quot; href=&quot;&quot;> </xref> Web.config ファイルのセクションの属性は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "The current hosting permission level is less than <xref href=&quot;System.Web.AspNetHostingPermissionLevel&quot;></xref>."
+    description: "現在ホストしているアクセス許可レベルより小さい<xref href=&quot;System.Web.AspNetHostingPermissionLevel&quot;></xref>です。"
   - type: System.Configuration.ConfigurationErrorsException
     commentId: T:System.Configuration.ConfigurationErrorsException
-    description: "A property type specified in the  section of the Web.config file could not be created.       -or-       The <xref uid=&quot;langword_csharp_allowAnonymous&quot; name=&quot;allowAnonymous&quot; href=&quot;&quot;></xref> attribute for a property in the  section of the Web.config file is set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and the <xref uid=&quot;langword_csharp_enabled&quot; name=&quot;enabled&quot; href=&quot;&quot;></xref> attribute of the  element is set to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.       -or-       The <xref uid=&quot;langword_csharp_serializeAs&quot; name=&quot;serializeAs&quot; href=&quot;&quot;></xref> attribute for a property in the  section of the Web.config file is set to <xref href=&quot;System.Configuration.SettingsSerializeAs&quot;></xref> and the <xref:System.Type.IsSerializable*> property of the specified <xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;></xref> returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.       -or-       The name of a provider specified using the <xref uid=&quot;langword_csharp_provider&quot; name=&quot;provider&quot; href=&quot;&quot;></xref> attribute of a profile property could not be found in the <xref:System.Web.Profile.ProfileManager.Providers*> collection.       -or-       The <xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;></xref> specified for a profile property could not be found.       -or-       A profile property was specified with a name that matches a property name on the base class specified in the <xref uid=&quot;langword_csharp_inherits&quot; name=&quot;inherits&quot; href=&quot;&quot;></xref> attribute of the  section."
+    description: "Web.config ファイルのセクションで指定されたプロパティの型を作成できませんでした。       - または -、 <xref uid=&quot;langword_csharp_allowAnonymous&quot; name=&quot;allowAnonymous&quot; href=&quot;&quot;> </xref>属性に、Web.config ファイルのセクションでは、プロパティを設定に<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>と<xref uid=&quot;langword_csharp_enabled&quot; name=&quot;enabled&quot; href=&quot;&quot;></xref>要素の属性に設定されている<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。       - または -、 <xref uid=&quot;langword_csharp_serializeAs&quot; name=&quot;serializeAs&quot; href=&quot;&quot;> </xref>属性に、Web.config ファイルのセクションでは、プロパティを設定<xref href=&quot;System.Configuration.SettingsSerializeAs&quot;></xref>と<> *> したプロパティの<xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;></xref>返します<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。      - または - を使用して指定されたプロバイダーの名前、 <xref uid=&quot;langword_csharp_provider&quot; name=&quot;provider&quot; href=&quot;&quot;> </xref>でプロファイル プロパティの属性が見つかりませんでした、 <> </> *> コレクション。       - または -、 <xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;> </xref>指定されたプロファイルのプロパティが見つかりませんでした。       - または - で指定された基本クラスのプロパティ名に一致する名前で、プロファイル プロパティが指定された、 <xref uid=&quot;langword_csharp_inherits&quot; name=&quot;inherits&quot; href=&quot;&quot;> </xref>セクションの属性です。"
   platform:
   - net462
 - uid: System.Web.Profile.ProfileBase.Create(System.String,System.Boolean)
@@ -122,8 +122,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Profile
-  summary: "Used by ASP.NET to create an instance of a profile for the specified user name. Takes a parameter indicating whether the user is authenticated or anonymous."
-  remarks: "The Create method creates and initializes a new profile instance and is useful for applications that use a custom profile object or manage user profiles in a non-ASP.NET environment.       This overload of the Create method can be used to create a profile for an authenticated user or an anonymous user."
+  summary: "ASP.NET で使用される、指定されたユーザー名のプロファイルのインスタンスを作成します。 ユーザーが認証済みまたは匿名かどうかを示すパラメーターを受け取ります。"
+  remarks: "Create メソッド作成プロファイルの新しいインスタンスを初期化、およびカスタム プロファイル オブジェクトを使用または ASP.NET 以外の環境でのユーザー プロファイルを管理するアプリケーションに適しています。       認証されたユーザーまたは匿名ユーザーのプロファイルを作成する Create メソッドのこのオーバー ロードを使用できます。"
   example:
   - "The following code example creates an instance of a custom profile object, sets a property, and saves the profile to the data source.  \n  \n [!code-vb[System.Web.Profile.ProfileBase.Create#2](~/add/codesnippet/visualbasic/m-system.web.profile.pro_9_1.vb)]\n [!code-cs[System.Web.Profile.ProfileBase.Create#2](~/add/codesnippet/csharp/m-system.web.profile.pro_9_1.cs)]"
   syntax:
@@ -131,24 +131,24 @@ items:
     parameters:
     - id: username
       type: System.String
-      description: "The name of the user to create a profile for."
+      description: "プロファイルを作成するユーザーの名前です。"
     - id: isAuthenticated
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to indicate the user is authenticated; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to indicate the user is anonymous."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>ユーザーを示すためには認証です。<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>ユーザーが匿名であることを示します。"
     return:
       type: System.Web.Profile.ProfileBase
-      description: "A <xref href=&quot;System.Web.Profile.ProfileBase&quot;></xref> object that represents the profile for the specified user."
+      description: "A <xref href=&quot;System.Web.Profile.ProfileBase&quot;> </xref>を指定したユーザーのプロファイルを表すオブジェクト。"
   overload: System.Web.Profile.ProfileBase.Create*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "The <xref uid=&quot;langword_csharp_enabled&quot; name=&quot;enabled&quot; href=&quot;&quot;></xref> attribute of the  section of the Web.config file is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "<xref uid=&quot;langword_csharp_enabled&quot; name=&quot;enabled&quot; href=&quot;&quot;> </xref> Web.config ファイルのセクションの属性は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "The current hosting permission level is less than <xref href=&quot;System.Web.AspNetHostingPermissionLevel&quot;></xref>."
+    description: "現在ホストしているアクセス許可レベルより小さい<xref href=&quot;System.Web.AspNetHostingPermissionLevel&quot;></xref>です。"
   - type: System.Configuration.ConfigurationErrorsException
     commentId: T:System.Configuration.ConfigurationErrorsException
-    description: "A property type specified in the  section of the Web.config file could not be created.       -or-       The <xref uid=&quot;langword_csharp_allowAnonymous&quot; name=&quot;allowAnonymous&quot; href=&quot;&quot;></xref> attribute for a property in the  section of the Web.config file is set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and the <xref uid=&quot;langword_csharp_enabled&quot; name=&quot;enabled&quot; href=&quot;&quot;></xref> attribute of the  element is set to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.       -or-       The <xref uid=&quot;langword_csharp_serializeAs&quot; name=&quot;serializeAs&quot; href=&quot;&quot;></xref> attribute for a property in the  section of the Web.config file is set to <xref href=&quot;System.Configuration.SettingsSerializeAs&quot;></xref> and the <xref:System.Type.IsSerializable*> property of the specified <xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;></xref> returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.       -or-       The name of a provider specified using the <xref uid=&quot;langword_csharp_provider&quot; name=&quot;provider&quot; href=&quot;&quot;></xref> attribute of a profile property could not be found in the <xref:System.Web.Profile.ProfileManager.Providers*> collection.       -or-       The <xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;></xref> specified for a profile property could not be found.       -or-       A profile property was specified with a name that matches a property name on the base class specified in the <xref uid=&quot;langword_csharp_inherits&quot; name=&quot;inherits&quot; href=&quot;&quot;></xref> attribute of the  section."
+    description: "Web.config ファイルのセクションで指定されたプロパティの型を作成できませんでした。       - または -、 <xref uid=&quot;langword_csharp_allowAnonymous&quot; name=&quot;allowAnonymous&quot; href=&quot;&quot;> </xref>属性に、Web.config ファイルのセクションでは、プロパティを設定に<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>と<xref uid=&quot;langword_csharp_enabled&quot; name=&quot;enabled&quot; href=&quot;&quot;></xref>要素の属性に設定されている<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。       - または -、 <xref uid=&quot;langword_csharp_serializeAs&quot; name=&quot;serializeAs&quot; href=&quot;&quot;> </xref>属性に、Web.config ファイルのセクションでは、プロパティを設定<xref href=&quot;System.Configuration.SettingsSerializeAs&quot;></xref>と<> *> したプロパティの<xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;></xref>返します<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。      - または - を使用して指定されたプロバイダーの名前、 <xref uid=&quot;langword_csharp_provider&quot; name=&quot;provider&quot; href=&quot;&quot;> </xref>でプロファイル プロパティの属性が見つかりませんでした、 <> </> *> コレクション。       - または -、 <xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;> </xref>指定されたプロファイルのプロパティが見つかりませんでした。       - または - で指定された基本クラスのプロパティ名に一致する名前で、プロファイル プロパティが指定された、 <xref uid=&quot;langword_csharp_inherits&quot; name=&quot;inherits&quot; href=&quot;&quot;> </xref>セクションの属性です。"
   platform:
   - net462
 - uid: System.Web.Profile.ProfileBase.GetProfileGroup(System.String)
@@ -163,8 +163,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Profile
-  summary: "Gets a group of properties identified by a group name."
-  remarks: "Profile properties can be separated into groups for better organization. The GetProfileGroup property can be used to retrieve a group of properties by the group name. You can also access a profile property in a group by specifying the group name as a member of the `Profile` property available on each page. For example, the `ZipCode` profile property that is a member of the `Address` profile group could be accessed using `Profile.Address.ZipCode`."
+  summary: "グループ名で識別されるプロパティのグループを取得します。"
+  remarks: "プロファイルのプロパティより効率的な整理のグループに分けることができます。 GetProfileGroup プロパティは、プロパティのグループを取得するグループ名で使用できます。 メンバーとして、グループ名を指定することによって、グループ内のプロファイル プロパティをアクセスすることも、`Profile`プロパティの各ページでご確認いただけます。 たとえば、`ZipCode`プロファイルのメンバーであるプロパティ、`Address`プロファイル グループを使用してアクセスでした`Profile.Address.ZipCode`です。"
   example:
   - "The following Web.config file specifies a user profile that contains group of properties with a group name of `Address`. The grouped properties generated for the <xref:System.Web.HttpContext.Profile%2A> property of the current <xref:System.Web.HttpContext> will be preceded by the group name. For example, `Profile.Address.Street`.  \n  \n```  \n<configuration>  \n  <connectionStrings>  \n    <add name=\"SqlServices\" connectionString=  \n      \"Data Source=localhost;Integrated Security=SSPI;Initial Catalog=aspnetdb;\" />  \n  </connectionStrings>  \n  \n  <system.web>  \n    <authentication mode=\"Forms\" >  \n      <forms loginUrl=\"login.aspx\"  \n        name=\".ASPXFORMSAUTH\" />  \n    </authentication>  \n  \n    <authorization>  \n      <deny users=\"?\" />  \n    </authorization>  \n  \n    <membership defaultProvider=\"SqlProvider\"   \n      userIsOnlineTimeWindow=\"15\">  \n      <providers>  \n        <clear />  \n        <add   \n          name=\"SqlProvider\"   \n          type=\"System.Web.Security.SqlMembershipProvider\"   \n          connectionStringName=\"SqlServices\"  \n          enablePasswordRetrieval=\"false\"  \n          enablePasswordReset=\"true\"  \n          requiresQuestionAndAnswer=\"true\"   \n          requiresUniqueEmail=\"false\"  \n          passwordFormat=\"Hashed\"  \n          applicationName=\"MyApplication\" />  \n      </providers>  \n    </membership>  \n  \n    <profile defaultProvider=\"SqlProvider\">  \n      <providers>  \n        <add  \n          name=\"SqlProvider\"  \n          connectionStringName=\"SqlServices\"  \n          applicationName=\"MyApplication\"  \n          type=\"System.Web.Profile.SqlProfileProvider\" />  \n  \n      </providers>  \n  \n      <properties>  \n        <add name=\"ZipCode\" />  \n        <group name=\"Address\">  \n          <add name=\"Street\" />  \n          <add name=\"City\" />  \n          <add name=\"State\" />  \n          <add name=\"CountryOrRegion\" />  \n        </group>  \n      </properties>  \n    </profile>  \n  </system.web>  \n</configuration>  \n```  \n  \n The following ASP.NET page reads and sets the grouped properties specified for the user profile.  \n  \n> [!IMPORTANT]\n>  This example contains a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[System.Web.Profile.HttpProfileGroupBase#1](~/add/codesnippet/csharp/m-system.web.profile.pro_5_1.aspx)]\n [!code-vb[System.Web.Profile.HttpProfileGroupBase#1](~/add/codesnippet/visualbasic/m-system.web.profile.pro_5_1.aspx)]"
   syntax:
@@ -172,15 +172,15 @@ items:
     parameters:
     - id: groupName
       type: System.String
-      description: "The name of the group of properties."
+      description: "プロパティのグループの名前。"
     return:
       type: System.Web.Profile.ProfileGroupBase
-      description: "A <xref href=&quot;System.Web.Profile.ProfileGroupBase&quot;></xref> object for a group of properties configured with the specified group name."
+      description: "A <xref href=&quot;System.Web.Profile.ProfileGroupBase&quot;> </xref>指定されたグループ名で構成されたプロパティのグループのオブジェクト。"
   overload: System.Web.Profile.ProfileBase.GetProfileGroup*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "The specified profile property group name was not found in the  configuration section."
+    description: "構成セクションで指定されたプロファイルのプロパティ グループ名が見つかりませんでした。"
   platform:
   - net462
 - uid: System.Web.Profile.ProfileBase.GetPropertyValue(System.String)
@@ -195,8 +195,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Profile
-  summary: "Gets the value of a profile property."
-  remarks: "ASP.NET uses the <xref:System.Web.Profile.ProfileBase> class to create the class used for the user profile. When an application that has the user profile enabled is started, ASP.NET creates a new class of type `ProfileCommon`, which inherits from the <xref:System.Web.Profile.ProfileBase> class. Strongly typed accessors are added to the `ProfileCommon` class for each property defined in the  configuration section. The strongly typed accessors of the `ProfileCommon` class call the GetPropertyValue method to retrieve untyped values from the <xref:System.Web.Profile.ProfileProvider> that the generated accessor then casts as the specified type and returns as the property value.       You can use the GetPropertyValue method to retrieve property values of the user profile for your application by name. Returned values are untyped and must be cast as the specific object type when retrieved. For strongly typed access to profile property values, you can access the property by name as a member of the Profile property available on each page, for example, `Profile.CustomerAddress`."
+  summary: "プロファイル プロパティの値を取得します。"
+  remarks: "ASP.NET を使用して、<xref:System.Web.Profile.ProfileBase>ユーザー プロファイルに使用されるクラスを作成するクラス</xref:System.Web.Profile.ProfileBase>。 ASP.NET が型の新しいクラスを作成して有効になっているユーザー プロファイルを持つアプリケーションが開始されると、 `ProfileCommon`、<xref:System.Web.Profile.ProfileBase>クラス</xref:System.Web.Profile.ProfileBase>を継承します。 厳密に型指定されたアクセサーを追加、`ProfileCommon`構成セクションで定義されている各プロパティのクラスです。 厳密に型指定されたアクセサー、`ProfileCommon`クラスからの型指定されていない値を取得する GetPropertyValue メソッドを呼び出す、<xref:System.Web.Profile.ProfileProvider>生成されたアクセサーが指定された型としてキャストし、プロパティの値として返します</xref:System.Web.Profile.ProfileProvider>。       GetPropertyValue メソッドを使用すると、名前によって、アプリケーションのユーザー プロファイルのプロパティの値を取得します。 戻り値は型指定されていないため、取得されたときに特定のオブジェクト型としてキャストする必要があります。 厳密に型指定のアクセス プロファイル プロパティの値をプロパティにアクセスできます、名前で各ページで使用できるプロファイル プロパティのメンバーとしてなど、`Profile.CustomerAddress`です。"
   example:
   - "The following code example shows an ASP.NET page that reads and sets the `ZipCode` property specified for the user profile. For an example of a Web.config file that specifies properties for the user profile, see the example provided for the <xref:System.Web.Profile.ProfileBase> class.  \n  \n> [!IMPORTANT]\n>  This example contains a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-vb[System.Web.Profile.HttpProfileBase#1](~/add/codesnippet/visualbasic/m-system.web.profile.pro_10_1.aspx)]\n [!code-cs[System.Web.Profile.HttpProfileBase#1](~/add/codesnippet/csharp/m-system.web.profile.pro_10_1.aspx)]"
   syntax:
@@ -204,18 +204,18 @@ items:
     parameters:
     - id: propertyName
       type: System.String
-      description: "The name of the profile property."
+      description: "プロファイル プロパティの名前。"
     return:
       type: System.Object
-      description: "The value of the specified profile property, typed as <xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;></xref>."
+      description: "として型指定された、指定されたプロファイル プロパティの値<xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.Profile.ProfileBase.GetPropertyValue*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "An attempt was made to set a property value on an anonymous profile where the property&quot;s <xref uid=&quot;langword_csharp_allowAnonymous&quot; name=&quot;allowAnonymous&quot; href=&quot;&quot;></xref> attribute is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "匿名プロファイルのプロパティ値を設定しようとしましたが、プロパティの<xref uid=&quot;langword_csharp_allowAnonymous&quot; name=&quot;allowAnonymous&quot; href=&quot;&quot;></xref>属性は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   - type: System.Configuration.SettingsPropertyNotFoundException
     commentId: T:System.Configuration.SettingsPropertyNotFoundException
-    description: "There are no properties defined for the current profile.       -or-       The specified profile property name does not exist in the current profile.       -or-       The provider for the specified profile property did not recognize the specified property."
+    description: "現在のプロファイルに対して定義されたプロパティはありません。       または、現在のプロファイルで指定されたプロファイルのプロパティ名が存在しません。       または、指定されたプロファイル プロパティのプロバイダーでは、指定したプロパティは認識されませんでした。"
   platform:
   - net462
 - uid: System.Web.Profile.ProfileBase.Initialize(System.String,System.Boolean)
@@ -230,17 +230,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Profile
-  summary: "Initializes the profile property values and information for the current user."
-  remarks: "This method is not intended to be used from your code. Use one of the <xref:System.Web.Profile.ProfileBase.Create%2A> overloads to create an instance of the user profile."
+  summary: "プロファイル プロパティの値と現在のユーザーに関する情報を初期化します。"
+  remarks: "このメソッドは、コードから使用するものではありません。 いずれかを使用して、<xref:System.Web.Profile.ProfileBase.Create%2A>オーバー ロードのユーザー プロファイルのインスタンスを作成します</xref:System.Web.Profile.ProfileBase.Create%2A>。"
   syntax:
     content: public void Initialize (string username, bool isAuthenticated);
     parameters:
     - id: username
       type: System.String
-      description: "The name of the user to initialize the profile for."
+      description: "プロファイルを初期化するために、ユーザーの名前。"
     - id: isAuthenticated
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to indicate the user is authenticated; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to indicate the user is anonymous."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>ユーザーを示すためには認証です。<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>ユーザーが匿名であることを示します。"
   overload: System.Web.Profile.ProfileBase.Initialize*
   exceptions: []
   platform:
@@ -257,13 +257,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Profile
-  summary: "Gets a value indicating whether the user profile is for an anonymous user."
-  remarks: "Anonymous access to the user profile is enabled using the  configuration section and the `allowAnonymous` attribute of the  configuration element used to specify profile properties."
+  summary: "匿名ユーザーがユーザー プロファイルにするかどうかを示す値を取得します。"
+  remarks: "構成セクションを使用して、ユーザー プロファイルへの匿名アクセスが有効にし、`allowAnonymous`プロファイル プロパティを指定するために使用する構成要素の属性です。"
   syntax:
     content: public bool IsAnonymous { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the user profile is for an anonymous user; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>ユーザー プロファイルの匿名ユーザー以外の場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.Profile.ProfileBase.IsAnonymous*
   exceptions: []
   platform:
@@ -280,13 +280,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Profile
-  summary: "Gets a value indicating whether any of the profile properties have been modified."
-  remarks: "The IsDirty property can be used by a profile provider during the <xref:System.Configuration.SettingsBase.Save%2A> method to determine whether properties that are made up of primitive types, strings, or <xref:System.DateTime> objects have been changed. Changed properties are then updated by the profile provider in the <xref:System.Configuration.SettingsBase.Save%2A> method. The <xref:System.Configuration.SettingsBase.Save%2A> method is automatically called at the end of page execution if the <xref:System.Web.Profile.ProfileManager.AutomaticSaveEnabled%2A> property is `true`       A profile provider called in the <xref:System.Configuration.SettingsBase.Save%2A> method cannot explicitly determine whether a profile property with a custom class type or a complex type, such as a collection, has changed. You can use the <xref:System.Web.Profile.ProfileModule.ProfileAutoSaving> event to determine whether a custom object has been modified and to continue with the automatic save for modified objects or cancel the automatic save if no objects have been modified. The default behavior of the <xref:System.Web.Profile.ProfileBase> class is to set the IsDirty property to `true` for properties that are of a custom or complex type the first time the property is accessed."
+  summary: "プロファイルのプロパティのいずれかが変更されているかどうかを示す値を取得します。"
+  remarks: "IsDirty プロパティは、中にプロファイル プロバイダーで使用することができます、<xref:System.Configuration.SettingsBase.Save%2A>メソッドかどうかについてのプロパティをプリミティブ型、文字列の構成または<xref:System.DateTime>オブジェクトが変更されました</xref:System.DateTime></xref:System.Configuration.SettingsBase.Save%2A>。 プロファイル プロバイダーによって変更されたプロパティを更新しています、<xref:System.Configuration.SettingsBase.Save%2A>メソッド</xref:System.Configuration.SettingsBase.Save%2A>。 <xref:System.Configuration.SettingsBase.Save%2A>メソッドは自動的に呼び出されますページの実行の最後にある場合、<xref:System.Web.Profile.ProfileManager.AutomaticSaveEnabled%2A>プロパティは`true`で呼び出されるプロファイル プロバイダー、<xref:System.Configuration.SettingsBase.Save%2A>メソッドでは、カスタムのクラス型やコレクションなどの複合型を持つプロファイル プロパティが変更されたかどうかを判定できません明示的にします</xref:System.Configuration.SettingsBase.Save%2A></xref:System.Web.Profile.ProfileManager.AutomaticSaveEnabled%2A></xref:System.Configuration.SettingsBase.Save%2A>。 使用することができます、<xref:System.Web.Profile.ProfileModule.ProfileAutoSaving>カスタム オブジェクトが変更されているかどうかを判断し、変更したオブジェクトの自動保存を続行またはオブジェクトが変更されていない場合は、自動保存を取り消すイベント</xref:System.Web.Profile.ProfileModule.ProfileAutoSaving>。 既定の動作、 <xref:System.Web.Profile.ProfileBase>IsDirty プロパティに設定するクラスは、`true`最初は、カスタム型または複合型のプロパティに時刻プロパティにアクセスします</xref:System.Web.Profile.ProfileBase>。"
   syntax:
     content: public bool IsDirty { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if any of the profile properties have been modified; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>任意のプロファイルのプロパティが変更された場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.Profile.ProfileBase.IsDirty*
   exceptions: []
   platform:
@@ -303,8 +303,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Profile
-  summary: "Gets or sets a profile property value indexed by the property name."
-  remarks: "You can use this property to retrieve or set the property values of the user profile for your application by name. Returned values are typed as `object` and must be cast as the specific object type when retrieved. For strongly typed access to profile property values, you can access the property by name as a member of the `Profile` property available on each page, for example, `Profile.CustomerAddress`."
+  summary: "取得またはプロパティ名でインデックス付けされたプロファイル プロパティの値を設定します。"
+  remarks: "このプロパティを使用して、名前によって、アプリケーションのユーザー プロファイルのプロパティの値を設定または取得することができます。 返される値は、入力`object`取得されたときに特定のオブジェクト型としてキャストする必要があります。 厳密に型指定のアクセス プロファイル プロパティの値をプロパティにアクセスできます、名前のメンバーとして、`Profile`プロパティの各ページで使用できる`Profile.CustomerAddress`です。"
   example:
   - "The following code example lists the names of the properties in the user profile by binding the <xref:System.Configuration.SettingsProperty.Name%2A> property from the static <xref:System.Web.Profile.ProfileBase.Properties%2A> collection of <xref:System.Configuration.SettingsProperty> objects to a <xref:System.Web.UI.WebControls.GridView> control. The selected property value is retrieved by name using the Item collection. For an example of a Web.config file that specifies properties for the user profile, see the example provided for the <xref:System.Web.Profile.ProfileBase> class.  \n  \n [!code-cs[System.Web.Profile.HttpProfileBase#2](~/add/codesnippet/csharp/p-system.web.profile.pro_3_1.aspx)]\n [!code-vb[System.Web.Profile.HttpProfileBase#2](~/add/codesnippet/visualbasic/p-system.web.profile.pro_3_1.aspx)]"
   syntax:
@@ -312,24 +312,24 @@ items:
     parameters:
     - id: propertyName
       type: System.String
-      description: "The name of the profile property."
+      description: "プロファイル プロパティの名前。"
     return:
       type: System.Object
-      description: "The value of the specified profile property, typed as <xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;></xref>."
+      description: "として型指定された、指定されたプロファイル プロパティの値<xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.Profile.ProfileBase.Item*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "An attempt was made to set a property value on an anonymous profile where the property&quot;s <xref uid=&quot;langword_csharp_allowAnonymous&quot; name=&quot;allowAnonymous&quot; href=&quot;&quot;></xref> attribute is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "匿名プロファイルのプロパティ値を設定しようとしましたが、プロパティの<xref uid=&quot;langword_csharp_allowAnonymous&quot; name=&quot;allowAnonymous&quot; href=&quot;&quot;></xref>属性は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   - type: System.Configuration.SettingsPropertyNotFoundException
     commentId: T:System.Configuration.SettingsPropertyNotFoundException
-    description: "There are no properties defined for the current profile.       -or-       The specified profile property name does not exist in the current profile.       -or-       The provider for the specified profile property did not recognize the specified property."
+    description: "現在のプロファイルに対して定義されたプロパティはありません。       または、現在のプロファイルで指定されたプロファイルのプロパティ名が存在しません。       または、指定されたプロファイル プロパティのプロバイダーでは、指定したプロパティは認識されませんでした。"
   - type: System.Configuration.SettingsPropertyIsReadOnlyException
     commentId: T:System.Configuration.SettingsPropertyIsReadOnlyException
-    description: "An attempt was made to set a property value that was marked as read-only."
+    description: "読み取り専用とマークされたプロパティの値を設定しようとしました。"
   - type: System.Configuration.SettingsPropertyWrongTypeException
     commentId: T:System.Configuration.SettingsPropertyWrongTypeException
-    description: "An attempt was made to assign a value to a property using an incompatible type."
+    description: "互換性のない型を使用してプロパティに値を代入しようとしました。"
   platform:
   - net462
 - uid: System.Web.Profile.ProfileBase.LastActivityDate
@@ -344,13 +344,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Profile
-  summary: "Gets the most recent date and time that the profile was read or modified."
-  remarks: "This property value is only modified by the default profile provider. Changes made to profile properties by a provider other than the default profile provider do not affect the value of the LastActivityDate property."
+  summary: "最新の日付と、プロファイルの読み取りまたは変更された時刻を取得します。"
+  remarks: "このプロパティの値は既定のプロファイル プロバイダーによってのみ変更します。 プロファイルのプロパティを既定のプロファイル プロバイダー以外のプロバイダーによって行われた変更は、LastActivityDate プロパティの値には影響しません。"
   syntax:
     content: public DateTime LastActivityDate { get; }
     return:
       type: System.DateTime
-      description: "The most recent date and time that the profile was read or modified by the default provider."
+      description: "最新の日付と、プロファイルの読み取りまたは既定のプロバイダーによって変更された時刻。"
   overload: System.Web.Profile.ProfileBase.LastActivityDate*
   exceptions: []
   platform:
@@ -367,13 +367,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Profile
-  summary: "Gets the most recent date and time that the profile was modified."
-  remarks: "This property value is only modified by the default profile provider. Changes made to profile properties by a provider other than the default profile provider do not affect the value of the LastUpdatedDate property."
+  summary: "プロファイルが変更された、最新の日時を取得します。"
+  remarks: "このプロパティの値は既定のプロファイル プロバイダーによってのみ変更します。 プロファイルのプロパティを既定のプロファイル プロバイダー以外のプロバイダーによって行われた変更は、LastUpdatedDate プロパティの値には影響しません。"
   syntax:
     content: public DateTime LastUpdatedDate { get; }
     return:
       type: System.DateTime
-      description: "The most recent date and time that the profile was modified by the default provider."
+      description: "最新の日付と、プロファイルは、既定のプロバイダーによって変更された時刻。"
   overload: System.Web.Profile.ProfileBase.LastUpdatedDate*
   exceptions: []
   platform:
@@ -390,20 +390,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Profile
-  summary: "Gets a collection of <xref href=&quot;System.Configuration.SettingsProperty&quot;></xref> objects for each property in the profile."
-  remarks: "You can use this property to get information about the profile properties configured for an application, including property names and types. You can also reference the <xref:System.Web.Profile.ProfileProvider> of each property. A <xref:System.Web.Profile.ProfileProvider> manages storage and retrieval of property values to and from the data source."
+  summary: "コレクションを取得<xref href=&quot;System.Configuration.SettingsProperty&quot;></xref>プロファイル内の各プロパティのオブジェクト。"
+  remarks: "このプロパティを使用すると、プロパティ名と型を含む、アプリケーション用に構成されたプロファイルのプロパティに関する情報を取得します。 参照することも、<xref:System.Web.Profile.ProfileProvider>の各プロパティ</xref:System.Web.Profile.ProfileProvider>。 A<xref:System.Web.Profile.ProfileProvider>プロパティ値と、データ ソースからの格納および取得を管理します</xref:System.Web.Profile.ProfileProvider>。"
   example:
   - "The following code example lists the names of the properties in the user profile by binding the <xref:System.Configuration.SettingsProperty.Name%2A> property from the static Properties collection of <xref:System.Configuration.SettingsProperty> objects to a <xref:System.Web.UI.WebControls.GridView> control. The selected property value is retrieved by name using the <xref:System.Web.Profile.ProfileBase.Item%2A> collection. For an example of a Web.config file that specifies properties for the user profile, see the example provided for the <xref:System.Web.Profile.ProfileBase> class.  \n  \n [!code-cs[System.Web.Profile.HttpProfileBase#2](~/add/codesnippet/csharp/p-system.web.profile.pro_2_1.aspx)]\n [!code-vb[System.Web.Profile.HttpProfileBase#2](~/add/codesnippet/visualbasic/p-system.web.profile.pro_2_1.aspx)]"
   syntax:
     content: public static System.Configuration.SettingsPropertyCollection Properties { get; }
     return:
       type: System.Configuration.SettingsPropertyCollection
-      description: "A <xref href=&quot;System.Configuration.SettingsPropertyCollection&quot;></xref> of <xref href=&quot;System.Configuration.SettingsProperty&quot;></xref> objects for each property in the profile for the application."
+      description: "A <xref href=&quot;System.Configuration.SettingsPropertyCollection&quot;> </xref>の<xref href=&quot;System.Configuration.SettingsProperty&quot;></xref>アプリケーション用のプロファイル内の各プロパティのオブジェクト。"
   overload: System.Web.Profile.ProfileBase.Properties*
   exceptions:
   - type: System.Configuration.ConfigurationErrorsException
     commentId: T:System.Configuration.ConfigurationErrorsException
-    description: "A property type specified in the  section of the Web.config file could not be created.       -or-       The <xref uid=&quot;langword_csharp_allowAnonymous&quot; name=&quot;allowAnonymous&quot; href=&quot;&quot;></xref> attribute for a property in the  section of the Web.config file is set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and the <xref uid=&quot;langword_csharp_enabled&quot; name=&quot;enabled&quot; href=&quot;&quot;></xref> attribute of the  element is set to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.       -or-       The <xref uid=&quot;langword_csharp_serializeAs&quot; name=&quot;serializeAs&quot; href=&quot;&quot;></xref> attribute for a property in the  section of the Web.config file is set to <xref href=&quot;System.Configuration.SettingsSerializeAs&quot;></xref> and the <xref:System.Type.IsSerializable*> property of the specified <xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;></xref> returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.       -or-       The name of a provider specified using the <xref uid=&quot;langword_csharp_provider&quot; name=&quot;provider&quot; href=&quot;&quot;></xref> attribute of a profile property could not be found in the <xref:System.Web.Profile.ProfileManager.Providers*> collection.       -or-       The <xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;></xref> specified for a profile property could not be found.       -or-       A profile property was specified with a name that matches a property name on the base class specified in the <xref uid=&quot;langword_csharp_inherits&quot; name=&quot;inherits&quot; href=&quot;&quot;></xref> attribute of the  section."
+    description: "Web.config ファイルのセクションで指定されたプロパティの型を作成できませんでした。       - または -、 <xref uid=&quot;langword_csharp_allowAnonymous&quot; name=&quot;allowAnonymous&quot; href=&quot;&quot;> </xref>属性に、Web.config ファイルのセクションでは、プロパティを設定に<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>と<xref uid=&quot;langword_csharp_enabled&quot; name=&quot;enabled&quot; href=&quot;&quot;></xref>要素の属性に設定されている<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。       - または -、 <xref uid=&quot;langword_csharp_serializeAs&quot; name=&quot;serializeAs&quot; href=&quot;&quot;> </xref>属性に、Web.config ファイルのセクションでは、プロパティを設定<xref href=&quot;System.Configuration.SettingsSerializeAs&quot;></xref>と<> *> したプロパティの<xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;></xref>返します<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。      - または - を使用して指定されたプロバイダーの名前、 <xref uid=&quot;langword_csharp_provider&quot; name=&quot;provider&quot; href=&quot;&quot;> </xref>でプロファイル プロパティの属性が見つかりませんでした、 <> </> *> コレクション。       - または -、 <xref uid=&quot;langword_csharp_type&quot; name=&quot;type&quot; href=&quot;&quot;> </xref>指定されたプロファイルのプロパティが見つかりませんでした。       - または - で指定された基本クラスのプロパティ名に一致する名前で、プロファイル プロパティが指定された、 <xref uid=&quot;langword_csharp_inherits&quot; name=&quot;inherits&quot; href=&quot;&quot;> </xref>セクションの属性です。"
   platform:
   - net462
 - uid: System.Web.Profile.ProfileBase.Save
@@ -418,8 +418,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Profile
-  summary: "Updates the profile data source with changed profile property values."
-  remarks: "The Save method writes modified profile property values to the data source. The profile provider can reduce the amount of activity at the data source by performing updates only when the <xref:System.Web.Profile.ProfileBase.IsDirty%2A> property is set to `true`. This is the case for the default <xref:System.Web.Profile.SqlProfileProvider>. After the Save method has saved the property values to the data source, <xref:System.Web.Profile.ProfileBase.IsDirty%2A> is set to `false`.       You can use the <xref:System.Web.Profile.ProfileModule.ProfileAutoSaving> event to implement custom logic that determines whether a profile property with a custom type or a complex type has been modified and continue with the automatic save for modified objects or cancel the automatic save if no objects have been modified."
+  summary: "変更のプロファイル プロパティの値では、プロファイル データ ソースを更新します。"
+  remarks: "Save メソッドでは、データ ソースに変更されたプロファイル プロパティの値を書き込みます。 プロファイル プロバイダーは、更新プログラムを実行することによって、データ ソースのアクティビティの量を減らすことができる場合にのみ、<xref:System.Web.Profile.ProfileBase.IsDirty%2A>プロパティに設定されている`true`</xref:System.Web.Profile.ProfileBase.IsDirty%2A>。 これは、ような既定の<xref:System.Web.Profile.SqlProfileProvider>。</xref:System.Web.Profile.SqlProfileProvider> Save メソッドが、データ ソースにプロパティ値を保存後<xref:System.Web.Profile.ProfileBase.IsDirty%2A>に設定されている`false`</xref:System.Web.Profile.ProfileBase.IsDirty%2A>。       使用することができます、<xref:System.Web.Profile.ProfileModule.ProfileAutoSaving>カスタム型または複合型を持つプロファイル プロパティが変更されたかどうかを決定するカスタム ロジックを実装し、変更したオブジェクトの自動保存を続行またはのないオブジェクトが変更された場合は、自動保存をキャンセルするイベントです</xref:System.Web.Profile.ProfileModule.ProfileAutoSaving>。"
   syntax:
     content: public override void Save ();
     parameters: []
@@ -439,8 +439,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Profile
-  summary: "Sets the value of a profile property."
-  remarks: "ASP.NET uses the <xref:System.Web.Profile.ProfileBase> class to create the class used for the user profile. When an application that has the user profile enabled is started, ASP.NET creates a new class of type `ProfileCommon`, which inherits from the <xref:System.Web.Profile.ProfileBase> class. Strongly typed accessors are added to the `ProfileCommon` class for each property defined in the  configuration section. The strongly typed accessors of the `ProfileCommon` class call the SetPropertyValue method to pass property values to the <xref:System.Web.Profile.ProfileProvider> to be stored at the data source.       You can use the SetPropertyValue method to assign property values in the user profile for your application by name. Values are untyped, and type checking will be done at run time, not compile time. For strongly typed access to profile property values, you can access the property by name as a member of the `Profile` property that is available on each page, for example, `Profile.CustomerAddress`."
+  summary: "プロファイル プロパティの値を設定します。"
+  remarks: "ASP.NET を使用して、<xref:System.Web.Profile.ProfileBase>ユーザー プロファイルに使用されるクラスを作成するクラス</xref:System.Web.Profile.ProfileBase>。 ASP.NET が型の新しいクラスを作成して有効になっているユーザー プロファイルを持つアプリケーションが開始されると、 `ProfileCommon`、<xref:System.Web.Profile.ProfileBase>クラス</xref:System.Web.Profile.ProfileBase>を継承します。 厳密に型指定されたアクセサーを追加、`ProfileCommon`構成セクションで定義されている各プロパティのクラスです。 厳密に型指定されたアクセサー、`ProfileCommon`クラス プロパティに値を渡す SetPropertyValue メソッドを呼び出す、<xref:System.Web.Profile.ProfileProvider>データ ソースに保存するためです</xref:System.Web.Profile.ProfileProvider>。       SetPropertyValue メソッドを使用して、名前によって、アプリケーションのユーザー プロファイル内のプロパティ値を割り当てることができます。 値が型指定されたではなく、型チェックは、コンパイル時間ではなく、実行時に実行されます。 厳密に型指定のアクセス プロファイル プロパティの値をプロパティにアクセスできます、名前のメンバーとして、`Profile`などで、各ページで利用可能なプロパティ`Profile.CustomerAddress`です。"
   example:
   - "The following code example shows an ASP.NET page that reads and sets the `ZipCode` property specified for the user profile. For an example of a Web.config file that specifies properties for the user profile, see the example provided for the <xref:System.Web.Profile.ProfileBase> class.  \n  \n> [!IMPORTANT]\n>  This example contains a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-vb[System.Web.Profile.HttpProfileBase#1](~/add/codesnippet/visualbasic/m-system.web.profile.pro_3_1.aspx)]\n [!code-cs[System.Web.Profile.HttpProfileBase#1](~/add/codesnippet/csharp/m-system.web.profile.pro_3_1.aspx)]"
   syntax:
@@ -448,24 +448,24 @@ items:
     parameters:
     - id: propertyName
       type: System.String
-      description: "The name of the property to set."
+      description: "設定するプロパティの名前。"
     - id: propertyValue
       type: System.Object
-      description: "The value to assign to the property."
+      description: "プロパティに代入する値。"
   overload: System.Web.Profile.ProfileBase.SetPropertyValue*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "An attempt was made to set a property value on an anonymous profile where the property&quot;s <xref uid=&quot;langword_csharp_allowAnonymous&quot; name=&quot;allowAnonymous&quot; href=&quot;&quot;></xref> attribute is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "匿名プロファイルのプロパティ値を設定しようとしましたが、プロパティの<xref uid=&quot;langword_csharp_allowAnonymous&quot; name=&quot;allowAnonymous&quot; href=&quot;&quot;></xref>属性は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   - type: System.Configuration.SettingsPropertyNotFoundException
     commentId: T:System.Configuration.SettingsPropertyNotFoundException
-    description: "There are no properties defined for the current profile.       -or-       The specified profile property name does not exist in the current profile.       -or-       The provider for the specified profile property did not recognize the specified property."
+    description: "現在のプロファイルに対して定義されたプロパティはありません。       または、現在のプロファイルで指定されたプロファイルのプロパティ名が存在しません。       または、指定されたプロファイル プロパティのプロバイダーでは、指定したプロパティは認識されませんでした。"
   - type: System.Configuration.SettingsPropertyIsReadOnlyException
     commentId: T:System.Configuration.SettingsPropertyIsReadOnlyException
-    description: "An attempt was made to set a value value on a property that was marked as read-only."
+    description: "読み取り専用とマークされたプロパティの値を設定しようとしました。"
   - type: System.Configuration.SettingsPropertyWrongTypeException
     commentId: T:System.Configuration.SettingsPropertyWrongTypeException
-    description: "An attempt was made to assign a value to a property using an incompatible type."
+    description: "互換性のない型を使用してプロパティに値を代入しようとしました。"
   platform:
   - net462
 - uid: System.Web.Profile.ProfileBase.UserName
@@ -480,13 +480,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Profile
-  summary: "Gets the user name for the profile."
-  remarks: "The UserName property returns either the name of the authenticated user that the profile is associated with or the anonymous user identifier assigned to the profile if the <xref:System.Web.Profile.ProfileBase.IsAnonymous%2A> property is `true`.       Anonymous access to the user profile is enabled using the  configuration section and the `allowAnonymous` attribute of the  configuration element used to specify profile properties."
+  summary: "プロファイルのユーザー名を取得します。"
+  remarks: "プロファイルに関連付けられている認証されたユーザーの名前または匿名ユーザーの id の場合は、プロファイルに割り当てられているユーザー名を返します、<xref:System.Web.Profile.ProfileBase.IsAnonymous%2A>プロパティは`true`</xref:System.Web.Profile.ProfileBase.IsAnonymous%2A>。       構成セクションを使用して、ユーザー プロファイルへの匿名アクセスが有効にし、`allowAnonymous`プロファイル プロパティを指定するために使用する構成要素の属性です。"
   syntax:
     content: public string UserName { get; }
     return:
       type: System.String
-      description: "The user name for the profile or the anonymous-user identifier assigned to the profile."
+      description: "プロファイルまたはプロファイルに割り当てられている匿名ユーザー識別子のユーザー名。"
   overload: System.Web.Profile.ProfileBase.UserName*
   exceptions: []
   platform:
