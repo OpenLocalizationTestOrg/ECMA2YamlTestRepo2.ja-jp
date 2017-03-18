@@ -16,8 +16,8 @@ items:
   nameWithType: ComUdtElement
   fullName: System.ServiceModel.Configuration.ComUdtElement
   type: Class
-  summary: "Represents a User Defined Type (UDT) that is to be included in the service contract. This class cannot be inherited."
-  remarks: "The COM+ integration runtime creates services by inspecting the type library. When a COM+ component contains methods that pass a `VARIANT`, the system cannot determine the actual types to be passed prior to runtime. Therefore, when you attempt to pass a User Defined Type (UDT) within a `VARIANT`, it fails because it is not a known type for serialization.       To circumvent this problem, you can add the UDTs to the configuration file so that they can be included as known types on the appropriate service contract. In order to do so, you have to uniquely identify the UDT and the contract(s), that is, the original COM interface(s) that uses it.       The following example demonstrates adding two specific UDTs to the <`userDefinedTypes`> section of the configuration file for this purpose.       [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]       The attributes of the <`userDefinedType`> element are defined as follows:      -   `typeName`: an optional attribute that provides the readable type name. This is not used by the runtime but helps a reader to distinguish the types.      -   `typeLibID`: a GUID string that specifies the registered type library that defines the type.      -   `typeLibVersion`: a string that specifies the type library version that defines the type.      -   `typeDefID`: a GUID string that specifies the specific UDT type within the registered type library.       When the service is initialized, the COM+ integration runtime looks up the specified types and adds them to the known types collection for the specified contracts."
+  summary: "ユーザー定義型 (UDT)、サービス コントラクトに含まれることを表します。 このクラスは継承できません。"
+  remarks: "COM + 統合ランタイムは、タイプ ライブラリを調べることによってサービスを作成します。 COM + コンポーネントに渡すメソッドが含まれている場合、 `VARIANT`、システムが実行前に渡される実際の型を判断することはできません。 したがって、しようとすると、ユーザー定義型 (UDT) 内に渡す、 `VARIANT`、シリアル化のための既知の型ではないので失敗します。       この問題を回避するために適切なサービス コントラクトで既知の型として含まれている可能性があるように、構成ファイルに、Udt を追加することができます。 このためには、UDT とそれを使用する元の COM インターフェイスは、コントラクト、一意に識別する必要があります。       次の例では、2 つの特定の Udt を追加することを示しています、 `userDefinedTypes`> この目的のため構成ファイルのセクションです。       [!code-cs[XpsCreate #XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent) ]の属性、 `userDefinedType`> 要素は次のように定義されている:- `typeName`: 判読可能な型名を提供する省略可能な属性です。 これにより、ランタイムでは使用されませんが、型を判別するためのリーダーに役立ちます。      - `typeLibID`: 型を定義する登録されているタイプ ライブラリを指定する GUID 文字列です。      - `typeLibVersion`: 型を定義するタイプ ライブラリのバージョンを指定する文字列。      - `typeDefID`: 登録されているタイプ ライブラリ内の特定の UDT 型を指定する GUID 文字列です。       サービスが初期化されたときに、COM + 統合ランタイムは、指定された型を検索し、指定されたコントラクトの既知の型のコレクションに追加。"
   example:
   - "The following example demonstrates adding two specific UDTs to the <`userDefinedTypes`> section of the configuration file for this purpose.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -75,7 +75,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Configuration.ComUdtElement&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ServiceModel.Configuration.ComUdtElement&quot;> </xref>クラスです。"
   syntax:
     content: public ComUdtElement ();
     parameters: []
@@ -95,13 +95,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Configuration.ComUdtElement&quot;></xref> class with the specified GUID string."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ServiceModel.Configuration.ComUdtElement&quot;> </xref>クラス GUID 文字列を指定します。"
   syntax:
     content: public ComUdtElement (string typeDefID);
     parameters:
     - id: typeDefID
       type: System.String
-      description: "A GUID string that identifies the specific UDT type within the registered type library."
+      description: "登録済みタイプ ライブラリ内の特定の UDT 型を識別する GUID 文字列です。"
   overload: System.ServiceModel.Configuration.ComUdtElement.#ctor*
   exceptions: []
   platform:
@@ -118,12 +118,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets the readable type name."
+  summary: "取得または読み取り可能な型名を設定します。"
   syntax:
     content: public string Name { get; set; }
     return:
       type: System.String
-      description: "The readable type name."
+      description: "読み取り可能な型名。"
   overload: System.ServiceModel.Configuration.ComUdtElement.Name*
   exceptions: []
   platform:
@@ -144,7 +144,7 @@ items:
     content: protected override System.Configuration.ConfigurationPropertyCollection Properties { get; }
     return:
       type: System.Configuration.ConfigurationPropertyCollection
-      description: "To be added."
+      description: "追加します。"
   overload: System.ServiceModel.Configuration.ComUdtElement.Properties*
   exceptions: []
   platform:
@@ -161,12 +161,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets a GUID string that identifies the specific UDT type within the registered type library."
+  summary: "取得または登録されているタイプ ライブラリ内の特定の UDT 型を識別する GUID 文字列を設定します。"
   syntax:
     content: public string TypeDefID { get; set; }
     return:
       type: System.String
-      description: "The specific UDT type within the registered type library."
+      description: "登録済みタイプ ライブラリ内の特定の UDT 型。"
   overload: System.ServiceModel.Configuration.ComUdtElement.TypeDefID*
   exceptions: []
   platform:
@@ -183,12 +183,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets a GUID string that identifies the registered type library that defines the type."
+  summary: "取得または型を定義する登録済みタイプ ライブラリを識別する GUID 文字列を設定します。"
   syntax:
     content: public string TypeLibID { get; set; }
     return:
       type: System.String
-      description: "The registered type library that defines the type."
+      description: "型を定義する登録済みタイプ ライブラリ。"
   overload: System.ServiceModel.Configuration.ComUdtElement.TypeLibID*
   exceptions: []
   platform:
@@ -205,12 +205,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets a string that identifies the type library version that defines the type."
+  summary: "取得または型を定義するタイプ ライブラリのバージョンを識別する文字列を設定します。"
   syntax:
     content: public string TypeLibVersion { get; set; }
     return:
       type: System.String
-      description: "The type library version that defines the type."
+      description: "型を定義するタイプ ライブラリのバージョン。"
   overload: System.ServiceModel.Configuration.ComUdtElement.TypeLibVersion*
   exceptions: []
   platform:

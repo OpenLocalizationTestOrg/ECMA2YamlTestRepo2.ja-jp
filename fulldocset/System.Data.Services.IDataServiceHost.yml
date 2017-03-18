@@ -29,8 +29,8 @@ items:
   nameWithType: IDataServiceHost
   fullName: System.Data.Services.IDataServiceHost
   type: Interface
-  summary: "Interface that specifies interactions between [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)] and its hosting environment."
-  remarks: "Each component that hosts [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)], such as Windows Communication Foundation (WCF) must implement this interface. IDataServiceHost is the contract between [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)] and its hosting environment. This abstraction allows the [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)] runtime to be agnostic to any particular hosting environment. The interface provides [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)] with access to inbound HTTP requests. A new object implementing this interface is instantiated for each HTTP request and is then used to inspect properties of the HTTP request and configure the HTTP response."
+  summary: "間の相互作用を指定するインターフェイス[!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]とそのホスティング環境。"
+  remarks: "ホストする各コンポーネント[!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]など Windows Communication Foundation (WCF) は、このインターフェイスを実装する必要があります。 IDataServiceHost 間のコントラクトは、[!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]とそのホスティング環境。 この抽象化を行う、[!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]特定のホスティング環境に依存しないランタイム。 このインターフェイスは提供[!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]受信 HTTP 要求にアクセス権を持つ。 このインターフェイスを実装する新しいオブジェクトは、HTTP 要求ごとにインスタンス化され、HTTP 要求のプロパティを検査し、HTTP 応答の構成を使用しています。"
   syntax:
     content: public interface IDataServiceHost
   implements: []
@@ -48,13 +48,13 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets an absolute URI that is the URI as sent by the client."
-  remarks: "The AbsoluteRequestUri property always returns the absolute URI from the client HTTP request. This enables consistent access to the request URI, even in cases where the host revises the URI."
+  summary: "クライアントから送信された URI を絶対 URI を取得します。"
+  remarks: "AbsoluteRequestUri プロパティ常に、絶対 URI を返します、クライアントから HTTP 要求。 これにより、ホストに、URI によってによって書き換えられた場合にも要求 URI に一貫してアクセスできます。"
   syntax:
     content: public Uri AbsoluteRequestUri { get; }
     return:
       type: System.Uri
-      description: "A string that is the absolute URI of the request."
+      description: "要求の絶対 URI である文字列。"
   overload: System.Data.Services.IDataServiceHost.AbsoluteRequestUri*
   exceptions: []
   platform:
@@ -71,13 +71,13 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets an absolute URI that is the root URI of the data service."
-  remarks: "The AbsoluteServiceUri property always returns the absolute root URI of the service request. This enables consistent access to the root data service URI, even in cases where the host revises the URI."
+  summary: "ルート データ サービスの URI を絶対 URI を取得します。"
+  remarks: "AbsoluteServiceUri プロパティは、常に絶対ルートのサービス要求の URI を返します。 これにより、ホストが URI を改訂場合でもルート データ サービス URI に一貫してアクセスできます。"
   syntax:
     content: public Uri AbsoluteServiceUri { get; }
     return:
       type: System.Uri
-      description: "A string that is the absolute root URI of the data service."
+      description: "絶対ルート データ サービスの URI を表す文字列。"
   overload: System.Data.Services.IDataServiceHost.AbsoluteServiceUri*
   exceptions: []
   platform:
@@ -94,17 +94,17 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets a data item identified by the identity key contained by the parameter of the method."
-  remarks: "The query string portion of an [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)] URI is made up of key/value pairs, with the key and value separated by the ‘=’ character. `GetQueryStringItem` returns a data item for an identity key specified by the parameter of the method."
+  summary: "メソッドのパラメーターに格納されている id キーで識別されるデータ項目を取得します。"
+  remarks: "クエリ文字列部分、 [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)] URI で構成されるキー/値ペアのキーと &quot;=&quot; 文字で区切られた値を使用します。 `GetQueryStringItem`メソッドのパラメーターで指定された id キーのデータ項目を返します。"
   syntax:
     content: public string GetQueryStringItem (string item);
     parameters:
     - id: item
       type: System.String
-      description: "String value containing identity key of item requested."
+      description: "項目の id キーを含む文字列値を要求しました。"
     return:
       type: System.String
-      description: "The data item requested by the query serialized as a string."
+      description: "文字列としてシリアル化されたクエリによって要求されたデータ アイテムです。"
   overload: System.Data.Services.IDataServiceHost.GetQueryStringItem*
   exceptions: []
   platform:
@@ -121,13 +121,13 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Handles a data service exception using information in  the <code>args</code> parameter."
+  summary: "内の情報を使用してデータ サービスの例外の処理、 <code> args </code>パラメーター。"
   syntax:
     content: public void ProcessException (System.Data.Services.HandleExceptionArgs args);
     parameters:
     - id: args
       type: System.Data.Services.HandleExceptionArgs
-      description: "<xref href=&quot;System.Data.Services.HandleExceptionArgs&quot;></xref> that contains information on the exception object."
+      description: "<xref href=&quot;System.Data.Services.HandleExceptionArgs&quot;></xref>例外オブジェクトの情報を格納します。"
   overload: System.Data.Services.IDataServiceHost.ProcessException*
   exceptions: []
   platform:
@@ -144,13 +144,13 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "The transport protocol specified by the request accept header."
-  remarks: "Protocols currently supported by [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)] include JSON and AtomPub."
+  summary: "要求によって指定されたトランスポート プロトコルには、ヘッダーがそのまま使用します。"
+  remarks: "現在サポートされているプロトコル[!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]JSON や AtomPub などです。"
   syntax:
     content: public string RequestAccept { get; }
     return:
       type: System.String
-      description: "String that indicates the transport protocol required by the request."
+      description: "要求で必要なトランスポート プロトコルを示す文字列です。"
   overload: System.Data.Services.IDataServiceHost.RequestAccept*
   exceptions: []
   platform:
@@ -167,13 +167,13 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets a string representing the value of the `Accept-Charset` HTTP header."
-  remarks: "Returns null if no `Accept-Charset` header is present on the request."
+  summary: "値を表す文字列を取得、 `Accept-Charset` HTTP ヘッダー。"
+  remarks: "ない場合は null を返します`Accept-Charset`ヘッダーが要求に存在します。"
   syntax:
     content: public string RequestAcceptCharSet { get; }
     return:
       type: System.String
-      description: "String representing the value of the `Accept-Charset` HTTP header."
+      description: "値を表す文字列、 `Accept-Charset` HTTP ヘッダー。"
   overload: System.Data.Services.IDataServiceHost.RequestAcceptCharSet*
   exceptions: []
   platform:
@@ -190,13 +190,13 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets the transport protocol specified by the content type header."
-  remarks: "Protocols currently supported by [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)] include JSON and AtomPub."
+  summary: "コンテンツ タイプ ヘッダーによって指定されたトランスポート プロトコルを取得します。"
+  remarks: "現在サポートされているプロトコル[!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]JSON や AtomPub などです。"
   syntax:
     content: public string RequestContentType { get; }
     return:
       type: System.String
-      description: "String value that indicates content type."
+      description: "コンテンツの種類を示す文字列値です。"
   overload: System.Data.Services.IDataServiceHost.RequestContentType*
   exceptions: []
   platform:
@@ -213,13 +213,13 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets the request method of GET, PUT, POST, or DELETE."
-  remarks: "For more information about the properties supported by <xref:System.Data.Services.IDataServiceHost> and their use, see [WCF Data Services Client Library](~/add/includes/ajax-current-ext-md.md)."
+  summary: "GET、PUT、POST、または DELETE の要求メソッドを取得します。"
+  remarks: "サポートされるプロパティの詳細については<xref:System.Data.Services.IDataServiceHost>とその使用を参照してください[WCF Data Services クライアント ライブラリ](~/add/includes/ajax-current-ext-md.md)</xref:System.Data.Services.IDataServiceHost>。"
   syntax:
     content: public string RequestHttpMethod { get; }
     return:
       type: System.String
-      description: "String value that indicates request method."
+      description: "要求メソッドを示す値を文字列です。"
   overload: System.Data.Services.IDataServiceHost.RequestHttpMethod*
   exceptions: []
   platform:
@@ -236,12 +236,12 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets the value for the If-Match header on the current request."
+  summary: "現在の要求の If-match ヘッダーの値を取得します。"
   syntax:
     content: public string RequestIfMatch { get; }
     return:
       type: System.String
-      description: "String value for the If-Match header on the current request."
+      description: "文字列の現在の要求の If-match ヘッダーの値です。"
   overload: System.Data.Services.IDataServiceHost.RequestIfMatch*
   exceptions: []
   platform:
@@ -258,12 +258,12 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets the value for the If-None-Match header on the current request."
+  summary: "現在の要求でなし-If-match ヘッダーの値を取得します。"
   syntax:
     content: public string RequestIfNoneMatch { get; }
     return:
       type: System.String
-      description: "String value for the If-None-Match header on the current request."
+      description: "文字列の現在の要求でなし-If-match ヘッダーの値です。"
   overload: System.Data.Services.IDataServiceHost.RequestIfNoneMatch*
   exceptions: []
   platform:
@@ -280,12 +280,12 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets the value that identifies the highest version that the request client is able to process."
+  summary: "要求のクライアントが処理できる最高のバージョンを識別する値を取得します。"
   syntax:
     content: public string RequestMaxVersion { get; }
     return:
       type: System.String
-      description: "A string that contains the highest version that the request client is able to process, possibly null."
+      description: "要求のクライアントは、プロセスは、場合によっては null にできる最高のバージョンを表す文字列。"
   overload: System.Data.Services.IDataServiceHost.RequestMaxVersion*
   exceptions: []
   platform:
@@ -302,12 +302,12 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets the stream that contains the HTTP request body."
+  summary: "HTTP 要求本文を格納しているストリームを取得します。"
   syntax:
     content: public System.IO.Stream RequestStream { get; }
     return:
       type: System.IO.Stream
-      description: "<xref:System.IO.Stream> object that contains the request body."
+      description: "<xref:System.IO.Stream>要求本文を含むオブジェクトです。</xref:System.IO.Stream>"
   overload: System.Data.Services.IDataServiceHost.RequestStream*
   exceptions: []
   platform:
@@ -324,13 +324,13 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets the value that identifies the version of the request that the client submitted, possibly null."
-  remarks: "If this value is null, the version is assumed to be 1.0."
+  summary: "Null の可能性のあるクライアントが送信した要求のバージョンを識別する値を取得します。"
+  remarks: "この値が null の場合、バージョンは 1.0 と見なされます。"
   syntax:
     content: public string RequestVersion { get; }
     return:
       type: System.String
-      description: "A string that identifies the version of the request that the client submitted, possibly null."
+      description: "送信されると、クライアントが null 可能性のある要求のバージョンを識別する文字列。"
   overload: System.Data.Services.IDataServiceHost.RequestVersion*
   exceptions: []
   platform:
@@ -347,12 +347,12 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets a string value that represents cache control information."
+  summary: "キャッシュ制御情報を表す文字列値を取得します。"
   syntax:
     content: public string ResponseCacheControl { get; set; }
     return:
       type: System.String
-      description: "A string value that represents cache control information."
+      description: "キャッシュ制御情報を表す文字列値。"
   overload: System.Data.Services.IDataServiceHost.ResponseCacheControl*
   exceptions: []
   platform:
@@ -369,7 +369,7 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets the transport protocol of the response."
+  summary: "応答のトランスポート プロトコルを取得します。"
   remarks: ''
   example:
   - For more information about the properties supported by <xref:System.Data.Services.IDataServiceHost> and their use, see [WCF Data Services Client Library](~/add/includes/ajax-current-ext-md.md).
@@ -377,7 +377,7 @@ items:
     content: public string ResponseContentType { get; set; }
     return:
       type: System.String
-      description: "String value containing the content type."
+      description: "コンテンツの種類を含む文字列値。"
   overload: System.Data.Services.IDataServiceHost.ResponseContentType*
   exceptions: []
   platform:
@@ -394,12 +394,12 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets an eTag value that represents the state of data in response."
+  summary: "応答内のデータの状態を表す eTag 値を取得します。"
   syntax:
     content: public string ResponseETag { get; set; }
     return:
       type: System.String
-      description: "A string value that represents the eTag state value."
+      description: "ETag 状態値を表す文字列値。"
   overload: System.Data.Services.IDataServiceHost.ResponseETag*
   exceptions: []
   platform:
@@ -416,15 +416,15 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets or sets the service location."
-  remarks: "This property never returns null or `string.Empty`."
+  summary: "取得またはサービスの場所を設定します。"
+  remarks: "このプロパティは決して null を返しますまたは`string.Empty`です。"
   example:
   - "The following URI contains the location of the service in the substring `http://myhost/myservice.svc`.  \n  \n```  \nhttp://myhost/myservice.svc/Customers, the response location would be http://myhost/myservice.svc  \n  \n```"
   syntax:
     content: public string ResponseLocation { get; set; }
     return:
       type: System.String
-      description: "String that contains the service location."
+      description: "サービスの場所を表す文字列。"
   overload: System.Data.Services.IDataServiceHost.ResponseLocation*
   exceptions: []
   platform:
@@ -441,12 +441,12 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets or sets the response code that indicates results of query."
+  summary: "取得またはクエリの結果を示す応答コードを設定します。"
   syntax:
     content: public int ResponseStatusCode { get; set; }
     return:
       type: System.Int32
-      description: "Integer value that contains the response code."
+      description: "応答コードを表す整数値。"
   overload: System.Data.Services.IDataServiceHost.ResponseStatusCode*
   exceptions: []
   platform:
@@ -463,13 +463,13 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets the response stream to which the HTTP response body will be written."
-  remarks: "If a null stream is returned or an exception occurs when writing to the stream, [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)] aborts the request."
+  summary: "HTTP 応答の本文の書き込み先となる応答ストリームを取得します。"
+  remarks: "Null ストリームが返されない場合や、ストリームに書き込むときに例外が発生した[!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]は要求を中止します。"
   syntax:
     content: public System.IO.Stream ResponseStream { get; }
     return:
       type: System.IO.Stream
-      description: "<xref:System.IO.Stream> object to which the response body will be written."
+      description: "<xref:System.IO.Stream>応答本文の書き込み先となるオブジェクト。</xref:System.IO.Stream>"
   overload: System.Data.Services.IDataServiceHost.ResponseStream*
   exceptions: []
   platform:
@@ -486,12 +486,12 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets the version used by the host in the response."
+  summary: "応答内のホストによって使用されているバージョンを取得します。"
   syntax:
     content: public string ResponseVersion { get; set; }
     return:
       type: System.String
-      description: "A string value that contains the host version."
+      description: "ホストのバージョンを格納する文字列値です。"
   overload: System.Data.Services.IDataServiceHost.ResponseVersion*
   exceptions: []
   platform:

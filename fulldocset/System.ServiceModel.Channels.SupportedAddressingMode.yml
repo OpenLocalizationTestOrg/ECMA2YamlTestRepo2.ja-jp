@@ -12,8 +12,8 @@ items:
   nameWithType: SupportedAddressingMode
   fullName: System.ServiceModel.Channels.SupportedAddressingMode
   type: Enum
-  summary: "Specifies whether a service supports sending responses to anonymous addresses only, to non-anonymous addresses only, or to both."
-  remarks: "This enumeration is used to specify the capability of a server, which, in turn, imposes a requirement on its clients.       [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] has a variety of addressing controls for specifying where messages should be sent. For example, there is the logical <xref:System.ServiceModel.Channels.MessageHeaders.To%2A> address for the message destination, the physical (&quot;Via&quot;) address, used by the transport, at which a service listens, and the <xref:System.ServiceModel.Channels.MessageHeaders.ReplyTo%2A> address of the endpoint that provides the address of the client endpoint.       In the most basic case, when two parties exchange messages between themselves only, it is not necessary to specify these addresses separately. But because exchanges can involve other message destinations, you must be able to specify when addresses must be explicitly provided. Even between just two parties this ability is sometimes required, as with dual HTTP where the server must create its own HTTP request. The following kinds of relationships are defined by the SupportedAddressingMode enumeration to capture these messaging patterns:      -   Anonymous addresses are the most basic form of addressing. Anonymous addressing is used when there is a default path for a response. TCP is a bi-directional communication transport and the response to a TCP message can be sent back to the other side of the socket that sent the original message. Similarly, the request-reply model of HTTP sends responses through the HTTP reply channel. Neither of these responses requires specifying where the response messages are going. When a server requires anonymous responses from the client, it uses the Anonymous value of the enumeration. The [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] system-provided <xref:System.ServiceModel.NetTcpBinding>, <xref:System.ServiceModel.BasicHttpBinding> and <xref:System.ServiceModel.WSHttpBinding> bindings always use Anonymous addresses.      -   NonAnonymous addresses are used when sending the response requires creating a new channel for communication. The [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] system-provided <xref:System.ServiceModel.WSDualHttpBinding> binding uses a NonAnonymous address. With dual HTTP, the client creates an HTTP request to send a message and then the server must create its own HTTP request to send a response. Because the server is initiating the send, it must have a specific endpoint to establish the connection. You must provide the server the address of an endpoint for its response. Similarly, if a service must respond to a one-way message that it received, it also requires a NonAnonymous address because there is no back channel available for communication. If the server sends a message back, a completely separate operation from that used to send the first message is required.      -   Mixed is a third form of addressing which combines Anonymous and NonAnonymous addresses depending on the message that is being sent. A typical example of mixed-mode addressing is the use of a dedicated machine for processing fault or acknowledgment messages. If the standard exchange sequence for replies is HTTP or TCP, the responses use Anonymous addressing but the faults use non-anonymous addressing. While [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] does not provide Mixed addressing functionality in one of its standard bindings, it is possible to write a channel that allows the service to send responses directly on the back-channel (when the response address is Anonymous) or on a separate channel (when the response address is NonAnonymous). In such a case, the binding element of the channel is used to setSupportedAddressingMode to Mixed."
+  summary: "サービスでは、非匿名アドレスのみ、またはその両方を匿名アドレスのみ、応答の送信先がサポートしているかどうかを指定します。"
+  remarks: "この列挙体を使用して、サーバーが、言い換えれば、そのクライアントでの要件の機能を指定します。       [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)]さまざまなメッセージを送信する場所を指定するためのアドレス指定コントロールがあります。 たとえば、ある論理<xref:System.ServiceModel.Channels.MessageHeaders.To%2A>メッセージの送信先アドレス、(&quot;Via&quot;) アドレス、サービスがリッスンする、トランスポートによって使用される物理と<xref:System.ServiceModel.Channels.MessageHeaders.ReplyTo%2A>クライアント エンドポイントのアドレスを提供するエンドポイントのアドレス</xref:System.ServiceModel.Channels.MessageHeaders.ReplyTo%2A></xref:System.ServiceModel.Channels.MessageHeaders.To%2A>。       最も基本的な場合は、2 つのパーティ間のみ、メッセージを交換するときに必要はありませんを個別にこれらのアドレスを指定します。 交換は、その他のメッセージの送信先が含まれることができます、ためときのアドレスを明示的に指定する必要がありますを指定できる必要があります。 でも二者間のみのこの機能場合がありますとデュアル HTTP として必要なサーバーが独自の HTTP 要求を作成する必要があります。 次のようなリレーションシップは、これらのメッセージング パターンをキャプチャする SupportedAddressingMode 列挙で定義される:-匿名のアドレスとは、最も基本的な形式のアドレス指定します。 応答の既定のパスがある場合、匿名アドレス指定が使用されます。 TCP は双方向通信トランスポートであり、元のメッセージを送信したソケットの相手側に戻る、TCP メッセージに対する応答を送信できます。 同様に、HTTP の要求/応答モデルは、HTTP 応答チャネルを介して応答を送信します。 これらの応答は、応答メッセージを移動する場所を指定する必要があります。 サーバーでは、クライアントからの匿名応答が必要な場合は、列挙体の匿名の値を使用します。 [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)]システムによって提供される<xref:System.ServiceModel.NetTcpBinding>、<xref:System.ServiceModel.BasicHttpBinding>と<xref:System.ServiceModel.WSHttpBinding>バインディングは、常に、匿名アドレスを使用します</xref:System.ServiceModel.WSHttpBinding></xref:System.ServiceModel.BasicHttpBinding></xref:System.ServiceModel.NetTcpBinding>。      -非匿名アドレスは、応答を送信する場合は、通信用の新しいチャネルを作成する必要がある場合に使用されます。 [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)]システムによって提供される<xref:System.ServiceModel.WSDualHttpBinding>バインドで非匿名アドレスを使用します</xref:System.ServiceModel.WSDualHttpBinding>。 双方向の HTTP のクライアントはメッセージを送信する HTTP 要求を作成し、し、サーバーが応答を送信する独自の HTTP 要求を作成する必要があります。 サーバーは、送信を開始しているため、接続を確立するために特定のエンドポイントが必要です。 応答のため、サーバー エンドポイントのアドレスを提供する必要があります。 同様に、サービスは、受信した一方向のメッセージに応答する必要がある場合、必要もあります通信に使用できるバック チャネルがないために、NonAnonymous に対処します。 サーバーは、戻りメッセージを送信する場合、最初のメッセージを送信するために使用から完全に独立した操作が必要です。      3 番目の形式の組み合わせる匿名および NonAnonymous のアドレスが送信されるメッセージによってアドレス指定には混合です。 混合モードのアドレス指定の典型的な例は、エラーや受信確認メッセージを処理するための専用のコンピューターの使用です。 応答の場合、標準の交換シーケンスが HTTP または TCP の場合は、応答は、匿名アドレス指定を使用が、エラーが非匿名アドレス指定を使用します。 中に[!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)]混合の管轄外で、標準のバインドのいずれかの機能をアドレス指定することはチャネル (応答アドレスが NonAnonymous の場合)、または個別のチャネルでバック チャネル (応答アドレスが匿名の場合) で直接応答を送信するサービスを記述します。 このような場合は、チャネルのバインド要素は Mixed に setSupportedAddressingMode に使用されます。"
   syntax:
     content: public enum SupportedAddressingMode
   inheritance:
@@ -32,12 +32,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "The server only supports anonymous addresses and clients must provide an anonymous response address."
+  summary: "サーバーは匿名アドレスのみをサポートし、クライアントは匿名応答アドレスを指定する必要があります。"
   syntax:
     content: Anonymous
     return:
       type: System.ServiceModel.Channels.SupportedAddressingMode
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -53,12 +53,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "The server supports both anonymous and non-anonymous addresses and clients may choose to use either or both."
+  summary: "サーバー匿名と非匿名アドレスの両方をサポートするため、いずれかまたは両方を使用するクライアントもかまいません。"
   syntax:
     content: Mixed
     return:
       type: System.ServiceModel.Channels.SupportedAddressingMode
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -74,12 +74,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "The server only supports non-anonymous addresses and clients must provide a non-anonymous response address."
+  summary: "サーバーは非匿名アドレスのみをサポートし、クライアントは非匿名応答アドレスを指定する必要があります。"
   syntax:
     content: NonAnonymous
     return:
       type: System.ServiceModel.Channels.SupportedAddressingMode
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462

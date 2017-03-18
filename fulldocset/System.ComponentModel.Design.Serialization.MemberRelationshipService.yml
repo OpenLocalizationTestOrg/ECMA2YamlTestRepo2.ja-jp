@@ -15,8 +15,8 @@ items:
   nameWithType: MemberRelationshipService
   fullName: System.ComponentModel.Design.Serialization.MemberRelationshipService
   type: Class
-  summary: "Provides the base class for relating one member to another."
-  remarks: "Designers serialize themselves to code through an engine that searches through the live property values of objects and generates those values as code. So, for example, the text of a button is generated in the following format.      ```c#   this.okButton.Text = &quot;OK&quot;;   ```       One of the limitations of this scheme is that it is difficult to retrieve a property from another location. For example, it is very difficult to emit code in the following format, because the only thing the code generator can rely on is the value in the property.      ```c#   this.titleLabel.Text = this.Text;   ```"
+  summary: "1 つのメンバーに関連する別の基本クラスを提供します。"
+  remarks: "デザイナーをシリアル化自体してコードをオブジェクトの値はライブのプロパティを検索し、コードとしてそれらの値を生成するエンジンを使用します。 したがって、たとえば、ボタンのテキストは次の形式で生成されます。      ```c#   this.okButton.Text = &quot;OK&quot;;   ```このスキームの制限事項の&1; つが、別の場所からプロパティを取得するが困難であります。 たとえば、次の形式でコードを出力する非常に困難なコード ジェネレーターの唯一の機能に依存することができますので、プロパティの値は、されます。      ```c#   this.titleLabel.Text = this.Text;   ```"
   example:
   - "The MemberRelationshipService simplifies retrieval of a property value from another location. A designer can access this service to dictate that one member is assigned the value of another. The code generator searches for such relationships when generating code, and if a relationship between two members is found the code generator, it emits code for the relationship rather than searching for the property value. Using the previous text assignment as an example, the following code example shows design time code used to establish a relationship.  \n  \n```c#  \nobject titleLabel, form;  \nPropertyDescriptor titleLabelText = TypeDescriptor.GetProperties(titleLabel)[\"Text\"];  \nPropertyDescriptor formText = TypeDescriptor.GetProperties(form)[\"Text\"];  \nMemberRelationshipService ms = GetService(typeof(MemberRelationshipService);  \nms[titleLabel, titleLabelText] = new MemberRelationship(form, formText);  \n```"
   syntax:
@@ -39,7 +39,7 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationshipService&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationshipService&quot;> </xref>クラスです。"
   syntax:
     content: protected MemberRelationshipService ();
     parameters: []
@@ -59,17 +59,17 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a relationship to the given source relationship."
-  remarks: "The default implementation stores relationships in a dictionary using weak references, so the relationship table does not keep objects alive."
+  summary: "指定されたソース リレーションシップへのリレーションシップを取得します。"
+  remarks: "既定の実装では、弱い参照を使用して、リレーションシップ テーブルは保持されませんオブジェクト アライブようにディクショナリ内のリレーションシップを格納します。"
   syntax:
     content: protected virtual System.ComponentModel.Design.Serialization.MemberRelationship GetRelationship (System.ComponentModel.Design.Serialization.MemberRelationship source);
     parameters:
     - id: source
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "The source relationship."
+      description: "ソース リレーションシップです。"
     return:
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "A relationship to <code>source</code>, or <xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationship&quot;></xref> if no relationship exists."
+      description: "リレーションシップを<code> source </code>、または<xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationship&quot;></xref>リレーションシップが存在しない場合。"
   overload: System.ComponentModel.Design.Serialization.MemberRelationshipService.GetRelationship*
   exceptions: []
   platform:
@@ -86,25 +86,25 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Establishes a relationship between a source and target object."
-  remarks: "If <xref:System.ComponentModel.Design.Serialization.MemberRelationship> is assigned to the source, any existing relationship is removed."
+  summary: "ソースとターゲット オブジェクト間のリレーションシップを確立します。"
+  remarks: "場合<xref:System.ComponentModel.Design.Serialization.MemberRelationship>が割り当てられているソースに、既存のリレーションシップを削除します</xref:System.ComponentModel.Design.Serialization.MemberRelationship>。"
   syntax:
     content: public System.ComponentModel.Design.Serialization.MemberRelationship this[System.ComponentModel.Design.Serialization.MemberRelationship source] { get; set; }
     parameters:
     - id: source
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "The source relationship. This is the left-hand side of a relationship assignment."
+      description: "ソース リレーションシップです。 これは、リレーションシップの割り当ての左側にあります。"
     return:
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "The current relationship associated with <code>source</code>, or <xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationship&quot;></xref> if there is no relationship."
+      description: "現在のリレーションシップに関連付けられている<code> source </code>、または<xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationship&quot;></xref>リレーションシップが存在しない場合。"
   overload: System.ComponentModel.Design.Serialization.MemberRelationshipService.Item*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>source</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>source</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>source</code> is empty, or the relationship is not supported by the service."
+    description: "<code>source</code>空、またはリレーションシップは、サービスによってサポートされていません。"
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.MemberRelationshipService.Item(System.Object,System.ComponentModel.MemberDescriptor)
@@ -119,27 +119,27 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Establishes a relationship between a source and target object."
+  summary: "ソースとターゲット オブジェクト間のリレーションシップを確立します。"
   syntax:
     content: public System.ComponentModel.Design.Serialization.MemberRelationship this[object sourceOwner, System.ComponentModel.MemberDescriptor sourceMember] { get; set; }
     parameters:
     - id: sourceOwner
       type: System.Object
-      description: "The owner of a source relationship."
+      description: "ソースのリレーションシップの所有者です。"
     - id: sourceMember
       type: System.ComponentModel.MemberDescriptor
-      description: "The member of a source relationship."
+      description: "ソースのリレーションシップのメンバーです。"
     return:
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "A <xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationship&quot;></xref> structure encapsulating the relationship between a source and target object, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there is no relationship."
+      description: "A <xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationship&quot;> </xref>ソースとターゲットのオブジェクト間のリレーションシップをカプセル化した構造または<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>リレーションシップが存在しない場合。"
   overload: System.ComponentModel.Design.Serialization.MemberRelationshipService.Item*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>sourceOwner</code> or <code>sourceMember</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>sourceOwner</code>or <code>sourceMember</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>sourceOwner</code> or <code>sourceMember</code> is empty, or the relationship is not supported by the service."
+    description: "<code>sourceOwner</code>または<code>sourceMember</code>は空では、サービスでは、リレーションシップはサポートされていないか。"
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.MemberRelationshipService.SetRelationship(System.ComponentModel.Design.Serialization.MemberRelationship,System.ComponentModel.Design.Serialization.MemberRelationship)
@@ -154,22 +154,22 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Creates a relationship between the source object and target relationship."
-  remarks: "The SetRelationship method clears any existing relationship if the relationship parameter is <xref:System.ComponentModel.Design.Serialization.MemberRelationship>. The default implementation stores relationships in a dictionary using weak references so the relationship table does not keep objects alive."
+  summary: "ソース オブジェクトとターゲットのリレーションシップ間のリレーションシップを作成します。"
+  remarks: "リレーションシップ パラメーターが<xref:System.ComponentModel.Design.Serialization.MemberRelationship>。</xref:System.ComponentModel.Design.Serialization.MemberRelationship>の場合、SetRelationship メソッドは、既存のリレーションシップをクリアします。 既定の実装では、弱い参照を使用して、リレーションシップ テーブルは保持されませんオブジェクト アライブようにディクショナリ内のリレーションシップを格納します。"
   syntax:
     content: protected virtual void SetRelationship (System.ComponentModel.Design.Serialization.MemberRelationship source, System.ComponentModel.Design.Serialization.MemberRelationship relationship);
     parameters:
     - id: source
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "The source relationship."
+      description: "ソース リレーションシップです。"
     - id: relationship
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "The relationship to set into the source."
+      description: "ソースに設定するリレーションシップです。"
   overload: System.ComponentModel.Design.Serialization.MemberRelationshipService.SetRelationship*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The relationship is not supported by the service."
+    description: "サービスでは、リレーションシップはサポートされていません。"
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.MemberRelationshipService.SupportsRelationship(System.ComponentModel.Design.Serialization.MemberRelationship,System.ComponentModel.Design.Serialization.MemberRelationship)
@@ -184,19 +184,19 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a value indicating whether the given relationship is supported."
+  summary: "指定したリレーションシップがサポートされているかどうかを示す値を取得します。"
   syntax:
     content: public abstract bool SupportsRelationship (System.ComponentModel.Design.Serialization.MemberRelationship source, System.ComponentModel.Design.Serialization.MemberRelationship relationship);
     parameters:
     - id: source
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "The source relationship."
+      description: "ソース リレーションシップです。"
     - id: relationship
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "The relationship to set into the source."
+      description: "ソースに設定するリレーションシップです。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a relationship between the given two objects is supported; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、2 つのオブジェクト間のリレーションシップがサポートされています。それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.ComponentModel.Design.Serialization.MemberRelationshipService.SupportsRelationship*
   exceptions: []
   platform:

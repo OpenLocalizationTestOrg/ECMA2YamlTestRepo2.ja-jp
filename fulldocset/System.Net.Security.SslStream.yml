@@ -63,8 +63,8 @@ items:
   nameWithType: SslStream
   fullName: System.Net.Security.SslStream
   type: Class
-  summary: "Provides a stream used for client-server communication that uses the Secure Socket Layer (SSL) security protocol to authenticate the server and optionally the client."
-  remarks: "SSL protocols help to provide confidentiality and integrity checking for messages transmitted using an SslStream. An SSL connection, such as that provided by SslStream, should be used when communicating sensitive information between a client and a server. Using an SslStream helps to prevent anyone from reading and tampering with information while it is in transit on the network.       An SslStream instance transmits data using a stream that you supply when creating the SslStream. When you supply this underlying stream, you have the option to specify whether closing the SslStream also closes the underlying stream. Typically, the SslStream class is used with the <xref:System.Net.Sockets.TcpClient> and <xref:System.Net.Sockets.TcpListener> classes. The <xref:System.Net.Sockets.TcpClient.GetStream%2A> method provides a <xref:System.Net.Sockets.NetworkStream> suitable for use with the SslStream class.       After creating an SslStream, the server and optionally, the client must be authenticated. The server must provide an X509 certificate that establishes proof of its identity and can request that the client also do so. Authentication must be performed before transmitting information using an SslStream. Clients initiate authentication using the synchronous <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A> methods, which block until the authentication completes, or the asynchronous <xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A> methods, which do not block waiting for the authentication to complete. Servers initiate authentication using the synchronous <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A> or asynchronous <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> methods. Both client and server must initiate the authentication.       The authentication is handled by the Security Support Provider (SSPI) channel provider. The client is given an opportunity to control validation of the server&quot;s certificate by specifying a <xref:System.Net.Security.RemoteCertificateValidationCallback> delegate when creating an SslStream. The server can also control validation by supplying a <xref:System.Net.Security.RemoteCertificateValidationCallback> delegate. The method referenced by the delegate includes the remote party&quot;s certificate and any errors SSPI encountered while validating the certificate. Note that if the server specifies a delegate, the delegate&quot;s method is invoked regardless of whether the server requested client authentication. If the server did not request client authentication, the server&quot;s delegate method receives a null certificate and an empty array of certificate errors.       If the server requires client authentication, the client must specify one or more certificates for authentication. If the client has more than one certificate, the client can provide a <xref:System.Net.Security.LocalCertificateSelectionCallback> delegate to select the correct certificate for the server. The client&quot;s certificates must be located in the current user&quot;s &quot;My&quot; certificate store. Client authentication via certificates is not supported for the <xref:System.Security.Authentication.SslProtocols> (SSL version 2) protocol.       If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and the SslStream is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector.       When the authentication process, also known as the SSL handshake, succeeds, the identity of the server (and optionally, the client) is established and the SslStream can be used by the client and server to exchange messages. Before sending or receiving information, the client and server should check the security services and levels provided by the SslStream to determine whether the protocol, algorithms, and strengths selected meet their requirements for integrity and confidentiality. If the current settings are not sufficient, the stream should be closed. You can check the security services provided by the SslStream using the <xref:System.Net.Security.SslStream.IsEncrypted%2A> and <xref:System.Net.Security.SslStream.IsSigned%2A> properties. The following table shows the elements that report the cryptographic settings used for authentication, encryption and data signing.      |Element|Members|   |-------------|-------------|   |The security protocol used to authenticate the server and, optionally, the client.|The <xref:System.Net.Security.SslStream.SslProtocol%2A> property and the associated <xref:System.Security.Authentication.SslProtocols> enumeration.|   |The key exchange algorithm.|The <xref:System.Net.Security.SslStream.KeyExchangeAlgorithm%2A> property and the associated <xref:System.Security.Authentication.ExchangeAlgorithmType> enumeration.|   |The message integrity algorithm.|The <xref:System.Net.Security.SslStream.HashAlgorithm%2A> property and the associated <xref:System.Security.Authentication.HashAlgorithmType> enumeration.|   |The message confidentiality algorithm.|The <xref:System.Net.Security.SslStream.CipherAlgorithm%2A> property and the associated <xref:System.Security.Authentication.CipherAlgorithmType> enumeration.|   |The strengths of the selected algorithms.|The <xref:System.Net.Security.SslStream.KeyExchangeStrength%2A>, <xref:System.Net.Security.SslStream.HashStrength%2A>, and <xref:System.Net.Security.SslStream.CipherStrength%2A> properties.|       After a successful authentication, you can send data using the synchronous <xref:System.Net.Security.SslStream.Write%2A> or asynchronous <xref:System.Net.Security.SslStream.BeginWrite%2A> methods. You can receive data using the synchronous <xref:System.Net.Security.SslStream.Read%2A> or asynchronous <xref:System.Net.Security.SslStream.BeginRead%2A> methods.       If you specified to the <xref:System.Net.Security.SslStream.%23ctor%2A> that the underlying stream should be left open, you are responsible for closing that stream when you are done using it.      > [!NOTE] >  If the application that creates the SslStream object runs with the credentials of a Normal user, the application will not be able to access certificates installed in the local machine store unless permission has been explicitly given to the user to do so.       SslStream assumes that a timeout along with any other <xref:System.IO.IOException> when one is thrown from the inner stream will be treated as fatal by its caller. Reusing a SslStream instance after a timeout will return garbage. An application should <xref:System.IO.Stream.Close%2A> the SslStream and throw an exception in these cases.       The .NET Framework 4.6 includes a new security feature that blocks insecure cipher and hashing algorithms for connections. Applications using TLS/SSL through APIs such as HttpClient, HttpWebRequest, FTPClient, SmtpClient, SslStream, etc. and targeting .NET Framework 4.6 get the more-secure behavior by default.       Developers may want to opt out of this behavior in order to maintain interoperability with their existing SSL3 services OR TLS w/ RC4 services. [This article](https://support.microsoft.com/kb/3069494) explains how to modify your code so that the new behavior is disabled.       The .NET Framework 4.6.3 adds new overloads for the methods that authenticate SslStreams that do not specify a TLS version, but instead use the TLS version defined as the system default in [SCHANNEL](https://msdn.microsoft.com/library/windows/desktop/aa380123.aspx). Use these methods in your app as a way to be able to later modify the defaults as TLS version best practice changes over time, without the need to rebuild and redeploy your app."
+  summary: "Secure Socket Layer (SSL) セキュリティ プロトコルを使用して、サーバーと、必要に応じて、クライアントの認証にクライアント サーバー通信のために使用されるストリームを提供します。"
+  remarks: "SSL プロトコルは、機密性と整合性チェック、SslStream を使用して送信されるメッセージを提供するのに役立ちます。 クライアントとサーバー間で機密情報を通信するときに、SslStream、によって提供される、SSL 接続を使用してください。 SslStream を使用して読み取りや、ネットワーク上を転送中にある間に情報が改ざんされるはだれに役立ちます。       SslStream インスタンスは、SslStream を作成するときに指定するストリームを使用してデータを送信します。 この基になるストリームを指定するときに、SslStream を終了すると、基になるストリームも閉じるかどうかを指定するオプションがあります。 通常、SslStream クラスが使用されて、<xref:System.Net.Sockets.TcpClient>と<xref:System.Net.Sockets.TcpListener>クラス</xref:System.Net.Sockets.TcpListener></xref:System.Net.Sockets.TcpClient>。 <xref:System.Net.Sockets.TcpClient.GetStream%2A>メソッドは、 <xref:System.Net.Sockets.NetworkStream>SslStream クラスで使用するのに適した</xref:System.Net.Sockets.NetworkStream>を提供</xref:System.Net.Sockets.TcpClient.GetStream%2A>する       SslStream を作成した後、サーバーと、必要に応じて、クライアントを認証する必要があります。 X509 を提供する必要があります、サーバー証明書をその id を確立しするクライアントもように要求できます。 認証は、SslStream を使用して情報を送信する前に実行する必要があります。 クライアントは、同期を使用して認証を開始<xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>メソッドで、認証が完了するまでブロック、または非同期<xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>メソッドで、認証が完了するための待機をブロックしません</xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A></xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>。 サーバーは、同期を使用して認証を開始<xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>または非同期<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A>メソッド</xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A></xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>。 クライアントとサーバーの両方が認証を行う必要があります。       認証は、セキュリティ サポート プロバイダー (SSPI) チャネル プロバイダーによって処理されます。 クライアントを指定することで、サーバーの証明書の検証を制御する機会が与えられます、 <xref:System.Net.Security.RemoteCertificateValidationCallback>、SslStream を作成するときに委任します</xref:System.Net.Security.RemoteCertificateValidationCallback>。 サーバーでは検証を指定することによっても制御できます、<xref:System.Net.Security.RemoteCertificateValidationCallback>委任します</xref:System.Net.Security.RemoteCertificateValidationCallback>。 デリゲートによって参照されるメソッドには、リモート パーティの証明書および証明書の検証中に発生した SSPI エラーが含まれます。 サーバーは、デリゲートを指定した場合、デリゲートのメソッドが呼び出されること、サーバーがクライアント認証を要求するかどうかに関係なくに注意してください。 サーバーがクライアント認証を要求していない場合、サーバーのデリゲート メソッドは、null の証明書と証明書のエラーの空の配列を受け取ります。       サーバーは、クライアント認証を必要とする場合、クライアントは認証用の&1; つまたは複数の証明書を指定する必要があります。 クライアントが提供できるクライアントに複数の証明書がある場合、<xref:System.Net.Security.LocalCertificateSelectionCallback>デリゲートをサーバーの正しい証明書を選択します</xref:System.Net.Security.LocalCertificateSelectionCallback>。 クライアントの証明書は、現在のユーザーの&quot;My&quot;証明書ストアにある必要があります。 証明書を使用してクライアント認証はサポートされていません、 <xref:System.Security.Authentication.SslProtocols>SSL バージョン 2 プロトコル</xref:System.Security.Authentication.SslProtocols>。       受信した認証に失敗した場合、 <xref:System.Security.Authentication.AuthenticationException>、SslStream が使用可能になりました</xref:System.Security.Authentication.AuthenticationException>。 このオブジェクトを閉じるし、ガベージ コレクターによって収集できるように、すべての参照を削除する必要があります。       SSL ハンドシェイクとも呼ばれる、認証プロセスが成功した場合、サーバー (および必要に応じて、クライアント) の id を確立し、SslStream は、メッセージを交換するクライアントとサーバーで使用できます。 情報を送受信する前に、クライアントとサーバーくださいセキュリティ サービスとプロトコル、アルゴリズム、およびオン長所が整合性および機密性が実現するための要件を満たしているかどうかを判断する SslStream によって提供されるレベル。 現在の設定が十分なされていない場合は、ストリームが閉じている必要があります。 SslStream を使用して、によって提供されるセキュリティ サービスを確認することができます、<xref:System.Net.Security.SslStream.IsEncrypted%2A>と<xref:System.Net.Security.SslStream.IsSigned%2A>プロパティ</xref:System.Net.Security.SslStream.IsSigned%2A></xref:System.Net.Security.SslStream.IsEncrypted%2A>。 次の表は、認証、暗号化、およびデータの署名に使用される暗号化の設定を報告する要素を示しています。      |要素 |メンバー |  |-------------|-------------|  |サーバーと、必要に応じて、クライアントの認証に使用されるセキュリティ プロトコルです |。<xref:System.Net.Security.SslStream.SslProtocol%2A>プロパティと関連付けられている<xref:System.Security.Authentication.SslProtocols>列挙します |。  |キー交換アルゴリズムです |。<xref:System.Net.Security.SslStream.KeyExchangeAlgorithm%2A>プロパティと関連付けられている<xref:System.Security.Authentication.ExchangeAlgorithmType>列挙します |。  |メッセージの整合性アルゴリズムです |。<xref:System.Net.Security.SslStream.HashAlgorithm%2A>プロパティと関連付けられている<xref:System.Security.Authentication.HashAlgorithmType>列挙します |。  |メッセージの機密性アルゴリズムです |。<xref:System.Net.Security.SslStream.CipherAlgorithm%2A>プロパティと関連付けられている<xref:System.Security.Authentication.CipherAlgorithmType>列挙します |。  |選択したアルゴリズムの強さ |。<xref:System.Net.Security.SslStream.KeyExchangeStrength%2A> <xref:System.Net.Security.SslStream.HashStrength%2A>、および<xref:System.Net.Security.SslStream.CipherStrength%2A>プロパティです |。      認証が成功した後、同期を使用してデータを送信することができます<xref:System.Net.Security.SslStream.Write%2A>または非同期<xref:System.Net.Security.SslStream.BeginWrite%2A>メソッド</xref:System.Net.Security.SslStream.BeginWrite%2A></xref:System.Net.Security.SslStream.Write%2A></xref:System.Net.Security.SslStream.CipherStrength%2A></xref:System.Net.Security.SslStream.HashStrength%2A></xref:System.Net.Security.SslStream.KeyExchangeStrength%2A></xref:System.Security.Authentication.CipherAlgorithmType></xref:System.Net.Security.SslStream.CipherAlgorithm%2A></xref:System.Security.Authentication.HashAlgorithmType></xref:System.Net.Security.SslStream.HashAlgorithm%2A></xref:System.Security.Authentication.ExchangeAlgorithmType></xref:System.Net.Security.SslStream.KeyExchangeAlgorithm%2A></xref:System.Security.Authentication.SslProtocols></xref:System.Net.Security.SslStream.SslProtocol%2A>。 同期を使用してデータを受信できる<xref:System.Net.Security.SslStream.Read%2A>または非同期<xref:System.Net.Security.SslStream.BeginRead%2A>メソッド</xref:System.Net.Security.SslStream.BeginRead%2A></xref:System.Net.Security.SslStream.Read%2A>。       指定した場合、<xref:System.Net.Security.SslStream.%23ctor%2A>基になるストリームを開いたままにするが完了したら、そのストリームを終了する必要がある使用</xref:System.Net.Security.SslStream.%23ctor%2A>      > [!NOTE] > SslStream オブジェクトを作成するアプリケーションは、通常のユーザーの資格情報で実行している場合、アプリケーションはアクセス許可が明示的に指定されてユーザーにこれを行う場合を除き、ローカル コンピューター ストアにインストールされている証明書にアクセスできません。       SslStream が想定すると共に、他のタイムアウト<xref:System.IO.IOException>内部ストリームからスローされた&1; つは処理されます、致命的な呼び出し元によって</xref:System.IO.IOException>。 タイムアウトはガベージを返します後 SslStream インスタンスを再利用されます。 アプリケーションにする必要があります<xref:System.IO.Stream.Close%2A>SslStream とこのような場合は例外をスローします</xref:System.IO.Stream.Close%2A>。       .NET Framework 4.6 には、安全性の低い暗号およびハッシュ アルゴリズムの接続をブロックする新しいセキュリティ機能が含まれています。 HttpClient、HttpWebRequest、FTPClient、SmtpClient、SslStream などの Api を介した TLS と SSL を使用して、.NET Framework 4.6 を対象とするアプリケーションでは、既定では、セキュリティが強化された動作を取得します。       開発者は、既存 SSL3 サービスまたは TLS で RC4 サービスと相互運用性を維持するために、この動作を除外する必要あります。 [この記事](https://support.microsoft.com/kb/3069494)新しい動作を無効にするように、コードを変更する方法について説明します。       .NET Framework 4.6.3 SslStreams、TLS バージョンを指定しないが、代わりにシステムの既定値として定義されている TLS バージョンを使用する認証のあるメソッドに対して新しいオーバー ロードを追加する[SCHANNEL](https://msdn.microsoft.com/library/windows/desktop/aa380123.aspx)です。 後で、長期にわたって TLS バージョンのベスト プラクティスの変更として、既定の設定を変更できる手段として、アプリでこれらのメソッドを使用リビルドして、アプリを再配置する必要はありません。"
   example:
   - "The following code example demonstrates creating an <xref:System.Net.Sockets.TcpListener> that uses the SslStream class to communicate with clients.  \n  \n [!code-cpp[NclSslServerSync#0](~/add/codesnippet/cpp/t-system.net.security.ss_1.cpp)]\n [!code-cs[NclSslServerSync#0](~/add/codesnippet/csharp/t-system.net.security.ss_1.cs)]  \n  \n The following code example demonstrates creating a <xref:System.Net.Sockets.TcpClient> that uses the SslStream class to communicate with a server.  \n  \n [!code-cpp[NclSslClientSync#0](~/add/codesnippet/cpp/t-system.net.security.ss_2.cpp)]\n [!code-cs[NclSslClientSync#0](~/add/codesnippet/csharp/t-system.net.security.ss_2.cs)]"
   syntax:
@@ -90,22 +90,22 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Security.SslStream&quot;></xref> class using the specified <xref:System.IO.Stream>."
-  remarks: "If a value is not specified in the configuration file for encryptionpolicy, the <xref:System.Net.Security.EncryptionPolicy> defaults to <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName> for the <xref:System.Net.Security.SslStream> instance that is constructed.       The use of the Null cipher is required when the encryption policy is set to <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Net.Security.SslStream&quot;> </xref>指定<xref:System.IO.Stream>.</xref:System.IO.Stream>を使用してクラス"
+  remarks: "暗号化ポリシーですの構成ファイルで値が指定されていない場合、<xref:System.Net.Security.EncryptionPolicy>の既定値は<xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>の<xref:System.Net.Security.SslStream>を構築するインスタンス</xref:System.Net.Security.SslStream></xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName></xref:System.Net.Security.EncryptionPolicy>。       <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>。</xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>暗号化ポリシーが設定されている場合は、Null 暗号の使用が必要"
   syntax:
     content: public SslStream (System.IO.Stream innerStream);
     parameters:
     - id: innerStream
       type: System.IO.Stream
-      description: "A <xref:System.IO.Stream> object used by the <xref href=&quot;System.Net.Security.SslStream&quot;></xref> for sending and receiving data."
+      description: "A<xref:System.IO.Stream>によって使用されるオブジェクト、 <xref href=&quot;System.Net.Security.SslStream&quot;> </xref>データを送受信するためです</xref:System.IO.Stream>。"
   overload: System.Net.Security.SslStream.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>innerStream</code> is not readable.       -or-       <code>innerStream</code> is not writable."
+    description: "<code>innerStream</code>読み取りができません。       - または -<code>innerStream</code>書き込み禁止になっています。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>innerStream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>innerStream</code> is equal to <xref:System.IO.Stream.Null>."
+    description: "<code>innerStream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       - または -<code>innerStream</code>と等しい<xref:System.IO.Stream.Null>です。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.#ctor(System.IO.Stream,System.Boolean)
@@ -120,8 +120,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Security.SslStream&quot;></xref> class using the specified <xref:System.IO.Stream> and stream closure behavior."
-  remarks: "When you specify `true` for the `leaveStreamOpen` parameter, closing the <xref:System.Net.Security.SslStream> has no effect on the `innerStream` stream; you must explicitly close `innerStream` when you no longer need it.       If a value is not specified in the configuration file for encryptionpolicy, the <xref:System.Net.Security.EncryptionPolicy> defaults to <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName> for the <xref:System.Net.Security.SslStream> instance that is constructed.       The use of the Null cipher is required when the encryption policy is set to <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Net.Security.SslStream&quot;> </xref>クラスの指定して<xref:System.IO.Stream>およびクロージャの動作をストリーミングします</xref:System.IO.Stream>。"
+  remarks: "指定すると`true`の`leaveStreamOpen`パラメーター、閉じる、<xref:System.Net.Security.SslStream>に影響を与えません、`innerStream`ストリーム; 明示的に閉じる必要があります`innerStream`とそれが不要になった</xref:System.Net.Security.SslStream>       暗号化ポリシーですの構成ファイルで値が指定されていない場合、<xref:System.Net.Security.EncryptionPolicy>の既定値は<xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>の<xref:System.Net.Security.SslStream>を構築するインスタンス</xref:System.Net.Security.SslStream></xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName></xref:System.Net.Security.EncryptionPolicy>。       <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>。</xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>暗号化ポリシーが設定されている場合は、Null 暗号の使用が必要"
   example:
   - "The following code example demonstrates calling this constructor.  \n  \n [!code-cpp[NclSslServerSync#1](~/add/codesnippet/cpp/m-system.net.security.ss_5_1.cpp)]\n [!code-cs[NclSslServerSync#1](~/add/codesnippet/csharp/m-system.net.security.ss_5_1.cs)]"
   syntax:
@@ -129,18 +129,18 @@ items:
     parameters:
     - id: innerStream
       type: System.IO.Stream
-      description: "A <xref:System.IO.Stream> object used by the <xref href=&quot;System.Net.Security.SslStream&quot;></xref> for sending and receiving data."
+      description: "A<xref:System.IO.Stream>によって使用されるオブジェクト、 <xref href=&quot;System.Net.Security.SslStream&quot;> </xref>データを送受信するためです</xref:System.IO.Stream>。"
     - id: leaveInnerStreamOpen
       type: System.Boolean
-      description: "A Boolean value that indicates the closure behavior of the <xref:System.IO.Stream> object used by the <xref href=&quot;System.Net.Security.SslStream&quot;></xref> for sending and receiving data. This parameter indicates if the inner stream is left open."
+      description: "クロージャ動作を示すブール値、<xref:System.IO.Stream>によって使用されるオブジェクト、 <xref href=&quot;System.Net.Security.SslStream&quot;> </xref>データを送受信するためです</xref:System.IO.Stream>。 このパラメーターは、内部ストリームが開いたままかどうかを示します。"
   overload: System.Net.Security.SslStream.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>innerStream</code> is not readable.       -or-       <code>innerStream</code> is not writable."
+    description: "<code>innerStream</code>読み取りができません。       - または -<code>innerStream</code>書き込み禁止になっています。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>innerStream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>innerStream</code> is equal to <xref:System.IO.Stream.Null>."
+    description: "<code>innerStream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       - または -<code>innerStream</code>と等しい<xref:System.IO.Stream.Null>です。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.#ctor(System.IO.Stream,System.Boolean,System.Net.Security.RemoteCertificateValidationCallback)
@@ -155,8 +155,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Security.SslStream&quot;></xref> class using the specified <xref:System.IO.Stream>, stream closure behavior and certificate validation delegate."
-  remarks: "When you specify `true` for the `leaveStreamOpen` parameter, closing the <xref:System.Net.Security.SslStream> has no effect on the `innerStream` stream; you must explicitly close `innerStream` when you no longer need it.       The `userCertificateValidationCallback` delegate&quot;s `certificateErrors` argument contains any Windows error codes returned by the channel Security Support Provider Interface (SSPI). The return value of the method invoked by the `userCertificateValidationCallback` delegate determines whether authentication succeeds.       The security protocol and cryptographic algorithms are already selected when the `userCertificateValidationCallback` delegate&quot;s method is invoked. You can use the method to determine whether the selected cryptographic algorithms and strengths are sufficient for your application. If not, the method should return `false` to prevent the <xref:System.Net.Security.SslStream> from being created.       If a value is not specified in the configuration file for encryptionpolicy, the <xref:System.Net.Security.EncryptionPolicy> defaults to <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName> for the <xref:System.Net.Security.SslStream> instance that is constructed.       The use of the Null cipher is required when the encryption policy is set to <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>.      > [!NOTE] >  The Framework caches SSL sessions as they are created and attempts to reuse a cached session for a new request, if possible. When attempting to reuse an SSL session, the Framework uses the first element of <xref:System.Net.HttpWebRequest.ClientCertificates%2A> (if there is one), or tries to reuse an anonymous sessions if <xref:System.Net.HttpWebRequest.ClientCertificates%2A> is empty.      > [!NOTE] >  Client certificates are not supported in the SSL version 2 protocol."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Net.Security.SslStream&quot;> </xref>クラス<xref:System.IO.Stream>クロージャの動作をストリーム配信、および証明書の検証のデリゲート</xref:System.IO.Stream>。"
+  remarks: "指定すると`true`の`leaveStreamOpen`パラメーター、閉じる、<xref:System.Net.Security.SslStream>に影響を与えません、`innerStream`ストリーム; 明示的に閉じる必要があります`innerStream`とそれが不要になった</xref:System.Net.Security.SslStream>       `userCertificateValidationCallback`デリゲートの`certificateErrors`引数には、チャネルのセキュリティ サポート プロバイダー インターフェイス (SSPI) によって返される Windows エラー コードが含まれています。 によって呼び出されるメソッドの戻り値、`userCertificateValidationCallback`デリゲートは、認証が成功したかどうかを決定します。       セキュリティ プロトコルおよび暗号アルゴリズムが既に選択されているときに、`userCertificateValidationCallback`デリゲートのメソッドが呼び出されます。 メソッドを使用すると、選択した暗号アルゴリズムと長所がアプリケーションのための十分なのかを判断します。 場合は、メソッドが返す必要があります、`false`を防ぐために、<xref:System.Net.Security.SslStream>作成されない</xref:System.Net.Security.SslStream>。       暗号化ポリシーですの構成ファイルで値が指定されていない場合、<xref:System.Net.Security.EncryptionPolicy>の既定値は<xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>の<xref:System.Net.Security.SslStream>を構築するインスタンス</xref:System.Net.Security.SslStream></xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName></xref:System.Net.Security.EncryptionPolicy>。       <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>。</xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>暗号化ポリシーが設定されている場合は、Null 暗号の使用が必要      > [!NOTE] > The Framework SSL セッションが作成されるキャッシュし、新しい要求のキャッシュされているセッションを再利用可能であればしようとしています。 フレームワークでの最初の要素を使用するときに、SSL セッションを再利用する、 <xref:System.Net.HttpWebRequest.ClientCertificates%2A>(かどうかがある&1; つ)、匿名のセッションを再利用を試みる<xref:System.Net.HttpWebRequest.ClientCertificates%2A>が空です</xref:System.Net.HttpWebRequest.ClientCertificates%2A></xref:System.Net.HttpWebRequest.ClientCertificates%2A>。      > [!NOTE] > SSL バージョン 2 プロトコルでは、クライアント証明書はサポートされていません。"
   example:
   - "The following code example creates an <xref:System.Net.Security.SslStream> and initiates the client portion of the authentication.  \n  \n [!code-cpp[NclSslClientSync#4](~/add/codesnippet/cpp/9eaa69b2-6619-41cf-8f97-_1.cpp)]\n [!code-cs[NclSslClientSync#4](~/add/codesnippet/csharp/9eaa69b2-6619-41cf-8f97-_1.cs)]"
   syntax:
@@ -164,21 +164,21 @@ items:
     parameters:
     - id: innerStream
       type: System.IO.Stream
-      description: "A <xref:System.IO.Stream> object used by the <xref href=&quot;System.Net.Security.SslStream&quot;></xref> for sending and receiving data."
+      description: "A<xref:System.IO.Stream>によって使用されるオブジェクト、 <xref href=&quot;System.Net.Security.SslStream&quot;> </xref>データを送受信するためです</xref:System.IO.Stream>。"
     - id: leaveInnerStreamOpen
       type: System.Boolean
-      description: "A Boolean value that indicates the closure behavior of the <xref:System.IO.Stream> object used by the <xref href=&quot;System.Net.Security.SslStream&quot;></xref> for sending and receiving data. This parameter indicates if the inner stream is left open."
+      description: "クロージャ動作を示すブール値、<xref:System.IO.Stream>によって使用されるオブジェクト、 <xref href=&quot;System.Net.Security.SslStream&quot;> </xref>データを送受信するためです</xref:System.IO.Stream>。 このパラメーターは、内部ストリームが開いたままかどうかを示します。"
     - id: userCertificateValidationCallback
       type: System.Net.Security.RemoteCertificateValidationCallback
-      description: "A <xref href=&quot;System.Net.Security.RemoteCertificateValidationCallback&quot;></xref> delegate responsible for validating the certificate supplied by the remote party."
+      description: "A <xref href=&quot;System.Net.Security.RemoteCertificateValidationCallback&quot;> </xref>リモート パーティによって提供された証明書を検証します。"
   overload: System.Net.Security.SslStream.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>innerStream</code> is not readable.       -or-       <code>innerStream</code> is not writable."
+    description: "<code>innerStream</code>読み取りができません。       - または -<code>innerStream</code>書き込み禁止になっています。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>innerStream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>innerStream</code> is equal to <xref:System.IO.Stream.Null>."
+    description: "<code>innerStream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       - または -<code>innerStream</code>と等しい<xref:System.IO.Stream.Null>です。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.#ctor(System.IO.Stream,System.Boolean,System.Net.Security.RemoteCertificateValidationCallback,System.Net.Security.LocalCertificateSelectionCallback)
@@ -193,8 +193,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Security.SslStream&quot;></xref> class using the specified <xref:System.IO.Stream>, stream closure behavior, certificate validation delegate and certificate selection delegate."
-  remarks: "When you specify `true` for the `leaveStreamOpen` parameter, closing the <xref:System.Net.Security.SslStream> has no effect on the `innerStream` stream; you must explicitly close `innerStream` when you no longer need it.       The `userCertificateValidationCallback` delegate&quot;s `certificateErrors` argument contains any Windows error codes returned by the channel Security Support Provider Interface (SSPI). The return value of the method invoked by the `userCertificateValidationCallback` delegate determines whether authentication succeeds.       The security protocol and cryptographic algorithms are already selected when the `userCertificateValidationCallback` delegate&quot;s method is invoked. You can use the method to determine whether the selected cryptographic algorithms and strengths are sufficient for your application. If not, the method should return `false` to prevent the <xref:System.Net.Security.SslStream> from being created.       The `userCertificateSelectionCallback` delegate is useful when your application has multiple certificates and must dynamically choose a certificate. Certificates in the &quot;MY&quot; store are passed to the method invoked by the delegate.       If a value is not specified in the configuration file for encryptionpolicy, the <xref:System.Net.Security.EncryptionPolicy> defaults to <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName> for the <xref:System.Net.Security.SslStream> instance that is constructed.       The use of the Null cipher is required when the encryption policy is set to <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>.      > [!NOTE] >  The Framework caches SSL sessions as they are created and attempts to reuse a cached session for a new request, if possible. When attempting to reuse an SSL session, the Framework uses the first element of P:System.Net.HttpWebRequest.ClientCertificates (if there is one), or tries to reuse an anonymous sessions if P:System.Net.HttpWebRequest.ClientCertificates is empty."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Net.Security.SslStream&quot;> </xref>クラス<xref:System.IO.Stream>、クロージャの動作、ストリーム、証明書検証デリゲート証明書の選択のデリゲート</xref:System.IO.Stream>。"
+  remarks: "指定すると`true`の`leaveStreamOpen`パラメーター、閉じる、<xref:System.Net.Security.SslStream>に影響を与えません、`innerStream`ストリーム; 明示的に閉じる必要があります`innerStream`とそれが不要になった</xref:System.Net.Security.SslStream>       `userCertificateValidationCallback`デリゲートの`certificateErrors`引数には、チャネルのセキュリティ サポート プロバイダー インターフェイス (SSPI) によって返される Windows エラー コードが含まれています。 によって呼び出されるメソッドの戻り値、`userCertificateValidationCallback`デリゲートは、認証が成功したかどうかを決定します。       セキュリティ プロトコルおよび暗号アルゴリズムが既に選択されているときに、`userCertificateValidationCallback`デリゲートのメソッドが呼び出されます。 メソッドを使用すると、選択した暗号アルゴリズムと長所がアプリケーションのための十分なのかを判断します。 場合は、メソッドが返す必要があります、`false`を防ぐために、<xref:System.Net.Security.SslStream>作成されない</xref:System.Net.Security.SslStream>。       `userCertificateSelectionCallback`デリゲートは、アプリケーションが複数の証明書と証明書を動的に選択する必要がある場合に便利です。 &quot;MY&quot;ストアに証明書は、デリゲートが呼び出されるメソッドに渡されます。       暗号化ポリシーですの構成ファイルで値が指定されていない場合、<xref:System.Net.Security.EncryptionPolicy>の既定値は<xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>の<xref:System.Net.Security.SslStream>を構築するインスタンス</xref:System.Net.Security.SslStream></xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName></xref:System.Net.Security.EncryptionPolicy>。       <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>。</xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>暗号化ポリシーが設定されている場合は、Null 暗号の使用が必要      > [!NOTE] > The Framework SSL セッションが作成されるキャッシュし、新しい要求のキャッシュされているセッションを再利用可能であればしようとしています。 フレームワークが P:System.Net.HttpWebRequest.ClientCertificates (存在する場合) の最初の要素を使用するときに、SSL セッションを再利用する、または P:System.Net.HttpWebRequest.ClientCertificates がある場合は、匿名のセッションを再利用する試行が空です。"
   example:
   - "The following code example demonstrates calling this constructor. This example is part of a larger example provided for the <xref:System.Net.Security.SslStream> class.  \n  \n [!code-cpp[NclSslClientAsync#6](~/add/codesnippet/cpp/dc8fc9af-8c2a-4c30-be77-_1.cpp)]\n [!code-cs[NclSslClientAsync#6](~/add/codesnippet/csharp/dc8fc9af-8c2a-4c30-be77-_1.cs)]"
   syntax:
@@ -202,24 +202,24 @@ items:
     parameters:
     - id: innerStream
       type: System.IO.Stream
-      description: "A <xref:System.IO.Stream> object used by the <xref href=&quot;System.Net.Security.SslStream&quot;></xref> for sending and receiving data."
+      description: "A<xref:System.IO.Stream>によって使用されるオブジェクト、 <xref href=&quot;System.Net.Security.SslStream&quot;> </xref>データを送受信するためです</xref:System.IO.Stream>。"
     - id: leaveInnerStreamOpen
       type: System.Boolean
-      description: "A Boolean value that indicates the closure behavior of the <xref:System.IO.Stream> object used by the <xref href=&quot;System.Net.Security.SslStream&quot;></xref> for sending and receiving data. This parameter indicates if the inner stream is left open."
+      description: "クロージャ動作を示すブール値、<xref:System.IO.Stream>によって使用されるオブジェクト、 <xref href=&quot;System.Net.Security.SslStream&quot;> </xref>データを送受信するためです</xref:System.IO.Stream>。 このパラメーターは、内部ストリームが開いたままかどうかを示します。"
     - id: userCertificateValidationCallback
       type: System.Net.Security.RemoteCertificateValidationCallback
-      description: "A <xref href=&quot;System.Net.Security.RemoteCertificateValidationCallback&quot;></xref> delegate responsible for validating the certificate supplied by the remote party."
+      description: "A <xref href=&quot;System.Net.Security.RemoteCertificateValidationCallback&quot;> </xref>リモート パーティによって提供された証明書を検証します。"
     - id: userCertificateSelectionCallback
       type: System.Net.Security.LocalCertificateSelectionCallback
-      description: "A <xref href=&quot;System.Net.Security.LocalCertificateSelectionCallback&quot;></xref> delegate responsible for selecting the certificate used for authentication."
+      description: "A <xref href=&quot;System.Net.Security.LocalCertificateSelectionCallback&quot;> </xref>書を認証に使用する証明書を選択します。"
   overload: System.Net.Security.SslStream.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>innerStream</code> is not readable.       -or-       <code>innerStream</code> is not writable."
+    description: "<code>innerStream</code>読み取りができません。       - または -<code>innerStream</code>書き込み禁止になっています。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>innerStream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>innerStream</code> is equal to <xref:System.IO.Stream.Null>."
+    description: "<code>innerStream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       - または -<code>innerStream</code>と等しい<xref:System.IO.Stream.Null>です。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.#ctor(System.IO.Stream,System.Boolean,System.Net.Security.RemoteCertificateValidationCallback,System.Net.Security.LocalCertificateSelectionCallback,System.Net.Security.EncryptionPolicy)
@@ -234,23 +234,23 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Security.SslStream&quot;></xref> class using the specified <xref:System.IO.Stream>"
-  remarks: "The use of the Null cipher is required when the `encryptionPolicy` parameter is set to <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Net.Security.SslStream&quot;> </xref>クラス<xref:System.IO.Stream></xref:System.IO.Stream>"
+  remarks: "Null 暗号の使用が必要なときに、 `encryptionPolicy` <xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName></xref:System.Net.Security.EncryptionPolicy?displayProperty=fullName>パラメーターが設定されている。"
   syntax:
     content: public SslStream (System.IO.Stream innerStream, bool leaveInnerStreamOpen, System.Net.Security.RemoteCertificateValidationCallback userCertificateValidationCallback, System.Net.Security.LocalCertificateSelectionCallback userCertificateSelectionCallback, System.Net.Security.EncryptionPolicy encryptionPolicy);
     parameters:
     - id: innerStream
       type: System.IO.Stream
-      description: "A <xref:System.IO.Stream> object used by the <xref href=&quot;System.Net.Security.SslStream&quot;></xref> for sending and receiving data."
+      description: "A<xref:System.IO.Stream>によって使用されるオブジェクト、 <xref href=&quot;System.Net.Security.SslStream&quot;> </xref>データを送受信するためです</xref:System.IO.Stream>。"
     - id: leaveInnerStreamOpen
       type: System.Boolean
-      description: "A Boolean value that indicates the closure behavior of the <xref:System.IO.Stream> object used by the <xref href=&quot;System.Net.Security.SslStream&quot;></xref> for sending and receiving data. This parameter indicates if the inner stream is left open."
+      description: "クロージャ動作を示すブール値、<xref:System.IO.Stream>によって使用されるオブジェクト、 <xref href=&quot;System.Net.Security.SslStream&quot;> </xref>データを送受信するためです</xref:System.IO.Stream>。 このパラメーターは、内部ストリームが開いたままかどうかを示します。"
     - id: userCertificateValidationCallback
       type: System.Net.Security.RemoteCertificateValidationCallback
-      description: "A <xref href=&quot;System.Net.Security.RemoteCertificateValidationCallback&quot;></xref> delegate responsible for validating the certificate supplied by the remote party."
+      description: "A <xref href=&quot;System.Net.Security.RemoteCertificateValidationCallback&quot;> </xref>リモート パーティによって提供された証明書を検証します。"
     - id: userCertificateSelectionCallback
       type: System.Net.Security.LocalCertificateSelectionCallback
-      description: "A <xref href=&quot;System.Net.Security.LocalCertificateSelectionCallback&quot;></xref> delegate responsible for selecting the certificate used for authentication."
+      description: "A <xref href=&quot;System.Net.Security.LocalCertificateSelectionCallback&quot;> </xref>書を認証に使用する証明書を選択します。"
     - id: encryptionPolicy
       type: System.Net.Security.EncryptionPolicy
       description: "The <xref href=&quot;System.Net.Security.EncryptionPolicy&quot;></xref> to use."
@@ -258,10 +258,10 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>innerStream</code> is not readable.       -or-       <code>innerStream</code> is not writable.       -or-       <code>encryptionPolicy</code> is not valid."
+    description: "<code>innerStream</code>読み取りができません。       - または -<code>innerStream</code>書き込み禁止になっています。       - または -<code>encryptionPolicy</code>が無効です。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>innerStream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>innerStream</code> is equal to <xref:System.IO.Stream.Null>."
+    description: "<code>innerStream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       - または -<code>innerStream</code>と等しい<xref:System.IO.Stream.Null>です。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.AuthenticateAsClient(System.String)
@@ -276,28 +276,28 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Called by clients to authenticate the server and optionally the client in a client-server connection."
-  remarks: "This method authenticates using <xref:System.Security.Authentication.SslProtocols>. No client certificates are used in the authentication. The certificate revocation list is not checked during authentication. The value specified for `targetHost` must match the name on the server&quot;s certificate.       When authentication succeeds, you must check the <xref:System.Net.Security.SslStream.IsEncrypted%2A> and <xref:System.Net.Security.SslStream.IsSigned%2A> properties to determine what security services are used by the <xref:System.Net.Security.SslStream>. Check the <xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A> property to determine whether mutual authentication occurred.       If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector."
+  summary: "サーバーの認証にクライアントと、必要に応じて、クライアント サーバー接続でクライアントによって呼び出されます。"
+  remarks: "このメソッドが<xref:System.Security.Authentication.SslProtocols>。</xref:System.Security.Authentication.SslProtocols>を使用して認証します。 認証では、クライアント証明書は使用されません。 証明書失効リストは、認証時にチェックされません。 指定された値`targetHost`サーバーの証明書の名前が一致する必要があります。       認証に成功した場合<xref:System.Net.Security.SslStream.IsEncrypted%2A>および<xref:System.Net.Security.SslStream.IsSigned%2A>プロパティ</xref:System.Net.Security.SslStream.IsSigned%2A></xref:System.Net.Security.SslStream.IsEncrypted%2A>をチェックする必要があります。 チェック、<xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A>相互認証が行われたかどうかを決定するプロパティ</xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A>。       受信した認証に失敗した場合、 <xref:System.Security.Authentication.AuthenticationException>、され、この<xref:System.Net.Security.SslStream>、使用できなくします</xref:System.Net.Security.SslStream></xref:System.Security.Authentication.AuthenticationException>。 このオブジェクトを閉じるし、ガベージ コレクターによって収集できるように、すべての参照を削除する必要があります。"
   syntax:
     content: public virtual void AuthenticateAsClient (string targetHost);
     parameters:
     - id: targetHost
       type: System.String
-      description: "The name of the server that shares this <xref href=&quot;System.Net.Security.SslStream&quot;></xref>."
+      description: "これを共有しているサーバーの名前<xref href=&quot;System.Net.Security.SslStream&quot;></xref>です。"
   overload: System.Net.Security.SslStream.AuthenticateAsClient*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetHost</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetHost</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Authentication.AuthenticationException
     commentId: T:System.Security.Authentication.AuthenticationException
-    description: "The authentication failed and left this object in an unusable state."
+    description: "認証が失敗し、このオブジェクトを使用できない状態のままです。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has already occurred.       -or-       Server authentication using this <xref href=&quot;System.Net.Security.SslStream&quot;></xref> was tried previously.       -or-       Authentication is already in progress."
+    description: "認証が既に発生しました。       - または - これを使用するサーバー認証<xref href=&quot;System.Net.Security.SslStream&quot;></xref>が以前に試行します。       - または - 認証が既に進行中です。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been closed."
+    description: "このオブジェクトが閉じられました。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.AuthenticateAsClient(System.String,System.Security.Cryptography.X509Certificates.X509CertificateCollection,System.Security.Authentication.SslProtocols,System.Boolean)
@@ -312,23 +312,23 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Called by clients to authenticate the server and optionally the client in a client-server connection. The authentication process uses the specified certificate collection and SSL protocol."
-  remarks: "When authentication succeeds, you must check the <xref:System.Net.Security.SslStream.IsEncrypted%2A> and <xref:System.Net.Security.SslStream.IsSigned%2A> properties to determine what security services are used by the <xref:System.Net.Security.SslStream>. Check the <xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A> property to determine whether mutual authentication occurred.       If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector.      > [!NOTE] >  Client certificates are not supported in the SSL version 2 protocol."
+  summary: "サーバーの認証にクライアントと、必要に応じて、クライアント サーバー接続でクライアントによって呼び出されます。 認証プロセスでは、指定された証明書のコレクションと SSL プロトコルを使用します。"
+  remarks: "認証に成功した場合<xref:System.Net.Security.SslStream.IsEncrypted%2A>および<xref:System.Net.Security.SslStream.IsSigned%2A>プロパティ</xref:System.Net.Security.SslStream.IsSigned%2A></xref:System.Net.Security.SslStream.IsEncrypted%2A>をチェックする必要があります。 チェック、<xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A>相互認証が行われたかどうかを決定するプロパティ</xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A>。       受信した認証に失敗した場合、 <xref:System.Security.Authentication.AuthenticationException>、され、この<xref:System.Net.Security.SslStream>、使用できなくします</xref:System.Net.Security.SslStream></xref:System.Security.Authentication.AuthenticationException>。 このオブジェクトを閉じるし、ガベージ コレクターによって収集できるように、すべての参照を削除する必要があります。      > [!NOTE] > SSL バージョン 2 プロトコルでは、クライアント証明書はサポートされていません。"
   syntax:
     content: public virtual void AuthenticateAsClient (string targetHost, System.Security.Cryptography.X509Certificates.X509CertificateCollection clientCertificates, System.Security.Authentication.SslProtocols enabledSslProtocols, bool checkCertificateRevocation);
     parameters:
     - id: targetHost
       type: System.String
-      description: "The name of the server that will share this <xref href=&quot;System.Net.Security.SslStream&quot;></xref>."
+      description: "これを共有するサーバーの名前<xref href=&quot;System.Net.Security.SslStream&quot;></xref>です。"
     - id: clientCertificates
       type: System.Security.Cryptography.X509Certificates.X509CertificateCollection
-      description: "The <xref href=&quot;System.Security.Cryptography.X509Certificates.X509CertificateCollection&quot;></xref> that contains client certificates."
+      description: "<xref href=&quot;System.Security.Cryptography.X509Certificates.X509CertificateCollection&quot;> </xref>クライアント証明書を格納しています。"
     - id: enabledSslProtocols
       type: System.Security.Authentication.SslProtocols
-      description: "The <xref:System.Security.Authentication.SslProtocols> value that represents the protocol used for authentication."
+      description: "<xref:System.Security.Authentication.SslProtocols>認証に使用されるプロトコルを表す値</xref:System.Security.Authentication.SslProtocols>。"
     - id: checkCertificateRevocation
       type: System.Boolean
-      description: "A <xref:System.Boolean> value that specifies whether the certificate revocation list is checked during authentication."
+      description: "A<xref:System.Boolean>認証時に証明書失効リストをチェックするかどうかを指定する値</xref:System.Boolean>。"
   overload: System.Net.Security.SslStream.AuthenticateAsClient*
   exceptions: []
   platform:
@@ -345,31 +345,31 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Called by clients to authenticate the server and optionally the client in a client-server connection as an asynchronous operation."
-  remarks: "This method authenticates using <xref:System.Security.Authentication.SslProtocols>. No client certificates are used in the authentication. The certificate revocation list is not checked during authentication. The value specified for `targetHost` must match the name on the server&quot;s certificate.       When authentication succeeds, you must check the <xref:System.Net.Security.SslStream.IsEncrypted%2A> and <xref:System.Net.Security.SslStream.IsSigned%2A> properties to determine what security services are used by the <xref:System.Net.Security.SslStream>. Check the <xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A> property to determine whether mutual authentication occurred.       If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector."
+  summary: "サーバーの認証にクライアントと、必要に応じて、非同期操作としてクライアント サーバー接続でクライアントによって呼び出されます。"
+  remarks: "このメソッドが<xref:System.Security.Authentication.SslProtocols>。</xref:System.Security.Authentication.SslProtocols>を使用して認証します。 認証では、クライアント証明書は使用されません。 証明書失効リストは、認証時にチェックされません。 指定された値`targetHost`サーバーの証明書の名前が一致する必要があります。       認証に成功した場合<xref:System.Net.Security.SslStream.IsEncrypted%2A>および<xref:System.Net.Security.SslStream.IsSigned%2A>プロパティ</xref:System.Net.Security.SslStream.IsSigned%2A></xref:System.Net.Security.SslStream.IsEncrypted%2A>をチェックする必要があります。 チェック、<xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A>相互認証が行われたかどうかを決定するプロパティ</xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A>。       受信した認証に失敗した場合、 <xref:System.Security.Authentication.AuthenticationException>、され、この<xref:System.Net.Security.SslStream>、使用できなくします</xref:System.Net.Security.SslStream></xref:System.Security.Authentication.AuthenticationException>。 このオブジェクトを閉じるし、ガベージ コレクターによって収集できるように、すべての参照を削除する必要があります。"
   syntax:
     content: public virtual System.Threading.Tasks.Task AuthenticateAsClientAsync (string targetHost);
     parameters:
     - id: targetHost
       type: System.String
-      description: "The name of the server that shares this <xref href=&quot;System.Net.Security.SslStream&quot;></xref>."
+      description: "これを共有しているサーバーの名前<xref href=&quot;System.Net.Security.SslStream&quot;></xref>です。"
     return:
       type: System.Threading.Tasks.Task
-      description: "Returns <xref:System.Threading.Tasks.Task>       The task object representing the asynchronous operation."
+      description: "返します<xref:System.Threading.Tasks.Task>非同期操作を表すタスク オブジェクト</xref:System.Threading.Tasks.Task>。"
   overload: System.Net.Security.SslStream.AuthenticateAsClientAsync*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetHost</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetHost</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Authentication.AuthenticationException
     commentId: T:System.Security.Authentication.AuthenticationException
-    description: "The authentication failed and left this object in an unusable state."
+    description: "認証が失敗し、このオブジェクトを使用できない状態のままです。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has already occurred.       -or-       Server authentication using this <xref href=&quot;System.Net.Security.SslStream&quot;></xref> was tried previously.       -or-       Authentication is already in progress."
+    description: "認証が既に発生しました。       - または - これを使用するサーバー認証<xref href=&quot;System.Net.Security.SslStream&quot;></xref>が以前に試行します。       - または - 認証が既に進行中です。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been closed."
+    description: "このオブジェクトが閉じられました。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.AuthenticateAsClientAsync(System.String,System.Security.Cryptography.X509Certificates.X509CertificateCollection,System.Security.Authentication.SslProtocols,System.Boolean)
@@ -384,26 +384,26 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Called by clients to authenticate the server and optionally the client in a client-server connection as an asynchronous operation. The authentication process uses the specified certificate collection and SSL protocol."
-  remarks: "When authentication succeeds, you must check the <xref:System.Net.Security.SslStream.IsEncrypted%2A> and <xref:System.Net.Security.SslStream.IsSigned%2A> properties to determine what security services are used by the <xref:System.Net.Security.SslStream>. Check the <xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A> property to determine whether mutual authentication occurred.       If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector.      > [!NOTE] >  Client certificates are not supported in the SSL version 2 protocol."
+  summary: "サーバーの認証にクライアントと、必要に応じて、非同期操作としてクライアント サーバー接続でクライアントによって呼び出されます。 認証プロセスでは、指定された証明書のコレクションと SSL プロトコルを使用します。"
+  remarks: "認証に成功した場合<xref:System.Net.Security.SslStream.IsEncrypted%2A>および<xref:System.Net.Security.SslStream.IsSigned%2A>プロパティ</xref:System.Net.Security.SslStream.IsSigned%2A></xref:System.Net.Security.SslStream.IsEncrypted%2A>をチェックする必要があります。 チェック、<xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A>相互認証が行われたかどうかを決定するプロパティ</xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A>。       受信した認証に失敗した場合、 <xref:System.Security.Authentication.AuthenticationException>、され、この<xref:System.Net.Security.SslStream>、使用できなくします</xref:System.Net.Security.SslStream></xref:System.Security.Authentication.AuthenticationException>。 このオブジェクトを閉じるし、ガベージ コレクターによって収集できるように、すべての参照を削除する必要があります。      > [!NOTE] > SSL バージョン 2 プロトコルでは、クライアント証明書はサポートされていません。"
   syntax:
     content: public virtual System.Threading.Tasks.Task AuthenticateAsClientAsync (string targetHost, System.Security.Cryptography.X509Certificates.X509CertificateCollection clientCertificates, System.Security.Authentication.SslProtocols enabledSslProtocols, bool checkCertificateRevocation);
     parameters:
     - id: targetHost
       type: System.String
-      description: "The name of the server that will share this <xref href=&quot;System.Net.Security.SslStream&quot;></xref>."
+      description: "これを共有するサーバーの名前<xref href=&quot;System.Net.Security.SslStream&quot;></xref>です。"
     - id: clientCertificates
       type: System.Security.Cryptography.X509Certificates.X509CertificateCollection
-      description: "The <xref href=&quot;System.Security.Cryptography.X509Certificates.X509CertificateCollection&quot;></xref> that contains client certificates."
+      description: "<xref href=&quot;System.Security.Cryptography.X509Certificates.X509CertificateCollection&quot;> </xref>クライアント証明書を格納しています。"
     - id: enabledSslProtocols
       type: System.Security.Authentication.SslProtocols
-      description: "The <xref:System.Security.Authentication.SslProtocols> value that represents the protocol used for authentication."
+      description: "<xref:System.Security.Authentication.SslProtocols>認証に使用されるプロトコルを表す値</xref:System.Security.Authentication.SslProtocols>。"
     - id: checkCertificateRevocation
       type: System.Boolean
-      description: "A <xref:System.Boolean> value that specifies whether the certificate revocation list is checked during authentication."
+      description: "A<xref:System.Boolean>認証時に証明書失効リストをチェックするかどうかを指定する値</xref:System.Boolean>。"
     return:
       type: System.Threading.Tasks.Task
-      description: "Returns <xref:System.Threading.Tasks.Task>       The task object representing the asynchronous operation."
+      description: "返します<xref:System.Threading.Tasks.Task>非同期操作を表すタスク オブジェクト</xref:System.Threading.Tasks.Task>。"
   overload: System.Net.Security.SslStream.AuthenticateAsClientAsync*
   exceptions: []
   platform:
@@ -420,31 +420,31 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Called by servers to authenticate the server and optionally the client in a client-server connection using the specified certificate."
-  remarks: "This method authenticates using <xref:System.Security.Authentication.SslProtocols>. The certificate revocation list is not checked during authentication. The client is not required to provide a certificate for authentication.       This method blocks until the operation completes. To prevent blocking until the operation completes, use one of the <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> method overloads.       If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector."
+  summary: "サーバーと、必要に応じて指定された証明書を使用するクライアントとサーバー接続でクライアントを認証するサーバーによって呼び出されます。"
+  remarks: "このメソッドが<xref:System.Security.Authentication.SslProtocols>。</xref:System.Security.Authentication.SslProtocols>を使用して認証します。 証明書失効リストは、認証時にチェックされません。 クライアントは、認証用証明書を提供する必要はありません。       このメソッドは、操作が完了するまでブロックします。 操作が完了するまでブロックを防ぐためには、いずれかの操作を使用して、<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A>メソッドのオーバー ロード</xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A>。       受信した認証に失敗した場合、 <xref:System.Security.Authentication.AuthenticationException>、され、この<xref:System.Net.Security.SslStream>、使用できなくします</xref:System.Net.Security.SslStream></xref:System.Security.Authentication.AuthenticationException>。 このオブジェクトを閉じるし、ガベージ コレクターによって収集できるように、すべての参照を削除する必要があります。"
   syntax:
     content: public virtual void AuthenticateAsServer (System.Security.Cryptography.X509Certificates.X509Certificate serverCertificate);
     parameters:
     - id: serverCertificate
       type: System.Security.Cryptography.X509Certificates.X509Certificate
-      description: "The certificate used to authenticate the server."
+      description: "サーバーの認証に使用される証明書。"
   overload: System.Net.Security.SslStream.AuthenticateAsServer*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>serverCertificate</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>serverCertificate</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Authentication.AuthenticationException
     commentId: T:System.Security.Authentication.AuthenticationException
-    description: "The authentication failed and left this object in an unusable state."
+    description: "認証が失敗し、このオブジェクトを使用できない状態のままです。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has already occurred.       -or-       Client authentication using this <xref href=&quot;System.Net.Security.SslStream&quot;></xref> was tried previously.       -or-       Authentication is already in progress."
+    description: "認証が既に発生しました。       - または - これを使用してクライアント認証<xref href=&quot;System.Net.Security.SslStream&quot;></xref>が以前に試行します。       - または - 認証が既に進行中です。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been closed."
+    description: "このオブジェクトが閉じられました。"
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The <xref:System.Net.Security.SslStream.AuthenticateAsServer*> method is not supported on Windows 95, Windows 98, or Windows Millennium."
+    description: "<xref:System.Net.Security.SslStream.AuthenticateAsServer*>メソッドは、Windows 95、Windows 98 または Windows Millennium でサポートされていません</xref:System.Net.Security.SslStream.AuthenticateAsServer*>。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.AuthenticateAsServer(System.Security.Cryptography.X509Certificates.X509Certificate,System.Boolean,System.Security.Authentication.SslProtocols,System.Boolean)
@@ -459,43 +459,43 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Called by servers to authenticate the server and optionally the client in a client-server connection using the specified certificates, requirements and security protocol."
-  remarks: "This method blocks until the operation completes. To prevent blocking until the operation completes, use one of the <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> method overloads.       If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector."
+  summary: "サーバーと、必要に応じて、指定された証明書の要件、セキュリティ プロトコルを使用するクライアントとサーバー接続でクライアントを認証するサーバーによって呼び出されます。"
+  remarks: "このメソッドは、操作が完了するまでブロックします。 操作が完了するまでブロックを防ぐためには、いずれかの操作を使用して、<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A>メソッドのオーバー ロード</xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A>。       受信した認証に失敗した場合、 <xref:System.Security.Authentication.AuthenticationException>、され、この<xref:System.Net.Security.SslStream>、使用できなくします</xref:System.Net.Security.SslStream></xref:System.Security.Authentication.AuthenticationException>。 このオブジェクトを閉じるし、ガベージ コレクターによって収集できるように、すべての参照を削除する必要があります。"
   syntax:
     content: public virtual void AuthenticateAsServer (System.Security.Cryptography.X509Certificates.X509Certificate serverCertificate, bool clientCertificateRequired, System.Security.Authentication.SslProtocols enabledSslProtocols, bool checkCertificateRevocation);
     parameters:
     - id: serverCertificate
       type: System.Security.Cryptography.X509Certificates.X509Certificate
-      description: "The X509Certificate used to authenticate the server."
+      description: "X509certificate からサーバーを認証するために使用します。"
     - id: clientCertificateRequired
       type: System.Boolean
-      description: "A <xref:System.Boolean> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request -- if no certificate is provided, the server still accepts the connection request."
+      description: "A<xref:System.Boolean>クライアントが認証用証明書を要求するかどうかを指定する値</xref:System.Boolean>。 証明書が提供されない場合、サーバーがまだ接続要求を受け入れる--要求だけであるに注意してください。"
     - id: enabledSslProtocols
       type: System.Security.Authentication.SslProtocols
-      description: "The <xref:System.Security.Authentication.SslProtocols> value that represents the protocol used for authentication."
+      description: "<xref:System.Security.Authentication.SslProtocols>認証に使用されるプロトコルを表す値</xref:System.Security.Authentication.SslProtocols>。"
     - id: checkCertificateRevocation
       type: System.Boolean
-      description: "A <xref:System.Boolean> value that specifies whether the certificate revocation list is checked during authentication."
+      description: "A<xref:System.Boolean>認証時に証明書失効リストをチェックするかどうかを指定する値</xref:System.Boolean>。"
   overload: System.Net.Security.SslStream.AuthenticateAsServer*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>serverCertificate</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>serverCertificate</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>enabledSslProtocols</code> is not a valid <xref:System.Security.Authentication.SslProtocols> value."
+    description: "<code>enabledSslProtocols</code>有効ではありません<xref:System.Security.Authentication.SslProtocols>値。"
   - type: System.Security.Authentication.AuthenticationException
     commentId: T:System.Security.Authentication.AuthenticationException
-    description: "The authentication failed and left this object in an unusable state."
+    description: "認証が失敗し、このオブジェクトを使用できない状態のままです。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has already occurred.       -or-       Client authentication using this <xref href=&quot;System.Net.Security.SslStream&quot;></xref> was tried previously.       -or-       Authentication is already in progress."
+    description: "認証が既に発生しました。       - または - これを使用してクライアント認証<xref href=&quot;System.Net.Security.SslStream&quot;></xref>が以前に試行します。       - または - 認証が既に進行中です。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been closed."
+    description: "このオブジェクトが閉じられました。"
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The <xref:System.Net.Security.SslStream.AuthenticateAsServer*> method is not supported on Windows 95, Windows 98, or Windows Millennium."
+    description: "<xref:System.Net.Security.SslStream.AuthenticateAsServer*>メソッドは、Windows 95、Windows 98 または Windows Millennium でサポートされていません</xref:System.Net.Security.SslStream.AuthenticateAsServer*>。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.AuthenticateAsServerAsync(System.Security.Cryptography.X509Certificates.X509Certificate)
@@ -510,34 +510,34 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Called by servers to authenticate the server and optionally the client in a client-server connection using the specified certificate as an asynchronous operation."
-  remarks: "This method authenticates using <xref:System.Security.Authentication.SslProtocols>. The certificate revocation list is not checked during authentication. The client is not required to provide a certificate for authentication.       If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector."
+  summary: "サーバーと、必要に応じて、非同期操作として指定された証明書を使用するクライアントとサーバー接続でクライアントを認証するサーバーによって呼び出されます。"
+  remarks: "このメソッドが<xref:System.Security.Authentication.SslProtocols>。</xref:System.Security.Authentication.SslProtocols>を使用して認証します。 証明書失効リストは、認証時にチェックされません。 クライアントは、認証用証明書を提供する必要はありません。       受信した認証に失敗した場合、 <xref:System.Security.Authentication.AuthenticationException>、され、この<xref:System.Net.Security.SslStream>、使用できなくします</xref:System.Net.Security.SslStream></xref:System.Security.Authentication.AuthenticationException>。 このオブジェクトを閉じるし、ガベージ コレクターによって収集できるように、すべての参照を削除する必要があります。"
   syntax:
     content: public virtual System.Threading.Tasks.Task AuthenticateAsServerAsync (System.Security.Cryptography.X509Certificates.X509Certificate serverCertificate);
     parameters:
     - id: serverCertificate
       type: System.Security.Cryptography.X509Certificates.X509Certificate
-      description: "The certificate used to authenticate the server."
+      description: "サーバーの認証に使用される証明書。"
     return:
       type: System.Threading.Tasks.Task
-      description: "Returns <xref:System.Threading.Tasks.Task>       The task object representing the asynchronous operation."
+      description: "返します<xref:System.Threading.Tasks.Task>非同期操作を表すタスク オブジェクト</xref:System.Threading.Tasks.Task>。"
   overload: System.Net.Security.SslStream.AuthenticateAsServerAsync*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>serverCertificate</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>serverCertificate</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Authentication.AuthenticationException
     commentId: T:System.Security.Authentication.AuthenticationException
-    description: "The authentication failed and left this object in an unusable state."
+    description: "認証が失敗し、このオブジェクトを使用できない状態のままです。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has already occurred.       -or-       Client authentication using this <xref href=&quot;System.Net.Security.SslStream&quot;></xref> was tried previously.       -or-       Authentication is already in progress."
+    description: "認証が既に発生しました。       - または - これを使用してクライアント認証<xref href=&quot;System.Net.Security.SslStream&quot;></xref>が以前に試行します。       - または - 認証が既に進行中です。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been closed."
+    description: "このオブジェクトが閉じられました。"
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The <xref:System.Net.Security.SslStream.AuthenticateAsServerAsync*> method is not supported on Windows 95, Windows 98, or Windows Millennium."
+    description: "<xref:System.Net.Security.SslStream.AuthenticateAsServerAsync*>メソッドは、Windows 95、Windows 98 または Windows Millennium でサポートされていません</xref:System.Net.Security.SslStream.AuthenticateAsServerAsync*>。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.AuthenticateAsServerAsync(System.Security.Cryptography.X509Certificates.X509Certificate,System.Boolean,System.Security.Authentication.SslProtocols,System.Boolean)
@@ -552,26 +552,26 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Called by servers to authenticate the server and optionally the client in a client-server connection using the specified certificates, requirements and security protocol as an asynchronous operation."
-  remarks: "If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector."
+  summary: "サーバーと、必要に応じて、非同期操作として、指定された証明書の要件、セキュリティ プロトコルを使用するクライアントとサーバー接続でクライアントを認証するサーバーによって呼び出されます。"
+  remarks: "受信した認証に失敗した場合、 <xref:System.Security.Authentication.AuthenticationException>、され、この<xref:System.Net.Security.SslStream>、使用できなくします</xref:System.Net.Security.SslStream></xref:System.Security.Authentication.AuthenticationException>。 このオブジェクトを閉じるし、ガベージ コレクターによって収集できるように、すべての参照を削除する必要があります。"
   syntax:
     content: public virtual System.Threading.Tasks.Task AuthenticateAsServerAsync (System.Security.Cryptography.X509Certificates.X509Certificate serverCertificate, bool clientCertificateRequired, System.Security.Authentication.SslProtocols enabledSslProtocols, bool checkCertificateRevocation);
     parameters:
     - id: serverCertificate
       type: System.Security.Cryptography.X509Certificates.X509Certificate
-      description: "The X509Certificate used to authenticate the server."
+      description: "X509certificate からサーバーを認証するために使用します。"
     - id: clientCertificateRequired
       type: System.Boolean
-      description: "A <xref:System.Boolean> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request -- if no certificate is provided, the server still accepts the connection request."
+      description: "A<xref:System.Boolean>クライアントが認証用証明書を要求するかどうかを指定する値</xref:System.Boolean>。 証明書が提供されない場合、サーバーがまだ接続要求を受け入れる--要求だけであるに注意してください。"
     - id: enabledSslProtocols
       type: System.Security.Authentication.SslProtocols
-      description: "The <xref:System.Security.Authentication.SslProtocols> value that represents the protocol used for authentication."
+      description: "<xref:System.Security.Authentication.SslProtocols>認証に使用されるプロトコルを表す値</xref:System.Security.Authentication.SslProtocols>。"
     - id: checkCertificateRevocation
       type: System.Boolean
-      description: "A <xref:System.Boolean> value that specifies whether the certificate revocation list is checked during authentication."
+      description: "A<xref:System.Boolean>認証時に証明書失効リストをチェックするかどうかを指定する値</xref:System.Boolean>。"
     return:
       type: System.Threading.Tasks.Task
-      description: "Returns <xref:System.Threading.Tasks.Task>       The task object representing the asynchronous operation."
+      description: "返します<xref:System.Threading.Tasks.Task>非同期操作を表すタスク オブジェクト</xref:System.Threading.Tasks.Task>。"
   overload: System.Net.Security.SslStream.AuthenticateAsServerAsync*
   exceptions: []
   platform:
@@ -588,37 +588,37 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Called by clients to begin an asynchronous operation to authenticate the server and optionally the client."
-  remarks: "This method authenticates using <xref:System.Security.Authentication.SslProtocols>. No client certificates are used in the authentication. The certificate revocation list is not checked during authentication.       The value specified for `targetHost` must match the name on the server&quot;s certificate.       The asynchronous authentication operation must be completed by calling the <xref:System.Net.Security.SslStream.EndAuthenticateAsClient%2A> method. Typically, the method is invoked by the `asyncCallback` delegate.       This method does not block while the operation completes. To block until the operation completes, use one of the <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A> method overloads.       For detailed information about using the asynchronous programming model, see [Calling Synchronous Methods Asynchronously](~/add/includes/ajax-current-ext-md.md)       If you receive a <xref:System.Security.Authentication.AuthenticationException>, this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector."
+  summary: "クライアントがサーバーを認証する非同期操作を開始して、必要に応じて、クライアントによって呼び出されます。"
+  remarks: "このメソッドが<xref:System.Security.Authentication.SslProtocols>。</xref:System.Security.Authentication.SslProtocols>を使用して認証します。 認証では、クライアント証明書は使用されません。 証明書失効リストは、認証時にチェックされません。       指定された値`targetHost`サーバーの証明書の名前が一致する必要があります。       呼び出しで、認証の非同期操作を完了する必要があります、<xref:System.Net.Security.SslStream.EndAuthenticateAsClient%2A>メソッド</xref:System.Net.Security.SslStream.EndAuthenticateAsClient%2A>。 通常、このメソッドはによって、`asyncCallback`を委任します。       このメソッドは、操作が完了するにはブロックされません。 操作が完了するまでブロックするには、いずれかを使用、<xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>メソッドのオーバー ロード</xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>。       詳細については、非同期プログラミング モデルを使用して、次を参照してください[同期のメソッドを非同期に呼び出す](~/add/includes/ajax-current-ext-md.md)を受け取った場合、 <xref:System.Security.Authentication.AuthenticationException>、この<xref:System.Net.Security.SslStream>、使用できなくします。</xref:System.Net.Security.SslStream> </xref:System.Security.Authentication.AuthenticationException> 。 このオブジェクトを閉じるし、ガベージ コレクターによって収集できるように、すべての参照を削除する必要があります。"
   syntax:
     content: public virtual IAsyncResult BeginAuthenticateAsClient (string targetHost, AsyncCallback asyncCallback, object asyncState);
     parameters:
     - id: targetHost
       type: System.String
-      description: "The name of the server that shares this <xref href=&quot;System.Net.Security.SslStream&quot;></xref>."
+      description: "これを共有しているサーバーの名前<xref href=&quot;System.Net.Security.SslStream&quot;></xref>です。"
     - id: asyncCallback
       type: System.AsyncCallback
-      description: "An <xref:System.AsyncCallback> delegate that references the method to invoke when the authentication is complete."
+      description: "<xref:System.AsyncCallback>、認証が完了したときに呼び出されるメソッドを参照するデリゲート</xref:System.AsyncCallback>。"
     - id: asyncState
       type: System.Object
-      description: "A user-defined object that contains information about the operation. This object is passed to the `asyncCallback` delegate when the operation completes."
+      description: "操作に関する情報を含むユーザー定義のオブジェクト。 このオブジェクトは、`asyncCallback`操作の完了時に委任します。"
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> object that indicates the status of the asynchronous operation."
+      description: "<xref:System.IAsyncResult>非同期操作の状態を示すオブジェクト</xref:System.IAsyncResult>。"
   overload: System.Net.Security.SslStream.BeginAuthenticateAsClient*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetHost</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetHost</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Authentication.AuthenticationException
     commentId: T:System.Security.Authentication.AuthenticationException
-    description: "The authentication failed and left this object in an unusable state."
+    description: "認証が失敗し、このオブジェクトを使用できない状態のままです。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has already occurred.       -or-       Server authentication using this <xref href=&quot;System.Net.Security.SslStream&quot;></xref> was tried previously.       -or-       Authentication is already in progress."
+    description: "認証が既に発生しました。       - または - これを使用するサーバー認証<xref href=&quot;System.Net.Security.SslStream&quot;></xref>が以前に試行します。       - または - 認証が既に進行中です。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been closed."
+    description: "このオブジェクトが閉じられました。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.BeginAuthenticateAsClient(System.String,System.Security.Cryptography.X509Certificates.X509CertificateCollection,System.Security.Authentication.SslProtocols,System.Boolean,System.AsyncCallback,System.Object)
@@ -633,49 +633,49 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Called by clients to begin an asynchronous operation to authenticate the server and optionally the client using the specified certificates and security protocol."
-  remarks: "The value specified for `targetHost` must match the name on the server&quot;s certificate.       The asynchronous authentication operation must be completed by calling the <xref:System.Net.Security.SslStream.EndAuthenticateAsClient%2A> method. Typically, the method is invoked by the `asyncCallback` delegate.       This method does not block while the operation completes. To block until the operation completes, use one of the <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A> method overloads.       For detailed information about using the asynchronous programming model, see [Calling Synchronous Methods Asynchronously](~/add/includes/ajax-current-ext-md.md)       If you receive a <xref:System.Security.Authentication.AuthenticationException>, this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector.      > [!NOTE] >  Client certificates are not supported in the SSL version 2 protocol."
+  summary: "クライアントがサーバーを認証する非同期操作を開始して、必要に応じて、指定された証明書およびセキュリティ プロトコルを使用して、クライアントによって呼び出されます。"
+  remarks: "指定された値`targetHost`サーバーの証明書の名前が一致する必要があります。       呼び出しで、認証の非同期操作を完了する必要があります、<xref:System.Net.Security.SslStream.EndAuthenticateAsClient%2A>メソッド</xref:System.Net.Security.SslStream.EndAuthenticateAsClient%2A>。 通常、このメソッドはによって、`asyncCallback`を委任します。       このメソッドは、操作が完了するにはブロックされません。 操作が完了するまでブロックするには、いずれかを使用、<xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>メソッドのオーバー ロード</xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>。       詳細については、非同期プログラミング モデルを使用して、次を参照してください[同期のメソッドを非同期に呼び出す](~/add/includes/ajax-current-ext-md.md)を受け取った場合、 <xref:System.Security.Authentication.AuthenticationException>、この<xref:System.Net.Security.SslStream>、使用できなくします。</xref:System.Net.Security.SslStream> </xref:System.Security.Authentication.AuthenticationException> 。 このオブジェクトを閉じるし、ガベージ コレクターによって収集できるように、すべての参照を削除する必要があります。      > [!NOTE] > SSL バージョン 2 プロトコルでは、クライアント証明書はサポートされていません。"
   syntax:
     content: public virtual IAsyncResult BeginAuthenticateAsClient (string targetHost, System.Security.Cryptography.X509Certificates.X509CertificateCollection clientCertificates, System.Security.Authentication.SslProtocols enabledSslProtocols, bool checkCertificateRevocation, AsyncCallback asyncCallback, object asyncState);
     parameters:
     - id: targetHost
       type: System.String
-      description: "The name of the server that shares this <xref href=&quot;System.Net.Security.SslStream&quot;></xref>."
+      description: "これを共有しているサーバーの名前<xref href=&quot;System.Net.Security.SslStream&quot;></xref>です。"
     - id: clientCertificates
       type: System.Security.Cryptography.X509Certificates.X509CertificateCollection
-      description: "The <xref href=&quot;System.Security.Cryptography.X509Certificates.X509CertificateCollection&quot;></xref> containing client certificates."
+      description: "<xref href=&quot;System.Security.Cryptography.X509Certificates.X509CertificateCollection&quot;> </xref>クライアント証明書を格納します。"
     - id: enabledSslProtocols
       type: System.Security.Authentication.SslProtocols
-      description: "The <xref:System.Security.Authentication.SslProtocols> value that represents the protocol used for authentication."
+      description: "<xref:System.Security.Authentication.SslProtocols>認証に使用されるプロトコルを表す値</xref:System.Security.Authentication.SslProtocols>。"
     - id: checkCertificateRevocation
       type: System.Boolean
-      description: "A <xref:System.Boolean> value that specifies whether the certificate revocation list is checked during authentication."
+      description: "A<xref:System.Boolean>認証時に証明書失効リストをチェックするかどうかを指定する値</xref:System.Boolean>。"
     - id: asyncCallback
       type: System.AsyncCallback
-      description: "An <xref:System.AsyncCallback> delegate that references the method to invoke when the authentication is complete."
+      description: "<xref:System.AsyncCallback>、認証が完了したときに呼び出されるメソッドを参照するデリゲート</xref:System.AsyncCallback>。"
     - id: asyncState
       type: System.Object
-      description: "A user-defined object that contains information about the operation. This object is passed to the `asyncCallback` delegate when the operation completes."
+      description: "操作に関する情報を含むユーザー定義のオブジェクト。 このオブジェクトは、`asyncCallback`操作の完了時に委任します。"
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> object that indicates the status of the asynchronous operation."
+      description: "<xref:System.IAsyncResult>非同期操作の状態を示すオブジェクト</xref:System.IAsyncResult>。"
   overload: System.Net.Security.SslStream.BeginAuthenticateAsClient*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetHost</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetHost</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>enabledSslProtocols</code> is not a valid <xref:System.Security.Authentication.SslProtocols> value."
+    description: "<code>enabledSslProtocols</code>有効ではありません<xref:System.Security.Authentication.SslProtocols>値。"
   - type: System.Security.Authentication.AuthenticationException
     commentId: T:System.Security.Authentication.AuthenticationException
-    description: "The authentication failed and left this object in an unusable state."
+    description: "認証が失敗し、このオブジェクトを使用できない状態のままです。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has already occurred.       -or-       Server authentication using this <xref href=&quot;System.Net.Security.SslStream&quot;></xref> was tried previously.       -or-       Authentication is already in progress."
+    description: "認証が既に発生しました。       - または - これを使用するサーバー認証<xref href=&quot;System.Net.Security.SslStream&quot;></xref>が以前に試行します。       - または - 認証が既に進行中です。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been closed."
+    description: "このオブジェクトが閉じられました。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.BeginAuthenticateAsServer(System.Security.Cryptography.X509Certificates.X509Certificate,System.AsyncCallback,System.Object)
@@ -690,40 +690,40 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Called by servers to begin an asynchronous operation to authenticate the client and optionally the server in a client-server connection."
-  remarks: "This method authenticates using <xref:System.Security.Authentication.SslProtocols>. The certificate revocation list is not checked during authentication. The client is not required to provide a certificate for authentication.       The asynchronous authentication operation must be completed by calling the <xref:System.Net.Security.SslStream.EndAuthenticateAsClient%2A> method. Typically, the method is invoked by the `asyncCallback` delegate.       This method does not block while the operation completes. To block until the operation completes, use one of the <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A> method overloads.       For detailed information about using the asynchronous programming model, see [Calling Synchronous Methods Asynchronously](~/add/includes/ajax-current-ext-md.md)       If you receive a <xref:System.Security.Authentication.AuthenticationException>, this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector."
+  summary: "クライアントを認証する非同期操作を開始するサーバーと必要に応じてクライアント サーバー接続で、サーバーによって呼び出されます。"
+  remarks: "このメソッドが<xref:System.Security.Authentication.SslProtocols>。</xref:System.Security.Authentication.SslProtocols>を使用して認証します。 証明書失効リストは、認証時にチェックされません。 クライアントは、認証用証明書を提供する必要はありません。       呼び出しで、認証の非同期操作を完了する必要があります、<xref:System.Net.Security.SslStream.EndAuthenticateAsClient%2A>メソッド</xref:System.Net.Security.SslStream.EndAuthenticateAsClient%2A>。 通常、このメソッドはによって、`asyncCallback`を委任します。       このメソッドは、操作が完了するにはブロックされません。 操作が完了するまでブロックするには、いずれかを使用、<xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>メソッドのオーバー ロード</xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>。       詳細については、非同期プログラミング モデルを使用して、次を参照してください[同期のメソッドを非同期に呼び出す](~/add/includes/ajax-current-ext-md.md)を受け取った場合、 <xref:System.Security.Authentication.AuthenticationException>、この<xref:System.Net.Security.SslStream>、使用できなくします。</xref:System.Net.Security.SslStream> </xref:System.Security.Authentication.AuthenticationException> 。 このオブジェクトを閉じるし、ガベージ コレクターによって収集できるように、すべての参照を削除する必要があります。"
   syntax:
     content: public virtual IAsyncResult BeginAuthenticateAsServer (System.Security.Cryptography.X509Certificates.X509Certificate serverCertificate, AsyncCallback asyncCallback, object asyncState);
     parameters:
     - id: serverCertificate
       type: System.Security.Cryptography.X509Certificates.X509Certificate
-      description: "The X509Certificate used to authenticate the server."
+      description: "X509certificate からサーバーを認証するために使用します。"
     - id: asyncCallback
       type: System.AsyncCallback
-      description: "An <xref:System.AsyncCallback> delegate that references the method to invoke when the authentication is complete."
+      description: "<xref:System.AsyncCallback>、認証が完了したときに呼び出されるメソッドを参照するデリゲート</xref:System.AsyncCallback>。"
     - id: asyncState
       type: System.Object
-      description: "A user-defined object that contains information about the operation. This object is passed to the `asyncCallback` delegate when the operation completes."
+      description: "操作に関する情報を含むユーザー定義のオブジェクト。 このオブジェクトは、`asyncCallback`操作の完了時に委任します。"
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> object indicating the status of the asynchronous operation."
+      description: "<xref:System.IAsyncResult>非同期操作の状態を示すオブジェクト</xref:System.IAsyncResult>。"
   overload: System.Net.Security.SslStream.BeginAuthenticateAsServer*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>serverCertificate</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>serverCertificate</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Authentication.AuthenticationException
     commentId: T:System.Security.Authentication.AuthenticationException
-    description: "The authentication failed and left this object in an unusable state."
+    description: "認証が失敗し、このオブジェクトを使用できない状態のままです。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has already occurred.       -or-       Client authentication using this <xref href=&quot;System.Net.Security.SslStream&quot;></xref> was tried previously.       -or-       Authentication is already in progress."
+    description: "認証が既に発生しました。       - または - これを使用してクライアント認証<xref href=&quot;System.Net.Security.SslStream&quot;></xref>が以前に試行します。       - または - 認証が既に進行中です。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been closed."
+    description: "このオブジェクトが閉じられました。"
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer*> method is not supported on Windows 95, Windows 98, or Windows Millennium."
+    description: "<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer*>メソッドは、Windows 95、Windows 98 または Windows Millennium でサポートされていません</xref:System.Net.Security.SslStream.BeginAuthenticateAsServer*>。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.BeginAuthenticateAsServer(System.Security.Cryptography.X509Certificates.X509Certificate,System.Boolean,System.Security.Authentication.SslProtocols,System.Boolean,System.AsyncCallback,System.Object)
@@ -738,52 +738,52 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Called by servers to begin an asynchronous operation to authenticate the server and optionally the client using the specified certificates, requirements and security protocol."
-  remarks: "The asynchronous authentication operation must be completed by calling the <xref:System.Net.Security.SslStream.EndAuthenticateAsServer%2A> method. Typically, the method is invoked by the `asyncCallback` delegate.       This method does not block while the operation completes. To block until the operation completes, use one of the <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A> method overloads.       For detailed information about using the asynchronous programming model, see [Calling Synchronous Methods Asynchronously](~/add/includes/ajax-current-ext-md.md)       If you receive a <xref:System.Security.Authentication.AuthenticationException>, this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector."
+  summary: "サーバーと、必要に応じて、指定された証明書の要件、セキュリティ プロトコルを使用してクライアントを認証する非同期操作を開始するサーバーによって呼び出されます。"
+  remarks: "呼び出しで、認証の非同期操作を完了する必要があります、<xref:System.Net.Security.SslStream.EndAuthenticateAsServer%2A>メソッド</xref:System.Net.Security.SslStream.EndAuthenticateAsServer%2A>。 通常、このメソッドはによって、`asyncCallback`を委任します。       このメソッドは、操作が完了するにはブロックされません。 操作が完了するまでブロックするには、いずれかを使用、<xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>メソッドのオーバー ロード</xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>。       詳細については、非同期プログラミング モデルを使用して、次を参照してください[同期のメソッドを非同期に呼び出す](~/add/includes/ajax-current-ext-md.md)を受け取った場合、 <xref:System.Security.Authentication.AuthenticationException>、この<xref:System.Net.Security.SslStream>、使用できなくします。</xref:System.Net.Security.SslStream> </xref:System.Security.Authentication.AuthenticationException> 。 このオブジェクトを閉じるし、ガベージ コレクターによって収集できるように、すべての参照を削除する必要があります。"
   syntax:
     content: public virtual IAsyncResult BeginAuthenticateAsServer (System.Security.Cryptography.X509Certificates.X509Certificate serverCertificate, bool clientCertificateRequired, System.Security.Authentication.SslProtocols enabledSslProtocols, bool checkCertificateRevocation, AsyncCallback asyncCallback, object asyncState);
     parameters:
     - id: serverCertificate
       type: System.Security.Cryptography.X509Certificates.X509Certificate
-      description: "The X509Certificate used to authenticate the server."
+      description: "X509certificate からサーバーを認証するために使用します。"
     - id: clientCertificateRequired
       type: System.Boolean
-      description: "A <xref:System.Boolean> value that specifies whether the client is asked for a certificate for authentication. Note that this is only a request -- if no certificate is provided, the server still accepts the connection request."
+      description: "A<xref:System.Boolean>クライアントが認証用証明書を要求するかどうかを指定する値</xref:System.Boolean>。 証明書が提供されない場合、サーバーがまだ接続要求を受け入れる--要求だけであるに注意してください。"
     - id: enabledSslProtocols
       type: System.Security.Authentication.SslProtocols
-      description: "The <xref:System.Security.Authentication.SslProtocols> value that represents the protocol used for authentication."
+      description: "<xref:System.Security.Authentication.SslProtocols>認証に使用されるプロトコルを表す値</xref:System.Security.Authentication.SslProtocols>。"
     - id: checkCertificateRevocation
       type: System.Boolean
-      description: "A <xref:System.Boolean> value that specifies whether the certificate revocation list is checked during authentication."
+      description: "A<xref:System.Boolean>認証時に証明書失効リストをチェックするかどうかを指定する値</xref:System.Boolean>。"
     - id: asyncCallback
       type: System.AsyncCallback
-      description: "An <xref:System.AsyncCallback> delegate that references the method to invoke when the authentication is complete."
+      description: "<xref:System.AsyncCallback>、認証が完了したときに呼び出されるメソッドを参照するデリゲート</xref:System.AsyncCallback>。"
     - id: asyncState
       type: System.Object
-      description: "A user-defined object that contains information about the operation. This object is passed to the `asyncCallback` delegate when the operation completes."
+      description: "操作に関する情報を含むユーザー定義のオブジェクト。 このオブジェクトは、`asyncCallback`操作の完了時に委任します。"
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> object that indicates the status of the asynchronous operation."
+      description: "<xref:System.IAsyncResult>非同期操作の状態を示すオブジェクト</xref:System.IAsyncResult>。"
   overload: System.Net.Security.SslStream.BeginAuthenticateAsServer*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>serverCertificate</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>serverCertificate</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>enabledSslProtocols</code> is not a valid <xref:System.Security.Authentication.SslProtocols> value."
+    description: "<code>enabledSslProtocols</code>有効ではありません<xref:System.Security.Authentication.SslProtocols>値。"
   - type: System.Security.Authentication.AuthenticationException
     commentId: T:System.Security.Authentication.AuthenticationException
-    description: "The authentication failed and left this object in an unusable state."
+    description: "認証が失敗し、このオブジェクトを使用できない状態のままです。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has already occurred.       -or-       Server authentication using this <xref href=&quot;System.Net.Security.SslStream&quot;></xref> was tried previously.       -or-       Authentication is already in progress."
+    description: "認証が既に発生しました。       - または - これを使用するサーバー認証<xref href=&quot;System.Net.Security.SslStream&quot;></xref>が以前に試行します。       - または - 認証が既に進行中です。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been closed."
+    description: "このオブジェクトが閉じられました。"
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer*> method is not supported on Windows 95, Windows 98, or Windows Millennium."
+    description: "<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer*>メソッドは、Windows 95、Windows 98 または Windows Millennium でサポートされていません</xref:System.Net.Security.SslStream.BeginAuthenticateAsServer*>。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)
@@ -798,8 +798,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Begins an asynchronous read operation that reads data from the stream and stores it in the specified array."
-  remarks: "If encryption and or signing are enabled, the read operation reads the data from the underlying stream, checks the integrity of the data, and/or decrypts it. The asynchronous read operation must be completed by calling the <xref:System.Net.Security.SslStream.EndRead%2A> method. Typically, the method is invoked by the `asyncCallback` delegate.       This method does not block while the operation completes. To block until the operation completes, use the <xref:System.Net.Security.SslStream.Read%2A> method.       For detailed information about using the asynchronous programming model, see [Calling Synchronous Methods Asynchronously](~/add/includes/ajax-current-ext-md.md)       The <xref:System.Net.Security.SslStream> class does not support multiple simultaneous read operations.       You cannot call this method until you have successfully authenticated. To authenticate call one of the <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>, or <xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>, <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>, <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> methods."
+  summary: "ストリームからデータを読み取り、指定した配列に格納する非同期読み取り操作を開始します。"
+  remarks: "暗号化や署名が有効になっている場合、読み取り操作が基になるストリームからデータを読み取り、データの整合性をチェックおよび復号化できます。 非同期の読み取り操作を呼び出すことによって完了する必要があります、<xref:System.Net.Security.SslStream.EndRead%2A>メソッド</xref:System.Net.Security.SslStream.EndRead%2A>。 通常、このメソッドはによって、`asyncCallback`を委任します。       このメソッドは、操作が完了するにはブロックされません。 使用して、操作が完了するまで、禁止する、<xref:System.Net.Security.SslStream.Read%2A>メソッド</xref:System.Net.Security.SslStream.Read%2A>。       詳細については、非同期プログラミング モデルを使用して、次を参照してください[同期のメソッドを非同期に呼び出す](~/add/includes/ajax-current-ext-md.md)、<xref:System.Net.Security.SslStream>クラスが複数の同時読み取り操作をサポートしていません。</xref:System.Net.Security.SslStream> 。       正常に認証が完了するまでは、このメソッドを呼び出すことはできません。 いずれかの呼び出しを認証するために、 <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>、または<xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>、 <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>、<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A>メソッド</xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A></xref:System.Net.Security.SslStream.AuthenticateAsServer%2A></xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A></xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>。"
   example:
   - "The following code example demonstrates starting an asynchronous read operation.  \n  \n [!code-cpp[NclSslClientAsync#8](~/add/codesnippet/cpp/97989688-3a5b-49ee-9639-_1.cpp)]\n [!code-cs[NclSslClientAsync#8](~/add/codesnippet/csharp/97989688-3a5b-49ee-9639-_1.cs)]  \n  \n [!code-cpp[NclSslClientAsync#4](~/add/codesnippet/cpp/97989688-3a5b-49ee-9639-_2.cpp)]\n [!code-cs[NclSslClientAsync#4](~/add/codesnippet/csharp/97989688-3a5b-49ee-9639-_2.cs)]  \n  \n The following method is called when the read completes.  \n  \n [!code-cpp[NclSslClientAsync#5](~/add/codesnippet/cpp/97989688-3a5b-49ee-9639-_3.cpp)]\n [!code-cs[NclSslClientAsync#5](~/add/codesnippet/csharp/97989688-3a5b-49ee-9639-_3.cs)]"
   syntax:
@@ -807,42 +807,42 @@ items:
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "A <xref:System.Byte> array that receives the bytes read from the stream."
+      description: "A<xref:System.Byte>ストリームから読み取ったバイトを受け取る配列</xref:System.Byte>。"
     - id: offset
       type: System.Int32
-      description: "The zero-based location in `buffer` at which to begin storing the data read from this stream."
+      description: "内の&0; から始まる場所`buffer`このストリームから読み取ったデータの格納を開始する位置。"
     - id: count
       type: System.Int32
-      description: "The maximum number of bytes to read from the stream."
+      description: "ストリームから読み取るバイトの最大数。"
     - id: asyncCallback
       type: System.AsyncCallback
-      description: "An <xref:System.AsyncCallback> delegate that references the method to invoke when the read operation is complete."
+      description: "<xref:System.AsyncCallback>読み取り操作の完了時に呼び出すメソッドを参照するデリゲート</xref:System.AsyncCallback>。"
     - id: asyncState
       type: System.Object
-      description: "A user-defined object that contains information about the read operation. This object is passed to the `asyncCallback` delegate when the operation completes."
+      description: "読み取り操作に関する情報を含むユーザー定義のオブジェクト。 このオブジェクトは、`asyncCallback`操作の完了時に委任します。"
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> object that indicates the status of the asynchronous operation."
+      description: "<xref:System.IAsyncResult>非同期操作の状態を示すオブジェクト</xref:System.IAsyncResult>。"
   overload: System.Net.Security.SslStream.BeginRead*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>buffer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>buffer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>offset</code>     <code>&lt;</code>     <code>0</code>.       <code>-or-</code><code>offset</code> &gt; the length of <code>buffer</code>.       -or-       <code>offset</code> + count &gt; the length of <code>buffer</code>."
+    description: "<code>offset</code>     <code>&lt;</code>     <code>0</code>.       <code>-or-</code><code>offset</code>&gt;の長さ<code>buffer</code>です。       -or-       <code>offset</code> + count &gt; the length of <code>buffer</code>."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The read operation failed.       -or-       Encryption is in use, but the data could not be decrypted."
+    description: "読み取り操作が失敗しました。       - または - 暗号化を使用していますが、データの暗号化を解除できませんでした。"
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "There is already a read operation in progress."
+    description: "実行中の読み取り操作が既に存在します。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been closed."
+    description: "このオブジェクトが閉じられました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has not occurred."
+    description: "認証が行われていません。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)
@@ -857,7 +857,7 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Begins an asynchronous write operation that writes <xref:System.Byte>s from the specified buffer to the stream."
+  summary: "書き込む非同期の書き込み操作を開始<xref:System.Byte>ストリームに指定されたバッファーから s</xref:System.Byte> 。"
   remarks: ''
   example:
   - "The following code example demonstrates calling this method.  \n  \n [!code-cs[NclSslServerAsync#5](~/add/codesnippet/csharp/7192cc61-a256-4249-aafa-_1.cs)]\n [!code-cpp[NclSslServerAsync#5](~/add/codesnippet/cpp/7192cc61-a256-4249-aafa-_1.cpp)]"
@@ -866,42 +866,42 @@ items:
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "A <xref:System.Byte> array that supplies the bytes to be written to the stream."
+      description: "A<xref:System.Byte>をストリームに書き込まれるバイト数を提供します</xref:System.Byte>。"
     - id: offset
       type: System.Int32
-      description: "The zero-based location in `buffer` at which to begin reading bytes to be written to the stream."
+      description: "内の&0; から始まる場所`buffer`ストリームに書き込まれるバイトの読み取りを開始する位置。"
     - id: count
       type: System.Int32
-      description: "An <xref:System.Int32> value that specifies the number of bytes to read from `buffer`."
+      description: "<xref:System.Int32>から読み取るバイト数を指定する値`buffer`</xref:System.Int32>。"
     - id: asyncCallback
       type: System.AsyncCallback
-      description: "An <xref:System.AsyncCallback> delegate that references the method to invoke when the write operation is complete."
+      description: "<xref:System.AsyncCallback>書き込み操作の完了時に呼び出すメソッドを参照するデリゲート</xref:System.AsyncCallback>。"
     - id: asyncState
       type: System.Object
-      description: "A user-defined object that contains information about the write operation. This object is passed to the `asyncCallback` delegate when the operation completes."
+      description: "書き込み操作に関する情報を含むユーザー定義のオブジェクト。 このオブジェクトは、`asyncCallback`操作の完了時に委任します。"
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> object indicating the status of the asynchronous operation."
+      description: "<xref:System.IAsyncResult>非同期操作の状態を示すオブジェクト</xref:System.IAsyncResult>。"
   overload: System.Net.Security.SslStream.BeginWrite*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>buffer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>buffer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>offset</code>     <code>&lt;</code>     <code>0</code>.       <code>-or-</code><code>offset</code> &gt; the length of <code>buffer</code>.       -or-       <code>offset</code> + count &gt; the length of <code>buffer</code>."
+    description: "<code>offset</code>     <code>&lt;</code>     <code>0</code>.       <code>-or-</code><code>offset</code>&gt;の長さ<code>buffer</code>です。       -or-       <code>offset</code> + count &gt; the length of <code>buffer</code>."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The write operation failed."
+    description: "書き込み操作に失敗しました。"
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "There is already a write operation in progress."
+    description: "実行中の書き込み操作が既に存在します。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been closed."
+    description: "このオブジェクトが閉じられました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has not occurred."
+    description: "認証が行われていません。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.CanRead
@@ -916,15 +916,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets a <xref:System.Boolean> value that indicates whether the underlying stream is readable."
-  remarks: "If successful authentication has occurred, this property returns the value returned by invoking <xref:System.IO.Stream.CanRead%2A> on the underlying stream.       The underlying stream is specified when you create an instance of the <xref:System.Net.Security.SslStream> class."
+  summary: "取得、<xref:System.Boolean>を基になるストリームが読み取り可能かどうかを示す値</xref:System.Boolean>。"
+  remarks: "成功した認証が発生した場合、このプロパティは呼び出しによって返される値を返します<xref:System.IO.Stream.CanRead%2A>基になるストリーム</xref:System.IO.Stream.CanRead%2A>。       <xref:System.Net.Security.SslStream>クラス</xref:System.Net.Security.SslStream>のインスタンスを作成するときに、基になるストリームが指定されています。"
   example:
   - "The following code example demonstrates displaying the value of this property.  \n  \n [!code-cpp[NclSslServerSync#5](~/add/codesnippet/cpp/p-system.net.security.ss_14_1.cpp)]\n [!code-cs[NclSslServerSync#5](~/add/codesnippet/csharp/p-system.net.security.ss_14_1.cs)]"
   syntax:
     content: public override bool CanRead { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if authentication has occurred and the underlying stream is readable; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>認証が行われ、基になるストリームが読み取り可能な場合それ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.Security.SslStream.CanRead*
   exceptions: []
   platform:
@@ -941,13 +941,13 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets a <xref:System.Boolean> value that indicates whether the underlying stream is seekable."
-  remarks: "Do not attempt to set the position of the <xref:System.Net.Security.SslStream> object or its underlying stream.       The underlying stream is specified when you create an instance of the <xref:System.Net.Security.SslStream> class."
+  summary: "取得、<xref:System.Boolean>を基になるストリームがシーク可能かどうかを示す値</xref:System.Boolean>。"
+  remarks: "位置を設定しないでください、<xref:System.Net.Security.SslStream>オブジェクトまたはその基になるストリーム</xref:System.Net.Security.SslStream>。       <xref:System.Net.Security.SslStream>クラス</xref:System.Net.Security.SslStream>のインスタンスを作成するときに、基になるストリームが指定されています。"
   syntax:
     content: public override bool CanSeek { get; }
     return:
       type: System.Boolean
-      description: "This property always returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "このプロパティは常に返します<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.Security.SslStream.CanSeek*
   exceptions: []
   platform:
@@ -964,15 +964,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets a <xref:System.Boolean> value that indicates whether the underlying stream supports time-outs."
-  remarks: "This property returns the value returned by invoking <xref:System.IO.Stream.CanTimeout%2A> on the underlying stream.       The underlying stream is specified when you create an instance of the <xref:System.Net.Security.SslStream> class."
+  summary: "取得、<xref:System.Boolean>基になるストリームがタイムアウトをサポートするかどうかを示す値</xref:System.Boolean>。"
+  remarks: "このプロパティを呼び出すことによって返される値を返します<xref:System.IO.Stream.CanTimeout%2A>基になるストリーム</xref:System.IO.Stream.CanTimeout%2A>。       <xref:System.Net.Security.SslStream>クラス</xref:System.Net.Security.SslStream>のインスタンスを作成するときに、基になるストリームが指定されています。"
   example:
   - "The following code example demonstrates displaying the value of this property.  \n  \n [!code-cpp[NclSslServerSync#5](~/add/codesnippet/cpp/p-system.net.security.ss_8_1.cpp)]\n [!code-cs[NclSslServerSync#5](~/add/codesnippet/csharp/p-system.net.security.ss_8_1.cs)]"
   syntax:
     content: public override bool CanTimeout { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the underlying stream supports time-outs; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>基になるストリームがタイムアウトをサポートしている場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.Security.SslStream.CanTimeout*
   exceptions: []
   platform:
@@ -989,15 +989,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets a <xref:System.Boolean> value that indicates whether the underlying stream is writable."
-  remarks: "If successful authentication has occurred, this property returns the value returned by invoking <xref:System.IO.Stream.CanWrite%2A> on the underlying stream.       The underlying stream is specified when you create an instance of the <xref:System.Net.Security.SslStream> class."
+  summary: "取得、<xref:System.Boolean>を基になるストリームが書き込み可能かどうかを示す値</xref:System.Boolean>。"
+  remarks: "成功した認証が発生した場合、このプロパティは呼び出しによって返される値を返します<xref:System.IO.Stream.CanWrite%2A>基になるストリーム</xref:System.IO.Stream.CanWrite%2A>。       <xref:System.Net.Security.SslStream>クラス</xref:System.Net.Security.SslStream>のインスタンスを作成するときに、基になるストリームが指定されています。"
   example:
   - "The following code example demonstrates displaying the value of this property.  \n  \n [!code-cpp[NclSslServerSync#5](~/add/codesnippet/cpp/p-system.net.security.ss_17_1.cpp)]\n [!code-cs[NclSslServerSync#5](~/add/codesnippet/csharp/p-system.net.security.ss_17_1.cs)]"
   syntax:
     content: public override bool CanWrite { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if authentication has occurred and the underlying stream is writable; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>認証が行われ、基になるストリームが書き込み可能な場合それ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.Security.SslStream.CanWrite*
   exceptions: []
   platform:
@@ -1014,15 +1014,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets a <xref:System.Boolean> value that indicates whether the certificate revocation list is checked during the certificate validation process."
-  remarks: "The certificate revocation list contains certificates that have been revoked by the issuer. Checking the list negatively impacts performance but improves application security."
+  summary: "取得、<xref:System.Boolean>証明書の検証プロセス中に証明書失効リストを確認するかどうかを示す値</xref:System.Boolean>。"
+  remarks: "証明書失効リストには、発行元によって失効した証明書が含まれています。 悪影響を及ぼす一覧を確認すると、パフォーマンスに影響を与えますが、アプリケーションのセキュリティが向上します。"
   example:
   - "The following code example demonstrates displaying the value of this property.  \n  \n [!code-cpp[NclSslServerSync#5](~/add/codesnippet/cpp/p-system.net.security.ss_4_1.cpp)]\n [!code-cs[NclSslServerSync#5](~/add/codesnippet/csharp/p-system.net.security.ss_4_1.cs)]"
   syntax:
     content: public virtual bool CheckCertRevocationStatus { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the certificate revocation list is checked; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>証明書失効リストがチェックされている場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.Security.SslStream.CheckCertRevocationStatus*
   exceptions: []
   platform:
@@ -1039,20 +1039,20 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets a value that identifies the bulk encryption algorithm used by this <xref href=&quot;System.Net.Security.SslStream&quot;></xref>."
-  remarks: "A value of <xref:System.Security.Authentication.CipherAlgorithmType> is required for the CipherAlgorithm property when the <xref:System.Net.Security.EncryptionPolicy> enumeration value is used to construct a <xref:System.Net.Security.SslStream> instance.       [!INCLUDE[winxpsvr](~/add/includes/winxpsvr-md.md)] and [!INCLUDE[winxp](~/add/includes/winxp-md.md)] do not support the <xref:System.Security.Authentication.CipherAlgorithmType> value. So even if the <xref:System.Security.Authentication.CipherAlgorithmType> value is used to construct the <xref:System.Net.Security.SslStream> instance, the <xref:System.Net.Security.EncryptionPolicy> property will be <xref:System.Security.Authentication.CipherAlgorithmType>. The <xref:System.Security.Authentication.CipherAlgorithmType> value is only returned on Windows Vista and later."
+  summary: "これによって使用される一括暗号化アルゴリズムを識別する値を取得<xref href=&quot;System.Net.Security.SslStream&quot;></xref>です。"
+  remarks: "値<xref:System.Security.Authentication.CipherAlgorithmType>CipherAlgorithm プロパティに必要なときに、<xref:System.Net.Security.EncryptionPolicy>列挙値が構築するために使用される、<xref:System.Net.Security.SslStream>インスタンス</xref:System.Net.Security.SslStream></xref:System.Net.Security.EncryptionPolicy></xref:System.Security.Authentication.CipherAlgorithmType>。       [!INCLUDE[winxpsvr](~/add/includes/winxpsvr-md.md)]および[!INCLUDE[winxp](~/add/includes/winxp-md.md)]サポートしていない、<xref:System.Security.Authentication.CipherAlgorithmType>値</xref:System.Security.Authentication.CipherAlgorithmType>。 場合でも、<xref:System.Security.Authentication.CipherAlgorithmType>値がこの<xref:System.Net.Security.SslStream>インスタンスの<xref:System.Net.Security.EncryptionPolicy>プロパティに<xref:System.Security.Authentication.CipherAlgorithmType>.</xref:System.Security.Authentication.CipherAlgorithmType>なる</xref:System.Net.Security.EncryptionPolicy></xref:System.Net.Security.SslStream>を構築するために使用</xref:System.Security.Authentication.CipherAlgorithmType>する <xref:System.Security.Authentication.CipherAlgorithmType>Windows Vista 以降でのみ値が返されます</xref:System.Security.Authentication.CipherAlgorithmType>。"
   example:
   - "The following code example displays the cryptography settings for the specified stream.  \n  \n [!code-cpp[NclSslServerSync#3](~/add/codesnippet/cpp/p-system.net.security.ss_10_1.cpp)]\n [!code-cs[NclSslServerSync#3](~/add/codesnippet/csharp/p-system.net.security.ss_10_1.cs)]"
   syntax:
     content: public virtual System.Security.Authentication.CipherAlgorithmType CipherAlgorithm { get; }
     return:
       type: System.Security.Authentication.CipherAlgorithmType
-      description: "A <xref:System.Security.Authentication.CipherAlgorithmType> value."
+      description: "A<xref:System.Security.Authentication.CipherAlgorithmType>値</xref:System.Security.Authentication.CipherAlgorithmType>。"
   overload: System.Net.Security.SslStream.CipherAlgorithm*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The CipherAlgorithm property was accessed before the completion of the authentication process or the authentication process failed."
+    description: "認証プロセスや、認証プロセスの完了前に、CipherAlgorithm プロパティがアクセスされました。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.CipherStrength
@@ -1067,15 +1067,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets a value that identifies the strength of the cipher algorithm used by this <xref href=&quot;System.Net.Security.SslStream&quot;></xref>."
-  remarks: "The value of this property is zero until the authentication occurs.       This property returns one of the following values:      -   0      -   40      -   56      -   80      -   128      -   168      -   192      -   256"
+  summary: "これで使用される暗号アルゴリズムの強度を識別する値を取得<xref href=&quot;System.Net.Security.SslStream&quot;></xref>です。"
+  remarks: "認証が行われるまで、このプロパティの値は&0; です。       このプロパティは、次の値のいずれかを返します: - 0 - 40-56-80 128-168 192 - 256"
   example:
   - "The following code example displays the cryptography settings for the specified stream.  \n  \n [!code-cpp[NclSslServerSync#3](~/add/codesnippet/cpp/p-system.net.security.ss_6_1.cpp)]\n [!code-cs[NclSslServerSync#3](~/add/codesnippet/csharp/p-system.net.security.ss_6_1.cs)]"
   syntax:
     content: public virtual int CipherStrength { get; }
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> value that specifies the strength of the algorithm, in bits."
+      description: "<xref:System.Int32>、アルゴリズムの強度をビット単位で指定する値</xref:System.Int32>。"
   overload: System.Net.Security.SslStream.CipherStrength*
   exceptions: []
   platform:
@@ -1092,14 +1092,14 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.Net.Security.SslStream&quot;></xref> and optionally releases the managed resources."
-  remarks: "This method is called by the public `Dispose()`method and the <xref:System.Object.Finalize%2A> method. `Dispose()` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.       When the `disposing` parameter is true, this method releases all resources held by any managed objects that this <xref:System.Net.Security.SslStream> references. This method invokes the `Dispose()` method of each referenced object."
+  summary: "によって使用されるアンマネージ リソースを解放、 <xref href=&quot;System.Net.Security.SslStream&quot;> </xref>し、必要に応じてマネージ リソースを解放します。"
+  remarks: "このメソッドは、パブリック`Dispose()`メソッドおよび<xref:System.Object.Finalize%2A>メソッド</xref:System.Object.Finalize%2A>。 `Dispose()`プロテクト呼び出します`Dispose(Boolean)`メソッドを`disposing`パラメーターに設定`true`です。 <xref:System.Object.Finalize%2A>呼び出す`Dispose`で`disposing`&quot;éý&quot;`false`です。</xref:System.Object.Finalize%2A>       ときに、`disposing`パラメーターが true の場合、このメソッドは、すべてのマネージ オブジェクトによって保持されているすべてのリソースを解放しますこの<xref:System.Net.Security.SslStream>参照。</xref:System.Net.Security.SslStream> 。 このメソッドを呼び出して、`Dispose()`参照される各オブジェクトのメソッドです。"
   syntax:
     content: protected override void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>マネージ コードとアンマネージ リソースを解放するには<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>アンマネージ リソースだけを解放します。"
   overload: System.Net.Security.SslStream.Dispose*
   exceptions: []
   platform:
@@ -1116,28 +1116,28 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Ends a pending asynchronous server authentication operation started with a previous call to <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer*>."
-  remarks: "If the operation has not completed, this method blocks until it does. When the authentication succeeds, you must check the <xref:System.Net.Security.SslStream.IsEncrypted%2A> and <xref:System.Net.Security.SslStream.IsSigned%2A> properties to determine what security services are used by the <xref:System.Net.Security.SslStream>. Check the <xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A> property to determine whether mutual authentication occurred.       If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector.       To perform this operation synchronously, use one of the <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A> methods."
+  summary: "<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer*>。</xref:System.Net.Security.SslStream.BeginAuthenticateAsServer*>を前回呼び出したときに開始された保留中の非同期サーバー認証操作を終了します。"
+  remarks: "操作が完了していない場合、このメソッドはそれまでブロックします。 認証に成功した場合、必要がありますをチェックする<xref:System.Net.Security.SslStream.IsEncrypted%2A><xref:System.Net.Security.SslStream>。</xref:System.Net.Security.SslStream>が使用されるセキュリティ サービスの種類を決定して<xref:System.Net.Security.SslStream.IsSigned%2A>プロパティ</xref:System.Net.Security.SslStream.IsSigned%2A></xref:System.Net.Security.SslStream.IsEncrypted%2A> チェック、<xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A>相互認証が行われたかどうかを決定するプロパティ</xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A>。       受信した認証に失敗した場合、 <xref:System.Security.Authentication.AuthenticationException>、され、この<xref:System.Net.Security.SslStream>、使用できなくします</xref:System.Net.Security.SslStream></xref:System.Security.Authentication.AuthenticationException>。 このオブジェクトを閉じるし、ガベージ コレクターによって収集できるように、すべての参照を削除する必要があります。       この操作を同期的に実行するには、いずれかの操作を使用して、<xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>メソッド</xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>。"
   syntax:
     content: public virtual void EndAuthenticateAsClient (IAsyncResult asyncResult);
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> instance returned by a call to <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer*>."
+      description: "の<xref:System.IAsyncResult>インスタンスは<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer*>。</xref:System.Net.Security.SslStream.BeginAuthenticateAsServer*>への呼び出しによって返されます。</xref:System.IAsyncResult>"
   overload: System.Net.Security.SslStream.EndAuthenticateAsClient*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>asyncResult</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>asyncResult</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>asyncResult</code> was not created by a call to <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer*>."
+    description: "<code>asyncResult</code>呼び出しによって作成されていない<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer*>です。"
   - type: System.Security.Authentication.AuthenticationException
     commentId: T:System.Security.Authentication.AuthenticationException
-    description: "The authentication failed and left this object in an unusable state."
+    description: "認証が失敗し、このオブジェクトを使用できない状態のままです。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "There is no pending server authentication to complete."
+    description: "保留中のサーバー認証が完了することはありません。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.EndAuthenticateAsServer(System.IAsyncResult)
@@ -1152,28 +1152,28 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Ends a pending asynchronous client authentication operation started with a previous call to <xref:System.Net.Security.SslStream.BeginAuthenticateAsClient*>."
-  remarks: "If the operation has not completed, this method blocks until it does. When the authentication succeeds, you must check the <xref:System.Net.Security.SslStream.IsEncrypted%2A> and <xref:System.Net.Security.SslStream.IsSigned%2A> properties to determine what security services are used by the <xref:System.Net.Security.SslStream>. Check the <xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A> property to determine whether mutual authentication occurred.       If the authentication fails, you receive a <xref:System.Security.Authentication.AuthenticationException>, and this <xref:System.Net.Security.SslStream> is no longer useable. You should close this object and remove all references to it so that it can be collected by the garbage collector.       To perform this operation synchronously, use one of the <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A> method."
+  summary: "<xref:System.Net.Security.SslStream.BeginAuthenticateAsClient*>。</xref:System.Net.Security.SslStream.BeginAuthenticateAsClient*>を前回呼び出したときに開始された保留中の非同期クライアントの認証操作を終了します。"
+  remarks: "操作が完了していない場合、このメソッドはそれまでブロックします。 認証に成功した場合、必要がありますをチェックする<xref:System.Net.Security.SslStream.IsEncrypted%2A><xref:System.Net.Security.SslStream>。</xref:System.Net.Security.SslStream>が使用されるセキュリティ サービスの種類を決定して<xref:System.Net.Security.SslStream.IsSigned%2A>プロパティ</xref:System.Net.Security.SslStream.IsSigned%2A></xref:System.Net.Security.SslStream.IsEncrypted%2A> チェック、<xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A>相互認証が行われたかどうかを決定するプロパティ</xref:System.Net.Security.SslStream.IsMutuallyAuthenticated%2A>。       受信した認証に失敗した場合、 <xref:System.Security.Authentication.AuthenticationException>、され、この<xref:System.Net.Security.SslStream>、使用できなくします</xref:System.Net.Security.SslStream></xref:System.Security.Authentication.AuthenticationException>。 このオブジェクトを閉じるし、ガベージ コレクターによって収集できるように、すべての参照を削除する必要があります。       この操作を同期的に実行するには、いずれかの操作を使用して、<xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>メソッド</xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>。"
   syntax:
     content: public virtual void EndAuthenticateAsServer (IAsyncResult asyncResult);
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> instance returned by a call to <xref:System.Net.Security.SslStream.BeginAuthenticateAsClient*>."
+      description: "の<xref:System.IAsyncResult>インスタンスは<xref:System.Net.Security.SslStream.BeginAuthenticateAsClient*>。</xref:System.Net.Security.SslStream.BeginAuthenticateAsClient*>への呼び出しによって返されます。</xref:System.IAsyncResult>"
   overload: System.Net.Security.SslStream.EndAuthenticateAsServer*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>asyncResult</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>asyncResult</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>asyncResult</code> was not created by a call to <xref:System.Net.Security.SslStream.BeginAuthenticateAsClient*>."
+    description: "<code>asyncResult</code>呼び出しによって作成されていない<xref:System.Net.Security.SslStream.BeginAuthenticateAsClient*>です。"
   - type: System.Security.Authentication.AuthenticationException
     commentId: T:System.Security.Authentication.AuthenticationException
-    description: "The authentication failed and left this object in an unusable state."
+    description: "認証が失敗し、このオブジェクトを使用できない状態のままです。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "There is no pending client authentication to complete."
+    description: "保留中のクライアント認証が完了することはありません。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.EndRead(System.IAsyncResult)
@@ -1188,8 +1188,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Ends an asynchronous read operation started with a previous call to <xref:System.Net.Security.SslStream.BeginRead*>."
-  remarks: "If the operation has not completed, this method blocks until it does.       To perform this operation synchronously, use the <xref:System.Net.Security.SslStream.Read%2A> method.       You cannot call this method until you have successfully authenticated. To authenticate call one of the <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>, or <xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>, <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>, <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> methods."
+  summary: "<xref:System.Net.Security.SslStream.BeginRead*>。</xref:System.Net.Security.SslStream.BeginRead*>を前回呼び出したときの使用を開始して、非同期読み取り操作を終了します。"
+  remarks: "操作が完了していない場合、このメソッドはそれまでブロックします。       この操作を同期的に実行するを使用して、<xref:System.Net.Security.SslStream.Read%2A>メソッド</xref:System.Net.Security.SslStream.Read%2A>。       正常に認証が完了するまでは、このメソッドを呼び出すことはできません。 いずれかの呼び出しを認証するために、 <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>、または<xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>、 <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>、<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A>メソッド</xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A></xref:System.Net.Security.SslStream.AuthenticateAsServer%2A></xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A></xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>。"
   example:
   - "The following code example demonstrates ending an asynchronous read operation.  \n  \n [!code-cpp[NclSslClientAsync#5](~/add/codesnippet/cpp/m-system.net.security.ss_0_1.cpp)]\n [!code-cs[NclSslClientAsync#5](~/add/codesnippet/csharp/m-system.net.security.ss_0_1.cs)]"
   syntax:
@@ -1197,24 +1197,24 @@ items:
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> instance returned by a call to <xref:System.Net.Security.SslStream.BeginRead*>"
+      description: "<xref:System.IAsyncResult>への呼び出しによって返されるインスタンス<xref:System.Net.Security.SslStream.BeginRead*></xref:System.Net.Security.SslStream.BeginRead*></xref:System.IAsyncResult>"
     return:
       type: System.Int32
-      description: "A <xref:System.Int32> value that specifies the number of bytes read from the underlying stream."
+      description: "A<xref:System.Int32>基になるストリームから読み取ったバイト数を指定する値</xref:System.Int32>。"
   overload: System.Net.Security.SslStream.EndRead*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>asyncResult</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>asyncResult</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>asyncResult</code> was not created by a call to <xref:System.Net.Security.SslStream.BeginRead*>."
+    description: "<code>asyncResult</code>呼び出しによって作成されていない<xref:System.Net.Security.SslStream.BeginRead*>です。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has not occurred."
+    description: "認証が行われていません。"
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The read operation failed."
+    description: "読み取り操作が失敗しました。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.EndWrite(System.IAsyncResult)
@@ -1229,8 +1229,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Ends an asynchronous write operation started with a previous call to <xref:System.Net.Security.SslStream.BeginWrite*>."
-  remarks: "If the operation has not completed, this method blocks until it does.       An application cannot call this method until you have successfully authenticated. To authenticate, call one of the <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>, or <xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>, <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>, <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> methods.       To perform this operation synchronously, use the <xref:System.Net.Security.SslStream.Write%2A> method."
+  summary: "<xref:System.Net.Security.SslStream.BeginWrite*>。</xref:System.Net.Security.SslStream.BeginWrite*>を前回呼び出したときに開始された非同期の書き込み操作を終了します。"
+  remarks: "操作が完了していない場合、このメソッドはそれまでブロックします。       アプリケーションは、正常に認証が完了するまで、このメソッドを呼び出すことはできません。 を認証するには、のいずれかを呼び出して、 <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>、または<xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>、 <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>、<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A>メソッド。</xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> </xref:System.Net.Security.SslStream.AuthenticateAsServer%2A> </xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A> </xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>       この操作を同期的に実行するを使用して、<xref:System.Net.Security.SslStream.Write%2A>メソッド</xref:System.Net.Security.SslStream.Write%2A>。"
   example:
   - "The following code example demonstrates ending an asynchronous write operation.  \n  \n [!code-cs[NclSslServerAsync#4](~/add/codesnippet/csharp/m-system.net.security.ss_1_1.cs)]\n [!code-cpp[NclSslServerAsync#4](~/add/codesnippet/cpp/m-system.net.security.ss_1_1.cpp)]"
   syntax:
@@ -1238,21 +1238,21 @@ items:
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> instance returned by a call to <xref:System.Net.Security.SslStream.BeginWrite*>"
+      description: "<xref:System.IAsyncResult>への呼び出しによって返されるインスタンス<xref:System.Net.Security.SslStream.BeginWrite*></xref:System.Net.Security.SslStream.BeginWrite*></xref:System.IAsyncResult>"
   overload: System.Net.Security.SslStream.EndWrite*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>asyncResult</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>asyncResult</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>asyncResult</code> was not created by a call to <xref:System.Net.Security.SslStream.BeginWrite*>."
+    description: "<code>asyncResult</code>呼び出しによって作成されていない<xref:System.Net.Security.SslStream.BeginWrite*>です。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has not occurred."
+    description: "認証が行われていません。"
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The write operation failed."
+    description: "書き込み操作に失敗しました。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.Flush
@@ -1267,8 +1267,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Causes any buffered data to be written to the underlying device."
-  remarks: "This method invokes <xref:System.IO.Stream.Flush%2A> on the underlying stream."
+  summary: "基になるデバイスに書き込まれるバッファー内のデータが発生します。"
+  remarks: "このメソッドを呼び出して<xref:System.IO.Stream.Flush%2A>基になるストリーム</xref:System.IO.Stream.Flush%2A>。"
   example:
   - "The following code example demonstrates calling this method.  \n  \n [!code-cpp[NclSslClientSync#5](~/add/codesnippet/cpp/m-system.net.security.ss_4_1.cpp)]\n [!code-cs[NclSslClientSync#5](~/add/codesnippet/csharp/m-system.net.security.ss_4_1.cs)]"
   syntax:
@@ -1290,20 +1290,20 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets the algorithm used for generating message authentication codes (MACs)."
-  remarks: "Message authentication algorithms generate message hashes and signatures used to detect tampering and forgery."
+  summary: "メッセージ認証コード (Mac) を生成するために使用されるアルゴリズムを取得します。"
+  remarks: "メッセージ認証アルゴリズムは、メッセージのハッシュと改ざんとフォージェリを検出するために使用する署名を生成します。"
   example:
   - "The following code example displays the cryptography settings for the specified stream.  \n  \n [!code-cpp[NclSslServerSync#3](~/add/codesnippet/cpp/p-system.net.security.ss_9_1.cpp)]\n [!code-cs[NclSslServerSync#3](~/add/codesnippet/csharp/p-system.net.security.ss_9_1.cs)]"
   syntax:
     content: public virtual System.Security.Authentication.HashAlgorithmType HashAlgorithm { get; }
     return:
       type: System.Security.Authentication.HashAlgorithmType
-      description: "A <xref:System.Security.Authentication.HashAlgorithmType> value."
+      description: "A<xref:System.Security.Authentication.HashAlgorithmType>値</xref:System.Security.Authentication.HashAlgorithmType>。"
   overload: System.Net.Security.SslStream.HashAlgorithm*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The HashAlgorithm property was accessed before the completion of the authentication process or the authentication process failed."
+    description: "認証プロセスや、認証プロセスの完了前に、ハッシュ アルゴリズム プロパティがアクセスされました。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.HashStrength
@@ -1318,15 +1318,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets a value that identifies the strength of the hash algorithm used by this instance."
-  remarks: "The value of this property is zero until the authentication occurs."
+  summary: "このインスタンスで使用されるハッシュ アルゴリズムの強度を識別する値を取得します。"
+  remarks: "認証が行われるまで、このプロパティの値は&0; です。"
   example:
   - "The following code example displays the cryptography settings for the specified stream.  \n  \n [!code-cpp[NclSslServerSync#3](~/add/codesnippet/cpp/p-system.net.security.ss_2_1.cpp)]\n [!code-cs[NclSslServerSync#3](~/add/codesnippet/csharp/p-system.net.security.ss_2_1.cs)]"
   syntax:
     content: public virtual int HashStrength { get; }
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> value that specifies the strength of the <xref:System.Security.Authentication.HashAlgorithmType> algorithm, in bits. Valid values are 128 or 160."
+      description: "<xref:System.Int32>の強さを示す値、<xref:System.Security.Authentication.HashAlgorithmType>ビット単位のアルゴリズム</xref:System.Security.Authentication.HashAlgorithmType></xref:System.Int32>。 有効な値は 128 160 です。"
   overload: System.Net.Security.SslStream.HashStrength*
   exceptions: []
   platform:
@@ -1343,15 +1343,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets a <xref:System.Boolean> value that indicates whether authentication was successful."
-  remarks: "Clients authenticate by calling the <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A> or <xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A> methods. Servers authenticate by calling the <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A> or <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> methods."
+  summary: "取得、<xref:System.Boolean>認証が成功したかどうかを示す値</xref:System.Boolean>。"
+  remarks: "クライアントの認証を呼び出して、<xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>または<xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>メソッド</xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A></xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>。 呼び出してサーバーに認証、<xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>または<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A>メソッド</xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A></xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>。"
   example:
   - "The following code example demonstrates displaying the value of this property.  \n  \n [!code-cpp[NclSslServerSync#4](~/add/codesnippet/cpp/p-system.net.security.ss_3_1.cpp)]\n [!code-cs[NclSslServerSync#4](~/add/codesnippet/csharp/p-system.net.security.ss_3_1.cs)]"
   syntax:
     content: public override bool IsAuthenticated { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if successful authentication occurred; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>認証成功した場合です。それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.Security.SslStream.IsAuthenticated*
   exceptions: []
   platform:
@@ -1368,15 +1368,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets a <xref:System.Boolean> value that indicates whether this <xref href=&quot;System.Net.Security.SslStream&quot;></xref> uses data encryption."
-  remarks: "Encryption helps to protect the privacy of the data, namely it helps to ensure that while data is in transit, it cannot be deciphered by third parties."
+  summary: "取得、<xref:System.Boolean>を示す値かどうかこの<xref href=&quot;System.Net.Security.SslStream&quot;></xref>データの暗号化を使用します</xref:System.Boolean>。"
+  remarks: "暗号化は、データのプライバシーを保護すること、つまり役に立つことデータは、転送中は、サード パーティが解読できないことを確認してください。"
   example:
   - "The following code example demonstrates displaying the value of this property.  \n  \n [!code-cpp[NclSslServerSync#4](~/add/codesnippet/cpp/p-system.net.security.ss_0_1.cpp)]\n [!code-cs[NclSslServerSync#4](~/add/codesnippet/csharp/p-system.net.security.ss_0_1.cs)]"
   syntax:
     content: public override bool IsEncrypted { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if data is encrypted before being transmitted over the network and decrypted when it reaches the remote endpoint; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>データがネットワーク経由で送信される前に暗号化および復号化する場合に着いたときに、リモート エンドポイントです。それ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.Security.SslStream.IsEncrypted*
   exceptions: []
   platform:
@@ -1393,15 +1393,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets a <xref:System.Boolean> value that indicates whether both server and client have been authenticated."
-  remarks: "Mutual authentication is specified by the server when the server wants the client to provide a certificate for authentication."
+  summary: "取得、<xref:System.Boolean>サーバーとクライアントの両方が認証されているかどうかを示す値</xref:System.Boolean>。"
+  remarks: "相互認証は、サーバーが、クライアント認証証明書を提供するときに、サーバーによって指定されます。"
   example:
   - "The following code example demonstrates displaying the value of this property.  \n  \n [!code-cpp[NclSslServerSync#4](~/add/codesnippet/cpp/p-system.net.security.ss_11_1.cpp)]\n [!code-cs[NclSslServerSync#4](~/add/codesnippet/csharp/p-system.net.security.ss_11_1.cs)]"
   syntax:
     content: public override bool IsMutuallyAuthenticated { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the server has been authenticated; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>サーバーが認証されている場合それ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.Security.SslStream.IsMutuallyAuthenticated*
   exceptions: []
   platform:
@@ -1418,15 +1418,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets a <xref:System.Boolean> value that indicates whether the local side of the connection used by this <xref href=&quot;System.Net.Security.SslStream&quot;></xref> was authenticated as the server."
-  remarks: "If authentication failed or did not occur, this property returns `false`.       To authenticate as the server, call the <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A> or <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> methods."
+  summary: "取得、<xref:System.Boolean>この接続のローカル側が使用するかどうかを示す値<xref href=&quot;System.Net.Security.SslStream&quot;></xref>サーバーとして認証されました</xref:System.Boolean>。"
+  remarks: "認証失敗または発生しなかった、このプロパティを返します`false`です。       サーバーで、認証に呼び出して、<xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>または<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A>メソッド</xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A></xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>。"
   example:
   - "The following code example demonstrates displaying the value of this property.  \n  \n [!code-cpp[NclSslServerSync#4](~/add/codesnippet/cpp/p-system.net.security.ss_13_1.cpp)]\n [!code-cs[NclSslServerSync#4](~/add/codesnippet/csharp/p-system.net.security.ss_13_1.cs)]"
   syntax:
     content: public override bool IsServer { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the local endpoint was successfully authenticated as the server side of the authenticated connection; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、ローカル エンドポイントは、認証された接続のサーバー側として正常に認証されましたそれ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.Security.SslStream.IsServer*
   exceptions: []
   platform:
@@ -1443,15 +1443,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets a <xref:System.Boolean> value that indicates whether the data sent using this stream is signed."
-  remarks: "Data signing helps to protect the integrity of the data, namely it helps the recipient determine whether the data has been tampered with while in transit."
+  summary: "取得、<xref:System.Boolean>をこのストリームを使用して送信されるデータが署名されているかどうかを示す値</xref:System.Boolean>。"
+  remarks: "署名によって、データの整合性を保護するデータ、つまりなります、受信者、データが転送中に改ざんされているかどうかを特定します。"
   example:
   - "The following code example demonstrates displaying the value of this property.  \n  \n [!code-cpp[NclSslServerSync#4](~/add/codesnippet/cpp/p-system.net.security.ss_19_1.cpp)]\n [!code-cs[NclSslServerSync#4](~/add/codesnippet/csharp/p-system.net.security.ss_19_1.cs)]"
   syntax:
     content: public override bool IsSigned { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the data is signed before being transmitted; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>送信する前に、データが署名されている場合それ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.Security.SslStream.IsSigned*
   exceptions: []
   platform:
@@ -1468,15 +1468,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets the key exchange algorithm used by this <xref href=&quot;System.Net.Security.SslStream&quot;></xref>."
-  remarks: "The value of this property is <xref:System.Security.Authentication.ExchangeAlgorithmType> until the authentication occurs.       The key exchange algorithm protects information used to generate shared keys."
+  summary: "これによって使用されるキー交換アルゴリズムを取得<xref href=&quot;System.Net.Security.SslStream&quot;></xref>です。"
+  remarks: "このプロパティの値が<xref:System.Security.Authentication.ExchangeAlgorithmType>認証が行われるまで</xref:System.Security.Authentication.ExchangeAlgorithmType>。       キー交換アルゴリズムは、共有キーを生成するための情報を保護します。"
   example:
   - "The following code example displays the cryptography settings for the specified stream.  \n  \n [!code-cpp[NclSslServerSync#3](~/add/codesnippet/cpp/p-system.net.security.ss_16_1.cpp)]\n [!code-cs[NclSslServerSync#3](~/add/codesnippet/csharp/p-system.net.security.ss_16_1.cs)]"
   syntax:
     content: public virtual System.Security.Authentication.ExchangeAlgorithmType KeyExchangeAlgorithm { get; }
     return:
       type: System.Security.Authentication.ExchangeAlgorithmType
-      description: "An <xref:System.Security.Authentication.ExchangeAlgorithmType> value."
+      description: "<xref:System.Security.Authentication.ExchangeAlgorithmType>値</xref:System.Security.Authentication.ExchangeAlgorithmType>。"
   overload: System.Net.Security.SslStream.KeyExchangeAlgorithm*
   exceptions: []
   platform:
@@ -1493,15 +1493,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets a value that identifies the strength of the key exchange algorithm used by this instance."
-  remarks: "The value of this property is zero until the authentication occurs.       In common scenarios, the value of this property is one of the following:      -   512      -   768      -   1024      -   2048"
+  summary: "このインスタンスで使用されるキー交換アルゴリズムの強度を識別する値を取得します。"
+  remarks: "認証が行われるまで、このプロパティの値は&0; です。       このプロパティの値では、一般的なシナリオでは、次のいずれかの: - 512 768-1024 2048"
   example:
   - "The following code example displays the cryptography settings for the specified stream.  \n  \n [!code-cpp[NclSslServerSync#3](~/add/codesnippet/cpp/p-system.net.security.ss_5_1.cpp)]\n [!code-cs[NclSslServerSync#3](~/add/codesnippet/csharp/p-system.net.security.ss_5_1.cs)]"
   syntax:
     content: public virtual int KeyExchangeStrength { get; }
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> value that specifies the strength of the <xref:System.Security.Authentication.ExchangeAlgorithmType> algorithm, in bits."
+      description: "<xref:System.Int32>の強さを示す値、<xref:System.Security.Authentication.ExchangeAlgorithmType>ビット単位のアルゴリズム</xref:System.Security.Authentication.ExchangeAlgorithmType></xref:System.Int32>。"
   overload: System.Net.Security.SslStream.KeyExchangeStrength*
   exceptions: []
   platform:
@@ -1518,18 +1518,18 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets the length of the underlying stream."
-  remarks: "This property returns the value returned by invoking <xref:System.IO.Stream.Length%2A> on the underlying stream. If the underlying stream is not seekable, this method typically throws an exception. The run-time type of the underlying stream determines the run-time type of the exception that is thrown."
+  summary: "基になるストリームの長さを取得します。"
+  remarks: "このプロパティを呼び出すことによって返される値を返します<xref:System.IO.Stream.Length%2A>基になるストリーム</xref:System.IO.Stream.Length%2A>。 基になるストリームがシーク可能でない場合は、このメソッドは通常、例外をスローします。 基になるストリームの実行時の型では、スローされる例外の実行時の型を決定します。"
   syntax:
     content: public override long Length { get; }
     return:
       type: System.Int64
-      description: "A <xref:System.Int64>.       The length of the underlying stream."
+      description: "A <xref:System.Int64>.</xref:System.Int64>       基になるストリームの長さ。"
   overload: System.Net.Security.SslStream.Length*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "Getting the value of this property is not supported when the underlying stream is a <xref href=&quot;System.Net.Sockets.NetworkStream&quot;></xref>."
+    description: "このプロパティの値を取得することはできません基になるストリームが、 <xref href=&quot;System.Net.Sockets.NetworkStream&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.LocalCertificate
@@ -1544,7 +1544,7 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets the certificate used to authenticate the local endpoint."
+  summary: "ローカル エンドポイントの認証に使用する証明書を取得します。"
   remarks: ''
   example:
   - "The following code example demonstrates displaying the certificate returned by this property.  \n  \n [!code-cpp[NclSslServerSync#6](~/add/codesnippet/cpp/p-system.net.security.ss_1_1.cpp)]\n [!code-cs[NclSslServerSync#6](~/add/codesnippet/csharp/p-system.net.security.ss_1_1.cs)]"
@@ -1552,12 +1552,12 @@ items:
     content: public virtual System.Security.Cryptography.X509Certificates.X509Certificate LocalCertificate { get; }
     return:
       type: System.Security.Cryptography.X509Certificates.X509Certificate
-      description: "An X509Certificate object that represents the certificate supplied for authentication or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no certificate was supplied."
+      description: "認証に指定された証明書を表す X509Certificate オブジェクトまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>証明書が指定されていない場合。"
   overload: System.Net.Security.SslStream.LocalCertificate*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication failed or has not occurred."
+    description: "認証が失敗したかが発生していません。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.Position
@@ -1572,18 +1572,18 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets or sets the current position in the underlying stream."
-  remarks: "This property returns the value returned by invoking <xref:System.IO.Stream.Position%2A> on the underlying stream. If the underlying stream is not seekable, this method typically throws an exception. The run-time type of the underlying stream determines the run-time type of the exception that is thrown."
+  summary: "取得または基になるストリーム内の現在位置を設定します。"
+  remarks: "このプロパティを呼び出すことによって返される値を返します<xref:System.IO.Stream.Position%2A>基になるストリーム</xref:System.IO.Stream.Position%2A>。 基になるストリームがシーク可能でない場合は、このメソッドは通常、例外をスローします。 基になるストリームの実行時の型では、スローされる例外の実行時の型を決定します。"
   syntax:
     content: public override long Position { get; set; }
     return:
       type: System.Int64
-      description: "A <xref:System.Int64>.       The current position in the underlying stream."
+      description: "A <xref:System.Int64>.</xref:System.Int64>       基になるストリームの現在の位置。"
   overload: System.Net.Security.SslStream.Position*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "Setting this property is not supported.       -or-       Getting the value of this property is not supported when the underlying stream is a <xref href=&quot;System.Net.Sockets.NetworkStream&quot;></xref>."
+    description: "このプロパティを設定することはできません。       または、このプロパティの値を取得することはできません基になるストリームが、 <xref href=&quot;System.Net.Sockets.NetworkStream&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.Read(System.Byte[],System.Int32,System.Int32)
@@ -1598,8 +1598,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Reads data from this stream and stores it in the specified array."
-  remarks: "The method reads a maximum of `count` bytes from the stream and stores them in `buffer` beginning at `offset`. You cannot perform multiple simultaneous read operations.       You cannot call this method until you have successfully authenticated. To authenticate call one of the <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>, or <xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>, <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>, <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> methods.       To perform this operation asynchronously, use the <xref:System.Net.Security.SslStream.BeginRead%2A> method."
+  summary: "このストリームからデータを読み取り、指定した配列に格納します。"
+  remarks: "メソッドは、最大数を読み取ります`count`ストリームからバイトに格納`buffer`始点`offset`です。 複数の同時読み取り操作を行うことはできません。       正常に認証が完了するまでは、このメソッドを呼び出すことはできません。 いずれかの呼び出しを認証するために、 <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>、または<xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>、 <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>、<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A>メソッド</xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A></xref:System.Net.Security.SslStream.AuthenticateAsServer%2A></xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A></xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>。       この操作を非同期的に実行するを使用して、<xref:System.Net.Security.SslStream.BeginRead%2A>メソッド</xref:System.Net.Security.SslStream.BeginRead%2A>。"
   example:
   - "The following code example demonstrates reading from an <xref:System.Net.Security.SslStream>.  \n  \n [!code-cpp[NclSslClientSync#6](~/add/codesnippet/cpp/m-system.net.security.ss_2_1.cpp)]\n [!code-cs[NclSslClientSync#6](~/add/codesnippet/csharp/m-system.net.security.ss_2_1.cs)]"
   syntax:
@@ -1607,36 +1607,36 @@ items:
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "A <xref:System.Byte> array that receives the bytes read from this stream."
+      description: "A<xref:System.Byte>このストリームから読み取ったバイトを受け取る配列</xref:System.Byte>。"
     - id: offset
       type: System.Int32
-      description: "A <xref:System.Int32> that contains the zero-based location in `buffer` at which to begin storing the data read from this stream."
+      description: "A<xref:System.Int32>内の&0; から始まる位置を表す`buffer`このストリームから読み取ったデータの格納を開始する位置</xref:System.Int32>。"
     - id: count
       type: System.Int32
-      description: "A <xref:System.Int32> that contains the maximum number of bytes to read from this stream."
+      description: "A<xref:System.Int32>を現在のストリームから読み取るバイト数の最大数を格納している</xref:System.Int32>。"
     return:
       type: System.Int32
-      description: "A <xref:System.Int32> value that specifies the number of bytes read. When there is no more data to be read, returns 0."
+      description: "A<xref:System.Int32>読み取られたバイト数を指定する値</xref:System.Int32>。 読み取られるデータがある場合は、0 を返します。"
   overload: System.Net.Security.SslStream.Read*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>buffer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>buffer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>offset</code>     <code>&lt;</code>     <code>0</code>.       <code>-or-</code><code>offset</code> &gt; the length of <code>buffer</code>.       -or-       <code>offset</code> + count &gt; the length of <code>buffer</code>."
+    description: "<code>offset</code>     <code>&lt;</code>     <code>0</code>.       <code>-or-</code><code>offset</code>&gt;の長さ<code>buffer</code>です。       -or-       <code>offset</code> + count &gt; the length of <code>buffer</code>."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The read operation failed. Check the inner exception, if present to determine the cause of the failure."
+    description: "読み取り操作が失敗しました。 エラーの原因を特定するのには存在する場合は、内部例外を確認します。"
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "There is already a read operation in progress."
+    description: "実行中の読み取り操作が既に存在します。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been closed."
+    description: "このオブジェクトが閉じられました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has not occurred."
+    description: "認証が行われていません。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.ReadTimeout
@@ -1651,15 +1651,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets or sets the amount of time a read operation blocks waiting for data."
-  remarks: "This property returns the value returned by invoking <xref:System.IO.Stream.ReadTimeout%2A> on the underlying stream. When you set this property, the <xref:System.IO.Stream.ReadTimeout%2A> value on the underlying stream is set to the specified value.       If the underlying stream is a <xref:System.Net.Sockets.NetworkStream>, ReadTimeout is in milliseconds and is set to <xref:System.Threading.Timeout.Infinite> by default so that read operations do not timeout."
+  summary: "取得または読み取り操作がブロックのデータ待機時間を設定します。"
+  remarks: "このプロパティを呼び出すことによって返される値を返します<xref:System.IO.Stream.ReadTimeout%2A>基になるストリーム</xref:System.IO.Stream.ReadTimeout%2A>。 このプロパティを設定すると、<xref:System.IO.Stream.ReadTimeout%2A>基になるストリームの値が指定した値に設定します</xref:System.IO.Stream.ReadTimeout%2A>。       基になるストリームがある場合、 <xref:System.Net.Sockets.NetworkStream>、ReadTimeout (ミリ秒単位) に設定されている<xref:System.Threading.Timeout.Infinite>既定では読み取ることの操作はタイムアウトにならないようにします</xref:System.Threading.Timeout.Infinite></xref:System.Net.Sockets.NetworkStream>。"
   example:
   - "The following code example demonstrates setting the value of this property.  \n  \n [!code-cpp[NclSslServerSync#1](~/add/codesnippet/cpp/p-system.net.security.ss_18_1.cpp)]\n [!code-cs[NclSslServerSync#1](~/add/codesnippet/csharp/p-system.net.security.ss_18_1.cs)]"
   syntax:
     content: public override int ReadTimeout { get; set; }
     return:
       type: System.Int32
-      description: "A <xref:System.Int32> that specifies the amount of time that elapses before a synchronous read operation fails."
+      description: "A<xref:System.Int32>同期読み取り操作が失敗する前に経過した時間の大きさを指定します</xref:System.Int32>。"
   overload: System.Net.Security.SslStream.ReadTimeout*
   exceptions: []
   platform:
@@ -1676,7 +1676,7 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets the certificate used to authenticate the remote endpoint."
+  summary: "リモート エンドポイントの認証に使用する証明書を取得します。"
   remarks: ''
   example:
   - "The following code example demonstrates displaying the certificate returned by this property.  \n  \n [!code-cpp[NclSslServerSync#6](~/add/codesnippet/cpp/p-system.net.security.ss_15_1.cpp)]\n [!code-cs[NclSslServerSync#6](~/add/codesnippet/csharp/p-system.net.security.ss_15_1.cs)]"
@@ -1684,12 +1684,12 @@ items:
     content: public virtual System.Security.Cryptography.X509Certificates.X509Certificate RemoteCertificate { get; }
     return:
       type: System.Security.Cryptography.X509Certificates.X509Certificate
-      description: "An X509Certificate object that represents the certificate supplied for authentication or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no certificate was supplied."
+      description: "認証に指定された証明書を表す X509Certificate オブジェクトまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>証明書が指定されていない場合。"
   overload: System.Net.Security.SslStream.RemoteCertificate*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication failed or has not occurred."
+    description: "認証が失敗したかが発生していません。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.Seek(System.Int64,System.IO.SeekOrigin)
@@ -1704,25 +1704,25 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Throws a <xref:System.NotSupportedException>."
-  remarks: "Do not call this method. It is inherited, but is not supported by the <xref:System.Net.Security.SslStream> class."
+  summary: "<xref:System.NotSupportedException>。</xref:System.NotSupportedException>がスローされます。"
+  remarks: "このメソッドを呼び出さないでください。 関数は、継承されますが、<xref:System.Net.Security.SslStream>クラス</xref:System.Net.Security.SslStream>でサポートされていません"
   syntax:
     content: public override long Seek (long offset, System.IO.SeekOrigin origin);
     parameters:
     - id: offset
       type: System.Int64
-      description: "This value is ignored."
+      description: "この値は無視されます。"
     - id: origin
       type: System.IO.SeekOrigin
-      description: "This value is ignored."
+      description: "この値は無視されます。"
     return:
       type: System.Int64
-      description: "Always throws a <xref:System.NotSupportedException>."
+      description: "<xref:System.NotSupportedException>。</xref:System.NotSupportedException>は常にスローします。"
   overload: System.Net.Security.SslStream.Seek*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "Seeking is not supported by <xref href=&quot;System.Net.Security.SslStream&quot;></xref> objects."
+    description: "シークはサポートされていない<xref href=&quot;System.Net.Security.SslStream&quot;></xref>オブジェクト。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.SetLength(System.Int64)
@@ -1737,14 +1737,14 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Sets the length of the underlying stream."
-  remarks: "This method invokes <xref:System.IO.Stream.SetLength%2A?displayProperty=fullName> on the underlying stream specified when this <xref:System.Net.Security.SslStream> was created."
+  summary: "基になるストリームの長さを設定します。"
+  remarks: "このメソッドを呼び出して<xref:System.IO.Stream.SetLength%2A?displayProperty=fullName>ときに指定した基になるストリームこの<xref:System.Net.Security.SslStream>作成されました</xref:System.Net.Security.SslStream></xref:System.IO.Stream.SetLength%2A?displayProperty=fullName>。"
   syntax:
     content: public override void SetLength (long value);
     parameters:
     - id: value
       type: System.Int64
-      description: "An <xref:System.Int64> value that specifies the length of the stream."
+      description: "<xref:System.Int64>ストリームの長さを指定する値</xref:System.Int64>。"
   overload: System.Net.Security.SslStream.SetLength*
   exceptions: []
   platform:
@@ -1761,15 +1761,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets a value that indicates the security protocol used to authenticate this connection."
-  remarks: "The supported security protocols are specified when the <xref:System.Net.Security.SslStream> is created. If no security protocol was passed to the constructor, the instance is created using <xref:System.Security.Authentication.SslProtocols>. The actual protocol used for authentication is selected based on the protocols supported by the client and server."
+  summary: "この接続の認証に使用されるセキュリティ プロトコルを示す値を取得します。"
+  remarks: "サポートされているセキュリティ プロトコルが指定されたときに、<xref:System.Net.Security.SslStream>を作成します</xref:System.Net.Security.SslStream>。 <xref:System.Security.Authentication.SslProtocols>。</xref:System.Security.Authentication.SslProtocols>を使用して、インスタンスを作成する場合は、コンス トラクターに渡されたセキュリティ プロトコルはありません、 クライアントとサーバーでサポートされるプロトコルに基づく認証に使用される実際のプロトコルが選択されます。"
   example:
   - "The following example displays the security properties of the specified stream.  \n  \n [!code-cpp[NclSslServerSync#3](~/add/codesnippet/cpp/p-system.net.security.ss_7_1.cpp)]\n [!code-cs[NclSslServerSync#3](~/add/codesnippet/csharp/p-system.net.security.ss_7_1.cs)]"
   syntax:
     content: public virtual System.Security.Authentication.SslProtocols SslProtocol { get; }
     return:
       type: System.Security.Authentication.SslProtocols
-      description: "The <xref:System.Security.Authentication.SslProtocols> value that represents the protocol used for authentication."
+      description: "<xref:System.Security.Authentication.SslProtocols>認証に使用されるプロトコルを表す値</xref:System.Security.Authentication.SslProtocols>。"
   overload: System.Net.Security.SslStream.SslProtocol*
   exceptions: []
   platform:
@@ -1786,12 +1786,12 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets the <xref:System.Net.TransportContext> used for authentication using extended protection."
+  summary: "取得、<xref:System.Net.TransportContext>拡張保護を使用する認証のために使用します</xref:System.Net.TransportContext>。"
   syntax:
     content: public System.Net.TransportContext TransportContext { get; }
     return:
       type: System.Net.TransportContext
-      description: "The <xref:System.Net.TransportContext> object that contains the channel binding token (CBT) used for extended protection."
+      description: "<xref:System.Net.TransportContext>拡張保護のために使用するチャネル バインディング トークン (CBT) を含むオブジェクトです</xref:System.Net.TransportContext>。"
   overload: System.Net.Security.SslStream.TransportContext*
   exceptions: []
   platform:
@@ -1808,8 +1808,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Writes the specified data to this stream."
-  remarks: "This method blocks while the operation completes. To prevent blocking while the operation completes, use the <xref:System.Net.Security.SslStream.BeginWrite%2A> method.       You cannot call this method until you have successfully authenticated. To authenticate call one of the <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>, or <xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>, <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>, <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> methods.       The <xref:System.Net.Security.SslStream> class does not support multiple simultaneous write operations."
+  summary: "このストリームに指定されたデータを書き込みます。"
+  remarks: "このメソッドは、操作が完了するまでブロックします。 操作が完了するまでブロックを回避するには<xref:System.Net.Security.SslStream.BeginWrite%2A>メソッド</xref:System.Net.Security.SslStream.BeginWrite%2A>。       正常に認証が完了するまでは、このメソッドを呼び出すことはできません。 いずれかの呼び出しを認証するために、 <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>、または<xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>、 <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>、<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A>メソッド</xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A></xref:System.Net.Security.SslStream.AuthenticateAsServer%2A></xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A></xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>。       <xref:System.Net.Security.SslStream>クラスが複数の同時書き込み操作をサポートしていません</xref:System.Net.Security.SslStream>。"
   example:
   - "The following code example demonstrates writing to an authenticated <xref:System.Net.Security.SslStream>.  \n  \n [!code-cpp[NclSslServerSync#1](~/add/codesnippet/cpp/m-system.net.security.ss_3_1.cpp)]\n [!code-cs[NclSslServerSync#1](~/add/codesnippet/csharp/m-system.net.security.ss_3_1.cs)]"
   syntax:
@@ -1817,24 +1817,24 @@ items:
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "A <xref:System.Byte> array that supplies the bytes written to the stream."
+      description: "A<xref:System.Byte>をストリームに書き込まれたバイトを提供します</xref:System.Byte>。"
   overload: System.Net.Security.SslStream.Write*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>buffer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>buffer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The write operation failed."
+    description: "書き込み操作に失敗しました。"
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "There is already a write operation in progress."
+    description: "実行中の書き込み操作が既に存在します。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been closed."
+    description: "このオブジェクトが閉じられました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has not occurred."
+    description: "認証が行われていません。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.Write(System.Byte[],System.Int32,System.Int32)
@@ -1849,40 +1849,40 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Write the specified number of <xref:System.Byte>s to the underlying stream using the specified buffer and offset."
-  remarks: "This method blocks while the operation completes. To prevent blocking while the operation completes the operation completes, use the <xref:System.Net.Security.SslStream.BeginWrite%2A> method.       You cannot call this method until you have successfully authenticated. To authenticate call one of the <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>, or <xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>, <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>, <xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A> methods.       The <xref:System.Net.Security.SslStream> class does not support multiple simultaneous write operations."
+  summary: "指定した数を書き込む<xref:System.Byte>、指定されたバッファーとオフセットを使用して、基になるストリームにします</xref:System.Byte>。"
+  remarks: "このメソッドは、操作が完了するまでブロックします。 操作は、操作を完了するまでブロックされないように、完了すると、使用して、<xref:System.Net.Security.SslStream.BeginWrite%2A>メソッド</xref:System.Net.Security.SslStream.BeginWrite%2A>。       正常に認証が完了するまでは、このメソッドを呼び出すことはできません。 いずれかの呼び出しを認証するために、 <xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>、または<xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A>、 <xref:System.Net.Security.SslStream.AuthenticateAsServer%2A>、<xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A>メソッド</xref:System.Net.Security.SslStream.BeginAuthenticateAsServer%2A></xref:System.Net.Security.SslStream.AuthenticateAsServer%2A></xref:System.Net.Security.SslStream.BeginAuthenticateAsClient%2A></xref:System.Net.Security.SslStream.AuthenticateAsClient%2A>。       <xref:System.Net.Security.SslStream>クラスが複数の同時書き込み操作をサポートしていません</xref:System.Net.Security.SslStream>。"
   syntax:
     content: public override void Write (byte[] buffer, int offset, int count);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "A <xref:System.Byte> array that supplies the bytes written to the stream."
+      description: "A<xref:System.Byte>をストリームに書き込まれたバイトを提供します</xref:System.Byte>。"
     - id: offset
       type: System.Int32
-      description: "A <xref:System.Int32> that contains the zero-based location in `buffer` at which to begin reading bytes to be written to the stream."
+      description: "A<xref:System.Int32>内の&0; から始まる位置を表す`buffer`ストリームに書き込まれるバイトの読み取りを開始する位置</xref:System.Int32>。"
     - id: count
       type: System.Int32
-      description: "A <xref:System.Int32> that contains the number of bytes to read from `buffer`."
+      description: "A<xref:System.Int32>から読み取るバイト数が含まれる`buffer`</xref:System.Int32>。"
   overload: System.Net.Security.SslStream.Write*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>buffer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>buffer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>offset</code>     <code>&lt;</code>     <code>0</code>.       <code>-or-</code><code>offset</code> &gt; the length of <code>buffer</code>.       -or-       <code>offset</code> + count &gt; the length of <code>buffer</code>."
+    description: "<code>offset</code>     <code>&lt;</code>     <code>0</code>.       <code>-or-</code><code>offset</code>&gt;の長さ<code>buffer</code>です。       -or-       <code>offset</code> + count &gt; the length of <code>buffer</code>."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The write operation failed."
+    description: "書き込み操作に失敗しました。"
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "There is already a write operation in progress."
+    description: "実行中の書き込み操作が既に存在します。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been closed."
+    description: "このオブジェクトが閉じられました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Authentication has not occurred."
+    description: "認証が行われていません。"
   platform:
   - net462
 - uid: System.Net.Security.SslStream.WriteTimeout
@@ -1897,15 +1897,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Security
-  summary: "Gets or sets the amount of time a write operation blocks waiting for data."
-  remarks: "This property returns the value returned by invoking <xref:System.IO.Stream.WriteTimeout%2A> on the underlying stream. For set operations, the specified value sets the <xref:System.IO.Stream.WriteTimeout%2A> value on the underlying stream.       If the underlying stream is a <xref:System.Net.Sockets.NetworkStream>, WriteTimeout is in milliseconds and is set to <xref:System.Threading.Timeout.Infinite> by default so that write operations do not timeout."
+  summary: "取得または書き込み操作がブロックのデータ待機時間を設定します。"
+  remarks: "このプロパティを呼び出すことによって返される値を返します<xref:System.IO.Stream.WriteTimeout%2A>基になるストリーム</xref:System.IO.Stream.WriteTimeout%2A>。 指定された値の設定、集合演算、<xref:System.IO.Stream.WriteTimeout%2A>基になるストリームの値</xref:System.IO.Stream.WriteTimeout%2A>。       基になるストリームがある場合、 <xref:System.Net.Sockets.NetworkStream>、WriteTimeout (ミリ秒単位) に設定されている<xref:System.Threading.Timeout.Infinite>既定では書き込み操作はタイムアウトにならないようにします</xref:System.Threading.Timeout.Infinite></xref:System.Net.Sockets.NetworkStream>。"
   example:
   - "The following code example demonstrates setting the value of this property.  \n  \n [!code-cpp[NclSslServerSync#1](~/add/codesnippet/cpp/p-system.net.security.ss_12_1.cpp)]\n [!code-cs[NclSslServerSync#1](~/add/codesnippet/csharp/p-system.net.security.ss_12_1.cs)]"
   syntax:
     content: public override int WriteTimeout { get; set; }
     return:
       type: System.Int32
-      description: "A <xref:System.Int32> that specifies the amount of time that elapses before a synchronous write operation fails."
+      description: "A<xref:System.Int32>同期書き込み操作が失敗する前に経過した時間の大きさを指定します</xref:System.Int32>。"
   overload: System.Net.Security.SslStream.WriteTimeout*
   exceptions: []
   platform:
