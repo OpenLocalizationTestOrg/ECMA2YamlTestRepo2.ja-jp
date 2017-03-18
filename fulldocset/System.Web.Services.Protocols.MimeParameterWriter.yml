@@ -15,8 +15,8 @@ items:
   nameWithType: MimeParameterWriter
   fullName: System.Web.Services.Protocols.MimeParameterWriter
   type: Class
-  summary: "Provides a common base implementation for writers of out-going request parameters for Web service clients implemented using HTTP but without SOAP."
-  remarks: "MimeParameterWriter and other classes in the <xref:System.Web.Services.Protocols> namespace support the .NET Framework&quot;s implementations of Web services via the HTTP-GET and HTTP-POST operations. Web service writers and readers serialize and deserialize, respectively, between the parameters or return objects of Web methods and the HTTP request or response streams. Web service writers and readers use HTTP for transport but don&quot;t exchange messages using the SOAP standard.       The MimeParameterWriter class establishes a common request-writing format for client-side writing of Web method parameters into HTTP request streams.       You will typically not need to use MimeParameterWriter or its descendant classes directly. Instead, when the Wsdl.exe tool generates client proxy code according to the HTTP-GET or HTTP-POST implementations, it applies the <xref:System.Web.Services.Protocols.HttpMethodAttribute> to each Web method and sets the attribute&quot;s <xref:System.Web.Services.Protocols.HttpMethodAttribute.ParameterFormatter%2A> property to the appropriate type."
+  summary: "SOAP ことがなく HTTP を使用して実装されている Web サービス クライアントの要求パラメーターを発信ライターの共通の基本実装を提供します。"
+  remarks: "MimeParameterWriter とその他のクラスの<xref:System.Web.Services.Protocols>名前空間は、HTTP GET 要求および HTTP POST 操作で Web サービスの .NET Framework の実装をサポートします</xref:System.Web.Services.Protocols>。 Web サービスのライター、リーダー シリアル化および逆、それぞれ、パラメーターまたは Web メソッドの戻り値のオブジェクトと、HTTP 要求または応答のストリームの間です。 Web サービスのライター、リーダーは、HTTP トランスポートを使用しますが、SOAP 標準を使用してメッセージを交換しません。       MimeParameterWriter クラスは、HTTP 要求のストリームに Web メソッドのパラメーターのクライアント側の書き込みのための一般的な要求の記述形式を設定します。       通常必要はありません MimeParameterWriter またはその派生クラスを直接使用します。 代わりに、Wsdl.exe ツールは、HTTP GET または HTTP POST の実装に応じて、クライアント プロキシ コードを生成するときに適用されます、<xref:System.Web.Services.Protocols.HttpMethodAttribute>各 Web メソッドに属性の設定と<xref:System.Web.Services.Protocols.HttpMethodAttribute.ParameterFormatter%2A>プロパティを適切な型です</xref:System.Web.Services.Protocols.HttpMethodAttribute.ParameterFormatter%2A></xref:System.Web.Services.Protocols.HttpMethodAttribute>。"
   syntax:
     content: 'public abstract class MimeParameterWriter : System.Web.Services.Protocols.MimeFormatter'
   inheritance:
@@ -44,7 +44,7 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Services.Protocols.MimeParameterWriter&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Web.Services.Protocols.MimeParameterWriter&quot;> </xref>クラスです。"
   syntax:
     content: protected MimeParameterWriter ();
     parameters: []
@@ -64,20 +64,20 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: "When overridden in a derived class, modifies the outgoing HTTP request&quot;s Uniform Request Locator (URL)."
-  remarks: "Of the classes derived from <xref:System.Web.Services.Protocols.MimeParameterWriter>, only <xref:System.Web.Services.Protocols.UrlParameterWriter> modifies the HTTP request URL."
+  summary: "派生クラスでオーバーライドされると、送信 HTTP 要求の要求 URL (Uniform Locator) を変更します。"
+  remarks: "派生したクラスの<xref:System.Web.Services.Protocols.MimeParameterWriter>、のみ<xref:System.Web.Services.Protocols.UrlParameterWriter>HTTP 要求の URL を変更します</xref:System.Web.Services.Protocols.UrlParameterWriter></xref:System.Web.Services.Protocols.MimeParameterWriter>。"
   syntax:
     content: public virtual string GetRequestUrl (string url, object[] parameters);
     parameters:
     - id: url
       type: System.String
-      description: "The HTTP request&quot;s original Uniform Resource Locator (URL)."
+      description: "HTTP 要求の元 Uniform Resource Locator (URL)。"
     - id: parameters
       type: System.Object[]
-      description: "The Web method parameter values to be added to the URL, if necessary."
+      description: "必要な場合、URL に追加する Web メソッドのパラメーター値。"
     return:
       type: System.String
-      description: "A <xref:System.String> object that contains the modified, outgoing HTTP request&quot;s Uniform Request Locator (URL)."
+      description: "A<xref:System.String>オブジェクトを含む、変更された、HTTP 要求の要求 URL (Uniform Locator) を送信します</xref:System.String>。"
   overload: System.Web.Services.Protocols.MimeParameterWriter.GetRequestUrl*
   exceptions: []
   platform:
@@ -94,17 +94,17 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: "When overridden in a derived class, initializes the out-going HTTP request."
-  remarks: "Of the classes derived from <xref:System.Web.Services.Protocols.MimeParameterWriter>, only <xref:System.Web.Services.Protocols.HtmlFormParameterWriter> implements the <xref:System.Web.Services.Protocols.MimeParameterWriter> method."
+  summary: "派生クラスでオーバーライドされると、発信 HTTP 要求を初期化します。"
+  remarks: "派生したクラスの<xref:System.Web.Services.Protocols.MimeParameterWriter>、のみ<xref:System.Web.Services.Protocols.HtmlFormParameterWriter>を実装する、<xref:System.Web.Services.Protocols.MimeParameterWriter>メソッド</xref:System.Web.Services.Protocols.MimeParameterWriter></xref:System.Web.Services.Protocols.HtmlFormParameterWriter></xref:System.Web.Services.Protocols.MimeParameterWriter>。"
   syntax:
     content: public virtual void InitializeRequest (System.Net.WebRequest request, object[] values);
     parameters:
     - id: request
       type: System.Net.WebRequest
-      description: "The out-going request, where the <xref:System.Net.WebRequest> class allows transport protocols besides HTTP."
+      description: "発信の要求では、ここで、<xref:System.Net.WebRequest>クラスは、HTTP 以外のトランスポート プロトコルを使用できます</xref:System.Net.WebRequest>。"
     - id: values
       type: System.Object[]
-      description: "The Web method parameter values."
+      description: "Web メソッドのパラメーター値。"
   overload: System.Web.Services.Protocols.MimeParameterWriter.InitializeRequest*
   exceptions: []
   platform:
@@ -121,13 +121,13 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: "Gets or sets the encoding used to write parameters to the HTTP request."
-  remarks: "An encoding, as represented by the <xref:System.Text.Encoding> class, defines how to transform characters into a sequence of bytes."
+  summary: "取得または HTTP 要求へのパラメーターを書き込むために使用するエンコーディングを設定します。"
+  remarks: "エンコードで表される、<xref:System.Text.Encoding>クラス、文字をバイト シーケンスに変換する方法を定義します</xref:System.Text.Encoding>。"
   syntax:
     content: public virtual System.Text.Encoding RequestEncoding { get; set; }
     return:
       type: System.Text.Encoding
-      description: "The encoding used to write parameters to the HTTP request."
+      description: "HTTP 要求へのパラメーターを書き込むために使用するエンコーディングします。"
   overload: System.Web.Services.Protocols.MimeParameterWriter.RequestEncoding*
   exceptions: []
   platform:
@@ -144,13 +144,13 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: "Gets a value that indicates whether Web method parameter values are serialized to the out-going HTTP request body."
-  remarks: "The UsesWriteRequest property determines whether the <xref:System.Web.Services.Protocols.MimeParameterWriter.WriteRequest%2A> method is invoked.       The <xref:System.Web.Services.Protocols.MimeParameterWriter> class&quot;s implementation of UsesWriteRequest returns a value of `false`. The only derived class that overrides UsesWriteRequest is <xref:System.Web.Services.Protocols.HtmlFormParameterWriter>, whose implementation returns a value of `true`."
+  summary: "発信 HTTP 要求本文に Web メソッドのパラメーター値がシリアル化するかどうかを示す値を取得します。"
+  remarks: "UsesWriteRequest プロパティを決定するかどうか、<xref:System.Web.Services.Protocols.MimeParameterWriter.WriteRequest%2A>メソッドが呼び出されます</xref:System.Web.Services.Protocols.MimeParameterWriter.WriteRequest%2A>。       <xref:System.Web.Services.Protocols.MimeParameterWriter>UsesWriteRequest のクラスの実装に値を返します`false`</xref:System.Web.Services.Protocols.MimeParameterWriter>。 UsesWriteRequest をオーバーライドする唯一の派生クラスは<xref:System.Web.Services.Protocols.HtmlFormParameterWriter>、これらの実装に値を返します`true`</xref:System.Web.Services.Protocols.HtmlFormParameterWriter>。"
   syntax:
     content: public virtual bool UsesWriteRequest { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the Web method parameter values are serialized to the out-going HTTP request body; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Web メソッドのパラメーター値は、発信 HTTP 要求本文にシリアル化する場合それ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.Services.Protocols.MimeParameterWriter.UsesWriteRequest*
   exceptions: []
   platform:
@@ -167,17 +167,17 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: "When overridden in a derived class, serializes Web method parameter values into a stream representing the outgoing HTTP request body."
-  remarks: "Of the classes derived from <xref:System.Web.Services.Protocols.MimeParameterWriter>, only <xref:System.Web.Services.Protocols.HtmlFormParameterWriter> implements the WriteRequest method."
+  summary: "派生クラスでオーバーライドされると、出力方向の HTTP 要求本体を表すストリーム Web メソッドのパラメーター値にシリアル化します。"
+  remarks: "派生したクラスの<xref:System.Web.Services.Protocols.MimeParameterWriter>、のみ<xref:System.Web.Services.Protocols.HtmlFormParameterWriter>WriteRequest メソッドを実装します</xref:System.Web.Services.Protocols.HtmlFormParameterWriter></xref:System.Web.Services.Protocols.MimeParameterWriter>。"
   syntax:
     content: public virtual void WriteRequest (System.IO.Stream requestStream, object[] values);
     parameters:
     - id: requestStream
       type: System.IO.Stream
-      description: "An input stream for the outgoing HTTP request&quot;s body."
+      description: "送信 HTTP 要求の本文の入力ストリーム。"
     - id: values
       type: System.Object[]
-      description: "The Web method parameter values."
+      description: "Web メソッドのパラメーター値。"
   overload: System.Web.Services.Protocols.MimeParameterWriter.WriteRequest*
   exceptions: []
   platform:

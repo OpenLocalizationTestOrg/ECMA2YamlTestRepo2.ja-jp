@@ -33,8 +33,8 @@ items:
   nameWithType: IHttpSessionState
   fullName: System.Web.SessionState.IHttpSessionState
   type: Interface
-  summary: "Defines the contract to implement a custom session-state container."
-  remarks: "A session-state container provides access to the session-state values and related information for the current session. Session information included in a session-state container is exposed to application code through the <xref:System.Web.SessionState.HttpSessionState> class using the <xref:System.Web.HttpContext.Session%2A> property. The <xref:System.Web.SessionState.HttpSessionState> class is a wrapper class for a session-state container.       The ASP.NET implementation of a session-state container is the <xref:System.Web.SessionState.HttpSessionStateContainer> class. At the beginning of a request, during the <xref:System.Web.HttpApplication.AcquireRequestState> event, the <xref:System.Web.SessionState.SessionStateModule> creates and populates an <xref:System.Web.SessionState.HttpSessionStateContainer> object and assigns it to the current <xref:System.Web.HttpContext>. At the end of a request, during the <xref:System.Web.HttpApplication.ReleaseRequestState> event, the <xref:System.Web.SessionState.SessionStateModule> retrieves the <xref:System.Web.SessionState.HttpSessionStateContainer> object from the current <xref:System.Web.HttpContext> and performs any required session work, such as writing the session values to the session store, or abandoning the session. If the request is abruptly terminated, such as through a redirect, the <xref:System.Web.SessionState.SessionStateModule> performs the same cleanup by calling the <xref:System.Web.SessionState.SessionStateStoreProviderBase.EndRequest%2A> method.       To create a custom session-state container, create a class that implements the IHttpSessionState interface. If you are creating your own custom session-state container, you must also replace the <xref:System.Web.SessionState.SessionStateModule> with your own custom module. Your custom module will create an instance of your custom session-state container and add it to the current <xref:System.Web.HttpContext> using the <xref:System.Web.SessionState.SessionStateUtility.AddHttpSessionStateToContext%2A> method. An example of a custom session-state module is included in the <xref:System.Web.SessionState.SessionStateUtility> class overview."
+  summary: "カスタム セッション状態のコンテナーを実装するためのコントラクトを定義します。"
+  remarks: "セッション状態のコンテナーでは、セッション状態の値と関連情報については、現在のセッションへのアクセスを提供します。 セッション状態のコンテナーに含まれるセッション情報が使用してアプリケーション コードに公開されている、<xref:System.Web.SessionState.HttpSessionState>クラスを使用して、<xref:System.Web.HttpContext.Session%2A>プロパティ</xref:System.Web.HttpContext.Session%2A></xref:System.Web.SessionState.HttpSessionState>。 <xref:System.Web.SessionState.HttpSessionState>クラスは、セッション状態のコンテナーのラッパー クラスです</xref:System.Web.SessionState.HttpSessionState>。       セッション状態のコンテナーの ASP.NET の実装は<xref:System.Web.SessionState.HttpSessionStateContainer>クラス</xref:System.Web.SessionState.HttpSessionStateContainer>です。 <xref:System.Web.SessionState.SessionStateModule><xref:System.Web.SessionState.HttpSessionStateContainer><xref:System.Web.HttpApplication.AcquireRequestState>イベント</xref:System.Web.HttpApplication.AcquireRequestState></xref:System.Web.SessionState.HttpSessionStateContainer></xref:System.Web.SessionState.SessionStateModule>中に、要求の開始時 要求の終了時中に、<xref:System.Web.HttpApplication.ReleaseRequestState>イベント、<xref:System.Web.SessionState.SessionStateModule>を取得、<xref:System.Web.SessionState.HttpSessionStateContainer>オブジェクトから現在の<xref:System.Web.HttpContext>セッション ストアへのセッションの値の書き込みや、セッションを破棄など、任意の必要なセッション作業を実行します</xref:System.Web.HttpContext></xref:System.Web.SessionState.HttpSessionStateContainer></xref:System.Web.SessionState.SessionStateModule></xref:System.Web.HttpApplication.ReleaseRequestState>。 要求が突然終了した場合、このようなリダイレクトを介する、<xref:System.Web.SessionState.SessionStateModule>呼び出すことによって同じのクリーンアップを実行する、<xref:System.Web.SessionState.SessionStateStoreProviderBase.EndRequest%2A>メソッド</xref:System.Web.SessionState.SessionStateStoreProviderBase.EndRequest%2A></xref:System.Web.SessionState.SessionStateModule>。       カスタム セッション状態のコンテナーを作成するには、IHttpSessionState インターフェイスを実装するクラスを作成します。 独自のカスタム セッション状態コンテナーを作成する場合も置き換える必要があります、<xref:System.Web.SessionState.SessionStateModule>カスタム モジュールにします</xref:System.Web.SessionState.SessionStateModule>。 カスタム モジュールは、カスタム セッション状態のコンテナーのインスタンスが作成され、現在追加<xref:System.Web.HttpContext>を使用して、<xref:System.Web.SessionState.SessionStateUtility.AddHttpSessionStateToContext%2A>メソッド</xref:System.Web.SessionState.SessionStateUtility.AddHttpSessionStateToContext%2A></xref:System.Web.HttpContext>。 カスタム セッション状態モジュールの例に含まれる、<xref:System.Web.SessionState.SessionStateUtility>クラスの概要</xref:System.Web.SessionState.SessionStateUtility>。"
   example:
   - "The following code example implements the IHttpSessionState interface to create a new session-state container class named `MySessionState`.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#1](~/add/codesnippet/csharp/t-system.web.sessionstat_4_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#1](~/add/codesnippet/visualbasic/t-system.web.sessionstat_4_1.vb)]"
   syntax:
@@ -54,8 +54,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Ends the current session."
-  remarks: "The Abandon method is used to clear out session data and raise the **Session_OnEnd** event defined in the Global.asax file for the ASP.NET application."
+  summary: "現在のセッションを終了します。"
+  remarks: "セッション データをクリアし、発生する、電話放棄呼メソッドが使用される、 **Session_OnEnd** ASP.NET アプリケーションの Global.asax ファイルで定義されたイベント。"
   example:
   - "The following code example implements the Abandon method of the <xref:System.Web.SessionState.IHttpSessionState> interface. The code example duplicates the behavior of the <xref:System.Web.SessionState.HttpSessionStateContainer> class in that it adds an <xref:System.Web.SessionState.HttpSessionStateContainer.IsAbandoned%2A> property that is set to `true` when the Abandon method is called. The <xref:System.Web.SessionState.HttpSessionStateContainer.IsAbandoned%2A> property is checked by the session-state module during the <xref:System.Web.HttpApplication.ReleaseRequestState> event to determine whether the session has been abandoned, and the session-state module clears out session data and executes the **Session_OnEnd** event.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#8](~/add/codesnippet/csharp/m-system.web.sessionstat_12_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#8](~/add/codesnippet/visualbasic/m-system.web.sessionstat_12_1.vb)]"
   syntax:
@@ -77,7 +77,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Adds a new item to the session-state collection."
+  summary: "セッション状態コレクションに新しい項目を追加します。"
   remarks: ''
   example:
   - "The following code example implements the Add method of the <xref:System.Web.SessionState.IHttpSessionState> interface to add a new item value to the internal session-state item collection.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#15](~/add/codesnippet/csharp/m-system.web.sessionstat_8_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#15](~/add/codesnippet/visualbasic/m-system.web.sessionstat_8_1.vb)]"
@@ -86,10 +86,10 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the item to add to the session-state collection."
+      description: "セッション状態コレクションに追加する項目の名前。"
     - id: value
       type: System.Object
-      description: "The value of the item to add to the session-state collection."
+      description: "セッション状態コレクションに追加する項目の値。"
   overload: System.Web.SessionState.IHttpSessionState.Add*
   exceptions: []
   platform:
@@ -106,8 +106,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Clears all values from the session-state item collection."
-  remarks: "Clear performs the same function as <xref:System.Web.SessionState.IHttpSessionState.RemoveAll%2A>."
+  summary: "セッション状態の項目コレクションからすべての値をクリアします。"
+  remarks: "クリア テキストが<xref:System.Web.SessionState.IHttpSessionState.RemoveAll%2A>。</xref:System.Web.SessionState.IHttpSessionState.RemoveAll%2A>と同じ機能を実行します。"
   example:
   - "The following code example implements the Clear method of the <xref:System.Web.SessionState.IHttpSessionState> interface to delete all items from an internal session-state item collection.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#18](~/add/codesnippet/csharp/m-system.web.sessionstat_13_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#18](~/add/codesnippet/visualbasic/m-system.web.sessionstat_13_1.vb)]"
   syntax:
@@ -129,15 +129,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets or sets the code-page identifier for the current session."
-  remarks: "A character set (code page) is used to interpret multi-byte character data, determining character value, and therefore sort order. Code-page settings apply only to multi-byte character data, not to Unicode character data.       This CodePage property is provided for compatibility with earlier versions of ASP only. If you do not need to maintain backward compatibility with ASP pages, use the <xref:System.Text.Encoding.CodePage%2A> property of the <xref:System.Web.HttpResponse.ContentEncoding%2A> property instead."
+  summary: "取得または現在のセッションのコード ページ識別子を設定します。"
+  remarks: "文字セット (コード ページ) がマルチ バイト文字データ、文字値の決定を解釈し、並べ替え順序を使用します。 コード ページの設定は、されていない Unicode 文字データへのマルチ バイト文字データにのみ適用されます。       この CodePage プロパティは、ASP の旧バージョンのみとの互換性用に提供されます。 ASP ページとの下位互換性を維持する必要がない場合を使用して、<xref:System.Text.Encoding.CodePage%2A>のプロパティ、<xref:System.Web.HttpResponse.ContentEncoding%2A>プロパティ代わりにします</xref:System.Web.HttpResponse.ContentEncoding%2A></xref:System.Text.Encoding.CodePage%2A>。"
   example:
   - "The following code example implements the CodePage property of the <xref:System.Web.SessionState.IHttpSessionState> interface to get and set the encoding for the current response.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#10](~/add/codesnippet/csharp/p-system.web.sessionstat_22_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#10](~/add/codesnippet/visualbasic/p-system.web.sessionstat_22_1.vb)]"
   syntax:
     content: public int CodePage { get; set; }
     return:
       type: System.Int32
-      description: "The code-page identifier for the current session."
+      description: "現在のセッションのコード ページ識別子です。"
   overload: System.Web.SessionState.IHttpSessionState.CodePage*
   exceptions: []
   platform:
@@ -154,15 +154,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets a value that indicates whether the application is configured for cookieless sessions."
-  remarks: "The CookieMode property returns a <xref:System.Web.HttpCookieMode> enumeration value that is based on the value of the `cookieless` attribute of the <xref:System.Web.Configuration.SystemWebSectionGroup.SessionState%2A> configuration element. If the `cookieless` attribute is set to `true`, then the CookieMode property returns <xref:System.Web.HttpCookieMode>; otherwise, the CookieMode property returns <xref:System.Web.HttpCookieMode>."
+  summary: "アプリケーションが cookie なしのセッションのように構成するかどうかを示す値を取得します。"
+  remarks: "CookieMode プロパティから返される、<xref:System.Web.HttpCookieMode>列挙値の値に基づいている、`cookieless`の属性、<xref:System.Web.Configuration.SystemWebSectionGroup.SessionState%2A>構成要素</xref:System.Web.Configuration.SystemWebSectionGroup.SessionState%2A></xref:System.Web.HttpCookieMode>。 場合、`cookieless`属性に設定されている`true`、CookieMode プロパティは、<xref:System.Web.HttpCookieMode>それ以外の CookieMode プロパティ<xref:System.Web.HttpCookieMode>.</xref:System.Web.HttpCookieMode></xref:System.Web.HttpCookieMode>から返されます。"
   example:
   - "The following code example sets the `cookieless` attribute of the [sessionState Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/bda6fb8c-0076-43e3-9ce2-8cf1f8bdaa7d) element to `true` in the Web.config file to change the CookieMode property. For this sample application configuration, the CookieMode property would return <xref:System.Web.HttpCookieMode>.  \n  \n```  \n<configuration>  \n  <system.web>  \n    <sessionState  \n      mode=\"InProc\"  \n      cookieless=\"true\"  \n      timeout=\"30\" />  \n  </system.web>  \n</configuration>  \n```"
   syntax:
     content: public System.Web.HttpCookieMode CookieMode { get; }
     return:
       type: System.Web.HttpCookieMode
-      description: "One of the <xref href=&quot;System.Web.HttpCookieMode&quot;></xref> values that indicate whether the application is configured for cookieless sessions. The default is <xref href=&quot;System.Web.HttpCookieMode&quot;></xref>."
+      description: "1 つ、 <xref href=&quot;System.Web.HttpCookieMode&quot;> </xref>アプリケーションが cookie なしのセッションのように構成するかどうかを示す値。 既定値は<xref href=&quot;System.Web.HttpCookieMode&quot;></xref>です。"
   overload: System.Web.SessionState.IHttpSessionState.CookieMode*
   exceptions: []
   platform:
@@ -179,7 +179,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Copies the collection of session-state item values to a one-dimensional array, starting at the specified index in the array."
+  summary: "セッション状態の項目の値のコレクションを配列内の指定したインデックスから始まる&1; 次元配列にコピーします。"
   remarks: ''
   example:
   - "The following code example implements the CopyTo method of the <xref:System.Web.SessionState.IHttpSessionState> interface to copy session-state item values to an array.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#22](~/add/codesnippet/csharp/m-system.web.sessionstat_11_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#22](~/add/codesnippet/visualbasic/m-system.web.sessionstat_11_1.vb)]"
@@ -188,10 +188,10 @@ items:
     parameters:
     - id: array
       type: System.Array
-      description: "The <xref:System.Array> that receives the session values."
+      description: "<xref:System.Array>セッションの値を受け取る</xref:System.Array>。"
     - id: index
       type: System.Int32
-      description: "The index in `array` where copying starts."
+      description: "内のインデックス`array`コピーの開始場所。"
   overload: System.Web.SessionState.IHttpSessionState.CopyTo*
   exceptions: []
   platform:
@@ -208,7 +208,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets the number of items in the session-state item collection."
+  summary: "セッション状態の項目のコレクション内の項目数を取得します。"
   remarks: ''
   example:
   - "The following code example implements the Count property of the <xref:System.Web.SessionState.IHttpSessionState> interface to return the number of items in the internal session-state item collection.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#19](~/add/codesnippet/csharp/p-system.web.sessionstat_11_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#19](~/add/codesnippet/visualbasic/p-system.web.sessionstat_11_1.vb)]"
@@ -216,7 +216,7 @@ items:
     content: public int Count { get; }
     return:
       type: System.Int32
-      description: "The number of items in the session-state item collection."
+      description: "セッション状態のアイテム コレクション内の項目の数。"
   overload: System.Web.SessionState.IHttpSessionState.Count*
   exceptions: []
   platform:
@@ -233,7 +233,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Returns an enumerator that can be used to read all the session-state item values in the current session."
+  summary: "現在のセッションですべてのセッション状態の項目の値の読み取りに使用できる列挙子を返します。"
   remarks: ''
   example:
   - "The following code example implements the GetEnumerator method of the <xref:System.Web.SessionState.IHttpSessionState> interface to return an enumerator for the internal session-state item collection.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#21](~/add/codesnippet/csharp/m-system.web.sessionstat_17_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#21](~/add/codesnippet/visualbasic/m-system.web.sessionstat_17_1.vb)]"
@@ -242,7 +242,7 @@ items:
     parameters: []
     return:
       type: System.Collections.IEnumerator
-      description: "An <xref:System.Collections.IEnumerator> that can iterate through the values in the session-state item collection."
+      description: "<xref:System.Collections.IEnumerator>セッション状態のアイテム コレクション内の値を反復処理することができます</xref:System.Collections.IEnumerator>。"
   overload: System.Web.SessionState.IHttpSessionState.GetEnumerator*
   exceptions: []
   platform:
@@ -259,15 +259,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets a value indicating whether the session ID is embedded in the URL or stored in an HTTP cookie."
-  remarks: "For information on cookieless sessions, see [Session Identifiers](~/add/includes/ajax-current-ext-md.md)."
+  summary: "セッション ID が URL に埋め込まれているか、HTTP cookie に格納されているかどうかを示す値を取得します。"
+  remarks: "Cookie なしのセッションについては、次を参照してください。[セッション識別子](~/add/includes/ajax-current-ext-md.md)です。"
   example:
   - "The following code example implements the IsCookieless property of the <xref:System.Web.SessionState.IHttpSessionState> interface.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#6](~/add/codesnippet/csharp/p-system.web.sessionstat_7_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#6](~/add/codesnippet/visualbasic/p-system.web.sessionstat_7_1.vb)]"
   syntax:
     content: public bool IsCookieless { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the session is embedded in the URL; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>セッションが URL に埋め込まれている場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.SessionState.IHttpSessionState.IsCookieless*
   exceptions: []
   platform:
@@ -284,7 +284,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets a value indicating whether the session was created with the current request."
+  summary: "現在の要求でセッションが作成されたかどうかを示す値を取得します。"
   remarks: ''
   example:
   - "The following code example implements the IsNewSession property of the <xref:System.Web.SessionState.IHttpSessionState> interface.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#4](~/add/codesnippet/csharp/p-system.web.sessionstat_19_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#4](~/add/codesnippet/visualbasic/p-system.web.sessionstat_19_1.vb)]"
@@ -292,7 +292,7 @@ items:
     content: public bool IsNewSession { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the session was created with the current request; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>現在の要求でセッションが作成された場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.SessionState.IHttpSessionState.IsNewSession*
   exceptions: []
   platform:
@@ -309,15 +309,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets a value indicating whether the session is read-only."
-  remarks: "Session state is set to read-only by setting the <xref:System.Web.Configuration.PagesSection.EnableSessionState%2A> page attribute to `ReadOnly`."
+  summary: "セッションが読み取り専用かどうかを示す値を取得します。"
+  remarks: "セッション状態が設定読み取り専用に設定して、<xref:System.Web.Configuration.PagesSection.EnableSessionState%2A>ページの属性に`ReadOnly`</xref:System.Web.Configuration.PagesSection.EnableSessionState%2A>。"
   example:
   - "The following code example implements the IsReadOnly property of the <xref:System.Web.SessionState.IHttpSessionState> interface to return the value of an internal variable that was set in the constructor.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#24](~/add/codesnippet/csharp/p-system.web.sessionstat_4_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#24](~/add/codesnippet/visualbasic/p-system.web.sessionstat_4_1.vb)]"
   syntax:
     content: public bool IsReadOnly { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the session is read-only; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、セッションが読み取り専用です。それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.SessionState.IHttpSessionState.IsReadOnly*
   exceptions: []
   platform:
@@ -334,7 +334,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets a value indicating whether access to the collection of session-state values is synchronized (thread safe)."
+  summary: "セッション状態の値のコレクションへのアクセスが同期されているかどうかを示す値 (スレッド セーフである) を取得します。"
   remarks: ''
   example:
   - "The following code example implements the IsSynchronized property of the <xref:System.Web.SessionState.IHttpSessionState> interface.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#25](~/add/codesnippet/csharp/p-system.web.sessionstat_1_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#25](~/add/codesnippet/visualbasic/p-system.web.sessionstat_1_1.vb)]"
@@ -342,7 +342,7 @@ items:
     content: public bool IsSynchronized { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if access to the collection is synchronized (thread safe); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、コレクションへのアクセスが同期されている (スレッド セーフである)それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.SessionState.IHttpSessionState.IsSynchronized*
   exceptions: []
   platform:
@@ -359,7 +359,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets or sets a session-state item value by numerical index."
+  summary: "取得または数値のインデックスを使用してセッション状態の項目の値を設定します。"
   remarks: ''
   example:
   - "The following code example implements the <xref:System.Web.SessionState.IHttpSessionState.Item%2A> property of the <xref:System.Web.SessionState.IHttpSessionState> interface to store and return an internal dictionary session-state item value by numeric index.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#14](~/add/codesnippet/csharp/p-system.web.sessionstat_23_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#14](~/add/codesnippet/visualbasic/p-system.web.sessionstat_23_1.vb)]"
@@ -368,10 +368,10 @@ items:
     parameters:
     - id: index
       type: System.Int32
-      description: "The numerical index of the session-state item value."
+      description: "セッション状態の項目の値の数値インデックス。"
     return:
       type: System.Object
-      description: "The session-state item value specified in the <code>index</code> parameter."
+      description: "指定されたセッション状態の項目の値、 <code> index </code>パラメーター。"
   overload: System.Web.SessionState.IHttpSessionState.Item*
   exceptions: []
   platform:
@@ -388,7 +388,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets or sets a session-state item value by name."
+  summary: "取得または名前でセッション状態の項目の値を設定します。"
   remarks: ''
   example:
   - "The following code example implements the Item property of the <xref:System.Web.SessionState.IHttpSessionState> interface to store and return an internal dictionary session-state item value by its key name.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#13](~/add/codesnippet/csharp/p-system.web.sessionstat_16_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#13](~/add/codesnippet/visualbasic/p-system.web.sessionstat_16_1.vb)]"
@@ -397,10 +397,10 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The key name of the session-state item value."
+      description: "セッション状態の項目の値のキー名。"
     return:
       type: System.Object
-      description: "The session-state item value specified in the <code>name</code> parameter."
+      description: "指定されたセッション状態の項目の値、 <code> name </code>パラメーター。"
   overload: System.Web.SessionState.IHttpSessionState.Item*
   exceptions: []
   platform:
@@ -417,7 +417,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets a collection of the keys for all values stored in the session-state item collection."
+  summary: "セッション状態の項目のコレクションに格納されているすべての値のキーのコレクションを取得します。"
   remarks: ''
   example:
   - "The following code example implements the Keys property of the <xref:System.Web.SessionState.IHttpSessionState> interface to return a collection of session-state item key names from the internal session-state item collection.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#20](~/add/codesnippet/csharp/p-system.web.sessionstat_15_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#20](~/add/codesnippet/visualbasic/p-system.web.sessionstat_15_1.vb)]"
@@ -425,7 +425,7 @@ items:
     content: public System.Collections.Specialized.NameObjectCollectionBase.KeysCollection Keys { get; }
     return:
       type: System.Collections.Specialized.NameObjectCollectionBase.KeysCollection
-      description: "The <xref:System.Collections.Specialized.NameObjectCollectionBase.KeysCollection> that contains all the session-item keys."
+      description: "<xref:System.Collections.Specialized.NameObjectCollectionBase.KeysCollection>セッション項目のすべてのキーを格納している</xref:System.Collections.Specialized.NameObjectCollectionBase.KeysCollection>。"
   overload: System.Web.SessionState.IHttpSessionState.Keys*
   exceptions: []
   platform:
@@ -442,15 +442,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets or sets the locale identifier (LCID) of the current session."
-  remarks: "This `LCID` property is provided for compatibility with earlier versions of ASP only. If you do not need to maintain backward compatibility with ASP pages, use the <xref:System.Globalization.CultureInfo.LCID%2A> property instead.       ASP.NET does not store the locale identifier in session state. The LCID property calls the <xref:System.Globalization.CultureInfo.LCID%2A> to get and set the identifier."
+  summary: "取得または現在のセッションのロケール識別子 (LCID) を設定します。"
+  remarks: "これは、`LCID`プロパティは ASP の旧バージョンのみと互換性のために提供します。 ASP ページとの下位互換性を維持する必要がない場合を使用して、<xref:System.Globalization.CultureInfo.LCID%2A>プロパティ代わりにします</xref:System.Globalization.CultureInfo.LCID%2A>。       ASP.NET では、セッション状態でロケール識別子は保存されません。 LCID プロパティの呼び出し、<xref:System.Globalization.CultureInfo.LCID%2A>を取得し、識別子を設定します</xref:System.Globalization.CultureInfo.LCID%2A>。"
   example:
   - "The following code example implements the LCID property of the <xref:System.Web.SessionState.IHttpSessionState> interface to get and set the locale identifier for the current page.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#9](~/add/codesnippet/csharp/p-system.web.sessionstat_12_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#9](~/add/codesnippet/visualbasic/p-system.web.sessionstat_12_1.vb)]"
   syntax:
     content: public int LCID { get; set; }
     return:
       type: System.Int32
-      description: "A <xref:System.Globalization.CultureInfo> instance that specifies the culture of the current session."
+      description: "A<xref:System.Globalization.CultureInfo>インスタンスが、現在のセッションのカルチャを指定します</xref:System.Globalization.CultureInfo>。"
   overload: System.Web.SessionState.IHttpSessionState.LCID*
   exceptions: []
   platform:
@@ -467,15 +467,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets the current session-state mode."
-  remarks: "For information on different session-state modes, see [Session-State Modes](~/add/includes/ajax-current-ext-md.md)."
+  summary: "現在のセッション状態モードを取得します。"
+  remarks: "別のセッション状態モードについては、次を参照してください。[セッション状態モード](~/add/includes/ajax-current-ext-md.md)です。"
   example:
   - "The following code example implements the Mode property of the <xref:System.Web.SessionState.IHttpSessionState> interface.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#5](~/add/codesnippet/csharp/p-system.web.sessionstat_13_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#5](~/add/codesnippet/visualbasic/p-system.web.sessionstat_13_1.vb)]"
   syntax:
     content: public System.Web.SessionState.SessionStateMode Mode { get; }
     return:
       type: System.Web.SessionState.SessionStateMode
-      description: "One of the <xref href=&quot;System.Web.SessionState.SessionStateMode&quot;></xref> values."
+      description: "1 つ、 <xref href=&quot;System.Web.SessionState.SessionStateMode&quot;> </xref>値。"
   overload: System.Web.SessionState.IHttpSessionState.Mode*
   exceptions: []
   platform:
@@ -492,7 +492,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Deletes an item from the session-state item collection."
+  summary: "セッション状態の項目コレクションから項目を削除します。"
   remarks: ''
   example:
   - "The following code example implements the Remove method of the <xref:System.Web.SessionState.IHttpSessionState> interface to delete a session-state item from the session-state item collection by key name.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#16](~/add/codesnippet/csharp/m-system.web.sessionstat_18_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#16](~/add/codesnippet/visualbasic/m-system.web.sessionstat_18_1.vb)]"
@@ -501,7 +501,7 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the item to delete from the session-state item collection."
+      description: "セッション状態の項目コレクションから削除する項目の名前。"
   overload: System.Web.SessionState.IHttpSessionState.Remove*
   exceptions: []
   platform:
@@ -518,8 +518,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Clears all values from the session-state item collection."
-  remarks: "RemoveAll performs the same function as <xref:System.Web.SessionState.IHttpSessionState.Clear%2A>."
+  summary: "セッション状態の項目コレクションからすべての値をクリアします。"
+  remarks: "RemoveAll <xref:System.Web.SessionState.IHttpSessionState.Clear%2A>。</xref:System.Web.SessionState.IHttpSessionState.Clear%2A>と同じ機能を実行します。"
   example:
   - "The following code example implements the RemoveAll method of the <xref:System.Web.SessionState.IHttpSessionState> interface to delete all items from an internal session-state item collection.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#18](~/add/codesnippet/csharp/m-system.web.sessionstat_1_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#18](~/add/codesnippet/visualbasic/m-system.web.sessionstat_1_1.vb)]"
   syntax:
@@ -541,7 +541,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Deletes an item at a specified index from the session-state item collection."
+  summary: "セッション状態の項目コレクションから指定したインデックス位置にある項目を削除します。"
   remarks: ''
   example:
   - "The following code example implements the RemoveAt method of the <xref:System.Web.SessionState.IHttpSessionState> interface to delete a session-state item from the internal session-state item collection by numerical index.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#17](~/add/codesnippet/csharp/m-system.web.sessionstat_15_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#17](~/add/codesnippet/visualbasic/m-system.web.sessionstat_15_1.vb)]"
@@ -550,7 +550,7 @@ items:
     parameters:
     - id: index
       type: System.Int32
-      description: "The index of the item to remove from the session-state collection."
+      description: "セッション状態コレクションから削除する項目のインデックス。"
   overload: System.Web.SessionState.IHttpSessionState.RemoveAt*
   exceptions: []
   platform:
@@ -567,7 +567,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets the unique session identifier for the session."
+  summary: "セッションの一意のセッション識別子を取得します。"
   remarks: ''
   example:
   - "The following code example implements the SessionID property of the <xref:System.Web.SessionState.IHttpSessionState> interface.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#3](~/add/codesnippet/csharp/p-system.web.sessionstat_20_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#3](~/add/codesnippet/visualbasic/p-system.web.sessionstat_20_1.vb)]"
@@ -575,7 +575,7 @@ items:
     content: public string SessionID { get; }
     return:
       type: System.String
-      description: "The session ID."
+      description: "セッション id です。"
   overload: System.Web.SessionState.IHttpSessionState.SessionID*
   exceptions: []
   platform:
@@ -592,15 +592,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets a collection of objects declared by <xref uid=&quot;langword_csharp_&lt;object Runat=&quot;Server&quot; Scope=&quot;Session&quot;/&gt;&quot; name=&quot;&lt;object Runat=&quot;Server&quot; Scope=&quot;Session&quot;/&gt;&quot; href=&quot;&quot;></xref> tags within the ASP.NET application file Global.asax."
-  remarks: '`StaticObjects` is provided for compatibility with earlier versions of ASP.'
+  summary: "宣言されたオブジェクトのコレクションを取得<xref uid=&quot;langword_csharp_&lt;object Runat=&quot;Server&quot; Scope=&quot;Session&quot;/&gt;&quot; name=&quot;&lt;object Runat=&quot;Server&quot; Scope=&quot;Session&quot;/&gt;&quot; href=&quot;&quot;> </xref> Global.asax ASP.NET アプリケーションのファイル内のタグ。"
+  remarks: '`StaticObjects`ASP の旧バージョンとの互換性を提供します。'
   example:
   - "The following code example implements the StaticObjects property of the <xref:System.Web.SessionState.IHttpSessionState> interface.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#12](~/add/codesnippet/csharp/p-system.web.sessionstat_17_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#12](~/add/codesnippet/visualbasic/p-system.web.sessionstat_17_1.vb)]"
   syntax:
     content: public System.Web.HttpStaticObjectsCollection StaticObjects { get; }
     return:
       type: System.Web.HttpStaticObjectsCollection
-      description: "An <xref href=&quot;System.Web.HttpStaticObjectsCollection&quot;></xref> containing objects declared in the Global.asax file."
+      description: "<xref href=&quot;System.Web.HttpStaticObjectsCollection&quot;> </xref> Global.asax ファイルで宣言されたオブジェクトを含むです。"
   overload: System.Web.SessionState.IHttpSessionState.StaticObjects*
   exceptions: []
   platform:
@@ -617,7 +617,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets an object that can be used to synchronize access to the collection of session-state values."
+  summary: "セッション状態の値のコレクションへのアクセスを同期するために使用できるオブジェクトを取得します。"
   remarks: ''
   example:
   - "The following code example implements the SyncRoot property to return a copy of the current object that implements the <xref:System.Web.SessionState.IHttpSessionState> interface.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#23](~/add/codesnippet/csharp/p-system.web.sessionstat_2_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#23](~/add/codesnippet/visualbasic/p-system.web.sessionstat_2_1.vb)]"
@@ -625,7 +625,7 @@ items:
     content: public object SyncRoot { get; }
     return:
       type: System.Object
-      description: "An object that can be used to synchronize access to the collection."
+      description: "コレクションへのアクセスを同期するために使用できるオブジェクト。"
   overload: System.Web.SessionState.IHttpSessionState.SyncRoot*
   exceptions: []
   platform:
@@ -642,7 +642,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets and sets the time-out period (in minutes) allowed between requests before the session-state provider terminates the session."
+  summary: "取得し、セッション状態プロバイダーがセッションを終了する前に、要求間で許可されているタイムアウト期間内 (分) を設定します。"
   remarks: ''
   example:
   - "The following code example implements the Timeout property of the <xref:System.Web.SessionState.IHttpSessionState> interface to get and set the session timeout value that is stored in an internal variable created in the class constructor.  \n  \n [!code-cs[System.Web.SessionState.IHttpSessionState#2](~/add/codesnippet/csharp/p-system.web.sessionstat_6_1.cs)]\n [!code-vb[System.Web.SessionState.IHttpSessionState#2](~/add/codesnippet/visualbasic/p-system.web.sessionstat_6_1.vb)]"
@@ -650,7 +650,7 @@ items:
     content: public int Timeout { get; set; }
     return:
       type: System.Int32
-      description: "The time-out period, in minutes."
+      description: "タイムアウト期間 (分) です。"
   overload: System.Web.SessionState.IHttpSessionState.Timeout*
   exceptions: []
   platform:

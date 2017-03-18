@@ -13,8 +13,8 @@ items:
   nameWithType: MachineKey
   fullName: System.Web.Security.MachineKey
   type: Class
-  summary: "Provides a way to encrypt or hash data (or both) by using the same algorithms and key values that are used for ASP.NET forms authentication and view state."
-  remarks: "The MachineKey class provides methods that expose the hashing and encryption logic that ASP.NET provides. For information about which encryption and hashing algorithms ASP.NET uses, and the key values that it uses with them, see [machineKey Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/4b5699a9-bc21-4c4a-85f1-8b3b8ebd2d46).      > [!WARNING] >  The  MachineKey APIs should only be used in an ASP.NET app. Behavior of the MachineKey APIs outside the context of an ASP.NET application is undefined"
+  summary: "ASP.NET フォーム認証とビューステートに使用されるキーの値と同じアルゴリズムを使用して暗号化する方法、またはハッシュ データ (または両方) を提供します。"
+  remarks: "MachineKey クラスは、ASP.NET が提供するハッシュおよび暗号化のロジックを公開するメソッドを提供します。 ASP.NET が使用する暗号化とハッシュ アルゴリズムとそれらに使用されているキーの値については、次を参照してください。 [machineKey 要素 (ASP.NET 設定スキーマ)](http://msdn.microsoft.com/en-us/4b5699a9-bc21-4c4a-85f1-8b3b8ebd2d46)です。      > [!WARNING] >、MachineKey Api は、ASP.NET アプリケーションでのみ使用する必要があります。 ASP.NET アプリケーションのコンテキスト外 MachineKey Api の動作が定義されていません"
   syntax:
     content: public static class MachineKey
   inheritance:
@@ -35,8 +35,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Decodes and/or validates data that has been encrypted or provided with a hash-based message authentication code (HMAC)."
-  remarks: "For information about which encryption and hashing algorithms ASP.NET uses to decrypt and validate the data that is passed in, see [machineKey Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/4b5699a9-bc21-4c4a-85f1-8b3b8ebd2d46)."
+  summary: "デコードおよび暗号化またはハッシュ ベース メッセージ認証コード (HMAC) で提供されたデータを検証します。"
+  remarks: "対象の暗号化とハッシュ アルゴリズムの ASP.NET を使用して復号化しに渡されるデータの検証については、次を参照してください。 [machineKey 要素 (ASP.NET 設定スキーマ)](http://msdn.microsoft.com/en-us/4b5699a9-bc21-4c4a-85f1-8b3b8ebd2d46)です。"
   example:
   - For a code example, see the <xref:System.Web.Security.MachineKey> class overview.
   syntax:
@@ -44,13 +44,13 @@ items:
     parameters:
     - id: encodedData
       type: System.String
-      description: "The encrypted data to decrypt and/or validate."
+      description: "暗号化されたデータを復号化したり検証したりします。"
     - id: protectionOption
       type: System.Web.Security.MachineKeyProtection
-      description: "Indicates whether the `encodedData` parameter should be encrypted and/or hashed."
+      description: "示すかどうか、`encodedData`パラメーターの暗号化し、ハッシュする必要があります。"
     return:
       type: System.Byte[]
-      description: "A <xref:System.Byte> array that represents the decrypted data."
+      description: "A<xref:System.Byte>を復号化されたデータを表す配列</xref:System.Byte>。"
   overload: System.Web.Security.MachineKey.Decode*
   exceptions: []
   platform:
@@ -67,8 +67,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Encrypts data and/or appends a hash-based message authentication code (HMAC)."
-  remarks: "For information about which encryption and hashing algorithms ASP.NET uses to decrypt and validate the data that is passed in, see [machineKey Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/4b5699a9-bc21-4c4a-85f1-8b3b8ebd2d46)."
+  summary: "データの暗号化や、ハッシュ ベース メッセージ認証コード (HMAC) を追加します。"
+  remarks: "対象の暗号化とハッシュ アルゴリズムの ASP.NET を使用して復号化しに渡されるデータの検証については、次を参照してください。 [machineKey 要素 (ASP.NET 設定スキーマ)](http://msdn.microsoft.com/en-us/4b5699a9-bc21-4c4a-85f1-8b3b8ebd2d46)です。"
   example:
   - For a code example, see the <xref:System.Web.Security.MachineKey> class overview.
   syntax:
@@ -76,13 +76,13 @@ items:
     parameters:
     - id: data
       type: System.Byte[]
-      description: "The data to encrypt."
+      description: "暗号化するデータ。"
     - id: protectionOption
       type: System.Web.Security.MachineKeyProtection
-      description: "Indicates whether the `data` parameter should be encrypted and/or hashed."
+      description: "示すかどうか、`data`パラメーターの暗号化し、ハッシュする必要があります。"
     return:
       type: System.String
-      description: "The encrypted value, the input value with an HMAC appended, or the result of encrypting the input value with an HMAC appended."
+      description: "暗号化された値、した HMAC 値、追加の入力値または追加 HMAC で入力値を暗号化するための結果。"
   overload: System.Web.Security.MachineKey.Encode*
   exceptions: []
   platform:
@@ -99,28 +99,28 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Protects the specified data by encrypting or signing it."
-  remarks: "This method supersedes the <xref:System.Web.Security.MachineKey.Encode%2A> method, which requires the caller to specify whether the plaintext data should be encrypted, signed, or both. The Protect method performs the appropriate operation and securely protects the data. Ciphertext data produced by this method can only be deciphered by the <xref:System.Web.Security.MachineKey.Unprotect%2A> method.       The `purposes` parameter is an optional list of reasons that can lock the ciphertext to a specific purpose. This parameter lets you isolate cryptographic operations performed by different subsystems within an application. A malicious client should not be able to get the result of one subsystem&quot;s Protect method and feed it as input to another subsystem&quot;s <xref:System.Web.Security.MachineKey.Unprotect%2A> method, which could compromise application security. The `purposes` parameter helps ensure that protected data can only be used by the component that originally generated it. Applications should make sure that each subsystem uses a unique `purposes` list.       For example, to protect or unprotect an authentication token, you could call the method using code like the following example:      ```c#   MachineKey.Protect(..., &quot;Authentication token&quot;);   MachineKey.Unprotect(..., &quot;Authentication token&quot;);   ```      ```vb   MachineKey.Protect(..., &quot;Authentication token&quot;)   MachineKey.Unprotect(..., &quot;Authentication token&quot;)   ```       Applications can dynamically generate the `purposes` parameter. In that case, prefix user-supplied values with a fixed value (like &quot;`Username:` &quot; + *username*) to minimize the risk of a malicious client crafting input that matches a token that is used by some other part of the system. Any dynamically-generated strings should come after fixed strings. For example, to protect or unprotect a private message that is tied to a specific user, use code like the following example:      ```c#   MachineKey.Protect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username);   MachineKey.Unprotect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username);   ```      ```vb   MachineKey.Protect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username)   MachineKey.Unprotect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username)   ```       When the <xref:System.Web.Security.MachineKey.Unprotect%2A> method is called, the value that is provided for the `purposes` parameter must be the same value that was provided to the Protect method. Otherwise the operation will fail with a <xref:System.Security.Cryptography.CryptographicException> exception.       The configuration settings that are required for the <xref:System.Web.Configuration.MachineKeyCompatibilityMode?displayProperty=fullName> option are required for this method even if the <xref:System.Web.Configuration.MachineKeySection.CompatibilityMode%2A?displayProperty=fullName> property is not set to the <xref:System.Web.Configuration.MachineKeyCompatibilityMode> option."
+  summary: "暗号化または署名により、指定したデータを保護します。"
+  remarks: "このメソッドは、<xref:System.Web.Security.MachineKey.Encode%2A>または両方の方法を指定するかどうか、プレーン テキスト データを暗号化する、署名済み、呼び出し元が必要です</xref:System.Web.Security.MachineKey.Encode%2A>。 保護する方法は、適切な操作を実行し、安全にデータを保護できます。 によって、このメソッドによって作成された暗号化テキスト データを解読だけことができます、<xref:System.Web.Security.MachineKey.Unprotect%2A>メソッド</xref:System.Web.Security.MachineKey.Unprotect%2A>。       `purposes`パラメーターは、特定の目的に暗号テキストをロックする理由のオプションの一覧です。 このパラメーターを使用して、アプリケーション内で複数のサブシステムによって実行される暗号化の操作を分離できます。 悪意のあるクライアントすべきを&1; つのサブシステムの保護メソッドの結果を取得し、別のサブシステムへの入力としてフィード<xref:System.Web.Security.MachineKey.Unprotect%2A>メソッドで、アプリケーションのセキュリティを損なう可能性があります</xref:System.Web.Security.MachineKey.Unprotect%2A>。 `purposes`パラメーターにより、保護されたデータは生成された、コンポーネントによってのみ使用できます。 アプリケーションが各サブシステムを使用して、一意なことを確認してください`purposes` ボックスの一覧です。       たとえば、保護または認証トークンの保護を解除、でしたメソッドを呼び出す例を次のようなコードを使用して: ```c#   MachineKey.Protect(..., &quot;Authentication token&quot;);   MachineKey.Unprotect(..., &quot;Authentication token&quot;);   ``` ```vb   MachineKey.Protect(..., &quot;Authentication token&quot;)   MachineKey.Unprotect(..., &quot;Authentication token&quot;)   ```アプリケーションを動的に生成できます、`purposes`のパラメーターです。       固定値を持つユーザーが指定した値をその場合は、プレフィックス (のように&quot;`Username:` &quot;+ *username*) システムの他の部分で使用されるトークンと一致する入力の作成、悪質なクライアントの危険を最小限にします。 動的に生成された文字列は、固定文字列の後に続く必要があります。 たとえばを保護または特定のユーザーに関連付けられているプライベート メッセージの保護を解除は、次の例のようなコードを使用: ```c#   MachineKey.Protect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username);   MachineKey.Unprotect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username);   ``` ```vb   MachineKey.Protect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username)   MachineKey.Unprotect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username)   ```ときに、<xref:System.Web.Security.MachineKey.Unprotect%2A>メソッドを呼び出すために用意されている値、`purposes`パラメーターは、保護するメソッドに提供されたものと同じ値である必要があります</xref:System.Web.Security.MachineKey.Unprotect%2A>。       それ以外の場合、操作は失敗し、<xref:System.Security.Cryptography.CryptographicException>例外です</xref:System.Security.Cryptography.CryptographicException>。       必要な構成設定、<xref:System.Web.Configuration.MachineKeyCompatibilityMode?displayProperty=fullName>オプションに指定されていなくてもこのメソッドに必要な<xref:System.Web.Configuration.MachineKeySection.CompatibilityMode%2A?displayProperty=fullName>プロパティに設定されていない、<xref:System.Web.Configuration.MachineKeyCompatibilityMode>オプション</xref:System.Web.Configuration.MachineKeyCompatibilityMode></xref:System.Web.Configuration.MachineKeySection.CompatibilityMode%2A?displayProperty=fullName></xref:System.Web.Configuration.MachineKeyCompatibilityMode?displayProperty=fullName>。"
   syntax:
     content: public static byte[] Protect (byte[] userData, string[] purposes);
     parameters:
     - id: userData
       type: System.Byte[]
-      description: "The data to protect. This data is passed as plaintext."
+      description: "保護するデータ。 このデータは、プレーン テキストとして渡されます。"
     - id: purposes
       type: System.String[]
-      description: "A list of purposes for the data. If this value is specified, the same list must be passed to the <xref:System.Web.Security.MachineKey.Unprotect*> method in order to decipher the returned ciphertext."
+      description: "データの目的のリスト。 同じ一覧を渡すことがこの値が指定されている場合、<xref:System.Web.Security.MachineKey.Unprotect*>メソッドで返された暗号化テキストを復号化するためにします</xref:System.Web.Security.MachineKey.Unprotect*>。"
     return:
       type: System.Byte[]
-      description: "The ciphertext data."
+      description: "暗号化テキスト データです。"
   overload: System.Web.Security.MachineKey.Protect*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <code>userData</code> parameter is null."
+    description: "<code> userData </code>パラメーターが null です。"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The purposes array contains one or more whitespace-only entries."
+    description: "目的の配列には、1 つ以上の空白のみのエントリが含まれています。"
   platform:
   - net462
 - uid: System.Web.Security.MachineKey.Unprotect(System.Byte[],System.String[])
@@ -135,31 +135,31 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Unprotects the specified data, which was protected by the <xref:System.Web.Security.MachineKey.Protect*> method."
-  remarks: "For information about this method, see the <xref:System.Web.Security.MachineKey.Protect%2A> method."
+  summary: "によって保護された、指定されたデータの保護を解除、<xref:System.Web.Security.MachineKey.Protect*>メソッド</xref:System.Web.Security.MachineKey.Protect*>。"
+  remarks: "この方法については、次を参照してください、<xref:System.Web.Security.MachineKey.Protect%2A>メソッド。</xref:System.Web.Security.MachineKey.Protect%2A> 。"
   syntax:
     content: public static byte[] Unprotect (byte[] protectedData, string[] purposes);
     parameters:
     - id: protectedData
       type: System.Byte[]
-      description: "The ciphertext data to unprotect."
+      description: "保護を解除する暗号テキスト データ。"
     - id: purposes
       type: System.String[]
-      description: "A list of purposes that describe what the data is meant for. This must be the same value that was passed to the <xref:System.Web.Security.MachineKey.Protect*> method when the data was protected."
+      description: "データが意図したものを記述する目的での一覧。 渡されたものと同じ値でなければなりません、<xref:System.Web.Security.MachineKey.Protect*>メソッドは、データが保護されていたとします</xref:System.Web.Security.MachineKey.Protect*>。"
     return:
       type: System.Byte[]
-      description: "The plaintext data."
+      description: "プレーン テキスト データです。"
   overload: System.Web.Security.MachineKey.Unprotect*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <code>protectedData</code> parameter is null."
+    description: "<code> protectedData </code>パラメーターが null です。"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The purposes array contains one or more whitespace-only entries."
+    description: "目的の配列には、1 つ以上の空白のみのエントリが含まれています。"
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "Possible causes include the following:      -   The protected data was tampered with.      -   The value of the <code>purposes</code> parameter is not the same as the value that was specified when the data was protected.      -   The application is deployed to more than one server and is using auto-generated encryption keys."
+    description: "考えられる原因は次のとおりです:-保護されたデータが改ざんします。      -の値、 <code> purposes </code>パラメーターが同じデータが保護されている場合に指定された値。      -アプリケーションは、1 つ以上のサーバーに配置し、自動生成された暗号化キーの使用がします。"
   platform:
   - net462
 references:

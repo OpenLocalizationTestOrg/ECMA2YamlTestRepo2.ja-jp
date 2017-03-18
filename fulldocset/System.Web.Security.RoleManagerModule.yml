@@ -13,8 +13,8 @@ items:
   nameWithType: RoleManagerModule
   fullName: System.Web.Security.RoleManagerModule
   type: Class
-  summary: "Manages a <xref href=&quot;System.Web.Security.RolePrincipal&quot;></xref> instance for the current user. This class cannot be inherited."
-  remarks: "The RoleManagerModule class is used to assign a <xref:System.Web.Security.RolePrincipal> to the <xref:System.Web.HttpContext.User%2A> property of the <xref:System.Web.HttpContext.Current%2A><xref:System.Web.HttpContext>.       When a request completes, the RoleManagerModule refreshes the roles cookie that contains cached role information. If the <xref:System.Web.HttpContext.User%2A> property is of type <xref:System.Web.Security.RolePrincipal>, and that <xref:System.Web.Security.RolePrincipal> indicates that its cached role list has been modified by setting the <xref:System.Web.Security.RolePrincipal.CachedListChanged%2A> property to `true`, the RoleManagerModule will update the roles cookie that contains cached role information.       This class is not intended to be used directly from your code."
+  summary: "管理、 <xref href=&quot;System.Web.Security.RolePrincipal&quot;> </xref>現在のユーザー用のインスタンス。 このクラスは継承できません。"
+  remarks: "RoleManagerModule クラス割り当てる<xref:System.Web.Security.RolePrincipal><xref:System.Web.HttpContext.User%2A><xref:System.Web.HttpContext.Current%2A><xref:System.Web.HttpContext>。</xref:System.Web.HttpContext></xref:System.Web.HttpContext.Current%2A>プロパティ</xref:System.Web.HttpContext.User%2A></xref:System.Web.Security.RolePrincipal>に使用します。       要求が完了したら、RoleManagerModule はキャッシュされているロール情報を含むロール クッキーを更新します。 場合、<xref:System.Web.HttpContext.User%2A>プロパティの型は<xref:System.Web.Security.RolePrincipal>、および<xref:System.Web.Security.RolePrincipal>を設定してそのキャッシュされたロールの一覧が変更されたことを示します、<xref:System.Web.Security.RolePrincipal.CachedListChanged%2A>プロパティを`true`、RoleManagerModule がキャッシュされているロール情報を含むロール クッキーを更新します</xref:System.Web.Security.RolePrincipal.CachedListChanged%2A></xref:System.Web.Security.RolePrincipal></xref:System.Web.Security.RolePrincipal></xref:System.Web.HttpContext.User%2A>。       このクラスは、コードから直接使用するものではありません。"
   syntax:
     content: 'public sealed class RoleManagerModule : System.Web.IHttpModule'
   inheritance:
@@ -36,8 +36,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Creates a new instance of the <xref href=&quot;System.Web.Security.RoleManagerModule&quot;></xref> class."
-  remarks: "The <xref:System.Web.Security.RoleManagerModule> class is used to place a <xref:System.Web.Security.RolePrincipal> in the <xref:System.Web.HttpContext.User%2A> property of the <xref:System.Web.HttpContext.Current%2A><xref:System.Web.HttpContext> and is not intended to be used directly from your code."
+  summary: "新しいインスタンスを作成、 <xref href=&quot;System.Web.Security.RoleManagerModule&quot;> </xref>クラスです。"
+  remarks: "<xref:System.Web.Security.RoleManagerModule>を配置するクラスが使用される、<xref:System.Web.Security.RolePrincipal>で、<xref:System.Web.HttpContext.User%2A>のプロパティ、<xref:System.Web.HttpContext.Current%2A><xref:System.Web.HttpContext>コードから直接使用するものではありません</xref:System.Web.HttpContext></xref:System.Web.HttpContext.Current%2A></xref:System.Web.HttpContext.User%2A></xref:System.Web.Security.RolePrincipal></xref:System.Web.Security.RoleManagerModule>。"
   syntax:
     content: public RoleManagerModule ();
     parameters: []
@@ -57,8 +57,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Called by the HTTP runtime to dispose of the role-manager module."
-  remarks: "Call Dispose when you are finished using the <xref:System.Web.Security.RoleManagerModule>. The Dispose method leaves the <xref:System.Web.Security.RoleManagerModule> in an unusable state. After calling Dispose, you must release all references to the <xref:System.Web.Security.RoleManagerModule> so the memory it occupied can be reclaimed by garbage collection.       This method is not intended to be used directly from your code."
+  summary: "ロール マネージャー モジュールを破棄する HTTP ランタイムによって呼び出されます。"
+  remarks: "<xref:System.Web.Security.RoleManagerModule>。</xref:System.Web.Security.RoleManagerModule>の使用が終了したときに、Dispose を呼び出す Dispose メソッドは、<xref:System.Web.Security.RoleManagerModule>使用不可の状態</xref:System.Web.Security.RoleManagerModule>。 Dispose を呼び出した後は、すべての参照を解放する必要があります、<xref:System.Web.Security.RoleManagerModule>占有していたメモリをガベージ コレクションによって再要求できるようにします</xref:System.Web.Security.RoleManagerModule>。       このメソッドは、コードから直接使用するものではありません。"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -78,15 +78,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "A global application event that is raised when the <xref href=&quot;System.Web.Security.RoleManagerModule&quot;></xref> is ready to create a <xref href=&quot;System.Web.Security.RolePrincipal&quot;></xref> that represents the current user."
-  remarks: "The GetRoles event is raised before the <xref:System.Web.Security.RoleManagerModule> creates a <xref:System.Web.Security.RolePrincipal> object and assigns it to the <xref:System.Web.HttpContext.User%2A> property of the <xref:System.Web.HttpContext.Current%2A><xref:System.Web.HttpContext>. You can use this event to audit when role information is applied or to replace the creation of a <xref:System.Web.Security.RolePrincipal> by the <xref:System.Web.Security.RoleManagerModule> with your own code.       You can cancel the application of role information by the <xref:System.Web.Security.RoleManagerModule> by setting the <xref:System.Web.Security.RoleManagerEventArgs.RolesPopulated%2A> property of the <xref:System.Web.Security.RoleManagerEventArgs> to `true` in the GetRoles event.       If you set <xref:System.Web.Security.RoleManagerEventArgs.RolesPopulated%2A> to `true` in your GetRoles event handler, then the <xref:System.Web.HttpContext.User%2A> property of the current <xref:System.Web.HttpContext> is not set to a <xref:System.Web.Security.RolePrincipal> object by the <xref:System.Web.Security.RoleManagerModule>."
+  summary: "グローバル アプリケーションのイベントはいつ発生する、 <xref href=&quot;System.Web.Security.RoleManagerModule&quot;> </xref>を作成する準備ができて、 <xref href=&quot;System.Web.Security.RolePrincipal&quot;> </xref>現在のユーザーを表すです。"
+  remarks: "GetRoles イベント<xref:System.Web.Security.RoleManagerModule><xref:System.Web.Security.RolePrincipal>オブジェクトおよび<xref:System.Web.HttpContext.User%2A><xref:System.Web.HttpContext.Current%2A><xref:System.Web.HttpContext>。</xref:System.Web.HttpContext></xref:System.Web.HttpContext.Current%2A>プロパティ</xref:System.Web.HttpContext.User%2A>に代入</xref:System.Web.Security.RolePrincipal>を作成</xref:System.Web.Security.RoleManagerModule>する前に ロール情報が適用されるときに監査するまたはの作成を置換するは、このイベントを使用することができます、<xref:System.Web.Security.RolePrincipal>によって、<xref:System.Web.Security.RoleManagerModule>独自のコードにします</xref:System.Web.Security.RoleManagerModule></xref:System.Web.Security.RolePrincipal>。       ロール情報のアプリケーションを取り消すことができます、<xref:System.Web.Security.RoleManagerModule>を設定して、<xref:System.Web.Security.RoleManagerEventArgs.RolesPopulated%2A>のプロパティ、<xref:System.Web.Security.RoleManagerEventArgs>に`true`GetRoles イベント</xref:System.Web.Security.RoleManagerEventArgs></xref:System.Web.Security.RoleManagerEventArgs.RolesPopulated%2A></xref:System.Web.Security.RoleManagerModule>。       設定した場合<xref:System.Web.Security.RoleManagerEventArgs.RolesPopulated%2A>に`true`GetRoles イベント ハンドラー、<xref:System.Web.HttpContext.User%2A><xref:System.Web.HttpContext><xref:System.Web.Security.RolePrincipal><xref:System.Web.Security.RoleManagerModule></xref:System.Web.Security.RoleManagerModule>オブジェクト</xref:System.Web.Security.RolePrincipal>に設定されていないのは</xref:System.Web.HttpContext>、の現在のプロパティ</xref:System.Web.HttpContext.User%2A>で</xref:System.Web.Security.RoleManagerEventArgs.RolesPopulated%2A>。"
   example:
   - "The following example shows the GetRoles event included in the Global.asax file for an ASP.NET application. The GetRoles event adds a trace notification for an application where trace is enabled in the Web.config file.  \n  \n [!code-cs[System.Web.Security.RoleManagerModule#1](~/add/codesnippet/csharp/e-system.web.security.ro_1.asax)]\n [!code-vb[System.Web.Security.RoleManagerModule#1](~/add/codesnippet/visualbasic/e-system.web.security.ro_1.asax)]"
   syntax:
     content: public event System.Web.Security.RoleManagerEventHandler GetRoles;
     return:
       type: System.Web.Security.RoleManagerEventHandler
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -102,14 +102,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Associates the role manager with the specified application."
-  remarks: "This method subscribes to the <xref:System.Web.HttpApplication.PostAuthorizeRequest> and <xref:System.Web.HttpApplication.EndRequest> methods of the specified <xref:System.Web.HttpApplication> for the purpose of managing role information and is not intended to be used directly from your code."
+  summary: "ロール マネージャーを指定したアプリケーションに関連付けます。"
+  remarks: "このメソッドをサブスクライブする、<xref:System.Web.HttpApplication.PostAuthorizeRequest>と<xref:System.Web.HttpApplication.EndRequest>の指定したメソッド<xref:System.Web.HttpApplication>ロール情報を管理するために、コードから直接使用するものではありません</xref:System.Web.HttpApplication></xref:System.Web.HttpApplication.EndRequest></xref:System.Web.HttpApplication.PostAuthorizeRequest>。"
   syntax:
     content: public void Init (System.Web.HttpApplication app);
     parameters:
     - id: app
       type: System.Web.HttpApplication
-      description: "The <xref href=&quot;System.Web.HttpApplication&quot;></xref> to associate the <xref href=&quot;System.Web.Security.RoleManagerModule&quot;></xref> with."
+      description: "<xref href=&quot;System.Web.HttpApplication&quot;> </xref>に関連付けるには、 <xref href=&quot;System.Web.Security.RoleManagerModule&quot;> </xref>とします。"
   overload: System.Web.Security.RoleManagerModule.Init*
   exceptions: []
   platform:

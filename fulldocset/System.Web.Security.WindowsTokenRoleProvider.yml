@@ -23,8 +23,8 @@ items:
   nameWithType: WindowsTokenRoleProvider
   fullName: System.Web.Security.WindowsTokenRoleProvider
   type: Class
-  summary: "Gets role information for an ASP.NET application from Windows group membership."
-  remarks: "The WindowsTokenRoleProvider class is a read-only role-membership provider that retrieves role information for a Windows user based on Windows security groups. It is most useful with ASP.NET applications that use Windows authentication mode where the IIS authentication settings disable anonymous authentication. You can configure ASP.NET applications to allow or deny access based on a user&quot;s membership in a particular Windows group.       You cannot use the WindowsTokenRoleProvider class to create or delete roles or modify the membership of a role that is based on Windows group membership. This functionality is managed by the Windows operating system. The WindowsTokenRoleProvider class supports only the <xref:System.Web.Security.WindowsTokenRoleProvider.IsUserInRole%2A> and <xref:System.Web.Security.WindowsTokenRoleProvider.GetRolesForUser%2A> methods of the <xref:System.Web.Security.RoleProvider> abstract class."
+  summary: "Windows グループのメンバーシップから ASP.NET アプリケーションにロール情報を取得します。"
+  remarks: "WindowsTokenRoleProvider クラスは、Windows セキュリティ グループに基づく Windows ユーザーのロール情報を取得する読み取り専用のロールのメンバーシップ プロバイダーです。 Windows 認証モードを使用して、IIS の認証設定が匿名認証を無効にされる ASP.NET アプリケーションで最も便利です。 許可するか、特定の Windows グループのユーザーのメンバーシップに基づいてアクセスを拒否する ASP.NET アプリケーションを構成することができます。       作成またはロールを削除または Windows グループのメンバーシップに基づいているロールのメンバーシップを変更する WindowsTokenRoleProvider クラスを使用することはできません。 この機能は、Windows オペレーティング システムによって管理されます。 WindowsTokenRoleProvider クラスのみをサポート、<xref:System.Web.Security.WindowsTokenRoleProvider.IsUserInRole%2A>および<xref:System.Web.Security.WindowsTokenRoleProvider.GetRolesForUser%2A><xref:System.Web.Security.RoleProvider>抽象クラス</xref:System.Web.Security.RoleProvider>のメソッド</xref:System.Web.Security.WindowsTokenRoleProvider.GetRolesForUser%2A></xref:System.Web.Security.WindowsTokenRoleProvider.IsUserInRole%2A>"
   example:
   - "The following example shows the Web.config file for an ASP.NET application. It specifies that the application uses both Windows authentication and the WindowsTokenRoleProvider class to retrieve role information for Windows users. The  element specifies that only users in the BUILTIN\\Administrators group are allowed access to the application.  \n  \n```  \n<configuration>  \n  <system.web>  \n    <authentication mode=\"Windows\" />  \n  \n    <authorization>  \n      <allow roles=\"BUILTIN\\Administrators\" />  \n        <deny users=\"*\" />  \n      </authorization>  \n  \n    <roleManager defaultProvider=\"WindowsProvider\"   \n      enabled=\"true\"  \n      cacheRolesInCookie=\"false\">  \n      <providers>  \n        <add  \n          name=\"WindowsProvider\"  \n          type=\"System.Web.Security.WindowsTokenRoleProvider\" />  \n      </providers>  \n    </roleManager>  \n  \n  </system.web>  \n</configuration>  \n```"
   syntax:
@@ -47,8 +47,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Creates an instance of the <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;></xref> class."
-  remarks: "The WindowsTokenRoleProvider constructor is called by ASP.NET to create an instance of the <xref:System.Web.Security.WindowsTokenRoleProvider> class as specified in the configuration for the application. This constructor is not intended to be used from your code."
+  summary: "インスタンスを作成、 <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;> </xref>クラスです。"
+  remarks: "インスタンスを作成する ASP.NET によって WindowsTokenRoleProvider コンス トラクターが呼び出されます、<xref:System.Web.Security.WindowsTokenRoleProvider>アプリケーションの構成で指定したクラスです</xref:System.Web.Security.WindowsTokenRoleProvider>。 このコンス トラクターは、コードから使用するものではありません。"
   syntax:
     content: public WindowsTokenRoleProvider ();
     parameters: []
@@ -68,22 +68,22 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "This method is not supported by the Windows token role provider."
-  remarks: "This method is not supported by the <xref:System.Web.Security.WindowsTokenRoleProvider> class and always throws a <xref:System.Configuration.Provider.ProviderException>."
+  summary: "このメソッドは、Windows トークンのロール プロバイダーによってサポートされていません。"
+  remarks: "このメソッド<xref:System.Web.Security.WindowsTokenRoleProvider>クラスし、 <xref:System.Configuration.Provider.ProviderException>。</xref:System.Configuration.Provider.ProviderException>は常にスロー</xref:System.Web.Security.WindowsTokenRoleProvider>によってサポートされていません"
   syntax:
     content: public override void AddUsersToRoles (string[] usernames, string[] roleNames);
     parameters:
     - id: usernames
       type: System.String[]
-      description: "A string array of user names to be added to the specified roles."
+      description: "指定したロールに追加するユーザー名の文字列配列。"
     - id: roleNames
       type: System.String[]
-      description: "A string array of role names to add the specified user names to."
+      description: "指定されたユーザー名を追加するロール名の文字列配列。"
   overload: System.Web.Security.WindowsTokenRoleProvider.AddUsersToRoles*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "An unsupported method was called."
+    description: "サポートされていないメソッドが呼び出されました。"
   platform:
   - net462
 - uid: System.Web.Security.WindowsTokenRoleProvider.ApplicationName
@@ -98,23 +98,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets or sets the name of the application."
-  remarks: "Unlike other role providers such as the <xref:System.Web.Security.SqlRoleProvider>, the <xref:System.Web.Security.WindowsTokenRoleProvider> class does not associate role information with an application. Instead, the role information is taken from the Windows groups on the local computer. Multiple applications on the same server that use the <xref:System.Web.Security.WindowsTokenRoleProvider> class always share the same role information. Although the `applicationName` can be configured in the Web.config file for the application, the ApplicationName property is not used to retrieve role information."
+  summary: "取得またはアプリケーションの名前を設定します。"
+  remarks: "などの他のロール プロバイダーとは異なり、 <xref:System.Web.Security.SqlRoleProvider>、<xref:System.Web.Security.WindowsTokenRoleProvider>クラスは、アプリケーションにロール情報を関連付けません</xref:System.Web.Security.WindowsTokenRoleProvider></xref:System.Web.Security.SqlRoleProvider>。 代わりに、ロールの詳細については、ローカル コンピューター上の Windows グループから取得されます。 使用する同じサーバー上の複数のアプリケーション、<xref:System.Web.Security.WindowsTokenRoleProvider>クラスは、常に同じロール情報を共有します</xref:System.Web.Security.WindowsTokenRoleProvider>。 ただし、`applicationName`ロール情報を取得するプロパティは使用されません ApplicationName、アプリケーションの Web.config ファイルで構成できます。"
   example:
   - "The following example shows the  element in the `system.web` section of the Web.config file for an ASP.NET application. It specifies the application's <xref:System.Web.Security.WindowsTokenRoleProvider> instance and sets the ApplicationName property to `MyApplication`.  \n  \n```  \n<roleManager defaultProvider=\"WindowsProvider\"   \n  enabled=\"true\"  \n  cacheRolesInCookie=\"false\">  \n  <providers>  \n    <add  \n      name=\"WindowsProvider\"  \n      type=\"System.Web.Security.WindowsTokenRoleProvider\"   \n      applicationName=\"MyApplication\" />  \n  </providers>  \n</roleManager>  \n```"
   syntax:
     content: public override string ApplicationName { get; set; }
     return:
       type: System.String
-      description: "The name of the application."
+      description: "アプリケーションの名前。"
   overload: System.Web.Security.WindowsTokenRoleProvider.ApplicationName*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "An attempt was made to set the ApplicationName property by a caller that does not have <xref href=&quot;System.Web.AspNetHostingPermissionLevel&quot;></xref> ASP.NET hosting permission."
+    description: "しようとしましたが、ApplicationName プロパティの設定がない呼び出し元によって<xref href=&quot;System.Web.AspNetHostingPermissionLevel&quot;> </xref> ASP.NET ホスティング アクセス許可。"
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "An attempt was made to set the ApplicationName to a string that is longer than 256 characters."
+    description: "256 文字より長い文字列に ApplicationName を設定しようとしました。"
   platform:
   - net462
 - uid: System.Web.Security.WindowsTokenRoleProvider.CreateRole(System.String)
@@ -129,19 +129,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "This method is not supported by the Windows token role provider."
-  remarks: "This method is not supported by the <xref:System.Web.Security.WindowsTokenRoleProvider> class and always throws a <xref:System.Configuration.Provider.ProviderException>."
+  summary: "このメソッドは、Windows トークンのロール プロバイダーによってサポートされていません。"
+  remarks: "このメソッド<xref:System.Web.Security.WindowsTokenRoleProvider>クラスし、 <xref:System.Configuration.Provider.ProviderException>。</xref:System.Configuration.Provider.ProviderException>は常にスロー</xref:System.Web.Security.WindowsTokenRoleProvider>によってサポートされていません"
   syntax:
     content: public override void CreateRole (string roleName);
     parameters:
     - id: roleName
       type: System.String
-      description: "The name of the role to create."
+      description: "作成するロールの名前。"
   overload: System.Web.Security.WindowsTokenRoleProvider.CreateRole*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "An unsupported method was called."
+    description: "サポートされていないメソッドが呼び出されました。"
   platform:
   - net462
 - uid: System.Web.Security.WindowsTokenRoleProvider.DeleteRole(System.String,System.Boolean)
@@ -156,24 +156,24 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "This method is not supported by the Windows token role provider."
+  summary: "このメソッドは、Windows トークンのロール プロバイダーによってサポートされていません。"
   syntax:
     content: public override bool DeleteRole (string roleName, bool throwOnPopulatedRole);
     parameters:
     - id: roleName
       type: System.String
-      description: "The name of the role to delete."
+      description: "削除するロールの名前。"
     - id: throwOnPopulatedRole
       type: System.Boolean
-      description: "If <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, an exception will be thrown on an attempt to delete a role that contains one or more members."
+      description: "場合<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>、1 つまたは複数のメンバーを格納しているロールを削除しようとすると、例外がスローされます。"
     return:
       type: System.Boolean
-      description: "None. The method is not supported by the <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;></xref> class and always throws a <xref href=&quot;System.Configuration.Provider.ProviderException&quot;></xref>."
+      description: "ありません。 メソッドでサポートされていない、 <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;> </xref>クラスと常にスロー、 <xref href=&quot;System.Configuration.Provider.ProviderException&quot;></xref>です。"
   overload: System.Web.Security.WindowsTokenRoleProvider.DeleteRole*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "An unsupported method was called."
+    description: "サポートされていないメソッドが呼び出されました。"
   platform:
   - net462
 - uid: System.Web.Security.WindowsTokenRoleProvider.FindUsersInRole(System.String,System.String)
@@ -188,24 +188,24 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "This method is not supported by the Windows token role provider."
+  summary: "このメソッドは、Windows トークンのロール プロバイダーによってサポートされていません。"
   syntax:
     content: public override string[] FindUsersInRole (string roleName, string usernameToMatch);
     parameters:
     - id: roleName
       type: System.String
-      description: "The role to search in."
+      description: "検索対象のロール。"
     - id: usernameToMatch
       type: System.String
-      description: "The user name to find in the role."
+      description: "ロールで検索するユーザー名。"
     return:
       type: System.String[]
-      description: "None. The method is not supported by the <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;></xref> class and always throws a <xref href=&quot;System.Configuration.Provider.ProviderException&quot;></xref>."
+      description: "ありません。 メソッドでサポートされていない、 <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;> </xref>クラスと常にスロー、 <xref href=&quot;System.Configuration.Provider.ProviderException&quot;></xref>です。"
   overload: System.Web.Security.WindowsTokenRoleProvider.FindUsersInRole*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "An unsupported method was called."
+    description: "サポートされていないメソッドが呼び出されました。"
   platform:
   - net462
 - uid: System.Web.Security.WindowsTokenRoleProvider.GetAllRoles
@@ -220,18 +220,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "This method is not supported by the Windows token role provider."
+  summary: "このメソッドは、Windows トークンのロール プロバイダーによってサポートされていません。"
   syntax:
     content: public override string[] GetAllRoles ();
     parameters: []
     return:
       type: System.String[]
-      description: "None. The method is not supported by the <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;></xref> class and always throws a <xref href=&quot;System.Configuration.Provider.ProviderException&quot;></xref>."
+      description: "ありません。 メソッドでサポートされていない、 <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;> </xref>クラスと常にスロー、 <xref href=&quot;System.Configuration.Provider.ProviderException&quot;></xref>です。"
   overload: System.Web.Security.WindowsTokenRoleProvider.GetAllRoles*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "An unsupported method was called."
+    description: "サポートされていないメソッドが呼び出されました。"
   platform:
   - net462
 - uid: System.Web.Security.WindowsTokenRoleProvider.GetRolesForUser(System.String)
@@ -246,8 +246,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets a list of the Windows groups that a user is in."
-  remarks: "This method is called by the <xref:System.Web.Security.Roles> class to retrieve from the Windows operating system a list of the Windows groups that the specified user is in. The GetRolesForUser method can be called only for the currently logged-on user, as identified by the LOGON_USER server variable. If the value supplied in the `username` parameter is not the name of the currently logged-on user, a <xref:System.Configuration.Provider.ProviderException?displayProperty=fullName> is thrown.       For more information an ASP.NET and Windows authentication, see [ASP.NET Authentication](~/add/includes/ajax-current-ext-md.md)."
+  summary: "ユーザーが、Windows グループの一覧を取得します。"
+  remarks: "このメソッドは<xref:System.Web.Security.Roles>、Windows オペレーティング システムから、指定したユーザーがインチである Windows グループの一覧を取得するクラス</xref:System.Web.Security.Roles> GetRolesForUser メソッドは、LOGON_USER サーバー変数で識別される、現在ログオンしているユーザーに対してのみ呼び出すことができます。 値が指定した場合、`username`パラメーターが、現在ログオンしているユーザーの名前ではありません、<xref:System.Configuration.Provider.ProviderException?displayProperty=fullName>がスローされます</xref:System.Configuration.Provider.ProviderException?displayProperty=fullName>。       詳細については、ASP.NET と Windows 認証は、次を参照してください。 [ASP.NET 認証](~/add/includes/ajax-current-ext-md.md)です。"
   example:
   - "The following code example uses the GetRolesForUser method to retrieve a list of roles for a specified user and binds the list of roles to a <xref:System.Web.UI.WebControls.GridView> control. For an example of a Web.config file that enables role management, see <xref:System.Web.Security.WindowsTokenRoleProvider>.  \n  \n [!code-vb[System.Web.Security.WindowsTokenRoleProvider#1](~/add/codesnippet/visualbasic/m-system.web.security.wi_1.aspx)]\n [!code-cs[System.Web.Security.WindowsTokenRoleProvider#1](~/add/codesnippet/csharp/m-system.web.security.wi_1.aspx)]"
   syntax:
@@ -255,21 +255,21 @@ items:
     parameters:
     - id: username
       type: System.String
-      description: "The user to return the list of Windows groups for in the form DOMAIN\\username."
+      description: "Domain \\username という形式での Windows グループの一覧を取得するユーザー。"
     return:
       type: System.String[]
-      description: "A string array containing the names of all the Windows groups that the specified user is in."
+      description: "指定したユーザーが含まれているすべての Windows グループの名前を含んでいる文字列配列。"
   overload: System.Web.Security.WindowsTokenRoleProvider.GetRolesForUser*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "The currently executing user does not have an authenticated <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> attached to &lt;xref:System.Web.UI.Page.User%2A?displayProperty=fullName&gt;. For non-HTTP scenarios, the currently executing user does not have an authenticated <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> attached to &lt;xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName&gt;.       -or-       <code>username</code> does not match the <xref:System.Security.Principal.WindowsIdentity.Name*> of the current <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref>.       -or-       A failure occurred while retrieving the user&quot;s Windows group information."
+    description: "現在実行中のユーザーが認証された持たない<xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref>にアタッチされている&lt;xref:System.Web.UI.Page.User%2A?displayProperty=fullName&gt;です。 HTTP 以外の場合、現在実行中のユーザーが認証された<xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref>にアタッチされている&lt;xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName&gt;です。       - または - <code> username </code>と一致しません、 <xref:System.Security.Principal.WindowsIdentity.Name*>、現在の<xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref></xref:System.Security.Principal.WindowsIdentity.Name*> 。       または、ユーザーの Windows グループ情報の取得中にエラーが発生しました。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>username</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>username</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "The trust level is less than <xref href=&quot;System.Web.AspNetHostingPermissionLevel&quot;></xref>."
+    description: "信頼レベルより小さい<xref href=&quot;System.Web.AspNetHostingPermissionLevel&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Web.Security.WindowsTokenRoleProvider.GetUsersInRole(System.String)
@@ -284,21 +284,21 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "This method is not supported by the Windows token role provider."
+  summary: "このメソッドは、Windows トークンのロール プロバイダーによってサポートされていません。"
   syntax:
     content: public override string[] GetUsersInRole (string roleName);
     parameters:
     - id: roleName
       type: System.String
-      description: "The name of the role to get the list of users for."
+      description: "ユーザーの一覧を取得するロールの名前。"
     return:
       type: System.String[]
-      description: "None. The method is not supported by the <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;></xref> class and always throws a <xref href=&quot;System.Configuration.Provider.ProviderException&quot;></xref>."
+      description: "ありません。 メソッドでサポートされていない、 <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;> </xref>クラスと常にスロー、 <xref href=&quot;System.Configuration.Provider.ProviderException&quot;></xref>です。"
   overload: System.Web.Security.WindowsTokenRoleProvider.GetUsersInRole*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "An unsupported method was called."
+    description: "サポートされていないメソッドが呼び出されました。"
   platform:
   - net462
 - uid: System.Web.Security.WindowsTokenRoleProvider.Initialize(System.String,System.Collections.Specialized.NameValueCollection)
@@ -313,25 +313,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Initializes the Windows token role provider with the property values specified in the configuration file for the ASP.NET application. This method is not intended to be used directly from your code."
-  remarks: "The Initialize method initializes the <xref:System.Web.Security.WindowsTokenRoleProvider> class with the property values specified in the ASP.NET application configuration file (Web.config) and is not intended to be used directly from your code."
+  summary: "ASP.NET アプリケーションの構成ファイルで指定されたプロパティ値を持つ Windows トークンのロール プロバイダーを初期化します。 このメソッドは、コードから直接使用するものではありません。"
+  remarks: "Initialize メソッドを初期化、<xref:System.Web.Security.WindowsTokenRoleProvider>プロパティ値を持つクラスは、ASP.NET アプリケーション構成ファイル (Web.config) で指定し、コードから直接使用するものではありません</xref:System.Web.Security.WindowsTokenRoleProvider>。"
   syntax:
     content: public override void Initialize (string name, System.Collections.Specialized.NameValueCollection config);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;></xref> instance to initialize."
+      description: "名前、 <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;> </xref>インスタンスを初期化します。"
     - id: config
       type: System.Collections.Specialized.NameValueCollection
-      description: "A <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;></xref> constructor that contains the names and values of configuration options for the <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;></xref> class."
+      description: "A <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;> </xref>のオプションの名前と構成の値を含むコンス トラクター、 <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;> </xref>クラスです。"
   overload: System.Web.Security.WindowsTokenRoleProvider.Initialize*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>config</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>config</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "The <xref uid=&quot;langword_csharp_applicationName&quot; name=&quot;applicationName&quot; href=&quot;&quot;></xref> attribute in the configuration is longer than 256 characters.       -or-       The application configuration file for this <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;></xref> instance contains an unrecognized attribute."
+    description: "<xref uid=&quot;langword_csharp_applicationName&quot; name=&quot;applicationName&quot; href=&quot;&quot;> </xref>構成には属性が 256 文字より長い。       - または - このアプリケーション構成ファイル<xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;></xref>インスタンスには、認識されない属性が含まれています。"
   platform:
   - net462
 - uid: System.Web.Security.WindowsTokenRoleProvider.IsUserInRole(System.String,System.Security.Principal.WindowsBuiltInRole)
@@ -346,8 +346,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets a value indicating whether the specified user is in the specified built-in Windows role."
-  remarks: "The IsUserInRole method enables you to check whether a user is in one of the common Windows roles described by the <xref:System.Security.Principal.WindowsBuiltInRole> enumeration. This method is useful for applications that are localized into multiple languages. This overload of the IsUserInRole method is not part of the <xref:System.Web.Security.RoleProvider> base class and can only be accessed by casting the <xref:System.Web.Security.Roles.Provider%2A> property of the <xref:System.Web.Security.Roles> class as the <xref:System.Web.Security.WindowsTokenRoleProvider> type.       You can call the IsUserInRole method only for the currently logged-on user, as identified by the LOGON_USER server variable. If the value supplied in the `username` parameter is not the name of the currently logged-on user, an <xref:System.Web.HttpException> is thrown.       IsUserInRole method can only be called for the currently logged-on user identified by the LOGON_USER server variable. The current logged on user must be a Windows authenticated user. For more information on ASP.NET and Windows authentication, see [ASP.NET Authentication](~/add/includes/ajax-current-ext-md.md)."
+  summary: "指定したユーザーが指定されたビルトイン Windows ロールかどうかを示す値を取得します。"
+  remarks: "IsUserInRole メソッドでは、ユーザーがで説明されている一般的な Windows の役割のいずれかでがかどうかを確認することができます、<xref:System.Security.Principal.WindowsBuiltInRole>列挙体です</xref:System.Security.Principal.WindowsBuiltInRole>。 このメソッドは、複数の言語にローカライズされているアプリケーションに役立ちます。 IsUserInRole メソッドのこのオーバー ロードがの一部、<xref:System.Web.Security.RoleProvider>基底クラスと、キャストによってのみアクセスできる、<xref:System.Web.Security.Roles.Provider%2A>のプロパティ、<xref:System.Web.Security.Roles>クラスの<xref:System.Web.Security.WindowsTokenRoleProvider>型です</xref:System.Web.Security.WindowsTokenRoleProvider></xref:System.Web.Security.Roles></xref:System.Web.Security.Roles.Provider%2A></xref:System.Web.Security.RoleProvider>。       LOGON_USER サーバー変数で識別される、現在ログオンしているユーザーに対してのみ IsUserInRole メソッドを呼び出すことができます。 値が指定した場合、`username`パラメーターが、現在ログオンしているユーザーの名前ではありません、<xref:System.Web.HttpException>がスローされます</xref:System.Web.HttpException>。       IsUserInRole メソッドは、LOGON_USER サーバー変数によって識別される現在ログオンしているユーザーに対してのみ呼び出すことができます。 現在ログオンしているユーザーは、Windows 認証済みユーザーである必要があります。 ASP.NET および Windows 認証の詳細については、次を参照してください。 [ASP.NET 認証](~/add/includes/ajax-current-ext-md.md)です。"
   example:
   - "The following code example programmatically checks whether the currently logged-on user is in the Administrators role before allowing the user to view roles information for the application. For an example of a Web.config file that enables role management, see <xref:System.Web.Security.WindowsTokenRoleProvider>.  \n  \n [!code-cs[System.Web.Security.WindowsTokenRoleProvider#2](~/add/codesnippet/csharp/f88a5130-a7a7-46a8-84f9-_1.aspx)]\n [!code-vb[System.Web.Security.WindowsTokenRoleProvider#2](~/add/codesnippet/visualbasic/f88a5130-a7a7-46a8-84f9-_1.aspx)]"
   syntax:
@@ -355,21 +355,21 @@ items:
     parameters:
     - id: username
       type: System.String
-      description: "The user name to search for in the form DOMAIN\\username."
+      description: "Domain \\username という形式で検索するユーザー名。"
     - id: role
       type: System.Security.Principal.WindowsBuiltInRole
-      description: "The Windows role to search in."
+      description: "検索対象の Windows ロール。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified user is in the specified Windows role; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>指定したユーザーが指定された Windows ロールの場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.Security.WindowsTokenRoleProvider.IsUserInRole*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>username</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>username</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "The currently executing user does not have an authenticated <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> attached to &lt;xref:System.Web.UI.Page.User%2A?displayProperty=fullName&gt;. For non-HTTP scenarios, the currently executing user does not have an authenticated <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> attached to &lt;xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName&gt;.       -or-       <code>username</code> does not match the <xref:System.Security.Principal.WindowsIdentity.Name*> of the current <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref>."
+    description: "現在実行中のユーザーが認証された持たない<xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref>にアタッチされている&lt;xref:System.Web.UI.Page.User%2A?displayProperty=fullName&gt;です。 HTTP 以外の場合、現在実行中のユーザーが認証された<xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref>にアタッチされている&lt;xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName&gt;です。       - または - <code> username </code>と一致しません、 <xref:System.Security.Principal.WindowsIdentity.Name*>、現在の<xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref></xref:System.Security.Principal.WindowsIdentity.Name*> 。"
   platform:
   - net462
 - uid: System.Web.Security.WindowsTokenRoleProvider.IsUserInRole(System.String,System.String)
@@ -384,8 +384,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets a value indicating whether the specified user is in the specified Windows group."
-  remarks: "The IsUserInRole method is called by the <xref:System.Web.Security.Roles> class and the <xref:System.Security.Principal.IPrincipal.IsInRole%2A> method of the <xref:System.Web.UI.Page.User%2A> property to determine whether a user is in a Windows group. You can call the IsUserInRole method only for the currently logged-on user, as identified by the LOGON_USER server variable. The current logged-on user must be a Windows authenticated user. For more information on ASP.NET and Windows authentication, see [ASP.NET Authentication](~/add/includes/ajax-current-ext-md.md)."
+  summary: "指定したユーザーが指定された Windows グループかどうかを示す値を取得します。"
+  remarks: "IsUserInRole メソッドによって呼び出されます、<xref:System.Web.Security.Roles>クラスおよび<xref:System.Security.Principal.IPrincipal.IsInRole%2A>のメソッド、<xref:System.Web.UI.Page.User%2A>プロパティをユーザーが Windows グループかどうかを判断します</xref:System.Web.UI.Page.User%2A></xref:System.Security.Principal.IPrincipal.IsInRole%2A></xref:System.Web.Security.Roles>。 LOGON_USER サーバー変数で識別される、現在ログオンしているユーザーに対してのみ IsUserInRole メソッドを呼び出すことができます。 現在ログオンしているユーザーは、Windows 認証済みユーザーである必要があります。 ASP.NET および Windows 認証の詳細については、次を参照してください。 [ASP.NET 認証](~/add/includes/ajax-current-ext-md.md)です。"
   example:
   - "The following code example programmatically checks whether the currently logged-on user is in the Administrators role before allowing the user to view roles information for the application. For an example of a Web.config file that enables role management, see <xref:System.Web.Security.WindowsTokenRoleProvider>.  \n  \n [!code-vb[System.Web.Security.WindowsTokenRoleProvider#1](~/add/codesnippet/visualbasic/e3ad81d7-d695-40b8-8e62-_1.aspx)]\n [!code-cs[System.Web.Security.WindowsTokenRoleProvider#1](~/add/codesnippet/csharp/e3ad81d7-d695-40b8-8e62-_1.aspx)]"
   syntax:
@@ -393,21 +393,21 @@ items:
     parameters:
     - id: username
       type: System.String
-      description: "The user name to search for in the form DOMAIN\\username."
+      description: "Domain \\username という形式で検索するユーザー名。"
     - id: roleName
       type: System.String
-      description: "The Windows group to search in the form DOMAIN\\rolename."
+      description: "フォーム DOMAIN\\rolename で検索する Windows グループです。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified user name is in the specified Windows group; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>指定されたユーザー名が指定された Windows グループの場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.Security.WindowsTokenRoleProvider.IsUserInRole*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>username</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>roleName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>username</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>roleName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "The currently executing user does not have an authenticated <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> attached to &lt;xref:System.Web.UI.Page.User%2A?displayProperty=fullName&gt;. For non-HTTP scenarios, the currently executing user does not have an authenticated <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> attached to &lt;xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName&gt;.       -or-       <code>username</code> does not match the <xref:System.Security.Principal.WindowsIdentity.Name*> of the current <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref>.       -or-       A failure occurred while retrieving the user&quot;s Windows group information."
+    description: "現在実行中のユーザーが認証された持たない<xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref>にアタッチされている&lt;xref:System.Web.UI.Page.User%2A?displayProperty=fullName&gt;です。 HTTP 以外の場合、現在実行中のユーザーが認証された<xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref>にアタッチされている&lt;xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName&gt;です。       - または - <code> username </code>と一致しません、 <xref:System.Security.Principal.WindowsIdentity.Name*>、現在の<xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref></xref:System.Security.Principal.WindowsIdentity.Name*> 。       または、ユーザーの Windows グループ情報の取得中にエラーが発生しました。"
   platform:
   - net462
 - uid: System.Web.Security.WindowsTokenRoleProvider.RemoveUsersFromRoles(System.String[],System.String[])
@@ -422,22 +422,22 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "This method is not supported by the Windows token role provider."
-  remarks: "This method is not supported by the <xref:System.Web.Security.WindowsTokenRoleProvider> class and always throws a <xref:System.Configuration.Provider.ProviderException>."
+  summary: "このメソッドは、Windows トークンのロール プロバイダーによってサポートされていません。"
+  remarks: "このメソッド<xref:System.Web.Security.WindowsTokenRoleProvider>クラスし、 <xref:System.Configuration.Provider.ProviderException>。</xref:System.Configuration.Provider.ProviderException>は常にスロー</xref:System.Web.Security.WindowsTokenRoleProvider>によってサポートされていません"
   syntax:
     content: public override void RemoveUsersFromRoles (string[] usernames, string[] roleNames);
     parameters:
     - id: usernames
       type: System.String[]
-      description: "A string array of user names to be added to the specified roles."
+      description: "指定したロールに追加するユーザー名の文字列配列。"
     - id: roleNames
       type: System.String[]
-      description: "A string array of role names to add the specified user names to."
+      description: "指定されたユーザー名を追加するロール名の文字列配列。"
   overload: System.Web.Security.WindowsTokenRoleProvider.RemoveUsersFromRoles*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "An unsupported method was called."
+    description: "サポートされていないメソッドが呼び出されました。"
   platform:
   - net462
 - uid: System.Web.Security.WindowsTokenRoleProvider.RoleExists(System.String)
@@ -452,21 +452,21 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "This method is not supported by the Windows token role provider."
+  summary: "このメソッドは、Windows トークンのロール プロバイダーによってサポートされていません。"
   syntax:
     content: public override bool RoleExists (string roleName);
     parameters:
     - id: roleName
       type: System.String
-      description: "The name of the role to search for in the data source."
+      description: "データ ソース内で検索するロールの名前。"
     return:
       type: System.Boolean
-      description: "None. The method is not supported by the <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;></xref> class and always throws a <xref href=&quot;System.Configuration.Provider.ProviderException&quot;></xref>."
+      description: "ありません。 メソッドでサポートされていない、 <xref href=&quot;System.Web.Security.WindowsTokenRoleProvider&quot;> </xref>クラスと常にスロー、 <xref href=&quot;System.Configuration.Provider.ProviderException&quot;></xref>です。"
   overload: System.Web.Security.WindowsTokenRoleProvider.RoleExists*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "An unsupported method was called."
+    description: "サポートされていないメソッドが呼び出されました。"
   platform:
   - net462
 references:
