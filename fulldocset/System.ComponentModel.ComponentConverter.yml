@@ -12,8 +12,8 @@ items:
   nameWithType: ComponentConverter
   fullName: System.ComponentModel.ComponentConverter
   type: Class
-  summary: "Provides a type converter to convert components to and from various other representations."
-  remarks: "This class implements <xref:System.ComponentModel.TypeConverter.GetPropertiesSupported%2A> and <xref:System.ComponentModel.ComponentConverter.GetProperties%2A> by returning the properties through the <xref:System.ComponentModel.TypeDescriptor.GetProperties%2A> method of <xref:System.ComponentModel.TypeDescriptor>.       For more information about type converters, see the <xref:System.ComponentModel.TypeConverter> base class and [How to: Implement a Type Converter](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  You should never create an instance of ComponentConverter. Instead, call the <xref:System.ComponentModel.TypeDescriptor.GetConverter%2A> method of <xref:System.ComponentModel.TypeDescriptor>. For more information, see the examples in the <xref:System.ComponentModel.TypeConverter> base class.       This converter converts an object that implements <xref:System.ComponentModel.IComponent> and displays its properties in the Properties window."
+  summary: "さまざまな表現でコンポーネントを変換する型コンバーターを提供します。"
+  remarks: "このクラス<xref:System.ComponentModel.TypeConverter.GetPropertiesSupported%2A>と<xref:System.ComponentModel.ComponentConverter.GetProperties%2A><xref:System.ComponentModel.TypeDescriptor.GetProperties%2A><xref:System.ComponentModel.TypeDescriptor>。</xref:System.ComponentModel.TypeDescriptor>メソッド</xref:System.ComponentModel.TypeDescriptor.GetProperties%2A>を介してプロパティを返すことによって</xref:System.ComponentModel.ComponentConverter.GetProperties%2A></xref:System.ComponentModel.TypeConverter.GetPropertiesSupported%2A>実装します。       型コンバーターの詳細については、次を参照してください、<xref:System.ComponentModel.TypeConverter>基底クラスと[する方法: 実行する型コンバーターを実装する](~/add/includes/ajax-current-ext-md.md)。</xref:System.ComponentModel.TypeConverter> 。      > [!NOTE] > 決して ComponentConverter のインスタンスを作成する必要があります。 代わりに、 <xref:System.ComponentModel.TypeDescriptor.GetConverter%2A> <xref:System.ComponentModel.TypeDescriptor>。</xref:System.ComponentModel.TypeDescriptor>メソッド</xref:System.ComponentModel.TypeDescriptor.GetConverter%2A> 詳細については、<xref:System.ComponentModel.TypeConverter>基底クラス</xref:System.ComponentModel.TypeConverter>の例を参照してください。       このコンバーターが変換を実装するオブジェクト<xref:System.ComponentModel.IComponent>し、[プロパティ] ウィンドウでそのプロパティを表示します</xref:System.ComponentModel.IComponent>。"
   syntax:
     content: 'public class ComponentConverter : System.ComponentModel.ReferenceConverter'
   inheritance:
@@ -73,13 +73,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.ComponentConverter&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ComponentModel.ComponentConverter&quot;> </xref>クラスです。"
   syntax:
     content: public ComponentConverter (Type type);
     parameters:
     - id: type
       type: System.Type
-      description: "A <xref:System.Type> that represents the type to associate with this component converter."
+      description: "A<xref:System.Type>に関連付けるコンポーネント コンバーターの型を表す</xref:System.Type>。"
   overload: System.ComponentModel.ComponentConverter.#ctor*
   exceptions: []
   platform:
@@ -96,23 +96,23 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Gets a collection of properties for the type of component specified by the value parameter."
-  remarks: "The `context` parameter can be used to extract additional information about the environment this converter is being invoked from. This can be `null`, so always check. Also, properties on the context object can return `null`.       The `attributes` array will be used to filter the array. The `attributes` can have a mix of <xref:System.Type> and <xref:System.Attribute> objects. Filtering is defined by the following rules:      -   A <xref:System.Type> object will be treated as a wildcard; it will match any property that has the <xref:System.Type> in its set of attributes.      -   If a property does not have an <xref:System.Attribute> of the same class, the property will not be included in the returned array.      -   If the attribute is an instance of <xref:System.Attribute>, the property must be an exact match or it will not be included in the returned array.      -   If a <xref:System.Attribute> instance is specified and it is the default property, it will be included in the returned array even if there is no instance of the <xref:System.Attribute> in the property."
+  summary: "Value パラメーターで指定されたコンポーネントの種類のプロパティのコレクションを取得します。"
+  remarks: "`context`からこのコンバーターが呼び出されている環境に関する追加情報を抽出するパラメーターを使用することができます。 これは、 `null`、ので、常に確認します。 また、コンテキスト オブジェクトのプロパティを返す`null`です。       `attributes`配列は配列をフィルター処理に使用されます。 `attributes`が混在していることができます<xref:System.Type>と<xref:System.Attribute>オブジェクト</xref:System.Attribute></xref:System.Type>。 フィルター処理は、次のルールによって定義: - a<xref:System.Type>オブジェクトは、ワイルドカードとして扱われます以外の場合は、一致があるプロパティ、<xref:System.Type>属性のセットにします</xref:System.Type></xref:System.Type>。      -プロパティがない場合、 <xref:System.Attribute>、同じクラスのプロパティは含まれません、返された配列</xref:System.Attribute>。      インスタンスの場合、属性の<xref:System.Attribute>プロパティは完全に一致する必要があります、または返された配列されません</xref:System.Attribute>。      場合、<xref:System.Attribute>インスタンスが指定されてと既定のプロパティは、のインスタンスがない場合でもには、返される配列に含められますが、<xref:System.Attribute>プロパティ</xref:System.Attribute></xref:System.Attribute>。"
   syntax:
     content: public override System.ComponentModel.PropertyDescriptorCollection GetProperties (System.ComponentModel.ITypeDescriptorContext context, object value, Attribute[] attributes);
     parameters:
     - id: context
       type: System.ComponentModel.ITypeDescriptorContext
-      description: "An <xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;></xref> that provides a format context."
+      description: "<xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;> </xref>形式コンテキストを提供します。"
     - id: value
       type: System.Object
-      description: "An <xref:System.Object> that specifies the type of component to get the properties for."
+      description: "の<xref:System.Object>プロパティのデータ型を取得するコンポーネントの種類を指定します。</xref:System.Object>"
     - id: attributes
       type: System.Attribute[]
-      description: "An array of type <xref:System.Attribute> that will be used as a filter."
+      description: "型の配列<xref:System.Attribute>フィルターとして使用される</xref:System.Attribute>。"
     return:
       type: System.ComponentModel.PropertyDescriptorCollection
-      description: "A <xref href=&quot;System.ComponentModel.PropertyDescriptorCollection&quot;></xref> with the properties that are exposed for the component, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there are no properties."
+      description: "A <xref href=&quot;System.ComponentModel.PropertyDescriptorCollection&quot;> </xref> 、コンポーネントで公開されているプロパティを持つまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>プロパティがない場合。"
   overload: System.ComponentModel.ComponentConverter.GetProperties*
   exceptions: []
   platform:
@@ -129,17 +129,17 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Gets a value indicating whether this object supports properties using the specified context."
-  remarks: "The `context` parameter can be used to extract additional information about the environment this converter is being invoked from. This can be `null`, so always check. Also, properties on the context object can return `null`."
+  summary: "このオブジェクトが指定したコンテキストを使用してプロパティをサポートしているかどうかを示す値を取得します。"
+  remarks: "`context`からこのコンバーターが呼び出されている環境に関する追加情報を抽出するパラメーターを使用することができます。 これは、 `null`、ので、常に確認します。 また、コンテキスト オブジェクトのプロパティを返す`null`です。"
   syntax:
     content: public override bool GetPropertiesSupported (System.ComponentModel.ITypeDescriptorContext context);
     parameters:
     - id: context
       type: System.ComponentModel.ITypeDescriptorContext
-      description: "An <xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;></xref> that provides a format context."
+      description: "<xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;> </xref>形式コンテキストを提供します。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> because <xref:System.ComponentModel.TypeConverter.GetProperties*> should be called to find the properties of this object. This method never returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref><xref:System.ComponentModel.TypeConverter.GetProperties*>このオブジェクトのプロパティを呼び出す必要があります</xref:System.ComponentModel.TypeConverter.GetProperties*>。 このメソッドが戻ることはありません<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.ComponentModel.ComponentConverter.GetPropertiesSupported*
   exceptions: []
   platform:

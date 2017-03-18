@@ -15,8 +15,8 @@ items:
   nameWithType: TrackingService
   fullName: System.Workflow.Runtime.Tracking.TrackingService
   type: Class
-  summary: "Provides the basic interface between a tracking service and the run-time tracking infrastructure."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       A tracking service is responsible for supplying tracking channels and tracking profiles to the workflow run-time engine. The workflow run-time engine requests one <xref:System.Workflow.Runtime.Tracking.TrackingChannel> from a tracking service for each workflow instance for which it has a <xref:System.Workflow.Runtime.Tracking.TrackingProfile>. The workflow run-time engine uses this <xref:System.Workflow.Runtime.Tracking.TrackingChannel> to send tracking records associated with that workflow instance. A <xref:System.Workflow.Runtime.Tracking.TrackingProfile> contains track points that specify a set of tracking events for which the run-time tracking infrastructure should send tracking records. A <xref:System.Workflow.Runtime.Tracking.TrackingProfile> may also specify data to be extracted from the workflow instance when one of these tracking events occurs.       The run-time tracking infrastructure uses a <xref:System.Workflow.Runtime.Tracking.TrackingProfile> to filter tracking events emitted by a workflow instance. When a tracking event is emitted that matches a track point in the <xref:System.Workflow.Runtime.Tracking.TrackingProfile>, the run-time tracking infrastructure extracts any data specified in the <xref:System.Workflow.Runtime.Tracking.TrackingProfile> from the workflow instance and encapsulates this data and information about the tracking event in a tracking record. This tracking record is then sent over the <xref:System.Workflow.Runtime.Tracking.TrackingChannel> associated with the workflow instance. A tracking record may be one of the following kinds:       <xref:System.Workflow.Runtime.Tracking.ActivityTrackingRecord>       <xref:System.Workflow.Runtime.Tracking.UserTrackingRecord>       <xref:System.Workflow.Runtime.Tracking.WorkflowTrackingRecord>       The host application can use the tracking record in any way that it chooses. For example, the host application may store the tracking information in a database and use it to implement a sophisticated user interface, or it may use the information to inform an administrator of a condition that requires some action. You can register a tracking service with the workflow run-time engine by calling <xref:System.Workflow.Runtime.WorkflowRuntime.AddService%2A?displayProperty=fullName> or by including the appropriate entry in the application configuration file.       All tracking services must inherit from the TrackingService abstract class. This class defines the basic interface between a tracking service and the run-time tracking infrastructure. The workflow run-time engine requests a <xref:System.Workflow.Runtime.Tracking.TrackingProfile> for a specific workflow instance or workflow <xref:System.Type> by calling one of the overloaded <xref:System.Workflow.Runtime.Tracking.TrackingService.GetProfile%2A> methods or the <xref:System.Workflow.Runtime.Tracking.TrackingService.TryGetProfile%2A> method. The workflow run-time engine calls <xref:System.Workflow.Runtime.Tracking.TrackingService.GetTrackingChannel%2A> to request a <xref:System.Workflow.Runtime.Tracking.TrackingChannel>.       The workflow tracking runtime calls the <xref:System.Workflow.Runtime.Tracking.TrackingService.GetProfile%2A> and <xref:System.Workflow.Runtime.Tracking.TrackingService.TryGetProfile%2A> methods whenever a workflow instance is created or loaded from the persistence store. The overhead associated with these calls can be costly to the tracking service (many database calls, for example). You can implement the <xref:System.Workflow.Runtime.Tracking.IProfileNotification> interface in your tracking service to circumvent this call-based mechanism and use events to notify the workflow runtime engine of changes to a <xref:System.Workflow.Runtime.Tracking.TrackingProfile>. For tracking services that implement the <xref:System.Workflow.Runtime.Tracking.IProfileNotification> interface, the workflow run-time engine subscribes to the <xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileUpdated> and <xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileRemoved> events. Your tracking service can raise the appropriate event when a change to one of its tracking profiles occurs. The <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> class implements this interface.       The workflow run-time engine calls the <xref:System.Workflow.Runtime.Tracking.TrackingService.TryReloadProfile%2A> method to test whether a <xref:System.Workflow.Runtime.Tracking.TrackingProfile> has been updated or removed as a result of an explicit call by a host or a service to <xref:System.Workflow.Runtime.WorkflowInstance.ReloadTrackingProfiles%2A> on a workflow instance. This process enables a host or service to dynamically change the tracking profile that is being used for a specific workflow instance."
+  summary: "追跡サービスと、ランタイム追跡インフラストラクチャの間の基本的なインターフェイスを提供します。"
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]追跡サービスは、追跡チャネルを指定して、ワークフロー ランタイム エンジンに追跡プロファイルを担当します。 ワークフロー ランタイム エンジンが<xref:System.Workflow.Runtime.Tracking.TrackingChannel><xref:System.Workflow.Runtime.Tracking.TrackingProfile>。</xref:System.Workflow.Runtime.Tracking.TrackingProfile>が対象の各ワークフロー インスタンスの追跡サービスから</xref:System.Workflow.Runtime.Tracking.TrackingChannel>1 つ要求します。 ワークフロー ランタイム エンジンがこれを使用して<xref:System.Workflow.Runtime.Tracking.TrackingChannel>をそのワークフロー インスタンスに関連付けられた追跡レコードを送信します</xref:System.Workflow.Runtime.Tracking.TrackingChannel>。 A<xref:System.Workflow.Runtime.Tracking.TrackingProfile>追跡イベントをランタイム追跡インフラストラクチャが追跡レコードを送信する必要がありますのセットを指定する追跡ポイントが含まれています</xref:System.Workflow.Runtime.Tracking.TrackingProfile>。 A<xref:System.Workflow.Runtime.Tracking.TrackingProfile>もこれらのイベントの追跡のいずれかが発生したときに、ワークフロー インスタンスから抽出するデータを指定します</xref:System.Workflow.Runtime.Tracking.TrackingProfile>。       ランタイム追跡インフラストラクチャを使用して、<xref:System.Workflow.Runtime.Tracking.TrackingProfile>をフィルター処理、ワークフロー インスタンスによって生成された追跡イベント</xref:System.Workflow.Runtime.Tracking.TrackingProfile>。 内の追跡ポイントに一致する追跡イベントが出力されるときに、 <xref:System.Workflow.Runtime.Tracking.TrackingProfile>、ランタイム追跡インフラストラクチャで指定された任意のデータを抽出する、<xref:System.Workflow.Runtime.Tracking.TrackingProfile>ワークフロー インスタンスから、このデータと追跡レコード内の追跡イベントに関する情報をカプセル化します</xref:System.Workflow.Runtime.Tracking.TrackingProfile></xref:System.Workflow.Runtime.Tracking.TrackingProfile>。 この追跡レコードが経由で送信されますが、<xref:System.Workflow.Runtime.Tracking.TrackingChannel>ワークフロー インスタンスに関連付けられている</xref:System.Workflow.Runtime.Tracking.TrackingChannel>。 追跡レコードは、次の種類のいずれかの可能性があります:<xref:System.Workflow.Runtime.Tracking.ActivityTrackingRecord><xref:System.Workflow.Runtime.Tracking.UserTrackingRecord><xref:System.Workflow.Runtime.Tracking.WorkflowTrackingRecord>ホスト アプリケーションは任意選択の方法で追跡レコードを使用することができます</xref:System.Workflow.Runtime.Tracking.WorkflowTrackingRecord>。       </xref:System.Workflow.Runtime.Tracking.UserTrackingRecord>       </xref:System.Workflow.Runtime.Tracking.ActivityTrackingRecord> たとえば、ホスト アプリケーションをデータベースに追跡情報を格納しを使用して、高度なユーザー インターフェイスを実装する可能性があります。 または何らかのアクションを使用する状況の管理者に通知する情報を使用して、可能性があります。 呼び出してワークフロー ランタイム エンジンを追跡サービスに登録できます<xref:System.Workflow.Runtime.WorkflowRuntime.AddService%2A?displayProperty=fullName>またはアプリケーション構成ファイルに適切なエントリを含めることで</xref:System.Workflow.Runtime.WorkflowRuntime.AddService%2A?displayProperty=fullName>。       すべての追跡サービスは、TrackingService 抽象クラスから継承する必要があります。 このクラスは、追跡サービスと、ランタイム追跡インフラストラクチャの基本インターフェイスを定義します。 ワークフロー ランタイム エンジンの要求、<xref:System.Workflow.Runtime.Tracking.TrackingProfile>の特定のワークフロー インスタンスまたはワークフロー<xref:System.Type>オーバー ロードされたいずれかを呼び出して<xref:System.Workflow.Runtime.Tracking.TrackingService.GetProfile%2A>メソッドまたは<xref:System.Workflow.Runtime.Tracking.TrackingService.TryGetProfile%2A>メソッド</xref:System.Workflow.Runtime.Tracking.TrackingService.TryGetProfile%2A></xref:System.Workflow.Runtime.Tracking.TrackingService.GetProfile%2A></xref:System.Type></xref:System.Workflow.Runtime.Tracking.TrackingProfile>。 ワークフロー ランタイム エンジンが<xref:System.Workflow.Runtime.Tracking.TrackingService.GetTrackingChannel%2A><xref:System.Workflow.Runtime.Tracking.TrackingChannel>。</xref:System.Workflow.Runtime.Tracking.TrackingChannel>を要求するために</xref:System.Workflow.Runtime.Tracking.TrackingService.GetTrackingChannel%2A>呼び出す       ワークフロー追跡ランタイムが呼び出す、<xref:System.Workflow.Runtime.Tracking.TrackingService.GetProfile%2A>と<xref:System.Workflow.Runtime.Tracking.TrackingService.TryGetProfile%2A>メソッド、ワークフロー インスタンスが作成または永続化ストアから読み込まれたときにします</xref:System.Workflow.Runtime.Tracking.TrackingService.TryGetProfile%2A></xref:System.Workflow.Runtime.Tracking.TrackingService.GetProfile%2A>。 これらの呼び出しに伴うオーバーヘッドは、(多数のデータベース呼び出し、たとえば) 追跡サービスにコストが高くなることができます。 <xref:System.Workflow.Runtime.Tracking.IProfileNotification>この呼び出しベースのメカニズムを回避して<xref:System.Workflow.Runtime.Tracking.TrackingProfile>。</xref:System.Workflow.Runtime.Tracking.TrackingProfile>への変更、ワークフロー ランタイム エンジンに通知するイベントを使用して追跡サービスでインターフェイス</xref:System.Workflow.Runtime.Tracking.IProfileNotification>を実装することができます。 実装するサービスを追跡するため、<xref:System.Workflow.Runtime.Tracking.IProfileNotification>インターフェイスをワークフロー ランタイム エンジンがサブスクライブしている、<xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileUpdated>と<xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileRemoved>イベント</xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileRemoved></xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileUpdated></xref:System.Workflow.Runtime.Tracking.IProfileNotification>。 追跡サービスは、追跡プロファイルのいずれかに変更が発生したときに適切なイベントを発生させることができます。 <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>クラスは、このインターフェイスを実装します</xref:System.Workflow.Runtime.Tracking.SqlTrackingService>。       ワークフロー ランタイム エンジンの呼び出し、<xref:System.Workflow.Runtime.Tracking.TrackingService.TryReloadProfile%2A>メソッドをテストするかどうか、<xref:System.Workflow.Runtime.Tracking.TrackingProfile>更新または明示的な呼び出しの結果として、ホストまたはサービスによって削除された<xref:System.Workflow.Runtime.WorkflowInstance.ReloadTrackingProfiles%2A>ワークフロー インスタンスにします</xref:System.Workflow.Runtime.WorkflowInstance.ReloadTrackingProfiles%2A></xref:System.Workflow.Runtime.Tracking.TrackingProfile></xref:System.Workflow.Runtime.Tracking.TrackingService.TryReloadProfile%2A>。 このプロセスは、特定のワークフロー インスタンスが使用されている追跡プロファイルを動的に変更するには、ホストまたはサービスを使用します。"
   syntax:
     content: >-
       [System.Obsolete("The System.Workflow.* types are deprecated.  Instead, please use the new types from System.Activities.*")]
@@ -48,7 +48,7 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "When implemented in a derived class, initializes a new instance of the <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingService&quot;></xref> class."
+  summary: "派生クラスで実装された場合の新しいインスタンスを初期化、 <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingService&quot;> </xref>クラスです。"
   remarks: ''
   example:
   - "The following example shows how to create a new instance of a `TerminationTrackingService` object, of a type that derives from `TrackingService`. This sample is from the Termination Tracking Service SDK sample. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][Termination Tracking Service Sample](http://msdn.microsoft.com/en-us/29b7c0d7-cece-4bb9-96d0-c5b6c6e14439).  \n  \n [!code-cs[WF_Samples#111](~/add/codesnippet/csharp/wf_snippets/snippets1.cs#111)]\n [!code-vb[WF_Samples#111](~/add/codesnippet/visualbasic/wf_snippets/snippets1.vb#111)]"
@@ -71,8 +71,8 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Must be overridden in the derived class, and when implemented, returns the tracking profile for the specified workflow instance."
-  remarks: "A tracking service is responsible for managing the tracking profiles available for specific workflow types and specific workflow instances. You can implement this management in whatever manner you choose. For example, you can return the same <xref:System.Workflow.Runtime.Tracking.TrackingProfile> for every workflow <xref:System.Type> and workflow instance; or you can manage a sophisticated store of tracking profiles referenced by workflow instance, workflow <xref:System.Type>, and <xref:System.Version>."
+  summary: "実装されると、派生クラスでオーバーライドする必要があります、指定したワークフロー インスタンスの追跡プロファイルを返します。"
+  remarks: "追跡サービスは、特定のワークフロー型と特定のワークフロー インスタンスの利用できる追跡プロファイルの管理を担当します。 この管理は、どのような方法で実装できます。 たとえば、同じを返すことができます<xref:System.Workflow.Runtime.Tracking.TrackingProfile>すべてのワークフローの<xref:System.Type>およびまたはワークフロー インスタンスは、ワークフロー インスタンスによって参照される追跡プロファイルの保存場所を管理できるワークフロー <xref:System.Type>、 <xref:System.Version></xref:System.Version> </xref:System.Type> </xref:System.Type> </xref:System.Workflow.Runtime.Tracking.TrackingProfile> 。"
   example:
   - "The following example shows an implementation of the `GetProfile` method. In this example, several overloads of the `GetProfile` method call a single private `GetProfile` method, which returns a hard-coded, default tracking profile. This example is from the Termination Tracking Service SDK sample. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][Termination Tracking Service Sample](http://msdn.microsoft.com/en-us/29b7c0d7-cece-4bb9-96d0-c5b6c6e14439).  \n  \n [!code-cs[WF_Samples#115](~/add/codesnippet/csharp/wf_snippets/snippets1.cs#115)]\n [!code-vb[WF_Samples#115](~/add/codesnippet/visualbasic/wf_snippets/snippets1.vb#115)]"
   syntax:
@@ -80,10 +80,10 @@ items:
     parameters:
     - id: workflowInstanceId
       type: System.Guid
-      description: "The <xref:System.Guid> of the workflow instance."
+      description: "<xref:System.Guid>ワークフロー インスタンスの</xref:System.Guid>。"
     return:
       type: System.Workflow.Runtime.Tracking.TrackingProfile
-      description: "The tracking profile for the specified workflow instance."
+      description: "指定したワークフロー インスタンスの追跡プロファイル。"
   overload: System.Workflow.Runtime.Tracking.TrackingService.GetProfile*
   exceptions: []
   platform:
@@ -100,20 +100,20 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Must be overridden in the derived class, and when implemented, returns the tracking profile, qualified by version, for the specified workflow <xref:System.Type>."
-  remarks: "A tracking service is responsible for managing the tracking profiles available for specific workflow types and specific workflow instances. You can implement this management in whatever manner you choose. For example, you can return the same <xref:System.Workflow.Runtime.Tracking.TrackingProfile> for every workflow <xref:System.Type> and workflow instance; or you can manage a sophisticated store of tracking profiles referenced by workflow instance, workflow <xref:System.Type>, and <xref:System.Version>."
+  summary: "実装されると、派生クラスでオーバーライドする必要があります、指定したワークフロー <xref:System.Type>.</xref:System.Type>用のバージョンで修飾する、追跡プロファイルを返します"
+  remarks: "追跡サービスは、特定のワークフロー型と特定のワークフロー インスタンスの利用できる追跡プロファイルの管理を担当します。 この管理は、どのような方法で実装できます。 たとえば、同じを返すことができます<xref:System.Workflow.Runtime.Tracking.TrackingProfile>すべてのワークフローの<xref:System.Type>およびまたはワークフロー インスタンスは、ワークフロー インスタンスによって参照される追跡プロファイルの保存場所を管理できるワークフロー <xref:System.Type>、 <xref:System.Version></xref:System.Version> </xref:System.Type> </xref:System.Type> </xref:System.Workflow.Runtime.Tracking.TrackingProfile> 。"
   syntax:
     content: protected abstract System.Workflow.Runtime.Tracking.TrackingProfile GetProfile (Type workflowType, Version profileVersionId);
     parameters:
     - id: workflowType
       type: System.Type
-      description: "The <xref:System.Type> of the workflow."
+      description: "<xref:System.Type>ワークフローの</xref:System.Type>。"
     - id: profileVersionId
       type: System.Version
-      description: "The <xref:System.Version> of the tracking profile."
+      description: "<xref:System.Version>追跡プロファイルの</xref:System.Version>。"
     return:
       type: System.Workflow.Runtime.Tracking.TrackingProfile
-      description: "The tracking profile for the specified workflow type."
+      description: "指定したワークフローの種類の追跡プロファイル。"
   overload: System.Workflow.Runtime.Tracking.TrackingService.GetProfile*
   exceptions: []
   platform:
@@ -130,8 +130,8 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Must be overridden in the derived class, and when implemented, returns the channel that the run-time tracking infrastructure uses to send tracking records to the tracking service."
-  remarks: "The run-time tracking infrastructure uses one <xref:System.Workflow.Runtime.Tracking.TrackingChannel> for each tracking service for each workflow instance. The workflow run-time engine calls GetTrackingChannel on each tracking service to get the <xref:System.Workflow.Runtime.Tracking.TrackingChannel> for that service. You can use the information passed in <xref:System.Workflow.Runtime.Tracking.TrackingParameters> to associate tracking data sent on the <xref:System.Workflow.Runtime.Tracking.TrackingChannel> for your tracking service with a particular root workflow instance."
+  summary: "実装されると、派生クラスでオーバーライドする必要があります、ランタイム追跡インフラストラクチャを使用して追跡レコードを追跡サービスに送信するチャネルを返します。"
+  remarks: "ランタイム追跡インフラストラクチャは、1 つを使用<xref:System.Workflow.Runtime.Tracking.TrackingChannel>各ワークフロー インスタンスの追跡サービスごとの</xref:System.Workflow.Runtime.Tracking.TrackingChannel>。 ワークフロー ランタイム エンジンが取得するには、各追跡サービスに GetTrackingChannel を呼び出し、<xref:System.Workflow.Runtime.Tracking.TrackingChannel>のサービスに対する</xref:System.Workflow.Runtime.Tracking.TrackingChannel>。 渡された情報を使用して<xref:System.Workflow.Runtime.Tracking.TrackingParameters>で送信される追跡データを関連付ける、 <xref:System.Workflow.Runtime.Tracking.TrackingChannel>、特定のルート ワークフロー インスタンスに、追跡サービスの</xref:System.Workflow.Runtime.Tracking.TrackingChannel></xref:System.Workflow.Runtime.Tracking.TrackingParameters>。"
   example:
   - "The following example shows an implementation of the `GetTrackingChannel` method. This example is from the Termination Tracking Service SDK sample. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][Termination Tracking Service Sample](http://msdn.microsoft.com/en-us/29b7c0d7-cece-4bb9-96d0-c5b6c6e14439).  \n  \n [!code-cs[WF_Samples#113](~/add/codesnippet/csharp/wf_snippets/snippets1.cs#113)]\n [!code-vb[WF_Samples#113](~/add/codesnippet/visualbasic/wf_snippets/snippets1.vb#113)]"
   syntax:
@@ -139,10 +139,10 @@ items:
     parameters:
     - id: parameters
       type: System.Workflow.Runtime.Tracking.TrackingParameters
-      description: "The <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingParameters&quot;></xref> associated with the workflow instance."
+      description: "<xref href=&quot;System.Workflow.Runtime.Tracking.TrackingParameters&quot;> </xref>ワークフロー インスタンスに関連付けられています。"
     return:
       type: System.Workflow.Runtime.Tracking.TrackingChannel
-      description: "The <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingChannel&quot;></xref> that is used to send tracking records to the tracking service."
+      description: "<xref href=&quot;System.Workflow.Runtime.Tracking.TrackingChannel&quot;> </xref>追跡レコードを追跡サービスに送信に使用されます。"
   overload: System.Workflow.Runtime.Tracking.TrackingService.GetTrackingChannel*
   exceptions: []
   platform:
@@ -159,8 +159,8 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Must be overridden in the derived class, and when implemented, retrieves the tracking profile for the specified workflow type if one is available."
-  remarks: "A tracking service is responsible for managing the tracking profiles available for specific workflow types and specific workflow instances. You can implement this management in whatever manner you choose. For example, you can return the same <xref:System.Workflow.Runtime.Tracking.TrackingProfile> for every workflow <xref:System.Type> and workflow instance; or you can manage a sophisticated store of tracking profiles referenced by workflow instance, workflow <xref:System.Type>, and <xref:System.Version>."
+  summary: "実装されると、派生クラスでオーバーライドする必要があります、1 つが利用可能な場合は、指定したワークフローの種類の追跡プロファイルを取得します。"
+  remarks: "追跡サービスは、特定のワークフロー型と特定のワークフロー インスタンスの利用できる追跡プロファイルの管理を担当します。 この管理は、どのような方法で実装できます。 たとえば、同じを返すことができます<xref:System.Workflow.Runtime.Tracking.TrackingProfile>すべてのワークフローの<xref:System.Type>およびまたはワークフロー インスタンスは、ワークフロー インスタンスによって参照される追跡プロファイルの保存場所を管理できるワークフロー <xref:System.Type>、 <xref:System.Version></xref:System.Version> </xref:System.Type> </xref:System.Type> </xref:System.Workflow.Runtime.Tracking.TrackingProfile> 。"
   example:
   - "The following example demonstrates an implementation of the `TryGetProfile` method, which calls a private `GetProfile` method. This example is from the Termination Tracking Service SDK sample. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][Termination Tracking Service Sample](http://msdn.microsoft.com/en-us/29b7c0d7-cece-4bb9-96d0-c5b6c6e14439).  \n  \n [!code-cs[Wf_samples#209](~/add/codesnippet/csharp/wf_snippets/snippets19.cs#209)]\n [!code-vb[Wf_samples#209](~/add/codesnippet/visualbasic/wf_snippets/snippets19.vb#209)]"
   syntax:
@@ -168,13 +168,13 @@ items:
     parameters:
     - id: workflowType
       type: System.Type
-      description: "The <xref:System.Type> of the workflow for which to get the tracking profile."
+      description: "<xref:System.Type>追跡プロファイルを取得する対象のワークフローの</xref:System.Type>。"
     - id: profile
       type: System.Workflow.Runtime.Tracking.TrackingProfile
-      description: "When this method returns, contains the <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> to load. This parameter is passed uninitialized."
+      description: "このメソッドが戻るとき、 <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;> </xref>を読み込めません。 このパラメーターは初期化せずに渡されます。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> for the specified workflow <xref:System.Type> is available; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. If <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, the <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> is returned in <code>profile</code>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合、 <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;> </xref>指定したワークフローの<xref:System.Type>、それ以外の使用可能な<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref></xref:System.Type> 。 If <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, the <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> is returned in <code>profile</code>."
   overload: System.Workflow.Runtime.Tracking.TrackingService.TryGetProfile*
   exceptions: []
   platform:
@@ -191,8 +191,8 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Must be overridden in the derived class, and when implemented, retrieves a new tracking profile for the specified workflow instance if the tracking profile has changed since it was last loaded."
-  remarks: "TryReloadProfile is called by the run-time tracking infrastructure to determine whether a new <xref:System.Workflow.Runtime.Tracking.TrackingProfile> should be loaded for the specified workflow instance. If a new <xref:System.Workflow.Runtime.Tracking.TrackingProfile> is required, it is returned in `profile`. If you want the run-time tracking infrastructure to stop tracking a workflow instance, your tracking service should return `true` and set `profile` equal to a null reference (`Nothing` in Visual Basic). Your tracking service can use `workflowType` or `workflowInstanceId` in whatever manner you choose to determine whether a tracking profile should be reloaded. For example, the <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> only uses `workflowInstanceId` to decide whether the tracking profile should be reloaded. TryReloadProfile is called by the run-time tracking infrastructure according to its own tracking semantics, or in response to the host or a service calling <xref:System.Workflow.Runtime.WorkflowInstance.ReloadTrackingProfiles%2A?displayProperty=fullName> on a workflow instance."
+  summary: "実装された場合、取得が最後に、追跡プロファイルが変更された場合は、指定したワークフロー インスタンスの新しい追跡プロファイルが読み込まれると、派生クラスでオーバーライドする必要があります。"
+  remarks: "TryReloadProfile が新しいかどうかを決定する、ランタイム追跡インフラストラクチャによって呼び出される<xref:System.Workflow.Runtime.Tracking.TrackingProfile>指定したワークフロー インスタンスのアンロードする必要があります</xref:System.Workflow.Runtime.Tracking.TrackingProfile>。 場合、新しい<xref:System.Workflow.Runtime.Tracking.TrackingProfile>は必要に応じてで返される`profile`</xref:System.Workflow.Runtime.Tracking.TrackingProfile>。 追跡サービスを返す必要があるかどうかは、ワークフロー インスタンスの追跡を停止する、ランタイム追跡インフラストラクチャ、`true`設定と`profile`null 参照に等しい (`Nothing` Visual Basic で)。 追跡サービスを使用できる`workflowType`または`workflowInstanceId`追跡プロファイルを再読み込みするかどうかを決定する任意の方法で選択します。 たとえば、<xref:System.Workflow.Runtime.Tracking.SqlTrackingService>のみを使用して`workflowInstanceId`追跡プロファイルを再読み込みするかどうかを決定します</xref:System.Workflow.Runtime.Tracking.SqlTrackingService>。 TryReloadProfile、または独自の追跡セマンティクスに従って、ホストまたはサービス呼び出しに対する応答で、ランタイム追跡インフラストラクチャによって呼び出されます<xref:System.Workflow.Runtime.WorkflowInstance.ReloadTrackingProfiles%2A?displayProperty=fullName>ワークフロー インスタンスにします</xref:System.Workflow.Runtime.WorkflowInstance.ReloadTrackingProfiles%2A?displayProperty=fullName>。"
   example:
   - "The following example shows a basic implementation of the `TryReloadProfile` method. This example is from the Termination Tracking Service SDK sample. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][Termination Tracking Service Sample](http://msdn.microsoft.com/en-us/29b7c0d7-cece-4bb9-96d0-c5b6c6e14439).  \n  \n [!code-cs[WF_Samples#116](~/add/codesnippet/csharp/wf_snippets/snippets1.cs#116)]\n [!code-vb[WF_Samples#116](~/add/codesnippet/visualbasic/wf_snippets/snippets1.vb#116)]"
   syntax:
@@ -200,16 +200,16 @@ items:
     parameters:
     - id: workflowType
       type: System.Type
-      description: "The <xref:System.Type> of the workflow instance."
+      description: "<xref:System.Type>ワークフロー インスタンスの</xref:System.Type>。"
     - id: workflowInstanceId
       type: System.Guid
-      description: "The <xref:System.Guid> of the workflow instance."
+      description: "<xref:System.Guid>ワークフロー インスタンスの</xref:System.Guid>。"
     - id: profile
       type: System.Workflow.Runtime.Tracking.TrackingProfile
-      description: "When this method returns, contains the <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> to load. This parameter is passed uninitialized."
+      description: "このメソッドが戻るとき、 <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;> </xref>を読み込めません。 このパラメーターは初期化せずに渡されます。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a new <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> should be loaded; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. If <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, the <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> is returned in <code>profile</code>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合、新しい<xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref>読み込まれた、それ以外にする必要があります<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。 If <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, the <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> is returned in <code>profile</code>."
   overload: System.Workflow.Runtime.Tracking.TrackingService.TryReloadProfile*
   exceptions: []
   platform:

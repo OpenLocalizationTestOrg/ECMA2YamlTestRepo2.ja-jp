@@ -17,8 +17,8 @@ items:
   nameWithType: AuthenticationManager
   fullName: System.Net.AuthenticationManager
   type: Class
-  summary: "Manages the authentication modules called during the client authentication process."
-  remarks: "AuthenticationManager is a static class that manages the authentication modules that an application uses. When a request is made to protected resources, the AuthenticationManager calls the <xref:System.Net.AuthenticationManager.Authenticate%2A> method to get an <xref:System.Net.Authorization> instance to use in subsequent requests.       The AuthenticationManager queries each registered authentication module by calling the <xref:System.Net.IAuthenticationModule.Authenticate%2A?displayProperty=fullName> method for each module. The first authentication module to return an <xref:System.Net.Authorization> instance is used to authenticate the request.       Modules that provide the basic, digest, negotiate, NTLM, and Kerberos authentication types are registered with the AuthenticationManager by default. Additional authentication modules that implement the <xref:System.Net.IAuthenticationModule> interface can be added using the <xref:System.Net.AuthenticationManager.Register%2A> method. Authentication modules are called in the order in which they were added to the list.      > [!NOTE] >  The Kerberos and negotiate authentication type is not supported on Windows 95/98 or Windows NT 4.0."
+  summary: "クライアントの認証プロセス中に呼び出された認証モジュールを管理します。"
+  remarks: "AuthenticationManager は、アプリケーションで使用される認証モジュールを管理する静的クラスです。 保護されたリソース、AuthenticationManager 呼び出しの場合、要求が行われる、<xref:System.Net.AuthenticationManager.Authenticate%2A>取得するメソッド、<xref:System.Net.Authorization>後続の要求で使用するインスタンス</xref:System.Net.Authorization></xref:System.Net.AuthenticationManager.Authenticate%2A>。       AuthenticationManager を呼び出して各登録済みの認証モジュールのクエリ、<xref:System.Net.IAuthenticationModule.Authenticate%2A?displayProperty=fullName>各モジュールのメソッド</xref:System.Net.IAuthenticationModule.Authenticate%2A?displayProperty=fullName>。 1 つ目の認証モジュールを返す、<xref:System.Net.Authorization>のインスタンスが要求の認証に使用します</xref:System.Net.Authorization>。       、基本、ダイジェストを提供するモジュールのネゴシエート、NTLM、Kerberos 認証の種類は、AuthenticationManager 既定で登録されるとします。 実装する追加の認証モジュール、<xref:System.Net.IAuthenticationModule>を使用してインターフェイスを追加することができます、<xref:System.Net.AuthenticationManager.Register%2A>メソッド</xref:System.Net.AuthenticationManager.Register%2A></xref:System.Net.IAuthenticationModule>。 認証モジュールは、一覧に追加された順序で呼び出されます。      > [!NOTE] >、Kerberos ネゴシエーションと認証の種類は Windows 95/98 または Windows NT 4.0 ではサポートされていません。"
   example:
   - >-
     [!code-cs[System.Net.Authentication#1](~/add/codesnippet/csharp/t-system.net.authenticat_0_1.cs)]
@@ -44,28 +44,28 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Calls each registered authentication module to find the first module that can respond to the authentication request."
-  remarks: "The Authenticate method calls the <xref:System.Net.IAuthenticationModule.Authenticate%2A?displayProperty=fullName> method on each registered authentication module until one of the module responds with an <xref:System.Net.Authorization> instance.       The first <xref:System.Net.Authorization> instance returned is used to authenticate the request. If no authentication module can authenticate the request, the Authenticate method returns `null`.       Authentication modules are called in the order in which they are registered with the <xref:System.Net.AuthenticationManager>."
+  summary: "認証要求に応答できる&1; つ目のモジュールを検索するには、各登録済みの認証モジュールが呼び出されます。"
+  remarks: "この認証メソッドの呼び出し、<xref:System.Net.IAuthenticationModule.Authenticate%2A?displayProperty=fullName>メソッドで、モジュールのいずれかが応答するまでは、各登録済みの認証モジュールを<xref:System.Net.Authorization>インスタンス</xref:System.Net.Authorization></xref:System.Net.IAuthenticationModule.Authenticate%2A?displayProperty=fullName>。       最初の<xref:System.Net.Authorization>返されたインスタンスは、要求を認証に使用します</xref:System.Net.Authorization>。 認証メソッドが返されますかどうか認証モジュール要求を認証できるなし、`null`です。       認証モジュールが<xref:System.Net.AuthenticationManager>。</xref:System.Net.AuthenticationManager>で登録されている順序で呼び出されます"
   syntax:
     content: public static System.Net.Authorization Authenticate (string challenge, System.Net.WebRequest request, System.Net.ICredentials credentials);
     parameters:
     - id: challenge
       type: System.String
-      description: "The challenge returned by the Internet resource."
+      description: "インターネット リソースから返されるチャレンジします。"
     - id: request
       type: System.Net.WebRequest
-      description: "The <xref:System.Net.WebRequest> that initiated the authentication challenge."
+      description: "<xref:System.Net.WebRequest>認証チャレンジを開始する</xref:System.Net.WebRequest>。"
     - id: credentials
       type: System.Net.ICredentials
-      description: "The <xref:System.Net.ICredentials> associated with this request."
+      description: "<xref:System.Net.ICredentials>この要求に関連付けられている</xref:System.Net.ICredentials>。"
     return:
       type: System.Net.Authorization
-      description: "An instance of the <xref href=&quot;System.Net.Authorization&quot;></xref> class containing the result of the authorization attempt. If there is no authentication module to respond to the challenge, this method returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "インスタンス、 <xref href=&quot;System.Net.Authorization&quot;> </xref>認証試行の結果を含むクラスです。 このメソッドが戻るかどうかは認証モジュールがチャレンジに応答することはありません、 <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.AuthenticationManager.Authenticate*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>challenge</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>request</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>credentials</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>challenge</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>request</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>credentials</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Net.AuthenticationManager.CredentialPolicy
@@ -80,15 +80,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets or sets the credential policy to be used for resource requests made using the <xref:System.Net.HttpWebRequest> class."
-  remarks: "The credential policy determines whether to send credentials when sending a request for a network resource, such as the content of a Web page. If credentials are sent, servers that require client authentication can attempt to authenticate the client when the request is received instead of sending a response indicating that the client&quot;s credentials are required. While this saves a round trip to the server, this must be balanced against the security risk inherent in sending credentials across the network. When the destination server does not require client authentication it is best to not send credentials.       The credential policy will be called only for requests that specify credentials or use a <xref:System.Net.WebProxy> object that specifies credentials."
+  summary: "<xref:System.Net.HttpWebRequest>クラス</xref:System.Net.HttpWebRequest>を使用して行われるリソース要求に使用する資格情報のポリシー取得または設定"
+  remarks: "資格情報のポリシーでは、Web ページの内容などのネットワーク リソースに対する要求を送信するときに資格情報を送信するかどうかを判断します。 資格情報が送信される場合は、クライアント認証を必要とするサーバーがクライアントの資格情報が必要であることを示す応答を送信する代わりに、要求が受信したときに、クライアントの認証を試行できます。 これによりサーバーへのラウンド トリップを削減できますが、これがネットワーク経由で資格情報を送信する際に固有のセキュリティ リスクに対する分散する必要があります。 移行先サーバーにクライアント認証が必要としない場合は、資格情報を送信することをお勧めします。       資格情報のポリシーが使用または資格情報を指定した要求に対してのみ呼び出される、<xref:System.Net.WebProxy>資格情報を指定するオブジェクト</xref:System.Net.WebProxy>。"
   example:
   - "The following code example demonstrates setting the credential policy.  \n  \n [!code-cpp[NclCredPolicy#2](~/add/codesnippet/cpp/p-system.net.authenticat_1_1.cpp)]\n [!code-cs[NclCredPolicy#2](~/add/codesnippet/csharp/p-system.net.authenticat_1_1.cs)]"
   syntax:
     content: public static System.Net.ICredentialPolicy CredentialPolicy { get; set; }
     return:
       type: System.Net.ICredentialPolicy
-      description: "An object that implements the <xref href=&quot;System.Net.ICredentialPolicy&quot;></xref> interface that determines whether credentials are sent with requests. The default value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "実装するオブジェクト、 <xref href=&quot;System.Net.ICredentialPolicy&quot;> </xref>資格情報が要求と共に送信されるかどうかを決定するインターフェイスです。 既定値は<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.AuthenticationManager.CredentialPolicy*
   exceptions: []
   platform:
@@ -105,15 +105,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets the dictionary that contains Service Principal Names (SPNs) that are used to identify hosts during Kerberos authentication for requests made using <xref:System.Net.WebRequest> and its derived classes."
-  remarks: "An SPN is a name by which a client uniquely identifies an instance of a service or application on a server for purposes of mutual authentication. Mutual authentication is requested by default, and you can require it by setting <xref:System.Net.WebRequest.AuthenticationLevel%2A?displayProperty=fullName> to <xref:System.Net.Security.AuthenticationLevel> in your request.       When a <xref:System.Net.WebRequest> requires mutual authentication, the SPN for the destination must be supplied by the client. If you know the SPN, you can add it to the CustomTargetNameDictionary before sending the request. If you have not added SPN information to this dictionary, the <xref:System.Net.AuthenticationManager> uses the <xref:System.Net.WebRequest.RequestUri%2A> method to compose the most likely SPN; however, this is a computed value and might be incorrect. If mutual authentication is attempted and fails, you can check the dictionary to determine the computed SPN. No SPN is entered into the dictionary if the authentication protocol does not support mutual authentication.       To add an SPN value to this dictionary, use the <xref:System.Uri.AbsoluteUri%2A> of the <xref:System.Net.WebRequest.RequestUri%2A> as the key. Internally, the key is truncated to include the <xref:System.Uri.Scheme%2A>, <xref:System.Uri.Host%2A>, and the <xref:System.Uri.Port%2A> if it is not the default port.      > [!NOTE] >  Accessing the methods and properties of the CustomTargetNameDictionary requires unrestricted <xref:System.Net.WebPermission>.      > [!NOTE] >  When Kerberos authentication is performed through a proxy, both the proxy and the ultimate host name need to be resolved to an SPN. The proxy name resolution is protected by a timeout. Resolution of the ultimate host name to a SPN requires a DNS lookup, and there is no timeout associated directly with this operation. Therefore synchronous operations may take longer to timeout. To overcome this, add the ultimate host&quot;s URI prefix to the SPN cache prior to making requests to it.       Version 3.5 SP1 now defaults to specifying the host name used in the request URL in the SPN in the NTLM (NT LAN Manager) authentication exchange when the CustomTargetNameDictionary property is not set. The host name used in the request URL may be different from the Host header specified in the <xref:System.Net.HttpRequestHeader?displayProperty=fullName> in the client request. The host name used in the request URL may be different from the actual host name of the server, the machine name of the server, the computer&quot;s IP address, or the loopback address. In these cases, Windows will fail the authentication request. To address the issue, you may need to notify Windows that the host name used in the request URL in the client request (&quot;contoso&quot;, for example) is actually an alternate name for the local computer."
+  summary: "Kerberos 認証を使用して行われる要求の中にホストを識別するために使用するサービス プリンシパル名 (Spn) を含んでいるディクショナリを取得<xref:System.Net.WebRequest>とその派生クラス</xref:System.Net.WebRequest>。"
+  remarks: "SPN は、クライアント一意に識別するサービスまたはアプリケーションの相互認証の目的で、サーバー上のインスタンスの名前です。 既定では、相互認証が要求され、設定することを要求できます<xref:System.Net.WebRequest.AuthenticationLevel%2A?displayProperty=fullName>に<xref:System.Net.Security.AuthenticationLevel>を要求します</xref:System.Net.Security.AuthenticationLevel></xref:System.Net.WebRequest.AuthenticationLevel%2A?displayProperty=fullName>。       ときに、<xref:System.Net.WebRequest>クライアントが、変換先を指定する必要があります、SPN の相互認証が必要です</xref:System.Net.WebRequest>。 SPN がわかっている場合は、要求を送信する前に、CustomTargetNameDictionary を追加することができます。 このディクショナリに SPN の情報を追加していない場合、<xref:System.Net.AuthenticationManager>を使用して、<xref:System.Net.WebRequest.RequestUri%2A>メソッドです最も可能性の高い、SPN を作成するただし、これは、計算された値であり適切でない可能性があります。</xref:System.Net.WebRequest.RequestUri%2A> </xref:System.Net.AuthenticationManager> 。 相互認証が試行され、失敗した場合は、計算の SPN を決定するディクショナリを確認できます。 コンソール アプリケーションは、認証プロトコルが相互認証をサポートしていない場合、ディクショナリに、SPN は入力されません。       このディクショナリには、SPN 値を追加するには、使用、<xref:System.Uri.AbsoluteUri%2A>の<xref:System.Net.WebRequest.RequestUri%2A>キーとして</xref:System.Net.WebRequest.RequestUri%2A></xref:System.Uri.AbsoluteUri%2A>。 キーが含まれるように切り捨ては内部的には、 <xref:System.Uri.Scheme%2A>、 <xref:System.Uri.Host%2A>、および<xref:System.Uri.Port%2A>場合は既定ではないポート</xref:System.Uri.Port%2A></xref:System.Uri.Host%2A></xref:System.Uri.Scheme%2A>      > [!NOTE] > 無制限<xref:System.Net.WebPermission>.</xref:System.Net.WebPermission>メソッドと、CustomTargetNameDictionary のプロパティへのアクセスが必要です      > [!NOTE] > プロキシを介してときに Kerberos 認証が実行される、プロキシと最終的なホスト名の両方の SPN を解決する必要があります。 プロキシの名前解決は、タイムアウトによって保護されます。 SPN を最終的なホスト名の解決 DNS 参照が必要ですし、この操作に直接関連付けられているタイムアウトはありません。 そのため同期操作の時間がかかるタイムアウトにします。 これをなくすためには、SPN キャッシュに対して要求を行う前に最終的なホストの URI のプレフィックスを追加します。       Version 3.5 SP1 は、今すぐ CustomTargetNameDictionary プロパティが設定されていないときに、NTLM (NT LAN Manager) 認証の交換での SPN で要求の URL で使用されるホスト名を指定する既定値です。 要求 URL で使用されるホスト名で指定されたホスト ヘッダーと異なる場合があります、<xref:System.Net.HttpRequestHeader?displayProperty=fullName>クライアント要求</xref:System.Net.HttpRequestHeader?displayProperty=fullName>。 要求 URL で使用されるホスト名は、サーバーの実際のホスト名、サーバー、コンピューターの IP アドレス、またはループバック アドレスのコンピューター名に異なる可能性があります。 このような場合は、Windows には、認証要求は失敗します。 問題に対処する、ホスト名が使用される Windows に通知する必要があります、クライアントで要求の URL (&quot;contoso&quot;、たとえば) の要求は実際には、ローカル コンピューターの代替名です。"
   example:
   - "The following code example demonstrates displaying the contents of the CustomTargetNameDictionary.  \n  \n [!code-cpp[NclCredPolicy#5](~/add/codesnippet/cpp/p-system.net.authenticat_0_1.cpp)]\n [!code-cs[NclCredPolicy#5](~/add/codesnippet/csharp/p-system.net.authenticat_0_1.cs)]"
   syntax:
     content: public static System.Collections.Specialized.StringDictionary CustomTargetNameDictionary { get; }
     return:
       type: System.Collections.Specialized.StringDictionary
-      description: "A writable <xref href=&quot;System.Collections.Specialized.StringDictionary&quot;></xref> that contains the SPN values for keys composed of host information."
+      description: "書き込み可能な<xref href=&quot;System.Collections.Specialized.StringDictionary&quot;></xref>ホスト情報のキーで構成されるは、SPN 値を含むです。"
   overload: System.Net.AuthenticationManager.CustomTargetNameDictionary*
   exceptions: []
   platform:
@@ -130,25 +130,25 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Preauthenticates a request."
-  remarks: "If the authentication module can preauthenticate the request, the PreAuthenticate method returns an Authentication instance and sends the authorization information to the server preemptively instead of waiting for the resource to issue a challenge. This behavior is outlined in section 3.3 of RFC 2617 (HTTP Authentication: Basic and Digest Access Authentication). Authentication modules that support preauthentication allow clients to improve server efficiency by avoiding extra round trips caused by authentication challenges.       Authorization modules that can preauthenticate requests set the <xref:System.Net.IAuthenticationModule.CanPreAuthenticate%2A?displayProperty=fullName> property to `true`."
+  summary: "要求を事前認証を行います。"
+  remarks: "認証モジュールは、要求を事前認証を PreAuthenticate メソッドは認証インスタンスを返し、チャレンジを発行するリソースを待機しているのではなく、プリエンプティブ サーバーに認証情報を送信します。 この動作が RFC 2617 のセクション 3.3 で説明されている (HTTP Authentication: Basic and Digest アクセス Authentication)。 事前認証をサポートする認証モジュールを使用すると、クライアント認証チャレンジによる追加のラウンド トリップを回避することで、サーバーの効率性を向上させることです。       セットを要求することができますを事前認証の承認モジュール、<xref:System.Net.IAuthenticationModule.CanPreAuthenticate%2A?displayProperty=fullName>プロパティを`true`</xref:System.Net.IAuthenticationModule.CanPreAuthenticate%2A?displayProperty=fullName>。"
   syntax:
     content: public static System.Net.Authorization PreAuthenticate (System.Net.WebRequest request, System.Net.ICredentials credentials);
     parameters:
     - id: request
       type: System.Net.WebRequest
-      description: "A <xref:System.Net.WebRequest> to an Internet resource."
+      description: "A<xref:System.Net.WebRequest>インターネット リソースに対する</xref:System.Net.WebRequest>。"
     - id: credentials
       type: System.Net.ICredentials
-      description: "The <xref:System.Net.ICredentials> associated with the request."
+      description: "<xref:System.Net.ICredentials>要求に関連付けられている</xref:System.Net.ICredentials>。"
     return:
       type: System.Net.Authorization
-      description: "An instance of the <xref href=&quot;System.Net.Authorization&quot;></xref> class if the request can be preauthenticated; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>. If <code>credentials</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, this method returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "インスタンス、 <xref href=&quot;System.Net.Authorization&quot;> </xref>到着、それ以外の要求を指定できる場合にクラス<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。 If <code>credentials</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, this method returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   overload: System.Net.AuthenticationManager.PreAuthenticate*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>request</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>request</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Net.AuthenticationManager.Register(System.Net.IAuthenticationModule)
@@ -163,8 +163,8 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Registers an authentication module with the authentication manager."
-  remarks: "The Register method adds authentication modules to the end of the list of modules called by the <xref:System.Net.AuthenticationManager.Authenticate%2A> method. Authentication modules are called in the order in which they were added to the list. If a module with the same <xref:System.Net.IAuthenticationModule.AuthenticationType%2A> is already registered, this method removes the registered module and adds `authenticationModule` to the end of the list."
+  summary: "認証マネージャーでの認証モジュールを登録します。"
+  remarks: "Register メソッドによって呼び出されるモジュールの一覧の末尾に認証モジュールを追加する、<xref:System.Net.AuthenticationManager.Authenticate%2A>メソッド</xref:System.Net.AuthenticationManager.Authenticate%2A>。 認証モジュールは、一覧に追加された順序で呼び出されます。 場合、同じモジュール<xref:System.Net.IAuthenticationModule.AuthenticationType%2A>は既に登録されている、このメソッドは、登録済みモジュールを削除し、追加`authenticationModule`リストの末尾にします</xref:System.Net.IAuthenticationModule.AuthenticationType%2A>。"
   example:
   - "The following example registers an authentication module with the authentication manager. For a complete example, refer to the <xref:System.Net.AuthenticationManager> class.  \n  \n [!code-cs[System.Net.Sockets.Authentication#2](~/add/codesnippet/csharp/m-system.net.authenticat_2_1.cs)]\n [!code-cpp[System.Net.Sockets.Authentication#2](~/add/codesnippet/cpp/m-system.net.authenticat_2_1.cpp)]\n [!code-vb[System.Net.Sockets.Authentication#2](~/add/codesnippet/visualbasic/m-system.net.authenticat_2_1.vb)]"
   syntax:
@@ -172,12 +172,12 @@ items:
     parameters:
     - id: authenticationModule
       type: System.Net.IAuthenticationModule
-      description: "The <xref href=&quot;System.Net.IAuthenticationModule&quot;></xref> to register with the authentication manager."
+      description: "<xref href=&quot;System.Net.IAuthenticationModule&quot;> </xref>認証マネージャーに登録します。"
   overload: System.Net.AuthenticationManager.Register*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>authenticationModule</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>authenticationModule</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Net.AuthenticationManager.RegisteredModules
@@ -192,15 +192,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets a list of authentication modules that are registered with the authentication manager."
-  remarks: "The RegisteredModules property provides an <xref:System.Collections.IEnumerator> instance that enables the list of registered authentication modules to be read. The <xref:System.Net.AuthenticationManager.Register%2A> method adds modules to the list, and the <xref:System.Net.AuthenticationManager.Unregister%2A> method removes modules from it."
+  summary: "認証マネージャーに登録されている認証モジュールの一覧を取得します。"
+  remarks: "RegisteredModules プロパティでは、<xref:System.Collections.IEnumerator>の一覧を有効にするインスタンスが読み込まれる認証モジュールを登録します</xref:System.Collections.IEnumerator>。 <xref:System.Net.AuthenticationManager.Register%2A>メソッドは、一覧、および<xref:System.Net.AuthenticationManager.Unregister%2A>メソッドは、それからモジュールを削除</xref:System.Net.AuthenticationManager.Unregister%2A>するモジュールを追加します。</xref:System.Net.AuthenticationManager.Register%2A>"
   example:
   - "The following example uses the RegisteredModules property to get a list of authentication modules that are registered with the authentication manager. For a complete example, refer to the <xref:System.Net.AuthenticationManager> class.  \n  \n [!code-cs[System.Net.Authentication#8](~/add/codesnippet/csharp/p-system.net.authenticat_2_1.cs)]\n [!code-cpp[System.Net.Authentication#8](~/add/codesnippet/cpp/p-system.net.authenticat_2_1.cpp)]\n [!code-vb[System.Net.Authentication#8](~/add/codesnippet/visualbasic/p-system.net.authenticat_2_1.vb)]"
   syntax:
     content: public static System.Collections.IEnumerator RegisteredModules { get; }
     return:
       type: System.Collections.IEnumerator
-      description: "An <xref:System.Collections.IEnumerator> that enables the registered authentication modules to be read."
+      description: "<xref:System.Collections.IEnumerator>読み取られる登録済みの認証モジュールを有効にする</xref:System.Collections.IEnumerator>。"
   overload: System.Net.AuthenticationManager.RegisteredModules*
   exceptions: []
   platform:
@@ -217,8 +217,8 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Removes the specified authentication module from the list of registered modules."
-  remarks: "The Unregister method removes the specified authentication module from the list of authentication modules called by the <xref:System.Net.AuthenticationManager.Authenticate%2A> method. The module must have been added to the list using the <xref:System.Net.AuthenticationManager.Register%2A> method before it can be removed from the list."
+  summary: "登録されているモジュールの一覧から、指定された認証モジュールを削除します。"
+  remarks: "登録解除メソッド呼び出された認証モジュールの一覧から、指定された認証モジュールを削除する、<xref:System.Net.AuthenticationManager.Authenticate%2A>メソッド</xref:System.Net.AuthenticationManager.Authenticate%2A>。 モジュールを使用して、一覧に追加する必要があります、<xref:System.Net.AuthenticationManager.Register%2A>メソッドの一覧から削除する前にします</xref:System.Net.AuthenticationManager.Register%2A>。"
   example:
   - "The following example uses the Unregister method to remove the specified authentication module from the list of registered modules. For a complete example, refer to the <xref:System.Net.AuthenticationManager> class.  \n  \n [!code-cs[System.Net.Sockets.Authentication#2](~/add/codesnippet/csharp/m-system.net.authenticat_0_1.cs)]\n [!code-cpp[System.Net.Sockets.Authentication#2](~/add/codesnippet/cpp/m-system.net.authenticat_0_1.cpp)]\n [!code-vb[System.Net.Sockets.Authentication#2](~/add/codesnippet/visualbasic/m-system.net.authenticat_0_1.vb)]"
   syntax:
@@ -226,15 +226,15 @@ items:
     parameters:
     - id: authenticationModule
       type: System.Net.IAuthenticationModule
-      description: "The <xref href=&quot;System.Net.IAuthenticationModule&quot;></xref> to remove from the list of registered modules."
+      description: "<xref href=&quot;System.Net.IAuthenticationModule&quot;> </xref>する登録済みモジュールの一覧から削除します。"
   overload: System.Net.AuthenticationManager.Unregister*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>authenticationModule</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>authenticationModule</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The specified <xref href=&quot;System.Net.IAuthenticationModule&quot;></xref> is not registered."
+    description: "指定した<xref href=&quot;System.Net.IAuthenticationModule&quot;></xref>が登録されていません。"
   platform:
   - net462
 - uid: System.Net.AuthenticationManager.Unregister(System.String)
@@ -249,8 +249,8 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Removes authentication modules with the specified authentication scheme from the list of registered modules."
-  remarks: "The <xref:System.Net.AuthenticationManager.Unregister%2A> method removes the authentication module with the specified authentication scheme from the list of authentication modules called by the <xref:System.Net.AuthenticationManager.Authenticate%2A> method. The module must have been added to the list using the <xref:System.Net.AuthenticationManager.Register%2A> method before it can be removed from the list."
+  summary: "登録されているモジュールの一覧から、指定された認証方式の認証モジュールを削除します。"
+  remarks: "<xref:System.Net.AuthenticationManager.Unregister%2A>メソッド呼び出された認証モジュールの一覧から、指定された認証方式の認証モジュールを削除する、<xref:System.Net.AuthenticationManager.Authenticate%2A>メソッド</xref:System.Net.AuthenticationManager.Authenticate%2A></xref:System.Net.AuthenticationManager.Unregister%2A>。 モジュールを使用して、一覧に追加する必要があります、<xref:System.Net.AuthenticationManager.Register%2A>メソッドの一覧から削除する前にします</xref:System.Net.AuthenticationManager.Register%2A>。"
   example:
   - "The following example uses the <xref:System.Net.AuthenticationManager.Unregister%2A> method to remove an authentication module with the specified authentication scheme from the list of registered modules.  \n  \n [!code-vb[AuthenticationManager_UnRegister2#2](~/add/codesnippet/visualbasic/m-system.net.authenticat_1_1.vb)]\n [!code-cpp[AuthenticationManager_UnRegister2#2](~/add/codesnippet/cpp/m-system.net.authenticat_1_1.cpp)]\n [!code-cs[AuthenticationManager_UnRegister2#2](~/add/codesnippet/csharp/m-system.net.authenticat_1_1.cs)]"
   syntax:
@@ -258,15 +258,15 @@ items:
     parameters:
     - id: authenticationScheme
       type: System.String
-      description: "The authentication scheme of the module to remove."
+      description: "削除するモジュールの認証方式です。"
   overload: System.Net.AuthenticationManager.Unregister*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>authenticationScheme</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>authenticationScheme</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A module for this authentication scheme is not registered."
+    description: "この認証スキーム用のモジュールが登録されていません。"
   platform:
   - net462
 references:

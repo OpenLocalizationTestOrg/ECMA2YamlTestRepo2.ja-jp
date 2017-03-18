@@ -15,8 +15,8 @@ items:
   nameWithType: EventHandlerService
   fullName: System.Windows.Forms.Design.EventHandlerService
   type: Class
-  summary: "Provides a systematic way to manage event handlers for the current document."
-  remarks: "Developers may want to be able to write code in one place that handles events of a certain type.       Also, developers may need to globally change the behavior of the handlers for specific events or types of events, which may be distributed among designer components.       The designers for a typical project are many different objects so it can be useful to list and store reference to these events from a common place.       This service implements an &quot;event stack&quot; that contains the current set of event handlers. The stack may have a variety of different types of handlers on the stack.       For example, a designer might push, or add, a keyboard handler and a mouse handler onto the stack. When a designer requests an event handler, the service will find the topmost handler on the stack that matches the class you requested.       This way the service can be extended to any eventing scheme, and it also allows specific types of event handlers to be replaced. For example, you can replace mouse event handlers without affecting menu event handlers or keyboard event handlers."
+  summary: "現在のドキュメントのイベント ハンドラーを管理する体系的な方法を提供します。"
+  remarks: "開発者は、特定の種類のイベントを処理する&1; つの場所にコードを記述できるようにすることがあります。       また、開発者は、グローバルに特定のイベントの種類がデザイナーのコンポーネント間で配布されるイベントのハンドラーの動作を変更する必要があります。       一般的なプロジェクト用のデザイナーを一覧表示し、共通の場所からこれらのイベントへの参照を格納すると便利にするための多くのさまざまなオブジェクトです。       このサービスは、&quot;イベント&quot;が格納されるスタックのイベント ハンドラーの現在のセットを実装します。 スタック、スタックのさまざまな異なる種類のハンドラーがあります。       たとえば、デザイナーは、プッシュ、または、キーボード ハンドラーと、スタック上にマウスのハンドラーを追加します。 デザイナーでは、イベント ハンドラーを要求するときにサービスは要求したクラスに一致するスタックの最上位のハンドラーを見つけます。       こうすると、サービスは、任意のイベント スキームに拡張でき、特定の種類のイベント ハンドラーを置き換えることもできます。 たとえば、イベント ハンドラーのメニューやキーボード イベント ハンドラーの影響を与えずにマウス イベント ハンドラーを置き換えることができます。"
   syntax:
     content: public sealed class EventHandlerService
   inheritance:
@@ -37,13 +37,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Forms.Design.EventHandlerService&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Windows.Forms.Design.EventHandlerService&quot;> </xref>クラスです。"
   syntax:
     content: public EventHandlerService (System.Windows.Forms.Control focusWnd);
     parameters:
     - id: focusWnd
       type: System.Windows.Forms.Control
-      description: "The <xref href=&quot;System.Windows.Forms.Control&quot;></xref> which is being designed."
+      description: "<xref href=&quot;System.Windows.Forms.Control&quot;> </xref>されるなっています。"
   overload: System.Windows.Forms.Design.EventHandlerService.#ctor*
   exceptions: []
   platform:
@@ -60,12 +60,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Fires an OnEventHandlerChanged event."
+  summary: "OnEventHandlerChanged イベントを発生させます。"
   syntax:
     content: public event EventHandler EventHandlerChanged;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -81,12 +81,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Gets the control to which event handlers are attached."
+  summary: "イベント ハンドラーが関連付けられているコントロールを取得します。"
   syntax:
     content: public System.Windows.Forms.Control FocusWindow { get; }
     return:
       type: System.Windows.Forms.Control
-      description: "The <xref href=&quot;System.Windows.Forms.Control&quot;></xref> which was attached through the constructor."
+      description: "<xref href=&quot;System.Windows.Forms.Control&quot;> </xref>がコンス トラクターで接続されています。"
   overload: System.Windows.Forms.Design.EventHandlerService.FocusWindow*
   exceptions: []
   platform:
@@ -103,17 +103,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Gets the currently active event handler of the specified type."
-  remarks: "You should never cache this value because other components are free to change it. This call is fairly quick, however, especially for cases when you are always asking for the same type of handler."
+  summary: "指定した型の現在アクティブなイベント ハンドラーを取得します。"
+  remarks: "他のコンポーネントは自由に変更するために、この値をキャッシュする必要があることはありません。 この呼び出しは、常に同じ種類のハンドラーを要求している場合に特にただしで非常に高速です。"
   syntax:
     content: public object GetHandler (Type handlerType);
     parameters:
     - id: handlerType
       type: System.Type
-      description: "The type of the handler to get."
+      description: "取得するハンドラーの型。"
     return:
       type: System.Object
-      description: "An instance of the handler, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there is no handler of the requested type."
+      description: "ハンドラーのインスタンスまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>要求された種類のハンドラーがない場合。"
   overload: System.Windows.Forms.Design.EventHandlerService.GetHandler*
   exceptions: []
   platform:
@@ -130,14 +130,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Pops the given handler off of the stack."
-  remarks: "If the handler is not the topmost component on the stack, this will pop all handlers up to and including handler."
+  summary: "によって指定されたハンドラーをスタックからポップされます。"
+  remarks: "ハンドラーがスタックの最上位のコンポーネントでない場合は、すべてのハンドラーをしてそのハンドラーこれが表示されます。"
   syntax:
     content: public void PopHandler (object handler);
     parameters:
     - id: handler
       type: System.Object
-      description: "The handler to remove from the stack."
+      description: "スタックから削除するハンドラー。"
   overload: System.Windows.Forms.Design.EventHandlerService.PopHandler*
   exceptions: []
   platform:
@@ -154,14 +154,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Pushes a new event handler on the stack."
-  remarks: "This handler will be used by all components that request a compatible handler type. If this handler does not support the requested type, the next handler on the stack will be used."
+  summary: "新しいイベント ハンドラーをスタックにプッシュします。"
+  remarks: "このハンドラーは、互換性のあるハンドラーの型を要求するすべてのコンポーネントが使用されます。 このハンドラーが要求された型をサポートしていない場合は、スタック上の次のハンドラーが使用されます。"
   syntax:
     content: public void PushHandler (object handler);
     parameters:
     - id: handler
       type: System.Object
-      description: "The handler to add to the stack."
+      description: "スタックに追加するハンドラー。"
   overload: System.Windows.Forms.Design.EventHandlerService.PushHandler*
   exceptions: []
   platform:

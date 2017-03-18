@@ -12,8 +12,8 @@ items:
   nameWithType: CreationPolicy
   fullName: System.ComponentModel.Composition.CreationPolicy
   type: Enum
-  summary: "Specifies when and how a part will be instantiated."
-  remarks: "In the course of composition, the <xref:System.ComponentModel.Composition.Hosting.CompositionContainer> needs instances of the objects described by exports in order to fill imports. If a one export is used to fill multiple imports, there are two possible behaviors. Either a single instance of the exported object is created, and a reference to the same object is given to every importer, or a separate instance of the exported object is created for each importer.       Which behavior occurs depends on the <xref:System.ComponentModel.Composition.PartCreationPolicyAttribute.CreationPolicy%2A> property of the <xref:System.ComponentModel.Composition.PartCreationPolicyAttribute> attached to the export and the <xref:System.ComponentModel.Composition.ImportAttribute.RequiredCreationPolicy%2A> of the <xref:System.ComponentModel.Composition.ImportAttribute>. Both of which will contain a value from the CreationPolicy enumeration. If the policies are incompatible, that export will not be considered a match for the given import. The following table summarizes the interaction of these two properties.      |<xref:System.ComponentModel.Composition.ImportAttribute.RequiredCreationPolicy%2A>|Export&quot;s <xref:System.ComponentModel.Composition.PartCreationPolicyAttribute.CreationPolicy%2A> specifies Any or none specified.|Export&quot;s <xref:System.ComponentModel.Composition.PartCreationPolicyAttribute.CreationPolicy%2A> specifies Shared|Export&quot;s <xref:System.ComponentModel.Composition.PartCreationPolicyAttribute.CreationPolicy%2A> specifies NonShared|   |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|   |Any|A single, shared instance of the exported object will be created.|A single, shared instance of the exported object will be created.|A new instance of the exported object will be created for each importer.|   |Shared|A single, shared instance of the exported object will be created.|A single, shared instance of the exported object will be created.|The export will not be considered a match for the import.|   |NonShared|A new instance of the exported object will be created for each importer.|The export will not be considered a match for the import.|A new instance of the exported object will be created for each importer.|"
+  summary: "一部がインスタンス化されるタイミングと方法を指定します。"
+  remarks: "コンポジションの過程で、<xref:System.ComponentModel.Composition.Hosting.CompositionContainer>エクスポートしてインポートするために記述されたオブジェクトのインスタンスが必要です</xref:System.ComponentModel.Composition.Hosting.CompositionContainer>。 1 つのエクスポートを使用して、複数のインポートを入力した場合は、次の&2; つの可能な動作があります。 エクスポートされたオブジェクトの&1; つのインスタンスを作成すると、同じオブジェクトへの参照がすべてインポーターに指定されたかインポーターごとに、エクスポートされるオブジェクトの個別のインスタンスを作成します。       <xref:System.ComponentModel.Composition.PartCreationPolicyAttribute.CreationPolicy%2A><xref:System.ComponentModel.Composition.PartCreationPolicyAttribute>をエクスポートし<xref:System.ComponentModel.Composition.ImportAttribute.RequiredCreationPolicy%2A><xref:System.ComponentModel.Composition.ImportAttribute>。</xref:System.ComponentModel.Composition.ImportAttribute>の</xref:System.ComponentModel.Composition.ImportAttribute.RequiredCreationPolicy%2A>接続</xref:System.ComponentModel.Composition.PartCreationPolicyAttribute>のプロパティ</xref:System.ComponentModel.Composition.PartCreationPolicyAttribute.CreationPolicy%2A>に依存する動作が発生します。 CreationPolicy 列挙の値がどちらも含まれます。 場合は、ポリシーは、互換性のあるが、そのエクスポート見なされません任意のインポートに一致します。 次の表は、これら&2; つのプロパティの相互作用をまとめたものです。      |<xref:System.ComponentModel.Composition.ImportAttribute.RequiredCreationPolicy%2A>|エクスポート<xref:System.ComponentModel.Composition.PartCreationPolicyAttribute.CreationPolicy%2A>指定のいずれか、または指定されていません |。エクスポート<xref:System.ComponentModel.Composition.PartCreationPolicyAttribute.CreationPolicy%2A>共有を指定します |エクスポート<xref:System.ComponentModel.Composition.PartCreationPolicyAttribute.CreationPolicy%2A>指定 NonShared |  |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|  |どの |エクスポートされたオブジェクトの単一の共有インスタンスが作成されます |。エクスポートされたオブジェクトの単一の共有インスタンスが作成されます |。エクスポートされたオブジェクトの新しいインスタンスをインポーターごとに作成されます |。  |共有 |エクスポートされたオブジェクトの単一の共有インスタンスが作成されます |。エクスポートされたオブジェクトの単一の共有インスタンスが作成されます |。エクスポートは考慮されません、インポートに一致します |。  |非共有 |エクスポートされたオブジェクトの新しいインスタンスをインポーターごとに作成されます |。エクスポートは考慮されません、インポートに一致します |。エクスポートされたオブジェクトの新しいインスタンスをインポーターごとに作成されます |</xref:System.ComponentModel.Composition.PartCreationPolicyAttribute.CreationPolicy%2A> </xref:System.ComponentModel.Composition.PartCreationPolicyAttribute.CreationPolicy%2A> </xref:System.ComponentModel.Composition.PartCreationPolicyAttribute.CreationPolicy%2A> </xref:System.ComponentModel.Composition.ImportAttribute.RequiredCreationPolicy%2A> 。"
   syntax:
     content: public enum CreationPolicy
   inheritance:
@@ -32,12 +32,12 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition
-  summary: "Specifies that the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> will use the most appropriate CreationPolicy for the part given the current context. This is the default CreationPolicy. By default, <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> will use Shared, unless the <xref href=&quot;System.ComponentModel.Composition.Primitives.ComposablePart&quot;></xref> or importer requests NonShared."
+  summary: "指定する、 <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref>は現在のコンテキストを指定された部分を最も適切な CreationPolicy を使用します。 これは、既定の CreationPolicy です。 既定では、 <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref>しない限り、共有を使用する、 <xref href=&quot;System.ComponentModel.Composition.Primitives.ComposablePart&quot;> </xref>またはインポーターが NonShared を要求します。"
   syntax:
     content: Any
     return:
       type: System.ComponentModel.Composition.CreationPolicy
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -53,12 +53,12 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition
-  summary: "Specifies that a new non-shared instance of the associated <xref href=&quot;System.ComponentModel.Composition.Primitives.ComposablePart&quot;></xref> will be created by the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> for every requestor."
+  summary: "指定する、非共有の新しいインスタンス、関連付けられている<xref href=&quot;System.ComponentModel.Composition.Primitives.ComposablePart&quot;></xref>によって作成されます、 <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref>すべての要求元のです。"
   syntax:
     content: NonShared
     return:
       type: System.ComponentModel.Composition.CreationPolicy
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -74,12 +74,12 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition
-  summary: "Specifies that a single shared instance of the associated <xref href=&quot;System.ComponentModel.Composition.Primitives.ComposablePart&quot;></xref> will be created by the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> and shared by all requestors."
+  summary: "1 つが関連付けられているインスタンスを共有することを指定<xref href=&quot;System.ComponentModel.Composition.Primitives.ComposablePart&quot;></xref>によって作成される、 <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref>要求側をすべてによって共有されているとします。"
   syntax:
     content: Shared
     return:
       type: System.ComponentModel.Composition.CreationPolicy
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462

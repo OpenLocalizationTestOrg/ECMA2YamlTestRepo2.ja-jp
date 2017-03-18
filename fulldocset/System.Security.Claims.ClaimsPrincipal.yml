@@ -36,8 +36,8 @@ items:
   nameWithType: ClaimsPrincipal
   fullName: System.Security.Claims.ClaimsPrincipal
   type: Class
-  summary: "An <xref:System.Security.Principal.IPrincipal> implementation that supports multiple claims-based identities."
-  remarks: "Beginning with .NET Framework 4.5, Windows Identity Foundation (WIF) and claims-based identity have been fully integrated into the .NET Framework. This means that many classes that represent a principal in the .NET Framework now derive from ClaimsPrincipal rather than simply implementing the <xref:System.Security.Principal.IPrincipal> interface. In addition to implementing the <xref:System.Security.Principal.IPrincipal> interface, ClaimsPrincipal exposes properties and methods that are useful for working with claims.       ClaimsPrincipal exposes a collection of identities, each of which is a <xref:System.Security.Claims.ClaimsIdentity>. In the common case, this collection, which is accessed through the <xref:System.Security.Claims.ClaimsPrincipal.Identities%2A> property, will only have a single element.       The introduction of ClaimsPrincipal in .NET 4.5 as the principal from which most principal classes derive does not force you to change anything in the way in which you deal with identity. It does, however open up more possibilities and offer more chances to exercise finer access control. For example:      -   The application code itself can work directly with the claims contained in the current principal to drive extra authentication, authorization, and personalization tasks.      -   You can front your resources with a claims processing pipeline, which can deal with authentication requests and authorization policy even before execution reaches your code. For example, you can configure a web-based application or service with a custom claims authentication manager, an instance of a class that derives from the <xref:System.Security.Claims.ClaimsAuthenticationManager> class. When so configured, the request processing pipeline invokes the <xref:System.Security.Claims.ClaimsAuthenticationManager.Authenticate%2A> method on your claims authentication manager passing it a ClaimsPrincipal that represents the context of the incoming request. Your claims authentication manager can then perform authentication based on the values of the incoming claims. It can also filter, transform, or add claims to the incoming claim set. For example, it could be used to enrich the incoming claim set with new claims created from a local data source such as a local user profile      -   You can configure a web-based application with a custom claims authorization manager, an instance of a class that derives from the <xref:System.Security.Claims.ClaimsAuthorizationManager> class. When so configured, the request processing pipeline packages the incoming ClaimsPrincipal in an <xref:System.Security.Claims.AuthorizationContext> and invokes the <xref:System.Security.Claims.ClaimsAuthorizationManager.CheckAccess%2A> method on your claims authorization manager. Your claims authorization manager can then enforce authorization based on the incoming claims.      -   Inline claims-based code access checks can be performed by configuring your application with a custom claims authorization manager and using either the <xref:System.IdentityModel.Services.ClaimsPrincipalPermission> class to perform imperative access checks or the <xref:System.IdentityModel.Services.ClaimsPrincipalPermissionAttribute> to perform declarative access checks. Claims-based code access checks are performed inline, outside of the processing pipeline, and so are available to all applications as long as a claims authorization manager is configured.       You can obtain a ClaimsPrincipal instance for the principal associated with a request in an RP application (or the principal under which a thread is executing) by casting the <xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName> property to ClaimsPrincipal. The claims associated with an ClaimsPrincipal object are available through its <xref:System.Security.Claims.ClaimsPrincipal.Claims%2A> property. The <xref:System.Security.Claims.ClaimsPrincipal.Claims%2A> property returns all of the claims contained by the identities associated with the principal. In the uncommon case in which the ClaimsPrincipal contains multiple <xref:System.Security.Claims.ClaimsIdentity> instances, you can use the <xref:System.Security.Claims.ClaimsPrincipal.Identities%2A> property or you can access the primary identity by using the <xref:System.Security.Claims.ClaimsPrincipal.Identity%2A> property. ClaimsPrincipal provides several methods through which these claims may be searched and fully supports Language Integrated Query (LINQ). Identities can be added to the principal by using the <xref:System.Security.Claims.ClaimsPrincipal.AddIdentities%2A> or <xref:System.Security.Claims.ClaimsPrincipal.AddIdentity%2A> methods.      > [!NOTE] >  To add identities to the ClaimsPrincipal, a caller must have full trust.       By default, WIF prioritizes <xref:System.Security.Principal.WindowsIdentity> objects when selecting the primary identity to return through the <xref:System.Security.Claims.ClaimsPrincipal.Identity%2A> property. You can modify this behavior by supplying a delegate through the <xref:System.Security.Claims.ClaimsPrincipal.PrimaryIdentitySelector%2A> property to perform the selection. The <xref:System.Security.Claims.ClaimsPrincipal.ClaimsPrincipalSelector%2A> property provides similar functionality for the <xref:System.Security.Claims.ClaimsPrincipal.Current%2A> property.       In the claim-based model, whether a principal is in a specified role is determined by the claims presented by its underlying identities. The <xref:System.Security.Claims.ClaimsPrincipal.IsInRole%2A> method essentially examines each identity associated with the principal to determine whether it possesses a claim with the specified role value. The type of the claim (represented by its <xref:System.Security.Claims.Claim.Type%2A?displayProperty=fullName> property) used to determine which claims should be examined during role checks is specified on an identity through its <xref:System.Security.Claims.ClaimsIdentity.RoleClaimType%2A?displayProperty=fullName> property. Thus, the claims examined during role checks can be of a different type for different identities associated with the principal."
+  summary: "<xref:System.Security.Principal.IPrincipal>複数のクレーム ベース id をサポートする実装</xref:System.Security.Principal.IPrincipal>。"
+  remarks: ".NET Framework 4.5 以降、Windows Identity Foundation (WIF) とクレーム ベース id が完全に統合されて、.NET Framework。 つまり、多くのクラスを .NET Framework 内のプリンシパルを表すようになりましたがだけを実装するのではなく、ClaimsPrincipal から派生する、<xref:System.Security.Principal.IPrincipal>インターフェイス</xref:System.Security.Principal.IPrincipal>。 実装するだけでなく、<xref:System.Security.Principal.IPrincipal>インターフェイス、ClaimsPrincipal は、プロパティとクレームを操作するための便利なメソッドを公開します</xref:System.Security.Principal.IPrincipal>。       ClaimsPrincipal <xref:System.Security.Claims.ClaimsIdentity>。</xref:System.Security.Claims.ClaimsIdentity>それぞれが、id のコレクションを公開します。 共通の場合、このコレクションからアクセスできる、<xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>プロパティは&1; つの要素のみを持つ</xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>。       ClaimsPrincipal 最もプリンシパル クラスを派生させる元のプリンシパルとして .NET 4.5 での導入は、id で処理する方法で何も変更することを強制しません。 ただし詳細可能性を開きアクセスを細かく機会を提供します。 例:-アプリケーション コード自体が認証、承認、および個人用設定の追加のタスクをドライブに、現在のプリンシパルに含まれる要求を直接操作できます。      自分のリソースをフロント-の方向の要求を処理パイプラインで、まで、コードを実行する前であってもに、、認証要求と承認ポリシーを処理できます。 Web ベースのアプリケーションまたはサービスを構成、カスタム クレーム認証マネージャーは、<xref:System.Security.Claims.ClaimsAuthenticationManager>クラス</xref:System.Security.Claims.ClaimsAuthenticationManager>から派生したクラスのインスタンスとするなど、 要求処理パイプラインを呼び出すように設定すると、<xref:System.Security.Claims.ClaimsAuthenticationManager.Authenticate%2A>メソッドを要求認証マネージャーの受信要求のコンテキストを表す ClaimsPrincipal を渡します</xref:System.Security.Claims.ClaimsAuthenticationManager.Authenticate%2A>。 信頼性情報、認証マネージャーは、入力方向の要求の値に基づく認証を実行できます。 できますもフィルター処理、変換、または入力方向の要求セットに要求を追加します。 たとえばをローカル ユーザー プロファイルなどのローカル データ ソースから作成された新しい要求を含む設定の入力方向の要求を強化するために使用できません -、カスタム クレーム承認マネージャーは、<xref:System.Security.Claims.ClaimsAuthorizationManager>クラス</xref:System.Security.Claims.ClaimsAuthorizationManager>から派生したクラスのインスタンスで web ベースのアプリケーションを構成することができます。 要求処理パイプラインが受信の ClaimsPrincipal にパッケージ化ように設定すると、<xref:System.Security.Claims.AuthorizationContext>を呼び出すと、<xref:System.Security.Claims.ClaimsAuthorizationManager.CheckAccess%2A>要求、承認マネージャーのメソッド</xref:System.Security.Claims.ClaimsAuthorizationManager.CheckAccess%2A></xref:System.Security.Claims.AuthorizationContext>。 要求承認マネージャーは、入力方向の要求に基づいて承認を適用できます。      認証マネージャーといずれかを使用してインラインのカスタム アプリケーションを構成することによって信頼性情報ベースのコード アクセス チェックを実行できますが信頼性情報、<xref:System.IdentityModel.Services.ClaimsPrincipalPermission>強制アクセス チェックを実行するクラスまたは<xref:System.IdentityModel.Services.ClaimsPrincipalPermissionAttribute>チェックを宣言型のアクセスを実行する</xref:System.IdentityModel.Services.ClaimsPrincipalPermissionAttribute></xref:System.IdentityModel.Services.ClaimsPrincipalPermission>。 コードのクレームに基づくアクセス チェックは、処理パイプラインの外部で、インラインで実行されると、要求承認マネージャーが構成されている限り、すべてのアプリケーションで使用できるようにします。       RP アプリケーション (またはスレッドを実行するプリンシパル) の要求に関連付けられたプリンシパルの ClaimsPrincipal インスタンスを取得するにはキャストを<xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName>ClaimsPrincipal するプロパティ</xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName>。 使用可能な ClaimsPrincipal オブジェクトに関連付けられているクレームの<xref:System.Security.Claims.ClaimsPrincipal.Claims%2A>プロパティ</xref:System.Security.Claims.ClaimsPrincipal.Claims%2A>。 <xref:System.Security.Claims.ClaimsPrincipal.Claims%2A>プロパティには、すべてのプリンシパルに関連付けられている id に含まれる要求を返します</xref:System.Security.Claims.ClaimsPrincipal.Claims%2A>。 ClaimsPrincipal に複数が含まれている一般的でない場合は、の<xref:System.Security.Claims.ClaimsIdentity>インスタンス、行うこともできます、<xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>プロパティかがプライマリ id を使用してアクセスできる、<xref:System.Security.Claims.ClaimsPrincipal.Identity%2A>プロパティ</xref:System.Security.Claims.ClaimsPrincipal.Identity%2A></xref:System.Security.Claims.ClaimsPrincipal.Identities%2A></xref:System.Security.Claims.ClaimsIdentity>。 ClaimsPrincipal では、これらのクレームを検索することがありますをいくつかのメソッドを提供し、言語統合クエリ (LINQ) を完全にサポートします。 使用して、プリンシパルに id を追加することができます、<xref:System.Security.Claims.ClaimsPrincipal.AddIdentities%2A>または<xref:System.Security.Claims.ClaimsPrincipal.AddIdentity%2A>メソッド</xref:System.Security.Claims.ClaimsPrincipal.AddIdentity%2A></xref:System.Security.Claims.ClaimsPrincipal.AddIdentities%2A>。      > [!NOTE] > の ClaimsPrincipal に id を追加する、呼び出し元が完全な信頼をいる必要があります。       既定では、WIF 優先順位を付けます<xref:System.Security.Principal.WindowsIdentity>オブジェクトから返されるプライマリ id を選択するときに、<xref:System.Security.Claims.ClaimsPrincipal.Identity%2A>プロパティ</xref:System.Security.Claims.ClaimsPrincipal.Identity%2A></xref:System.Security.Principal.WindowsIdentity>。 を通じてデリゲートを指定することによってこの動作を変更することができます、<xref:System.Security.Claims.ClaimsPrincipal.PrimaryIdentitySelector%2A>プロパティを選択します</xref:System.Security.Claims.ClaimsPrincipal.PrimaryIdentitySelector%2A>。 <xref:System.Security.Claims.ClaimsPrincipal.ClaimsPrincipalSelector%2A>プロパティに対して同様の機能を提供する、<xref:System.Security.Claims.ClaimsPrincipal.Current%2A>プロパティ</xref:System.Security.Claims.ClaimsPrincipal.Current%2A></xref:System.Security.Claims.ClaimsPrincipal.ClaimsPrincipalSelector%2A>。       クレームに基づくモデルでは、プリンシパルが指定されたロールがかどうかは、基になるユーザーによって提示されるクレームによって決まります。 <xref:System.Security.Claims.ClaimsPrincipal.IsInRole%2A>メソッドは、本質的に指定されたロール値を持つクレームが存在しているかどうかを決定するプリンシパルに関連付けられた各 id を検査します</xref:System.Security.Claims.ClaimsPrincipal.IsInRole%2A>。 要求の種類 (によって表される、<xref:System.Security.Claims.Claim.Type%2A?displayProperty=fullName>プロパティ) 要求を調べる必要がありますを決定するために使用ロールの中に、チェックがを通じて id で指定されたその<xref:System.Security.Claims.ClaimsIdentity.RoleClaimType%2A?displayProperty=fullName>プロパティ</xref:System.Security.Claims.ClaimsIdentity.RoleClaimType%2A?displayProperty=fullName></xref:System.Security.Claims.Claim.Type%2A?displayProperty=fullName>。 したがって、ロールのチェック中に検証したクレームは、別の種類別の id のプリンシパルに関連付けられていることができます。"
   example:
   - "The following example extracts the claims presented by a user in an HTTP request and writes them to the HTTP response. The current user is read from the <xref:System.Web.HttpContext> as a ClaimsPrincipal. The claims are then read from it and then are written to the response.  \n  \n```  \n  \nClaimsPrincipal principal = HttpContext.Current.User as ClaimsPrincipal;  \nif (null != principal)  \n{  \n   foreach (Claim claim in principal.Claims)  \n   {  \n      Response.Write(\"CLAIM TYPE: \" + claim.Type + \"; CLAIM VALUE: \" + claim.Value + \"</br>\");  \n   }  \n}  \n```"
   syntax:
@@ -64,8 +64,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> class."
-  remarks: "No identities are associated with the new instance. (The <xref:System.Security.Claims.ClaimsPrincipal.Identities%2A> collection is empty)."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref>クラスです。"
+  remarks: "ユーザーの新しいインスタンスに関連付けはありません。 (、<xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>コレクションが空です).</xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>"
   syntax:
     content: public ClaimsPrincipal ();
     parameters: []
@@ -85,19 +85,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> class using the specified claims identities."
-  remarks: "The <xref:System.Security.Claims.ClaimsPrincipal.Identities%2A> collection is initialized with the specified identities."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref>クラスの指定された要求 id を使用します。"
+  remarks: "<xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>指定した id を持つコレクションを初期化します</xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>。"
   syntax:
     content: public ClaimsPrincipal (System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity> identities);
     parameters:
     - id: identities
       type: System.Collections.Generic.IEnumerable{System.Security.Claims.ClaimsIdentity}
-      description: "The identities from which to initialize the new claims principal."
+      description: "新しい要求プリンシパルの初期化元 id。"
   overload: System.Security.Claims.ClaimsPrincipal.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>identities</code> is **null**."
+    description: "<code>identities</code>is **null**."
   platform:
   - net462
 - uid: System.Security.Claims.ClaimsPrincipal.#ctor(System.IO.BinaryReader)
@@ -117,7 +117,7 @@ items:
     parameters:
     - id: reader
       type: System.IO.BinaryReader
-      description: "To be added."
+      description: "追加します。"
   overload: System.Security.Claims.ClaimsPrincipal.#ctor*
   exceptions: []
   platform:
@@ -134,19 +134,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> class from the specified identity."
-  remarks: "If the specified identity is assignable from <xref:System.Security.Claims.ClaimsIdentity>, it is used to initialize the <xref:System.Security.Claims.ClaimsPrincipal.Identities%2A> collection. Otherwise, a <xref:System.Security.Claims.ClaimsIdentity> is created using the specified identity and is used to initialize the collection."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref>クラス指定された id から。"
+  remarks: "指定された id から割り当てることが場合<xref:System.Security.Claims.ClaimsIdentity>、初期化に使用されます、<xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>コレクションです</xref:System.Security.Claims.ClaimsPrincipal.Identities%2A></xref:System.Security.Claims.ClaimsIdentity>。 それ以外の場合、<xref:System.Security.Claims.ClaimsIdentity>指定された id を使用して作成され、コレクションを初期化するために使用します</xref:System.Security.Claims.ClaimsIdentity>。"
   syntax:
     content: public ClaimsPrincipal (System.Security.Principal.IIdentity identity);
     parameters:
     - id: identity
       type: System.Security.Principal.IIdentity
-      description: "The identity from which to initialize the new claims principal."
+      description: "新しい要求プリンシパルの初期化元 id。"
   overload: System.Security.Claims.ClaimsPrincipal.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>identity</code> is **null**."
+    description: "<code>identity</code>is **null**."
   platform:
   - net462
 - uid: System.Security.Claims.ClaimsPrincipal.#ctor(System.Security.Principal.IPrincipal)
@@ -161,19 +161,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> class from the specified principal."
-  remarks: "If the specified principal is assignable from <xref:System.Security.Claims.ClaimsPrincipal>, all of its identities are added to the <xref:System.Security.Claims.ClaimsPrincipal.Identities%2A> collection. If the specified principal is not assignable from <xref:System.Security.Claims.ClaimsPrincipal>, a new <xref:System.Security.Claims.ClaimsIdentity> is created from the <xref:System.Security.Principal.IIdentity> in its <xref:System.Security.Principal.IPrincipal.Identity%2A?displayProperty=fullName> property and added to the <xref:System.Security.Claims.ClaimsPrincipal.Identities%2A> collection."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref>指定されたプリンシパルからのクラスです。"
+  remarks: "指定されたプリンシパルから割り当てることが場合<xref:System.Security.Claims.ClaimsPrincipal>、その id のすべてに追加されます、<xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>コレクションです</xref:System.Security.Claims.ClaimsPrincipal.Identities%2A></xref:System.Security.Claims.ClaimsPrincipal>。 指定されたプリンシパルはから割り当てることがない場合<xref:System.Security.Claims.ClaimsPrincipal>、新しい<xref:System.Security.Claims.ClaimsIdentity>から作成された、<xref:System.Security.Principal.IIdentity>でその<xref:System.Security.Principal.IPrincipal.Identity%2A?displayProperty=fullName>プロパティに追加し、<xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>コレクションです</xref:System.Security.Claims.ClaimsPrincipal.Identities%2A></xref:System.Security.Principal.IPrincipal.Identity%2A?displayProperty=fullName></xref:System.Security.Principal.IIdentity></xref:System.Security.Claims.ClaimsIdentity></xref:System.Security.Claims.ClaimsPrincipal>。"
   syntax:
     content: public ClaimsPrincipal (System.Security.Principal.IPrincipal principal);
     parameters:
     - id: principal
       type: System.Security.Principal.IPrincipal
-      description: "The principal from which to initialize the new claims principal."
+      description: "新しい要求プリンシパルの初期化に元のプリンシパル。"
   overload: System.Security.Claims.ClaimsPrincipal.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>principal</code> is **null**."
+    description: "<code>principal</code>is **null**."
   platform:
   - net462
 - uid: System.Security.Claims.ClaimsPrincipal.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
@@ -188,21 +188,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> class from a serialized stream created by using <xref href=&quot;System.Runtime.Serialization.ISerializable&quot;></xref>."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref>クラスを使用して作成されたシリアル化されたストリームから<xref href=&quot;System.Runtime.Serialization.ISerializable&quot;></xref>です。"
   syntax:
     content: protected ClaimsPrincipal (System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context);
     parameters:
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The serialized data."
+      description: "シリアル化されたデータ。"
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "The context for serialization."
+      description: "シリアル化のコンテキスト。"
   overload: System.Security.Claims.ClaimsPrincipal.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>info</code> is **null**."
+    description: "<code>info</code>is **null**."
   platform:
   - net462
 - uid: System.Security.Claims.ClaimsPrincipal.AddIdentities(System.Collections.Generic.IEnumerable{System.Security.Claims.ClaimsIdentity})
@@ -217,19 +217,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Adds the specified claims identities to this claims principal."
-  remarks: "The identities are added to the <xref:System.Security.Claims.ClaimsPrincipal.Identities%2A> collection."
+  summary: "この要求プリンシパルには、指定された要求 id を追加します。"
+  remarks: "追加の id、<xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>コレクションです</xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>。"
   syntax:
     content: public virtual void AddIdentities (System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity> identities);
     parameters:
     - id: identities
       type: System.Collections.Generic.IEnumerable{System.Security.Claims.ClaimsIdentity}
-      description: "The claims identities to add."
+      description: "追加する要求 id。"
   overload: System.Security.Claims.ClaimsPrincipal.AddIdentities*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>identities</code> is **null**."
+    description: "<code>identities</code>is **null**."
   platform:
   - net462
 - uid: System.Security.Claims.ClaimsPrincipal.AddIdentity(System.Security.Claims.ClaimsIdentity)
@@ -244,19 +244,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Adds the specified claims identity to this claims principal."
-  remarks: "The identity is added to the <xref:System.Security.Claims.ClaimsPrincipal.Identities%2A> collection."
+  summary: "この要求プリンシパルには、指定された要求の id を追加します。"
+  remarks: "Id を追加、<xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>コレクションです</xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>。"
   syntax:
     content: public virtual void AddIdentity (System.Security.Claims.ClaimsIdentity identity);
     parameters:
     - id: identity
       type: System.Security.Claims.ClaimsIdentity
-      description: "The claims identity to add."
+      description: "追加する要求の id。"
   overload: System.Security.Claims.ClaimsPrincipal.AddIdentity*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>identity</code> is **null**."
+    description: "<code>identity</code>is **null**."
   platform:
   - net462
 - uid: System.Security.Claims.ClaimsPrincipal.Claims
@@ -271,13 +271,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Gets a collection that contains all of the claims from all of the claims identities associated with this claims principal."
-  remarks: "A claims principal has a collection of <xref:System.Security.Claims.ClaimsIdentity> objects that is accessible through the Identities property. Each <xref:System.Security.Claims.ClaimsIdentity> in the collection contains one or more claims. The Claims property returns all of the claims from all of the claims identities in this collection.       The Claims property can be examined by custom implementations of the <xref:System.Security.Claims.ClaimsAuthenticationManager> class to make authentication decisions or to filter, transform, or enrich an incoming claim set; by custom implementations of the <xref:System.Security.Claims.ClaimsAuthorizationManager> class to enforce authorization policy; or by application code to make authorization decisions or to customize user experience based on the claims present in the collection."
+  summary: "この要求プリンシパルに関連付けられたすべての要求 id のすべてのクレームを含むコレクションを取得します。"
+  remarks: "要求プリンシパルのコレクションを持ちます<xref:System.Security.Claims.ClaimsIdentity>の Id プロパティを通じてアクセスできるオブジェクト</xref:System.Security.Claims.ClaimsIdentity>。 各<xref:System.Security.Claims.ClaimsIdentity>コレクション内で&1; つまたは複数のクレームが含まれています</xref:System.Security.Claims.ClaimsIdentity>。 要求プロパティは、このコレクション内でクレーム id のすべてからすべての要求を返します。       カスタム実装して信頼性情報のプロパティを調べることができます、<xref:System.Security.Claims.ClaimsAuthenticationManager>認証決定を行うまたはフィルター処理、変換、または受信のクレーム セット; を強化するクラスのカスタム実装によって、<xref:System.Security.Claims.ClaimsAuthorizationManager>コレクションに存在する要求に基づいて承認決定を行うカスタマイズしたりするユーザーのアプリケーション コードによって発生または承認ポリシーを適用するクラス</xref:System.Security.Claims.ClaimsAuthorizationManager></xref:System.Security.Claims.ClaimsAuthenticationManager>。"
   syntax:
     content: public virtual System.Collections.Generic.IEnumerable<System.Security.Claims.Claim> Claims { get; }
     return:
       type: System.Collections.Generic.IEnumerable{System.Security.Claims.Claim}
-      description: "The claims associated with this principal."
+      description: "このプリンシパルに関連付けられた要求。"
   overload: System.Security.Claims.ClaimsPrincipal.Claims*
   exceptions: []
   platform:
@@ -294,13 +294,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Gets and sets the delegate used to select the claims principal returned by the <xref:System.Security.Claims.ClaimsPrincipal.Current*> property."
-  remarks: "You can set this property to override the default behavior of the <xref:System.Security.Claims.ClaimsPrincipal.Current%2A> property."
+  summary: "取得し、によって返される要求プリンシパルの選択に使用されるデリゲートを設定、<xref:System.Security.Claims.ClaimsPrincipal.Current*>プロパティ</xref:System.Security.Claims.ClaimsPrincipal.Current*>。"
+  remarks: "既定の動作をオーバーライドするには、このプロパティを設定することができます、<xref:System.Security.Claims.ClaimsPrincipal.Current%2A>プロパティ</xref:System.Security.Claims.ClaimsPrincipal.Current%2A>。"
   syntax:
     content: public static Func<System.Security.Claims.ClaimsPrincipal> ClaimsPrincipalSelector { get; set; }
     return:
       type: System.Func{System.Security.Claims.ClaimsPrincipal}
-      description: "The delegate. The default is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "デリゲート。 既定値は<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   overload: System.Security.Claims.ClaimsPrincipal.ClaimsPrincipalSelector*
   exceptions: []
   platform:
@@ -317,13 +317,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Returns a copy of this instance."
+  summary: "このインスタンスのコピーを返します。"
   syntax:
     content: public virtual System.Security.Claims.ClaimsPrincipal Clone ();
     parameters: []
     return:
       type: System.Security.Claims.ClaimsPrincipal
-      description: "A new copy of the <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> object."
+      description: "新しいコピー、 <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref>オブジェクト。"
   overload: System.Security.Claims.ClaimsPrincipal.Clone*
   exceptions: []
   platform:
@@ -340,16 +340,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Creates a new claims identity."
+  summary: "新しい要求の id を作成します。"
   syntax:
     content: protected virtual System.Security.Claims.ClaimsIdentity CreateClaimsIdentity (System.IO.BinaryReader reader);
     parameters:
     - id: reader
       type: System.IO.BinaryReader
-      description: "The binary reader."
+      description: "バイナリ リーダー。"
     return:
       type: System.Security.Claims.ClaimsIdentity
-      description: "The created claims identity."
+      description: "作成された要求の id。"
   overload: System.Security.Claims.ClaimsPrincipal.CreateClaimsIdentity*
   exceptions: []
   platform:
@@ -366,13 +366,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Gets the current claims principal."
-  remarks: "By default, <xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName> is returned. You can change this behavior by setting the <xref:System.Security.Claims.ClaimsPrincipal.ClaimsPrincipalSelector%2A> property to specify a delegate to be called to determine the current principal."
+  summary: "現在の要求プリンシパルを取得します。"
+  remarks: "既定では、<xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName>が返されます</xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName>。 この動作を変更するには設定して、<xref:System.Security.Claims.ClaimsPrincipal.ClaimsPrincipalSelector%2A>プロパティを現在のプリンシパルを決定するために呼び出すデリゲートを指定する</xref:System.Security.Claims.ClaimsPrincipal.ClaimsPrincipalSelector%2A>。"
   syntax:
     content: public static System.Security.Claims.ClaimsPrincipal Current { get; }
     return:
       type: System.Security.Claims.ClaimsPrincipal
-      description: "The current claims principal."
+      description: "現在の要求プリンシパル。"
   overload: System.Security.Claims.ClaimsPrincipal.Current*
   exceptions: []
   platform:
@@ -393,7 +393,7 @@ items:
     content: protected virtual byte[] CustomSerializationData { get; }
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "追加します。"
   overload: System.Security.Claims.ClaimsPrincipal.CustomSerializationData*
   exceptions: []
   platform:
@@ -410,22 +410,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Retrieves all of the claims that are matched by the specified predicate."
-  remarks: "Returns claims from all identities associated with the claims principal."
+  summary: "すべての指定された述語と一致する要求を取得します。"
+  remarks: "要求プリンシパルに関連付けられているすべての id から信頼性情報を返します。"
   syntax:
     content: public virtual System.Collections.Generic.IEnumerable<System.Security.Claims.Claim> FindAll (Predicate<System.Security.Claims.Claim> match);
     parameters:
     - id: match
       type: System.Predicate{System.Security.Claims.Claim}
-      description: "The function that performs the matching logic."
+      description: "一致するロジックを実行する関数。"
     return:
       type: System.Collections.Generic.IEnumerable{System.Security.Claims.Claim}
-      description: "The matching claims."
+      description: "一致する要求。"
   overload: System.Security.Claims.ClaimsPrincipal.FindAll*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>match</code> is **null**."
+    description: "<code>match</code>is **null**."
   platform:
   - net462
 - uid: System.Security.Claims.ClaimsPrincipal.FindAll(System.String)
@@ -440,22 +440,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Retrieves all or the claims that have the specified claim type."
-  remarks: "Returns claims from all identities associated with the claims principal. The comparison is made using Ordinal case in-sensitive on `type`."
+  summary: "すべてを取得またはを指定したクレームを持つ信頼性情報を入力します。"
+  remarks: "要求プリンシパルに関連付けられているすべての id から信頼性情報を返します。 序数に基づく大文字と小文字の区別の比較が行われた`type`です。"
   syntax:
     content: public virtual System.Collections.Generic.IEnumerable<System.Security.Claims.Claim> FindAll (string type);
     parameters:
     - id: type
       type: System.String
-      description: "The claim type against which to match claims."
+      description: "信頼性情報と一致するクレームの種類。"
     return:
       type: System.Collections.Generic.IEnumerable{System.Security.Claims.Claim}
-      description: "The matching claims."
+      description: "一致する要求。"
   overload: System.Security.Claims.ClaimsPrincipal.FindAll*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>type</code> is **null**."
+    description: "<code>type</code>is **null**."
   platform:
   - net462
 - uid: System.Security.Claims.ClaimsPrincipal.FindFirst(System.Predicate{System.Security.Claims.Claim})
@@ -470,21 +470,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Retrieves the first claim that is matched by the specified predicate."
+  summary: "指定された述語と一致した最初の要求を取得します。"
   syntax:
     content: public virtual System.Security.Claims.Claim FindFirst (Predicate<System.Security.Claims.Claim> match);
     parameters:
     - id: match
       type: System.Predicate{System.Security.Claims.Claim}
-      description: "The function that performs the matching logic."
+      description: "一致するロジックを実行する関数。"
     return:
       type: System.Security.Claims.Claim
-      description: "The first matching claim or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no match is found."
+      description: "最初の一致する要求または<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>一致が検出されない場合。"
   overload: System.Security.Claims.ClaimsPrincipal.FindFirst*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>match</code> is **null**."
+    description: "<code>match</code>is **null**."
   platform:
   - net462
 - uid: System.Security.Claims.ClaimsPrincipal.FindFirst(System.String)
@@ -499,21 +499,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Retrieves the first claim with the specified claim type."
+  summary: "指定したクレームの種類で初回要求を取得します。"
   syntax:
     content: public virtual System.Security.Claims.Claim FindFirst (string type);
     parameters:
     - id: type
       type: System.String
-      description: "The claim type to match."
+      description: "一致するクレームの種類。"
     return:
       type: System.Security.Claims.Claim
-      description: "The first matching claim or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no match is found."
+      description: "最初の一致する要求または<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>一致が検出されない場合。"
   overload: System.Security.Claims.ClaimsPrincipal.FindFirst*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>type</code> is **null**."
+    description: "<code>type</code>is **null**."
   platform:
   - net462
 - uid: System.Security.Claims.ClaimsPrincipal.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
@@ -528,21 +528,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Populates the <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref> with data needed to serialize the current <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> object."
+  summary: "追加、 <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;> </xref> 、現在のシリアル化に必要なデータと<xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref>オブジェクト。"
   syntax:
     content: protected virtual void GetObjectData (System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context);
     parameters:
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The object to populate with data."
+      description: "データを設定するオブジェクト。"
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "The destination for this serialization. Can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "このシリアル化のシリアル化先。 Can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   overload: System.Security.Claims.ClaimsPrincipal.GetObjectData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>info</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>info</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Security.Claims.ClaimsPrincipal.HasClaim(System.Predicate{System.Security.Claims.Claim})
@@ -557,21 +557,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Determines whether any of the claims identities associated with this claims principal contains a claim that is matched by the specified predicate."
+  summary: "この要求プリンシパルが指定された述語と一致するクレームを含むクレーム id のいずれかに関連付けられているかどうかを判断します。"
   syntax:
     content: public virtual bool HasClaim (Predicate<System.Security.Claims.Claim> match);
     parameters:
     - id: match
       type: System.Predicate{System.Security.Claims.Claim}
-      description: "The function that performs the matching logic."
+      description: "一致するロジックを実行する関数。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a matching claim exists; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>一致する要求が存在する場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Security.Claims.ClaimsPrincipal.HasClaim*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>match</code> is **null**."
+    description: "<code>match</code>is **null**."
   platform:
   - net462
 - uid: System.Security.Claims.ClaimsPrincipal.HasClaim(System.String,System.String)
@@ -586,25 +586,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Determines whether any of the claims identities associated with this claims principal contains a claim with the specified claim type and value."
-  remarks: "Does not check the <xref:System.Security.Claims.Claim.Issuer%2A> or <xref:System.Security.Claims.Claim.OriginalIssuer%2A> properties. The comparison is made using Ordinal, case sensitive on value; case in-sensitive on type."
+  summary: "この要求プリンシパルが指定された要求の種類と値を持つクレームを含むクレーム id のいずれかに関連付けられているかどうかを判断します。"
+  remarks: "チェックしません、<xref:System.Security.Claims.Claim.Issuer%2A>または<xref:System.Security.Claims.Claim.OriginalIssuer%2A>プロパティ</xref:System.Security.Claims.Claim.OriginalIssuer%2A></xref:System.Security.Claims.Claim.Issuer%2A>。 値の大文字小文字を区別、序数を使用して、比較が行われます型に依存で大文字にします。"
   syntax:
     content: public virtual bool HasClaim (string type, string value);
     parameters:
     - id: type
       type: System.String
-      description: "The type of the claim to match."
+      description: "一致する要求の種類。"
     - id: value
       type: System.String
-      description: "The value of the claim to match."
+      description: "一致する要求の値。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a matching claim exists; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>一致する要求が存在する場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Security.Claims.ClaimsPrincipal.HasClaim*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>type</code> is **null**.       -or-       <code>value</code> is **null**."
+    description: "<code>type</code>is **null**.       -or-       <code>value</code> is **null**."
   platform:
   - net462
 - uid: System.Security.Claims.ClaimsPrincipal.Identities
@@ -619,13 +619,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Gets a collection that contains all of the claims identities associated with this claims principal."
-  remarks: "In the common case, the collection contains only a single element.       It is possible for the collection to contain some elements which are `null`."
+  summary: "この要求プリンシパルに関連付けられているクレーム id のすべてを含むコレクションを取得します。"
+  remarks: "一般的なケースでは、コレクションには、1 つの要素のみが含まれています。       コレクションにはいくつかの要素を含めることが`null`です。"
   syntax:
     content: public virtual System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity> Identities { get; }
     return:
       type: System.Collections.Generic.IEnumerable{System.Security.Claims.ClaimsIdentity}
-      description: "The collection of claims identities."
+      description: "クレーム id のコレクションです。"
   overload: System.Security.Claims.ClaimsPrincipal.Identities*
   exceptions: []
   platform:
@@ -642,13 +642,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Gets the primary claims identity associated with this claims principal."
-  remarks: "By default, the framework prioritizes identities of type <xref:System.Security.Principal.WindowsIdentity> when returning the identity. The first <xref:System.Security.Principal.WindowsIdentity> found in the <xref:System.Security.Claims.ClaimsPrincipal.Identities%2A> collection is returned. If there is no <xref:System.Security.Principal.WindowsIdentity> in the collection, the first identity assignable from <xref:System.Security.Claims.ClaimsIdentity> is returned. If there is no <xref:System.Security.Claims.ClaimsIdentity>, `null` is returned. If the <xref:System.Security.Claims.ClaimsPrincipal.Identities%2A> collection is empty, an <xref:System.ArgumentNullException> is thrown.       You can change the default behavior by setting the <xref:System.Security.Claims.ClaimsPrincipal.PrimaryIdentitySelector%2A> property to specify a delegate to be called to determine the identity."
+  summary: "取得、プライマリは、このクレーム プリンシパルと関連付けられている id を要求します。"
+  remarks: "既定では、フレームワークが型の id を優先<xref:System.Security.Principal.WindowsIdentity>id を返すときにします</xref:System.Security.Principal.WindowsIdentity>。 最初の<xref:System.Security.Principal.WindowsIdentity>で見つかった、<xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>コレクションが返されます</xref:System.Security.Claims.ClaimsPrincipal.Identities%2A></xref:System.Security.Principal.WindowsIdentity>。 ある場合ありません<xref:System.Security.Principal.WindowsIdentity>から割り当て可能な最初の id、コレクションの<xref:System.Security.Claims.ClaimsIdentity>が返されます</xref:System.Security.Claims.ClaimsIdentity></xref:System.Security.Principal.WindowsIdentity>。 ある場合ありません<xref:System.Security.Claims.ClaimsIdentity>、`null`が返されます</xref:System.Security.Claims.ClaimsIdentity>。 場合、<xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>コレクションは空では、<xref:System.ArgumentNullException>がスローされます</xref:System.ArgumentNullException></xref:System.Security.Claims.ClaimsPrincipal.Identities%2A>。       設定して、既定の動作を変更することができます、<xref:System.Security.Claims.ClaimsPrincipal.PrimaryIdentitySelector%2A>プロパティを識別するために呼び出すデリゲートを指定する</xref:System.Security.Claims.ClaimsPrincipal.PrimaryIdentitySelector%2A>。"
   syntax:
     content: public virtual System.Security.Principal.IIdentity Identity { get; }
     return:
       type: System.Security.Principal.IIdentity
-      description: "The primary claims identity associated with this claims principal."
+      description: "この要求プリンシパルに関連付けられたプライマリ要求 id。"
   overload: System.Security.Claims.ClaimsPrincipal.Identity*
   exceptions: []
   platform:
@@ -665,17 +665,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Returns a value that indicates whether the entity (user) represented by this claims principal is in the specified role."
-  remarks: "The IsInRole method checks whether an identity that this claims principal possesses contains a claim of type <xref:System.Security.Claims.ClaimsIdentity.RoleClaimType%2A?displayProperty=fullName> where the value of the claim is equal to the value specified by the `role` parameter.      > [!NOTE] >  Each <xref:System.Security.Claims.ClaimsIdentity> has its own definition of the claim type that represents a role. This claim type can be accessed and set through the <xref:System.Security.Claims.ClaimsIdentity.RoleClaimType%2A?displayProperty=fullName> property."
+  summary: "この要求プリンシパルで表されるエンティティ (ユーザー) が指定したロールがかどうかを示す値を返します。"
+  remarks: "IsInRole メソッドでは、この要求プリンシパルが所有する id が種類のクレームを含むかどうかをチェック<xref:System.Security.Claims.ClaimsIdentity.RoleClaimType%2A?displayProperty=fullName>要求の値がで指定された値と等しい、`role`パラメーター</xref:System.Security.Claims.ClaimsIdentity.RoleClaimType%2A?displayProperty=fullName> 。      > [!NOTE] > 各<xref:System.Security.Claims.ClaimsIdentity>はクレームの種類、ロールを表す独自の定義を持ちます</xref:System.Security.Claims.ClaimsIdentity>。 この要求の種類がアクセスしてを使用して設定することができます、<xref:System.Security.Claims.ClaimsIdentity.RoleClaimType%2A?displayProperty=fullName>プロパティ</xref:System.Security.Claims.ClaimsIdentity.RoleClaimType%2A?displayProperty=fullName>。"
   syntax:
     content: public virtual bool IsInRole (string role);
     parameters:
     - id: role
       type: System.String
-      description: "The role for which to check."
+      description: "チェックするためのロール。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if claims principal is in the specified role; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>要求プリンシパルが指定されたロールの場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Security.Claims.ClaimsPrincipal.IsInRole*
   exceptions: []
   platform:
@@ -692,13 +692,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Gets and sets the delegate used to select the claims identity returned by the <xref:System.Security.Claims.ClaimsPrincipal.Identity*> property."
-  remarks: "You can set this property to override the default behavior of the <xref:System.Security.Claims.ClaimsPrincipal.Identity%2A> property."
+  summary: "取得および設定によって返されるクレーム id を選択するために使用する、デリゲート、<xref:System.Security.Claims.ClaimsPrincipal.Identity*>プロパティ</xref:System.Security.Claims.ClaimsPrincipal.Identity*>。"
+  remarks: "既定の動作をオーバーライドするには、このプロパティを設定することができます、<xref:System.Security.Claims.ClaimsPrincipal.Identity%2A>プロパティ</xref:System.Security.Claims.ClaimsPrincipal.Identity%2A>。"
   syntax:
     content: public static Func<System.Collections.Generic.IEnumerable<System.Security.Claims.ClaimsIdentity>,System.Security.Claims.ClaimsIdentity> PrimaryIdentitySelector { get; set; }
     return:
       type: System.Func{System.Collections.Generic.IEnumerable{System.Security.Claims.ClaimsIdentity},System.Security.Claims.ClaimsIdentity}
-      description: "The delegate. The default is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "デリゲート。 既定値は<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   overload: System.Security.Claims.ClaimsPrincipal.PrimaryIdentitySelector*
   exceptions: []
   platform:
@@ -720,7 +720,7 @@ items:
     parameters:
     - id: writer
       type: System.IO.BinaryWriter
-      description: "To be added."
+      description: "追加します。"
   overload: System.Security.Claims.ClaimsPrincipal.WriteTo*
   exceptions: []
   platform:
@@ -742,10 +742,10 @@ items:
     parameters:
     - id: writer
       type: System.IO.BinaryWriter
-      description: "To be added."
+      description: "追加します。"
     - id: userData
       type: System.Byte[]
-      description: "To be added."
+      description: "追加します。"
   overload: System.Security.Claims.ClaimsPrincipal.WriteTo*
   exceptions: []
   platform:

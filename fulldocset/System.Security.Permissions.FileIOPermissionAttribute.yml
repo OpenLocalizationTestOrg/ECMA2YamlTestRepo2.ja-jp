@@ -21,7 +21,7 @@ items:
   nameWithType: FileIOPermissionAttribute
   fullName: System.Security.Permissions.FileIOPermissionAttribute
   type: Class
-  summary: "Allows security actions for <xref href=&quot;System.Security.Permissions.FileIOPermission&quot;></xref> to be applied to code using declarative security. This class cannot be inherited."
+  summary: "により、セキュリティ アクションを<xref href=&quot;System.Security.Permissions.FileIOPermission&quot;></xref>宣言セキュリティを使用してコードに適用します。 このクラスは継承できません。"
   remarks: "Files and directories are specified using absolute paths. When accessing files, a security check is performed when the file is created or opened. The security check is not done again unless the file is closed and reopened. Checking permissions when the file is first accessed minimizes the impact of the security check on application performance because opening a file happens only once, while reading and writing can happen multiple times.  \n  \n The scope of the declaration that is allowed depends on the <xref:System.Security.Permissions.SecurityAction> that is used.  \n  \n The security information declared by a security attribute is stored in the metadata of the attribute target and is accessed by the system at run time. Security attributes are used only for declarative security. For imperative security, use the corresponding permission class.  \n  \n> [!CAUTION]\n>  `Unrestricted` <xref:System.Security.Permissions.FileIOPermission> grants permission for all paths within a file system, including multiple pathnames that can be used to access a single given file. To <xref:System.Security.CodeAccessPermission.Deny%2A> access to a file, you must `Deny` all possible paths to the file. For example, if \\\\\\server\\share is mapped to the network drive X, to `Deny` access to \\\\\\server\\share\\file, you must `Deny` \\\\\\server\\share\\file, X:\\file and any other path that you can use to access the file."
   example:
   - "The following code example demonstrates how to request <xref:System.Security.Permissions.FileIOPermission> by using the FileIOPermissionAttribute class, indicating the only permission that is to be granted to the code.  \n  \n [!code-cpp[Classic FileIOPermissionAttribute Example#1](~/add/codesnippet/cpp/t-system.security.permis_3_1.cpp)]\n [!code-vb[Classic FileIOPermissionAttribute Example#1](~/add/codesnippet/visualbasic/t-system.security.permis_3_1.vb)]\n [!code-cs[Classic FileIOPermissionAttribute Example#1](~/add/codesnippet/csharp/t-system.security.permis_3_1.cs)]  \n  \n The following example shows how to demand that the calling code has unrestricted <xref:System.Security.Permissions.FileIOPermission>. You typically make demands in managed libraries (DLLs) to help protect methods or classes from potentially harmful code.  \n  \n [!code-cpp[Classic FileIOPermissionAttribute Example#2](~/add/codesnippet/cpp/t-system.security.permis_3_2.cpp)]\n [!code-vb[Classic FileIOPermissionAttribute Example#2](~/add/codesnippet/visualbasic/t-system.security.permis_3_2.vb)]\n [!code-cs[Classic FileIOPermissionAttribute Example#2](~/add/codesnippet/csharp/t-system.security.permis_3_2.cs)]"
@@ -54,7 +54,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Permissions.FileIOPermissionAttribute&quot;></xref> class with the specified <xref href=&quot;System.Security.Permissions.SecurityAction&quot;></xref>."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Permissions.FileIOPermissionAttribute&quot;> </xref> 、指定したクラス<xref href=&quot;System.Security.Permissions.SecurityAction&quot;></xref>です。"
   remarks: ''
   example:
   - "The following code example creates several instances of the <xref:System.Security.Permissions.FileIOPermissionAttribute> class to set varying levels of file I/O permissions.  \n  \n [!code-cpp[System.Security.Permissions.FileIOPermissionAttribute#1](~/add/codesnippet/cpp/b53c5cc8-9649-49f3-9193-_1.cpp)]\n [!code-cs[System.Security.Permissions.FileIOPermissionAttribute#1](~/add/codesnippet/csharp/b53c5cc8-9649-49f3-9193-_1.cs)]\n [!code-vb[System.Security.Permissions.FileIOPermissionAttribute#1](~/add/codesnippet/visualbasic/b53c5cc8-9649-49f3-9193-_1.vb)]"
@@ -63,12 +63,12 @@ items:
     parameters:
     - id: action
       type: System.Security.Permissions.SecurityAction
-      description: "One of the <xref href=&quot;System.Security.Permissions.SecurityAction&quot;></xref> values."
+      description: "1 つ、 <xref href=&quot;System.Security.Permissions.SecurityAction&quot;> </xref>値。"
   overload: System.Security.Permissions.FileIOPermissionAttribute.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>action</code> parameter is not a valid <xref href=&quot;System.Security.Permissions.SecurityAction&quot;></xref>."
+    description: "<code> action </code>パラメーターが有効ではありません<xref href=&quot;System.Security.Permissions.SecurityAction&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Security.Permissions.FileIOPermissionAttribute.All
@@ -83,20 +83,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Gets or sets full access for the file or directory that is specified by the string value."
-  remarks: "This property sets access for a single file or directory. Use additional attributes to specify additional files and directories."
+  summary: "取得またはファイルまたは文字列値が指定されているディレクトリにフル アクセスを設定します。"
+  remarks: "このプロパティは、1 つのファイルまたはディレクトリのアクセスを設定します。 追加の属性を使用すると、追加のファイルおよびディレクトリを指定できます。"
   example:
   - "The following code example sets the All property to grant full access to the specified directory.  \n  \n [!code-cpp[System.Security.Permissions.FileIOPermissionAttribute#6](~/add/codesnippet/cpp/p-system.security.permis_24_1.cpp)]\n [!code-cs[System.Security.Permissions.FileIOPermissionAttribute#6](~/add/codesnippet/csharp/p-system.security.permis_24_1.cs)]\n [!code-vb[System.Security.Permissions.FileIOPermissionAttribute#6](~/add/codesnippet/visualbasic/p-system.security.permis_24_1.vb)]"
   syntax:
     content: public string All { get; set; }
     return:
       type: System.String
-      description: "The absolute path of the file or directory for full access."
+      description: "ファイルまたはフル アクセスのディレクトリの絶対パス。"
   overload: System.Security.Permissions.FileIOPermissionAttribute.All*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The get method is not supported for this property."
+    description: "このプロパティの get メソッドがサポートされていません。"
   platform:
   - net462
 - uid: System.Security.Permissions.FileIOPermissionAttribute.AllFiles
@@ -111,13 +111,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Gets or sets the permitted access to all files."
-  remarks: "This property gets or sets the permitted access to all files on the local computer and network drives.       An individual <xref:System.Security.Permissions.FileIOPermissionAccess> value can be determined by using a bitwise `AND` operation."
+  summary: "取得またはすべてのファイルへのアクセス許可を設定します。"
+  remarks: "このプロパティを取得またはローカル コンピューターとネットワーク ドライブ上のすべてのファイルへのアクセス許可を設定します。       個人<xref:System.Security.Permissions.FileIOPermissionAccess>値をビット単位で決定できます`AND`操作</xref:System.Security.Permissions.FileIOPermissionAccess>。"
   syntax:
     content: public System.Security.Permissions.FileIOPermissionAccess AllFiles { get; set; }
     return:
       type: System.Security.Permissions.FileIOPermissionAccess
-      description: "A bitwise combination of the <xref href=&quot;System.Security.Permissions.FileIOPermissionAccess&quot;></xref> values that represents the permissions for all files. The default is <xref href=&quot;System.Security.Permissions.FileIOPermissionAccess&quot;></xref>."
+      description: "ビットごとの組み合わせ、 <xref href=&quot;System.Security.Permissions.FileIOPermissionAccess&quot;> </xref>をすべてのファイルのアクセス許可を表す値です。 既定値は<xref href=&quot;System.Security.Permissions.FileIOPermissionAccess&quot;></xref>です。"
   overload: System.Security.Permissions.FileIOPermissionAttribute.AllFiles*
   exceptions: []
   platform:
@@ -134,13 +134,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Gets or sets the permitted access to all local files."
-  remarks: "Local files are files contained on the local computer. Any files that are not accessed through a network drive are local files.       An individual <xref:System.Security.Permissions.FileIOPermissionAccess> value can be determined by using a bitwise `AND` operation."
+  summary: "取得またはすべてのローカル ファイルへのアクセス許可を設定します。"
+  remarks: "ローカル ファイルは、ローカル コンピューター上に含まれるファイルです。 ネットワーク ドライブを通じてアクセスされていないすべてのファイルは、ローカル ファイルです。       個人<xref:System.Security.Permissions.FileIOPermissionAccess>値をビット単位で決定できます`AND`操作</xref:System.Security.Permissions.FileIOPermissionAccess>。"
   syntax:
     content: public System.Security.Permissions.FileIOPermissionAccess AllLocalFiles { get; set; }
     return:
       type: System.Security.Permissions.FileIOPermissionAccess
-      description: "A bitwise combination of the <xref href=&quot;System.Security.Permissions.FileIOPermissionAccess&quot;></xref> values that represents the permissions for all local files. The default is <xref href=&quot;System.Security.Permissions.FileIOPermissionAccess&quot;></xref>."
+      description: "ビットごとの組み合わせ、 <xref href=&quot;System.Security.Permissions.FileIOPermissionAccess&quot;> </xref>をすべてのローカル ファイルのアクセス許可を表す値です。 既定値は<xref href=&quot;System.Security.Permissions.FileIOPermissionAccess&quot;></xref>です。"
   overload: System.Security.Permissions.FileIOPermissionAttribute.AllLocalFiles*
   exceptions: []
   platform:
@@ -157,15 +157,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Gets or sets append access for the file or directory that is specified by the string value."
-  remarks: "This property sets access for a single file or directory. Use additional attributes to specify additional files and directories."
+  summary: "追加のファイルまたは文字列値が指定されているディレクトリへのアクセスを取得または設定します。"
+  remarks: "このプロパティは、1 つのファイルまたはディレクトリのアクセスを設定します。 追加の属性を使用すると、追加のファイルおよびディレクトリを指定できます。"
   example:
   - "The following code example sets the Append property to grant <xref:System.Security.Permissions.FileIOPermissionAccess> access to files in the specified directory.  \n  \n [!code-cpp[System.Security.Permissions.FileIOPermissionAttribute#4](~/add/codesnippet/cpp/p-system.security.permis_6_1.cpp)]\n [!code-cs[System.Security.Permissions.FileIOPermissionAttribute#4](~/add/codesnippet/csharp/p-system.security.permis_6_1.cs)]\n [!code-vb[System.Security.Permissions.FileIOPermissionAttribute#4](~/add/codesnippet/visualbasic/p-system.security.permis_6_1.vb)]"
   syntax:
     content: public string Append { get; set; }
     return:
       type: System.String
-      description: "The absolute path of the file or directory for append access."
+      description: "ファイルまたは追加アクセスのためのディレクトリの絶対パス。"
   overload: System.Security.Permissions.FileIOPermissionAttribute.Append*
   exceptions: []
   platform:
@@ -182,13 +182,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Gets or sets the file or directory in which access control information can be changed."
-  remarks: "This property gets or sets access for a single file or directory. Use additional <xref:System.Security.Permissions.FileIOPermissionAttribute> attributes to specify additional files and directories.      > [!IMPORTANT] >  An access control list (ACL) describes individuals or groups who have, or do not have, rights to specific actions on the given file and its properties.  The ability to change an ACL is an important permission and should be granted with caution."
+  summary: "取得または設定、ファイルまたはディレクトリのアクセス制御情報を変更できます。"
+  remarks: "このプロパティを取得または&1; つのファイルまたはディレクトリへのアクセスを設定します。 使用して追加<xref:System.Security.Permissions.FileIOPermissionAttribute>属性を追加のファイルおよびディレクトリを指定しています</xref:System.Security.Permissions.FileIOPermissionAttribute>。      > [!IMPORTANT] > アクセス制御リスト (ACL) には、個人またはグループがある、または権限がない、特定のファイルとそのプロパティに特定のアクションをユーザーがについて説明します。  ACL を変更することは重要なアクセス許可し、慎重に付与する必要があります。"
   syntax:
     content: public string ChangeAccessControl { get; set; }
     return:
       type: System.String
-      description: "The absolute path of the file or directory in which access control information can be changed."
+      description: "ファイルまたはアクセス制御情報を変更できるディレクトリの絶対パス。"
   overload: System.Security.Permissions.FileIOPermissionAttribute.ChangeAccessControl*
   exceptions: []
   platform:
@@ -205,19 +205,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Creates and returns a new <xref href=&quot;System.Security.Permissions.FileIOPermission&quot;></xref>."
-  remarks: "This method should be called only by the security system, never by application code.       At compile time, attributes convert security declarations to a serialized form in metadata. Declarative security data in metadata is created from the permission that this method returns that corresponds to this attribute."
+  summary: "作成して、新しい返します<xref href=&quot;System.Security.Permissions.FileIOPermission&quot;></xref>です。"
+  remarks: "このメソッドは、アプリケーション コードからではなく、セキュリティ システムからのみ呼び出す必要があります。       コンパイル時に、属性は、セキュリティの宣言をメタデータのシリアル化された形式に変換されます。 メタデータの宣言セキュリティ データは、この属性に対応する権限をこのメソッドが返すから作成されます。"
   syntax:
     content: public override System.Security.IPermission CreatePermission ();
     parameters: []
     return:
       type: System.Security.IPermission
-      description: "A <xref href=&quot;System.Security.Permissions.FileIOPermission&quot;></xref> that corresponds to this attribute."
+      description: "A <xref href=&quot;System.Security.Permissions.FileIOPermission&quot;> </xref>この属性に対応します。"
   overload: System.Security.Permissions.FileIOPermissionAttribute.CreatePermission*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The path information for a file or directory for which access is to be secured contains invalid characters or wildcard specifiers."
+    description: "ファイルまたはディレクトリのアクセスをセキュリティで保護する対象のパス情報には、無効な文字やワイルドカード文字が含まれています。"
   platform:
   - net462
 - uid: System.Security.Permissions.FileIOPermissionAttribute.PathDiscovery
@@ -232,7 +232,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Gets or sets the file or directory to which to grant path discovery."
+  summary: "取得またはファイルまたはパスの検出を付与するディレクトリを設定します。"
   remarks: "Path discovery controls access to the information in the path itself. This helps protect sensitive information in the path, such as user names, as well as information about the directory structure revealed in the path. This value does not grant access to files or folders represented by the path.  \n  \n> [!NOTE]\n>  For performance reasons, PathDiscovery should be granted only to directories, not to files. For example, PathDiscovery permission should be granted to paths such as C:\\test and C:\\test\\\\, not to files such as C:\\test\\example.txt.  \n  \n This property sets access for a single file or directory. Use additional attributes to specify additional files and directories."
   example:
   - "The following code example sets the PathDiscovery property to grant <xref:System.Security.Permissions.FileIOPermissionAccess> access to files in the specified directory.  \n  \n [!code-cpp[System.Security.Permissions.FileIOPermissionAttribute#3](~/add/codesnippet/cpp/p-system.security.permis_31_1.cpp)]\n [!code-cs[System.Security.Permissions.FileIOPermissionAttribute#3](~/add/codesnippet/csharp/p-system.security.permis_31_1.cs)]\n [!code-vb[System.Security.Permissions.FileIOPermissionAttribute#3](~/add/codesnippet/visualbasic/p-system.security.permis_31_1.vb)]"
@@ -240,7 +240,7 @@ items:
     content: public string PathDiscovery { get; set; }
     return:
       type: System.String
-      description: "The absolute path of the file or directory."
+      description: "ファイルまたはディレクトリの絶対パス。"
   overload: System.Security.Permissions.FileIOPermissionAttribute.PathDiscovery*
   exceptions: []
   platform:
@@ -257,15 +257,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Gets or sets read access for the file or directory specified by the string value."
-  remarks: "This property sets access for a single file or directory. Use additional attributes to specify additional files and directories."
+  summary: "取得またはファイルまたは文字列値で指定されたディレクトリの読み取りアクセス許可を設定します。"
+  remarks: "このプロパティは、1 つのファイルまたはディレクトリのアクセスを設定します。 追加の属性を使用すると、追加のファイルおよびディレクトリを指定できます。"
   example:
   - "The following example sets the Read property to grant <xref:System.Security.Permissions.FileIOPermissionAccess> access to files in the specified directory.  \n  \n [!code-cpp[System.Security.Permissions.FileIOPermissionAttribute#2](~/add/codesnippet/cpp/p-system.security.permis_20_1.cpp)]\n [!code-cs[System.Security.Permissions.FileIOPermissionAttribute#2](~/add/codesnippet/csharp/p-system.security.permis_20_1.cs)]\n [!code-vb[System.Security.Permissions.FileIOPermissionAttribute#2](~/add/codesnippet/visualbasic/p-system.security.permis_20_1.vb)]"
   syntax:
     content: public string Read { get; set; }
     return:
       type: System.String
-      description: "The absolute path of the file or directory for read access."
+      description: "ファイルまたは読み取りアクセス用のディレクトリの絶対パス。"
   overload: System.Security.Permissions.FileIOPermissionAttribute.Read*
   exceptions: []
   platform:
@@ -282,13 +282,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Gets or sets the file or directory in which access control information can be viewed."
-  remarks: "This property gets or sets access for a single file or directory. Use additional <xref:System.Security.Permissions.FileIOPermissionAttribute> attributes to specify additional files and directories.      > [!IMPORTANT] >  An access control list (ACL) describes individuals or groups who have, or do not have, rights to specific actions on the given file and its properties.  The ability to view an ACL is an important permission and should be granted with caution."
+  summary: "取得または設定、ファイルまたはディレクトリのアクセス制御情報を表示できます。"
+  remarks: "このプロパティを取得または&1; つのファイルまたはディレクトリへのアクセスを設定します。 使用して追加<xref:System.Security.Permissions.FileIOPermissionAttribute>属性を追加のファイルおよびディレクトリを指定しています</xref:System.Security.Permissions.FileIOPermissionAttribute>。      > [!IMPORTANT] > アクセス制御リスト (ACL) には、個人またはグループがある、または権限がない、特定のファイルとそのプロパティに特定のアクションをユーザーがについて説明します。  ACL を表示する機能は重要なアクセス許可し、慎重に付与する必要があります。"
   syntax:
     content: public string ViewAccessControl { get; set; }
     return:
       type: System.String
-      description: "The absolute path of the file or directory in which access control information can be viewed."
+      description: "ファイルまたはアクセス制御情報を表示できるディレクトリの絶対パス。"
   overload: System.Security.Permissions.FileIOPermissionAttribute.ViewAccessControl*
   exceptions: []
   platform:
@@ -305,18 +305,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Gets or sets the file or directory in which file data can be viewed and modified."
-  remarks: "This property sets the <xref:System.Security.Permissions.FileIOPermissionAttribute.Append%2A>, <xref:System.Security.Permissions.FileIOPermissionAttribute.PathDiscovery%2A>, <xref:System.Security.Permissions.FileIOPermissionAttribute.Read%2A>, and <xref:System.Security.Permissions.FileIOPermissionAttribute.Write%2A> properties for a single file or directory. Use additional <xref:System.Security.Permissions.FileIOPermissionAttribute> attributes to specify additional files and directories. The access rights are for file data only; they do not include the access control properties <xref:System.Security.Permissions.FileIOPermissionAttribute.ViewAccessControl%2A> and <xref:System.Security.Permissions.FileIOPermissionAttribute.ChangeAccessControl%2A>.      > [!NOTE] >  The `get` accessor is provided for C# compiler compatibility. The C# compiler requires attribute properties to be read/write."
+  summary: "取得または設定、ファイルまたはディレクトリのファイル データを表示および変更できます。"
+  remarks: "このプロパティを設定、 <xref:System.Security.Permissions.FileIOPermissionAttribute.Append%2A>、 <xref:System.Security.Permissions.FileIOPermissionAttribute.PathDiscovery%2A>、 <xref:System.Security.Permissions.FileIOPermissionAttribute.Read%2A>、および<xref:System.Security.Permissions.FileIOPermissionAttribute.Write%2A>1 つのファイルまたはディレクトリのプロパティ</xref:System.Security.Permissions.FileIOPermissionAttribute.Write%2A></xref:System.Security.Permissions.FileIOPermissionAttribute.Read%2A></xref:System.Security.Permissions.FileIOPermissionAttribute.PathDiscovery%2A></xref:System.Security.Permissions.FileIOPermissionAttribute.Append%2A>。 使用して追加<xref:System.Security.Permissions.FileIOPermissionAttribute>属性を追加のファイルおよびディレクトリを指定しています</xref:System.Security.Permissions.FileIOPermissionAttribute>。 アクセス権は、ファイル データのみです。アクセス制御のプロパティ<xref:System.Security.Permissions.FileIOPermissionAttribute.ViewAccessControl%2A>と<xref:System.Security.Permissions.FileIOPermissionAttribute.ChangeAccessControl%2A>。</xref:System.Security.Permissions.FileIOPermissionAttribute.ChangeAccessControl%2A></xref:System.Security.Permissions.FileIOPermissionAttribute.ViewAccessControl%2A>含まれない      > [!NOTE] >、`get`アクセサーは c# コンパイラとの互換性を提供します。 C# コンパイラでは、読み取り/書き込み属性プロパティが必要です。"
   syntax:
     content: public string ViewAndModify { get; set; }
     return:
       type: System.String
-      description: "The absolute path of the file or directory in which file data can be viewed and modified."
+      description: "ファイルまたはファイル データを表示および変更できるディレクトリの絶対パス。"
   overload: System.Security.Permissions.FileIOPermissionAttribute.ViewAndModify*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;></xref> accessor is called. The accessor is provided only for C# compiler compatibility."
+    description: "<xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;> </xref>アクセサーが呼び出されます。 アクセサーは c# コンパイラの互換性のためだけに提供されます。"
   platform:
   - net462
 - uid: System.Security.Permissions.FileIOPermissionAttribute.Write
@@ -331,15 +331,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Gets or sets write access for the file or directory specified by the string value."
-  remarks: "This property sets access for a single file or directory. Use additional attributes to specify additional files and directories."
+  summary: "取得またはファイルまたは文字列値で指定されたディレクトリへの書き込みアクセスを設定します。"
+  remarks: "このプロパティは、1 つのファイルまたはディレクトリのアクセスを設定します。 追加の属性を使用すると、追加のファイルおよびディレクトリを指定できます。"
   example:
   - "The following example sets the Write property to grant <xref:System.Security.Permissions.FileIOPermissionAccess> access to files in the specified directory.  \n  \n [!code-cpp[System.Security.Permissions.FileIOPermissionAttribute#5](~/add/codesnippet/cpp/p-system.security.permis_18_1.cpp)]\n [!code-cs[System.Security.Permissions.FileIOPermissionAttribute#5](~/add/codesnippet/csharp/p-system.security.permis_18_1.cs)]\n [!code-vb[System.Security.Permissions.FileIOPermissionAttribute#5](~/add/codesnippet/visualbasic/p-system.security.permis_18_1.vb)]"
   syntax:
     content: public string Write { get; set; }
     return:
       type: System.String
-      description: "The absolute path of the file or directory for write access."
+      description: "ファイルまたは書き込みアクセス用のディレクトリの絶対パス。"
   overload: System.Security.Permissions.FileIOPermissionAttribute.Write*
   exceptions: []
   platform:

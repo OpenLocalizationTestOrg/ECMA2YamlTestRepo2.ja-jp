@@ -15,8 +15,8 @@ items:
   nameWithType: ICodeCompiler
   fullName: System.CodeDom.Compiler.ICodeCompiler
   type: Interface
-  summary: "Defines an interface for invoking compilation of source code or a CodeDOM tree using a specific compiler."
-  remarks: "> [!NOTE] >  In the .NET Framework versions 1.0 and 1.1, code providers consist of implementations of <xref:System.CodeDom.Compiler.CodeDomProvider>, <xref:System.CodeDom.Compiler.ICodeGenerator>, <xref:System.CodeDom.Compiler.ICodeParser>, and ICodeCompiler. In the [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)], the <xref:System.CodeDom.Compiler.CodeDomProvider.CreateGenerator%2A>, <xref:System.CodeDom.Compiler.CodeDomProvider.CreateParser%2A>, and <xref:System.CodeDom.Compiler.CodeDomProvider.CreateCompiler%2A> methods are obsolete, and the methods of <xref:System.CodeDom.Compiler.ICodeGenerator> and ICodeCompiler are directly available in the <xref:System.CodeDom.Compiler.CodeDomProvider> class. You should override those methods in your code provider implementation and not call the base methods.       The ICodeCompiler interface can be implemented for a specific compiler to enable developers to programmatically compile assemblies from Code Document Object Model (CodeDOM) compile units, strings containing source code, or source code files.       The ICodeCompiler interface provides the capability to invoke compilation with specified parameters at runtime and access information related to compilation after compilation occurs, including the result code, and any errors or warnings the compiler returns. Each compile method accepts a <xref:System.CodeDom.Compiler.CompilerParameters> object that indicates settings for the compiler, and returns a <xref:System.CodeDom.Compiler.CompilerResults> object that indicates the results of the compilation.       Compiler developers should provide an implementation of this interface to support dynamic compilation. <xref:System.CodeDom.Compiler.CodeDomProvider> implementers should also consider implementing this interface to provide programmatic compilation capability for the language that they are providing CodeDom support for."
+  summary: "ソース コードまたは特定のコンパイラを使用して、CodeDOM ツリーのコンパイルを起動するためのインターフェイスを定義します。"
+  remarks: "> [!NOTE]> 実装ので .NET Framework version 1.0 および 1.1 では、コード プロバイダーがで構成されています<xref:System.CodeDom.Compiler.CodeDomProvider>、 <xref:System.CodeDom.Compiler.ICodeGenerator>、 <xref:System.CodeDom.Compiler.ICodeParser>、および ICodeCompiler。</xref:System.CodeDom.Compiler.ICodeParser> </xref:System.CodeDom.Compiler.ICodeGenerator> </xref:System.CodeDom.Compiler.CodeDomProvider> 。 [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]、 <xref:System.CodeDom.Compiler.CodeDomProvider.CreateGenerator%2A>、 <xref:System.CodeDom.Compiler.CodeDomProvider.CreateParser%2A>、および<xref:System.CodeDom.Compiler.CodeDomProvider.CreateCompiler%2A>メソッドは廃止されましたが、および<xref:System.CodeDom.Compiler.ICodeGenerator>ICodeCompiler が<xref:System.CodeDom.Compiler.CodeDomProvider>クラス</xref:System.CodeDom.Compiler.CodeDomProvider>で直接利用できる</xref:System.CodeDom.Compiler.ICodeGenerator>方法</xref:System.CodeDom.Compiler.CodeDomProvider.CreateCompiler%2A></xref:System.CodeDom.Compiler.CodeDomProvider.CreateParser%2A></xref:System.CodeDom.Compiler.CodeDomProvider.CreateGenerator%2A> コード プロバイダーの実装でこれらのメソッドをオーバーライドして、基本メソッドを呼び出さないでください。       開発者がプログラムによって Code Document Object Model (CodeDOM) のコンパイル単位、ソース コード、またはソース コード ファイルを含む文字列からアセンブリをコンパイルするための特定のコンパイラの ICodeCompiler インターフェイスを実装することができます。       ICodeCompiler インターフェイスでは、ランタイムとアクセスに関連する情報コンパイル コンパイルが発生した後、結果コードとエラーまたは警告が返されますなどで指定されたパラメーターを使用したコンパイルを起動する機能を提供します。 それぞれのコンパイル方法を受け入れる、<xref:System.CodeDom.Compiler.CompilerParameters>オブジェクトをコンパイラの設定を示すを返す、<xref:System.CodeDom.Compiler.CompilerResults>コンパイルの結果を示すオブジェクト</xref:System.CodeDom.Compiler.CompilerResults></xref:System.CodeDom.Compiler.CompilerParameters>。       コンパイラの開発者は、動的なコンパイルをサポートするには、このインターフェイスの実装を提供する必要があります。 <xref:System.CodeDom.Compiler.CodeDomProvider>実装時は CodeDom サポートが提供されている言語のプログラムによるコンパイルの機能を提供するには、このインターフェイスを実装することも考慮にします。</xref:System.CodeDom.Compiler.CodeDomProvider>"
   syntax:
     content: public interface ICodeCompiler
   implements: []
@@ -34,19 +34,19 @@ items:
   assemblies:
   - System
   namespace: System.CodeDom.Compiler
-  summary: "Compiles an assembly from the <xref href=&quot;System.CodeDom&quot;></xref> tree contained in the specified <xref href=&quot;System.CodeDom.CodeCompileUnit&quot;></xref>, using the specified compiler settings."
+  summary: "アセンブリをコンパイル、 <xref href=&quot;System.CodeDom&quot;> </xref>含まれる指定されたツリー <xref href=&quot;System.CodeDom.CodeCompileUnit&quot;> </xref>、指定したコンパイラの設定を使用します。"
   syntax:
     content: public System.CodeDom.Compiler.CompilerResults CompileAssemblyFromDom (System.CodeDom.Compiler.CompilerParameters options, System.CodeDom.CodeCompileUnit compilationUnit);
     parameters:
     - id: options
       type: System.CodeDom.Compiler.CompilerParameters
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;></xref> object that indicates the settings for compilation."
+      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;> </xref>コンパイルの設定を示すオブジェクト。"
     - id: compilationUnit
       type: System.CodeDom.CodeCompileUnit
-      description: "A <xref href=&quot;System.CodeDom.CodeCompileUnit&quot;></xref> that indicates the code to compile."
+      description: "A <xref href=&quot;System.CodeDom.CodeCompileUnit&quot;> </xref>を示すコードをコンパイルします。"
     return:
       type: System.CodeDom.Compiler.CompilerResults
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerResults&quot;></xref> object that indicates the results of compilation."
+      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerResults&quot;> </xref>コンパイルの結果を示すオブジェクト。"
   overload: System.CodeDom.Compiler.ICodeCompiler.CompileAssemblyFromDom*
   exceptions: []
   platform:
@@ -63,19 +63,19 @@ items:
   assemblies:
   - System
   namespace: System.CodeDom.Compiler
-  summary: "Compiles an assembly based on the <xref href=&quot;System.CodeDom&quot;></xref> trees contained in the specified array of <xref href=&quot;System.CodeDom.CodeCompileUnit&quot;></xref> objects, using the specified compiler settings."
+  summary: "に基づいてアセンブリをコンパイル、 <xref href=&quot;System.CodeDom&quot;> </xref>の指定した配列に含まれているツリー <xref href=&quot;System.CodeDom.CodeCompileUnit&quot;> </xref>オブジェクトを指定したコンパイラの設定を使用します。"
   syntax:
     content: public System.CodeDom.Compiler.CompilerResults CompileAssemblyFromDomBatch (System.CodeDom.Compiler.CompilerParameters options, System.CodeDom.CodeCompileUnit[] compilationUnits);
     parameters:
     - id: options
       type: System.CodeDom.Compiler.CompilerParameters
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;></xref> object that indicates the settings for compilation."
+      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;> </xref>コンパイルの設定を示すオブジェクト。"
     - id: compilationUnits
       type: System.CodeDom.CodeCompileUnit[]
-      description: "An array of type <xref href=&quot;System.CodeDom.CodeCompileUnit&quot;></xref> that indicates the code to compile."
+      description: "型の配列<xref href=&quot;System.CodeDom.CodeCompileUnit&quot;></xref>を示すコードをコンパイルします。"
     return:
       type: System.CodeDom.Compiler.CompilerResults
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerResults&quot;></xref> object that indicates the results of compilation."
+      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerResults&quot;> </xref>コンパイルの結果を示すオブジェクト。"
   overload: System.CodeDom.Compiler.ICodeCompiler.CompileAssemblyFromDomBatch*
   exceptions: []
   platform:
@@ -92,19 +92,19 @@ items:
   assemblies:
   - System
   namespace: System.CodeDom.Compiler
-  summary: "Compiles an assembly from the source code contained within the specified file, using the specified compiler settings."
+  summary: "指定したコンパイラ設定を使用して、指定されたファイル内に含まれるソース コードからアセンブリをコンパイルします。"
   syntax:
     content: public System.CodeDom.Compiler.CompilerResults CompileAssemblyFromFile (System.CodeDom.Compiler.CompilerParameters options, string fileName);
     parameters:
     - id: options
       type: System.CodeDom.Compiler.CompilerParameters
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;></xref> object that indicates the settings for compilation."
+      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;> </xref>コンパイルの設定を示すオブジェクト。"
     - id: fileName
       type: System.String
-      description: "The file name of the file that contains the source code to compile."
+      description: "コンパイルするソース コードを格納しているファイルのファイル名。"
     return:
       type: System.CodeDom.Compiler.CompilerResults
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerResults&quot;></xref> object that indicates the results of compilation."
+      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerResults&quot;> </xref>コンパイルの結果を示すオブジェクト。"
   overload: System.CodeDom.Compiler.ICodeCompiler.CompileAssemblyFromFile*
   exceptions: []
   platform:
@@ -121,19 +121,19 @@ items:
   assemblies:
   - System
   namespace: System.CodeDom.Compiler
-  summary: "Compiles an assembly from the source code contained within the specified files, using the specified compiler settings."
+  summary: "指定したコンパイラ設定を使用して、指定したファイル内に含まれるソース コードからアセンブリをコンパイルします。"
   syntax:
     content: public System.CodeDom.Compiler.CompilerResults CompileAssemblyFromFileBatch (System.CodeDom.Compiler.CompilerParameters options, string[] fileNames);
     parameters:
     - id: options
       type: System.CodeDom.Compiler.CompilerParameters
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;></xref> object that indicates the settings for compilation."
+      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;> </xref>コンパイルの設定を示すオブジェクト。"
     - id: fileNames
       type: System.String[]
-      description: "The file names of the files to compile."
+      description: "コンパイルするファイルのファイル名。"
     return:
       type: System.CodeDom.Compiler.CompilerResults
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerResults&quot;></xref> object that indicates the results of compilation."
+      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerResults&quot;> </xref>コンパイルの結果を示すオブジェクト。"
   overload: System.CodeDom.Compiler.ICodeCompiler.CompileAssemblyFromFileBatch*
   exceptions: []
   platform:
@@ -150,19 +150,19 @@ items:
   assemblies:
   - System
   namespace: System.CodeDom.Compiler
-  summary: "Compiles an assembly from the specified string containing source code, using the specified compiler settings."
+  summary: "ソース コードを含む、指定したコンパイラ設定を使用して、指定した文字列からアセンブリをコンパイルします。"
   syntax:
     content: public System.CodeDom.Compiler.CompilerResults CompileAssemblyFromSource (System.CodeDom.Compiler.CompilerParameters options, string source);
     parameters:
     - id: options
       type: System.CodeDom.Compiler.CompilerParameters
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;></xref> object that indicates the settings for compilation."
+      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;> </xref>コンパイルの設定を示すオブジェクト。"
     - id: source
       type: System.String
-      description: "The source code to compile."
+      description: "コンパイルするソース コードです。"
     return:
       type: System.CodeDom.Compiler.CompilerResults
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerResults&quot;></xref> object that indicates the results of compilation."
+      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerResults&quot;> </xref>コンパイルの結果を示すオブジェクト。"
   overload: System.CodeDom.Compiler.ICodeCompiler.CompileAssemblyFromSource*
   exceptions: []
   platform:
@@ -179,19 +179,19 @@ items:
   assemblies:
   - System
   namespace: System.CodeDom.Compiler
-  summary: "Compiles an assembly from the specified array of strings containing source code, using the specified compiler settings."
+  summary: "指定されたソース コードを含む、指定したコンパイラ設定を使用して文字列の配列からアセンブリをコンパイルします。"
   syntax:
     content: public System.CodeDom.Compiler.CompilerResults CompileAssemblyFromSourceBatch (System.CodeDom.Compiler.CompilerParameters options, string[] sources);
     parameters:
     - id: options
       type: System.CodeDom.Compiler.CompilerParameters
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;></xref> object that indicates the settings for compilation."
+      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;> </xref>コンパイルの設定を示すオブジェクト。"
     - id: sources
       type: System.String[]
-      description: "The source code strings to compile."
+      description: "コンパイルするソース コードの文字列。"
     return:
       type: System.CodeDom.Compiler.CompilerResults
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerResults&quot;></xref> object that indicates the results of compilation."
+      description: "A <xref href=&quot;System.CodeDom.Compiler.CompilerResults&quot;> </xref>コンパイルの結果を示すオブジェクト。"
   overload: System.CodeDom.Compiler.ICodeCompiler.CompileAssemblyFromSourceBatch*
   exceptions: []
   platform:

@@ -11,8 +11,8 @@ items:
   nameWithType: ProfileOptimization
   fullName: System.Runtime.ProfileOptimization
   type: Class
-  summary: "Improves the startup performance of application domains in applications that require the just-in-time (JIT) compiler by performing background compilation of methods that are likely to be executed, based on profiles created during previous compilations."
-  remarks: "> [!IMPORTANT] >  Profile optimization requires a multicore computer. The methods are ignored on other computers.       Each time you initiate profile optimization in an application domain, the profile that was created during the previous use is read. The information in the profile is used to guide background compilation by identifying the methods that are most likely to be executed during startup. On multicore computers, this increases the chances that a method is already compiled by the time it is needed so that the main application thread does not have to call the JIT compiler.       The profile file is overwritten on each use, so it always contains the most recent information about which methods are used during startup.       Optimization profiles are not restricted to application domain startup. They can be used for any activity that will require heavy use of the JIT compiler. You can maintain multiple profiles for an application domain so that each such activity has its own profile.       To use optimization profiles in an application domain, you must call the <xref:System.Runtime.ProfileOptimization.SetProfileRoot%2A> method and specify the folder where profiles are stored. The folder must already exist. To begin using a profile, call the <xref:System.Runtime.ProfileOptimization.StartProfile%2A> method and specify the file name of the profile. If the file was not recorded previously, it is created on first use. There is no performance benefit the first time a profile is created.       Profile optimization does not change the order in which methods are executed. Methods are not executed on the background thread; if a method is compiled but never called, it is simply not used. If a profile file is corrupt or cannot be written to the specified folder (for example, because the folder does not exist), program execution continues without optimization profiling."
+  summary: "以前のコンパイル中に作成されたプロファイルに基づいて、実行すると思われるメソッドのバック グラウンドのコンパイルを実行することによって、・ イン タイム (JIT) コンパイラを必要とするアプリケーションのアプリケーション ドメインの起動時のパフォーマンスが向上します。"
+  remarks: "> [!IMPORTANT]> 最適化のプロファイルには、マルチコア コンピューターが必要です。 メソッドは、他のコンピューターでは無視されます。       アプリケーション ドメインでの最適化のプロファイルを開始するたびに、前回の使用中に作成されたプロファイルが読み取られます。 プロファイルの情報は、スタートアップ時に実行される可能性が最も高いメソッドを識別することによってバック グラウンドのコンパイルに使用されます。 マルチコア コンピューターは、これメソッドである可能性が高くなりますが必要になったとき、メイン アプリケーション スレッドは JIT コンパイラを呼び出す必要があるないようにしてコンパイルされます。       スタートアップ時のメソッドの使用に関する最新の情報を常に含まれるように、それぞれに使用するとき、プロファイル ファイルが上書きされます。       最適化のプロファイルは、アプリケーション ドメインの起動時に限定されません。 これらは、JIT コンパイラの頻繁に使用が必要になるアクティビティに対して使用できます。 このような各アクティビティに、独自のプロファイルを持つように、アプリケーション ドメインに対して複数のプロファイルを管理できます。       最適化のプロファイルを使用して、アプリケーション ドメインを呼び出す必要があります、<xref:System.Runtime.ProfileOptimization.SetProfileRoot%2A>メソッド プロファイルが格納先フォルダーを指定します</xref:System.Runtime.ProfileOptimization.SetProfileRoot%2A>。 フォルダーが既に存在する必要があります。 プロファイルを使用するには、呼び出し、<xref:System.Runtime.ProfileOptimization.StartProfile%2A>メソッド、プロファイルのファイル名を指定します</xref:System.Runtime.ProfileOptimization.StartProfile%2A>。 場合は、ファイルが以前に記録されませんでした、初回使用時に作成されます。 プロファイルが作成されるパフォーマンス特典、最初の時刻がありません。       最適化のプロファイルでは、メソッドの実行順序は変更されません。 メソッドは、バック グラウンド スレッドでは実行されません。場合は、メソッドはコンパイルされますが、呼び出されません、これは単に使用されません。 プロファイル ファイルが壊れているか (たとえば、フォルダーが存在しない) ために、指定したフォルダーに書き込めない場合、プログラムの実行が最適化のプロファイルことがなく続行します。"
   syntax:
     content: public static class ProfileOptimization
   inheritance:
@@ -33,14 +33,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime
-  summary: "Enables optimization profiling for the current application domain, and sets the folder where the optimization profile files are stored. On a single-core computer, the method is ignored."
-  remarks: "You must call this method before you call the <xref:System.Runtime.ProfileOptimization.StartProfile%2A> method for the first time in the current application domain. If you call SetProfileRoot more than once in the same application domain, all calls after the first are ignored.       The specified folder must already exist. If it does not exist, calling this method does not create it, and no profiling occurs.       On computers that do not have multiple cores, this method is ignored."
+  summary: "現在のアプリケーション ドメインでは、プロファイリングの最適化を有効にし、最適化のプロファイルのファイルの格納先フォルダーを設定します。 コンピューターでは単一コア、メソッドは無視されます。"
+  remarks: "呼び出す前に、このメソッドを呼び出す必要があります、<xref:System.Runtime.ProfileOptimization.StartProfile%2A>が最初に現在のアプリケーション ドメイン内のメソッド</xref:System.Runtime.ProfileOptimization.StartProfile%2A>。 SetProfileRoot を&2; 回以上同じアプリケーション ドメイン内に呼び出す場合は、最初より後のすべての呼び出しは無視されます。       指定したフォルダーが既に存在する必要があります。 存在しない場合は、このメソッドを呼び出すことは作成されません、され、プロファイリングは発生しません。       複数のコアがないコンピューターでこのメソッドは無視されます。"
   syntax:
     content: public static void SetProfileRoot (string directoryPath);
     parameters:
     - id: directoryPath
       type: System.String
-      description: "The full path to the folder where profile files are stored for the current application domain."
+      description: "現在のアプリケーション ドメインのプロファイルのファイルが格納フォルダーの完全パスです。"
   overload: System.Runtime.ProfileOptimization.SetProfileRoot*
   exceptions: []
   platform:
@@ -57,14 +57,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime
-  summary: "Starts just-in-time (JIT) compilation of the methods that were previously recorded in the specified profile file, on a background thread. Starts the process of recording current method use, which later overwrites the specified profile file."
-  remarks: "If the specified profile exists in the folder specified by the <xref:System.Runtime.ProfileOptimization.SetProfileRoot%2A> method, the information it contains is used to determine the order in which methods are compiled on the background thread. The StartProfile method creates the profile if it does not already exist, and initiates the recording of method use.       Only methods that are actually called are recorded, regardless of whether they were compiled on the background thread or on the main application thread. A method is compiled on the main application thread if the application needs to call it before the background thread has compiled it.       The code that performs the recording tracks the rate at which methods are compiled, including methods that are compiled on both the background thread and on the main thread. When the rate falls below a predetermined level, recording stops. Recording also stops if the rate of JIT compilation exceeds a predetermined upper limit.       If the <xref:System.Runtime.ProfileOptimization.SetProfileRoot%2A> method has not been called for the current application domain, or if the computer does not have multiple cores, the StartProfile method has no effect."
+  summary: "バック グラウンド スレッドで、指定したプロファイル ファイルに記録した以前の方法の・ イン タイム (JIT) コンパイルを開始します。 現在メソッドを使用して、後で、指定したプロファイル ファイルを上書きするを記録するプロセスを開始します。"
+  remarks: "によって指定されたフォルダーに指定されたプロファイルが存在する場合、<xref:System.Runtime.ProfileOptimization.SetProfileRoot%2A>メソッドが、バック グラウンド スレッドでコンパイルされた順序を決定するメソッド、含まれている情報を使用します</xref:System.Runtime.ProfileOptimization.SetProfileRoot%2A>。 StartProfile メソッドは、使用方法の記録を開始し、既に存在しない場合は、プロファイルを作成します。       かどうか、バック グラウンド スレッドまたはメイン アプリケーション スレッド上にコンパイルされているに関係なく、実際に呼び出されるメソッドのみが記録されます。 アプリケーションがバック グラウンド スレッドがコンパイルされる前に呼び出す必要がある場合、メソッドは、アプリケーションのメイン スレッドでコンパイルされます。       記録を実行するコードはあるメソッドはコンパイル、メイン スレッドとバック グラウンド スレッドでコンパイルされるメソッドを含む速度を追跡します。 ときに、レート レベルを下回ったあらかじめ決められた、録音を停止します。 記録は、JIT コンパイルの比率が事前に定義された上限を超えた場合にも停止します。       場合、 <xref:System.Runtime.ProfileOptimization.SetProfileRoot%2A>、現在のアプリケーション ドメインのメソッドが呼び出されていないか、コンピューターが複数のコアを持たない場合、StartProfile メソッドも何も起こりません</xref:System.Runtime.ProfileOptimization.SetProfileRoot%2A>。"
   syntax:
     content: public static void StartProfile (string profile);
     parameters:
     - id: profile
       type: System.String
-      description: "The file name of the profile to use."
+      description: "使用するプロファイルのファイル名。"
   overload: System.Runtime.ProfileOptimization.StartProfile*
   exceptions: []
   platform:

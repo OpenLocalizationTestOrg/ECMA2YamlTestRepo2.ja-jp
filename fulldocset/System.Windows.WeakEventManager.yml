@@ -27,8 +27,8 @@ items:
   nameWithType: WeakEventManager
   fullName: System.Windows.WeakEventManager
   type: Class
-  summary: "Provides a base class for the event manager that is used in the *weak event pattern*. The manager adds and removes listeners for events (or callbacks) that also use the pattern."
-  remarks: "You typically use the weak event pattern when the event source has an object lifetime that is independent of the event listeners. Using the central event dispatching capability of a WeakEventManager allows the listener&quot;s handlers to be garbage collected even if the source object persists. By contrast, a regular event hookup using the `+=` operator causes the potentially disconnected source to hold a reference to the listeners. This prevents the receiver from being garbage collected in a timely fashion.       One common situation where the lifetime relationships between sources and listeners should use of the weak event pattern is the handling of update events coming from data bindings.       The weak event pattern can also be used for callbacks and regular events."
+  summary: "イベント マネージャーで使用される基本クラスを提供、*弱いイベント パターン*です。 管理者は、追加し、パターンを使用してもイベント (またはコールバック) のリスナーを削除します。"
+  remarks: "通常、イベント ソースにオブジェクトの有効期間とは別のイベント リスナーがある場合は、弱いイベント パターンを使用します。 ガベージ コレクションされるソース オブジェクトが解決しない場合でも、リスナーのハンドラーを、WeakEventManager の中心となるイベントのディスパッチ機能を使用できます。 これに対し、通常のイベント フックアップを使用して、`+=`演算子では、リスナーへの参照を保持するために切断された可能性のあるソースがします。 これは、受信側がガベージ コレクション、迅速にすることを防ぎます。       1 つ一般的なソースとリスナーの有効期間の関係を使用する必要がありますの弱いイベント パターンは、データのバインドからの更新イベントの処理です。       弱いイベント パターンは、コールバックと通常のイベントにも使用できます。"
   syntax:
     content: 'public abstract class WeakEventManager : System.Windows.Threading.DispatcherObject'
   inheritance:
@@ -53,7 +53,7 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Initializes base class values when it is used as the initializer by the constructor of a derived class."
+  summary: "派生クラスのコンス トラクターによって初期化子として使用される場合は、基本クラスの値を初期化します。"
   syntax:
     content: protected WeakEventManager ();
     parameters: []
@@ -73,17 +73,17 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Delivers the event being managed to each listener."
-  remarks: "Call the DeliverEvent method from within the event handlers that are added or removed by the <xref:System.Windows.WeakEventManager.StartListening%2A> and <xref:System.Windows.WeakEventManager.StopListening%2A> implementations of subclasses.       If you call the <xref:System.Windows.WeakEventManager.ProtectedAddListener%2A> method in your `AddListener` implementation of your class, the list of listeners receiving the event is kept in an underlying collection. (`AddListener` is not part of an interface or class contract. `AddListener` is the suggested name for the method of your manager class that calls <xref:System.Windows.WeakEventManager.ProtectedAddListener%2A> and adds weak event pattern listeners for the event.)       <xref:System.Windows.WeakEventManager.ProtectedAddListener%2A> adds listeners to a single list. If your manager implementation maintains more than one list of listeners per event, do not use DeliverEvent or <xref:System.Windows.WeakEventManager.ProtectedAddListener%2A>. Instead, your implementation should create its own <xref:System.Windows.WeakEventManager.ListenerList> instances, `AddListener` should add listeners to the appropriate list, and events should be delivered to the appropriate listener list by calling <xref:System.Windows.WeakEventManager.DeliverEventToList%2A>."
+  summary: "各リスナーに管理対象のイベントを提供します。"
+  remarks: "追加または削除されるイベント ハンドラー内から DeliverEvent メソッドを呼び出して、<xref:System.Windows.WeakEventManager.StartListening%2A>と<xref:System.Windows.WeakEventManager.StopListening%2A>サブクラスの実装</xref:System.Windows.WeakEventManager.StopListening%2A></xref:System.Windows.WeakEventManager.StartListening%2A>。       呼び出す場合は、<xref:System.Windows.WeakEventManager.ProtectedAddListener%2A>メソッドで、`AddListener`イベントを受け取るリスナーのリストは、クラスの実装は、基になるコレクションで保持します</xref:System.Windows.WeakEventManager.ProtectedAddListener%2A>。 (`AddListener`インターフェイスまたはクラスのコントラクトの一部ではありません。 `AddListener`<xref:System.Windows.WeakEventManager.ProtectedAddListener%2A>を呼び出すし、イベントの弱いイベント パターン リスナーを追加するためのマネージャー クラスのメソッドに推奨される名前)。      <xref:System.Windows.WeakEventManager.ProtectedAddListener%2A>リスナーを&1; つのリストに追加します</xref:System.Windows.WeakEventManager.ProtectedAddListener%2A></xref:System.Windows.WeakEventManager.ProtectedAddListener%2A>。 場合は、マネージャーの実装では、イベントごとのリスナーの&1; つ以上のリストを保持、または使用しないで DeliverEvent <xref:System.Windows.WeakEventManager.ProtectedAddListener%2A>。</xref:System.Windows.WeakEventManager.ProtectedAddListener%2A> 代わりに、実装する必要があります作成独自<xref:System.Windows.WeakEventManager.ListenerList>インスタンス、`AddListener`適切なリストでは、リスナーを追加する必要があり、イベントの配信先の適切なリスナー リスト<xref:System.Windows.WeakEventManager.DeliverEventToList%2A>.</xref:System.Windows.WeakEventManager.DeliverEventToList%2A>を呼び出すことによって</xref:System.Windows.WeakEventManager.ListenerList>"
   syntax:
     content: protected void DeliverEvent (object sender, EventArgs args);
     parameters:
     - id: sender
       type: System.Object
-      description: "The object on which the event is being handled."
+      description: "イベントを処理するオブジェクト。"
     - id: args
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> that contains the event data for the event to deliver."
+      description: "<xref:System.EventArgs>を配信するイベントのイベント データを格納している</xref:System.EventArgs>。"
   overload: System.Windows.WeakEventManager.DeliverEvent*
   exceptions: []
   platform:
@@ -105,13 +105,13 @@ items:
     parameters:
     - id: sender
       type: System.Object
-      description: "To be added."
+      description: "追加します。"
     - id: args
       type: System.EventArgs
-      description: "To be added."
+      description: "追加します。"
     - id: list
       type: System.Windows.WeakEventManager.ListenerList
-      description: "To be added."
+      description: "追加します。"
   overload: System.Windows.WeakEventManager.DeliverEventToList*
   exceptions: []
   platform:
@@ -128,17 +128,17 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Returns the <xref href=&quot;System.Windows.WeakEventManager&quot;></xref> implementation that is used for the provided type."
-  remarks: "<xref:System.Windows.IWeakEventListener.ReceiveWeakEvent%2A> implementations call this method using their passed `managerType`. The returned <xref:System.Windows.WeakEventManager> is then used as the differentiator that determines which event was received, and which private class handler to invoke."
+  summary: "返します、 <xref href=&quot;System.Windows.WeakEventManager&quot;> </xref>は指定された型の使用を実装します。"
+  remarks: "<xref:System.Windows.IWeakEventListener.ReceiveWeakEvent%2A>実装は、渡されたを使用してこのメソッドを呼び出す`managerType`です。</xref:System.Windows.IWeakEventListener.ReceiveWeakEvent%2A> 返された<xref:System.Windows.WeakEventManager>を調べ、どのイベントを受信しましたがどのプライベート クラス ハンドラーを呼び出すための差別化要因として使用されます</xref:System.Windows.WeakEventManager>。"
   syntax:
     content: protected static System.Windows.WeakEventManager GetCurrentManager (Type managerType);
     parameters:
     - id: managerType
       type: System.Type
-      description: "The type to obtain the <xref href=&quot;System.Windows.WeakEventManager&quot;></xref> for."
+      description: "取得する型、 <xref href=&quot;System.Windows.WeakEventManager&quot;> </xref>用です。"
     return:
       type: System.Windows.WeakEventManager
-      description: "The matching <xref href=&quot;System.Windows.WeakEventManager&quot;></xref> implementation."
+      description: "一致する<xref href=&quot;System.Windows.WeakEventManager&quot;></xref>実装します。"
   overload: System.Windows.WeakEventManager.GetCurrentManager*
   exceptions: []
   platform:
@@ -155,17 +155,17 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Gets or sets the data being stored for the specified source."
-  remarks: "Derived classes can choose what data and type to store in this indexer. Typically this is implemented as a <xref:System.Windows.WeakEventManager.ListenerList>, which is a list of weak references to listeners. You would only have to change this type if the <xref:System.Windows.WeakEventManager.ListenerList> type cannot contain your required information. If so, you will have to override the <xref:System.Windows.WeakEventManager.Purge%2A> method so that all cleanup of the underlying type is performed correctly."
+  summary: "取得または指定したソースに格納されているデータを設定します。"
+  remarks: "派生クラスには、データとこのインデクサーに格納する型を選択できます。 通常これとして実装される、 <xref:System.Windows.WeakEventManager.ListenerList>、リスナーへの弱い参照の一覧します</xref:System.Windows.WeakEventManager.ListenerList>。 この型を変更する場合にのみ必要があります、<xref:System.Windows.WeakEventManager.ListenerList>型は、必要な情報を含めることはできません</xref:System.Windows.WeakEventManager.ListenerList>。 そのため、オーバーライドする必要が場合、<xref:System.Windows.WeakEventManager.Purge%2A>メソッド基になる型のすべてのクリーンアップが正常に実行できるようにします</xref:System.Windows.WeakEventManager.Purge%2A>。"
   syntax:
     content: protected object this[object source] { get; set; }
     parameters:
     - id: source
       type: System.Object
-      description: "The zero-based index of the requested source."
+      description: "要求されたソースの&0; から始まるインデックス。"
     return:
       type: System.Object
-      description: "Data being stored by the manager for this source."
+      description: "このソースのマネージャーによって格納されるデータ。"
   overload: System.Windows.WeakEventManager.Item*
   exceptions: []
   platform:
@@ -182,13 +182,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Returns a new object to contain listeners to an event."
+  summary: "イベントのリスナーを格納する新しいオブジェクトを返します。"
   syntax:
     content: protected virtual System.Windows.WeakEventManager.ListenerList NewListenerList ();
     parameters: []
     return:
       type: System.Windows.WeakEventManager.ListenerList
-      description: "A new object to contain listeners to an event."
+      description: "イベントのリスナーを格納する新しいオブジェクト。"
   overload: System.Windows.WeakEventManager.NewListenerList*
   exceptions: []
   platform:
@@ -205,16 +205,16 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Adds the specified delegate as an event handler of the specified source."
+  summary: "指定したソースのイベント ハンドラーとして指定されたデリゲートを追加します。"
   syntax:
     content: protected void ProtectedAddHandler (object source, Delegate handler);
     parameters:
     - id: source
       type: System.Object
-      description: "The source object that the handler delegate subscribes to."
+      description: "ハンドラーのデリゲートがサブスクライブしているソース オブジェクト。"
     - id: handler
       type: System.Delegate
-      description: "The delegate that handles the event that is raised by `source`."
+      description: "によって発生するイベントを処理するデリゲート`source`です。"
   overload: System.Windows.WeakEventManager.ProtectedAddHandler*
   exceptions: []
   platform:
@@ -231,17 +231,17 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Adds the provided listener to the provided source for the event being managed."
-  remarks: "Call this method within your manager class `AddListener` methods on <xref:System.Windows.WeakEventManager> implementations. `AddListener` is the suggested name for the static method you define on your manager class to enable other classes to add a listener for your weak event pattern. `AddListener` should take two parameters: the `source` where the listener is attached, and the `listener` instance. For your `AddListener` implementation, call the ProtectedAddListener method on the current manager and pass the same two parameters.       If the list of listeners was previously empty, ProtectedAddListener calls the <xref:System.Windows.WeakEventManager.StartListening%2A> method internally, which will call your specific <xref:System.Windows.WeakEventManager.StartListening%2A> override through polymorphism.       ProtectedAddListener adds listeners to a single internal <xref:System.Windows.WeakEventManager.ListenerList> per `source`. If your manager implementation maintains more than one list of listeners for each event-source combination, do not use ProtectedAddListener. Instead, your implementation should create its own <xref:System.Windows.WeakEventManager.ListenerList> instances, `AddListener` should add listeners to the appropriate list, and events should be delivered to the appropriate listener list by calling the <xref:System.Windows.WeakEventManager.DeliverEventToList%2A> event instead of the <xref:System.Windows.WeakEventManager.DeliverEvent%2A> method."
+  summary: "管理対象のイベントの指定されたソースを指定したリスナーを追加します。"
+  remarks: "マネージャー クラス内には、このメソッドを呼び出す`AddListener`メソッド<xref:System.Windows.WeakEventManager>実装</xref:System.Windows.WeakEventManager>。 `AddListener`推奨される名前は、弱いイベント パターンにリスナーを追加するには、他のクラスを有効にする、マネージャー クラスで静的メソッドを定義します。 `AddListener`2 つのパラメーターを受け取る必要があります。`source`リスナーが接続されている場所と`listener`インスタンス。 `AddListener`実装では、現在のマネージャーの ProtectedAddListener メソッドを呼び出すし、同じ&2; つのパラメーターを渡します。       ProtectedAddListener を呼び出すリスナーのリストが空だった場合、<xref:System.Windows.WeakEventManager.StartListening%2A>メソッドに固有の仕様を呼び出すを内部的には、<xref:System.Windows.WeakEventManager.StartListening%2A>ポリモーフィズムをオーバーライドします</xref:System.Windows.WeakEventManager.StartListening%2A></xref:System.Windows.WeakEventManager.StartListening%2A>。       ProtectedAddListener では、リスナーを追加すると、単一の内部<xref:System.Windows.WeakEventManager.ListenerList>あたり`source`</xref:System.Windows.WeakEventManager.ListenerList>。 マネージャーの実装にイベント ソースの組み合わせごとのリスナーの&1; つ以上のリストが保持している場合は、ProtectedAddListener を使用しないでください。 代わりに、実装する必要があります作成独自<xref:System.Windows.WeakEventManager.ListenerList>インスタンス、`AddListener`リスナーを該当する一覧に追加する必要があり、イベントは、呼び出すことによって適切なリスナーの一覧に配信する必要があります、<xref:System.Windows.WeakEventManager.DeliverEventToList%2A>イベントの代わりに、<xref:System.Windows.WeakEventManager.DeliverEvent%2A>メソッド</xref:System.Windows.WeakEventManager.DeliverEvent%2A></xref:System.Windows.WeakEventManager.DeliverEventToList%2A></xref:System.Windows.WeakEventManager.ListenerList>。"
   syntax:
     content: protected void ProtectedAddListener (object source, System.Windows.IWeakEventListener listener);
     parameters:
     - id: source
       type: System.Object
-      description: "The source to attach listeners to."
+      description: "リスナーを関連付けるソース。"
     - id: listener
       type: System.Windows.IWeakEventListener
-      description: "The listening class (which must implement <xref href=&quot;System.Windows.IWeakEventListener&quot;></xref>)."
+      description: "リッスンしているクラス (実装する必要があります<xref href=&quot;System.Windows.IWeakEventListener&quot;> </xref>)。"
   overload: System.Windows.WeakEventManager.ProtectedAddListener*
   exceptions: []
   platform:
@@ -258,16 +258,16 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Removes the previously added handler from the specified source."
+  summary: "指定したソースから、以前に追加されたハンドラーを削除します。"
   syntax:
     content: protected void ProtectedRemoveHandler (object source, Delegate handler);
     parameters:
     - id: source
       type: System.Object
-      description: "The source to remove the handler from."
+      description: "ハンドラーを削除するソースです。"
     - id: handler
       type: System.Delegate
-      description: "The delegate to remove from `source`."
+      description: "削除するデリゲート`source`です。"
   overload: System.Windows.WeakEventManager.ProtectedRemoveHandler*
   exceptions: []
   platform:
@@ -284,17 +284,17 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Removes a previously added listener from the provided source."
-  remarks: "Call this method within your manager class `RemoveListener` methods on <xref:System.Windows.WeakEventManager> implementations. `RemoveListener` is the suggested name for the static method you define on your manager class to enable other classes to remove a listener for your weak event pattern. `RemoveListener` should take two parameters: the `source` where the listener is removed, and the `listener` class. For your `RemoveListener` implementation, call the ProtectedRemoveListener method on the current manager and pass the same two parameters.       If a call to ProtectedRemoveListener removes the last listener in the list, ProtectedRemoveListener calls the <xref:System.Windows.WeakEventManager.StopListening%2A> method internally, which will call your specific <xref:System.Windows.WeakEventManager.StopListening%2A> override through polymorphism.       ProtectedRemoveListener removes listeners from a single internal <xref:System.Windows.WeakEventManager.ListenerList> per `source`. If your manager implementation maintains more than one list of listeners for each event-source combination, do not use ProtectedRemoveListener. Instead, your implementation should create its own <xref:System.Windows.WeakEventManager.ListenerList> instances, `RemoveListener` should remove listeners from the appropriate list, and events should be delivered to the appropriate listener list by calling the <xref:System.Windows.WeakEventManager.DeliverEventToList%2A> method instead of the <xref:System.Windows.WeakEventManager.DeliverEvent%2A> method."
+  summary: "指定されたソースから、以前に追加リスナーを削除します。"
+  remarks: "マネージャー クラス内には、このメソッドを呼び出す`RemoveListener`メソッド<xref:System.Windows.WeakEventManager>実装</xref:System.Windows.WeakEventManager>。 `RemoveListener`推奨される名前は、弱いイベント パターンにリスナーを削除するには、他のクラスを有効にする、マネージャー クラスで静的メソッドを定義します。 `RemoveListener`2 つのパラメーターを受け取る必要があります。`source`リスナーを削除すると、場所、および`listener`クラスです。 `RemoveListener`実装では、現在のマネージャーの ProtectedRemoveListener メソッドを呼び出すし、同じ&2; つのパラメーターを渡します。       ProtectedRemoveListener を呼び出す ProtectedRemoveListener への呼び出しは、リスト内の最後のリスナーを削除した場合、<xref:System.Windows.WeakEventManager.StopListening%2A>メソッド、固有の仕様を呼び出すを内部的には、<xref:System.Windows.WeakEventManager.StopListening%2A>ポリモーフィズムをオーバーライドします</xref:System.Windows.WeakEventManager.StopListening%2A></xref:System.Windows.WeakEventManager.StopListening%2A>。       ProtectedRemoveListener が&1; つの内部からのリスナーを削除<xref:System.Windows.WeakEventManager.ListenerList>あたり`source`</xref:System.Windows.WeakEventManager.ListenerList>。 マネージャーの実装にイベント ソースの組み合わせごとのリスナーの&1; つ以上のリストが保持している場合は、ProtectedRemoveListener を使用しないでください。 代わりに、実装する必要があります作成独自<xref:System.Windows.WeakEventManager.ListenerList>インスタンス、 `RemoveListener` 、該当する一覧からのリスナーを削除する必要があり、イベントは、呼び出すことによって適切なリスナーの一覧に配信する必要があります、<xref:System.Windows.WeakEventManager.DeliverEventToList%2A>メソッドの代わりに、<xref:System.Windows.WeakEventManager.DeliverEvent%2A>メソッド</xref:System.Windows.WeakEventManager.DeliverEvent%2A></xref:System.Windows.WeakEventManager.DeliverEventToList%2A></xref:System.Windows.WeakEventManager.ListenerList>。"
   syntax:
     content: protected void ProtectedRemoveListener (object source, System.Windows.IWeakEventListener listener);
     parameters:
     - id: source
       type: System.Object
-      description: "The source to remove listeners from."
+      description: "リスナーを削除するソースです。"
     - id: listener
       type: System.Windows.IWeakEventListener
-      description: "The listening class (which must implement <xref href=&quot;System.Windows.IWeakEventListener&quot;></xref>)."
+      description: "リッスンしているクラス (実装する必要があります<xref href=&quot;System.Windows.IWeakEventListener&quot;> </xref>)。"
   overload: System.Windows.WeakEventManager.ProtectedRemoveListener*
   exceptions: []
   platform:
@@ -311,23 +311,23 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Removes inactive listener entries from the data list for the provided source. Returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if some entries were actually removed from the list."
-  remarks: "The Purge method has a default implementation that will remove all entries when data is a <xref:System.Windows.WeakEventManager.ListenerList>."
+  summary: "指定されたソースのデータの一覧から非アクティブなリスナー エントリを削除します。 返します<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>いくつかのエントリが実際には、一覧から削除された場合。"
+  remarks: "Purge メソッドはデータが<xref:System.Windows.WeakEventManager.ListenerList>。</xref:System.Windows.WeakEventManager.ListenerList>ときにすべてのエントリを削除する既定の実装"
   syntax:
     content: protected virtual bool Purge (object source, object data, bool purgeAll);
     parameters:
     - id: source
       type: System.Object
-      description: "The source for events being listened to."
+      description: "リッスンされているイベントのソース。"
     - id: data
       type: System.Object
-      description: "The data to check. This object is expected to be a <xref:System.Windows.WeakEventManager.ListenerList> implementation."
+      description: "チェックするデータ。 このオブジェクトができると予想される、<xref:System.Windows.WeakEventManager.ListenerList>実装</xref:System.Windows.WeakEventManager.ListenerList>。"
     - id: purgeAll
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to stop listening to `source`, and completely remove all entries from `data`."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>待機を停止する`source`からすべてのエントリを完全に削除`data`です。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if some entries were actually removed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>いくつかのエントリが実際に削除された場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Windows.WeakEventManager.Purge*
   exceptions: []
   platform:
@@ -344,13 +344,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Establishes a read-lock on the underlying data table, and returns an <xref:System.IDisposable>."
-  remarks: "In derived classes, queries to the table contained in <xref:System.Windows.WeakEventManager.Item%2A> should always occur within a `using (ReadLock) { ... }` clause, except for queries that are already within a write lock. These queries may be necessary if your class supports a more sophisticated `AddListener` implementation that requires more data beyond the `source` and the `listener`, and uses the <xref:System.Windows.WeakEventManager.Item%2A> collection to store the extra information."
+  summary: "基になるデータ テーブルに読み取りロックを確立し、 <xref:System.IDisposable>。</xref:System.IDisposable>を返します"
+  remarks: "派生クラスでクエリに含まれるテーブル<xref:System.Windows.WeakEventManager.Item%2A>内で常に実行する必要があります、`using (ReadLock) { ... }`書き込みロック内では、既にクエリを除くの句</xref:System.Windows.WeakEventManager.Item%2A>。 これらのクエリは、クラスがより高度なサポートされている場合に必要な可能性があります`AddListener`を超える複数のデータを必要とする実装、`source`と`listener`を使用して、<xref:System.Windows.WeakEventManager.Item%2A>余分な情報を格納するコレクション</xref:System.Windows.WeakEventManager.Item%2A>。"
   syntax:
     content: protected IDisposable ReadLock { get; }
     return:
       type: System.IDisposable
-      description: "An object that can be used to establish a lock on the data table members and then be appropriately disposed with a <xref uid=&quot;langword_csharp_using&quot; name=&quot;using&quot; href=&quot;&quot;></xref> construct."
+      description: "テーブルのデータ メンバーのロックを確立しで破棄適切に使用できるオブジェクト、 <xref uid=&quot;langword_csharp_using&quot; name=&quot;using&quot; href=&quot;&quot;> </xref>を構築します。"
   overload: System.Windows.WeakEventManager.ReadLock*
   exceptions: []
   platform:
@@ -367,13 +367,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Removes all listeners for the specified source."
+  summary: "指定されたソースのすべてのリスナーを削除します。"
   syntax:
     content: protected void Remove (object source);
     parameters:
     - id: source
       type: System.Object
-      description: "The source to remove listener information for."
+      description: "情報をリスナーを削除するソース。"
   overload: System.Windows.WeakEventManager.Remove*
   exceptions: []
   platform:
@@ -390,8 +390,8 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Requests that a purge of unused entries in the underlying listener list be performed on a lower priority thread."
-  remarks: "Calling the ScheduleCleanup method is similar to calling the <xref:System.Windows.WeakEventManager.Purge%2A> method on the current manager&quot;s list, at lower thread priority, with the `purgeAll` parameter set to `false`."
+  summary: "要求の優先度の低いスレッドで、基になるリスナー リスト内の未使用のエントリの消去を実行することです。"
+  remarks: "呼び出しに似ていますが、ScheduleCleanup メソッドを呼び出すと、<xref:System.Windows.WeakEventManager.Purge%2A>現在マネージャーの一覧で、スレッドの優先順位の低い、メソッドで、`purgeAll`パラメーターに設定`false`</xref:System.Windows.WeakEventManager.Purge%2A>。"
   syntax:
     content: protected void ScheduleCleanup ();
     parameters: []
@@ -411,17 +411,17 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Sets the current manager for the specified manager type."
-  remarks: "Call the SetCurrentManager method to initialize a manager, if that is required by a call to your `CurrentManager` property on a <xref:System.Windows.WeakEventManager> implementation."
+  summary: "指定したマネージャーの種類の現在のマネージャーを設定します。"
+  remarks: "呼び出しに必要な場合は、マネージャーは、初期化 SetCurrentManager メソッドを呼び出して、`CurrentManager`プロパティを<xref:System.Windows.WeakEventManager>実装</xref:System.Windows.WeakEventManager>。"
   syntax:
     content: protected static void SetCurrentManager (Type managerType, System.Windows.WeakEventManager manager);
     parameters:
     - id: managerType
       type: System.Type
-      description: "The type to set the new event manager."
+      description: "新しいイベント マネージャーを設定する型。"
     - id: manager
       type: System.Windows.WeakEventManager
-      description: "The new event manager."
+      description: "新しいイベント マネージャー。"
   overload: System.Windows.WeakEventManager.SetCurrentManager*
   exceptions: []
   platform:
@@ -438,13 +438,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "When overridden in a derived class, starts listening for the event being managed. After the StartListening method is first called, the manager should be in the state of calling <xref:System.Windows.WeakEventManager.DeliverEvent*> or <xref:System.Windows.WeakEventManager.DeliverEventToList*> whenever the relevant event from the provided source is handled."
+  summary: "派生クラスでオーバーライドされると、管理対象のイベントのリッスンを開始します。 マネージャーが、呼び出し元の状態にする必要があります StartListening メソッドが最初に呼び出された後<> *> または<> *> 指定されたソースから関連するイベントを処理するたびにします。"
   syntax:
     content: protected abstract void StartListening (object source);
     parameters:
     - id: source
       type: System.Object
-      description: "The source to begin listening on."
+      description: "リッスンを開始するソース。"
   overload: System.Windows.WeakEventManager.StartListening*
   exceptions: []
   platform:
@@ -461,13 +461,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "When overridden in a derived class, stops listening on the provided source for the event being managed."
+  summary: "派生クラスでオーバーライドされると、指定されたソース管理されているイベントのリッスンを停止します。"
   syntax:
     content: protected abstract void StopListening (object source);
     parameters:
     - id: source
       type: System.Object
-      description: "The source to stop listening on."
+      description: "リッスンを停止するソース。"
   overload: System.Windows.WeakEventManager.StopListening*
   exceptions: []
   platform:
@@ -484,13 +484,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Establishes a write-lock on the underlying data table, and returns an<xref:System.IDisposable>."
-  remarks: "In derived classes, all modifications to the underlying data table should occur within a `using (WriteLock) { ... }` clause. These modifications may be necessary if your class supports a more sophisticated `AddListener` implementation that requires more data beyond the `source` and the `listener`, and uses the <xref:System.Windows.WeakEventManager.Item%2A> collection to store the extra information."
+  summary: "基になるデータ テーブルに対して書き込みロックを確立し、<xref:System.IDisposable>。</xref:System.IDisposable>を返します"
+  remarks: "派生クラスでは行った変更はすべて、基になるデータ テーブル内で発生する必要があります、`using (WriteLock) { ... }`句。 これらの変更は、クラスがより高度なサポートされている場合に必要な可能性があります`AddListener`を超える複数のデータを必要とする実装、`source`と`listener`を使用して、<xref:System.Windows.WeakEventManager.Item%2A>余分な情報を格納するコレクション</xref:System.Windows.WeakEventManager.Item%2A>。"
   syntax:
     content: protected IDisposable WriteLock { get; }
     return:
       type: System.IDisposable
-      description: "An object that can be used to establish a lock on the data table members and then be appropriately disposed with a <xref uid=&quot;langword_csharp_using&quot; name=&quot;using&quot; href=&quot;&quot;></xref> construct."
+      description: "テーブルのデータ メンバーのロックを確立しで破棄適切に使用できるオブジェクト、 <xref uid=&quot;langword_csharp_using&quot; name=&quot;using&quot; href=&quot;&quot;> </xref>を構築します。"
   overload: System.Windows.WeakEventManager.WriteLock*
   exceptions: []
   platform:

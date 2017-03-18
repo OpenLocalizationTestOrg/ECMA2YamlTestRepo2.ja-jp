@@ -10,8 +10,8 @@ items:
   nameWithType: IApplicationIdentifier
   fullName: System.Runtime.Caching.Hosting.IApplicationIdentifier
   type: Interface
-  summary: "Defines an identifier for application domains that a cache implementation can use to interact with a host environment."
-  remarks: "A [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] host environment such as ASP.NET can use the IApplicationIdentifier interface to define strings that identify individual application domains. The host environment implements the IApplicationIdentifier interface. This interface is then available to <xref:System.Runtime.Caching.ObjectCache> implementations through the <xref:System.Runtime.Caching.ObjectCache.Host%2A> property.       A cache implementation uses this reference to obtain an identifier for the application domain. In ASP.NET, cache implementations use the application identifier to construct identifiers for cache performance counters. This provides names for performance counter instances that can be distinguished between application domains when multiple application domains are running."
+  summary: "キャッシュの実装は、ホスト環境との対話に使用できるアプリケーション ドメインの識別子を定義します。"
+  remarks: "A [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] ASP.NET などのホスト環境は IApplicationIdentifier インターフェイスを使用して、個々 のアプリケーション ドメインを識別する文字列を定義します。 ホスト環境では、IApplicationIdentifier インターフェイスを実装します。 このインターフェイスは、使用できる、<xref:System.Runtime.Caching.ObjectCache>実装を介して、<xref:System.Runtime.Caching.ObjectCache.Host%2A>プロパティ</xref:System.Runtime.Caching.ObjectCache.Host%2A></xref:System.Runtime.Caching.ObjectCache>。       キャッシュ実装では、この参照を使用して、アプリケーション ドメインの識別子を取得します。 ASP.NET では、キャッシュの実装は、キャッシュ パフォーマンス カウンターの識別子を構築するためにアプリケーションの識別子を使用します。 これは、パフォーマンスの名前に、複数のアプリケーション ドメインを実行しているときに、アプリケーション ドメイン間で区別できるカウンターのインスタンスを提供します。"
   syntax:
     content: public interface IApplicationIdentifier
   implements: []
@@ -29,14 +29,14 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching.Hosting
-  summary: "Gets an identifier for an application domain."
-  remarks: "The GetApplicationId method is typically implemented by a [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] host environment in order to construct an application identifier for an <xref:System.Runtime.Caching.ObjectCache> implementation. A <xref:System.Runtime.Caching.ObjectCache> implementation uses this information to identify the application domain that is currently running.       For example, in ASP.NET, the cache uses an application identifier to construct identifiers for cache performance counters. The cache calls the GetApplicationId method that is implemented by the host environment and the host returns the identifier. This provides names for performance counter instances that can be distinguished between application domains when multiple application domains are running."
+  summary: "アプリケーション ドメインの識別子を取得します。"
+  remarks: "GetApplicationId メソッドは通常によって実装され、[!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]ホスト環境のアプリケーション識別子を構築するために、<xref:System.Runtime.Caching.ObjectCache>実装</xref:System.Runtime.Caching.ObjectCache>。 A<xref:System.Runtime.Caching.ObjectCache>実装では、この情報を使用して、現在実行されているアプリケーション ドメインを識別します</xref:System.Runtime.Caching.ObjectCache>。       たとえば、ASP.NET では、キャッシュ識別子を使用してアプリケーション キャッシュ パフォーマンス カウンターの識別子を構築します。 キャッシュは、ホスト環境によって実装されている GetApplicationId メソッドを呼び出して、ホスト、識別子を返します。 これは、パフォーマンスの名前に、複数のアプリケーション ドメインを実行しているときに、アプリケーション ドメイン間で区別できるカウンターのインスタンスを提供します。"
   syntax:
     content: public string GetApplicationId ();
     parameters: []
     return:
       type: System.String
-      description: "A unique identifier for the current application domain."
+      description: "現在のアプリケーション ドメインの一意の識別子。"
   overload: System.Runtime.Caching.Hosting.IApplicationIdentifier.GetApplicationId*
   exceptions: []
   platform:

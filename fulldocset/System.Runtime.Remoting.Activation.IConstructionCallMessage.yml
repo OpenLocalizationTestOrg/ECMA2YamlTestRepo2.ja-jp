@@ -14,8 +14,8 @@ items:
   nameWithType: IConstructionCallMessage
   fullName: System.Runtime.Remoting.Activation.IConstructionCallMessage
   type: Interface
-  summary: "Represents the construction call request of an object."
-  remarks: "When the user creates an instance of a new client-activated object by calling `new` or <xref:System.Activator.CreateInstance%2A?displayProperty=fullName> and before the thread returns to the user code, a IConstructionCallMessage is sent to the remote application. When the construction message arrives at the remote application, it is processed by a remoting activator (either the default one, or one that is specified in the <xref:System.Runtime.Remoting.Activation.IConstructionCallMessage.Activator%2A> property) and a new object is created. The remoting application then returns a <xref:System.Runtime.Remoting.Activation.IConstructionReturnMessage> to the local application. The <xref:System.Runtime.Remoting.Activation.IConstructionReturnMessage> contains an instance of <xref:System.Runtime.Remoting.ObjRef>, which packages information about the remote object. The remoting infrastructure converts the <xref:System.Runtime.Remoting.ObjRef> instance into a proxy to the remote object, which is returned to the user code."
+  summary: "オブジェクトの構築の呼び出しの要求を表します。"
+  remarks: "ユーザーが呼び出すことによって、新しいクライアントでアクティブ化されるオブジェクトのインスタンスを作成するときに`new`または<xref:System.Activator.CreateInstance%2A?displayProperty=fullName>、IConstructionCallMessage がリモート アプリケーションに送信される、スレッドは、ユーザー コードに戻る、前にします</xref:System.Activator.CreateInstance%2A?displayProperty=fullName>。 リモート処理アクティベーターによって処理される、リモート アプリケーションの構築メッセージが到着すると、(1 つ、または&1; つで指定されているか、既定、<xref:System.Runtime.Remoting.Activation.IConstructionCallMessage.Activator%2A>プロパティ) され、新しいオブジェクトを作成します</xref:System.Runtime.Remoting.Activation.IConstructionCallMessage.Activator%2A>。 その後、リモート処理アプリケーションを返します、<xref:System.Runtime.Remoting.Activation.IConstructionReturnMessage>をローカルのアプリケーション</xref:System.Runtime.Remoting.Activation.IConstructionReturnMessage>。 <xref:System.Runtime.Remoting.Activation.IConstructionReturnMessage>のインスタンスが含まれる<xref:System.Runtime.Remoting.ObjRef>、リモート オブジェクトに関する情報をパッケージ化する</xref:System.Runtime.Remoting.ObjRef></xref:System.Runtime.Remoting.Activation.IConstructionReturnMessage>。 リモート処理インフラストラクチャの変換、<xref:System.Runtime.Remoting.ObjRef>インスタンスをユーザー コードに返される、リモート オブジェクトへのプロキシにします</xref:System.Runtime.Remoting.ObjRef>。"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -37,17 +37,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Activation
-  summary: "Gets the type of the remote object to activate."
+  summary: "アクティブにするリモート オブジェクトの種類を取得します。"
   syntax:
     content: public Type ActivationType { get; }
     return:
       type: System.Type
-      description: "The type of the remote object to activate."
+      description: "アクティブにするリモート オブジェクトの型。"
   overload: System.Runtime.Remoting.Activation.IConstructionCallMessage.ActivationType*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "直前の呼び出し元には、インフラストラクチャのアクセス許可がありません。"
   platform:
   - net462
 - uid: System.Runtime.Remoting.Activation.IConstructionCallMessage.ActivationTypeName
@@ -62,17 +62,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Activation
-  summary: "Gets the full type name of the remote type to activate."
+  summary: "リモート アクティブ化する型の完全な型名を取得します。"
   syntax:
     content: public string ActivationTypeName { get; }
     return:
       type: System.String
-      description: "The full type name of the remote type to activate."
+      description: "リモート アクティブ化する型の完全な型名。"
   overload: System.Runtime.Remoting.Activation.IConstructionCallMessage.ActivationTypeName*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "直前の呼び出し元には、インフラストラクチャのアクセス許可がありません。"
   platform:
   - net462
 - uid: System.Runtime.Remoting.Activation.IConstructionCallMessage.Activator
@@ -87,18 +87,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Activation
-  summary: "Gets or sets the activator that activates the remote object."
-  remarks: "A chain of activators that are arranged in a hierarchy typically completes the various tasks that are involved in the activation process. If you intend to plug in a custom activator, then you should traverse the activator hierarchy and plug in your activator at the appropriate location. Use the <xref:System.Runtime.Remoting.Activation.IActivator.NextActivator%2A?displayProperty=fullName> property on the activator that is returned by the current property to traverse the chain of activators.       If you add your own activator into the message&quot;s activator chain on the client side, the activator may be serialized and transported to the server side, if deemed necessary. For this reason, custom activators should be fairly lightweight in terms of serialization requirements."
+  summary: "取得またはリモート オブジェクトをアクティブにするアクティベーターを設定します。"
+  remarks: "通常、階層内に配置されているアクティベーターのチェーンは、ライセンス認証プロセスに関連するさまざまなタスクを完了します。 カスタムのアクティベーターを接続する場合は、必要がありますアクティベーター階層を走査し、適切な場所に、アクティベータを接続します。 使用して、<xref:System.Runtime.Remoting.Activation.IActivator.NextActivator%2A?displayProperty=fullName>アクティベーター アクティベーターのチェーンをスキャンする現在のプロパティによって返されるプロパティ</xref:System.Runtime.Remoting.Activation.IActivator.NextActivator%2A?displayProperty=fullName>。       クライアント側でメッセージのアクティベーター チェーンに独自のアクティベーターを追加する場合、アクティベーターをシリアル化および必要と判断した場合に、サーバー側に転送される可能性があります。 このため、カスタムのアクティベーターをシリアル化の要件の観点で非常に軽量なにする必要があります。"
   syntax:
     content: public System.Runtime.Remoting.Activation.IActivator Activator { get; set; }
     return:
       type: System.Runtime.Remoting.Activation.IActivator
-      description: "The activator that activates the remote object."
+      description: "リモート オブジェクトをアクティブにするアクティベーター。"
   overload: System.Runtime.Remoting.Activation.IConstructionCallMessage.Activator*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "直前の呼び出し元には、インフラストラクチャのアクセス許可がありません。"
   platform:
   - net462
 - uid: System.Runtime.Remoting.Activation.IConstructionCallMessage.CallSiteActivationAttributes
@@ -113,18 +113,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Activation
-  summary: "Gets the call site activation attributes."
-  remarks: "The CallSiteActivationAttributes indexer allows you to specify additional attributes to use during object activation. The user specifies the CallSiteActivationAttributes in the `activationAttributes` parameter to <xref:System.Activator.CreateInstance%2A?displayProperty=fullName>."
+  summary: "呼び出しサイト アクティベーション属性を取得します。"
+  remarks: "CallSiteActivationAttributes インデクサーでは、オブジェクトのアクティブ化時に使用する追加の属性を指定することができます。 ユーザー指定の CallSiteActivationAttributes、 `activationAttributes` <xref:System.Activator.CreateInstance%2A?displayProperty=fullName></xref:System.Activator.CreateInstance%2A?displayProperty=fullName>パラメーター。"
   syntax:
     content: public object[] CallSiteActivationAttributes { get; }
     return:
       type: System.Object[]
-      description: "The call site activation attributes."
+      description: "呼び出しサイトのアクティブ化属性。"
   overload: System.Runtime.Remoting.Activation.IConstructionCallMessage.CallSiteActivationAttributes*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "直前の呼び出し元には、インフラストラクチャのアクセス許可がありません。"
   platform:
   - net462
 - uid: System.Runtime.Remoting.Activation.IConstructionCallMessage.ContextProperties
@@ -139,18 +139,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Activation
-  summary: "Gets a list of context properties that define the context in which the object is to be created."
-  remarks: "A new object&quot;s context is generally chosen based on metadata attributes of the class. The context selection mechanism is extensible through custom attributes, also known as static context properties, which are compiled into the class metadata. When activating an object remotely, the ContextProperties contains the list of properties that were contributed by various attributes in the construction call message. These properties are used to create the context in which the server object is activated."
+  summary: "オブジェクトが作成されるコンテキストを定義するコンテキスト プロパティの一覧を取得します。"
+  remarks: "新しいオブジェクトのコンテキストは、通常、クラスのメタデータ属性に基づいてが選択されます。 コンテキストの選択のメカニズムは、クラスのメタデータにコンパイルされる静的コンテキスト プロパティとも呼ばれるカスタム属性によって拡張できます。 オブジェクトをリモートでアクティブ化するには、ときに、ContextProperties には、コンストラクション呼び出しメッセージ内のさまざまな属性によって提供されたプロパティの一覧が含まれています。 これらのプロパティは、サーバー オブジェクトがアクティブであるコンテキストの作成に使用されます。"
   syntax:
     content: public System.Collections.IList ContextProperties { get; }
     return:
       type: System.Collections.IList
-      description: "A list of properties of the context in which to construct the object."
+      description: "オブジェクトを構築するためのコンテキストのプロパティの一覧です。"
   overload: System.Runtime.Remoting.Activation.IConstructionCallMessage.ContextProperties*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "直前の呼び出し元には、インフラストラクチャのアクセス許可がありません。"
   platform:
   - net462
 references:

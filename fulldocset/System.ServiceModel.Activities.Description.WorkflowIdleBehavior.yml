@@ -15,8 +15,8 @@ items:
   nameWithType: WorkflowIdleBehavior
   fullName: System.ServiceModel.Activities.Description.WorkflowIdleBehavior
   type: Class
-  summary: "A service behavior that controls when idle workflow instances are unloaded and persisted."
-  remarks: "> [!IMPORTANT] >  When <xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToUnload%2A> is set to a value greater than the value of <xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToPersist%2A> and the workflow then goes idle (because of a Delay activity) if the workflow instance has not changed it will be removed from memory by calling Abort, rather than going through the normal unloading process.. This is a runtime optimization and no data is lost, but a developer looking at trace log may see an Abort trace when expecting an Unload trace.       For an example of how to use this behavior see [Workflow Service Host Extensibility](~/add/includes/ajax-current-ext-md.md)"
+  summary: "アイドル状態のワークフロー インスタンスのアンロードおよび永続化を制御するサービスの動作です。"
+  remarks: "> [!IMPORTANT]> ときに<xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToUnload%2A><xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToPersist%2A>、ワークフロー、アイドル状態になった (アクティビティがあるため、遅延)、ワークフロー インスタンスが変更されていない場合は、通常のアンロード プロセス.. を通過するのではなく、中止を呼び出すことによってメモリから削除し</xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToPersist%2A>の値より大きい値に設定されています。</xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToUnload%2A> これは、ランタイムの最適化とデータは、失われていませんがトレース ログを見て、開発者可能性があります中止トレースするアンロード トレースを指定してください。       この動作を使用する方法の例については、次を参照してください[ワークフロー サービス ホストの拡張機能。](~/add/includes/ajax-current-ext-md.md)"
   syntax:
     content: 'public class WorkflowIdleBehavior : System.ServiceModel.Description.IServiceBehavior'
   inheritance:
@@ -38,7 +38,7 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities.Description
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Activities.Description.WorkflowIdleBehavior&quot;></xref>."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ServiceModel.Activities.Description.WorkflowIdleBehavior&quot;></xref>です。"
   syntax:
     content: public WorkflowIdleBehavior ();
     parameters: []
@@ -58,22 +58,22 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities.Description
-  summary: "Implements the &lt;xref:System.ServiceModel.Description.IServiceBehavior.AddBindingParameters%2A?displayProperty=fullName&gt; method."
+  summary: "実装して、 &lt;xref:System.ServiceModel.Description.IServiceBehavior.AddBindingParameters%2A?displayProperty=fullName&gt;メソッドです。"
   syntax:
     content: public void AddBindingParameters (System.ServiceModel.Description.ServiceDescription serviceDescription, System.ServiceModel.ServiceHostBase serviceHostBase, System.Collections.ObjectModel.Collection<System.ServiceModel.Description.ServiceEndpoint> endpoints, System.ServiceModel.Channels.BindingParameterCollection bindingParameters);
     parameters:
     - id: serviceDescription
       type: System.ServiceModel.Description.ServiceDescription
-      description: "The service description."
+      description: "サービスの説明。"
     - id: serviceHostBase
       type: System.ServiceModel.ServiceHostBase
-      description: "The service host."
+      description: "サービス ホスト。"
     - id: endpoints
       type: System.Collections.ObjectModel.Collection{System.ServiceModel.Description.ServiceEndpoint}
-      description: "The endpoints exposed by the service."
+      description: "サービスによって公開されるエンドポイント。"
     - id: bindingParameters
       type: System.ServiceModel.Channels.BindingParameterCollection
-      description: "The binding parameters required to implement the behavior."
+      description: "動作を実装するために必要なバインディング パラメーター。"
   overload: System.ServiceModel.Activities.Description.WorkflowIdleBehavior.AddBindingParameters*
   exceptions: []
   platform:
@@ -90,16 +90,16 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities.Description
-  summary: "Implements the &lt;xref:System.ServiceModel.Description.IServiceBehavior.ApplyDispatchBehavior%2A?displayProperty=fullName&gt; method."
+  summary: "実装して、 &lt;xref:System.ServiceModel.Description.IServiceBehavior.ApplyDispatchBehavior%2A?displayProperty=fullName&gt;メソッドです。"
   syntax:
     content: public void ApplyDispatchBehavior (System.ServiceModel.Description.ServiceDescription serviceDescription, System.ServiceModel.ServiceHostBase serviceHostBase);
     parameters:
     - id: serviceDescription
       type: System.ServiceModel.Description.ServiceDescription
-      description: "The service description."
+      description: "サービスの説明。"
     - id: serviceHostBase
       type: System.ServiceModel.ServiceHostBase
-      description: "The service host."
+      description: "サービス ホスト。"
   overload: System.ServiceModel.Activities.Description.WorkflowIdleBehavior.ApplyDispatchBehavior*
   exceptions: []
   platform:
@@ -116,13 +116,13 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities.Description
-  summary: "Gets or sets a value that specifies the <xref:System.TimeSpan> that occurs between the time the workflow becomes idle and is persisted."
-  remarks: "The <xref:System.TimeSpan> begins to elapse when the workflow instance becomes idle. This property is useful if you want to persist a workflow instance more aggressively while still keeping the instance in memory for as long as possible. The default value for this property is <xref:System.TimeSpan>. The TimeToPersist property is only valid if its value is less than <xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToUnload%2A>. If it is greater, it is ignored. If the <xref:System.TimeSpan> specified by TimeToPersist elapses before the <xref:System.TimeSpan> specified by <xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToUnload%2A>, persistence must complete before the workflow is unloaded. This implies that the unload operation may be delayed until the workflow is persisted. The persistence layer is responsible for handling any retries for transient errors and only throws exceptions on non-recoverable errors. Therefore, any exceptions thrown during persistence are treated as fatal and the workflow instance is aborted."
+  summary: "取得または設定を指定する値、<xref:System.TimeSpan>ワークフローがアイドル状態になりが永続化されるまでの間に発生する</xref:System.TimeSpan>。"
+  remarks: "<xref:System.TimeSpan>ワークフロー インスタンスがアイドル状態になったときに経過時間を開始します</xref:System.TimeSpan>。 このプロパティはできるだけ長く用のメモリ内インスタンスも保持しながら、ワークフロー インスタンスをより積極的に永続化する場合に便利です。 このプロパティの既定値は<xref:System.TimeSpan>。</xref:System.TimeSpan> TimeToPersist プロパティが有効なは、その値が<xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToUnload%2A>。</xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToUnload%2A>より小さい場合のみ 大きい値である場合は無視されます。 場合、 <xref:System.TimeSpan>TimeToPersist 経過する前に、指定された、<xref:System.TimeSpan>によって指定された<xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToUnload%2A>、ワークフローが読み込まれる前に、永続化を完了する必要があります</xref:System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToUnload%2A></xref:System.TimeSpan></xref:System.TimeSpan>。 つまり、ワークフローが永続化されるまで、アンロード操作を遅れる可能性があります。 永続レイヤーは、一時的なエラーの再試行処理を担当するのみで回復できないエラー例外をスローします。 そのため、保存中にスローされる例外と致命的な扱われ、ワークフロー インスタンスが中止されました。"
   syntax:
     content: public TimeSpan TimeToPersist { get; set; }
     return:
       type: System.TimeSpan
-      description: "The time span used to determine when a workflow is persisted."
+      description: "ワークフローが永続化されるときを判断するために使用する時間間隔です。"
   overload: System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToPersist*
   exceptions: []
   platform:
@@ -139,13 +139,13 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities.Description
-  summary: "Gets or sets a value that specifies the <xref:System.TimeSpan> that occurs between the time workflow becomes idle and is unloaded."
-  remarks: "The default value is 1 minute. Unloading a workflow implies that it is also persisted. If TimeToUnload is set to zero the workflow instance is persisted and unloaded immediately after the workflow becomes idle. Setting TimeToUnload to <xref:System.TimeSpan> effectively disables the unload operation. Idle workflow instances are never unloaded."
+  summary: "取得または設定を指定する値、<xref:System.TimeSpan>ワークフローがアイドル状態になったからアンロードされるまでの間に発生する</xref:System.TimeSpan>。"
+  remarks: "既定値は、1 分です。 ワークフローのアンロードがも保存されることを意味します。 TimeToUnload が、ワークフロー インスタンスが永続化し、アンロードした直後にゼロに設定されている場合、ワークフローはアイドル状態になります。 TimeToUnload に設定<xref:System.TimeSpan>アンロード操作が実質的に無効になります</xref:System.TimeSpan>。 アイドル状態のワークフロー インスタンスはアンロードされません。"
   syntax:
     content: public TimeSpan TimeToUnload { get; set; }
     return:
       type: System.TimeSpan
-      description: "The time span used to determine when a workflow is unloaded."
+      description: "ワークフローが読み込まれた場合を判断するために使用する時間間隔です。"
   overload: System.ServiceModel.Activities.Description.WorkflowIdleBehavior.TimeToUnload*
   exceptions: []
   platform:
@@ -162,16 +162,16 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities.Description
-  summary: "Implements the &lt;xref:System.ServiceModel.Description.IServiceBehavior.Validate%2A?displayProperty=fullName&gt; method."
+  summary: "実装して、 &lt;xref:System.ServiceModel.Description.IServiceBehavior.Validate%2A?displayProperty=fullName&gt;メソッドです。"
   syntax:
     content: public void Validate (System.ServiceModel.Description.ServiceDescription serviceDescription, System.ServiceModel.ServiceHostBase serviceHostBase);
     parameters:
     - id: serviceDescription
       type: System.ServiceModel.Description.ServiceDescription
-      description: "The service description."
+      description: "サービスの説明。"
     - id: serviceHostBase
       type: System.ServiceModel.ServiceHostBase
-      description: "The service host."
+      description: "サービス ホスト。"
   overload: System.ServiceModel.Activities.Description.WorkflowIdleBehavior.Validate*
   exceptions: []
   platform:

@@ -34,8 +34,8 @@ items:
   nameWithType: BasicDesignerLoader
   fullName: System.ComponentModel.Design.Serialization.BasicDesignerLoader
   type: Class
-  summary: "Provides an implementation of the <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderService&quot;></xref> interface."
-  remarks: "A BasicDesignerLoader is a complete implementation of a designer loader without anything relating to a persistence format. A BasicDesignerLoader does not dictate either a text or binary persistence, but it does support the following features:      -   Multiple load dependencies.      -   Tracking changes within the designer.      -   Deferred idle-time reloading.       A BasicDesignerLoader adds two kinds of services to the designer host’s service container: replaceable services and irreplaceable services. You can replace a replaceable service by changing the value of the protected <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.LoaderHost%2A> property. You cannot replace irreplaceable services because their implementations depend on each other.       The following table describes the services that are provided by default.      |Default Service|Description|   |---------------------|-----------------|   |<xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>|Allows objects to request that the designer reload itself when it is idle. This is a replaceable service.|   |<xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager>|Used to serialize and deserialize objects. The serialization manager is added as a service so objects that need to perform serialization can utilize any serialization providers that were added to the serialization manager. This is an irreplaceable service.|"
+  summary: "実装を提供、 <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderService&quot;> </xref>インターフェイスです。"
+  remarks: "BasicDesignerLoader は、何も保存形式に関連するデザイナー ローダーの完全な実装です。 テキストまたはバイナリの永続化、BasicDesignerLoader は定められていませんが、次の機能をサポートして: - 複数の依存関係を読み込めません。      デザイナー内での変更を追跡します。      アイドル時間の再読み込み遅延します。       BasicDesignerLoader デザイナー ホストのサービス コンテナーに&2; つの種類のサービスを追加します: 置き換え可能サービスと置き換えることができないサービス。 置き換え可能なサービスを置換するには、保護対象の値を変更することによって<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.LoaderHost%2A>プロパティ</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.LoaderHost%2A>。 実装が互いに依存しているために、置き換えることができないサービスを置き換えることはできません。       次の表では、既定で提供されるサービスについて説明します。      |既定のサービス |説明 |  |---------------------|-----------------|  |<xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>|オブジェクトをデザイナーを再読み込み自体アイドル状態のときに要求することができます</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>。 置き換え可能なサービスです |。  |<xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager>|およびオブジェクトを逆シリアル化するために使用します</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager>。 シリアル化マネージャーは、シリアル化を実行する必要があるオブジェクトがシリアル化マネージャーに追加された任意のシリアル化プロバイダーを使用できるように、サービスとして追加されます。 これは、置き換えることができないサービスです |。"
   syntax:
     content: >-
       [System.Security.SecurityCritical]
@@ -61,7 +61,7 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.Serialization.BasicDesignerLoader&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ComponentModel.Design.Serialization.BasicDesignerLoader&quot;> </xref>クラスです。"
   syntax:
     content: protected BasicDesignerLoader ();
     parameters: []
@@ -81,25 +81,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Starts the loading process."
-  remarks: "This is an implementation of the abstract <xref:System.ComponentModel.Design.Serialization.DesignerLoader.BeginLoad%2A?displayProperty=fullName> method. You do not need to override this method in your own class. The BeginLoad method performs the following actions:      -   It verifies that the design surface has not already loaded.      -   On the first call, it adds relevant services and calls the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Initialize%2A> method.      -   It calls the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A>, and <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A> methods.       If the designer loader service has not been removed from the service container, BeginLoad will call the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A> and <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A> methods instead of the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A> and <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A> methods. In this situation, it is the responsibility of the designer loader service to call <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A> and <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A>."
+  summary: "読み込みプロセスを開始します。"
+  remarks: "これは、抽象の実装<xref:System.ComponentModel.Design.Serialization.DesignerLoader.BeginLoad%2A?displayProperty=fullName>メソッド</xref:System.ComponentModel.Design.Serialization.DesignerLoader.BeginLoad%2A?displayProperty=fullName>。 独自のクラスには、このメソッドをオーバーライドする必要はありません。 BeginLoad メソッドは、次の操作を実行します:-デザイン サーフェイスは既に読み込まれていないことを確認します。      最初の呼び出しでは、関連するサービスとの呼び出しが追加されます、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Initialize%2A>メソッド</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Initialize%2A>。      呼び出し、 <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>、 <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A>、および<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A>メソッド</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>。       デザイナー ローダー サービスがサービス コンテナーから削除されていない BeginLoad が呼び出され、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A>と<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A>メソッドの代わりに、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>と<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A>メソッド</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A>。 このような状況でを呼び出す<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>と<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A>。</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>デザイナー ローダー サービスの責任"
   syntax:
     content: public override void BeginLoad (System.ComponentModel.Design.Serialization.IDesignerLoaderHost host);
     parameters:
     - id: host
       type: System.ComponentModel.Design.Serialization.IDesignerLoaderHost
-      description: "The designer loader host to load."
+      description: "読み込むデザイナー ローダー ホストします。"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>host</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>host</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The designer is already loaded, or BeginLoad has been called with a different designer loader host."
+    description: "デザイナーは既に読み込まれて、または別のデザイナー ローダー ホストで BeginLoad が呼び出されました。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "<code>host</code> has been disposed."
+    description: "<code>host</code>破棄されました。"
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.Dispose
@@ -114,8 +114,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Releases the resources used by the <xref href=&quot;System.ComponentModel.Design.Serialization.BasicDesignerLoader&quot;></xref>."
-  remarks: "Calling the Dispose method does not flush changes to the designer loader. If you want changes to be saved, call <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> before calling Dispose.       Call Dispose when you are finished using the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>. The Dispose method leaves the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> in an unusable state. After calling Dispose, you must release all references to the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> so the garbage collector can reclaim the memory that the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> was occupying. For more information, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md) and [Implementing a Dispose Method](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  Always call Dispose before you release your last reference to the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>. Otherwise, the resources it is using will not be freed until the garbage collector calls the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> object&quot;s `Finalize` method."
+  summary: "によって使用されるリソースを解放、 <xref href=&quot;System.ComponentModel.Design.Serialization.BasicDesignerLoader&quot;></xref>です。"
+  remarks: "Dispose メソッドを呼び出すことも、変更はデザイナー ローダーにフラッシュしません。 変更を保存する場合は、呼び出す<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A>Dispose を呼び出す前にします</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A>。       <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>。</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>の使用が終了したときに、Dispose を呼び出す Dispose メソッドは、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>使用不可の状態</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>。 Dispose を呼び出した後は、すべての参照を解放する必要があります、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>ガベージ コレクターがメモリを再利用できるようにする、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>占有されていた</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>。 詳細については、次を参照してください。[アンマネージ リソースのクリーンアップ](~/add/includes/ajax-current-ext-md.md)と[Dispose メソッドの実装](~/add/includes/ajax-current-ext-md.md)です。      > [!NOTE] ><xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>の最後の参照を解放する前に常に呼び出しが破棄。 それ以外の場合、使用されているリソースは解放されませんガベージ コレクター呼び出すまで、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>オブジェクトの`Finalize`メソッド</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>。"
   syntax:
     content: public override void Dispose ();
     parameters: []
@@ -135,16 +135,16 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Enables or disables component notification with the <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerLoader&quot;></xref>."
+  summary: "有効または無効にコンポーネントを使用した通知、 <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerLoader&quot;></xref>です。"
   syntax:
     content: protected virtual bool EnableComponentNotification (bool enable);
     parameters:
     - id: enable
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to enable component notification by the <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerLoader&quot;></xref>; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to disable component notification by the <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerLoader&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>によってコンポーネントの通知を有効にする、 <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerLoader&quot;></xref>です。<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>によってコンポーネントの通知を無効にする、 <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerLoader&quot;></xref>です。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the component notification was enabled prior to this call; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>この呼び出しの前にコンポーネントの通知が有効になっている場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.EnableComponentNotification*
   exceptions: []
   platform:
@@ -161,8 +161,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Flushes pending changes to the designer loader."
-  remarks: "If the designer loader has not been loaded or has not been marked as modified, the Flush method returns immediately. Otherwise, Flush asks the serialization manager to create a serialization session and then calls <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A>."
+  summary: "保留中の変更、デザイナー ローダーをフラッシュします。"
+  remarks: "デザイナー ローダーは読み込まれていませんか変更済みとしてマークされていない、すぐには Flush メソッドを返します。 それ以外の場合、フラッシュをシリアル化セッションを作成するシリアル化マネージャーを確認してから<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A>。</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A>"
   syntax:
     content: public override void Flush ();
     parameters: []
@@ -182,17 +182,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the requested service."
-  remarks: "GetService is a helper method that allows classes deriving from <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> to access services offered by the designer loader host."
+  summary: "要求されたサービスを取得します。"
+  remarks: "派生するクラスを許可するヘルパー メソッドは、GetService<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>デザイナー ローダー ホストによって提供されるサービスへのアクセス</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>。"
   syntax:
     content: protected object GetService (Type serviceType);
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The <xref:System.Type> of the service."
+      description: "<xref:System.Type>サービス</xref:System.Type>。"
     return:
       type: System.Object
-      description: "The requested service, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the requested service cannot be found."
+      description: "要求したサービスまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>要求されたサービスが見つからない場合。"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.GetService*
   exceptions: []
   platform:
@@ -209,8 +209,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Initializes services."
-  remarks: "The Initialize method is called the first time <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> is invoked. You can add any services necessary to the designer loader host at this time. The base implementation adds services that <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> provides, so after calling the base implementation you may replace existing services. You must remove any custom services you add here by overriding <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Dispose%2A>."
+  summary: "サービスを初期化します。"
+  remarks: "Initialize メソッドが初めて<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>が呼び出されます</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>。 この時点でデザイナー ローダー ホストに必要なサービスを追加することができます。 基底の実装に追加されるサービスは、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>を提供するため、基底の実装を呼び出した後は、既存のサービスを置き換えることができます</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>。 ここで<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Dispose%2A>。</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Dispose%2A>をオーバーライドすることで追加するカスタム サービスを削除する必要があります。"
   syntax:
     content: protected virtual void Initialize ();
     parameters: []
@@ -218,10 +218,10 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has not been initialized."
+    description: "<xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref>が初期化されていません。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref>は破棄されました。"
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.IsReloadNeeded
@@ -236,14 +236,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Indicates whether the designer should be reloaded."
-  remarks: "The IsReloadNeeded method is used by some designer loaders to optimize reloading. This method can be overridden if your designer loader supports intelligent reloading. Some designer loaders can detect changes made to their underlying document and determine if a reload of the designer is actually necessary. If not, they should return `false` from this method. The default implementation always returns `true`, indicating that any call to <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload%2A> will succeed."
+  summary: "デザイナーを再読み込みするかどうかを示します。"
+  remarks: "IsReloadNeeded メソッドは、再読み込みを最適化するために一部のデザイナー ローダーによって使用されます。 デザイナー ローダーは、インテリジェントな再読み込みをサポートしている場合、このメソッドをオーバーライドできます。 一部のデザイナー ローダーでは、その基になるドキュメントに加えられた変更を検出でき、デザイナーの再読み込みが実際に必要なかどうかを判断することができます。 返す必要がありますが、場合`false`このメソッドからです。 既定の実装を常に返します`true`、すべての呼び出しにことを示す<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload%2A>は成功します</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload%2A>。"
   syntax:
     content: protected virtual bool IsReloadNeeded ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the designer should be reloaded; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default implementation always returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、デザイナーを再読み込みする必要があります。それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。 既定の実装を常に返します<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>です。"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.IsReloadNeeded*
   exceptions: []
   platform:
@@ -260,21 +260,21 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the loader host."
-  remarks: "This method returns the loader host that was given to this designer loader. This can be `null` if <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> has not been called yet, or if this designer loader has been disposed."
+  summary: "ローダーのホストを取得します。"
+  remarks: "このメソッドは、このデザイナー ローダーに指定されたローダー ホストを返します。 これは、`null`場合<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>がまだ呼び出されていないか、このデザイナー ローダーが破棄されている場合</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>。"
   syntax:
     content: protected System.ComponentModel.Design.Serialization.IDesignerLoaderHost LoaderHost { get; }
     return:
       type: System.ComponentModel.Design.Serialization.IDesignerLoaderHost
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> that was passed to the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad*> method."
+      description: "<xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref>に渡された、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad*>メソッド</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad*>。"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.LoaderHost*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has not been initialized."
+    description: "<xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref>が初期化されていません。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref>は破棄されました。"
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.Loading
@@ -289,13 +289,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a value indicating whether the designer loader is loading the design surface."
-  remarks: "The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> class provides the <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>, which supports load dependencies. This property takes load dependencies into account and will return `true` if there are any outstanding load dependencies."
+  summary: "デザイナー ローダーがデザイン サーフェイスを読み込んでいるかどうかを示す値を取得します。"
+  remarks: "<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>クラスを提供、 <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>、負荷の依存関係をサポートします</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>。 このプロパティでは、戻り値のアカウントとは、読み込みの依存関係が受け取る`true`保留状態の読み込みの依存関係がある場合。"
   syntax:
     content: public override bool Loading { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the designer loader is currently loading the design surface; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>デザイナー ローダーは現在、デザイン サーフェイスを読み込んでいる場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.Loading*
   exceptions: []
   platform:
@@ -312,13 +312,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets or sets a value indicating whether the designer has been modified."
-  remarks: "Determines if the designer loader has detected that the designer has been modified. If this property is `true` when the designer loader’s <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> method is called, the designer loader will call the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A> method."
+  summary: "取得またはデザイナーが変更されたかどうかを示す値を設定します。"
+  remarks: "デザイナー ローダーが、デザイナーが変更されたことを検出したかどうかを判断します。 場合は、このプロパティは`true`ときに、デザイナー ローダーの<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A>メソッドが呼び出されると、デザイナー ローダーが呼び出す、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A>メソッド</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A>。"
   syntax:
     content: protected virtual bool Modified { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the designer has been modified; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>,"
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>デザイナーが変更された場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>、"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.Modified*
   exceptions: []
   platform:
@@ -335,8 +335,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Notifies the designer loader that loading is about to begin."
-  remarks: "The OnBeginLoad method is invoked to start the loading process. You should perform any necessary initialization for loading at this time. This method should not be used to perform the actual load. The default implementation disables change notifications and sets up the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> for loading.       If you implement <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> to provide dependent load support, you should call OnBeginLoad when the first dependent load occurs. Call the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A> method after the last call to the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A> method. By default, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> implements <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> and does this for you. If <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> is not available when <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> is called, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> will directly call OnBeginLoad.       If you provide your own loader service, or if you choose not to provide a loader service, you are responsible for calling this method. The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> method will automatically call this, either indirectly by calling <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A> if <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> is available, or directly if it is not."
+  summary: "読み込みが開始することをデザイナー ローダーに通知します。"
+  remarks: "OnBeginLoad メソッドは、読み込みプロセスを開始します。 この時点で、読み込みに必要な初期化を行う必要があります。 このメソッドは、実際の読み込みを実行するは使用できません。 既定の実装は、変更通知を無効にし、設定、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>読み込み</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>。       実装する場合<xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>依存読み込みをサポートするには、最初の依存の読み込みが発生すると、OnBeginLoad を呼び出す必要があります</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>。 呼び出す、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A>メソッドを最後に呼び出した後、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A>メソッド</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A>。 既定では、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>実装<xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>このと</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>。 場合<xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>場合は使用できません<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>が呼び出されると、 <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>OnBeginLoad を直接呼び出す</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A></xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>。       独自のローダー サービスを提供する場合、またはローダーのサービス提供にしない場合は、ユーザーは、このメソッドを呼び出す担当します。 <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>メソッドで自動的に呼び出すこのいずれかの呼び出しによって直接は<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A>場合<xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>が利用可能なまたは直接されていない場合</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>。"
   syntax:
     content: protected virtual void OnBeginLoad ();
     parameters: []
@@ -356,8 +356,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Notifies the designer loader that unloading is about to begin."
-  remarks: "The OnBeginUnload method is invoked when the designer loader is about to unload the document.       The document may be unloaded in preparation for reloading, or if the document failed to load. If you added document-specific services in <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A> or <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A>, remove them here."
+  summary: "デザイナー ローダーをアンロード通知を開始しようとします。"
+  remarks: "デザイナー ローダーは、ドキュメントをアンロードするときに、OnBeginUnload メソッドが呼び出されます。       ドキュメントを準備するため、再読み込みするためにアンロードされる可能性がありますか、ドキュメントの読み込みに失敗しました。 ドキュメントに固有のサービスを追加した場合は<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>または<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A>、ここでそれらを削除します</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>。"
   syntax:
     content: protected virtual void OnBeginUnload ();
     parameters: []
@@ -377,25 +377,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Notifies the designer loader that loading is complete."
-  remarks: "The OnEndLoad method is invoked when loading is finished. It is always called, even if an exception is thrown during loading. The value of `successful` will be set to `true` if the load succeeded, or `false` if a fatal error occurred. The `errors` collection will contain objects that were reported as errors. Usually, these objects are exceptions.       If you implement <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> to provide dependent load support, you should call the OnEndLoad method after the last call to the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A> method. By default, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> implements <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> and does this for you. If <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> is not available when <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> is called, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> will directly call OnEndLoad after calling <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A>.       This method should be called by the designer loader service when all dependent loads have been completed.  This stops the loading process that was initiated by the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> method. If you provide your own loader service, or if you choose not to provide a loader service, you are responsible for calling this method. The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> method will automatically call this, either indirectly by calling the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A> method if <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> is available, or directly if it is not."
+  summary: "読み込みが完了したことをデザイナー ローダーに通知します。"
+  remarks: "読み込みが完了すると、OnEndLoad メソッドが呼び出されます。 常に呼び出されます、場合でも、読み込み中に例外がスローされます。 値`successful`に設定されます`true`、読み込みが成功した場合または`false`致命的なエラーが発生した場合。 `errors`コレクションには、エラーとして報告されたオブジェクトにが含まれます。 通常、これらのオブジェクトは例外です。       実装する場合<xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>依存読み込みのサポートを提供するには、最後の呼び出し後 OnEndLoad メソッドを呼び出す必要があります、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A>メソッド</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A></xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>。 既定では、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>実装<xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>このと</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>。 場合<xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>場合は使用できません<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>が呼び出されると、 <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A>.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A>を呼び出した後 OnEndLoad を直接呼び出す</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A></xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>       このメソッドは、依存するすべての読み込みが完了したときに、デザイナー ローダー サービスによって呼び出さ必要があります。  これによって、読み込みプロセスによって開始された、停止、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>メソッド</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>。 独自のローダー サービスを提供する場合、またはローダーのサービス提供にしない場合は、ユーザーは、このメソッドを呼び出す担当します。 <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>メソッドが自動的に呼び出さこれには、いずれかの呼び出しによって直接、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A>メソッド場合<xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>が利用可能なまたは直接されていない場合</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A></xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>。"
   syntax:
     content: protected virtual void OnEndLoad (bool successful, System.Collections.ICollection errors);
     parameters:
     - id: successful
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the load completed successfully; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>負荷が正常に完了した場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
     - id: errors
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> containing objects (usually exceptions) that were reported as errors."
+      description: "<xref:System.Collections.ICollection>エラーとして報告されたオブジェクト (通常は例外) を含むします</xref:System.Collections.ICollection>。"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has not been initialized."
+    description: "<xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref>が初期化されていません。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref>は破棄されました。"
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnModifying
@@ -410,8 +410,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Notifies the designer loader that the state of the document is about to be modified."
-  remarks: "The OnModifying method is called in response to a component changing, adding, or removing event which indicates that the designer is about to be modified. You can implement source code control by overriding this method. A call to OnModifying does not mean that the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Modified%2A> property will later be set to `true`; it merely indicates an intention to do so."
+  summary: "ドキュメントの状態が変更されようとしてあるデザイナー ローダーに通知します。"
+  remarks: "変更しようとしていますが、デザイナーにあることを示すイベントを削除または追加すると、コンポーネントの変更に応答 OnModifying メソッドが呼び出されます。 ソース コード管理を実装するには、このメソッドをオーバーライドします。 OnModifying への呼び出しがあることを意味、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Modified%2A>プロパティに後で設定する`true`;、単に示すに</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Modified%2A>"
   syntax:
     content: protected virtual void OnModifying ();
     parameters: []
@@ -431,14 +431,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Flushes all changes to the designer."
-  remarks: "The PerformFlush method is invoked when the designer loader needs to flush to persistence any changes made to the designers. It is invoked in response to a call to the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> method."
+  summary: "デザイナーには、すべての変更をフラッシュします。"
+  remarks: "デザイナー ローダーは、デザイナーに加えられた変更を永続化にフラッシュする必要がある場合、PerformFlush メソッドが呼び出されます。 呼び出しに応答でメソッドが呼び出された、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A>メソッド</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A>。"
   syntax:
     content: protected abstract void PerformFlush (System.ComponentModel.Design.Serialization.IDesignerSerializationManager serializationManager);
     parameters:
     - id: serializationManager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "An <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for persisting the state of loaded designers."
+      description: "<xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref>読み込むデザイナーの状態を永続化するのに使用します。"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush*
   exceptions: []
   platform:
@@ -455,14 +455,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Loads a designer from persistence."
-  remarks: "The PerformLoad method is invoked when the designer loader needs to load its state. PerformLoad is called before the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A> method. You must implement this method to load the designer contents."
+  summary: "永続化ストアから、デザイナーを読み込みます。"
+  remarks: "デザイナー ローダーは、その状態を読み込む必要がある場合、PerformLoad メソッドが呼び出されます。 PerformLoad が前に呼び出されます、<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>メソッド</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>。 デザイナーの内容を読み込むには、このメソッドを実装する必要があります。"
   syntax:
     content: protected abstract void PerformLoad (System.ComponentModel.Design.Serialization.IDesignerSerializationManager serializationManager);
     parameters:
     - id: serializationManager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "An <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for loading state for the designers."
+      description: "<xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref>デザイナーの状態を読み込みに使用します。"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad*
   exceptions: []
   platform:
@@ -479,18 +479,18 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets or sets the property provider for the serialization manager being used by the loader."
-  remarks: "The serialization manager provides a `Properties` property on its primary interface that can be read by serializers to customize their serialization to specific needs. The properties that are examined by the serializers vary depending on the type of serializer used."
+  summary: "取得またはローダーによって使用されているシリアル化マネージャーのプロパティのプロバイダーを設定します。"
+  remarks: "シリアル化マネージャーは、提供、`Properties`特定のニーズに合わせて、シリアル化をカスタマイズするシリアライザーが読み取ることができるプライマリ インターフェイスのプロパティです。 シリアライザーによって検査されるプロパティは、使用するシリアライザーの型によって異なります。"
   syntax:
     content: protected object PropertyProvider { get; set; }
     return:
       type: System.Object
-      description: "An object whose properties are to be provided to the serialization manager."
+      description: "プロパティを持つプロパティがシリアル化マネージャーに提供するオブジェクト。"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.PropertyProvider*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has not been initialized."
+    description: "<xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref>が初期化されていません。"
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload(System.ComponentModel.Design.Serialization.BasicDesignerLoader.ReloadOptions)
@@ -510,7 +510,7 @@ items:
     parameters:
     - id: flags
       type: System.ComponentModel.Design.Serialization.BasicDesignerLoader.ReloadOptions
-      description: "To be added."
+      description: "追加します。"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload*
   exceptions: []
   platform:
@@ -527,12 +527,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a value indicating whether a reload has been queued."
+  summary: "再読み込みがキューに登録されているかどうかを示す値を取得します。"
   syntax:
     content: protected bool ReloadPending { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, if a call to <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload*> has queued a reload request; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>、への呼び出し<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload*>再読み込み要求がキューに、それ以外の<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>。</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload*>"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.ReloadPending*
   exceptions: []
   platform:
@@ -549,19 +549,19 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Reports errors that occurred while flushing changes."
-  remarks: "The ReportFlushErrors method is called during <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> if one or more errors occurred while flushing changes. The values in the `errors` collection can be exceptions or objects with <xref:System.Object.ToString%2A> values that describe the error. The default implementation of ReportFlushErrors raises the last exception in the collection."
+  summary: "変更のフラッシュ中に発生したエラーを報告します。"
+  remarks: "ReportFlushErrors メソッド中に<xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A>変更のフラッシュ中に&1; つまたは複数のエラーが発生した場合</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A>。 内の値、`errors`例外やオブジェクトをコレクションでできます<xref:System.Object.ToString%2A>エラーを記述する値</xref:System.Object.ToString%2A>。 ReportFlushErrors の既定の実装では、コレクション内の最後の例外を発生させます。"
   syntax:
     content: protected virtual void ReportFlushErrors (System.Collections.ICollection errors);
     parameters:
     - id: errors
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> containing error objects, usually exceptions."
+      description: "<xref:System.Collections.ICollection>エラー オブジェクト、通常は例外を含むします</xref:System.Collections.ICollection>。"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.ReportFlushErrors*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "One or more errors occurred while flushing changes."
+    description: "変更をフラッシュ中に&1; つまたは複数のエラーが発生しました。"
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.SetBaseComponentClassName(System.String)
@@ -576,19 +576,19 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Sets the full class name of the base component."
-  remarks: "The SetBaseComponentClassName method should be called during loading to establish the full name of the component a designer is designing."
+  summary: "ベース コンポーネントの完全クラス名を設定します。"
+  remarks: "SetBaseComponentClassName メソッドは、デザイナーがデザイン コンポーネントの完全な名前を確立するために読み込み中に呼び出す必要があります。"
   syntax:
     content: protected void SetBaseComponentClassName (string name);
     parameters:
     - id: name
       type: System.String
-      description: "A string representing the full name of the component to be designed."
+      description: "設計するコンポーネントの完全な名前を表す文字列。"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.SetBaseComponentClassName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>name</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.System#ComponentModel#Design#Serialization#IDesignerLoaderService#AddLoadDependency
@@ -604,8 +604,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Registers an external component as part of the load process managed by <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderService&quot;></xref>."
-  remarks: "Call the <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A> method once for each external object participating in the load process. The <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A> method is called when the work of the load process is done."
+  summary: "によって管理される、読み込みプロセスの一部として、外部コンポーネントを登録<xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderService&quot;></xref>です。"
+  remarks: "呼び出す、<xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A>読み込みプロセスに参加している外部オブジェクトごとに&1; 回のメソッド</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A>。 <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A>読み込みプロセスの作業が終わったときに、メソッドが呼び出されます</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A>。"
   syntax:
     content: void IDesignerLoaderService.AddLoadDependency ();
     parameters: []
@@ -613,7 +613,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has not been initialized."
+    description: "<xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref>が初期化されていません。"
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.System#ComponentModel#Design#Serialization#IDesignerLoaderService#DependentLoadComplete(System.Boolean,System.Collections.ICollection)
@@ -629,25 +629,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Signals that a dependent load has finished."
-  remarks: "The IDesignerLoaderService.DependentLoadComplete method is called to signal that a dependent loading operation has completed. Call the <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A> method once for every process that was registered by calling the <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A> method, which has already completed.       If the dependent load succeeds, the caller sets the `successful` parameter to `true` and passes either an empty collection or `null` to the `errorCollection` parameter. If the dependent load encounters errors, the caller sets the `successful` parameter to `false` and passes a collection of exceptions that indicate the reason or reasons for failure to the `errorCollection` parameter."
+  summary: "依存の読み込みが完了したことを通知します。"
+  remarks: "IDesignerLoaderService.DependentLoadComplete メソッドは、依存読み込み操作が完了したことを通知に呼び出されます。 呼び出す、<xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A>メソッドを呼び出すことによって登録されたすべてのプロセスに対して&1; 回、<xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A>メソッドで、既に完了しています</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A></xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A>。       かどうか、依存する読み込みが成功した、呼び出し元のセット、`successful`パラメーターを`true`か空のコレクションを渡すとまたは`null`を`errorCollection`パラメーター。 依存の読み込みには、エラーが発生すると、呼び出し元の設定、`successful`にパラメーター`false`理由などへのエラーの理由を示す例外のコレクションを渡すと、`errorCollection`のパラメーターです。"
   syntax:
     content: void IDesignerLoaderService.DependentLoadComplete (bool successful, System.Collections.ICollection errorCollection);
     parameters:
     - id: successful
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to load successfully; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>正常に読み込むそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
     - id: errorCollection
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> containing errors that occurred during the load."
+      description: "<xref:System.Collections.ICollection>読み込み中に発生したエラーを含むします</xref:System.Collections.ICollection>。"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.System#ComponentModel#Design#Serialization#IDesignerLoaderService#DependentLoadComplete*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "No load dependencies have been added by &lt;xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A&gt;, or the <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has not been initialized."
+    description: "負荷の依存関係が追加されていない&lt;xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A&gt;、または<xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref>が初期化されていません。"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref>は破棄されました。"
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.System#ComponentModel#Design#Serialization#IDesignerLoaderService#Reload
@@ -663,14 +663,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Reloads the design document."
-  remarks: "Any object can call the IDesignerLoaderService.Reload method to request that the loader reload the design document. If the loader supports reloading and complies with the reload, the designer loader can return `true`. Otherwise, it returns `false`, indicating that the reload will not occur. Callers cannot rely on the reload happening immediately; the designer loader can schedule this for some other time, or it can try to reload the designer at once.       The caller can display a message to the user if the designer cannot be reloaded."
+  summary: "デザイン ドキュメントを再読み込みします。"
+  remarks: "任意のオブジェクトは、設計ドキュメント ローダーの再読み込みを要求できる IDesignerLoaderService.Reload メソッドを呼び出すことができます。 デザイナー ローダーを返すことができるかどうか、ローダー読み込みをサポートして、再読み込みに準拠している`true`です。 返しますそれ以外の場合、`false`の再読み込みが実行されないことを示します。 呼び出し元が直ちに行われている再読み込みに依存できません。デザイナー ローダー、他の時間をスケジュールするか、すぐに、デザイナーを再読み込みを試みることができます。       呼び出し元は、デザイナーを再読み込みすることはできない場合、ユーザーにメッセージを表示できます。"
   syntax:
     content: bool IDesignerLoaderService.Reload ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the reload request is accepted; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the loader does not allow the reload."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>再読み込み要求が受け入れられた場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>ローダーは、再読み込みを許可していない場合。"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.System#ComponentModel#Design#Serialization#IDesignerLoaderService#Reload*
   exceptions: []
   platform:

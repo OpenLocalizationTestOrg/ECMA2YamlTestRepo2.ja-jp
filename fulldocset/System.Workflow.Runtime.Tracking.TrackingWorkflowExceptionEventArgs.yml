@@ -14,8 +14,8 @@ items:
   nameWithType: TrackingWorkflowExceptionEventArgs
   fullName: System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs
   type: Class
-  summary: "Contains data associated with an exception that occurs during the execution of a workflow instance."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       When an exception occurs during the execution of a workflow instance and a <xref:System.Workflow.Runtime.Tracking.TrackingProfile> that is associated with the workflow instance includes a <xref:System.Workflow.Runtime.Tracking.WorkflowTrackPoint> configured for a <xref:System.Workflow.Runtime.Tracking.TrackingWorkflowEvent?displayProperty=fullName>, the workflow tracking infrastructure sets <xref:System.Workflow.Runtime.Tracking.WorkflowTrackingRecord.EventArgs%2A> to an TrackingWorkflowExceptionEventArgs in the <xref:System.Workflow.Runtime.Tracking.WorkflowTrackingRecord> that it sends to the tracking service.      > [!NOTE] >  TrackingWorkflowExceptionEventArgs is used only by the runtime tracking service to pass information in a <xref:System.Workflow.Runtime.Tracking.WorkflowTrackingRecord>."
+  summary: "ワークフロー インスタンスの実行中に発生する例外に関連付けられたデータが含まれています。"
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]ワークフロー インスタンスの実行中に例外が発生したときと<xref:System.Workflow.Runtime.Tracking.TrackingProfile>関連付けられているワークフローとインスタンスが含まれます、<xref:System.Workflow.Runtime.Tracking.WorkflowTrackPoint>用に構成された、 <xref:System.Workflow.Runtime.Tracking.TrackingWorkflowEvent?displayProperty=fullName>、ワークフロー追跡インフラストラクチャを設定<xref:System.Workflow.Runtime.Tracking.WorkflowTrackingRecord.EventArgs%2A>、TrackingWorkflowExceptionEventArgs 内に、<xref:System.Workflow.Runtime.Tracking.WorkflowTrackingRecord>追跡サービスに送信します</xref:System.Workflow.Runtime.Tracking.WorkflowTrackingRecord></xref:System.Workflow.Runtime.Tracking.WorkflowTrackingRecord.EventArgs%2A></xref:System.Workflow.Runtime.Tracking.TrackingWorkflowEvent?displayProperty=fullName></xref:System.Workflow.Runtime.Tracking.WorkflowTrackPoint></xref:System.Workflow.Runtime.Tracking.TrackingProfile>。      > [!NOTE] > TrackingWorkflowExceptionEventArgs は<xref:System.Workflow.Runtime.Tracking.WorkflowTrackingRecord></xref:System.Workflow.Runtime.Tracking.WorkflowTrackingRecord>情報を渡すため、ランタイム追跡サービスでのみ使用。"
   example:
   - "The following code example demonstrates a method, named `WriteExceptionEventArgs`, which captures a TrackingWorkflowExceptionEventArgs. The code checks whether the <xref:System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs.Exception%2A> property is `null` (`Nothing` in Visual Basic).  \n  \n If it is not, the code writes the message associated with the <xref:System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs.Exception%2A> property to the console. In addition, the code converts the value of the <xref:System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs.OriginalActivityPath%2A> property to a string and writes it to the console.  \n  \n This code example is part of the EventArgs Tracking SDK sample from the Program.cs file. For more information, see [EventArgs Tracking Sample](http://msdn.microsoft.com/en-us/94818da2-c3c4-4a13-b47a-a0fb30dbbf1c).  \n  \n [!code-cs[WF_Samples#289](~/add/codesnippet/csharp/wf_snippets/snippets24.cs#289)]\n [!code-vb[WF_Samples#289](~/add/codesnippet/visualbasic/wf_snippets/snippets24.vb#289)]"
   syntax:
@@ -41,12 +41,12 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Gets the context ID of the associated activity."
+  summary: "関連付けられたアクティビティのコンテキスト ID を取得します。"
   syntax:
     content: public Guid ContextGuid { get; }
     return:
       type: System.Guid
-      description: "A <xref:System.Guid> that contains the context ID of the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
+      description: "A<xref:System.Guid>のコンテキスト ID を含む、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref></xref:System.Guid> 。"
   overload: System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs.ContextGuid*
   exceptions: []
   platform:
@@ -63,13 +63,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Gets the <xref:System.Workflow.ComponentModel.Activity.QualifiedName*> of the activity currently throwing the exception."
-  remarks: "Exceptions are passed up the chain of exception handler activities. An exception handler may choose to throw an exception again. When an exception handler throws the exception again, a new exception tracking event containing a new <xref:System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs> is raised to the runtime tracking infrastructure. CurrentActivityPath refers to the activity that is currently throwing the exception."
+  summary: "取得、<xref:System.Workflow.ComponentModel.Activity.QualifiedName*>現在例外をスロー アクティビティの</xref:System.Workflow.ComponentModel.Activity.QualifiedName*>。"
+  remarks: "例外は、例外ハンドラー アクティビティのチェーンの上に渡されます。 もう一度例外をスローする例外ハンドラーもかまいません。 スローした場合、例外ハンドラー、例外を再度、新しい例外追跡イベントを含む新しい<xref:System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs>は、ランタイム追跡インフラストラクチャに発生します</xref:System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs>。 CurrentActivityPath は、例外をスローしている現在のアクティビティを参照します。"
   syntax:
     content: public string CurrentActivityPath { get; }
     return:
       type: System.String
-      description: "The <xref:System.Workflow.ComponentModel.Activity.QualifiedName*> of the activity currently throwing the exception."
+      description: "<xref:System.Workflow.ComponentModel.Activity.QualifiedName*>現在例外をスロー アクティビティの</xref:System.Workflow.ComponentModel.Activity.QualifiedName*>。"
   overload: System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs.CurrentActivityPath*
   exceptions: []
   platform:
@@ -86,7 +86,7 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Gets the <xref:System.Exception> that is being thrown by the workflow instance."
+  summary: "取得、<xref:System.Exception>がワークフロー インスタンスによってスローされる</xref:System.Exception>。"
   remarks: ''
   example:
   - "The following code example demonstrates a method, named `WriteExceptionEventArgs`, which captures a <xref:System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs>. The code checks whether the Exception property is `null` (`Nothing` in Visual Basic). If it is not, the code writes the message associated with the Exception property to the console. If Exception is `null` (`Nothing`), the code converts the value of the <xref:System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs.OriginalActivityPath%2A> property to a string and writes it to the console.  \n  \n This code example is part of the EventArgs Tracking SDK Sample from the Program.cs file. For more information, see [EventArgs Tracking Sample](http://msdn.microsoft.com/en-us/94818da2-c3c4-4a13-b47a-a0fb30dbbf1c).  \n  \n [!code-cs[WF_Samples#289](~/add/codesnippet/csharp/wf_snippets/snippets24.cs#289)]\n [!code-vb[WF_Samples#289](~/add/codesnippet/visualbasic/wf_snippets/snippets24.vb#289)]"
@@ -94,7 +94,7 @@ items:
     content: public Exception Exception { get; }
     return:
       type: System.Exception
-      description: "The exception that is being thrown by the workflow instance."
+      description: "ワークフロー インスタンスによってスローされる例外。"
   overload: System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs.Exception*
   exceptions: []
   platform:
@@ -111,15 +111,15 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Gets the <xref:System.Workflow.ComponentModel.Activity.QualifiedName*> of the activity that originally threw the exception."
-  remarks: "Exceptions are passed up the chain of exception handler activities. An exception handler may choose to throw an exception again. When an exception handler throws an exception again, a new exception tracking event containing a new <xref:System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs> is raised to the runtime tracking infrastructure. OriginalActivityPath refers to the activity that originally threw the exception."
+  summary: "取得、<xref:System.Workflow.ComponentModel.Activity.QualifiedName*>最初、例外をスローしたアクティビティの</xref:System.Workflow.ComponentModel.Activity.QualifiedName*>。"
+  remarks: "例外は、例外ハンドラー アクティビティのチェーンの上に渡されます。 もう一度例外をスローする例外ハンドラーもかまいません。 スローした場合、例外ハンドラーが例外を再び新しいを含む新しい例外追跡イベント<xref:System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs>は、ランタイム追跡インフラストラクチャに発生します</xref:System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs>。 OriginalActivityPath は、最初の例外をスローしたアクティビティを参照します。"
   example:
   - "The following code example demonstrates a method, named `WriteExceptionEventArgs`, which captures a <xref:System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs>. The code checks whether the <xref:System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs.Exception%2A> property is `null` (`Nothing` in Visual Basic). If it is not, the code writes the message associated with the <xref:System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs.Exception%2A> property to the console. If <xref:System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs.Exception%2A> is `null` (`Nothing`), the code converts the value of the OriginalActivityPath property to a string and writes it to the console.  \n  \n This code example is part of the EventArgs Tracking SDK Sample from the Program.cs file. For more information, see [EventArgs Tracking Sample](http://msdn.microsoft.com/en-us/94818da2-c3c4-4a13-b47a-a0fb30dbbf1c).  \n  \n [!code-cs[WF_Samples#289](~/add/codesnippet/csharp/wf_snippets/snippets24.cs#289)]\n [!code-vb[WF_Samples#289](~/add/codesnippet/visualbasic/wf_snippets/snippets24.vb#289)]"
   syntax:
     content: public string OriginalActivityPath { get; }
     return:
       type: System.String
-      description: "The <xref:System.Workflow.ComponentModel.Activity.QualifiedName*> of the activity that originally threw the exception."
+      description: "<xref:System.Workflow.ComponentModel.Activity.QualifiedName*>最初、例外をスローしたアクティビティの</xref:System.Workflow.ComponentModel.Activity.QualifiedName*>。"
   overload: System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs.OriginalActivityPath*
   exceptions: []
   platform:
@@ -136,12 +136,12 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Gets the context ID of the parent activity."
+  summary: "親アクティビティのコンテキスト ID を取得します。"
   syntax:
     content: public Guid ParentContextGuid { get; }
     return:
       type: System.Guid
-      description: "A <xref:System.Guid> that contains the context ID of the parent <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
+      description: "A<xref:System.Guid>親のコンテキスト ID を含む<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref></xref:System.Guid> 。"
   overload: System.Workflow.Runtime.Tracking.TrackingWorkflowExceptionEventArgs.ParentContextGuid*
   exceptions: []
   platform:

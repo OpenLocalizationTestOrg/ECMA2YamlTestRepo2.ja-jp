@@ -31,8 +31,8 @@ items:
   nameWithType: Claim
   fullName: System.Security.Claims.Claim
   type: Class
-  summary: "Represents a claim."
-  remarks: "A claim is a statement about a subject by an issuer. Claims represent attributes of the subject that are useful in the context of authentication and authorization operations. Subjects and issuers are both entities that are part of an identity scenario. Some typical examples of a subject are: a user, an application or service, a device, or a computer. Some typical examples of an issuer are: the operating system, an application. a service, a role provider, an identity provider, or a federation provider. An issuer delivers claims by issuing security tokens, typically through a Security Token Service (STS). (In WIF, you can build an STS by deriving from the <xref:System.IdentityModel.SecurityTokenService> class.) On occasion, the collection of claims received from an issuer can be extended by subject attributes stored directly at the resource. A claim can be evaluated to determine access rights to data and other secured resources during the process of authorization and can also be used to make or express authentication decisions about a subject.       Beginning with .NET 4.5, the Windows Identity Foundation (WIF) classes, which implement claims-based identity, have been fully integrated into the .NET Framework. The claims concept is implemented by the Claim class.       The following describes important properties of the Claim class:      -   The <xref:System.Security.Claims.Claim.Type%2A> property is a string (typically a URI) that contains the semantic information about the claim; it tells you what the value of the claim means. For example, a claim with a claim type of <xref:System.Security.Claims.ClaimTypes.GivenName> (“http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”) represents a user’s first name. The value of the <xref:System.Security.Claims.Claim.Type%2A> property can be one of the well-known claim types defined in the <xref:System.Security.Claims.ClaimTypes> class, or it can be an arbitrary URI as defined by the issuer. For example, a claim type of “urn:spendinglimit” might represent a user attribute which makes sense within the business context of the issuer.      -   The <xref:System.Security.Claims.Claim.Value%2A> property contains the value of the claim. In order to reduce dependencies and simplify administration, in WIF the value of a claim is represented only as a string. For more complex value types, it is recommended that you use standard XML schema types to indicate how the value is meant to be serialized into and deserialized from a string.      -   The <xref:System.Security.Claims.Claim.ValueType%2A> property contains a string that identifies the type information for the value. This property should be used to understand the format of the value and to provide information about how to deserialize it. If your solution requires complex value types, it is recommended that you use standard XML schema types in the <xref:System.Security.Claims.Claim.ValueType%2A> property to indicate how the <xref:System.Security.Claims.Claim.Value%2A> property is meant to be serialized into and deserialized from a string.      -   The <xref:System.Security.Claims.Claim.Subject%2A> property is a <xref:System.Security.Claims.ClaimsIdentity> object that represents the subject of the claim. The subject of the claim is the entity (typically the user who is requesting access to a resource) about which the claim is asserted. The <xref:System.Security.Claims.ClaimsIdentity> contains, among its properties, a collection of claims that describe the properties and attributes of the subject as attested to by one or more issuers.      -   The <xref:System.Security.Claims.Claim.Issuer%2A> property contains the name of the entity that issued the claim. The issuer of a claim is represented in WIF by a string that contains a name taken from a list of well-known issuers that is maintained by the issuer name registry. The issuer name registry is an instance of a class that derives from the <xref:System.IdentityModel.Tokens.IssuerNameRegistry> class. The issuer name registry associates a mnemonic name to the cryptographic material needed to verify the signatures of tokens produced by the corresponding issuer. For example, the <xref:System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry> class, available out of the box with .NET 4.5, associates the mnemonic name for each issuer with its corresponding X.509 certificate. The list of well-known issuers is typically built at startup time by the issuer name registry. The list used by the <xref:System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry> is specified in the application configuration file.      -   The <xref:System.Security.Claims.Claim.OriginalIssuer%2A> property contains the name of the entity that originally issued the claim. This property is designed to facilitate scenarios where a claim may pass through multiple issuers before it is presented by the client to the RP application; such as federation scenarios. You can examine the <xref:System.Security.Claims.Claim.OriginalIssuer%2A> property to determine the entity that originally issued the claim. The name is taken from the list of well-known issuers maintained by the issuer name registry, as in the case of the <xref:System.Security.Claims.Claim.Issuer%2A> property."
+  summary: "クレームを表します。"
+  remarks: "クレームは、発行者によって作成されたサブジェクトに関するステートメントを示します。 クレームは、認証と承認の操作のコンテキスト内で使用されるサブジェクトの属性を表します。 サブジェクトと発行者は、id シナリオの一部である両方のエンティティです。 件名の典型的な例を示します。 ユーザー、アプリケーションまたはサービス、デバイス、またはコンピューター。 発行者の典型的な例を示します: オペレーティング システム、アプリケーションです。 サービス、ロール プロバイダー、id プロバイダー、またはフェデレーション プロバイダー。 発行者は、通常を通じて、セキュリティ トークン サービス (STS) のセキュリティ トークンを発行することで、信頼性情報を提供します。 (、WIF でから派生することによって、STS をビルドすることができます、<xref:System.IdentityModel.SecurityTokenService>クラス)</xref:System.IdentityModel.SecurityTokenService>場合によっては、発行者から受信した要求のコレクションは、リソースに直接格納されている件名属性によって拡張できます。 クレームは、データへのアクセス権を決定する評価できるその他の承認のプロセス中にリソースをセキュリティで保護し、ことか、サブジェクトに関する認証決定を express も使用できます。       .NET 4.5 以降では、クレーム ベース id を実装するには、Windows Identity Foundation (WIF) のクラスが完全に統合されて、.NET Framework。 クレームの概念は、クレーム クラスによって実装されます。       要求クラスの重要なプロパティを以下に示します: -<xref:System.Security.Claims.Claim.Type%2A>プロパティは、クレームのセマンティクス情報を含む文字列 (通常は URI) 以外の場合は、要求の値の意味を示します</xref:System.Security.Claims.Claim.Type%2A>。 たとえば、要求の種類の要求<xref:System.Security.Claims.ClaimTypes.GivenName>(&quot;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname&quot;) は、ユーザーの名前を表します</xref:System.Security.Claims.ClaimTypes.GivenName>。 値、<xref:System.Security.Claims.Claim.Type%2A>プロパティで定義されている既知のクレームの種類のいずれかを指定できます、<xref:System.Security.Claims.ClaimTypes>クラス、することもできます任意の URI、発行者で定義されている</xref:System.Security.Claims.ClaimTypes></xref:System.Security.Claims.Claim.Type%2A>。 たとえば、&quot;urn: spendinglimit&quot;のクレームの種類は、発行者のビジネス コンテキストで意味のあるユーザーの属性を表す場合があります。      -<xref:System.Security.Claims.Claim.Value%2A>プロパティには、要求の値が含まれています</xref:System.Security.Claims.Claim.Value%2A>。 依存関係を減らすし、WIF での管理を簡素化するために、要求の値は文字列として表されます。 複雑な値の型、値にシリアル化するためのものであり、文字列から逆シリアル化方法を示すためには、標準の XML スキーマ型を使用することをお勧めします。      -<xref:System.Security.Claims.Claim.ValueType%2A>プロパティには値の型情報を識別する文字列が含まれています</xref:System.Security.Claims.Claim.ValueType%2A>。 値の形式を理解し、逆シリアル化する方法に関する情報を提供する、このプロパティを使用する必要があります。 ソリューションは、複雑な値の型を必要とする場合は、標準 XML スキーマの種類を使用することをお勧め、<xref:System.Security.Claims.Claim.ValueType%2A>を示すプロパティをどのように<xref:System.Security.Claims.Claim.Value%2A>プロパティにシリアル化するためのものであり、文字列から逆シリアル化します</xref:System.Security.Claims.Claim.Value%2A></xref:System.Security.Claims.Claim.ValueType%2A>。      -<xref:System.Security.Claims.Claim.Subject%2A>プロパティは、<xref:System.Security.Claims.ClaimsIdentity>クレームのサブジェクトを表すオブジェクト</xref:System.Security.Claims.ClaimsIdentity></xref:System.Security.Claims.Claim.Subject%2A>。 クレームのサブジェクトは、に関するクレームがアサートされるエンティティ (通常、リソースへのアクセスを要求しているユーザー) です。 <xref:System.Security.Claims.ClaimsIdentity>が含まれている間、そのプロパティでプロパティを記述するクレームのコレクションと&1; つまたは複数の発行元によってに attested とサブジェクトの属性です</xref:System.Security.Claims.ClaimsIdentity>。      -<xref:System.Security.Claims.Claim.Issuer%2A>プロパティには、要求を発行したエンティティの名前が含まれています</xref:System.Security.Claims.Claim.Issuer%2A>。 要求の発行者は、WIF の発行者名レジストリによって保持されている既知の発行者の一覧から取得した名前を表す文字列で表されます。 発行者名レジストリは、<xref:System.IdentityModel.Tokens.IssuerNameRegistry>クラス</xref:System.IdentityModel.Tokens.IssuerNameRegistry>から派生したクラスのインスタンス 発行者名レジストリは、ニーモニックの名前を対応する発行元によって生成されるトークンの署名を確認するために必要な暗号化マテリアルを関連付けます。 たとえば、<xref:System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry>クラス、.NET 4.5 ですぐに使用できますが、対応する X.509 証明書にニーモニック各発行者の名前を関連付けます</xref:System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry>。 よく知られている発行者の一覧は、通常、発行者名レジストリによってスタートアップ時に作成されます。 によって使用されるリスト、<xref:System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry>は、アプリケーション構成ファイルで指定します</xref:System.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry>。      -<xref:System.Security.Claims.Claim.OriginalIssuer%2A>プロパティには、最初に要求を発行したエンティティの名前が含まれています</xref:System.Security.Claims.Claim.OriginalIssuer%2A>。 このプロパティは、クレーム可能性がありますが通過複数の発行者を RP アプリケーションのクライアントによって表されたシナリオを容易にするために設計されていますフェデレーション シナリオなど。 調べることができます、<xref:System.Security.Claims.Claim.OriginalIssuer%2A>プロパティを最初に要求を発行したエンティティを特定します</xref:System.Security.Claims.Claim.OriginalIssuer%2A>。 発行者名レジストリの場合などで管理されている、よく知られている発行者の一覧から、名前を取得、<xref:System.Security.Claims.Claim.Issuer%2A>プロパティ</xref:System.Security.Claims.Claim.Issuer%2A>。"
   example:
   - "The following example extracts the claims associated to the authenticated user performing an HTTP request and writes them in the HTTP response. The current user is read from the <xref:System.Web.HttpContext> as a <xref:System.Security.Claims.ClaimsPrincipal> and the claims are read from it. The claims are then written to HTTP the response.  \n  \n```c#  \nClaimsPrincipal principal = HttpContext.Current.User as ClaimsPrincipal;  \nif (null != principal)  \n{  \n   foreach (Claim claim in principal.Claims)  \n   {  \n      Response.Write(\"CLAIM TYPE: \" + claim.Type + \"; CLAIM VALUE: \" + claim.Value + \"</br>\");  \n   }  \n  \n}  \n  \n```"
   syntax:
@@ -60,7 +60,7 @@ items:
     parameters:
     - id: reader
       type: System.IO.BinaryReader
-      description: "To be added."
+      description: "追加します。"
   overload: System.Security.Claims.Claim.#ctor*
   exceptions: []
   platform:
@@ -77,13 +77,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Claims.Claim&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Claims.Claim&quot;> </xref>クラスです。"
   syntax:
     content: protected Claim (System.Security.Claims.Claim other);
     parameters:
     - id: other
       type: System.Security.Claims.Claim
-      description: "The security claim."
+      description: "セキュリティ クレーム。"
   overload: System.Security.Claims.Claim.#ctor*
   exceptions: []
   platform:
@@ -100,16 +100,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Claims.Claim&quot;></xref> class with the specified reader, and subject."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Claims.Claim&quot;> </xref>クラスの指定したリーダーを対象とします。"
   syntax:
     content: public Claim (System.IO.BinaryReader reader, System.Security.Claims.ClaimsIdentity subject);
     parameters:
     - id: reader
       type: System.IO.BinaryReader
-      description: "The binary reader."
+      description: "バイナリ リーダー。"
     - id: subject
       type: System.Security.Claims.ClaimsIdentity
-      description: "The subject that this claim describes."
+      description: "この要求が記述する件名。"
   overload: System.Security.Claims.Claim.#ctor*
   exceptions: []
   platform:
@@ -126,16 +126,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Claims.Claim&quot;></xref> class with the specified security claim, and subject."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Claims.Claim&quot;> </xref>クラスの指定したセキュリティ クレームに、対象とします。"
   syntax:
     content: protected Claim (System.Security.Claims.Claim other, System.Security.Claims.ClaimsIdentity subject);
     parameters:
     - id: other
       type: System.Security.Claims.Claim
-      description: "The security claim."
+      description: "セキュリティ クレーム。"
     - id: subject
       type: System.Security.Claims.ClaimsIdentity
-      description: "The subject that this claim describes."
+      description: "この要求が記述する件名。"
   overload: System.Security.Claims.Claim.#ctor*
   exceptions: []
   platform:
@@ -152,22 +152,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Claims.Claim&quot;></xref> class with the specified claim type, and value."
-  remarks: "The <xref:System.Security.Claims.Claim.Subject%2A> property is set to `null`. The <xref:System.Security.Claims.Claim.Issuer%2A> and <xref:System.Security.Claims.Claim.OriginalIssuer%2A> properties are set to <xref:System.Security.Claims.ClaimsIdentity.DefaultIssuer>. The <xref:System.Security.Claims.Claim.ValueType%2A> property is set to <xref:System.Security.Claims.ClaimValueTypes.String?displayProperty=fullName>"
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Claims.Claim&quot;> </xref>指定したクレームの種類と値を持つクラス。"
+  remarks: "<xref:System.Security.Claims.Claim.Subject%2A>プロパティに設定されている`null`</xref:System.Security.Claims.Claim.Subject%2A>。 <xref:System.Security.Claims.Claim.Issuer%2A> <xref:System.Security.Claims.Claim.OriginalIssuer%2A> <xref:System.Security.Claims.ClaimsIdentity.DefaultIssuer>。</xref:System.Security.Claims.ClaimsIdentity.DefaultIssuer>プロパティ</xref:System.Security.Claims.Claim.OriginalIssuer%2A>を設定</xref:System.Security.Claims.Claim.Issuer%2A> <xref:System.Security.Claims.Claim.ValueType%2A>プロパティに設定されている<xref:System.Security.Claims.ClaimValueTypes.String?displayProperty=fullName></xref:System.Security.Claims.ClaimValueTypes.String?displayProperty=fullName></xref:System.Security.Claims.Claim.ValueType%2A>"
   syntax:
     content: public Claim (string type, string value);
     parameters:
     - id: type
       type: System.String
-      description: "The claim type."
+      description: "要求の種類。"
     - id: value
       type: System.String
-      description: "The claim value."
+      description: "要求の値。"
   overload: System.Security.Claims.Claim.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>type</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>type</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Security.Claims.Claim.#ctor(System.String,System.String,System.String)
@@ -182,25 +182,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Claims.Claim&quot;></xref> class with the specified claim type, value, and value type."
-  remarks: "The <xref:System.Security.Claims.Claim.Subject%2A> property is set to `null`. The <xref:System.Security.Claims.Claim.Issuer%2A> and <xref:System.Security.Claims.Claim.OriginalIssuer%2A> properties are set to <xref:System.Security.Claims.ClaimsIdentity.DefaultIssuer>."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Claims.Claim&quot;> </xref>指定された要求の種類、値、および値型を持つクラス。"
+  remarks: "<xref:System.Security.Claims.Claim.Subject%2A>プロパティに設定されている`null`</xref:System.Security.Claims.Claim.Subject%2A>。 <xref:System.Security.Claims.Claim.Issuer%2A> <xref:System.Security.Claims.Claim.OriginalIssuer%2A> <xref:System.Security.Claims.ClaimsIdentity.DefaultIssuer>。</xref:System.Security.Claims.ClaimsIdentity.DefaultIssuer>プロパティ</xref:System.Security.Claims.Claim.OriginalIssuer%2A>を設定</xref:System.Security.Claims.Claim.Issuer%2A>"
   syntax:
     content: public Claim (string type, string value, string valueType);
     parameters:
     - id: type
       type: System.String
-      description: "The claim type."
+      description: "要求の種類。"
     - id: value
       type: System.String
-      description: "The claim value."
+      description: "要求の値。"
     - id: valueType
       type: System.String
-      description: "The claim value type. If this parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, then <xref href=&quot;System.Security.Claims.ClaimValueTypes.String&quot;></xref> is used."
+      description: "要求値の型。 このパラメーターは、する場合<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>、し<xref href=&quot;System.Security.Claims.ClaimValueTypes.String&quot;></xref>を使用します。"
   overload: System.Security.Claims.Claim.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>type</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>type</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Security.Claims.Claim.#ctor(System.String,System.String,System.String,System.String)
@@ -215,28 +215,28 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Claims.Claim&quot;></xref> class with the specified claim type, value, value type, and issuer."
-  remarks: "The <xref:System.Security.Claims.Claim.Subject%2A> property is set to `null`. The <xref:System.Security.Claims.Claim.OriginalIssuer%2A> property is set according to the value of the `issuer` parameter."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Claims.Claim&quot;> </xref>クラスの指定された要求の種類、値、値型、および発行者を使用します。"
+  remarks: "<xref:System.Security.Claims.Claim.Subject%2A>プロパティに設定されている`null`</xref:System.Security.Claims.Claim.Subject%2A>。 <xref:System.Security.Claims.Claim.OriginalIssuer%2A>プロパティの値に基づいて、`issuer`パラメーター</xref:System.Security.Claims.Claim.OriginalIssuer%2A> 。"
   syntax:
     content: public Claim (string type, string value, string valueType, string issuer);
     parameters:
     - id: type
       type: System.String
-      description: "The claim type."
+      description: "要求の種類。"
     - id: value
       type: System.String
-      description: "The claim value."
+      description: "要求の値。"
     - id: valueType
       type: System.String
-      description: "The claim value type. If this parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, then <xref href=&quot;System.Security.Claims.ClaimValueTypes.String&quot;></xref> is used."
+      description: "要求値の型。 このパラメーターは、する場合<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>、し<xref href=&quot;System.Security.Claims.ClaimValueTypes.String&quot;></xref>を使用します。"
     - id: issuer
       type: System.String
-      description: "The claim issuer. If this parameter is empty or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, then <xref href=&quot;System.Security.Claims.ClaimsIdentity.DefaultIssuer&quot;></xref> is used."
+      description: "要求の発行者。 このパラメーターが空の場合、または<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>、し<xref href=&quot;System.Security.Claims.ClaimsIdentity.DefaultIssuer&quot;></xref>を使用します。"
   overload: System.Security.Claims.Claim.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>type</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>type</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Security.Claims.Claim.#ctor(System.String,System.String,System.String,System.String,System.String)
@@ -251,31 +251,31 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Claims.Claim&quot;></xref> class with the specified claim type, value, value type, issuer,  and original issuer."
-  remarks: "The <xref:System.Security.Claims.Claim.Subject%2A> property is set to `null`."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Claims.Claim&quot;> </xref>指定された要求の種類、値、値型、発行者、および発行元を持つクラス。"
+  remarks: "<xref:System.Security.Claims.Claim.Subject%2A>プロパティに設定されている`null`</xref:System.Security.Claims.Claim.Subject%2A>。"
   syntax:
     content: public Claim (string type, string value, string valueType, string issuer, string originalIssuer);
     parameters:
     - id: type
       type: System.String
-      description: "The claim type."
+      description: "要求の種類。"
     - id: value
       type: System.String
-      description: "The claim value."
+      description: "要求の値。"
     - id: valueType
       type: System.String
-      description: "The claim value type. If this parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, then <xref href=&quot;System.Security.Claims.ClaimValueTypes.String&quot;></xref> is used."
+      description: "要求値の型。 このパラメーターは、する場合<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>、し<xref href=&quot;System.Security.Claims.ClaimValueTypes.String&quot;></xref>を使用します。"
     - id: issuer
       type: System.String
-      description: "The claim issuer. If this parameter is empty or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, then <xref href=&quot;System.Security.Claims.ClaimsIdentity.DefaultIssuer&quot;></xref> is used."
+      description: "要求の発行者。 このパラメーターが空の場合、または<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>、し<xref href=&quot;System.Security.Claims.ClaimsIdentity.DefaultIssuer&quot;></xref>を使用します。"
     - id: originalIssuer
       type: System.String
-      description: "The original issuer of the claim. If this parameter is empty or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, then the <xref:System.Security.Claims.Claim.OriginalIssuer*> property is set to the value of the <xref:System.Security.Claims.Claim.Issuer*> property."
+      description: "要求の発行元。 このパラメーターが空の場合または<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>、続いて、 <> </> *> の値に設定されて、 <> </> *> プロパティです。"
   overload: System.Security.Claims.Claim.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>type</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>type</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Security.Claims.Claim.#ctor(System.String,System.String,System.String,System.String,System.String,System.Security.Claims.ClaimsIdentity)
@@ -290,33 +290,33 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Claims.Claim&quot;></xref> class with the specified claim type, value, value type, issuer, original issuer and subject."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Claims.Claim&quot;> </xref>指定された要求の種類、値、値型、発行者、発行元とサブジェクトを持つクラス。"
   syntax:
     content: public Claim (string type, string value, string valueType, string issuer, string originalIssuer, System.Security.Claims.ClaimsIdentity subject);
     parameters:
     - id: type
       type: System.String
-      description: "The claim type."
+      description: "要求の種類。"
     - id: value
       type: System.String
-      description: "The claim value."
+      description: "要求の値。"
     - id: valueType
       type: System.String
-      description: "The claim value type. If this parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, then <xref href=&quot;System.Security.Claims.ClaimValueTypes.String&quot;></xref> is used."
+      description: "要求値の型。 このパラメーターは、する場合<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>、し<xref href=&quot;System.Security.Claims.ClaimValueTypes.String&quot;></xref>を使用します。"
     - id: issuer
       type: System.String
-      description: "The claim issuer. If this parameter is empty or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, then <xref href=&quot;System.Security.Claims.ClaimsIdentity.DefaultIssuer&quot;></xref> is used."
+      description: "要求の発行者。 このパラメーターが空の場合、または<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>、し<xref href=&quot;System.Security.Claims.ClaimsIdentity.DefaultIssuer&quot;></xref>を使用します。"
     - id: originalIssuer
       type: System.String
-      description: "The original issuer of the claim. If this parameter is empty or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, then the <xref:System.Security.Claims.Claim.OriginalIssuer*> property is set to the value of the <xref:System.Security.Claims.Claim.Issuer*> property."
+      description: "要求の発行元。 このパラメーターが空の場合または<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>、続いて、 <> </> *> の値に設定されて、 <> </> *> プロパティです。"
     - id: subject
       type: System.Security.Claims.ClaimsIdentity
-      description: "The subject that this claim describes."
+      description: "この要求が記述する件名。"
   overload: System.Security.Claims.Claim.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>type</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>type</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Security.Claims.Claim.Clone
@@ -331,14 +331,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Returns a new <xref href=&quot;System.Security.Claims.Claim&quot;></xref> object copied from this object. The new claim does not have a subject."
-  remarks: "This is a shallow copy operation. The <xref:System.Security.Claims.Claim.Subject%2A> property of the new <xref:System.Security.Claims.Claim> object is set to `null`."
+  summary: "新しいを返します<xref href=&quot;System.Security.Claims.Claim&quot;></xref>オブジェクトがこのオブジェクトからコピーします。 新しいクレームには、件名はありません。"
+  remarks: "これは、シャロー コピー操作です。 <xref:System.Security.Claims.Claim.Subject%2A>新しいプロパティ<xref:System.Security.Claims.Claim>にオブジェクトが設定されている`null`</xref:System.Security.Claims.Claim></xref:System.Security.Claims.Claim.Subject%2A>。"
   syntax:
     content: public virtual System.Security.Claims.Claim Clone ();
     parameters: []
     return:
       type: System.Security.Claims.Claim
-      description: "The new claim object."
+      description: "新しい要求オブジェクト。"
   overload: System.Security.Claims.Claim.Clone*
   exceptions: []
   platform:
@@ -355,17 +355,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Returns a new <xref href=&quot;System.Security.Claims.Claim&quot;></xref> object copied from this object. The subject of the new claim is set to the specified ClaimsIdentity."
-  remarks: "This is a shallow copy operation. The <xref:System.Security.Claims.Claim.Subject%2A> property of the new <xref:System.Security.Claims.Claim> object is set to the value of the `identity` parameter."
+  summary: "新しいを返します<xref href=&quot;System.Security.Claims.Claim&quot;></xref>オブジェクトがこのオブジェクトからコピーします。 新しいクレームのサブジェクトは、指定した ClaimsIdentity に設定されます。"
+  remarks: "これは、シャロー コピー操作です。 <xref:System.Security.Claims.Claim.Subject%2A>新しいプロパティ<xref:System.Security.Claims.Claim>オブジェクトがの値に設定されている、`identity`パラメーター</xref:System.Security.Claims.Claim> </xref:System.Security.Claims.Claim.Subject%2A> 。"
   syntax:
     content: public virtual System.Security.Claims.Claim Clone (System.Security.Claims.ClaimsIdentity identity);
     parameters:
     - id: identity
       type: System.Security.Claims.ClaimsIdentity
-      description: "The intended subject of the new claim."
+      description: "新しい要求の目的のサブジェクト。"
     return:
       type: System.Security.Claims.Claim
-      description: "The new claim object."
+      description: "新しい要求オブジェクト。"
   overload: System.Security.Claims.Claim.Clone*
   exceptions: []
   platform:
@@ -386,7 +386,7 @@ items:
     content: protected virtual byte[] CustomSerializationData { get; }
     return:
       type: System.Byte[]
-      description: "Returns <xref:System.Byte>."
+      description: "<xref:System.Byte>。</xref:System.Byte>を返します。"
   overload: System.Security.Claims.Claim.CustomSerializationData*
   exceptions: []
   platform:
@@ -403,13 +403,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Gets the issuer of the claim."
-  remarks: "The value of the Issuer property is a name that is taken from a list of well-known issuers maintained by the issuer name registry. The issuer name registry is an instance of a class that derives from the <xref:System.IdentityModel.Tokens.IssuerNameRegistry> class. The issuer name registry associates a mnemonic name (the issuer name) with the cryptographic material that is needed to verify signatures of tokens produced by the issuer; for example, an X.509 certificate."
+  summary: "要求の発行者を取得します。"
+  remarks: "Issuer プロパティの値は、発行者名レジストリで保持されている、よく知られている発行者の一覧から使用されている名前です。 発行者名レジストリは、<xref:System.IdentityModel.Tokens.IssuerNameRegistry>クラス</xref:System.IdentityModel.Tokens.IssuerNameRegistry>から派生したクラスのインスタンス 発行者名レジストリ ニーモニック名 (発行者名) です。 発行元によって生成されるトークンの署名を確認するために必要な暗号化マテリアルとを関連付けますたとえば、X.509 証明書です。"
   syntax:
     content: public string Issuer { get; }
     return:
       type: System.String
-      description: "A name that refers to the issuer of the claim."
+      description: "要求の発行を参照する名前。"
   overload: System.Security.Claims.Claim.Issuer*
   exceptions: []
   platform:
@@ -426,13 +426,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Gets the original issuer of the claim."
-  remarks: "Contains the name of the entity that originally issued the claim. This property is designed to facilitate scenarios where a claim may pass through multiple issuers before it is presented by the client to the RP application; such as federation scenarios.       The value of the OriginalIssuer property is a name that is taken from a list of well-known issuers maintained by the issuer name registry. The issuer name registry is an instance of a class that derives from the <xref:System.IdentityModel.Tokens.IssuerNameRegistry> class. The issuer name registry associates a mnemonic name (the issuer name) with the cryptographic material that is needed to verify signatures of tokens produced by the issuer; for example, an X.509 certificate.       Except for delegation and federation scenarios, the <xref:System.Security.Claims.Claim.Issuer%2A> property and the OriginalIssuer property will usually have the same value. If the value of the OriginalIssuer property differs from the value of the <xref:System.Security.Claims.Claim.Issuer%2A> property, the claim was first issued by the original issuer and was subsequently re-issued by the issuer."
+  summary: "要求の発行元を取得します。"
+  remarks: "最初に要求を発行したエンティティの名前が含まれています。 このプロパティは、クレーム可能性がありますが通過複数の発行者を RP アプリケーションのクライアントによって表されたシナリオを容易にするために設計されていますフェデレーション シナリオなど。       OriginalIssuer プロパティの値は、発行者名レジストリで保持されている、よく知られている発行者の一覧から使用されている名前です。 発行者名レジストリは、<xref:System.IdentityModel.Tokens.IssuerNameRegistry>クラス</xref:System.IdentityModel.Tokens.IssuerNameRegistry>から派生したクラスのインスタンス 発行者名レジストリ ニーモニック名 (発行者名) です。 発行元によって生成されるトークンの署名を確認するために必要な暗号化マテリアルとを関連付けますたとえば、X.509 証明書です。       委任とフェデレーションのシナリオを除く、<xref:System.Security.Claims.Claim.Issuer%2A>プロパティと、OriginalIssuer プロパティは同じ値を持つ通常</xref:System.Security.Claims.Claim.Issuer%2A>。 OriginalIssuer プロパティの値の値と異なるかどうか、<xref:System.Security.Claims.Claim.Issuer%2A>プロパティ、クレームは、最初の発行者によって発行された最初および再発行者によって発行され、その後</xref:System.Security.Claims.Claim.Issuer%2A>。"
   syntax:
     content: public string OriginalIssuer { get; }
     return:
       type: System.String
-      description: "A name that refers to the original issuer of the claim."
+      description: "要求の発行元を参照する名前。"
   overload: System.Security.Claims.Claim.OriginalIssuer*
   exceptions: []
   platform:
@@ -449,13 +449,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Gets a dictionary that contains additional properties associated with this claim."
-  remarks: "The Properties property provides a dictionary of name-value pairs that allows metadata or other information about the claim to be associated with it. For claims generated from SAML tokens, this dictionary may contain keys given by the constants in the <xref:System.Security.Claims.ClaimProperties> class."
+  summary: "この要求に関連付けられている追加のプロパティを格納するディクショナリを取得します。"
+  remarks: "プロパティのプロパティは、メタデータまたはその他の情報に関連付けられている要求を許可する名前と値のペアのディクショナリを提供します。 このディクショナリ SAML トークンから生成された要求では、<xref:System.Security.Claims.ClaimProperties>クラス</xref:System.Security.Claims.ClaimProperties>内の定数で指定されたキーを含めることがあります。"
   syntax:
     content: public System.Collections.Generic.IDictionary<string,string> Properties { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "A dictionary that contains additional properties associated with the claim. The properties are represented as name-value pairs."
+      description: "要求に関連付けられている追加のプロパティを格納するディクショナリ。 プロパティは、名前と値のペアとして表されます。"
   overload: System.Security.Claims.Claim.Properties*
   exceptions: []
   platform:
@@ -472,13 +472,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Gets the subject of the claim."
-  remarks: "The subject is the entity about which the claim is asserted. Some typical examples are a user, an application or service, a device, or a computer. The subject is represented by a <xref:System.Security.Claims.ClaimsIdentity>, which contains a collection of claims that describe it."
+  summary: "クレームの件名を取得します。"
+  remarks: "サブジェクトは、どの要求がアサートされるエンティティです。 一般的な例としては、ユーザー、アプリケーションまたはサービス、デバイス、またはコンピューターです。 サブジェクトが<xref:System.Security.Claims.ClaimsIdentity>それを記述するクレームのコレクションを含む、</xref:System.Security.Claims.ClaimsIdentity>によって表される"
   syntax:
     content: public System.Security.Claims.ClaimsIdentity Subject { get; }
     return:
       type: System.Security.Claims.ClaimsIdentity
-      description: "The subject of the claim."
+      description: "クレームの件名です。"
   overload: System.Security.Claims.Claim.Subject*
   exceptions: []
   platform:
@@ -495,14 +495,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Returns a string representation of this <xref href=&quot;System.Security.Claims.Claim&quot;></xref> object."
-  remarks: 'The string that is returned contains the values of the <xref:System.Security.Claims.Claim.Type%2A> and <xref:System.Security.Claims.Claim.Value%2A> properties in the following format:.”Type: Value”.'
+  summary: "この文字列表現を返します<xref href=&quot;System.Security.Claims.Claim&quot;></xref>オブジェクト。"
+  remarks: '返される文字列、<xref:System.Security.Claims.Claim.Type%2A>の値を格納して、次の形式で<xref:System.Security.Claims.Claim.Value%2A>プロパティ:.&quot;型: 値&quot;.</xref:System.Security.Claims.Claim.Value%2A> </xref:System.Security.Claims.Claim.Type%2A>'
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "The string representation of this <xref href=&quot;System.Security.Claims.Claim&quot;></xref> object."
+      description: "この文字列形式を<xref href=&quot;System.Security.Claims.Claim&quot;></xref>オブジェクト。"
   overload: System.Security.Claims.Claim.ToString*
   exceptions: []
   platform:
@@ -519,13 +519,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Gets the claim type of the claim."
-  remarks: "The Type property provides the semantic content of the claim, that is, it states what the claim is about. For example, a claim with a claim type of <xref:System.Security.Claims.ClaimTypes.GivenName> (“http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”) represents a user’s first name. The claim type is typically a URI; however, you are not limited to any specific format other than that it must be representable as a string. The only general requirement is that the claim issuer and the claim consumer must agree about the meaning of the claim. Constants for the well-known claim types used by Windows Identity Foundation (WIF) are available through the <xref:System.Security.Claims.ClaimTypes> class. The claim value is provided by the <xref:System.Security.Claims.Claim.Value%2A> property."
+  summary: "要求の要求の種類を取得します。"
+  remarks: "要求はについては、状態、Type プロパティが要求のセマンティックのコンテンツを提供します。 たとえば、要求の種類の要求<xref:System.Security.Claims.ClaimTypes.GivenName>(&quot;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname&quot;) は、ユーザーの名前を表します</xref:System.Security.Claims.ClaimTypes.GivenName>。 要求の種類は、通常は URI です。ただし、限定されない、特定の形式に以外の値を文字列として表現できるとあります。 のみの一般的な要件として、要求の発行者および要求コンシューマーは、要求の意味に関する同意する必要があります。 Windows Identity Foundation (WIF) によって使用される既知のクレームの種類の定数は、<xref:System.Security.Claims.ClaimTypes>クラス</xref:System.Security.Claims.ClaimTypes>を通じて利用 要求の値がによって提供される、<xref:System.Security.Claims.Claim.Value%2A>プロパティ</xref:System.Security.Claims.Claim.Value%2A>。"
   syntax:
     content: public string Type { get; }
     return:
       type: System.String
-      description: "The claim type."
+      description: "要求の種類。"
   overload: System.Security.Claims.Claim.Type*
   exceptions: []
   platform:
@@ -542,13 +542,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Gets the value of the claim."
-  remarks: "The value of a claim is represented only as a string. For more complex value types, it is recommended that you use standard XML schema types to indicate how the value is meant to be serialized and deserialized to and from a string.       The <xref:System.Security.Claims.Claim.ValueType%2A> property provides the underlying syntactic type information about the value. The <xref:System.Security.Claims.Claim.Type%2A> property provides the semantic information about the value; that is, it provides the meaning of the value and tells a claim consumer how to interpret it."
+  summary: "要求の値を取得します。"
+  remarks: "要求の値は、文字列として表されます。 複雑な値の型、値がシリアル化して、文字列から逆シリアル化することを意図した方法を示すためには、標準の XML スキーマ型を使用することをお勧めします。       <xref:System.Security.Claims.Claim.ValueType%2A>プロパティが値の基になる構文の型情報を提供します</xref:System.Security.Claims.Claim.ValueType%2A>。 <xref:System.Security.Claims.Claim.Type%2A>プロパティ値のセマンティクス情報を提供する、。 これは、値の意味は、要求コンシューマーにそれを解釈する方法を示す</xref:System.Security.Claims.Claim.Type%2A>"
   syntax:
     content: public string Value { get; }
     return:
       type: System.String
-      description: "The claim value."
+      description: "要求の値。"
   overload: System.Security.Claims.Claim.Value*
   exceptions: []
   platform:
@@ -565,13 +565,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Gets the value type of the claim."
-  remarks: "The ValueType property contains a string that identifies the type information of the value. This property can be used to understand the format of the value and to provide information about how to serialize and deserialize the value. If your solution requires complex value types, it is recommended that you use standard XML schema types in the ValueType property to indicate how the <xref:System.Security.Claims.Claim.Value%2A> property is meant to be serialized and deserialized from a string."
+  summary: "要求の値の型を取得します。"
+  remarks: "ValueType プロパティには、値の型情報を識別する文字列が含まれています。 値の形式を理解し、および値を逆シリアル化する方法に関する情報を提供する、このプロパティを使用できます。 ソリューションは、複雑な値の型を必要とする場合を示すために、ValueType プロパティで、標準の XML スキーマ型を使用することをお勧めする方法、<xref:System.Security.Claims.Claim.Value%2A>プロパティがシリアル化および文字列から逆シリアル化に意図したものです</xref:System.Security.Claims.Claim.Value%2A>。"
   syntax:
     content: public string ValueType { get; }
     return:
       type: System.String
-      description: "The claim value type."
+      description: "要求値の型。"
   overload: System.Security.Claims.Claim.ValueType*
   exceptions: []
   platform:
@@ -593,7 +593,7 @@ items:
     parameters:
     - id: writer
       type: System.IO.BinaryWriter
-      description: "To be added."
+      description: "追加します。"
   overload: System.Security.Claims.Claim.WriteTo*
   exceptions: []
   platform:
@@ -610,16 +610,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Claims
-  summary: "Writes this <xref href=&quot;System.Security.Claims.Claim&quot;></xref> to the writer."
+  summary: "これを書き込みます<xref href=&quot;System.Security.Claims.Claim&quot;></xref>ライターに出力します。"
   syntax:
     content: protected virtual void WriteTo (System.IO.BinaryWriter writer, byte[] userData);
     parameters:
     - id: writer
       type: System.IO.BinaryWriter
-      description: "The writer to write this claim"
+      description: "この要求を書き込むライター"
     - id: userData
       type: System.Byte[]
-      description: "The user data to claim"
+      description: "ユーザー データを要求するには"
   overload: System.Security.Claims.Claim.WriteTo*
   exceptions: []
   platform:

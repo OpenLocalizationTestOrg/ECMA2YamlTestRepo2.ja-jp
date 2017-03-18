@@ -37,8 +37,8 @@ items:
   nameWithType: FtpWebRequest
   fullName: System.Net.FtpWebRequest
   type: Class
-  summary: "Implements a File Transfer Protocol (FTP) client."
-  remarks: "To obtain an instance of FtpWebRequest, use the <xref:System.Net.WebRequest.Create%2A> method. You can also use the <xref:System.Net.WebClient> class to upload and download information from an FTP server. Using either of these approaches, when you specify a network resource that uses the FTP scheme (for example, `&quot;ftp://contoso.com&quot;`) the FtpWebRequest class provides the ability to programmatically interact with FTP servers.       The URI may be relative or absolute. If the URI is of the form `&quot;ftp://contoso.com/%2fpath&quot;` (%2f is an escaped &quot;/&quot;), then the URI is absolute, and the current directory is `/path`. If, however, the URI is of the form `&quot;ftp://contoso.com/path&quot;`, first the .NET Framework logs into the FTP server (using the user name and password set by the <xref:System.Net.FtpWebRequest.Credentials%2A> property), then the current directory is set to `<UserLoginDirectory>/path`.       You must have a valid user name and password for the server or the server must allow anonymous logon. You can specify the credentials used to connect to the server by setting the <xref:System.Net.FtpWebRequest.Credentials%2A> property or you can include them in the <xref:System.Uri.UserInfo%2A> portion of the URI passed to the <xref:System.Net.WebRequest.Create%2A> method. If you include <xref:System.Uri.UserInfo%2A> information in the URI, the <xref:System.Net.FtpWebRequest.Credentials%2A> property is set to a new network credential with the specified user name and password information.      > [!CAUTION] >  Unless the <xref:System.Net.FtpWebRequest.EnableSsl%2A> property is `true`, all data and commands, including your user name and password information, are sent to the server in clear text. Anyone monitoring network traffic can view your credentials and use them to connect to the server. If you are connecting to an FTP server that requires credentials and supports Secure Sockets Layer (SSL), you should set <xref:System.Net.FtpWebRequest.EnableSsl%2A> to `true`.       You must have <xref:System.Net.WebPermission> to access the FTP resource; otherwise, a <xref:System.Security.SecurityException> exception is thrown.       Specify the FTP command to send to the server by setting the <xref:System.Net.FtpWebRequest.Method%2A> property to a value defined in the <xref:System.Net.WebRequestMethods.Ftp> structure. To transmit text data, change the <xref:System.Net.FtpWebRequest.UseBinary%2A> property from its default value (`true`) to `false`. For details and restrictions, see <xref:System.Net.FtpWebRequest.Method%2A>.       When using an FtpWebRequest object to upload a file to a server, you must write the file content to the request stream obtained by calling the <xref:System.Net.FtpWebRequest.GetRequestStream%2A> method or its asynchronous counterparts, the <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A> and <xref:System.Net.FtpWebRequest.EndGetRequestStream%2A> methods. You must write to the stream and close the stream before sending the request.       Requests are sent to the server by calling the <xref:System.Net.FtpWebRequest.GetResponse%2A> method or its asynchronous counterparts, the <xref:System.Net.FtpWebRequest.BeginGetResponse%2A> and <xref:System.Net.FtpWebRequest.EndGetResponse%2A> methods. When the requested operation completes, an <xref:System.Net.FtpWebResponse> object is returned. The <xref:System.Net.FtpWebResponse> object provides the status of the operation and any data downloaded from the server.       You can set a time-out value for reading or writing to the server by using the <xref:System.Net.FtpWebRequest.ReadWriteTimeout%2A> property. If the time-out period is exceeded, the calling method throws a <xref:System.Net.WebException> with <xref:System.Net.WebExceptionStatus> set to <xref:System.Net.WebExceptionStatus>.       When downloading a file from an FTP server, if the command was successful, the contents of the requested file are available in the response object&quot;s stream. You can access this stream by calling the <xref:System.Net.FtpWebResponse.GetResponseStream%2A> method. For more information, see <xref:System.Net.FtpWebResponse>.       If the <xref:System.Net.FtpWebRequest.Proxy%2A> property is set, either directly or in a configuration file, communications with the FTP server are made through the specified proxy. If the specified proxy is an HTTP proxy, only the <xref:System.Net.WebRequestMethods.Ftp.DownloadFile>, <xref:System.Net.WebRequestMethods.Ftp.ListDirectory>, and <xref:System.Net.WebRequestMethods.Ftp.ListDirectoryDetails> commands are supported.       Only downloaded binary content is cached; that is, content received using the <xref:System.Net.WebRequestMethods.Ftp.DownloadFile> command with the <xref:System.Net.FtpWebRequest.UseBinary%2A> property set to `true`.       Multiple FtpWebRequests reuse existing connections, if possible.       For more information about the FTP protocol, see RFC 959, &quot;File Transfer Protocol,&quot; available at [http://www.rfc-editor.org/](http://www.ietf.org/rfc/rfc959.txt)."
+  summary: "ファイル転送プロトコル (FTP) クライアントを実装します。"
+  remarks: "FtpWebRequest のインスタンスを取得するを使用して、<xref:System.Net.WebRequest.Create%2A>メソッド</xref:System.Net.WebRequest.Create%2A>。 使用することも、<xref:System.Net.WebClient>のアップロードし、FTP サーバーから情報をダウンロードするクラス</xref:System.Net.WebClient>。 これらのアプローチのいずれかを使用して、指定すると、FTP スキームを使用するネットワーク リソース (たとえば、 `&quot;ftp://contoso.com&quot;`) FtpWebRequest クラスは、FTP サーバーとの対話機能を提供します。       相対パスまたは絶対 URI があります。 URI の形式の場合`&quot;ftp://contoso.com/%2fpath&quot;`(%2 f は、エスケープされたスラッシュ &quot;/&quot;) が絶対 URI、および現在のディレクトリが`/path`です。 かどうか、ただし、URI の形式では`&quot;ftp://contoso.com/path&quot;`、FTP サーバーに .NET Framework がログに記録する最初 (ユーザー名とパスワードを使用して設定、<xref:System.Net.FtpWebRequest.Credentials%2A>プロパティ)、現在のディレクトリに設定し、 `<UserLoginDirectory>/path`</xref:System.Net.FtpWebRequest.Credentials%2A> 。       有効なユーザー名が必要し、サーバーまたはサーバーのパスワードは匿名ログオンを許可する必要があります。 設定して、サーバーに接続するために使用する資格情報を指定することができます、<xref:System.Net.FtpWebRequest.Credentials%2A>プロパティまたはメッセージに含めることで、<xref:System.Uri.UserInfo%2A>に渡される URI の部分、<xref:System.Net.WebRequest.Create%2A>メソッド</xref:System.Net.WebRequest.Create%2A></xref:System.Uri.UserInfo%2A></xref:System.Net.FtpWebRequest.Credentials%2A>。 含める場合は<xref:System.Uri.UserInfo%2A>については、URI で、<xref:System.Net.FtpWebRequest.Credentials%2A>プロパティが指定されたユーザー名とパスワード情報を新しいネットワーク資格情報に設定します</xref:System.Net.FtpWebRequest.Credentials%2A></xref:System.Uri.UserInfo%2A>。      > [!CAUTION] > しない限り、<xref:System.Net.FtpWebRequest.EnableSsl%2A>プロパティは`true`、すべてのデータと、ユーザー名とパスワード情報を含むコマンド クリア テキストでサーバーに送信されます</xref:System.Net.FtpWebRequest.EnableSsl%2A>。 認証情報を表示でき、それらを使用して、サーバーに接続するネットワーク トラフィックを監視している人ことができます。 設定する必要があります、資格情報を要求し、Secure Sockets Layer (SSL) をサポートする FTP サーバーに接続する場合<xref:System.Net.FtpWebRequest.EnableSsl%2A>に`true`</xref:System.Net.FtpWebRequest.EnableSsl%2A>。       必要があります<xref:System.Net.WebPermission>FTP リソースにアクセスするそれ以外の場合、<xref:System.Security.SecurityException>例外がスローされます</xref:System.Security.SecurityException></xref:System.Net.WebPermission>。       設定によって、サーバーに送信する FTP コマンドの指定、<xref:System.Net.FtpWebRequest.Method%2A>プロパティで定義された値を<xref:System.Net.WebRequestMethods.Ftp>構造</xref:System.Net.WebRequestMethods.Ftp></xref:System.Net.FtpWebRequest.Method%2A>。 テキスト データを送信するには、変更、<xref:System.Net.FtpWebRequest.UseBinary%2A>プロパティの既定値から (`true`) に`false`</xref:System.Net.FtpWebRequest.UseBinary%2A>。 詳細と制限事項、 <xref:System.Net.FtpWebRequest.Method%2A>。</xref:System.Net.FtpWebRequest.Method%2A>を参照してください。       呼び出すことによって取得要求のストリーム ファイルの内容を記述する必要がありますをサーバーにファイルをアップロードする FtpWebRequest オブジェクトを使用する場合、<xref:System.Net.FtpWebRequest.GetRequestStream%2A>メソッドまたは対応する非同期、<xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>と<xref:System.Net.FtpWebRequest.EndGetRequestStream%2A>メソッド</xref:System.Net.FtpWebRequest.EndGetRequestStream%2A></xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A></xref:System.Net.FtpWebRequest.GetRequestStream%2A>。 ストリームに書き込むし、要求を送信する前に、ストリームを閉じる必要があります。       要求は、呼び出すことによって、サーバーに送信される、<xref:System.Net.FtpWebRequest.GetResponse%2A>メソッドまたは対応する非同期、<xref:System.Net.FtpWebRequest.BeginGetResponse%2A>と<xref:System.Net.FtpWebRequest.EndGetResponse%2A>メソッド</xref:System.Net.FtpWebRequest.EndGetResponse%2A></xref:System.Net.FtpWebRequest.BeginGetResponse%2A></xref:System.Net.FtpWebRequest.GetResponse%2A>。 要求された操作が完了したら、<xref:System.Net.FtpWebResponse>オブジェクトが返されます</xref:System.Net.FtpWebResponse>。 <xref:System.Net.FtpWebResponse>オブジェクトは、操作と、サーバーからダウンロードされたすべてのデータの状態を提供します</xref:System.Net.FtpWebResponse>。       読み取りまたは書き込みを使用して、サーバーのタイムアウト値を設定することができます、<xref:System.Net.FtpWebRequest.ReadWriteTimeout%2A>プロパティ</xref:System.Net.FtpWebRequest.ReadWriteTimeout%2A>。 タイムアウト期間を超えた場合、呼び出し元がスローされます<xref:System.Net.WebException><xref:System.Net.WebExceptionStatus><xref:System.Net.WebExceptionStatus>。</xref:System.Net.WebExceptionStatus></xref:System.Net.WebExceptionStatus>セット</xref:System.Net.WebException>       コマンドが成功した場合、FTP サーバーからファイルをダウンロードするとき、要求されたファイルの内容では使用応答オブジェクトのストリーム。 呼び出してこのストリームにアクセスすることができます、<xref:System.Net.FtpWebResponse.GetResponseStream%2A>メソッド</xref:System.Net.FtpWebResponse.GetResponseStream%2A>。 詳細については、 <xref:System.Net.FtpWebResponse>。</xref:System.Net.FtpWebResponse>を参照してください。       場合、<xref:System.Net.FtpWebRequest.Proxy%2A>プロパティを設定するか、直接または構成ファイルでは、FTP サーバーとの通信は、指定されたプロキシを通じて行われます</xref:System.Net.FtpWebRequest.Proxy%2A>。 指定したプロキシが HTTP プロキシ、のみ、 <xref:System.Net.WebRequestMethods.Ftp.DownloadFile>、 <xref:System.Net.WebRequestMethods.Ftp.ListDirectory>、および<xref:System.Net.WebRequestMethods.Ftp.ListDirectoryDetails>コマンドがサポートされている</xref:System.Net.WebRequestMethods.Ftp.ListDirectoryDetails></xref:System.Net.WebRequestMethods.Ftp.ListDirectory></xref:System.Net.WebRequestMethods.Ftp.DownloadFile>。       バイナリ コンテンツをダウンロードのみをキャッシュします。使用して受信したコンテンツは、<xref:System.Net.WebRequestMethods.Ftp.DownloadFile>コマンドと、<xref:System.Net.FtpWebRequest.UseBinary%2A>プロパティに設定`true`</xref:System.Net.FtpWebRequest.UseBinary%2A></xref:System.Net.WebRequestMethods.Ftp.DownloadFile>。       複数の FtpWebRequests では、既存の接続が可能であれば再利用できます。       FTP プロトコルの詳細については、RFC 959、「ファイル転送プロトコル、」で使用可能なを参照してください。 [http://www.rfc-editor.org/](http://www.ietf.org/rfc/rfc959.txt)です。"
   example:
   - "The following code example demonstrates deleting a file from an FTP server.  \n  \n [!code-cpp[NCLFtpClient#4](~/add/codesnippet/cpp/t-system.net.ftpwebrequest_1.cpp)]\n [!code-cs[NCLFtpClient#4](~/add/codesnippet/csharp/t-system.net.ftpwebrequest_1.cs)]  \n  \n The following code example demonstrates downloading a file from an FTP server by using the <xref:System.Net.WebClient> class.  \n  \n [!code-cpp[NCLFtpClient#5](~/add/codesnippet/cpp/t-system.net.ftpwebrequest_2.cpp)]\n [!code-cs[NCLFtpClient#5](~/add/codesnippet/csharp/t-system.net.ftpwebrequest_2.cs)]  \n  \n The following code example demonstrates using asynchronous operations to upload a file to an FTP server.  \n  \n [!code-cs[NCLFtpAsync#1](~/add/codesnippet/csharp/t-system.net.ftpwebrequest_3.cs)]\n [!code-cpp[NCLFtpAsync#1](~/add/codesnippet/cpp/t-system.net.ftpwebrequest_3.cpp)]"
   syntax:
@@ -61,8 +61,8 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Terminates an asynchronous FTP operation."
-  remarks: "If there is no operation in progress, this method does nothing. If a file transfer is in progress, this method terminates the transfer.      > [!NOTE] >  This member outputs trace information when you enable network tracing in your application. For more information, see [Network Tracing in the .NET Framework](~/add/includes/ajax-current-ext-md.md)."
+  summary: "非同期の FTP 操作を終了します。"
+  remarks: "実行中の操作がない場合は、このメソッドは何も行いません。 ファイル転送が実行中の場合、このメソッドは、転送を終了します。      > [!NOTE] > このメンバーは、アプリケーションでネットワーク トレースを有効にする場合にトレース情報を出力します。 詳細については、次を参照してください。 [.NET Framework のネットワークのトレース](~/add/includes/ajax-current-ext-md.md)です。"
   example:
   - "The following code example demonstrates how the user can terminate an asynchronous upload of a file from the local directory to the server.  \n  \n [!code-cpp[NCLFtpClient#10](~/add/codesnippet/cpp/m-system.net.ftpwebreque_3_1.cpp)]\n [!code-cs[NCLFtpClient#10](~/add/codesnippet/csharp/m-system.net.ftpwebreque_3_1.cs)]"
   syntax:
@@ -84,8 +84,8 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Begins asynchronously opening a request&quot;s content stream for writing."
-  remarks: "You must complete the asynchronous operation by calling the <xref:System.Net.FtpWebRequest.EndGetRequestStream%2A> method. Typically, <xref:System.Net.FtpWebRequest.EndGetRequestStream%2A> is called by the method referenced by `callback`. To determine the state of the operation, check the properties in the <xref:System.IAsyncResult> object returned by this method.       This method does not block while waiting for the stream. To block, call <xref:System.Net.FtpWebRequest.GetRequestStream%2A> in place of this method.       For detailed information about using the asynchronous programming model, see [Calling Synchronous Methods Asynchronously](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  This member outputs trace information when you enable network tracing in your application. For more information, see [Network Tracing in the .NET Framework](~/add/includes/ajax-current-ext-md.md)."
+  summary: "非同期的に書き込みのための要求のコンテンツ ストリームのオープンを開始します。"
+  remarks: "呼び出して非同期操作を完了する必要があります、<xref:System.Net.FtpWebRequest.EndGetRequestStream%2A>メソッド</xref:System.Net.FtpWebRequest.EndGetRequestStream%2A>。 通常、<xref:System.Net.FtpWebRequest.EndGetRequestStream%2A>によって参照されるメソッドによって呼び出される`callback`</xref:System.Net.FtpWebRequest.EndGetRequestStream%2A>。 操作の状態を確認するには、チェックイン、プロパティ、<xref:System.IAsyncResult>このメソッドによって返されるオブジェクト</xref:System.IAsyncResult>。       このメソッドは、ストリームの待機中にはブロックされません。 ブロックは、呼び出す<xref:System.Net.FtpWebRequest.GetRequestStream%2A>このメソッドの代わりにします</xref:System.Net.FtpWebRequest.GetRequestStream%2A>。       詳細については、非同期プログラミング モデルを使用して、次を参照してください。[同期のメソッドを非同期に呼び出す](~/add/includes/ajax-current-ext-md.md)です。      > [!NOTE] > このメンバーは、アプリケーションでネットワーク トレースを有効にする場合にトレース情報を出力します。 詳細については、次を参照してください。 [.NET Framework のネットワークのトレース](~/add/includes/ajax-current-ext-md.md)です。"
   example:
   - "The following code example demonstrates beginning an asynchronous operation to get a request's stream. This code example is part of a larger example provided for the <xref:System.Net.FtpWebRequest> class overview.  \n  \n [!code-cs[NCLFtpAsync#4](~/add/codesnippet/csharp/7dded3fc-ce2a-466f-b201-_1.cs)]\n [!code-cpp[NCLFtpAsync#4](~/add/codesnippet/cpp/7dded3fc-ce2a-466f-b201-_1.cpp)]"
   syntax:
@@ -93,24 +93,24 @@ items:
     parameters:
     - id: callback
       type: System.AsyncCallback
-      description: "An <xref:System.AsyncCallback> delegate that references the method to invoke when the operation is complete."
+      description: "<xref:System.AsyncCallback>操作の完了時に呼び出すメソッドを参照するデリゲート</xref:System.AsyncCallback>。"
     - id: state
       type: System.Object
-      description: "A user-defined object that contains information about the operation. This object is passed to the `callback` delegate when the operation completes."
+      description: "操作に関する情報を含むユーザー定義のオブジェクト。 このオブジェクトは、`callback`操作の完了時に委任します。"
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> instance that indicates the status of the operation."
+      description: "<xref:System.IAsyncResult>操作の状態を示すインスタンスです</xref:System.IAsyncResult>。"
   overload: System.Net.FtpWebRequest.BeginGetRequestStream*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A previous call to this method or <xref:System.Net.FtpWebRequest.GetRequestStream*> has not yet completed."
+    description: "このメソッドを前回呼び出したときまたは<xref:System.Net.FtpWebRequest.GetRequestStream*>まだ完了していません</xref:System.Net.FtpWebRequest.GetRequestStream*>。"
   - type: System.Net.WebException
     commentId: T:System.Net.WebException
-    description: "A connection to the FTP server could not be established."
+    description: "FTP サーバーへの接続を確立できませんでした。"
   - type: System.Net.ProtocolViolationException
     commentId: T:System.Net.ProtocolViolationException
-    description: "The <xref:System.Net.FtpWebRequest.Method*> property is not set to <xref:System.Net.WebRequestMethods.Ftp.UploadFile>."
+    description: "<xref:System.Net.FtpWebRequest.Method*> <xref:System.Net.WebRequestMethods.Ftp.UploadFile>。</xref:System.Net.WebRequestMethods.Ftp.UploadFile>プロパティが設定されていません。</xref:System.Net.FtpWebRequest.Method*>"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.BeginGetResponse(System.AsyncCallback,System.Object)
@@ -125,8 +125,8 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Begins sending a request and receiving a response from an FTP server asynchronously."
-  remarks: "You must complete the asynchronous operation by calling the <xref:System.Net.FtpWebRequest.EndGetResponse%2A> method. Typically, <xref:System.Net.FtpWebRequest.EndGetResponse%2A> is called by the method referenced by `callback`. To determine the state of the operation, check the properties in the <xref:System.IAsyncResult> object returned by the BeginGetResponse method.       If the <xref:System.Net.FtpWebRequest.Proxy%2A> property is set, either directly or in a configuration file, communications with the FTP server are made through the specified proxy.       BeginGetResponse does not block while waiting for the response from the server. To block, call the <xref:System.Net.FtpWebRequest.GetResponse%2A> method in place of BeginGetResponse.       For more information about using the asynchronous programming model, see [Calling Synchronous Methods Asynchronously](~/add/includes/ajax-current-ext-md.md).       This member outputs trace information when you enable network tracing in your application. For more information, see [Network Tracing in the .NET Framework](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  If a <xref:System.Net.WebException> is thrown, use the <xref:System.Net.WebException.Response%2A> and <xref:System.Net.WebException.Status%2A> properties of the exception to determine the response from the server."
+  summary: "開始要求の送信と応答の受信を FTP サーバーから非同期的にします。"
+  remarks: "呼び出して非同期操作を完了する必要があります、<xref:System.Net.FtpWebRequest.EndGetResponse%2A>メソッド</xref:System.Net.FtpWebRequest.EndGetResponse%2A>。 通常、<xref:System.Net.FtpWebRequest.EndGetResponse%2A>によって参照されるメソッドによって呼び出される`callback`</xref:System.Net.FtpWebRequest.EndGetResponse%2A>。 操作の状態を確認するには、チェックイン、プロパティ、<xref:System.IAsyncResult>処理メソッドによって返されるオブジェクト</xref:System.IAsyncResult>。       場合、<xref:System.Net.FtpWebRequest.Proxy%2A>プロパティを設定するか、直接または構成ファイルでは、FTP サーバーとの通信は、指定されたプロキシを通じて行われます</xref:System.Net.FtpWebRequest.Proxy%2A>。       処理は、サーバーからの応答を待機している間はブロックされません。 ブロックは、呼び出し、<xref:System.Net.FtpWebRequest.GetResponse%2A>処理の代わりにメソッド</xref:System.Net.FtpWebRequest.GetResponse%2A>。       詳細については、非同期プログラミング モデルを使用して、次を参照してください。[同期のメソッドを非同期に呼び出す](~/add/includes/ajax-current-ext-md.md)です。       このメンバーは、アプリケーションでネットワーク トレースを有効にすると、トレース情報を出力します。 詳細については、次を参照してください。 [.NET Framework のネットワークのトレース](~/add/includes/ajax-current-ext-md.md)です。      > [!NOTE] > 場合、<xref:System.Net.WebException>がスローされた場合を使用して、<xref:System.Net.WebException.Response%2A>と<xref:System.Net.WebException.Status%2A>サーバーからの応答を決定する例外のプロパティ</xref:System.Net.WebException.Status%2A></xref:System.Net.WebException.Response%2A></xref:System.Net.WebException>。"
   example:
   - "The following code example demonstrates ending an asynchronous operation to get a request's stream, and then starting a request to get the response. This code example is part of a larger example provided for the <xref:System.Net.FtpWebRequest> class overview.  \n  \n [!code-cs[NCLFtpAsync#5](~/add/codesnippet/csharp/m-system.net.ftpwebreque_0_1.cs)]\n [!code-cpp[NCLFtpAsync#5](~/add/codesnippet/cpp/m-system.net.ftpwebreque_0_1.cpp)]"
   syntax:
@@ -134,18 +134,18 @@ items:
     parameters:
     - id: callback
       type: System.AsyncCallback
-      description: "An <xref:System.AsyncCallback> delegate that references the method to invoke when the operation is complete."
+      description: "<xref:System.AsyncCallback>操作の完了時に呼び出すメソッドを参照するデリゲート</xref:System.AsyncCallback>。"
     - id: state
       type: System.Object
-      description: "A user-defined object that contains information about the operation. This object is passed to the `callback` delegate when the operation completes."
+      description: "操作に関する情報を含むユーザー定義のオブジェクト。 このオブジェクトは、`callback`操作の完了時に委任します。"
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> instance that indicates the status of the operation."
+      description: "<xref:System.IAsyncResult>操作の状態を示すインスタンスです</xref:System.IAsyncResult>。"
   overload: System.Net.FtpWebRequest.BeginGetResponse*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<xref:System.Net.FtpWebRequest.GetResponse*> or BeginGetResponse has already been called for this instance."
+    description: "<xref:System.Net.FtpWebRequest.GetResponse*>または、処理は、このインスタンスに対して既に呼び出されています。</xref:System.Net.FtpWebRequest.GetResponse*>"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.ClientCertificates
@@ -160,18 +160,18 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets or sets the certificates used for establishing an encrypted connection to the FTP server."
-  remarks: "Client certificates are used to authenticate the client during the initial SSL connection negotiation. For more information, see <xref:System.Net.FtpWebRequest.EnableSsl%2A>.      > [!NOTE] >  The .NET Framework caches SSL sessions as they are created and attempts to reuse a cached session for a new request, if possible. When attempting to reuse an SSL session, the .NET Framework uses the first element of <xref:System.Net.HttpWebRequest.ClientCertificates%2A> (if there is one), or tries to reuse an anonymous session if <xref:System.Net.HttpWebRequest.ClientCertificates%2A> is empty."
+  summary: "取得または FTP サーバーへの暗号化接続を確立するために使用される証明書を設定します。"
+  remarks: "クライアント証明書は、初期の SSL 接続のネゴシエーション中にクライアントの認証に使用されます。 詳細については、 <xref:System.Net.FtpWebRequest.EnableSsl%2A>。</xref:System.Net.FtpWebRequest.EnableSsl%2A>を参照してください。      > [!NOTE] >.NET Framework が作成されるように、SSL セッションをキャッシュおよび可能な場合は、新しい要求のキャッシュされているセッションを再利用しようとしています。 .NET Framework での最初の要素を使用するときに、SSL セッションを再利用する、 <xref:System.Net.HttpWebRequest.ClientCertificates%2A>(かどうかがある&1; つ)、匿名のセッションを再利用を試みる<xref:System.Net.HttpWebRequest.ClientCertificates%2A>が空です</xref:System.Net.HttpWebRequest.ClientCertificates%2A></xref:System.Net.HttpWebRequest.ClientCertificates%2A>。"
   syntax:
     content: public System.Security.Cryptography.X509Certificates.X509CertificateCollection ClientCertificates { get; set; }
     return:
       type: System.Security.Cryptography.X509Certificates.X509CertificateCollection
-      description: "An <xref href=&quot;System.Security.Cryptography.X509Certificates.X509CertificateCollection&quot;></xref> object that contains the client certificates."
+      description: "<xref href=&quot;System.Security.Cryptography.X509Certificates.X509CertificateCollection&quot;> </xref>クライアント証明書を含むオブジェクトです。"
   overload: System.Net.FtpWebRequest.ClientCertificates*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value specified for a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "設定操作は指定された値<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.ConnectionGroupName
@@ -186,20 +186,20 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets or sets the name of the connection group that contains the service point used to send the current request."
-  remarks: "Connection groups associate a set of requests with a particular connection or set of connections. The connections in a connection group can be reused only by requests originating in the same application domain, when the credentials on the request are the same and the request specifies the connection group name. When a request does not specify a connection group name, any existing connection to the requested server that is not associated with a connection group can be used. When the credentials are not the same, the existing connection is closed and the new request must be reauthenticated.       Using connection groups can improve performance because this allows all of the requests for a user to reuse the connection authenticated with the user&quot;s credentials.       Changing the ConnectionGroupName property after calling the <xref:System.Net.FtpWebRequest.GetRequestStream%2A>, <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>, <xref:System.Net.FtpWebRequest.GetResponse%2A>, or <xref:System.Net.FtpWebRequest.BeginGetResponse%2A> method causes an <xref:System.InvalidOperationException> exception."
+  summary: "取得または現在の要求を送信するために使用するサービス ポイントが含まれている接続グループの名前を設定します。"
+  remarks: "接続グループは、特定の接続または接続のセットに要求のセットを関連付けます。 接続グループでは、接続は、要求の資格情報は、同じ要求接続グループの名前を指定すると、同じアプリケーション ドメインで送信された要求で再利用できます。 要求では、接続グループ名を指定しない場合は、接続グループに関連付けられていない要求されたサーバーへの既存の接続を使用できます。 資格情報がない場合、同じ、既存の接続は閉じられ、新しい要求を再認証される必要があります。       これにより、すべてのユーザーの資格情報で認証された接続を再利用するユーザーの要求のため、接続グループを使用するとパフォーマンスが向上することができます。       呼び出した後、ConnectionGroupName プロパティを変更する、 <xref:System.Net.FtpWebRequest.GetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.GetResponse%2A>、または<xref:System.Net.FtpWebRequest.BeginGetResponse%2A>メソッド原因、<xref:System.InvalidOperationException>例外です</xref:System.InvalidOperationException></xref:System.Net.FtpWebRequest.BeginGetResponse%2A></xref:System.Net.FtpWebRequest.GetResponse%2A></xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A></xref:System.Net.FtpWebRequest.GetRequestStream%2A>。"
   example:
   - "The following code example retrieves the value of this property.  \n  \n [!code-cpp[NCLFtpClient#16](~/add/codesnippet/cpp/p-system.net.ftpwebreque_8_1.cpp)]\n [!code-cs[NCLFtpClient#16](~/add/codesnippet/csharp/p-system.net.ftpwebreque_8_1.cs)]"
   syntax:
     content: public override string ConnectionGroupName { get; set; }
     return:
       type: System.String
-      description: "A <xref:System.String> value that contains a connection group name."
+      description: "A<xref:System.String>接続グループ名を含む値です</xref:System.String>。"
   overload: System.Net.FtpWebRequest.ConnectionGroupName*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A new value was specified for this property for a request that is already in progress."
+    description: "新しい値は、このプロパティは既に進行中のある要求に指定されました。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.ContentLength
@@ -214,13 +214,13 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets or sets a value that is ignored by the <xref href=&quot;System.Net.FtpWebRequest&quot;></xref> class."
-  remarks: "The ContentLength property is provided only for compatibility with other implementations of the <xref:System.Net.WebRequest> and <xref:System.Net.WebResponse> classes. There is no reason to use ContentLength."
+  summary: "取得または設定によって無視される値、 <xref href=&quot;System.Net.FtpWebRequest&quot;> </xref>クラスです。"
+  remarks: "他の実装と互換性のためだけに提供される ContentLength プロパティ、<xref:System.Net.WebRequest>と<xref:System.Net.WebResponse>クラス</xref:System.Net.WebResponse></xref:System.Net.WebRequest>。 正の数値を使用する必要はありません。"
   syntax:
     content: public override long ContentLength { get; set; }
     return:
       type: System.Int64
-      description: "An <xref:System.Int64> value that should be ignored."
+      description: "<xref:System.Int64>無視される値</xref:System.Int64>。"
   overload: System.Net.FtpWebRequest.ContentLength*
   exceptions: []
   platform:
@@ -237,23 +237,23 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets or sets a byte offset into the file being downloaded by this request."
-  remarks: "Set the ContentOffset property when downloading a file from an FTP server. This offset indicates the position in the server&quot;s file that marks the start of the data to be downloaded. The offset is specified as the number of bytes from the start of the file; the offset of the first byte is zero.       Setting ContentOffset causes the <xref:System.Net.FtpWebRequest> to send a restart (`REST`) command to the server. This command is ignored by most FTP server implementations if you are uploading data to the server.       Changing ContentOffset after calling the <xref:System.Net.FtpWebRequest.GetRequestStream%2A>, <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>, <xref:System.Net.FtpWebRequest.GetResponse%2A>, or <xref:System.Net.FtpWebRequest.BeginGetResponse%2A> method causes an <xref:System.InvalidOperationException> exception."
+  summary: "取得または、この要求によってダウンロードされるファイルにバイト オフセットを設定します。"
+  remarks: "FTP サーバーからファイルをダウンロードするときに、ContentOffset プロパティを設定します。 このオフセットは、ダウンロードされるデータの開始をマークする、サーバーのファイルの位置を示します。 オフセットは、ファイルの先頭からのバイト数として指定します。最初のバイト オフセットは&0; です。       ContentOffset 原因を設定、<xref:System.Net.FtpWebRequest>再起動を送信する (`REST`) サーバーにコマンド</xref:System.Net.FtpWebRequest>。 このコマンドは、サーバーにデータをアップロードする場合は、ほとんどの FTP サーバーの実装によって無視されます。       ContentOffset を呼び出した後に変更する、 <xref:System.Net.FtpWebRequest.GetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.GetResponse%2A>、または<xref:System.Net.FtpWebRequest.BeginGetResponse%2A>メソッド原因、<xref:System.InvalidOperationException>例外です</xref:System.InvalidOperationException></xref:System.Net.FtpWebRequest.BeginGetResponse%2A></xref:System.Net.FtpWebRequest.GetResponse%2A></xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A></xref:System.Net.FtpWebRequest.GetRequestStream%2A>。"
   example:
   - "The following code example demonstrates downloading part of a file from a server and appending the downloaded data to a local file.  \n  \n [!code-cpp[NclFtpClient#7](~/add/codesnippet/cpp/p-system.net.ftpwebreque_4_1.cpp)]\n [!code-cs[NclFtpClient#7](~/add/codesnippet/csharp/p-system.net.ftpwebreque_4_1.cs)]"
   syntax:
     content: public long ContentOffset { get; set; }
     return:
       type: System.Int64
-      description: "An <xref:System.Int64> instance that specifies the file offset, in bytes. The default value is zero."
+      description: "<xref:System.Int64>ファイル オフセットをバイト単位で指定するインスタンス</xref:System.Int64>。 既定値は&0; です。"
   overload: System.Net.FtpWebRequest.ContentOffset*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A new value was specified for this property for a request that is already in progress."
+    description: "新しい値は、このプロパティは既に進行中のある要求に指定されました。"
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value specified for this property is less than zero."
+    description: "このプロパティは、指定された値が&0; 未満です。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.ContentType
@@ -268,18 +268,18 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Always throws a <xref:System.NotSupportedException>."
-  remarks: "The ContentType property is provided only for compatibility with other implementations of the <xref:System.Net.WebRequest> and <xref:System.Net.WebResponse> classes. There is no reason to use ContentType."
+  summary: "<xref:System.NotSupportedException>。</xref:System.NotSupportedException>は常にスローします。"
+  remarks: "他の実装と互換性のためだけに提供される ContentType プロパティ、<xref:System.Net.WebRequest>と<xref:System.Net.WebResponse>クラス</xref:System.Net.WebResponse></xref:System.Net.WebRequest>。 ContentType を使用する必要はありません。"
   syntax:
     content: public override string ContentType { get; set; }
     return:
       type: System.String
-      description: "Always throws a <xref:System.NotSupportedException>."
+      description: "<xref:System.NotSupportedException>。</xref:System.NotSupportedException>は常にスローします。"
   overload: System.Net.FtpWebRequest.ContentType*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "Content type information is not supported for FTP."
+    description: "コンテンツ タイプの情報は FTP ではサポートされていません。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.Credentials
@@ -294,26 +294,26 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets or sets the credentials used to communicate with the FTP server."
-  remarks: "You are not required to specify credentials when connecting using anonymous logon. You must set the Credentials property by using a credential of type <xref:System.Net.NetworkCredential>; this ensures that the user name and password can be read and sent to the server.      > [!CAUTION] >  Credentials information is not encrypted when transmitted to the server unless the <xref:System.Net.FtpWebRequest.EnableSsl%2A> property is set to `true`.       Changing Credentials after calling the <xref:System.Net.FtpWebRequest.GetRequestStream%2A>, <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>, <xref:System.Net.FtpWebRequest.GetResponse%2A>, or <xref:System.Net.FtpWebRequest.BeginGetResponse%2A> method causes an <xref:System.InvalidOperationException> exception."
+  summary: "取得または FTP サーバーと通信するために使用する資格情報を設定します。"
+  remarks: "匿名ログオンを使用して接続するときに資格情報を指定する必要はありません。 型の資格情報を使用して、資格情報のプロパティを設定する必要があります<xref:System.Net.NetworkCredential>こうすること、ユーザー名とパスワードを読み取るしてサーバーに送信します。</xref:System.Net.NetworkCredential> 。      > [!CAUTION] > しない限り、サーバーに送信されるときに、資格情報は暗号化されませんが、<xref:System.Net.FtpWebRequest.EnableSsl%2A>プロパティに設定されている`true`</xref:System.Net.FtpWebRequest.EnableSsl%2A>。       呼び出した後に資格情報の変更、 <xref:System.Net.FtpWebRequest.GetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.GetResponse%2A>、または<xref:System.Net.FtpWebRequest.BeginGetResponse%2A>メソッド原因、<xref:System.InvalidOperationException>例外です</xref:System.InvalidOperationException></xref:System.Net.FtpWebRequest.BeginGetResponse%2A></xref:System.Net.FtpWebRequest.GetResponse%2A></xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A></xref:System.Net.FtpWebRequest.GetRequestStream%2A>。"
   example:
   - "The following code example retrieves the value of this property and uses it to display the user name.  \n  \n [!code-cpp[NCLFtpClient#14](~/add/codesnippet/cpp/p-system.net.ftpwebreque_6_1.cpp)]\n [!code-cs[NCLFtpClient#14](~/add/codesnippet/csharp/p-system.net.ftpwebreque_6_1.cs)]"
   syntax:
     content: public override System.Net.ICredentials Credentials { get; set; }
     return:
       type: System.Net.ICredentials
-      description: "An <xref:System.Net.ICredentials> instance; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the property has not been set."
+      description: "<xref:System.Net.ICredentials>インスタンスそれ以外の場合、 <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>プロパティが設定されていない場合。</xref:System.Net.ICredentials> 。"
   overload: System.Net.FtpWebRequest.Credentials*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value specified for a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "設定操作は指定された値<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An <xref:System.Net.ICredentials> of a type other than <xref:System.Net.NetworkCredential> was specified for a set operation."
+    description: "<xref:System.Net.ICredentials>以外の型の<xref:System.Net.NetworkCredential>セット操作に対して指定されました</xref:System.Net.NetworkCredential></xref:System.Net.ICredentials>。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A new value was specified for this property for a request that is already in progress."
+    description: "新しい値は、このプロパティは既に進行中のある要求に指定されました。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.DefaultCachePolicy
@@ -328,18 +328,18 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Defines the default cache policy for all FTP requests."
-  remarks: "Only content received using the <xref:System.Net.WebRequestMethods.Ftp.DownloadFile> command is cached.       The following table describes the effects of FTP caching policies on <xref:System.Net.FtpWebRequest>.      |Policy|Effect|   |------------|------------|   |<xref:System.Net.Cache.RequestCacheLevel>|Returns the cached resource if the resource is fresh, the content length is accurate, and the expiration, modification, and content length attributes are present.|   |<xref:System.Net.Cache.RequestCacheLevel>|Returns the resource from the server.|   |<xref:System.Net.Cache.RequestCacheLevel>|Returns the cached resource if the content length is present and matches the entry size; otherwise, throws a <xref:System.Net.WebException>.|   |<xref:System.Net.Cache.RequestCacheLevel>|Returns the cached resource if the content length is provided and matches the entry size; otherwise, the resource is downloaded from the server and is returned to the caller.|   |<xref:System.Net.Cache.RequestCacheLevel>|Returns the cached resource if the timestamp of the cached resource is the same as the time stamp of the resource on the server; otherwise, the resource is downloaded from the server, stored in the cache, and returned to the caller.|   |<xref:System.Net.Cache.RequestCacheLevel>|Downloads the resource from the server, stores it in the cache, and returns the resource to the caller.|   |<xref:System.Net.Cache.RequestCacheLevel>|If a cached resource exists, it is deleted. The resource is downloaded from the server and is returned to the caller.|      > [!NOTE] >  Setting DefaultCachePolicy overrides any configuration setting."
+  summary: "すべての FTP 要求に対する既定のキャッシュ ポリシーを定義します。"
+  remarks: "使用して受信したコンテンツのみ、<xref:System.Net.WebRequestMethods.Ftp.DownloadFile>コマンドがキャッシュされます</xref:System.Net.WebRequestMethods.Ftp.DownloadFile>。       次の表に、FTP キャッシュ<xref:System.Net.FtpWebRequest>。</xref:System.Net.FtpWebRequest>ポリシーの効果      |ポリシー |効果 |  |------------|------------|  |<xref:System.Net.Cache.RequestCacheLevel>|リソースが新しい場合は、コンテンツの長さが、精度は有効期限、変更、およびコンテンツの長さの属性が存在は、キャッシュされたリソースを返します |。  |<xref:System.Net.Cache.RequestCacheLevel>|サーバーからリソースを返します |。  |<xref:System.Net.Cache.RequestCacheLevel>|コンテンツの長さが存在し、エントリのサイズと一致する場合は、キャッシュされたリソースを返しますそれ以外の場合、<xref:System.Net.WebException>がスローされます |。  |<xref:System.Net.Cache.RequestCacheLevel>|コンテンツの長さが指定されたエントリのサイズと一致する場合は、キャッシュされたリソースを返しますそれ以外の場合、リソースはサーバーからダウンロードされ、呼び出し元に返されます |。  |<xref:System.Net.Cache.RequestCacheLevel>|キャッシュされたリソースのタイムスタンプは、サーバー上のリソースのタイムスタンプと同じ場合は、キャッシュされたリソースを返しますそれ以外の場合、リソース サーバーからダウンロード、キャッシュに格納されているを呼び出し元に返されます |。  |<xref:System.Net.Cache.RequestCacheLevel>|サーバーからリソースをダウンロード、キャッシュに格納し、呼び出し元にリソースを返します |。  |<xref:System.Net.Cache.RequestCacheLevel>|キャッシュされたリソースが存在する場合は削除されます</xref:System.Net.Cache.RequestCacheLevel></xref:System.Net.Cache.RequestCacheLevel></xref:System.Net.Cache.RequestCacheLevel></xref:System.Net.Cache.RequestCacheLevel></xref:System.Net.WebException></xref:System.Net.Cache.RequestCacheLevel></xref:System.Net.Cache.RequestCacheLevel></xref:System.Net.Cache.RequestCacheLevel>。 リソースがサーバーからダウンロードされ、呼び出し元に返されます |。     > [!NOTE] > 設定 DefaultCachePolicy で任意の構成設定をオーバーライドします。"
   syntax:
     content: public static System.Net.Cache.RequestCachePolicy DefaultCachePolicy { get; set; }
     return:
       type: System.Net.Cache.RequestCachePolicy
-      description: "A <xref href=&quot;System.Net.Cache.RequestCachePolicy&quot;></xref> that defines the cache policy for FTP requests."
+      description: "A <xref href=&quot;System.Net.Cache.RequestCachePolicy&quot;> </xref> FTP 要求のキャッシュ ポリシーを定義します。"
   overload: System.Net.FtpWebRequest.DefaultCachePolicy*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The caller tried to set this property to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "呼び出し元が、このプロパティを設定しようとしています。 <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.EnableSsl
@@ -354,20 +354,20 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets or sets a <xref:System.Boolean> that specifies that an SSL connection should be used."
-  remarks: "> [!CAUTION] >  Unless the EnableSsl property is `true`, all data and commands, including your user name and password information, are sent to the server in clear text. Anyone monitoring network traffic can view your credentials and use them to connect to the server. If you are connecting to an FTP server that requires credentials and supports SSL, you should set EnableSsl to `true`.       The `&quot;AUTH TLS&quot;` command is sent to the server to request an encrypted session. If the server does not recognize this command, you receive a <xref:System.Net.WebException> exception."
+  summary: "取得または設定、 <xref:System.Boolean>SSL 接続を使用することを指定します</xref:System.Boolean>。"
+  remarks: "> [!CAUTION]> EnableSsl プロパティがない限り、 `true`、すべてのデータと、ユーザー名とパスワード情報を含むコマンド クリア テキストでサーバーに送信されます。 認証情報を表示でき、それらを使用して、サーバーに接続するネットワーク トラフィックを監視している人ことができます。 資格情報が必要であり、SSL をサポートしている FTP サーバーに接続する場合に EnableSsl を設定する必要があります`true`です。       `&quot;AUTH TLS&quot;`コマンドは、暗号化されたセッションを要求するサーバーに送信されます。 受信する場合は、サーバーがこのコマンドを認識できない、<xref:System.Net.WebException>例外です</xref:System.Net.WebException>。"
   example:
   - "The following code example uses an encrypted connection to download the directory listing from an FTP server.  \n  \n [!code-cpp[NCLFtpClient#8](~/add/codesnippet/cpp/p-system.net.ftpwebreque_11_1.cpp)]\n [!code-cs[NCLFtpClient#8](~/add/codesnippet/csharp/p-system.net.ftpwebreque_11_1.cs)]"
   syntax:
     content: public bool EnableSsl { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if control and data transmissions are encrypted; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>制御およびデータの伝送が暗号化されている場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。 既定値は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.FtpWebRequest.EnableSsl*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The connection to the FTP server has already been established."
+    description: "FTP サーバーへの接続が、既に確立されています。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.EndGetRequestStream(System.IAsyncResult)
@@ -382,8 +382,8 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Ends a pending asynchronous operation started with <xref:System.Net.FtpWebRequest.BeginGetRequestStream*>."
-  remarks: "If the operation has not completed, the EndGetRequestStream method blocks until the operation completes. To determine whether the operation has completed, check the <xref:System.IAsyncResult.IsCompleted%2A> property before calling EndGetRequestStream.       In addition to the exceptions noted in &quot;Exceptions,&quot; EndGetRequestStream rethrows exceptions that were thrown while opening the stream for writing.      > [!NOTE] >  This member outputs trace information when you enable network tracing in your application. For more information, see [Network Tracing in the .NET Framework](~/add/includes/ajax-current-ext-md.md)."
+  summary: "<xref:System.Net.FtpWebRequest.BeginGetRequestStream*>。</xref:System.Net.FtpWebRequest.BeginGetRequestStream*>開始保留中の非同期操作を終了します。"
+  remarks: "操作が完了していない場合、EndGetRequestStream メソッド操作が完了するまでブロックします。 操作が完了しているかどうかを確認するには<xref:System.IAsyncResult.IsCompleted%2A>EndGetRequestStream を呼び出す前にプロパティ</xref:System.IAsyncResult.IsCompleted%2A>。       [例外] で示すような例外、に加えて EndGetRequestStream は書き込みのためのストリームを開くときにスローされた例外を再スローします。      > [!NOTE] > このメンバーは、アプリケーションでネットワーク トレースを有効にする場合にトレース情報を出力します。 詳細については、次を参照してください。 [.NET Framework のネットワークのトレース](~/add/includes/ajax-current-ext-md.md)です。"
   example:
   - "The following code example demonstrates ending an asynchronous operation to get a request's stream. This code example is part of a larger example provided for the <xref:System.Net.FtpWebRequest> class overview.  \n  \n [!code-cs[NCLFtpAsync#5](~/add/codesnippet/csharp/m-system.net.ftpwebreque_1_1.cs)]\n [!code-cpp[NCLFtpAsync#5](~/add/codesnippet/cpp/m-system.net.ftpwebreque_1_1.cpp)]"
   syntax:
@@ -391,21 +391,21 @@ items:
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> object that was returned when the operation started."
+      description: "<xref:System.IAsyncResult>操作が開始されたときに返されたオブジェクト</xref:System.IAsyncResult>。"
     return:
       type: System.IO.Stream
-      description: "A writable <xref:System.IO.Stream> instance associated with this instance."
+      description: "書き込み可能な<xref:System.IO.Stream>このインスタンスに関連付けられているインスタンス</xref:System.IO.Stream>。"
   overload: System.Net.FtpWebRequest.EndGetRequestStream*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>asyncResult</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>asyncResult</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>asyncResult</code> was not obtained by calling <xref:System.Net.FtpWebRequest.BeginGetRequestStream*>."
+    description: "<code>asyncResult</code>呼び出して取得されませんでした<xref:System.Net.FtpWebRequest.BeginGetRequestStream*>です。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This method was already called for the operation identified by <code>asyncResult</code>."
+    description: "によって識別される操作に対してこのメソッドが既に呼び出さ<code> asyncResult</code>です。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.EndGetResponse(System.IAsyncResult)
@@ -420,8 +420,8 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Ends a pending asynchronous operation started with <xref:System.Net.FtpWebRequest.BeginGetResponse*>."
-  remarks: "If the operation has not completed at the time the EndGetResponse method is called, EndGetResponse blocks until the operation completes. To prevent blocking, check the <xref:System.IAsyncResult.IsCompleted%2A> property before calling EndGetResponse.       In addition to the exceptions noted in &quot;Exceptions,&quot; EndGetResponse rethrows exceptions that were thrown while communicating with the server.      > [!NOTE] >  This member outputs trace information when you enable network tracing in your application. For more information, see [Network Tracing in the .NET Framework](~/add/includes/ajax-current-ext-md.md)."
+  summary: "<xref:System.Net.FtpWebRequest.BeginGetResponse*>。</xref:System.Net.FtpWebRequest.BeginGetResponse*>開始保留中の非同期操作を終了します。"
+  remarks: "操作が完了していない場合に EndGetResponse メソッドが呼び出されると EndGetResponse ブロック操作が完了するまでです。 ブロックを防ぐため、確認、 <xref:System.IAsyncResult.IsCompleted%2A>EndGetResponse を呼び出す前にプロパティ</xref:System.IAsyncResult.IsCompleted%2A>。       [例外] で示すような例外、に加えて EndGetResponse は、サーバーと通信中にスローされた例外を再スローします。      > [!NOTE] > このメンバーは、アプリケーションでネットワーク トレースを有効にする場合にトレース情報を出力します。 詳細については、次を参照してください。 [.NET Framework のネットワークのトレース](~/add/includes/ajax-current-ext-md.md)です。"
   example:
   - "The following code example demonstrates ending an asynchronous operation to get a response. This code example is part of a larger example provided for the <xref:System.Net.FtpWebRequest> class overview.  \n  \n [!code-cs[NCLFtpAsync#6](~/add/codesnippet/csharp/m-system.net.ftpwebreque_5_1.cs)]\n [!code-cpp[NCLFtpAsync#6](~/add/codesnippet/cpp/m-system.net.ftpwebreque_5_1.cpp)]"
   syntax:
@@ -429,24 +429,24 @@ items:
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that was returned when the operation started."
+      description: "<xref:System.IAsyncResult>操作が開始されたときに返された</xref:System.IAsyncResult>。"
     return:
       type: System.Net.WebResponse
-      description: "A <xref:System.Net.WebResponse> reference that contains an <xref href=&quot;System.Net.FtpWebResponse&quot;></xref> instance. This object contains the FTP server&quot;s response to the request."
+      description: "A<xref:System.Net.WebResponse>参照が含まれていますが、 <xref href=&quot;System.Net.FtpWebResponse&quot;> </xref>インスタンス</xref:System.Net.WebResponse>。 このオブジェクトには、要求に対する FTP サーバーの応答が含まれています。"
   overload: System.Net.FtpWebRequest.EndGetResponse*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>asyncResult</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>asyncResult</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>asyncResult</code> was not obtained by calling <xref:System.Net.FtpWebRequest.BeginGetResponse*>."
+    description: "<code>asyncResult</code>呼び出して取得されませんでした<xref:System.Net.FtpWebRequest.BeginGetResponse*>です。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This method was already called for the operation identified by <code>asyncResult</code>."
+    description: "によって識別される操作に対してこのメソッドが既に呼び出さ<code> asyncResult</code>です。"
   - type: System.Net.WebException
     commentId: T:System.Net.WebException
-    description: "An error occurred using an HTTP proxy."
+    description: "HTTP プロキシを使用してエラーが発生しました。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.GetRequestStream
@@ -461,8 +461,8 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Retrieves the stream used to upload data to an FTP server."
-  remarks: "Set the request properties before calling the GetRequestStream method. After writing the data to the stream, you must close the stream prior to sending the request.       If you have not set the <xref:System.Net.FtpWebRequest.Method%2A> property to <xref:System.Net.WebRequestMethods.Ftp.UploadFile> or <xref:System.Net.WebRequestMethods.Ftp.AppendFile>, you cannot get the stream.       GetRequestStream blocks while waiting for the stream. To prevent this, call the <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A> method in place of GetRequestStream.      > [!NOTE] >  This member outputs trace information when you enable network tracing in your application. For more information, see [Network Tracing in the .NET Framework](~/add/includes/ajax-current-ext-md.md)."
+  summary: "FTP サーバーにデータをアップロードするために使用するストリームを取得します。"
+  remarks: "Getrequeststream を呼び出しますメソッドを呼び出す前に、要求のプロパティを設定します。 データをストリームに書き込んで、後に、要求を送信する前にストリームを閉じる必要があります。       設定していない場合、<xref:System.Net.FtpWebRequest.Method%2A>プロパティを<xref:System.Net.WebRequestMethods.Ftp.UploadFile>または<xref:System.Net.WebRequestMethods.Ftp.AppendFile>、ストリームを取得することはできません</xref:System.Net.WebRequestMethods.Ftp.AppendFile></xref:System.Net.WebRequestMethods.Ftp.UploadFile></xref:System.Net.FtpWebRequest.Method%2A>。       ストリームの待機中にブロックを getrequeststream を呼び出します。 これを防ぐためには、呼び出し、 <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>getrequeststream を呼び出しますの代わりにメソッド</xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>。      > [!NOTE] > このメンバーは、アプリケーションでネットワーク トレースを有効にする場合にトレース情報を出力します。 詳細については、次を参照してください。 [.NET Framework のネットワークのトレース](~/add/includes/ajax-current-ext-md.md)です。"
   example:
   - "The following code example demonstrates copying a file to a request's data stream and sending a request to the server to upload the data and append it to a file.  \n  \n [!code-cpp[NCLFtpClient#3](~/add/codesnippet/cpp/m-system.net.ftpwebreque_4_1.cpp)]\n [!code-cs[NCLFtpClient#3](~/add/codesnippet/csharp/m-system.net.ftpwebreque_4_1.cs)]"
   syntax:
@@ -470,7 +470,7 @@ items:
     parameters: []
     return:
       type: System.IO.Stream
-      description: "A writable <xref:System.IO.Stream> instance used to store data to be sent to the server by the current request."
+      description: "書き込み可能な<xref:System.IO.Stream>インスタンスの現在の要求によってサーバーに送信されるデータを格納するために使用します</xref:System.IO.Stream>。"
   overload: System.Net.FtpWebRequest.GetRequestStream*
   exceptions:
   - type: System.InvalidOperationException
@@ -478,10 +478,10 @@ items:
     description: "<xref:System.Net.FtpWebRequest.BeginGetRequestStream*> has been called and has not completed.  \n  \n \\- or -  \n  \n An HTTP proxy is enabled, and you attempted to use an FTP command other than &lt;xref:System.Net.WebRequestMethods.Ftp.DownloadFile?displayProperty=fullName&gt;, &lt;xref:System.Net.WebRequestMethods.Ftp.ListDirectory?displayProperty=fullName&gt;, or &lt;xref:System.Net.WebRequestMethods.Ftp.ListDirectoryDetails?displayProperty=fullName&gt;."
   - type: System.Net.WebException
     commentId: T:System.Net.WebException
-    description: "A connection to the FTP server could not be established."
+    description: "FTP サーバーへの接続を確立できませんでした。"
   - type: System.Net.ProtocolViolationException
     commentId: T:System.Net.ProtocolViolationException
-    description: "The <xref:System.Net.FtpWebRequest.Method*> property is not set to &lt;xref:System.Net.WebRequestMethods.Ftp.UploadFile?displayProperty=fullName&gt; or &lt;xref:System.Net.WebRequestMethods.Ftp.AppendFile?displayProperty=fullName&gt;."
+    description: "<xref:System.Net.FtpWebRequest.Method*>プロパティに設定されていない&lt;xref:System.Net.WebRequestMethods.Ftp.UploadFile?displayProperty=fullName&gt;または&lt;xref:System.Net.WebRequestMethods.Ftp.AppendFile?displayProperty=fullName&gt;</xref:System.Net.FtpWebRequest.Method*> 。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.GetResponse
@@ -496,8 +496,8 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Returns the FTP server response."
-  remarks: "To access the FTP-specific properties, you must cast the <xref:System.Net.WebResponse> object returned by this method to <xref:System.Net.FtpWebResponse>.       GetResponse causes a control connection to be established, and might also create a data connection. GetResponse blocks until the response is received. To prevent this, you can perform this operation asynchronously by calling the <xref:System.Net.FtpWebRequest.BeginGetResponse%2A> and <xref:System.Net.FtpWebRequest.EndGetResponse%2A> methods in place of GetResponse.       If the <xref:System.Net.FtpWebRequest.Proxy%2A> property is set, either directly or in a configuration file, communications with the FTP server are made through the proxy.       If a <xref:System.Net.WebException> is thrown, use the <xref:System.Net.WebException.Response%2A> and <xref:System.Net.WebException.Status%2A> properties of the exception to determine the response from the server.       This member outputs trace information when you enable network tracing in your application. For more information, see [Network Tracing in the .NET Framework](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  Multiple calls to GetResponse return the same response object; the request is not reissued."
+  summary: "FTP サーバーの応答を返します。"
+  remarks: "FTP 固有のプロパティにアクセスするには、 <xref:System.Net.WebResponse> <xref:System.Net.FtpWebResponse>。</xref:System.Net.FtpWebResponse>に、このメソッドによって返されるオブジェクト</xref:System.Net.WebResponse>をキャストする必要があります。       GetResponse により制御接続を確立するのにはまた、データ接続を作成する場合があります。 応答を受信するまでの GetResponse ブロックです。 これを防ぐためには、操作を行うこの非同期的に呼び出すことによって、<xref:System.Net.FtpWebRequest.BeginGetResponse%2A>と<xref:System.Net.FtpWebRequest.EndGetResponse%2A>GetResponse の代わりにメソッド</xref:System.Net.FtpWebRequest.EndGetResponse%2A></xref:System.Net.FtpWebRequest.BeginGetResponse%2A>。       場合、<xref:System.Net.FtpWebRequest.Proxy%2A>プロパティを設定するか、直接または構成ファイルでは、FTP サーバーとの通信は、プロキシを通じて行われます</xref:System.Net.FtpWebRequest.Proxy%2A>。       場合、<xref:System.Net.WebException>がスローされた場合を使用して、<xref:System.Net.WebException.Response%2A>と<xref:System.Net.WebException.Status%2A>サーバーからの応答を決定する例外のプロパティ</xref:System.Net.WebException.Status%2A></xref:System.Net.WebException.Response%2A></xref:System.Net.WebException>。       このメンバーは、アプリケーションでネットワーク トレースを有効にすると、トレース情報を出力します。 詳細については、次を参照してください。 [.NET Framework のネットワークのトレース](~/add/includes/ajax-current-ext-md.md)です。      > [!NOTE] > GetResponse に複数の呼び出しが同一の応答オブジェクトを返す以外の場合は、要求を再発行していません。"
   example:
   - "The following code example demonstrates copying a file to a request's data stream and sending a request to append data to a file to the server. The example calls GetResponse to send the request and block until the response is returned by the server.  \n  \n [!code-cpp[NCLFtpClient#3](~/add/codesnippet/cpp/m-system.net.ftpwebreque_2_1.cpp)]\n [!code-cs[NCLFtpClient#3](~/add/codesnippet/csharp/m-system.net.ftpwebreque_2_1.cs)]"
   syntax:
@@ -505,7 +505,7 @@ items:
     parameters: []
     return:
       type: System.Net.WebResponse
-      description: "A <xref:System.Net.WebResponse> reference that contains an <xref href=&quot;System.Net.FtpWebResponse&quot;></xref> instance. This object contains the FTP server&quot;s response to the request."
+      description: "A<xref:System.Net.WebResponse>参照が含まれていますが、 <xref href=&quot;System.Net.FtpWebResponse&quot;> </xref>インスタンス</xref:System.Net.WebResponse>。 このオブジェクトには、要求に対する FTP サーバーの応答が含まれています。"
   overload: System.Net.FtpWebRequest.GetResponse*
   exceptions:
   - type: System.InvalidOperationException
@@ -528,13 +528,13 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets an empty <xref:System.Net.WebHeaderCollection> object."
-  remarks: "The Headers property is provided only for compatibility with other implementations of the <xref:System.Net.WebRequest> and <xref:System.Net.WebResponse> classes. There is no reason to use Headers."
+  summary: "空の取得<xref:System.Net.WebHeaderCollection>オブジェクト</xref:System.Net.WebHeaderCollection>。"
+  remarks: "他の実装と互換性のためだけに提供されるヘッダー プロパティ、<xref:System.Net.WebRequest>と<xref:System.Net.WebResponse>クラス</xref:System.Net.WebResponse></xref:System.Net.WebRequest>。 ヘッダーを使用する必要はありません。"
   syntax:
     content: public override System.Net.WebHeaderCollection Headers { get; set; }
     return:
       type: System.Net.WebHeaderCollection
-      description: "An empty <xref:System.Net.WebHeaderCollection> object."
+      description: "空<xref:System.Net.WebHeaderCollection>オブジェクト</xref:System.Net.WebHeaderCollection>。"
   overload: System.Net.FtpWebRequest.Headers*
   exceptions: []
   platform:
@@ -551,20 +551,20 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets or sets a <xref:System.Boolean> value that specifies whether the control connection to the FTP server is closed after the request completes."
-  remarks: "When the KeepAlive property is set to `false`, the control connection is closed when you call the <xref:System.Net.FtpWebResponse.Close%2A> method.       Changing KeepAlive after calling the <xref:System.Net.FtpWebRequest.GetRequestStream%2A>, <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>, <xref:System.Net.FtpWebRequest.GetResponse%2A>, or <xref:System.Net.FtpWebRequest.BeginGetResponse%2A> method causes an <xref:System.InvalidOperationException> exception."
+  summary: "取得または設定、 <xref:System.Boolean>、要求が完了した後に、FTP サーバーへの制御接続を閉じるかどうかを指定する値</xref:System.Boolean>。"
+  remarks: "KeepAlive プロパティに設定するときに`false`、呼び出したときにコントロールの接続が閉じられる、<xref:System.Net.FtpWebResponse.Close%2A>メソッド</xref:System.Net.FtpWebResponse.Close%2A>。       KeepAlive を呼び出した後に変更する、 <xref:System.Net.FtpWebRequest.GetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.GetResponse%2A>、または<xref:System.Net.FtpWebRequest.BeginGetResponse%2A>メソッド原因、<xref:System.InvalidOperationException>例外です</xref:System.InvalidOperationException></xref:System.Net.FtpWebRequest.BeginGetResponse%2A></xref:System.Net.FtpWebRequest.GetResponse%2A></xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A></xref:System.Net.FtpWebRequest.GetRequestStream%2A>。"
   example:
   - "The following code example retrieves and displays property values for a specified <xref:System.Net.FtpWebRequest> object.  \n  \n [!code-cpp[NCLFtpClient#15](~/add/codesnippet/cpp/p-system.net.ftpwebreque_0_1.cpp)]\n [!code-cs[NCLFtpClient#15](~/add/codesnippet/csharp/p-system.net.ftpwebreque_0_1.cs)]"
   syntax:
     content: public bool KeepAlive { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the connection to the server should not be destroyed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、サーバーへの接続は破棄されません必要があります。それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。 既定値は<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.FtpWebRequest.KeepAlive*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A new value was specified for this property for a request that is already in progress."
+    description: "新しい値は、このプロパティは既に進行中のある要求に指定されました。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.Method
@@ -579,20 +579,20 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets or sets the command to send to the FTP server."
-  remarks: "The Method property determines which command is sent to the server. You set the Method by using the strings defined in the public field members of the <xref:System.Net.WebRequestMethods.Ftp> class. Note that the strings defined in the <xref:System.Net.WebRequestMethods.Ftp> class are the only supported options for the Method property. Setting the Method property to any other value will result in an <xref:System.ArgumentException> exception.       When setting Method to <xref:System.Net.WebRequestMethods.Ftp.UploadFile>, you must do so before calling the <xref:System.Net.FtpWebRequest.GetRequestStream%2A> method. Failure to call these members in the correct order causes a <xref:System.Net.ProtocolViolationException> exception when you attempt to get the request stream.       The credentials supplied for the <xref:System.Net.FtpWebRequest> object must have permission to perform the specified method. If not, the FTP command fails.       To determine the success or failure of a command, check the <xref:System.Net.FtpWebResponse.StatusCode%2A> and <xref:System.Net.FtpWebResponse.StatusDescription%2A> properties."
+  summary: "取得または FTP サーバーに送信するコマンドを設定します。"
+  remarks: "Method プロパティは、どのコマンドがサーバーに送信されるを決定します。 <xref:System.Net.WebRequestMethods.Ftp>クラス</xref:System.Net.WebRequestMethods.Ftp>のパブリック フィールドのメンバーで定義されている文字列を使用して、メソッドを設定します。 文字列で定義されている、<xref:System.Net.WebRequestMethods.Ftp>クラスがメソッドのプロパティについてのみサポートされているオプションを示します</xref:System.Net.WebRequestMethods.Ftp>。 メソッド プロパティその他の値を設定することになります、<xref:System.ArgumentException>例外です</xref:System.ArgumentException>。       メソッドに設定すると<xref:System.Net.WebRequestMethods.Ftp.UploadFile>を呼び出す前に、これを行う必要があります、<xref:System.Net.FtpWebRequest.GetRequestStream%2A>メソッド</xref:System.Net.FtpWebRequest.GetRequestStream%2A></xref:System.Net.WebRequestMethods.Ftp.UploadFile>。 これらのメンバーを正しい順序で呼び出しに失敗する、<xref:System.Net.ProtocolViolationException>要求ストリームを取得しようとしたときに例外です</xref:System.Net.ProtocolViolationException>。       資格情報を提供、<xref:System.Net.FtpWebRequest>オブジェクトは、指定したメソッドを実行する権限が必要です</xref:System.Net.FtpWebRequest>。 それ以外の場合は、FTP コマンドが失敗しました。       コマンドの成否を確認するには<xref:System.Net.FtpWebResponse.StatusCode%2A>と<xref:System.Net.FtpWebResponse.StatusDescription%2A>プロパティ</xref:System.Net.FtpWebResponse.StatusDescription%2A></xref:System.Net.FtpWebResponse.StatusCode%2A>。"
   example:
   - "The following code example sets this property to <xref:System.Net.WebRequestMethods.Ftp.DeleteFile>.  \n  \n [!code-cpp[NCLFtpClient#4](~/add/codesnippet/cpp/p-system.net.ftpwebreque_2_1.cpp)]\n [!code-cs[NCLFtpClient#4](~/add/codesnippet/csharp/p-system.net.ftpwebreque_2_1.cs)]"
   syntax:
     content: public override string Method { get; set; }
     return:
       type: System.String
-      description: "A <xref:System.String> value that contains the FTP command to send to the server. The default value is <xref:System.Net.WebRequestMethods.Ftp.DownloadFile>."
+      description: "A<xref:System.String>サーバーに送信する FTP コマンドを含む値です</xref:System.String>。 既定値は<xref:System.Net.WebRequestMethods.Ftp.DownloadFile>。</xref:System.Net.WebRequestMethods.Ftp.DownloadFile>"
   overload: System.Net.FtpWebRequest.Method*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A new value was specified for this property for a request that is already in progress."
+    description: "新しい値は、このプロパティは既に進行中のある要求に指定されました。"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
     description: "The method is invalid.  \n  \n \\- or -  \n  \n The method is not supported.  \n  \n \\- or -  \n  \n Multiple methods were specified."
@@ -610,18 +610,18 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Always throws a <xref:System.NotSupportedException>."
-  remarks: "The PreAuthenticate property is provided only for compatibility with other implementations of the <xref:System.Net.WebRequest> and <xref:System.Net.WebResponse> classes."
+  summary: "<xref:System.NotSupportedException>。</xref:System.NotSupportedException>は常にスローします。"
+  remarks: "他の実装と互換性のためだけに提供される PreAuthenticate プロパティ、<xref:System.Net.WebRequest>と<xref:System.Net.WebResponse>クラス</xref:System.Net.WebResponse></xref:System.Net.WebRequest>。"
   syntax:
     content: public override bool PreAuthenticate { get; set; }
     return:
       type: System.Boolean
-      description: "Always throws a <xref:System.NotSupportedException>."
+      description: "<xref:System.NotSupportedException>。</xref:System.NotSupportedException>は常にスローします。"
   overload: System.Net.FtpWebRequest.PreAuthenticate*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "Preauthentication is not supported for FTP."
+    description: "FTP では、事前認証はサポートされていません。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.Proxy
@@ -636,23 +636,23 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets or sets the proxy used to communicate with the FTP server."
-  remarks: "The Proxy property identifies the <xref:System.Net.IWebProxy> instance that communicates with the FTP server. The proxy is set by the system by using configuration files and the Internet Explorer Local Area Network settings. To specify that no proxy should be used, set Proxy to the proxy instance returned by the <xref:System.Net.GlobalProxySelection.GetEmptyWebProxy%2A?displayProperty=fullName> method. For more information about automatic proxy detection, see [Automatic Proxy Detection](~/add/includes/ajax-current-ext-md.md).       You must set Proxy before writing data to the request&quot;s stream or getting the response. Changing Proxy after calling the <xref:System.Net.FtpWebRequest.GetRequestStream%2A>, <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>, <xref:System.Net.FtpWebRequest.GetResponse%2A>, or <xref:System.Net.FtpWebRequest.BeginGetResponse%2A> method causes an <xref:System.InvalidOperationException> exception.       The <xref:System.Net.FtpWebRequest> class supports HTTP and ISA Firewall Client proxies.       If the specified proxy is an HTTP proxy, only the <xref:System.Net.WebRequestMethods.Ftp.DownloadFile>, <xref:System.Net.WebRequestMethods.Ftp.ListDirectory>, and <xref:System.Net.WebRequestMethods.Ftp.ListDirectoryDetails> commands are supported."
+  summary: "取得または FTP サーバーとの通信に使用するプロキシを設定します。"
+  remarks: "プロキシのプロパティを識別、<xref:System.Net.IWebProxy>は FTP サーバーと通信するインスタンス</xref:System.Net.IWebProxy>。 プロキシは、構成ファイルと、Internet Explorer のローカル エリア ネットワーク設定を使用して、システムによって設定されます。 プロキシを使用しないことを指定するには、によって返されるプロキシ インスタンスにプロキシを設定、<xref:System.Net.GlobalProxySelection.GetEmptyWebProxy%2A?displayProperty=fullName>メソッド</xref:System.Net.GlobalProxySelection.GetEmptyWebProxy%2A?displayProperty=fullName>。 自動プロキシ検出の詳細については、次を参照してください。[自動プロキシ検出](~/add/includes/ajax-current-ext-md.md)です。       要求のストリームにデータを書き込むまたは応答を取得する前にプロキシを設定する必要があります。 プロキシを呼び出した後に変更する、 <xref:System.Net.FtpWebRequest.GetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.GetResponse%2A>、または<xref:System.Net.FtpWebRequest.BeginGetResponse%2A>メソッド原因、<xref:System.InvalidOperationException>例外です</xref:System.InvalidOperationException></xref:System.Net.FtpWebRequest.BeginGetResponse%2A></xref:System.Net.FtpWebRequest.GetResponse%2A></xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A></xref:System.Net.FtpWebRequest.GetRequestStream%2A>。       <xref:System.Net.FtpWebRequest>クラスは、HTTP および ISA ファイアウォール クライアント プロキシをサポートしています</xref:System.Net.FtpWebRequest>。       指定したプロキシが HTTP プロキシ、のみ、 <xref:System.Net.WebRequestMethods.Ftp.DownloadFile>、 <xref:System.Net.WebRequestMethods.Ftp.ListDirectory>、および<xref:System.Net.WebRequestMethods.Ftp.ListDirectoryDetails>コマンドがサポートされている</xref:System.Net.WebRequestMethods.Ftp.ListDirectoryDetails></xref:System.Net.WebRequestMethods.Ftp.ListDirectory></xref:System.Net.WebRequestMethods.Ftp.DownloadFile>。"
   example:
   - "The following code example displays this property value.  \n  \n [!code-cpp[NCLFtpClient#16](~/add/codesnippet/cpp/p-system.net.ftpwebreque_1_1.cpp)]\n [!code-cs[NCLFtpClient#16](~/add/codesnippet/csharp/p-system.net.ftpwebreque_1_1.cs)]"
   syntax:
     content: public override System.Net.IWebProxy Proxy { get; set; }
     return:
       type: System.Net.IWebProxy
-      description: "An <xref:System.Net.IWebProxy> instance responsible for communicating with the FTP server."
+      description: "<xref:System.Net.IWebProxy>FTP サーバーとの通信を行うインスタンス</xref:System.Net.IWebProxy>。"
   overload: System.Net.FtpWebRequest.Proxy*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "This property cannot be set to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "このプロパティに設定することはできません<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A new value was specified for this property for a request that is already in progress."
+    description: "新しい値は、このプロパティは既に進行中のある要求に指定されました。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.ReadWriteTimeout
@@ -667,21 +667,21 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets or sets a time-out when reading from or writing to a stream."
-  remarks: "The ReadWriteTimeout is used when writing to the stream returned by the <xref:System.Net.FtpWebRequest.GetRequestStream%2A> method or reading from the stream returned by the <xref:System.Net.FtpWebResponse.GetResponseStream%2A> method.       Specifically, the ReadWriteTimeout property controls the time-out for the <xref:System.IO.Stream.Read%2A> method, which is used to read the stream returned by the <xref:System.Net.FtpWebResponse.GetResponseStream%2A> method, and for the <xref:System.IO.Stream.Write%2A> method, which is used to write to the stream returned by the <xref:System.Net.FtpWebRequest.GetRequestStream%2A> method. If the time-out period is exceeded, the calling method throws a <xref:System.Net.WebException> with <xref:System.Net.WebExceptionStatus> set to <xref:System.Net.WebExceptionStatus>.       To specify the amount of time to wait for the request to complete, use the <xref:System.Net.FtpWebRequest.Timeout%2A> property."
+  summary: "取得またはからの読み取り時またはストリームへの書き込み時のタイムアウトを設定します。"
+  remarks: "によって返されるストリームに書き込む際に、ReadWriteTimeout が使用される、<xref:System.Net.FtpWebRequest.GetRequestStream%2A>メソッドまたはによって返されるストリームからの読み取り、<xref:System.Net.FtpWebResponse.GetResponseStream%2A>メソッド</xref:System.Net.FtpWebResponse.GetResponseStream%2A></xref:System.Net.FtpWebRequest.GetRequestStream%2A>。       具体的には、ReadWriteTimeout プロパティは、のタイムアウトを制御、<xref:System.IO.Stream.Read%2A>メソッドによって返されるストリームの読み取りに使用すると、<xref:System.Net.FtpWebResponse.GetResponseStream%2A>メソッド、および、<xref:System.IO.Stream.Write%2A>によって返されるストリームに書き込むために使用するメソッド、<xref:System.Net.FtpWebRequest.GetRequestStream%2A>メソッド</xref:System.Net.FtpWebRequest.GetRequestStream%2A></xref:System.IO.Stream.Write%2A></xref:System.Net.FtpWebResponse.GetResponseStream%2A></xref:System.IO.Stream.Read%2A>。 タイムアウト期間を超えた場合、呼び出し元がスローされます<xref:System.Net.WebException><xref:System.Net.WebExceptionStatus><xref:System.Net.WebExceptionStatus>。</xref:System.Net.WebExceptionStatus></xref:System.Net.WebExceptionStatus>セット</xref:System.Net.WebException>       要求が完了するまで待機する時間を指定するには、使用、<xref:System.Net.FtpWebRequest.Timeout%2A>プロパティ</xref:System.Net.FtpWebRequest.Timeout%2A>。"
   syntax:
     content: public int ReadWriteTimeout { get; set; }
     return:
       type: System.Int32
-      description: "The number of milliseconds before the reading or writing times out. The default value is 300,000 milliseconds (5 minutes)."
+      description: "読み取りまたは書き込みがタイムアウトする前にミリ秒数。 既定値は、300,000 ミリ秒 (5 分) です。"
   overload: System.Net.FtpWebRequest.ReadWriteTimeout*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The request has already been sent."
+    description: "要求は既に送信されています。"
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value specified for a set operation is less than or equal to zero and is not equal to &lt;xref:System.Threading.Timeout.Infinite?displayProperty=fullName&gt;."
+    description: "設定操作が、ゼロ未満と等しくないに指定された値&lt;xref:System.Threading.Timeout.Infinite?displayProperty=fullName&gt;です。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.RenameTo
@@ -696,20 +696,20 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets or sets the new name of a file being renamed."
+  summary: "取得または名前が変更されるファイルの新しい名前を設定します。"
   syntax:
     content: public string RenameTo { get; set; }
     return:
       type: System.String
-      description: "The new name of the file being renamed."
+      description: "名前が変更されるファイルの新しい名前。"
   overload: System.Net.FtpWebRequest.RenameTo*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value specified for a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty string."
+    description: "設定操作は指定された値<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>または空の文字列。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A new value was specified for this property for a request that is already in progress."
+    description: "新しい値は、このプロパティは既に進行中のある要求に指定されました。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.RequestUri
@@ -724,15 +724,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets the URI requested by this instance."
-  remarks: "The value of the RequestUri property is the URI specified when the <xref:System.Net.WebRequest.Create%2A> method was called to obtain this instance."
+  summary: "このインスタンスで要求された URI を取得します。"
+  remarks: "RequestUri プロパティの値は URI 時に指定された、<xref:System.Net.WebRequest.Create%2A>をこのインスタンスを取得するメソッドが呼び出されました</xref:System.Net.WebRequest.Create%2A>。"
   example:
   - "The following code example displays this property value.  \n  \n [!code-cpp[NCLFtpClient#14](~/add/codesnippet/cpp/p-system.net.ftpwebreque_5_1.cpp)]\n [!code-cs[NCLFtpClient#14](~/add/codesnippet/csharp/p-system.net.ftpwebreque_5_1.cs)]"
   syntax:
     content: public override Uri RequestUri { get; }
     return:
       type: System.Uri
-      description: "A <xref:System.Uri> instance that identifies a resource that is accessed using the File Transfer Protocol."
+      description: "A<xref:System.Uri>ファイル転送プロトコルを使用してアクセスされるリソースを識別するインスタンス</xref:System.Uri>。"
   overload: System.Net.FtpWebRequest.RequestUri*
   exceptions: []
   platform:
@@ -749,15 +749,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets the <xref href=&quot;System.Net.ServicePoint&quot;></xref> object used to connect to the FTP server."
-  remarks: "If no <xref:System.Net.ServicePoint> object exists, one is created for the FTP server. To set the maximum number of connections that can be open for an FTP server, set the <xref:System.Net.ServicePoint.ConnectionLimit%2A> property of the <xref:System.Net.ServicePoint> instance returned by this property."
+  summary: "取得、 <xref href=&quot;System.Net.ServicePoint&quot;> </xref> FTP サーバーへの接続に使用されるオブジェクト。"
+  remarks: "ない場合は<xref:System.Net.ServicePoint>オブジェクトが存在する、FTP サーバーのいずれかが作成されます</xref:System.Net.ServicePoint>。 FTP サーバーを開くことができる接続の最大数を設定するには、設定、<xref:System.Net.ServicePoint.ConnectionLimit%2A>のプロパティ、<xref:System.Net.ServicePoint>このプロパティによって返されるインスタンス</xref:System.Net.ServicePoint></xref:System.Net.ServicePoint.ConnectionLimit%2A>。"
   example:
   - "The following code example retrieves the service point from a request and sets the maximum number of connections to one.  \n  \n [!code-cpp[NCLFtpClient#1](~/add/codesnippet/cpp/p-system.net.ftpwebreque_9_1.cpp)]\n [!code-cs[NCLFtpClient#1](~/add/codesnippet/csharp/p-system.net.ftpwebreque_9_1.cs)]"
   syntax:
     content: public System.Net.ServicePoint ServicePoint { get; }
     return:
       type: System.Net.ServicePoint
-      description: "A <xref href=&quot;System.Net.ServicePoint&quot;></xref> object that can be used to customize connection behavior."
+      description: "A <xref href=&quot;System.Net.ServicePoint&quot;> </xref>接続動作をカスタマイズするために使用できるオブジェクト。"
   overload: System.Net.FtpWebRequest.ServicePoint*
   exceptions: []
   platform:
@@ -774,23 +774,23 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets or sets the number of milliseconds to wait for a request."
-  remarks: "To specify an infinite value, set the Timeout property to <xref:System.Threading.Timeout.Infinite> (-1). This is the default value.       Timeout is the number of milliseconds that a synchronous request made with the <xref:System.Net.FtpWebRequest.GetResponse%2A> method waits for a response and that the <xref:System.Net.FtpWebRequest.GetRequestStream%2A> method waits for a stream. If a resource does not respond within the time-out period, the request throws a <xref:System.Net.WebException> with the <xref:System.Net.WebException.Status%2A> property set to <xref:System.Net.WebExceptionStatus>.       Changing Timeout after calling the <xref:System.Net.FtpWebRequest.GetRequestStream%2A>, <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>, <xref:System.Net.FtpWebRequest.GetResponse%2A>, or <xref:System.Net.FtpWebRequest.BeginGetResponse%2A> method causes an <xref:System.InvalidOperationException> exception.       A Domain Name System (DNS) query may take up to 15 seconds to return or time out. If your request contains a host name that requires resolution and you set Timeout to a value less than 15 seconds, it may take 15 seconds or more before a <xref:System.Net.WebException> is thrown to indicate a time-out on your request."
+  summary: "取得または設定の要求を待機するミリ秒数。"
+  remarks: "無限の値を指定タイムアウト プロパティを設定します<xref:System.Threading.Timeout.Infinite>(-1)。</xref:System.Threading.Timeout.Infinite> 。 これは既定値です。       タイムアウトはで、同期要求が行われたミリ秒数、<xref:System.Net.FtpWebRequest.GetResponse%2A>メソッドと応答の待機、<xref:System.Net.FtpWebRequest.GetRequestStream%2A>メソッドは、ストリームの待機します</xref:System.Net.FtpWebRequest.GetRequestStream%2A></xref:System.Net.FtpWebRequest.GetResponse%2A>。 要求が、 <xref:System.Net.WebException> <xref:System.Net.WebException.Status%2A> <xref:System.Net.WebExceptionStatus>。</xref:System.Net.WebExceptionStatus>プロパティが設定</xref:System.Net.WebException.Status%2A></xref:System.Net.WebException>をスロー、リソース、タイムアウト期間内に応答しない場合       呼び出した後にタイムアウトを変更する、 <xref:System.Net.FtpWebRequest.GetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.GetResponse%2A>、または<xref:System.Net.FtpWebRequest.BeginGetResponse%2A>メソッド原因、<xref:System.InvalidOperationException>例外です</xref:System.InvalidOperationException></xref:System.Net.FtpWebRequest.BeginGetResponse%2A></xref:System.Net.FtpWebRequest.GetResponse%2A></xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A></xref:System.Net.FtpWebRequest.GetRequestStream%2A>。       ドメイン ネーム システム (DNS) クエリは、最大 15 秒を返すまたはタイムアウトにかかる場合があります。 要求には、解像度を必要とするホスト名が含まれています設定するとタイムアウト値より小さい 15 秒、かかることがありますする前に 15 秒以上、<xref:System.Net.WebException>要求タイムアウトを示すためにスローされます。</xref:System.Net.WebException> 。"
   example:
   - "The following code example sets this property.  \n  \n [!code-cpp[NCLFtpClient#23](~/add/codesnippet/cpp/p-system.net.ftpwebreque_3_1.cpp)]\n [!code-cs[NCLFtpClient#23](~/add/codesnippet/csharp/p-system.net.ftpwebreque_3_1.cs)]"
   syntax:
     content: public override int Timeout { get; set; }
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> value that contains the number of milliseconds to wait before a request times out. The default value is <xref:System.Threading.Timeout.Infinite>."
+      description: "<xref:System.Int32>要求がタイムアウトする前に待機するミリ秒数を含む値です</xref:System.Int32>。 既定値は<xref:System.Threading.Timeout.Infinite>。</xref:System.Threading.Timeout.Infinite>"
   overload: System.Net.FtpWebRequest.Timeout*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value specified is less than zero and is not <xref:System.Threading.Timeout.Infinite>."
+    description: "指定された値より小さい値&0; は、 <xref:System.Threading.Timeout.Infinite>.</xref:System.Threading.Timeout.Infinite>"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A new value was specified for this property for a request that is already in progress."
+    description: "新しい値は、このプロパティは既に進行中のある要求に指定されました。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.UseBinary
@@ -805,20 +805,20 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets or sets a <xref:System.Boolean> value that specifies the data type for file transfers."
-  remarks: "If you are sending binary data, such as an image, set this property to `true`. If you are sending text, set the property to `false`. Specifying `true` causes the <xref:System.Net.FtpWebRequest> to send a `&quot;TYPE I&quot;` command to the server. Specifying `false` causes the <xref:System.Net.FtpWebRequest> to send a `&quot;Type A&quot;` command to the server. FTP servers can ignore these commands.       Changing UseBinary after calling the <xref:System.Net.FtpWebRequest.GetRequestStream%2A>, <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>, <xref:System.Net.FtpWebRequest.GetResponse%2A>, or <xref:System.Net.FtpWebRequest.BeginGetResponse%2A> method causes an <xref:System.InvalidOperationException> exception."
+  summary: "取得または設定、<xref:System.Boolean>ファイル転送のデータ型を指定する値</xref:System.Boolean>。"
+  remarks: "バイナリを送信する場合、画像などのデータをこのプロパティを`true`です。 テキストを送信する場合は、プロパティを設定`false`です。 指定する`true`により、<xref:System.Net.FtpWebRequest>を送信する、`&quot;TYPE I&quot;`コマンドをサーバーにします</xref:System.Net.FtpWebRequest>。 指定する`false`により、<xref:System.Net.FtpWebRequest>を送信する、`&quot;Type A&quot;`コマンドをサーバーにします</xref:System.Net.FtpWebRequest>。 FTP サーバーは、これらのコマンドを無視することができます。       UseBinary を呼び出した後に変更する、 <xref:System.Net.FtpWebRequest.GetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.GetResponse%2A>、または<xref:System.Net.FtpWebRequest.BeginGetResponse%2A>メソッド原因、<xref:System.InvalidOperationException>例外です</xref:System.InvalidOperationException></xref:System.Net.FtpWebRequest.BeginGetResponse%2A></xref:System.Net.FtpWebRequest.GetResponse%2A></xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A></xref:System.Net.FtpWebRequest.GetRequestStream%2A>。"
   example:
   - "The following code example retrieves and displays property values for a specified <xref:System.Net.FtpWebRequest> object.  \n  \n [!code-cpp[NCLFtpClient#15](~/add/codesnippet/cpp/p-system.net.ftpwebreque_7_1.cpp)]\n [!code-cs[NCLFtpClient#15](~/add/codesnippet/csharp/p-system.net.ftpwebreque_7_1.cs)]"
   syntax:
     content: public bool UseBinary { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to indicate to the server that the data to be transferred is binary; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to indicate that the data is text. The default value is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>あることを示すサーバーに転送されるデータ バイナリです。<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>データがテキストであることを示します。 既定値は<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.FtpWebRequest.UseBinary*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A new value was specified for this property for a request that is already in progress."
+    description: "新しい値は、このプロパティは既に進行中のある要求に指定されました。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.UseDefaultCredentials
@@ -833,18 +833,18 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Always throws a <xref:System.NotSupportedException>."
-  remarks: "The UseDefaultCredentials property is provided only for compatibility with other implementations of the <xref:System.Net.WebRequest> and <xref:System.Net.WebResponse> classes. There is no reason to use UseDefaultCredentials."
+  summary: "<xref:System.NotSupportedException>。</xref:System.NotSupportedException>は常にスローします。"
+  remarks: "他の実装と互換性のためだけに提供される偽造しているプロパティ、<xref:System.Net.WebRequest>と<xref:System.Net.WebResponse>クラス</xref:System.Net.WebResponse></xref:System.Net.WebRequest>。 偽造しているを使用する必要はありません。"
   syntax:
     content: public override bool UseDefaultCredentials { get; set; }
     return:
       type: System.Boolean
-      description: "Always throws a <xref:System.NotSupportedException>."
+      description: "<xref:System.NotSupportedException>。</xref:System.NotSupportedException>は常にスローします。"
   overload: System.Net.FtpWebRequest.UseDefaultCredentials*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "Default credentials are not supported for FTP."
+    description: "FTP では、既定の資格情報はサポートされていません。"
   platform:
   - net462
 - uid: System.Net.FtpWebRequest.UsePassive
@@ -859,20 +859,20 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets or sets the behavior of a client application&quot;s data transfer process."
-  remarks: "Setting the UsePassive property to `true` sends the &quot;`PASV&quot;` command to the server. This command requests the server to listen on a data port and to wait for a connection rather than initiate one upon receipt of a transfer command.       For a description of the behaviors that are specified using UsePassive, see RFC 959, &quot;File Transfer Protocol,&quot; Section 3.2, &quot;Establishing Data Connections&quot; and Section 4.1.2, &quot;Transfer Parameter Commands,&quot; available at [http://www.rfc-editor.org/](http://www.ietf.org/rfc/rfc959.txt).       Changing UsePassive after calling the <xref:System.Net.FtpWebRequest.GetRequestStream%2A>, <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>, <xref:System.Net.FtpWebRequest.GetResponse%2A>, or <xref:System.Net.FtpWebRequest.BeginGetResponse%2A> method causes an <xref:System.InvalidOperationException> exception.       If UsePassive is set to `true`, the FTP server may not send the size of the file, and download progress can always be zero. If UsePassive is set to `false`, a firewall can raise an alert and block the file download."
+  summary: "取得またはクライアント アプリケーションのデータ転送プロセスの動作を設定します。"
+  remarks: "UsePassive プロパティを設定`true`送信、&quot;`PASV&quot;`コマンドをサーバーにします。 このコマンドは、データ ポートでリッスンするように、転送コマンドの受信時に開始するのではなく、接続の待機にサーバーを要求します。       UsePassive を使用して指定されている動作の説明は、RFC 959、「ファイル転送プロトコル」セクション 3.2、「データ接続を確立する」および 4.1.2、&quot;転送パラメーター、&quot;使用できるコマンドでを参照してください。 [http://www.rfc-editor.org/](http://www.ietf.org/rfc/rfc959.txt)です。       UsePassive を呼び出した後に変更する、 <xref:System.Net.FtpWebRequest.GetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A>、 <xref:System.Net.FtpWebRequest.GetResponse%2A>、または<xref:System.Net.FtpWebRequest.BeginGetResponse%2A>メソッド原因、<xref:System.InvalidOperationException>例外です</xref:System.InvalidOperationException></xref:System.Net.FtpWebRequest.BeginGetResponse%2A></xref:System.Net.FtpWebRequest.GetResponse%2A></xref:System.Net.FtpWebRequest.BeginGetRequestStream%2A></xref:System.Net.FtpWebRequest.GetRequestStream%2A>。       UsePassive に設定されている場合`true`、FTP サーバーは、ファイルのサイズを送信していませんし、ダウンロードの進行状況を常に&0; にすることができます。 UsePassive に設定されている場合`false`ファイアウォールは警告を生成し、ファイルのダウンロードをブロックします。"
   example:
   - "The following code example retrieves and displays property values for a specified <xref:System.Net.FtpWebRequest> object.  \n  \n [!code-cpp[NCLFtpClient#6](~/add/codesnippet/cpp/p-system.net.ftpwebreque_10_1.cpp)]\n [!code-cs[NCLFtpClient#6](~/add/codesnippet/csharp/p-system.net.ftpwebreque_10_1.cs)]"
   syntax:
     content: public bool UsePassive { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the client application&quot;s data transfer process listens for a connection on the data port; otherwise, <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the client should initiate a connection on the data port. The default value is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>プロセスがデータ ポートで接続のリッスンがクライアント アプリケーションのデータを転送する場合それ以外の場合、 <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>場合は、クライアントがデータ ポートで接続を開始する必要があります。 既定値は<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.FtpWebRequest.UsePassive*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A new value was specified for this property for a request that is already in progress."
+    description: "新しい値は、このプロパティは既に進行中のある要求に指定されました。"
   platform:
   - net462
 references:

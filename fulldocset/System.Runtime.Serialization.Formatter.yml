@@ -38,8 +38,8 @@ items:
   nameWithType: Formatter
   fullName: System.Runtime.Serialization.Formatter
   type: Class
-  summary: "Provides base functionality for the common language runtime serialization formatters."
-  remarks: "Formatter is the `abstract` base class for all runtime serialization formatters, and provides some helper methods for implementing the <xref:System.Runtime.Serialization.IFormatter> interface. The Formatter also manages queuing objects for serialization and generating IDs on a per-object basis."
+  summary: "共通言語ランタイムのシリアル化フォーマッタの基本機能を提供します。"
+  remarks: "フォーマッタは、`abstract`のすべてのランタイムのシリアル化フォーマッタの基本クラスおよび実装するためのいくつかのヘルパー メソッドを提供、<xref:System.Runtime.Serialization.IFormatter>インターフェイス</xref:System.Runtime.Serialization.IFormatter>。 フォーマッタでは、シリアル化とオブジェクトごとに生成 Id をキューのオブジェクトも管理します。"
   syntax:
     content: >-
       [System.CLSCompliant(false)]
@@ -66,8 +66,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.Runtime.Serialization.Formatter&quot;></xref> class."
-  remarks: "Creates a <xref:System.Collections.Queue> for objects to serialize and a <xref:System.Runtime.Serialization.ObjectIDGenerator> to generate IDs for them."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Runtime.Serialization.Formatter&quot;> </xref>クラスです。"
+  remarks: "作成、<xref:System.Collections.Queue>オブジェクトをシリアル化のと<xref:System.Runtime.Serialization.ObjectIDGenerator>をそれらの Id を生成します</xref:System.Runtime.Serialization.ObjectIDGenerator></xref:System.Collections.Queue>。"
   syntax:
     content: protected Formatter ();
     parameters: []
@@ -87,13 +87,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, gets or sets the <xref href=&quot;System.Runtime.Serialization.SerializationBinder&quot;></xref> used with the current formatter."
-  remarks: "The <xref:System.Runtime.Serialization.SerializationBinder> performs lookups for types from the type names passed during deserialization. If no <xref:System.Runtime.Serialization.SerializationBinder> is set, a default is used."
+  summary: "派生クラスでオーバーライドされると、取得または設定、 <xref href=&quot;System.Runtime.Serialization.SerializationBinder&quot;> </xref>の現在のフォーマッタと共に使用します。"
+  remarks: "<xref:System.Runtime.Serialization.SerializationBinder>逆シリアル化中に渡される型名からの種類の参照を実行します</xref:System.Runtime.Serialization.SerializationBinder>。 ない場合は<xref:System.Runtime.Serialization.SerializationBinder>が設定されている、既定値を使用します</xref:System.Runtime.Serialization.SerializationBinder>。"
   syntax:
     content: public abstract System.Runtime.Serialization.SerializationBinder Binder { get; set; }
     return:
       type: System.Runtime.Serialization.SerializationBinder
-      description: "The <xref href=&quot;System.Runtime.Serialization.SerializationBinder&quot;></xref> used with the current formatter."
+      description: "<xref href=&quot;System.Runtime.Serialization.SerializationBinder&quot;> </xref>の現在のフォーマッタと共に使用します。"
   overload: System.Runtime.Serialization.Formatter.Binder*
   exceptions: []
   platform:
@@ -110,13 +110,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, gets or sets the <xref:System.Runtime.Serialization.StreamingContext> used for the current serialization."
-  remarks: "The <xref:System.Runtime.Serialization.StreamingContext> is an indication of either the source of the bits being deserialized or the destination of the bits being serialized. It has no impact on default serialization, but is passed as an argument to <xref:System.Runtime.Serialization.ISerializable> and <xref:System.Runtime.Serialization.ISerializationSurrogate>."
+  summary: "派生クラスでオーバーライドされると、取得または設定、<xref:System.Runtime.Serialization.StreamingContext>現在シリアル化に使用します</xref:System.Runtime.Serialization.StreamingContext>。"
+  remarks: "<xref:System.Runtime.Serialization.StreamingContext>いずれかを示す値を逆シリアル化されるビットの送信元またはシリアル化されるビットの送信先が</xref:System.Runtime.Serialization.StreamingContext>。 既定のシリアル化に影響を与えませんが、<xref:System.Runtime.Serialization.ISerializable>および<xref:System.Runtime.Serialization.ISerializationSurrogate>。</xref:System.Runtime.Serialization.ISerializationSurrogate></xref:System.Runtime.Serialization.ISerializable>に引数として渡される"
   syntax:
     content: public abstract System.Runtime.Serialization.StreamingContext Context { get; set; }
     return:
       type: System.Runtime.Serialization.StreamingContext
-      description: "The <xref:System.Runtime.Serialization.StreamingContext> used for the current serialization."
+      description: "<xref:System.Runtime.Serialization.StreamingContext>現在シリアル化に使用します</xref:System.Runtime.Serialization.StreamingContext>。"
   overload: System.Runtime.Serialization.Formatter.Context*
   exceptions: []
   platform:
@@ -133,16 +133,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, deserializes the stream attached to the formatter when it was created, creating a graph of objects identical to the graph originally serialized into that stream."
+  summary: "派生クラスでオーバーライドされると、最初そのストリームにシリアル化するグラフと同じオブジェクトのグラフの作成が作成されたときに、フォーマッタにアタッチされているストリームを逆シリアル化します。"
   syntax:
     content: public abstract object Deserialize (System.IO.Stream serializationStream);
     parameters:
     - id: serializationStream
       type: System.IO.Stream
-      description: "The stream to deserialize."
+      description: "逆シリアル化するストリーム。"
     return:
       type: System.Object
-      description: "The top object of the deserialized graph of objects."
+      description: "オブジェクトの逆シリアル化されたグラフの最上位オブジェクトです。"
   overload: System.Runtime.Serialization.Formatter.Deserialize*
   exceptions: []
   platform:
@@ -159,22 +159,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Returns the next object to serialize, from the formatter&quot;s internal work queue."
-  remarks: "Objects are returned in a first in first out order based on how they were passed to <xref:System.Runtime.Serialization.Formatter.Schedule%2A>. The ID of the object is put into the `objID` parameter and the object is returned from the function."
+  summary: "[次へ] をフォーマッタの内部作業キューからシリアル化するオブジェクトを返します。"
+  remarks: "先入れ先出し<xref:System.Runtime.Serialization.Formatter.Schedule%2A>。</xref:System.Runtime.Serialization.Formatter.Schedule%2A>渡すされた方法に基づく順序で最初に返されるオブジェクト オブジェクトの ID を入れる、`objID`パラメーターと、オブジェクトが関数から返されます。"
   syntax:
     content: protected virtual object GetNext (out long objID);
     parameters:
     - id: objID
       type: System.Int64
-      description: "The ID assigned to the current object during serialization."
+      description: "シリアル化中に、現在のオブジェクトに割り当てられた ID。"
     return:
       type: System.Object
-      description: "The next object to serialize."
+      description: "シリアル化する次のオブジェクト。"
   overload: System.Runtime.Serialization.Formatter.GetNext*
   exceptions:
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: "The next object retrieved from the work queue did not have an assigned ID."
+    description: "ワーク キューから取得された次のオブジェクトが割り当てられた ID がありません。"
   platform:
   - net462
 - uid: System.Runtime.Serialization.Formatter.m_idGenerator
@@ -189,13 +189,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Contains the <xref href=&quot;System.Runtime.Serialization.ObjectIDGenerator&quot;></xref> used with the current formatter."
-  remarks: "The <xref:System.Runtime.Serialization.ObjectIDGenerator> maintains a list of the objects that have been identified and the IDs that they were given."
+  summary: "含まれています、 <xref href=&quot;System.Runtime.Serialization.ObjectIDGenerator&quot;> </xref>の現在のフォーマッタと共に使用します。"
+  remarks: "<xref:System.Runtime.Serialization.ObjectIDGenerator>識別されたオブジェクトと、指定された Id の一覧を保持します</xref:System.Runtime.Serialization.ObjectIDGenerator>。"
   syntax:
     content: protected System.Runtime.Serialization.ObjectIDGenerator m_idGenerator;
     return:
       type: System.Runtime.Serialization.ObjectIDGenerator
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -211,13 +211,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Contains a <xref href=&quot;System.Collections.Queue&quot;></xref> of the objects left to serialize."
-  remarks: "Objects scheduled for serialization with the <xref:System.Runtime.Serialization.Formatter.Schedule%2A> method are pushed on the queue."
+  summary: "含まれています、 <xref href=&quot;System.Collections.Queue&quot;> </xref>左をシリアル化するオブジェクト。"
+  remarks: "シリアル化のため予定されているオブジェクト、<xref:System.Runtime.Serialization.Formatter.Schedule%2A>メソッドは、キューにプッシュします</xref:System.Runtime.Serialization.Formatter.Schedule%2A>。"
   syntax:
     content: protected System.Collections.Queue m_objectQueue;
     return:
       type: System.Collections.Queue
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -233,17 +233,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Schedules an object for later serialization."
-  remarks: "Schedule obtains an ID for the object and puts it on the queue for later serialization if this is a new object ID. The schedule is a work queue of objects to serialize, and is held inside the formatter. If the object is already on the work queue, it will not be added a second time, but an exception will not be thrown either."
+  summary: "後でシリアル化するオブジェクトをスケジュールします。"
+  remarks: "スケジュールがオブジェクトの ID を取得し、場合は、新しいオブジェクト id です。 これは後でシリアル化のためにキューに配置 スケジュールは、シリアル化されるオブジェクトの作業キュー、フォーマッタの内部に保持されます。 オブジェクトが既に作業キューにある場合、これは追加されませんをもう一度けれども、例外はスローされませんいずれか"
   syntax:
     content: protected virtual long Schedule (object obj);
     parameters:
     - id: obj
       type: System.Object
-      description: "The object to schedule for serialization."
+      description: "シリアル化のスケジュールを設定するオブジェクト。"
     return:
       type: System.Int64
-      description: "The object ID assigned to the object."
+      description: "オブジェクトに割り当てられたオブジェクト ID。"
   overload: System.Runtime.Serialization.Formatter.Schedule*
   exceptions: []
   platform:
@@ -260,16 +260,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, serializes the graph of objects with the specified root to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、フォーマッタに既にアタッチされているストリームに指定されたルートを持つオブジェクトのグラフをシリアル化します。"
   syntax:
     content: public abstract void Serialize (System.IO.Stream serializationStream, object graph);
     parameters:
     - id: serializationStream
       type: System.IO.Stream
-      description: "The stream to which the objects are serialized."
+      description: "オブジェクトがシリアル化されたストリーム。"
     - id: graph
       type: System.Object
-      description: "The object at the root of the graph to serialize."
+      description: "シリアル化するグラフのルートにあるオブジェクト。"
   overload: System.Runtime.Serialization.Formatter.Serialize*
   exceptions: []
   platform:
@@ -286,13 +286,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, gets or sets the <xref href=&quot;System.Runtime.Serialization.ISurrogateSelector&quot;></xref> used with the current formatter."
-  remarks: "Use the <xref:System.Runtime.Serialization.SurrogateSelector> to look up implementations of <xref:System.Runtime.Serialization.ISerializationSurrogate> that control the serialization of a particular type.       If an object type has a matching surrogate, then serialization and deserialization are handed off to the surrogate even if the type implements the <xref:System.Runtime.Serialization.ISerializable> interface."
+  summary: "派生クラスでオーバーライドされると、取得または設定、 <xref href=&quot;System.Runtime.Serialization.ISurrogateSelector&quot;> </xref>の現在のフォーマッタと共に使用します。"
+  remarks: "使用して、<xref:System.Runtime.Serialization.SurrogateSelector>の実装を検索する<xref:System.Runtime.Serialization.ISerializationSurrogate>、特定の型のシリアル化を制御する</xref:System.Runtime.Serialization.ISerializationSurrogate></xref:System.Runtime.Serialization.SurrogateSelector>。       オブジェクトの種類に対応するサロゲートの場合はかどうか、に、シリアル化および逆シリアル化に渡されます、サロゲート型を実装する場合でも、<xref:System.Runtime.Serialization.ISerializable>インターフェイス</xref:System.Runtime.Serialization.ISerializable>。"
   syntax:
     content: public abstract System.Runtime.Serialization.ISurrogateSelector SurrogateSelector { get; set; }
     return:
       type: System.Runtime.Serialization.ISurrogateSelector
-      description: "The <xref href=&quot;System.Runtime.Serialization.ISurrogateSelector&quot;></xref> used with the current formatter."
+      description: "<xref href=&quot;System.Runtime.Serialization.ISurrogateSelector&quot;> </xref>の現在のフォーマッタと共に使用します。"
   overload: System.Runtime.Serialization.Formatter.SurrogateSelector*
   exceptions: []
   platform:
@@ -309,19 +309,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes an array to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、配列をフォーマッタに既にアタッチされているストリームに書き込みます。"
   syntax:
     content: protected abstract void WriteArray (object obj, string name, Type memberType);
     parameters:
     - id: obj
       type: System.Object
-      description: "The array to write."
+      description: "書き込み先の配列。"
     - id: name
       type: System.String
-      description: "The name of the array."
+      description: "配列の名前。"
     - id: memberType
       type: System.Type
-      description: "The type of elements that the array holds."
+      description: "配列を保持する要素の型。"
   overload: System.Runtime.Serialization.Formatter.WriteArray*
   exceptions: []
   platform:
@@ -338,16 +338,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes a Boolean value to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、ブール値をフォーマッタに既にアタッチされているストリームに書き込みます。"
   syntax:
     content: protected abstract void WriteBoolean (bool val, string name);
     parameters:
     - id: val
       type: System.Boolean
-      description: "The value to write."
+      description: "書き込む値。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
   overload: System.Runtime.Serialization.Formatter.WriteBoolean*
   exceptions: []
   platform:
@@ -364,16 +364,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes an 8-bit unsigned integer to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、8 ビット符号なし整数をフォーマッタに既にアタッチされているストリームに書き込みます。"
   syntax:
     content: protected abstract void WriteByte (byte val, string name);
     parameters:
     - id: val
       type: System.Byte
-      description: "The value to write."
+      description: "書き込む値。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
   overload: System.Runtime.Serialization.Formatter.WriteByte*
   exceptions: []
   platform:
@@ -390,16 +390,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes a Unicode character to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、Unicode 文字をフォーマッタに既にアタッチされているストリームに書き込みます。"
   syntax:
     content: protected abstract void WriteChar (char val, string name);
     parameters:
     - id: val
       type: System.Char
-      description: "The value to write."
+      description: "書き込む値。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
   overload: System.Runtime.Serialization.Formatter.WriteChar*
   exceptions: []
   platform:
@@ -416,16 +416,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes a <xref:System.DateTime> value to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、<xref:System.DateTime>をフォーマッタに既にアタッチされているストリーム</xref:System.DateTime>。"
   syntax:
     content: protected abstract void WriteDateTime (DateTime val, string name);
     parameters:
     - id: val
       type: System.DateTime
-      description: "The value to write."
+      description: "書き込む値。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
   overload: System.Runtime.Serialization.Formatter.WriteDateTime*
   exceptions: []
   platform:
@@ -442,16 +442,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes a <xref:System.Decimal> value to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、<xref:System.Decimal>をフォーマッタに既にアタッチされているストリーム</xref:System.Decimal>。"
   syntax:
     content: protected abstract void WriteDecimal (decimal val, string name);
     parameters:
     - id: val
       type: System.Decimal
-      description: "The value to write."
+      description: "書き込む値。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
   overload: System.Runtime.Serialization.Formatter.WriteDecimal*
   exceptions: []
   platform:
@@ -468,16 +468,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes a double-precision floating-point number to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、倍精度浮動小数点数をフォーマッタに既にアタッチされているストリームに書き込みます。"
   syntax:
     content: protected abstract void WriteDouble (double val, string name);
     parameters:
     - id: val
       type: System.Double
-      description: "The value to write."
+      description: "書き込む値。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
   overload: System.Runtime.Serialization.Formatter.WriteDouble*
   exceptions: []
   platform:
@@ -494,16 +494,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes a 16-bit signed integer to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、16 ビット符号付き整数をフォーマッタに既にアタッチされているストリームに書き込みます。"
   syntax:
     content: protected abstract void WriteInt16 (short val, string name);
     parameters:
     - id: val
       type: System.Int16
-      description: "The value to write."
+      description: "書き込む値。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
   overload: System.Runtime.Serialization.Formatter.WriteInt16*
   exceptions: []
   platform:
@@ -520,16 +520,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes a 32-bit signed integer to the stream."
+  summary: "派生クラスでオーバーライドされると、32 ビット符号付き整数をストリームに書き込みます。"
   syntax:
     content: protected abstract void WriteInt32 (int val, string name);
     parameters:
     - id: val
       type: System.Int32
-      description: "The value to write."
+      description: "書き込む値。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
   overload: System.Runtime.Serialization.Formatter.WriteInt32*
   exceptions: []
   platform:
@@ -546,16 +546,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes a 64-bit signed integer to the stream."
+  summary: "派生クラスでオーバーライドされると、64 ビット符号付き整数をストリームに書き込みます。"
   syntax:
     content: protected abstract void WriteInt64 (long val, string name);
     parameters:
     - id: val
       type: System.Int64
-      description: "The value to write."
+      description: "書き込む値。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
   overload: System.Runtime.Serialization.Formatter.WriteInt64*
   exceptions: []
   platform:
@@ -572,17 +572,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Inspects the type of data received, and calls the appropriate <xref uid=&quot;langword_csharp_Write&quot; name=&quot;Write&quot; href=&quot;&quot;></xref> method to perform the write to the stream already attached to the formatter."
-  remarks: "To use this method properly, all the `Write` methods (<xref:System.Runtime.Serialization.Formatter.WriteArray%2A> method, <xref:System.Runtime.Serialization.Formatter.WriteBoolean%2A> method, <xref:System.Runtime.Serialization.Formatter.WriteByte%2A> method, and so on) should have the appropriate functionality."
+  summary: "受信した、データの型を検査し、適切な<xref uid=&quot;langword_csharp_Write&quot; name=&quot;Write&quot; href=&quot;&quot;></xref>フォーマッタに既にアタッチされているストリームに書き込みを実行するメソッド。"
+  remarks: "正しく、このメソッドを使用するすべての`Write`メソッド (<xref:System.Runtime.Serialization.Formatter.WriteArray%2A>メソッドを<xref:System.Runtime.Serialization.Formatter.WriteBoolean%2A>メソッドを<xref:System.Runtime.Serialization.Formatter.WriteByte%2A>メソッドをおよびな)、適切な機能を持つ必要があります</xref:System.Runtime.Serialization.Formatter.WriteByte%2A></xref:System.Runtime.Serialization.Formatter.WriteBoolean%2A></xref:System.Runtime.Serialization.Formatter.WriteArray%2A>。"
   syntax:
     content: protected virtual void WriteMember (string memberName, object data);
     parameters:
     - id: memberName
       type: System.String
-      description: "The name of the member to serialize."
+      description: "シリアル化するメンバーの名前。"
     - id: data
       type: System.Object
-      description: "The object to write to the stream attached to the formatter."
+      description: "フォーマッタにアタッチされているストリームに書き込むオブジェクト。"
   overload: System.Runtime.Serialization.Formatter.WriteMember*
   exceptions: []
   platform:
@@ -599,20 +599,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes an object reference to the stream already attached to the formatter."
-  remarks: "Schedules the object with the graph walker to handle the work."
+  summary: "派生クラスでオーバーライドされると、フォーマッタに既にアタッチされているストリームへのオブジェクト参照を書き込みます。"
+  remarks: "作業を処理するグラフ ウォーカーでオブジェクトをスケジュールします。"
   syntax:
     content: protected abstract void WriteObjectRef (object obj, string name, Type memberType);
     parameters:
     - id: obj
       type: System.Object
-      description: "The object reference to write."
+      description: "書き込むオブジェクトの参照。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
     - id: memberType
       type: System.Type
-      description: "The type of object the reference points to."
+      description: "参照が指すオブジェクトの型。"
   overload: System.Runtime.Serialization.Formatter.WriteObjectRef*
   exceptions: []
   platform:
@@ -629,16 +629,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes an 8-bit signed integer to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、8 ビット符号付き整数をフォーマッタに既にアタッチされているストリームに書き込みます。"
   syntax:
     content: protected abstract void WriteSByte (sbyte val, string name);
     parameters:
     - id: val
       type: System.SByte
-      description: "The value to write."
+      description: "書き込む値。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
   overload: System.Runtime.Serialization.Formatter.WriteSByte*
   exceptions: []
   platform:
@@ -655,16 +655,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes a single-precision floating-point number to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、単精度浮動小数点数をフォーマッタに既にアタッチされているストリームに書き込みます。"
   syntax:
     content: protected abstract void WriteSingle (float val, string name);
     parameters:
     - id: val
       type: System.Single
-      description: "The value to write."
+      description: "書き込む値。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
   overload: System.Runtime.Serialization.Formatter.WriteSingle*
   exceptions: []
   platform:
@@ -681,16 +681,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes a <xref:System.TimeSpan> value to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、<xref:System.TimeSpan>をフォーマッタに既にアタッチされているストリーム</xref:System.TimeSpan>。"
   syntax:
     content: protected abstract void WriteTimeSpan (TimeSpan val, string name);
     parameters:
     - id: val
       type: System.TimeSpan
-      description: "The value to write."
+      description: "書き込む値。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
   overload: System.Runtime.Serialization.Formatter.WriteTimeSpan*
   exceptions: []
   platform:
@@ -707,16 +707,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes a 16-bit unsigned integer to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、16 ビット符号なし整数をフォーマッタに既にアタッチされているストリームに書き込みます。"
   syntax:
     content: protected abstract void WriteUInt16 (ushort val, string name);
     parameters:
     - id: val
       type: System.UInt16
-      description: "The value to write."
+      description: "書き込む値。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
   overload: System.Runtime.Serialization.Formatter.WriteUInt16*
   exceptions: []
   platform:
@@ -733,16 +733,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes a 32-bit unsigned integer to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、32 ビット符号なし整数をフォーマッタに既にアタッチされているストリームに書き込みます。"
   syntax:
     content: protected abstract void WriteUInt32 (uint val, string name);
     parameters:
     - id: val
       type: System.UInt32
-      description: "The value to write."
+      description: "書き込む値。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
   overload: System.Runtime.Serialization.Formatter.WriteUInt32*
   exceptions: []
   platform:
@@ -759,16 +759,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes a 64-bit unsigned integer to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、64 ビット符号なし整数をフォーマッタに既にアタッチされているストリームに書き込みます。"
   syntax:
     content: protected abstract void WriteUInt64 (ulong val, string name);
     parameters:
     - id: val
       type: System.UInt64
-      description: "The value to write."
+      description: "書き込む値。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
   overload: System.Runtime.Serialization.Formatter.WriteUInt64*
   exceptions: []
   platform:
@@ -785,19 +785,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, writes a value of the given type to the stream already attached to the formatter."
+  summary: "派生クラスでオーバーライドされると、指定された型の値をフォーマッタに既にアタッチされているストリームに書き込みます。"
   syntax:
     content: protected abstract void WriteValueType (object obj, string name, Type memberType);
     parameters:
     - id: obj
       type: System.Object
-      description: "The object representing the value type."
+      description: "値の型を表すオブジェクト。"
     - id: name
       type: System.String
-      description: "The name of the member."
+      description: "メンバーの名前です。"
     - id: memberType
       type: System.Type
-      description: "The <xref:System.Type> of the value type."
+      description: "<xref:System.Type>、値の型</xref:System.Type>。"
   overload: System.Runtime.Serialization.Formatter.WriteValueType*
   exceptions: []
   platform:
