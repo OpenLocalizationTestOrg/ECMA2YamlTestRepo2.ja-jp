@@ -18,8 +18,8 @@ items:
   nameWithType: SqlUserDefinedAggregateAttribute
   fullName: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute
   type: Class
-  summary: "Indicates that the type should be registered as a user-defined aggregate. The properties on the attribute reflect the physical attributes used when the type is registered with SQL Server. This class cannot be inherited."
-  remarks: "SQL Server creates a user-defined aggregate that is bound to the class definition that has the SqlUserDefinedAggregateAttribute custom attribute. Every user-defined aggregate must be annotated with this attribute.       See &quot;CLR User-Defined Aggregates&quot; in SQL Server 2005 Books Online for more information on user-defined aggregates and examples."
+  summary: "ユーザー定義集計として型を登録するかを示します。 属性のプロパティは、種類が SQL Server に登録されているときに使用する物理属性を反映します。 このクラスは継承できません。"
+  remarks: "SQL Server では、SqlUserDefinedAggregateAttribute カスタム属性を持つクラス定義にバインドされているユーザー定義集計を作成します。 すべてのユーザー定義集計は、この属性でマーク付けする必要があります。       詳細と例についてはユーザー定義集計については、SQL Server 2005 オンライン ブック「CLR ユーザー定義集計」を参照してください。"
   example:
   - "The following example shows the SqlUserDefinedAggregateAttribute attribute for a user-defined aggregate.  The aggregate uses custom serialization, has a maximum size of 8000 bytes when serialized, and is invariant to nulls, duplicates, and order.  \n  \n [!code-vb[DataWorks SqlUserDefinedAggregateAttribute Sample#1](~/add/codesnippet/visualbasic/t-microsoft.sqlserver.se_5_1.vb)]\n [!code-cs[DataWorks SqlUserDefinedAggregateAttribute Sample#1](~/add/codesnippet/csharp/t-microsoft.sqlserver.se_5_1.cs)]"
   syntax:
@@ -45,13 +45,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "A required attribute on a user-defined aggregate, used to indicate that the given type is a user-defined aggregate and the storage format of the user-defined aggregate."
+  summary: "指定された型がユーザー定義の集計と、ユーザー定義集計のストレージ形式であることを示すユーザー定義の集計では、必須の属性を使用します。"
   syntax:
     content: public SqlUserDefinedAggregateAttribute (Microsoft.SqlServer.Server.Format format);
     parameters:
     - id: format
       type: Microsoft.SqlServer.Server.Format
-      description: "One of the <xref href=&quot;Microsoft.SqlServer.Server.Format&quot;></xref> values representing the serialization format of the aggregate."
+      description: "1 つ、 <xref href=&quot;Microsoft.SqlServer.Server.Format&quot;> </xref>集計のシリアル化形式を表す値です。"
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.#ctor*
   exceptions: []
   platform:
@@ -68,7 +68,7 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "The serialization format as a <xref href=&quot;Microsoft.SqlServer.Server.Format&quot;></xref>."
+  summary: "シリアル化の形式として、 <xref href=&quot;Microsoft.SqlServer.Server.Format&quot;></xref>です。"
   remarks: ''
   example:
   - >-
@@ -78,7 +78,7 @@ items:
     content: public Microsoft.SqlServer.Server.Format Format { get; }
     return:
       type: Microsoft.SqlServer.Server.Format
-      description: "A <xref href=&quot;Microsoft.SqlServer.Server.Format&quot;></xref> representing the serialization format."
+      description: "A <xref href=&quot;Microsoft.SqlServer.Server.Format&quot;> </xref>シリアル化形式を表すです。"
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.Format*
   exceptions: []
   platform:
@@ -95,13 +95,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Indicates whether the aggregate is invariant to duplicates."
-  remarks: "Used by the query processor, this property is `true` if the aggregate is invariant to duplicates. That is, the aggregate of S, {X} is the same as aggregate of S when X is already in S. For example, aggregate functions such as MIN and MAX satisfy this property, while SUM does not.       Incorrectly setting this property can result in incorrect query results. This property is not an optimizer hint; it affects both the plan selected and the results returned by the query."
+  summary: "集計が重複するバリアント型かどうかを示します。"
+  remarks: "このプロパティは、クエリ プロセッサを使用して、`true`集計は重複するバリアントがある場合。 つまり、集計、X は %s で既に場合 S の集計と同じ {x} ですたとえば、MIN と MAX などの集計関数は、合計ではありませんが、このプロパティを満たします。       このプロパティの設定は、不適切なクエリの結果になります。 このプロパティは、オプティマイザー ヒントです。これは、選択されたプランとクエリによって返される結果の両方に影響します。"
   syntax:
     content: public bool IsInvariantToDuplicates { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the aggregate is invariant to duplicates; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>集計は重複しています。 するバリアントがある場合それ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.IsInvariantToDuplicates*
   exceptions: []
   platform:
@@ -118,13 +118,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Indicates whether the aggregate is invariant to nulls."
-  remarks: "Used by the query processor, this property is `true` if the aggregate is invariant to nulls. That is, the aggregate of S, {NULL} is the same as aggregate of S. For example, aggregate functions such as MIN and MAX satisfy this property, while COUNT(*) does not.       Incorrectly setting this property can result in incorrect query results. This property is not an optimizer hint; it affects the plan selected and the results returned by the query."
+  summary: "Null を許容するバリアント、集計がないかどうかを示します。"
+  remarks: "このプロパティは、クエリ プロセッサを使用して、`true`集計は null を許容するバリアントがある場合。 つまり、S、{NULL} の集計が S の集計と同じです。たとえば、MIN および MAX などの集計関数は、COUNT(*) ではありませんが、このプロパティを満たします。       このプロパティの設定は、不適切なクエリの結果になります。 このプロパティは、オプティマイザー ヒントです。選択されたプランとクエリによって返される結果に影響します。"
   syntax:
     content: public bool IsInvariantToNulls { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the aggregate is invariant to nulls; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>集計は null が許さするバリアントがある場合それ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.IsInvariantToNulls*
   exceptions: []
   platform:
@@ -141,13 +141,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Indicates whether the aggregate is invariant to order."
-  remarks: "Reserved for future use. This property is not currently used by the query processor: order is currently not guaranteed.       Incorrectly setting this property can result in incorrect query results. This property is not an optimizer hint; it affects the plan selected and the results returned by the query.       The default value for this property is `false`."
+  summary: "集計が注文に対して不変でかどうかを示します。"
+  remarks: "将来の使用のために予約されています。 このプロパティが、クエリ プロセッサによって現在使用されていません: 順序が保証されません。       このプロパティの設定は、不適切なクエリの結果になります。 このプロパティは、オプティマイザー ヒントです。選択されたプランとクエリによって返される結果に影響します。       このプロパティの既定値は`false`します。"
   syntax:
     content: public bool IsInvariantToOrder { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the aggregate is invariant to order; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>集計は注文; バリアントがある場合それ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.IsInvariantToOrder*
   exceptions: []
   platform:
@@ -164,13 +164,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Indicates whether the aggregate returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no values have been accumulated."
-  remarks: "Used by the query processor, this property is `true` if the aggregate returns `null` if no values have been accumulated.       Incorrectly setting this property can result in incorrect query results. This property is not an optimizer hint; it affects the plan selected and the results returned by the query."
+  summary: "集計を返すかどうかを示します<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>値が累積されていなかった場合。"
+  remarks: "このプロパティは、クエリ プロセッサを使用して、 `true` 、集計を返す場合`null`値が累積されていなかった場合。       このプロパティの設定は、不適切なクエリの結果になります。 このプロパティは、オプティマイザー ヒントです。選択されたプランとクエリによって返される結果に影響します。"
   syntax:
     content: public bool IsNullIfEmpty { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the aggregate returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no values have been accumulated; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>集計を返す場合<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>値が行われていない場合それ以外の累計<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.IsNullIfEmpty*
   exceptions: []
   platform:
@@ -187,13 +187,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "The maximum size, in bytes, of the aggregate instance."
-  remarks: "This property does not have to be specified for Native format serialization.       You must specify the MaxByteSize property with the UserDefined serialization <xref:Microsoft.SqlServer.Server.Format>.       The maximum allowed value for this property is specified by the <xref:Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.MaxByteSizeValue> field.       The maximum size allowed is 2 gigabytes (GB). You can specify a number from 1 to 8000 bytes, or -1 to represent a value larger than 8000 bytes, up to 2 gigabytes.       For an aggregate with user-defined serialization specified, MaxByteSize refers to the total size of the serialized data. Consider an aggregate serializing a string of 10 characters (<xref:System.Char>). When the string is serialized using a <xref:System.IO.BinaryWriter>, the total size of the serialized string is 22 bytes: 2 bytes per Unicode UTF-16 character, multiplied by the maximum number of characters, plus 2 control bytes of overhead incurred from serializing a binary stream. So, when determining the value of MaxByteSize, the total size of the serialized data must be considered: the size of the data serialized in binary form plus the overhead incurred by serialization."
+  summary: "(バイト単位) の集計インスタンスの最大サイズ。"
+  remarks: "ネイティブ形式のシリアル化に対して指定するこのプロパティがありませんでした。       ユーザー定義シリアル化<xref:Microsoft.SqlServer.Server.Format>。</xref:Microsoft.SqlServer.Server.Format>に MaxByteSize プロパティを指定する必要があります。       このプロパティによって指定の最大許容値、<xref:Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.MaxByteSizeValue>フィールド</xref:Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.MaxByteSizeValue>。       許容される最大サイズは、2 ギガバイト (GB) です。 8000 バイト、2 ギガバイトより大きい値を表す 8000 バイト、または-1 ~ 1 の数値を指定できます。       ユーザー定義シリアル化が指定された集計、MaxByteSize はシリアル化されたデータの合計サイズを示します。 10 文字の文字列をシリアル化する集計を検討してください (<xref:System.Char>).</xref:System.Char> 使用して、文字列にシリアル化されるとき、<xref:System.IO.BinaryWriter>シリアル化された文字列の合計サイズは 22 バイト 2 バイト Unicode utf-16 の文字、文字の最大数を掛けたごと、および制御バイト 2 バイトのオーバーヘッドで発生するバイナリ ストリームのシリアル化します</xref:System.IO.BinaryWriter>。 そのため、MaxByteSize の値を決定するとき、シリアル化データの合計サイズ見なす必要があります: バイナリ形式でシリアル化データと、シリアル化によるオーバーヘッドのサイズ。"
   syntax:
     content: public int MaxByteSize { get; set; }
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> value representing the maximum size of the aggregate instance."
+      description: "<xref:System.Int32>集計インスタンスの最大サイズを表す値</xref:System.Int32>。"
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.MaxByteSize*
   exceptions: []
   platform:
@@ -210,13 +210,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "The maximum size, in bytes, required to store the state of this aggregate instance during computation."
-  remarks: "An <xref:System.Int32> value representing the maximum size of the aggregate instance."
+  summary: "(バイト単位) を計算中にこの集計インスタンスの状態を格納するために必要な最大サイズ。"
+  remarks: "<xref:System.Int32>集計インスタンスの最大サイズを表す値</xref:System.Int32>。"
   syntax:
     content: public const int MaxByteSizeValue = 8000;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -232,12 +232,12 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "The name of the aggregate."
+  summary: "集計の名前です。"
   syntax:
     content: public string Name { get; set; }
     return:
       type: System.String
-      description: "A <xref:System.String> value representing the name of the aggregate."
+      description: "A <xref:System.String>、集計の名前を表す値</xref:System.String>。"
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.Name*
   exceptions: []
   platform:

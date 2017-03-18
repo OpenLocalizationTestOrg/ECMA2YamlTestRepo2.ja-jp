@@ -21,8 +21,8 @@ items:
   nameWithType: SecurityTokenResolver
   fullName: System.IdentityModel.Selectors.SecurityTokenResolver
   type: Class
-  summary: "Represents a utility class that can retrieve security tokens or keys when you have a key identifier or key identifier clause."
-  remarks: "Use the SecurityTokenResolver class to retrieve a key or security token when you have a key identifier or key identifier clause. The <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A> and <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A> methods retrieve a token given that there is a key identifier or key identifier clause. The <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey%2A> and <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey%2A> retrieve a key given that there is a key identifier clause. The methods with a `Try` prefix return `false` when the retrieval is unsuccessful, whereas the methods without a `Try` prefix throw an exception."
+  summary: "キー識別子またはキー識別句があるときにセキュリティ トークンまたはキーを取得するユーティリティ クラスを表します。"
+  remarks: "SecurityTokenResolver クラス キーまたはセキュリティを取得するトークンのキー識別子またはキー識別句があるときに使用します。 <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A>と<xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A>メソッドは、キー識別子またはキー識別句があることにトークンを取得します</xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A></xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A>。 <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey%2A>と<xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey%2A>キー識別子句があること、キーを取得します</xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey%2A></xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey%2A>。 持つメソッド、`Try`戻り値のプレフィックス`false`取得できない場合は、一方せず、メソッド、`Try`プレフィックスが例外をスローします。"
   syntax:
     content: 'public abstract class SecurityTokenResolver : System.IdentityModel.Configuration.ICustomIdentityConfiguration'
   inheritance:
@@ -44,7 +44,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenResolver&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenResolver&quot;> </xref>クラスです。"
   syntax:
     content: protected SecurityTokenResolver ();
     parameters: []
@@ -64,20 +64,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Creates a default security token resolver for the specified security tokens."
-  remarks: "The security token resolver that is returned from this method, uses the <xref:System.IdentityModel.Tokens.SecurityToken.MatchesKeyIdentifierClause%2A> and <xref:System.IdentityModel.Tokens.SecurityToken.ResolveKeyIdentifierClause%2A> methods on the specified security tokens to resolve key identifiers and key identifier clauses."
+  summary: "指定されたセキュリティ トークンの既定のセキュリティ トークン リゾルバーを作成します。"
+  remarks: "このメソッドから返されるセキュリティ トークン リゾルバーを使用して、<xref:System.IdentityModel.Tokens.SecurityToken.MatchesKeyIdentifierClause%2A>と<xref:System.IdentityModel.Tokens.SecurityToken.ResolveKeyIdentifierClause%2A>キー識別子およびキー識別句を解決するのには、指定したセキュリティ トークンのメソッド</xref:System.IdentityModel.Tokens.SecurityToken.ResolveKeyIdentifierClause%2A></xref:System.IdentityModel.Tokens.SecurityToken.MatchesKeyIdentifierClause%2A>。"
   syntax:
     content: public static System.IdentityModel.Selectors.SecurityTokenResolver CreateDefaultSecurityTokenResolver (System.Collections.ObjectModel.ReadOnlyCollection<System.IdentityModel.Tokens.SecurityToken> tokens, bool canMatchLocalId);
     parameters:
     - id: tokens
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.IdentityModel.Tokens.SecurityToken}
-      description: "A &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; of type <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that contains the set of security tokens for which this security token resolver can resolve key identifiers and key identifier clauses to."
+      description: "A &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt;型の<xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref>をこのセキュリティ トークン リゾルバーをキー識別子およびキー識別句を解決できるセキュリティ トークンのセットを格納します。"
     - id: canMatchLocalId
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to resolve the <xref uid=&quot;langword_csharp_&lt;SecurityTokenReference&gt;&quot; name=&quot;&lt;SecurityTokenReference&gt;&quot; href=&quot;&quot;></xref> key identifier clauses that reference a security key that is located somewhere else in the SOAP message; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>解決するのには、 <xref uid=&quot;langword_csharp_&lt;SecurityTokenReference&gt;&quot; name=&quot;&lt;SecurityTokenReference&gt;&quot; href=&quot;&quot;> </xref>キー識別句がある場所に、SOAP メッセージ内の他、それ以外のセキュリティ キーを参照する<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
     return:
       type: System.IdentityModel.Selectors.SecurityTokenResolver
-      description: "A <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenResolver&quot;></xref> that resolves key identifiers and clauses that match the security tokens specified in the <code>tokens</code> parameter."
+      description: "A <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenResolver&quot;> </xref>キー識別子および句で指定されたセキュリティ トークンを解決する、 <code> tokens </code>パラメーター。"
   overload: System.IdentityModel.Selectors.SecurityTokenResolver.CreateDefaultSecurityTokenResolver*
   exceptions: []
   platform:
@@ -94,14 +94,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "When overridden in a derived class, loads custom configuration from XML."
-  remarks: "By default, throws a <xref:System.NotImplementedException>. You can override this method to provide functionality in a derived class."
+  summary: "派生クラスでオーバーライドされると、XML からカスタム構成を読み込みます。"
+  remarks: "既定では、スロー <xref:System.NotImplementedException>。</xref:System.NotImplementedException> 派生クラスでの機能を提供するには、このメソッドをオーバーライドすることができます。"
   syntax:
     content: public virtual void LoadCustomConfiguration (System.Xml.XmlNodeList nodelist);
     parameters:
     - id: nodelist
       type: System.Xml.XmlNodeList
-      description: "The custom configuration elements."
+      description: "カスタム構成要素。"
   overload: System.IdentityModel.Selectors.SecurityTokenResolver.LoadCustomConfiguration*
   exceptions: []
   platform:
@@ -118,25 +118,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Obtains the key that is referenced in the specified key identifier clause."
-  remarks: "The <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey%2A> and ResolveSecurityKey methods differ in what happens when the key identifier clause cannot be resolved to a key. The <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey%2A> method returns `false`, whereas the ResolveSecurityKey method throws an exception."
+  summary: "指定したキー識別子句で参照されるキーを取得します。"
+  remarks: "<xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey%2A>ResolveSecurityKey メソッド キー識別句は、キーに解決できない場合の動作が異なるとします</xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey%2A>。 <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey%2A>メソッドを返します`false`、ResolveSecurityKey メソッドが例外をスローします。</xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey%2A> 。"
   syntax:
     content: public System.IdentityModel.Tokens.SecurityKey ResolveSecurityKey (System.IdentityModel.Tokens.SecurityKeyIdentifierClause keyIdentifierClause);
     parameters:
     - id: keyIdentifierClause
       type: System.IdentityModel.Tokens.SecurityKeyIdentifierClause
-      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;></xref> to retrieve the key for."
+      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;> </xref>のためキーを取得します。"
     return:
       type: System.IdentityModel.Tokens.SecurityKey
-      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityKey&quot;></xref> that is the key referenced in the specified key identifier clause."
+      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityKey&quot;> </xref>キーを表す、指定したキー識別子句で参照します。"
   overload: System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyIdentifierClause</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyIdentifierClause</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A key could not be retrieved for the key identifier clause specified in the <code>keyIdentifierClause</code> parameter."
+    description: "指定したキー識別句に対してキーを取得できませんでした、 <code> keyIdentifierClause </code>パラメーター。"
   platform:
   - net462
 - uid: System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken(System.IdentityModel.Tokens.SecurityKeyIdentifier)
@@ -151,25 +151,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Retrieves a security token that matches one of the security key identifier clauses contained within the specified key identifier."
-  remarks: "The <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A> and ResolveToken methods differ in what happens when the key identifier cannot be resolved to a security token. The <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A> method returns `false`, whereas the ResolveToken method throws an exception."
+  summary: "指定したキー識別子に含まれるセキュリティ キー識別句のいずれかに一致するセキュリティ トークンを取得します。"
+  remarks: "<xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A>ResolveToken メソッド キー識別子が、セキュリティ トークンに解決できない場合の動作が異なるとします</xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A>。 <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A>メソッドを返します`false`、ResolveToken メソッドが例外をスローします。</xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A> 。"
   syntax:
     content: public System.IdentityModel.Tokens.SecurityToken ResolveToken (System.IdentityModel.Tokens.SecurityKeyIdentifier keyIdentifier);
     parameters:
     - id: keyIdentifier
       type: System.IdentityModel.Tokens.SecurityKeyIdentifier
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifier&quot;></xref> to create a security token for."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifier&quot;> </xref>セキュリティ トークンを作成します。"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the specified key identifier."
+      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を表す、指定したキー識別子。"
   overload: System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyIdentifier</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyIdentifier</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A security token cannot be created for the specified key identifier."
+    description: "指定したキー識別子に対してセキュリティ トークンを作成できません。"
   platform:
   - net462
 - uid: System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken(System.IdentityModel.Tokens.SecurityKeyIdentifierClause)
@@ -184,17 +184,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Retrieves the security token that matches the specified key identifier clause."
-  remarks: "The <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A> and ResolveToken methods differ in what happens when the key identifier clause cannot be resolved to a security token. The <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A> method returns `false`, whereas the ResolveToken method throws an exception."
+  summary: "指定したキー識別句に一致するセキュリティ トークンを取得します。"
+  remarks: "<xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A>ResolveToken メソッド キー識別句は、セキュリティ トークンに解決できない場合の動作が異なるとします</xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A>。 <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A>メソッドを返します`false`、ResolveToken メソッドが例外をスローします。</xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A> 。"
   syntax:
     content: public System.IdentityModel.Tokens.SecurityToken ResolveToken (System.IdentityModel.Tokens.SecurityKeyIdentifierClause keyIdentifierClause);
     parameters:
     - id: keyIdentifierClause
       type: System.IdentityModel.Tokens.SecurityKeyIdentifierClause
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;></xref> to create a security token for."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;> </xref>セキュリティ トークンを作成します。"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the specified key identifier clause."
+      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を表す、指定したキー識別句。"
   overload: System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken*
   exceptions: []
   platform:
@@ -211,25 +211,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Attempts to retrieve the key that is referenced in the specified key identifier clause."
-  remarks: "The TryResolveSecurityKey and <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey%2A> methods differ in what happens when the key identifier clause cannot be resolved to a key. The TryResolveSecurityKey method returns `false`, whereas the <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey%2A> method throws an exception."
+  summary: "指定したキー識別子句で参照されるキーの取得を試みます。"
+  remarks: "TryResolveSecurityKey と<xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey%2A>メソッド キー識別句は、キーに解決できない場合の動作が異なります</xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey%2A>。 TryResolveSecurityKey メソッドを返します`false`であるのに対し、<xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey%2A>メソッドが例外をスローします</xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey%2A>。"
   syntax:
     content: public bool TryResolveSecurityKey (System.IdentityModel.Tokens.SecurityKeyIdentifierClause keyIdentifierClause, out System.IdentityModel.Tokens.SecurityKey key);
     parameters:
     - id: keyIdentifierClause
       type: System.IdentityModel.Tokens.SecurityKeyIdentifierClause
-      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;></xref> to retrieve the key for."
+      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;> </xref>のためキーを取得します。"
     - id: key
       type: System.IdentityModel.Tokens.SecurityKey
-      description: "When this method returns, contains a <xref href=&quot;System.IdentityModel.Tokens.SecurityKey&quot;></xref> that contains the key that is referenced in the specified key identifier clause. This parameter is passed uninitialized."
+      description: "このメソッドが戻るとき、 <xref href=&quot;System.IdentityModel.Tokens.SecurityKey&quot;> </xref>指定したキー識別子句で参照されているキーを格納します。 このパラメーターは初期化せずに渡されます。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> when a key can be retrieved for the specified key identifier clause; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>キーを取得して、指定したキー識別句に対して; ときそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyIdentifierClause</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyIdentifierClause</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKeyCore(System.IdentityModel.Tokens.SecurityKeyIdentifierClause,System.IdentityModel.Tokens.SecurityKey@)
@@ -244,20 +244,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Attempts to retrieve the key that is referenced in the specified key identifier clause."
-  remarks: "The TryResolveSecurityKeyCore method is called by the <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey%2A> and <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey%2A> methods."
+  summary: "指定したキー識別子句で参照されるキーの取得を試みます。"
+  remarks: "TryResolveSecurityKeyCore メソッドによって呼び出されます、<xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey%2A>と<xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey%2A>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey%2A></xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey%2A>。"
   syntax:
     content: protected abstract bool TryResolveSecurityKeyCore (System.IdentityModel.Tokens.SecurityKeyIdentifierClause keyIdentifierClause, out System.IdentityModel.Tokens.SecurityKey key);
     parameters:
     - id: keyIdentifierClause
       type: System.IdentityModel.Tokens.SecurityKeyIdentifierClause
-      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;></xref> to retrieve the key for."
+      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;> </xref>のためキーを取得します。"
     - id: key
       type: System.IdentityModel.Tokens.SecurityKey
-      description: "When this method returns, contains a <xref href=&quot;System.IdentityModel.Tokens.SecurityKey&quot;></xref> that contains the key that is referenced in the specified key identifier clause. This parameter is passed uninitialized."
+      description: "このメソッドが戻るとき、 <xref href=&quot;System.IdentityModel.Tokens.SecurityKey&quot;> </xref>指定したキー識別子句で参照されているキーを格納します。 このパラメーターは初期化せずに渡されます。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> when a key can be retrieved for the specified key identifier clause; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>キーを取得して、指定したキー識別句に対して; ときそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKeyCore*
   exceptions: []
   platform:
@@ -274,25 +274,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Attempts to retrieve the security token that matches one of the key identifier clauses contained within the specified key identifier."
-  remarks: "The TryResolveToken and <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A> methods differ in what happens when the key identifier cannot be resolved to a security token. The TryResolveToken method returns `false`, whereas the <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A> method throws an exception."
+  summary: "指定したキー識別子に含まれるキー識別句のいずれかに一致するセキュリティ トークンの取得を試みます。"
+  remarks: "TryResolveToken と<xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A>メソッド キー識別子が、セキュリティ トークンに解決できない場合の動作が異なります</xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A>。 TryResolveToken メソッドを返します`false`であるのに対し、<xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A>メソッドが例外をスローします</xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A>。"
   syntax:
     content: public bool TryResolveToken (System.IdentityModel.Tokens.SecurityKeyIdentifier keyIdentifier, out System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: keyIdentifier
       type: System.IdentityModel.Tokens.SecurityKeyIdentifier
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifier&quot;></xref> to create a security token for."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifier&quot;> </xref>セキュリティ トークンを作成します。"
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "When this method returns, contains a <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the specified key identifier. This parameter is passed uninitialized."
+      description: "このメソッドが戻るとき、 <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を表す、指定したキー識別子。 このパラメーターは初期化せずに渡されます。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> when a security token can be retrieved for the specified key identifier; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>セキュリティ トークンを取得して、指定したキー識別子の場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyIdentifier</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyIdentifier</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken(System.IdentityModel.Tokens.SecurityKeyIdentifierClause,System.IdentityModel.Tokens.SecurityToken@)
@@ -307,25 +307,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Attempts to retrieve the security token that matches the specified key identifier clause."
-  remarks: "The TryResolveToken and <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A> methods differ in what happens when the key identifier clause cannot be resolved to a security token. The TryResolveToken method returns `false`, whereas the <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A> method throws an exception."
+  summary: "指定したキー識別句に一致するセキュリティ トークンの取得を試みます。"
+  remarks: "TryResolveToken と<xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A>メソッド キー識別子句は、セキュリティ トークンに解決できない場合の動作が異なります</xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A>。 TryResolveToken メソッドを返します`false`であるのに対し、<xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A>メソッドが例外をスローします</xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A>。"
   syntax:
     content: public bool TryResolveToken (System.IdentityModel.Tokens.SecurityKeyIdentifierClause keyIdentifierClause, out System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: keyIdentifierClause
       type: System.IdentityModel.Tokens.SecurityKeyIdentifierClause
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;></xref> to create a security token for."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;> </xref>セキュリティ トークンを作成します。"
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "When this method returns, contains a <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the specified key identifier clause. This parameter is passed uninitialized."
+      description: "このメソッドが戻るとき、 <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を表す、指定したキー識別句。 このパラメーターは初期化せずに渡されます。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> when a security token can be retrieved for the specified key identifier clause; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>セキュリティ トークンを取得して、指定したキー識別句に対して; ときそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyIdentifierClause</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyIdentifierClause</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveTokenCore(System.IdentityModel.Tokens.SecurityKeyIdentifier,System.IdentityModel.Tokens.SecurityToken@)
@@ -340,20 +340,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "When overridden in a derived class, attempts to retrieve the security token that matches at least one of the key identifier clauses contained within the specified key identifier."
-  remarks: "The TryResolveTokenCore method is called by the <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A> and <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A> methods."
+  summary: "派生クラスでオーバーライドされると、指定したキー識別子に含まれるキー識別句の少なくとも&1; つに一致するセキュリティ トークンの取得を試みます。"
+  remarks: "TryResolveTokenCore メソッドによって呼び出されます、<xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A>と<xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A></xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A>。"
   syntax:
     content: protected abstract bool TryResolveTokenCore (System.IdentityModel.Tokens.SecurityKeyIdentifier keyIdentifier, out System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: keyIdentifier
       type: System.IdentityModel.Tokens.SecurityKeyIdentifier
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifier&quot;></xref> to create a security token for."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifier&quot;> </xref>セキュリティ トークンを作成します。"
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "When this method returns, contains a <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the specified key identifier. This parameter is passed uninitialized."
+      description: "このメソッドが戻るとき、 <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を表す、指定したキー識別子。 このパラメーターは初期化せずに渡されます。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> when a security token can be retrieved for the specified key identifier; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>セキュリティ トークンを取得して、指定したキー識別子の場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveTokenCore*
   exceptions: []
   platform:
@@ -370,20 +370,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "When overridden in a derived class, attempts to resolve the security token that matches the specified key identifier clause."
-  remarks: "The TryResolveTokenCore method is called by the <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A> and <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A> methods."
+  summary: "派生クラスでオーバーライドされると、指定したキー識別句に一致するセキュリティ トークンの解決を試行します。"
+  remarks: "TryResolveTokenCore メソッドによって呼び出されます、<xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A>と<xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A>メソッド</xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A></xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A>。"
   syntax:
     content: protected abstract bool TryResolveTokenCore (System.IdentityModel.Tokens.SecurityKeyIdentifierClause keyIdentifierClause, out System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: keyIdentifierClause
       type: System.IdentityModel.Tokens.SecurityKeyIdentifierClause
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;></xref> to create a security token for."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;> </xref>セキュリティ トークンを作成します。"
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "When this method returns, contains a <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the specified key identifier clause. This parameter is passed uninitialized."
+      description: "このメソッドが戻るとき、 <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>を表す、指定したキー識別句。 このパラメーターは初期化せずに渡されます。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> when a security token can be retrieved for the specified key identifier clause; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>セキュリティ トークンを取得して、指定したキー識別句に対して; ときそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveTokenCore*
   exceptions: []
   platform:

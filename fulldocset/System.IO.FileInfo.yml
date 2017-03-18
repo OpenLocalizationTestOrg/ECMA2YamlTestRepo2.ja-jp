@@ -37,7 +37,7 @@ items:
   nameWithType: FileInfo
   fullName: System.IO.FileInfo
   type: Class
-  summary: "Provides properties and instance methods for the creation, copying, deletion, moving, and opening of files, and aids in the creation of <xref href=&quot;System.IO.FileStream&quot;></xref> objects. This class cannot be inherited.       To browse the .NET Framework source code for this type, see the [Reference Source](http://referencesource.microsoft.com/#mscorlib/system/io/fileinfo.cs#4ee673c1a4ecad41)."
+  summary: "プロパティと、作成、コピー、削除、移動、およびファイルを開くためのインスタンス メソッドを提供し、作成できるように<xref href=&quot;System.IO.FileStream&quot;></xref>オブジェクト。 このクラスは継承できません。       この型の .NET Framework ソース コードを参照するを参照してください。、[参照ソース](http://referencesource.microsoft.com/#mscorlib/system/io/fileinfo.cs#4ee673c1a4ecad41)です。"
   remarks: "> [!NOTE]\n>  To view the .NET Framework source code for this type, see the [Reference Source](http://referencesource.microsoft.com/#mscorlib/system/io/fileinfo.cs#4ee673c1a4ecad41). You can browse through the source code online, download the reference for offline viewing, and step through the sources (including patches and updates) during debugging; see [instructions](http://referencesource.microsoft.com/).  \n  \n Use the FileInfo class for typical operations such as copying, moving, renaming, creating, opening, deleting, and appending to files.  \n  \n If you are performing multiple operations on the same file, it can be more efficient to use FileInfo instance methods instead of the corresponding static methods of the <xref:System.IO.File> class, because a security check will not always be necessary.  \n  \n Many of the FileInfo methods return other I/O types when you create or open files. You can use these other types to further manipulate a file. For more information, see specific FileInfo members such as <xref:System.IO.FileInfo.Open%2A>, <xref:System.IO.FileInfo.OpenRead%2A>, <xref:System.IO.FileInfo.OpenText%2A>, <xref:System.IO.FileInfo.CreateText%2A>, or <xref:System.IO.FileInfo.Create%2A>.  \n  \n By default, full read/write access to new files is granted to all users.  \n  \n The following table describes the enumerations that are used to customize the behavior of various FileInfo methods.  \n  \n|Enumeration|Description|  \n|-----------------|-----------------|  \n|<xref:System.IO.FileAccess>|Specifies read and write access to a file.|  \n|<xref:System.IO.FileShare>|Specifies the level of access permitted for a file that is already in use.|  \n|<xref:System.IO.FileMode>|Specifies whether the contents of an existing file are preserved or overwritten, and whether requests to create an existing file cause an exception.|  \n  \n> [!NOTE]\n>  In members that accept a path as an input string, that path must be well-formed or an exception is raised. For example, if a path is fully qualified but begins with a space, the path is not trimmed in methods of the class. Therefore, the path is malformed and an exception is raised. Similarly, a path or a combination of paths cannot be fully qualified twice. For example, \"c:\\temp c:\\windows\" also raises an exception in most cases. Ensure that your paths are well-formed when using methods that accept a path string.  \n  \n In members that accept a path, the path can refer to a file or just a directory. The specified path can also refer to a relative path or a Universal Naming Convention (UNC) path for a server and share name. For example, all the following are acceptable paths:  \n  \n-   \"c:\\\\\\MyDir\\\\\\MyFile.txt\" in C#, or \"c:\\MyDir\\MyFile.txt\" in Visual Basic.  \n  \n-   \"c:\\\\\\MyDir\" in C#, or \"c:\\MyDir\" in Visual Basic.  \n  \n-   \"MyDir\\\\\\MySubdir\" in C#, or \"MyDir\\MySubDir\" in Visual Basic.  \n  \n-   \"\\\\\\\\\\\\\\MyServer\\\\\\MyShare\" in C#, or \"\\\\\\MyServer\\MyShare\" in Visual Basic.  \n  \n The FileInfo class provides the following properties that enable you to retrieve information about a file. For an example of how to use each property, see the property pages.  \n  \n-   The <xref:System.IO.FileInfo.Directory%2A> property retrieves an object that represents the parent directory of a file.  \n  \n-   The <xref:System.IO.FileInfo.DirectoryName%2A> property retrieves the full path of the parent directory of a file.  \n  \n-   The <xref:System.IO.FileInfo.Exists%2A> property checks for the presence of a file before operating on it.  \n  \n-   The <xref:System.IO.FileInfo.IsReadOnly%2A> property retrieves or sets a value that specifies whether a file can be modified.  \n  \n-   The <xref:System.IO.FileInfo.Length%2A> retrieves the size of a file.  \n  \n-   The <xref:System.IO.FileInfo.Name%2A> retrieves the name of a file."
   example:
   - "The following example demonstrates some of the main members of the `FileInfo` class.  \n  \n When the properties are first retrieved, FileInfo calls the <xref:System.IO.FileSystemInfo.Refresh%2A> method and caches information about the file. On subsequent calls, you must call <xref:System.IO.FileSystemInfo.Refresh%2A> to get the latest copy of the information.  \n  \n [!code-cs[FInfo Class#1](~/add/codesnippet/csharp/t-system.io.fileinfo_1.cs)]\n [!code-cpp[FInfo Class#1](~/add/codesnippet/cpp/t-system.io.fileinfo_1.cpp)]\n [!code-vb[FInfo Class#1](~/add/codesnippet/visualbasic/t-system.io.fileinfo_1.vb)]  \n  \n This example produces output similar to the following.  \n  \n```  \nHello  \nAnd  \nWelcome  \nC:\\Users\\userName\\AppData\\Local\\Temp\\tmp70AB.tmp was copied to C:\\Users\\userName\\AppData\\Local\\Temp\\tmp70CB.tmp.  \nC:\\Users\\userName\\AppData\\Local\\Temp\\tmp70CB.tmp was successfully deleted.  \n```"
@@ -83,8 +83,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.FileInfo&quot;></xref> class, which acts as a wrapper for a file path."
-  remarks: "You can specify either the fully qualified or the relative file name, but the security check gets the fully qualified name."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IO.FileInfo&quot;> </xref>クラスは、ファイル パスのラッパーとして機能します。"
+  remarks: "完全修飾名または相対ファイル名のいずれかを指定することができますが、セキュリティ チェックは、完全修飾名を取得します。"
   example:
   - "The following example uses this constructor to create two files, which are then written to, read from, copied, and deleted.  \n  \n [!code-cpp[finfo ctor#1](~/add/codesnippet/cpp/m-system.io.fileinfo.sha_1.cpp)]\n [!code-cs[finfo ctor#1](~/add/codesnippet/csharp/m-system.io.fileinfo.sha_1.cs)]\n [!code-vb[finfo ctor#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.sha_1.vb)]  \n  \n The following example opens an existing file or creates a file, appends text to the file, and displays the results.  \n  \n [!code-cpp[fileinfomain#1](~/add/codesnippet/cpp/m-system.io.fileinfo.sha_2.cpp)]\n [!code-cs[fileinfomain#1](~/add/codesnippet/csharp/m-system.io.fileinfo.sha_2.cs)]\n [!code-vb[fileinfomain#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.sha_2.vb)]"
   syntax:
@@ -92,27 +92,27 @@ items:
     parameters:
     - id: fileName
       type: System.String
-      description: "The fully qualified name of the new file, or the relative file name. Do not end the path with the directory separator character."
+      description: "新しいファイルの完全修飾名または相対ファイル名。 ディレクトリの区切り記号を使用してパスを末尾ようにしてください。"
   overload: System.IO.FileInfo.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>fileName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>fileName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "呼び出し元には、必要なアクセス許可がありません。"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The file name is empty, contains only white spaces, or contains invalid characters."
+    description: "ファイル名は空で、空白しか含んでいないか、無効な文字が含まれています。"
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access to <code>fileName</code> is denied."
+    description: "アクセスを<code> fileName </code>が拒否されました。"
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: "The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters."
+    description: "指定したパス、ファイル名、またはその両方に、システム定義の最大長を超えています。 たとえば、Windows ベースのプラットフォームでは、パスは 248 文字未満である必要があり、ファイル名は 260 文字未満にする必要があります。"
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "<code>fileName</code> contains a colon (:) in the middle of the string."
+    description: "<code>fileName</code>文字列の途中にコロン (:) が含まれています。"
   platform:
   - net462
 - uid: System.IO.FileInfo.AppendText
@@ -127,7 +127,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Creates a <xref:System.IO.StreamWriter> that appends text to the file represented by this instance of the <xref href=&quot;System.IO.FileInfo&quot;></xref>."
+  summary: "作成、<xref:System.IO.StreamWriter>のこのインスタンスで表されるファイルにテキストを追加する、 <xref href=&quot;System.IO.FileInfo&quot;> </xref></xref:System.IO.StreamWriter> 。"
   remarks: ''
   example:
   - "The following example appends text to a file and reads from the file.  \n  \n [!code-vb[finfo appendtext#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.app_1.vb)]\n [!code-cpp[finfo appendtext#1](~/add/codesnippet/cpp/m-system.io.fileinfo.app_1.cpp)]\n [!code-cs[finfo appendtext#1](~/add/codesnippet/csharp/m-system.io.fileinfo.app_1.cs)]  \n  \n The following example demonstrates appending text to the end of a file and also displays the result of the append operation to the console. The first time this routine is called, the file is created if it does not exist. After that, the specified text is appended to the file.  \n  \n [!code-vb[fileinfoappendtext#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.app_2.vb)]\n [!code-cpp[fileinfoappendtext#1](~/add/codesnippet/cpp/m-system.io.fileinfo.app_2.cpp)]\n [!code-cs[fileinfoappendtext#1](~/add/codesnippet/csharp/m-system.io.fileinfo.app_2.cs)]"
@@ -153,8 +153,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Copies an existing file to a new file, disallowing the overwriting of an existing file."
-  remarks: "Use the <xref:System.IO.FileInfo.CopyTo%2A> method to allow overwriting of an existing file.      > [!CAUTION] >  Whenever possible, avoid using short file names (such as XXXXXX~1.XXX) with this method. If two files have equivalent short file names then this method may fail and raise an exception and/or result in undesirable behavior"
+  summary: "新しいファイルを既存のファイルの上書きできないようにするには、既存のファイルをコピーします。"
+  remarks: "使用して、<xref:System.IO.FileInfo.CopyTo%2A>メソッドを既存のファイルの上書きを許可します</xref:System.IO.FileInfo.CopyTo%2A>。      > [!CAUTION] >、可能な限り、このメソッドを使用して短いファイル名 (xxxxxx~1.xxx など) は使用しないでください。 2 つのファイルが該当するショートカットは短いファイル名、このメソッド可能性がありますが失敗して例外を発生させるや望ましくない動作の原因"
   example:
   - "The following example demonstrates both overloads of the `CopyTo` method.  \n  \n [!code-cpp[finfo copyto2#1](~/add/codesnippet/cpp/m-system.io.fileinfo.cop_1_1.cpp)]\n [!code-cs[finfo copyto2#1](~/add/codesnippet/csharp/m-system.io.fileinfo.cop_1_1.cs)]\n [!code-vb[finfo copyto2#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.cop_1_1.vb)]  \n  \n The following example demonstrates copying one file to another file, throwing an exception if the destination file already exists.  \n  \n [!code-cpp[FileInfoCopyTo1#1](~/add/codesnippet/cpp/m-system.io.fileinfo.cop_1_2.cpp)]\n [!code-cs[FileInfoCopyTo1#1](~/add/codesnippet/csharp/m-system.io.fileinfo.cop_1_2.cs)]\n [!code-vb[FileInfoCopyTo1#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.cop_1_2.vb)]"
   syntax:
@@ -162,36 +162,36 @@ items:
     parameters:
     - id: destFileName
       type: System.String
-      description: "The name of the new file to copy to."
+      description: "コピー先の新しいファイルの名前。"
     return:
       type: System.IO.FileInfo
-      description: "A new file with a fully qualified path."
+      description: "完全修飾パスを持つ新しいファイル。"
   overload: System.IO.FileInfo.CopyTo*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>destFileName</code> is empty, contains only white spaces, or contains invalid characters."
+    description: "<code>destFileName</code>空、空白しか含んでいないか無効な文字が含まれています。"
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An error occurs, or the destination file already exists."
+    description: "エラーが発生した、またはコピー先ファイルが既に存在します。"
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "呼び出し元には、必要なアクセス許可がありません。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>destFileName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>destFileName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "A directory path is passed in, or the file is being moved to a different drive."
+    description: "ディレクトリのパスが渡され、または、ファイルが別のドライブに移動されています。"
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: "The directory specified in <code>destFileName</code> does not exist."
+    description: "指定されたディレクトリ<code> destFileName </code>存在しません。"
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: "The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters."
+    description: "指定したパス、ファイル名、またはその両方に、システム定義の最大長を超えています。 たとえば、Windows ベースのプラットフォームでは、パスは 248 文字未満である必要があり、ファイル名は 260 文字未満にする必要があります。"
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "<code>destFileName</code> contains a colon (:) within the string but does not specify the volume."
+    description: "<code>destFileName</code>文字列内のコロン (:) が含まれていますが、ボリュームが指定されていません。"
   platform:
   - net462
 - uid: System.IO.FileInfo.CopyTo(System.String,System.Boolean)
@@ -206,8 +206,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Copies an existing file to a new file, allowing the overwriting of an existing file."
-  remarks: "Use this method to allow or prevent overwriting of an existing file. Use the <xref:System.IO.FileInfo.CopyTo%2A> method to prevent overwriting of an existing file by default.      > [!CAUTION] >  Whenever possible, avoid using short file names (such as XXXXXX~1.XXX) with this method. If two files have equivalent short file names then this method may fail and raise an exception and/or result in undesirable behavior"
+  summary: "新しいファイルを既存のファイルの上書きを許可するには、既存のファイルをコピーします。"
+  remarks: "許可するか、既存のファイルの上書きしないようにするには、このメソッドを使用します。 使用して、<xref:System.IO.FileInfo.CopyTo%2A>を既定では、既存のファイルの上書きメソッド</xref:System.IO.FileInfo.CopyTo%2A>。      > [!CAUTION] >、可能な限り、このメソッドを使用して短いファイル名 (xxxxxx~1.xxx など) は使用しないでください。 2 つのファイルが該当するショートカットは短いファイル名、このメソッド可能性がありますが失敗して例外を発生させるや望ましくない動作の原因"
   example:
   - "The following example demonstrates both overloads of the `CopyTo` method.  \n  \n [!code-cpp[finfo copyto2#1](~/add/codesnippet/cpp/m-system.io.fileinfo.cop_0_1.cpp)]\n [!code-cs[finfo copyto2#1](~/add/codesnippet/csharp/m-system.io.fileinfo.cop_0_1.cs)]\n [!code-vb[finfo copyto2#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.cop_0_1.vb)]  \n  \n The following example demonstrates copying one file to another file, specifying whether to overwrite a file that already exists.  \n  \n [!code-cs[fileinfocopyto#1](~/add/codesnippet/csharp/m-system.io.fileinfo.cop_0_2.cs)]\n [!code-cpp[fileinfocopyto#1](~/add/codesnippet/cpp/m-system.io.fileinfo.cop_0_2.cpp)]\n [!code-vb[fileinfocopyto#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.cop_0_2.vb)]"
   syntax:
@@ -215,39 +215,39 @@ items:
     parameters:
     - id: destFileName
       type: System.String
-      description: "The name of the new file to copy to."
+      description: "コピー先の新しいファイルの名前。"
     - id: overwrite
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to allow an existing file to be overwritten; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>既存のファイルを上書きできるようにするにはそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
     return:
       type: System.IO.FileInfo
-      description: "A new file, or an overwrite of an existing file if <code>overwrite</code> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>. If the file exists and <code>overwrite</code> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, an <xref:System.IO.IOException> is thrown."
+      description: "新しいファイル、または既存の上書きしたファイルの場合は<code> overwrite </code>は<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>です。 ファイルが存在する場合と<code> overwrite </code>は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>、<xref:System.IO.IOException>がスローされます</xref:System.IO.IOException>。"
   overload: System.IO.FileInfo.CopyTo*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>destFileName</code> is empty, contains only white spaces, or contains invalid characters."
+    description: "<code>destFileName</code>空、空白しか含んでいないか無効な文字が含まれています。"
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An error occurs, or the destination file already exists and <code>overwrite</code> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "エラーが発生するか、リンク先のファイルが既に存在し、 <code> overwrite </code>は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "呼び出し元には、必要なアクセス許可がありません。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>destFileName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>destFileName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: "The directory specified in <code>destFileName</code> does not exist."
+    description: "指定されたディレクトリ<code> destFileName </code>存在しません。"
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "A directory path is passed in, or the file is being moved to a different drive."
+    description: "ディレクトリのパスが渡され、または、ファイルが別のドライブに移動されています。"
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: "The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters."
+    description: "指定したパス、ファイル名、またはその両方に、システム定義の最大長を超えています。 たとえば、Windows ベースのプラットフォームでは、パスは 248 文字未満である必要があり、ファイル名は 260 文字未満にする必要があります。"
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "<code>destFileName</code> contains a colon (:) in the middle of the string."
+    description: "<code>destFileName</code>文字列の途中にコロン (:) が含まれています。"
   platform:
   - net462
 - uid: System.IO.FileInfo.Create
@@ -262,8 +262,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Creates a file."
-  remarks: "By default, full read/write access to new files is granted to all users.       This method is a wrapper for the functionality provided by <xref:System.IO.File.Create%2A?displayProperty=fullName>."
+  summary: "ファイルを作成します。"
+  remarks: "既定では、新しいファイルへの完全な読み取り/書き込みアクセスは、すべてのユーザーに与えられます。       このメソッドは<xref:System.IO.File.Create%2A?displayProperty=fullName>。</xref:System.IO.File.Create%2A?displayProperty=fullName>によって提供される機能のラッパー"
   example:
   - "The following example creates a reference to a file, and then creates the file on disk using `FileInfo.Create()`.  \n  \n [!code-cpp[fileinfodelete#1](~/add/codesnippet/cpp/m-system.io.fileinfo.cre_0_1.cpp)]\n [!code-vb[fileinfodelete#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.cre_0_1.vb)]\n [!code-cs[fileinfodelete#1](~/add/codesnippet/csharp/m-system.io.fileinfo.cre_0_1.cs)]  \n  \n The following example creates a file, adds some text to it, and reads from the file.  \n  \n [!code-vb[finfo create#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.cre_0_2.vb)]\n [!code-cs[finfo create#1](~/add/codesnippet/csharp/m-system.io.fileinfo.cre_0_2.cs)]\n [!code-cpp[finfo create#1](~/add/codesnippet/cpp/m-system.io.fileinfo.cre_0_2.cpp)]"
   syntax:
@@ -271,7 +271,7 @@ items:
     parameters: []
     return:
       type: System.IO.FileStream
-      description: "A new file."
+      description: "新しいファイル。"
   overload: System.IO.FileInfo.Create*
   exceptions: []
   platform:
@@ -288,8 +288,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Creates a <xref:System.IO.StreamWriter> that writes a new text file."
-  remarks: "By default, full read/write access to new files is granted to all users."
+  summary: "作成、<xref:System.IO.StreamWriter>新しいテキスト ファイルを書き込む</xref:System.IO.StreamWriter>。"
+  remarks: "既定では、新しいファイルへの完全な読み取り/書き込みアクセスは、すべてのユーザーに与えられます。"
   example:
   - "The following example demonstrates the `CreateText` method.  \n  \n [!code-cpp[finfo createtext#1](~/add/codesnippet/cpp/m-system.io.fileinfo.cre_1_1.cpp)]\n [!code-vb[finfo createtext#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.cre_1_1.vb)]\n [!code-cs[finfo createtext#1](~/add/codesnippet/csharp/m-system.io.fileinfo.cre_1_1.cs)]"
   syntax:
@@ -302,13 +302,13 @@ items:
   exceptions:
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The file name is a directory."
+    description: "ディレクトリでは、ファイル名です。"
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The disk is read-only."
+    description: "ディスクは、読み取り専用です。"
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "呼び出し元には、必要なアクセス許可がありません。"
   platform:
   - net462
 - uid: System.IO.FileInfo.Decrypt
@@ -323,8 +323,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Decrypts a file that was encrypted by the current account using the <xref:System.IO.FileInfo.Encrypt*> method."
-  remarks: "The Decrypt method allows you to decrypt a file that was encrypted using the <xref:System.IO.FileInfo.Encrypt%2A> method.  The Decrypt method can decrypt only files that were encrypted using the current user account.       Both the <xref:System.IO.FileInfo.Encrypt%2A> method and the Decrypt method use the cryptographic service provider (CSP) installed on the computer and the file encryption keys of the process calling the method.       The current file system must be formatted as NTFS and the current operating system must be Microsoft Windows NT or later."
+  summary: "現在のアカウントを使用して暗号化されたファイルを復号化、<xref:System.IO.FileInfo.Encrypt*>メソッド</xref:System.IO.FileInfo.Encrypt*>。"
+  remarks: "復号化メソッドを使用して暗号化されたファイルを復号化することができます、<xref:System.IO.FileInfo.Encrypt%2A>メソッド</xref:System.IO.FileInfo.Encrypt%2A>。  復号化メソッドは、現在のユーザー アカウントを使用して暗号化されたファイルのみを暗号化解除できます。       両方の<xref:System.IO.FileInfo.Encrypt%2A>方法と暗号解除の方法は、コンピューターと、メソッドを呼び出すと、プロセスのファイルの暗号化キーでインストールされている暗号化サービス プロバイダー (CSP) を使用します</xref:System.IO.FileInfo.Encrypt%2A>。       現在のファイル システムは、Microsoft Windows NT をする必要があります NTFS および現在のオペレーティング システムとしてフォーマットされているまたはそれ以降にする必要があります。"
   example:
   - "The following code example uses the <xref:System.IO.FileInfo.Encrypt%2A> method and the Decrypt method to encrypt and then decrypt a file.  \n  \n [!code-cpp[IO.FileInfo.Encrypt-Decrypt#1](~/add/codesnippet/cpp/m-system.io.fileinfo.dec_1.cpp)]\n [!code-cs[IO.FileInfo.Encrypt-Decrypt#1](~/add/codesnippet/csharp/m-system.io.fileinfo.dec_1.cs)]\n [!code-vb[IO.FileInfo.Encrypt-Decrypt#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.dec_1.vb)]"
   syntax:
@@ -334,22 +334,22 @@ items:
   exceptions:
   - type: System.IO.DriveNotFoundException
     commentId: T:System.IO.DriveNotFoundException
-    description: "An invalid drive was specified."
+    description: "無効なドライブが指定されました。"
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file described by the current <xref href=&quot;System.IO.FileInfo&quot;></xref> object could not be found."
+    description: "現在の記述ファイル<xref href=&quot;System.IO.FileInfo&quot;></xref>オブジェクトが見つかりませんでした。"
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while opening the file."
+    description: "ファイルを開くときに I/O エラーが発生しました。"
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The file system is not NTFS."
+    description: "ファイル システムは NTFS ではないです。"
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The current operating system is not Microsoft Windows NT or later."
+    description: "現在のオペレーティング システムは Microsoft Windows NT 以降です。"
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The file described by the current <xref href=&quot;System.IO.FileInfo&quot;></xref> object is read-only.       -or-       This operation is not supported on the current platform.       -or-       The caller does not have the required permission."
+    description: "現在の記述ファイル<xref href=&quot;System.IO.FileInfo&quot;></xref>オブジェクトは読み取り専用です。       または、この操作は現在のプラットフォームでサポートされていません。       または、呼び出し元に必要なアクセス許可がありません。"
   platform:
   - net462
 - uid: System.IO.FileInfo.Delete
@@ -364,8 +364,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Permanently deletes a file."
-  remarks: "If the file does not exist, this method does nothing."
+  summary: "ファイルを完全に削除します。"
+  remarks: "ファイルが存在しない場合は、このメソッドは何も行いません。"
   example:
   - "The following example demonstrates the `Delete` method.  \n  \n [!code-cpp[finfo delete#1](~/add/codesnippet/cpp/m-system.io.fileinfo.del_1.cpp)]\n [!code-cs[finfo delete#1](~/add/codesnippet/csharp/m-system.io.fileinfo.del_1.cs)]\n [!code-vb[finfo delete#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.del_1.vb)]  \n  \n The following example creates, closes, and deletes a file.  \n  \n [!code-cpp[fileinfodelete#1](~/add/codesnippet/cpp/m-system.io.fileinfo.del_2.cpp)]\n [!code-vb[fileinfodelete#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.del_2.vb)]\n [!code-cs[fileinfodelete#1](~/add/codesnippet/csharp/m-system.io.fileinfo.del_2.cs)]"
   syntax:
@@ -375,13 +375,13 @@ items:
   exceptions:
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The target file is open or memory-mapped on a computer running Microsoft Windows NT.       -or-       There is an open handle on the file, and the operating system is Windows XP or earlier. This open handle can result from enumerating directories and files. For more information, see [How to: Enumerate Directories and Files](~/add/includes/ajax-current-ext-md.md)."
+    description: "ターゲット ファイルは、open または Microsoft Windows NT を実行するコンピューター上のメモリ マップがします。       - または - には、開いているハンドルがあるし、オペレーティング システムが Windows XP 以前のバージョン。 このハンドルを開いてディレクトリとファイルを列挙することがあります。 詳細については、次を参照してください。[する方法: ディレクトリと列挙ファイル](~/add/includes/ajax-current-ext-md.md)です。"
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "呼び出し元には、必要なアクセス許可がありません。"
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The path is a directory."
+    description: "パスは、ディレクトリです。"
   platform:
   - net462
 - uid: System.IO.FileInfo.Directory
@@ -396,23 +396,23 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets an instance of the parent directory."
-  remarks: "To get the parent directory as a string, use the <xref:System.IO.FileInfo.DirectoryName%2A> property."
+  summary: "親ディレクトリのインスタンスを取得します。"
+  remarks: "文字列として親ディレクトリを取得するを使用して、<xref:System.IO.FileInfo.DirectoryName%2A>プロパティ</xref:System.IO.FileInfo.DirectoryName%2A>。"
   example:
   - "The following example opens or creates a file, determines its full path, and determines and displays the full contents of the directory.  \n  \n [!code-cs[fileinfodirectory#1](~/add/codesnippet/csharp/p-system.io.fileinfo.dir_0_1.cs)]\n [!code-vb[fileinfodirectory#1](~/add/codesnippet/visualbasic/p-system.io.fileinfo.dir_0_1.vb)]\n [!code-cpp[fileinfodirectory#1](~/add/codesnippet/cpp/p-system.io.fileinfo.dir_0_1.cpp)]"
   syntax:
     content: public System.IO.DirectoryInfo Directory { get; }
     return:
       type: System.IO.DirectoryInfo
-      description: "A <xref href=&quot;System.IO.DirectoryInfo&quot;></xref> object representing the parent directory of this file."
+      description: "A <xref href=&quot;System.IO.DirectoryInfo&quot;> </xref>このファイルの親ディレクトリを表すオブジェクト。"
   overload: System.IO.FileInfo.Directory*
   exceptions:
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: "The specified path is invalid, such as being on an unmapped drive."
+    description: "指定のパスがマップされていないドライブにあるなど、有効ではありません。"
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "呼び出し元には、必要なアクセス許可がありません。"
   platform:
   - net462
 - uid: System.IO.FileInfo.DirectoryName
@@ -427,26 +427,26 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets a string representing the directory&quot;s full path."
-  remarks: "To get the parent directory as a <xref:System.IO.DirectoryInfo> object, use the <xref:System.IO.FileInfo.Directory%2A> property.       When first called, <xref:System.IO.FileInfo> calls <xref:System.IO.FileSystemInfo.Refresh%2A> and caches information about the file. On subsequent calls, you must call <xref:System.IO.FileSystemInfo.Refresh%2A> to get the latest copy of the information."
+  summary: "ディレクトリの完全なパスを表す文字列を取得します。"
+  remarks: "親ディレクトリを取得する、<xref:System.IO.DirectoryInfo>オブジェクトを使用して、<xref:System.IO.FileInfo.Directory%2A>プロパティ</xref:System.IO.FileInfo.Directory%2A></xref:System.IO.DirectoryInfo>。       最初に呼び出されると、<xref:System.IO.FileInfo>呼び出し<xref:System.IO.FileSystemInfo.Refresh%2A>ファイルに関する情報がキャッシュされます</xref:System.IO.FileSystemInfo.Refresh%2A></xref:System.IO.FileInfo>。 後続の呼び出しで呼び出す必要があります<xref:System.IO.FileSystemInfo.Refresh%2A>情報の最新コピーを取得します</xref:System.IO.FileSystemInfo.Refresh%2A>。"
   example:
   - "The following example retrieves the full path of the specified file.  \n  \n [!code-cs[System.IO.FileInfo members#3](~/add/codesnippet/csharp/p-system.io.fileinfo.dir_1_1.cs)]\n [!code-cpp[System.IO.FileInfo members#3](~/add/codesnippet/cpp/p-system.io.fileinfo.dir_1_1.cpp)]\n [!code-vb[System.IO.FileInfo members#3](~/add/codesnippet/visualbasic/p-system.io.fileinfo.dir_1_1.vb)]"
   syntax:
     content: public string DirectoryName { get; }
     return:
       type: System.String
-      description: "A string representing the directory&quot;s full path."
+      description: "ディレクトリの完全なパスを表す文字列。"
   overload: System.IO.FileInfo.DirectoryName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> was passed in for the directory name."
+    description: "<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>ディレクトリ名に渡されました。"
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: "The fully qualified path is 260 or more characters."
+    description: "完全修飾パスは、260 文字以上です。"
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "呼び出し元には、必要なアクセス許可がありません。"
   platform:
   - net462
 - uid: System.IO.FileInfo.Encrypt
@@ -461,8 +461,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Encrypts a file so that only the account used to encrypt the file can decrypt it."
-  remarks: "The Encrypt method allows you to encrypt a file so that only the account used to call this method can decrypt it.  Use the <xref:System.IO.FileInfo.Decrypt%2A> method to decrypt a file encrypted by the Encrypt method.       Both the Encrypt method and the <xref:System.IO.FileInfo.Decrypt%2A> method use the cryptographic service provider (CSP) installed on the computer and the file encryption keys of the process calling the method.       The current file system must be formatted as NTFS and the current operating system must be Microsoft Windows NT or later."
+  summary: "ファイルの暗号化に使用したアカウントだけが復号化できるように、ファイルを暗号化します。"
+  remarks: "Encrypt メソッドでは、このメソッドの呼び出しに使用するアカウントだけが復号化できるように、ファイルを暗号化することができます。  使用して、<xref:System.IO.FileInfo.Decrypt%2A>暗号化メソッドによって暗号化されたファイルを復号化します</xref:System.IO.FileInfo.Decrypt%2A>。       Encrypt メソッドおよび<xref:System.IO.FileInfo.Decrypt%2A>メソッドは、コンピューターと、メソッドを呼び出すと、プロセスのファイルの暗号化キーでインストールされている暗号化サービス プロバイダー (CSP) を使用します</xref:System.IO.FileInfo.Decrypt%2A>。       現在のファイル システムは、Microsoft Windows NT をする必要があります NTFS および現在のオペレーティング システムとしてフォーマットされているまたはそれ以降にする必要があります。"
   example:
   - "The following code example uses the Encrypt method and the <xref:System.IO.FileInfo.Decrypt%2A> method to encrypt a file and then decrypt it.  \n  \n [!code-cpp[IO.FileInfo.Encrypt-Decrypt#1](~/add/codesnippet/cpp/m-system.io.fileinfo.enc_1.cpp)]\n [!code-cs[IO.FileInfo.Encrypt-Decrypt#1](~/add/codesnippet/csharp/m-system.io.fileinfo.enc_1.cs)]\n [!code-vb[IO.FileInfo.Encrypt-Decrypt#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.enc_1.vb)]"
   syntax:
@@ -472,22 +472,22 @@ items:
   exceptions:
   - type: System.IO.DriveNotFoundException
     commentId: T:System.IO.DriveNotFoundException
-    description: "An invalid drive was specified."
+    description: "無効なドライブが指定されました。"
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file described by the current <xref href=&quot;System.IO.FileInfo&quot;></xref> object could not be found."
+    description: "現在の記述ファイル<xref href=&quot;System.IO.FileInfo&quot;></xref>オブジェクトが見つかりませんでした。"
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while opening the file."
+    description: "ファイルを開くときに I/O エラーが発生しました。"
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The file system is not NTFS."
+    description: "ファイル システムは NTFS ではないです。"
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The current operating system is not Microsoft Windows NT or later."
+    description: "現在のオペレーティング システムは Microsoft Windows NT 以降です。"
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The file described by the current <xref href=&quot;System.IO.FileInfo&quot;></xref> object is read-only.       -or-       This operation is not supported on the current platform.       -or-       The caller does not have the required permission."
+    description: "現在の記述ファイル<xref href=&quot;System.IO.FileInfo&quot;></xref>オブジェクトは読み取り専用です。       または、この操作は現在のプラットフォームでサポートされていません。       または、呼び出し元に必要なアクセス許可がありません。"
   platform:
   - net462
 - uid: System.IO.FileInfo.Exists
@@ -502,15 +502,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets a value indicating whether a file exists."
-  remarks: "When first called, <xref:System.IO.FileInfo> calls <xref:System.IO.FileSystemInfo.Refresh%2A> and caches information about the file. On subsequent calls, you must call <xref:System.IO.FileSystemInfo.Refresh%2A> to get the latest copy of the information.       The Exists property returns `false` if any error occurs while trying to determine if the specified file exists. This can occur in situations that raise exceptions such as passing a file name with invalid characters or too many characters, a failing or missing disk, or if the caller does not have permission to read the file."
+  summary: "ファイルが存在するかどうかを示す値を取得します。"
+  remarks: "最初に呼び出されると、<xref:System.IO.FileInfo>呼び出し<xref:System.IO.FileSystemInfo.Refresh%2A>ファイルに関する情報がキャッシュされます</xref:System.IO.FileSystemInfo.Refresh%2A></xref:System.IO.FileInfo>。 後続の呼び出しで呼び出す必要があります<xref:System.IO.FileSystemInfo.Refresh%2A>情報の最新コピーを取得します</xref:System.IO.FileSystemInfo.Refresh%2A>。       Exists プロパティから返される`false`指定したファイルが存在するかどうかを判断するときにエラーが発生した場合。 これは無効な文字または文字が多すぎます、失敗、または見つからないディスクでは、ファイル名を渡すなどの例外が発生する状況で発生する、呼び出し元には、ファイルの読み取りアクセス許可がない場合またはします。"
   example:
   - "The following code example uses the Exists property ensure a file exists before opening it.  You can use this technique to throw a custom exception when the file is not found.  \n  \n [!code-cpp[IO.FileInfo.Exists#1](~/add/codesnippet/cpp/p-system.io.fileinfo.exi_1.cpp)]\n [!code-cs[IO.FileInfo.Exists#1](~/add/codesnippet/csharp/p-system.io.fileinfo.exi_1.cs)]\n [!code-vb[IO.FileInfo.Exists#1](~/add/codesnippet/visualbasic/p-system.io.fileinfo.exi_1.vb)]"
   syntax:
     content: public override bool Exists { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the file exists; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the file does not exist or if the file is a directory."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>ファイルが存在する場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>ファイルが存在しない場合、またはファイルがディレクトリである場合。"
   overload: System.IO.FileInfo.Exists*
   exceptions: []
   platform:
@@ -527,8 +527,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets a <xref href=&quot;System.Security.AccessControl.FileSecurity&quot;></xref> object that encapsulates the access control list (ACL) entries for the file described by the current <xref href=&quot;System.IO.FileInfo&quot;></xref> object."
-  remarks: "Use the GetAccessControl method to retrieve the access control list (ACL) entries for the current file.       An ACL describes individuals and/or groups who have, or do not have, rights to specific actions on the given file. For more information, see [How to: Add or Remove Access Control List Entries](~/add/includes/ajax-current-ext-md.md)."
+  summary: "取得、 <xref href=&quot;System.Security.AccessControl.FileSecurity&quot;> </xref>現在によって記述されるファイルのアクセス制御リスト (ACL) エントリをカプセル化するオブジェクト<xref href=&quot;System.IO.FileInfo&quot;></xref>オブジェクト。"
+  remarks: "GetAccessControl メソッドを使用すると、現在のファイルのアクセス制御リスト (ACL) エントリを取得できます。       ACL には、個人、グループ、または権限がない、指定されたファイルの特定のアクションをユーザーがについて説明します。 詳細については、次を参照してください。[する方法: アクセス制御リスト エントリを追加または](~/add/includes/ajax-current-ext-md.md)です。"
   example:
   - "The following code example uses the GetAccessControl method and the <xref:System.IO.FileInfo.SetAccessControl%2A> method to add and then remove an access control list (ACL) entry from a file.  You must supply a valid user or group account to run this example.  \n  \n [!code-cpp[IO.FileInfo.GetAccessControl-SetAccessControl#1](~/add/codesnippet/cpp/m-system.io.fileinfo.get_1.cpp)]\n [!code-vb[IO.FileInfo.GetAccessControl-SetAccessControl#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.get_1.vb)]\n [!code-cs[IO.FileInfo.GetAccessControl-SetAccessControl#1](~/add/codesnippet/csharp/m-system.io.fileinfo.get_1.cs)]"
   syntax:
@@ -536,24 +536,24 @@ items:
     parameters: []
     return:
       type: System.Security.AccessControl.FileSecurity
-      description: "A <xref href=&quot;System.Security.AccessControl.FileSecurity&quot;></xref> object that encapsulates the access control rules for the current file."
+      description: "A <xref href=&quot;System.Security.AccessControl.FileSecurity&quot;> </xref>現在のファイルのアクセス制御規則をカプセル化するオブジェクト。"
   overload: System.IO.FileInfo.GetAccessControl*
   exceptions:
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while opening the file."
+    description: "ファイルを開くときに I/O エラーが発生しました。"
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The current operating system is not Microsoft Windows 2000 or later."
+    description: "現在のオペレーティング システムは Microsoft Windows 2000 以降ではありません。"
   - type: System.Security.AccessControl.PrivilegeNotHeldException
     commentId: T:System.Security.AccessControl.PrivilegeNotHeldException
-    description: "The current system account does not have administrative privileges."
+    description: "現在のシステム アカウントには、管理者特権がありません。"
   - type: System.SystemException
     commentId: T:System.SystemException
-    description: "The file could not be found."
+    description: "ファイルが見つかりませんでした。"
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "This operation is not supported on the current platform.       -or-       The caller does not have the required permission."
+    description: "この操作は現在のプラットフォームでサポートされていません。       または、呼び出し元に必要なアクセス許可がありません。"
   platform:
   - net462
 - uid: System.IO.FileInfo.GetAccessControl(System.Security.AccessControl.AccessControlSections)
@@ -568,34 +568,34 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets a <xref href=&quot;System.Security.AccessControl.FileSecurity&quot;></xref> object that encapsulates the specified type of access control list (ACL) entries for the file described by the current <xref href=&quot;System.IO.FileInfo&quot;></xref> object."
-  remarks: "Use the GetAccessControl method to retrieve the access control list (ACL) entries for the current file.       An ACL describes individuals and/or groups who have, or do not have, rights to specific actions on the given file. For more information, see [How to: Add or Remove Access Control List Entries](~/add/includes/ajax-current-ext-md.md)."
+  summary: "取得、 <xref href=&quot;System.Security.AccessControl.FileSecurity&quot;> </xref>指定した型の現在の記述されるファイルのアクセス制御リスト (ACL) エントリをカプセル化するオブジェクト<xref href=&quot;System.IO.FileInfo&quot;></xref>オブジェクト。"
+  remarks: "GetAccessControl メソッドを使用すると、現在のファイルのアクセス制御リスト (ACL) エントリを取得できます。       ACL には、個人、グループ、または権限がない、指定されたファイルの特定のアクションをユーザーがについて説明します。 詳細については、次を参照してください。[する方法: アクセス制御リスト エントリを追加または](~/add/includes/ajax-current-ext-md.md)です。"
   syntax:
     content: public System.Security.AccessControl.FileSecurity GetAccessControl (System.Security.AccessControl.AccessControlSections includeSections);
     parameters:
     - id: includeSections
       type: System.Security.AccessControl.AccessControlSections
-      description: "One of the <xref href=&quot;System.Security.AccessControl.AccessControlSections&quot;></xref> values that specifies which group of access control entries to retrieve."
+      description: "1 つ、 <xref href=&quot;System.Security.AccessControl.AccessControlSections&quot;> </xref>アクセスのグループを指定する値が取得するエントリを制御します。"
     return:
       type: System.Security.AccessControl.FileSecurity
-      description: "A <xref href=&quot;System.Security.AccessControl.FileSecurity&quot;></xref> object that encapsulates the access control rules for the current file."
+      description: "A <xref href=&quot;System.Security.AccessControl.FileSecurity&quot;> </xref>現在のファイルのアクセス制御規則をカプセル化するオブジェクト。"
   overload: System.IO.FileInfo.GetAccessControl*
   exceptions:
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while opening the file."
+    description: "ファイルを開くときに I/O エラーが発生しました。"
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The current operating system is not Microsoft Windows 2000 or later."
+    description: "現在のオペレーティング システムは Microsoft Windows 2000 以降ではありません。"
   - type: System.Security.AccessControl.PrivilegeNotHeldException
     commentId: T:System.Security.AccessControl.PrivilegeNotHeldException
-    description: "The current system account does not have administrative privileges."
+    description: "現在のシステム アカウントには、管理者特権がありません。"
   - type: System.SystemException
     commentId: T:System.SystemException
-    description: "The file could not be found."
+    description: "ファイルが見つかりませんでした。"
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "This operation is not supported on the current platform.       -or-       The caller does not have the required permission."
+    description: "この操作は現在のプラットフォームでサポートされていません。       または、呼び出し元に必要なアクセス許可がありません。"
   platform:
   - net462
 - uid: System.IO.FileInfo.IsReadOnly
@@ -610,29 +610,29 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets or sets a value that determines if the current file is read only."
-  remarks: "Use the IsReadOnly property to quickly determine or change whether the current file is read only.       When first called, <xref:System.IO.FileInfo> calls <xref:System.IO.FileSystemInfo.Refresh%2A> and caches information about the file. On subsequent calls, you must call <xref:System.IO.FileSystemInfo.Refresh%2A> to get the latest copy of the information."
+  summary: "取得または現在のファイルは読み取り専用かどうかを決定する値を設定します。"
+  remarks: "IsReadOnly プロパティを使用して、すぐに確認または現在のファイルが読み取り専用かどうかを変更します。       最初に呼び出されると、<xref:System.IO.FileInfo>呼び出し<xref:System.IO.FileSystemInfo.Refresh%2A>ファイルに関する情報がキャッシュされます</xref:System.IO.FileSystemInfo.Refresh%2A></xref:System.IO.FileInfo>。 後続の呼び出しで呼び出す必要があります<xref:System.IO.FileSystemInfo.Refresh%2A>情報の最新コピーを取得します</xref:System.IO.FileSystemInfo.Refresh%2A>。"
   example:
   - "The following example uses the IsReadOnly property to mark a file as read only and then mark it as read-write.  \n  \n [!code-cs[IO.FileInfo.IsReadOnly#1](~/add/codesnippet/csharp/p-system.io.fileinfo.isr_1.cs)]\n [!code-vb[IO.FileInfo.IsReadOnly#1](~/add/codesnippet/visualbasic/p-system.io.fileinfo.isr_1.vb)]\n [!code-cpp[IO.FileInfo.IsReadOnly#1](~/add/codesnippet/cpp/p-system.io.fileinfo.isr_1.cpp)]"
   syntax:
     content: public bool IsReadOnly { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current file is read only; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>現在のファイルが読み取り専用の場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.IO.FileInfo.IsReadOnly*
   exceptions:
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file described by the current <xref href=&quot;System.IO.FileInfo&quot;></xref> object could not be found."
+    description: "現在の記述ファイル<xref href=&quot;System.IO.FileInfo&quot;></xref>オブジェクトが見つかりませんでした。"
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while opening the file."
+    description: "ファイルを開くときに I/O エラーが発生しました。"
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "This operation is not supported on the current platform.       -or-       The caller does not have the required permission."
+    description: "この操作は現在のプラットフォームでサポートされていません。       または、呼び出し元に必要なアクセス許可がありません。"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The user does not have write permission, but attempted to set this property to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "ユーザーが書き込みアクセス許可で、このプロパティを設定試みが<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.IO.FileInfo.Length
@@ -647,23 +647,23 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets the size, in bytes, of the current file."
-  remarks: "The value of the Length property is pre-cached if the current instance of the <xref:System.IO.FileInfo> object was returned from any of the following <xref:System.IO.DirectoryInfo>methods:      -   <xref:System.IO.DirectoryInfo.GetDirectories%2A>      -   <xref:System.IO.DirectoryInfo.GetFiles%2A>      -   <xref:System.IO.DirectoryInfo.GetFileSystemInfos%2A>      -   <xref:System.IO.DirectoryInfo.EnumerateDirectories%2A>      -   <xref:System.IO.DirectoryInfo.EnumerateFiles%2A>      -   <xref:System.IO.DirectoryInfo.EnumerateFileSystemInfos%2A>       To get the latest value, call the <xref:System.IO.FileSystemInfo.Refresh%2A> method."
+  summary: "現在のファイルのバイト単位のサイズを取得します。"
+  remarks: "場合は、Length プロパティの値が事前にキャッシュの現在のインスタンス、<xref:System.IO.FileInfo>から、次のいずれかのオブジェクトが返された<xref:System.IO.DirectoryInfo>メソッド:- <xref:System.IO.DirectoryInfo.GetDirectories%2A>- <xref:System.IO.DirectoryInfo.GetFiles%2A>- <xref:System.IO.DirectoryInfo.GetFileSystemInfos%2A>- <xref:System.IO.DirectoryInfo.EnumerateDirectories%2A>- <xref:System.IO.DirectoryInfo.EnumerateFiles%2A>-<xref:System.IO.DirectoryInfo.EnumerateFileSystemInfos%2A>最新の値を取得する呼び出し、<xref:System.IO.FileSystemInfo.Refresh%2A>メソッド</xref:System.IO.FileSystemInfo.Refresh%2A></xref:System.IO.DirectoryInfo.EnumerateFileSystemInfos%2A></xref:System.IO.DirectoryInfo.EnumerateFiles%2A></xref:System.IO.DirectoryInfo.EnumerateDirectories%2A></xref:System.IO.DirectoryInfo.GetFileSystemInfos%2A></xref:System.IO.DirectoryInfo.GetFiles%2A></xref:System.IO.DirectoryInfo.GetDirectories%2A></xref:System.IO.DirectoryInfo></xref:System.IO.FileInfo>。"
   example:
   - "The following example displays the size of the specified files.  \n  \n [!code-cpp[FileLength#1](~/add/codesnippet/cpp/p-system.io.fileinfo.len_1.cpp)]\n [!code-cs[FileLength#1](~/add/codesnippet/csharp/p-system.io.fileinfo.len_1.cs)]\n [!code-vb[FileLength#1](~/add/codesnippet/visualbasic/p-system.io.fileinfo.len_1.vb)]"
   syntax:
     content: public long Length { get; }
     return:
       type: System.Int64
-      description: "The size of the current file in bytes."
+      description: "現在ファイルのサイズ (バイト単位)。"
   overload: System.IO.FileInfo.Length*
   exceptions:
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "<xref:System.IO.FileSystemInfo.Refresh*> cannot update the state of the file or directory."
+    description: "<xref:System.IO.FileSystemInfo.Refresh*>ファイルまたはディレクトリの状態を更新することはできません。</xref:System.IO.FileSystemInfo.Refresh*>"
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file does not exist.       -or-       The <xref uid=&quot;langword_csharp_Length&quot; name=&quot;Length&quot; href=&quot;&quot;></xref> property is called for a directory."
+    description: "ファイルが存在しません。       - または -、 <xref uid=&quot;langword_csharp_Length&quot; name=&quot;Length&quot; href=&quot;&quot;> </xref>ディレクトリのプロパティが呼び出されます。"
   platform:
   - net462
 - uid: System.IO.FileInfo.MoveTo(System.String)
@@ -678,8 +678,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Moves a specified file to a new location, providing the option to specify a new file name."
-  remarks: "This method works across disk volumes. For example, the file c:\\MyFile.txt can be moved to d:\\public and renamed NewFile.txt."
+  summary: "指定したファイルを新しいファイル名を指定するオプションを提供する、新しい場所に移動します。"
+  remarks: "このメソッドは、ディスク ボリューム間で機能します。 たとえば、ファイル c:\\MyFile.txt d:\\public に移動することができ、NewFile.txt の名前を変更します。"
   example:
   - "The following example demonstrates moving a file to a different location and renaming the file.  \n  \n [!code-cs[IO.FileInfo.MoveTo#1](~/add/codesnippet/csharp/m-system.io.fileinfo.mov_1.cs)]\n [!code-vb[IO.FileInfo.MoveTo#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.mov_1.vb)]"
   syntax:
@@ -687,36 +687,36 @@ items:
     parameters:
     - id: destFileName
       type: System.String
-      description: "The path to move the file to, which can specify a different file name."
+      description: "パス ファイルの移動、別のファイル名を指定できます。"
   overload: System.IO.FileInfo.MoveTo*
   exceptions:
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurs, such as the destination file already exists or the destination device is not ready."
+    description: "コピー先ファイルが既に存在するか、宛先デバイス準備ができていないなど、I/O エラーが発生します。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>destFileName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>destFileName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>destFileName</code> is empty, contains only white spaces, or contains invalid characters."
+    description: "<code>destFileName</code>空、空白しか含んでいないか無効な文字が含まれています。"
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "呼び出し元には、必要なアクセス許可がありません。"
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "<code>destFileName</code> is read-only or is a directory."
+    description: "<code>destFileName</code>読み取り専用か、ディレクトリです。"
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file is not found."
+    description: "ファイルが見つかりませんでした。"
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: "The specified path is invalid, such as being on an unmapped drive."
+    description: "指定のパスがマップされていないドライブにあるなど、有効ではありません。"
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: "The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters."
+    description: "指定したパス、ファイル名、またはその両方に、システム定義の最大長を超えています。 たとえば、Windows ベースのプラットフォームでは、パスは 248 文字未満である必要があり、ファイル名は 260 文字未満にする必要があります。"
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "<code>destFileName</code> contains a colon (:) in the middle of the string."
+    description: "<code>destFileName</code>文字列の途中にコロン (:) が含まれています。"
   platform:
   - net462
 - uid: System.IO.FileInfo.Name
@@ -731,15 +731,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets the name of the file."
-  remarks: "When first called, <xref:System.IO.FileInfo> calls <xref:System.IO.FileSystemInfo.Refresh%2A> and caches information about the file. On subsequent calls, you must call <xref:System.IO.FileSystemInfo.Refresh%2A> to get the latest copy of the information.       The name of the file includes the file extension."
+  summary: "ファイルの名前を取得します。"
+  remarks: "最初に呼び出されると、<xref:System.IO.FileInfo>呼び出し<xref:System.IO.FileSystemInfo.Refresh%2A>ファイルに関する情報がキャッシュされます</xref:System.IO.FileSystemInfo.Refresh%2A></xref:System.IO.FileInfo>。 後続の呼び出しで呼び出す必要があります<xref:System.IO.FileSystemInfo.Refresh%2A>情報の最新コピーを取得します</xref:System.IO.FileSystemInfo.Refresh%2A>。       ファイルの名前には、ファイルの拡張子が含まれています。"
   example:
   - "The following example uses the `Name` property to display the names of files in the current directory.  \n  \n [!code-cs[fileinfoname#1](~/add/codesnippet/csharp/p-system.io.fileinfo.name_1.cs)]\n [!code-cpp[fileinfoname#1](~/add/codesnippet/cpp/p-system.io.fileinfo.name_1.cpp)]\n [!code-vb[fileinfoname#1](~/add/codesnippet/visualbasic/p-system.io.fileinfo.name_1.vb)]"
   syntax:
     content: public override string Name { get; }
     return:
       type: System.String
-      description: "The name of the file."
+      description: "ファイルの名前。"
   overload: System.IO.FileInfo.Name*
   exceptions: []
   platform:
@@ -756,7 +756,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Opens a file in the specified mode."
+  summary: "指定したモードでファイルを開きます。"
   remarks: ''
   example:
   - "The following example opens a file, adds some information to the file, and reads the file.  \n  \n [!code-cs[finfo open1#1](~/add/codesnippet/csharp/m-system.io.fileinfo.ope_0_1.cs)]\n [!code-cpp[finfo open1#1](~/add/codesnippet/cpp/m-system.io.fileinfo.ope_0_1.cpp)]\n [!code-vb[finfo open1#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.ope_0_1.vb)]"
@@ -765,24 +765,24 @@ items:
     parameters:
     - id: mode
       type: System.IO.FileMode
-      description: "A <xref href=&quot;System.IO.FileMode&quot;></xref> constant specifying the mode (for example, <xref uid=&quot;langword_csharp_Open&quot; name=&quot;Open&quot; href=&quot;&quot;></xref> or <xref uid=&quot;langword_csharp_Append&quot; name=&quot;Append&quot; href=&quot;&quot;></xref>) in which to open the file."
+      description: "A <xref href=&quot;System.IO.FileMode&quot;> </xref>モードを指定する定数 (たとえば、 <xref uid=&quot;langword_csharp_Open&quot; name=&quot;Open&quot; href=&quot;&quot;> </xref>または<xref uid=&quot;langword_csharp_Append&quot; name=&quot;Append&quot; href=&quot;&quot;> </xref>) ファイルを開くときにします。"
     return:
       type: System.IO.FileStream
-      description: "A file opened in the specified mode, with read/write access and unshared."
+      description: "ファイルは、指定したモード、読み取り/書き込みアクセスで開かれているし、共有解除します。"
   overload: System.IO.FileInfo.Open*
   exceptions:
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file is not found."
+    description: "ファイルが見つかりませんでした。"
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The file is read-only or is a directory."
+    description: "ファイルは、読み取り専用か、ディレクトリです。"
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: "The specified path is invalid, such as being on an unmapped drive."
+    description: "指定のパスがマップされていないドライブにあるなど、有効ではありません。"
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The file is already open."
+    description: "ファイルが開いています。"
   platform:
   - net462
 - uid: System.IO.FileInfo.Open(System.IO.FileMode,System.IO.FileAccess)
@@ -797,7 +797,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Opens a file in the specified mode with read, write, or read/write access."
+  summary: "読み取り、書き込み、または読み取り/書き込みアクセスを指定したモードでファイルを開きます。"
   remarks: ''
   example:
   - "The following example opens a file as read-only and reads from the file.  \n  \n [!code-vb[finfo open2#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.ope_2_1.vb)]\n [!code-cpp[finfo open2#1](~/add/codesnippet/cpp/m-system.io.fileinfo.ope_2_1.cpp)]\n [!code-cs[finfo open2#1](~/add/codesnippet/csharp/m-system.io.fileinfo.ope_2_1.cs)]"
@@ -806,30 +806,30 @@ items:
     parameters:
     - id: mode
       type: System.IO.FileMode
-      description: "A <xref href=&quot;System.IO.FileMode&quot;></xref> constant specifying the mode (for example, <xref uid=&quot;langword_csharp_Open&quot; name=&quot;Open&quot; href=&quot;&quot;></xref> or <xref uid=&quot;langword_csharp_Append&quot; name=&quot;Append&quot; href=&quot;&quot;></xref>) in which to open the file."
+      description: "A <xref href=&quot;System.IO.FileMode&quot;> </xref>モードを指定する定数 (たとえば、 <xref uid=&quot;langword_csharp_Open&quot; name=&quot;Open&quot; href=&quot;&quot;> </xref>または<xref uid=&quot;langword_csharp_Append&quot; name=&quot;Append&quot; href=&quot;&quot;> </xref>) ファイルを開くときにします。"
     - id: access
       type: System.IO.FileAccess
-      description: "A <xref href=&quot;System.IO.FileAccess&quot;></xref> constant specifying whether to open the file with <xref uid=&quot;langword_csharp_Read&quot; name=&quot;Read&quot; href=&quot;&quot;></xref>, <xref uid=&quot;langword_csharp_Write&quot; name=&quot;Write&quot; href=&quot;&quot;></xref>, or <xref uid=&quot;langword_csharp_ReadWrite&quot; name=&quot;ReadWrite&quot; href=&quot;&quot;></xref> file access."
+      description: "A <xref href=&quot;System.IO.FileAccess&quot;> </xref>を使用してファイルを開くかどうかを指定する定数<xref uid=&quot;langword_csharp_Read&quot; name=&quot;Read&quot; href=&quot;&quot;> </xref>、 <xref uid=&quot;langword_csharp_Write&quot; name=&quot;Write&quot; href=&quot;&quot;> </xref>、または<xref uid=&quot;langword_csharp_ReadWrite&quot; name=&quot;ReadWrite&quot; href=&quot;&quot;></xref>ファイルへのアクセス。"
     return:
       type: System.IO.FileStream
-      description: "A <xref href=&quot;System.IO.FileStream&quot;></xref> object opened in the specified mode and access, and unshared."
+      description: "A <xref href=&quot;System.IO.FileStream&quot;> </xref>オブジェクト、指定したモードとアクセスで開かれているし、共有解除します。"
   overload: System.IO.FileInfo.Open*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "呼び出し元には、必要なアクセス許可がありません。"
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file is not found."
+    description: "ファイルが見つかりませんでした。"
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "<code>path</code> is read-only or is a directory."
+    description: "<code>path</code>読み取り専用か、ディレクトリです。"
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: "The specified path is invalid, such as being on an unmapped drive."
+    description: "指定のパスがマップされていないドライブにあるなど、有効ではありません。"
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The file is already open."
+    description: "ファイルが開いています。"
   platform:
   - net462
 - uid: System.IO.FileInfo.Open(System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)
@@ -844,7 +844,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Opens a file in the specified mode with read, write, or read/write access and the specified sharing option."
+  summary: "読み取り、書き込み、または読み取り/書き込みアクセス、および指定した共有オプションで指定したモードでファイルを開きます。"
   remarks: ''
   example:
   - "The following example demonstrates opening a file for reading and writing, but disallowing access to other users or processes.  \n  \n [!code-cpp[fileinfoopen#1](~/add/codesnippet/cpp/8bd38f9d-a8ac-4cea-8fda-_1.cpp)]\n [!code-cs[fileinfoopen#1](~/add/codesnippet/csharp/8bd38f9d-a8ac-4cea-8fda-_1.cs)]\n [!code-vb[fileinfoopen#1](~/add/codesnippet/visualbasic/8bd38f9d-a8ac-4cea-8fda-_1.vb)]"
@@ -853,33 +853,33 @@ items:
     parameters:
     - id: mode
       type: System.IO.FileMode
-      description: "A <xref href=&quot;System.IO.FileMode&quot;></xref> constant specifying the mode (for example, <xref uid=&quot;langword_csharp_Open&quot; name=&quot;Open&quot; href=&quot;&quot;></xref> or <xref uid=&quot;langword_csharp_Append&quot; name=&quot;Append&quot; href=&quot;&quot;></xref>) in which to open the file."
+      description: "A <xref href=&quot;System.IO.FileMode&quot;> </xref>モードを指定する定数 (たとえば、 <xref uid=&quot;langword_csharp_Open&quot; name=&quot;Open&quot; href=&quot;&quot;> </xref>または<xref uid=&quot;langword_csharp_Append&quot; name=&quot;Append&quot; href=&quot;&quot;> </xref>) ファイルを開くときにします。"
     - id: access
       type: System.IO.FileAccess
-      description: "A <xref href=&quot;System.IO.FileAccess&quot;></xref> constant specifying whether to open the file with <xref uid=&quot;langword_csharp_Read&quot; name=&quot;Read&quot; href=&quot;&quot;></xref>, <xref uid=&quot;langword_csharp_Write&quot; name=&quot;Write&quot; href=&quot;&quot;></xref>, or <xref uid=&quot;langword_csharp_ReadWrite&quot; name=&quot;ReadWrite&quot; href=&quot;&quot;></xref> file access."
+      description: "A <xref href=&quot;System.IO.FileAccess&quot;> </xref>を使用してファイルを開くかどうかを指定する定数<xref uid=&quot;langword_csharp_Read&quot; name=&quot;Read&quot; href=&quot;&quot;> </xref>、 <xref uid=&quot;langword_csharp_Write&quot; name=&quot;Write&quot; href=&quot;&quot;> </xref>、または<xref uid=&quot;langword_csharp_ReadWrite&quot; name=&quot;ReadWrite&quot; href=&quot;&quot;></xref>ファイルへのアクセス。"
     - id: share
       type: System.IO.FileShare
-      description: "A <xref href=&quot;System.IO.FileShare&quot;></xref> constant specifying the type of access other <xref uid=&quot;langword_csharp_FileStream&quot; name=&quot;FileStream&quot; href=&quot;&quot;></xref> objects have to this file."
+      description: "A <xref href=&quot;System.IO.FileShare&quot;> </xref>他へのアクセスの種類を指定する定数<xref uid=&quot;langword_csharp_FileStream&quot; name=&quot;FileStream&quot; href=&quot;&quot;></xref>オブジェクトがこのファイルにあります。"
     return:
       type: System.IO.FileStream
-      description: "A <xref href=&quot;System.IO.FileStream&quot;></xref> object opened with the specified mode, access, and sharing options."
+      description: "A <xref href=&quot;System.IO.FileStream&quot;> </xref>オブジェクトのアクセスを指定したモードで開くし、共有のオプションです。"
   overload: System.IO.FileInfo.Open*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "呼び出し元には、必要なアクセス許可がありません。"
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file is not found."
+    description: "ファイルが見つかりませんでした。"
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "<code>path</code> is read-only or is a directory."
+    description: "<code>path</code>読み取り専用か、ディレクトリです。"
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: "The specified path is invalid, such as being on an unmapped drive."
+    description: "指定のパスがマップされていないドライブにあるなど、有効ではありません。"
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The file is already open."
+    description: "ファイルが開いています。"
   platform:
   - net462
 - uid: System.IO.FileInfo.OpenRead
@@ -894,8 +894,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Creates a read-only <xref href=&quot;System.IO.FileStream&quot;></xref>."
-  remarks: "This method returns a read-only <xref:System.IO.FileStream> object with the <xref:System.IO.FileShare> mode set to <xref:System.IO.FileShare>."
+  summary: "読み取り専用に作成<xref href=&quot;System.IO.FileStream&quot;></xref>です。"
+  remarks: "このメソッドは、読み取り専用<xref:System.IO.FileStream><xref:System.IO.FileShare>モード<xref:System.IO.FileShare>。</xref:System.IO.FileShare>に設定</xref:System.IO.FileShare>するオブジェクト</xref:System.IO.FileStream>を返します。"
   example:
   - "The following example opens a file as read-only and reads from it.  \n  \n [!code-vb[finfo openread#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.ope_4_1.vb)]\n [!code-cs[finfo openread#1](~/add/codesnippet/csharp/m-system.io.fileinfo.ope_4_1.cs)]\n [!code-cpp[finfo openread#1](~/add/codesnippet/cpp/m-system.io.fileinfo.ope_4_1.cpp)]"
   syntax:
@@ -903,18 +903,18 @@ items:
     parameters: []
     return:
       type: System.IO.FileStream
-      description: "A new read-only <xref href=&quot;System.IO.FileStream&quot;></xref> object."
+      description: "新しい読み取り専用<xref href=&quot;System.IO.FileStream&quot;></xref>オブジェクト。"
   overload: System.IO.FileInfo.OpenRead*
   exceptions:
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "<code>path</code> is read-only or is a directory."
+    description: "<code>path</code>読み取り専用か、ディレクトリです。"
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: "The specified path is invalid, such as being on an unmapped drive."
+    description: "指定のパスがマップされていないドライブにあるなど、有効ではありません。"
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The file is already open."
+    description: "ファイルが開いています。"
   platform:
   - net462
 - uid: System.IO.FileInfo.OpenText
@@ -929,7 +929,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Creates a <xref:System.IO.StreamReader> with UTF8 encoding that reads from an existing text file."
+  summary: "作成、 <xref:System.IO.StreamReader>UTF8 エンコーディングを既存のテキスト ファイルから読み取るのです</xref:System.IO.StreamReader>。"
   remarks: ''
   example:
   - "The following example reads text from a file.  \n  \n [!code-cpp[finfo opentext#1](~/add/codesnippet/cpp/m-system.io.fileinfo.ope_1_1.cpp)]\n [!code-cs[finfo opentext#1](~/add/codesnippet/csharp/m-system.io.fileinfo.ope_1_1.cs)]\n [!code-vb[finfo opentext#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.ope_1_1.vb)]"
@@ -938,21 +938,21 @@ items:
     parameters: []
     return:
       type: System.IO.StreamReader
-      description: "A new <xref uid=&quot;langword_csharp_StreamReader&quot; name=&quot;StreamReader&quot; href=&quot;&quot;></xref> with UTF8 encoding."
+      description: "新しい<xref uid=&quot;langword_csharp_StreamReader&quot; name=&quot;StreamReader&quot; href=&quot;&quot;> </xref> UTF8 エンコーディング。"
   overload: System.IO.FileInfo.OpenText*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "呼び出し元には、必要なアクセス許可がありません。"
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file is not found."
+    description: "ファイルが見つかりませんでした。"
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "<code>path</code> is read-only or is a directory."
+    description: "<code>path</code>読み取り専用か、ディレクトリです。"
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: "The specified path is invalid, such as being on an unmapped drive."
+    description: "指定のパスがマップされていないドライブにあるなど、有効ではありません。"
   platform:
   - net462
 - uid: System.IO.FileInfo.OpenWrite
@@ -967,8 +967,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Creates a write-only <xref href=&quot;System.IO.FileStream&quot;></xref>."
-  remarks: "The OpenWrite method opens a file if one already exists for the file path, or creates a new file if one does not exist. For an existing file, it does not append the new text to the existing text. Instead, it overwrites the existing characters with the new characters. If you overwrite a longer string (such as &quot;This is a test of the OpenWrite method&quot;) with a shorter string (like &quot;Second run&quot;), the file will contain a mix of the strings (&quot;Second runtest of the OpenWrite method&quot;)."
+  summary: "書き込み専用に作成<xref href=&quot;System.IO.FileStream&quot;></xref>です。"
+  remarks: "OpenWrite メソッドは、既にファイル パスが存在するかが存在しない場合は、新しいファイルを作成する場合に、ファイルを開きます。 既存のファイルには追加しません新しいテキスト既存のテキストにします。 代わりに、新しい文字で既存の文字を上書きします。 を上書きした場合より長い文字列 (&quot;This is OpenWrite メソッドのテストです)&quot;など、短い文字列 (「2 つ目の実行」) で、ファイルは混在の文字列 (&quot;2 つ目 runtest OpenWrite メソッドの&quot;) です。"
   example:
   - "The following example opens a file for writing and then reads from the file.  \n  \n [!code-cs[finfo openwrite#1](~/add/codesnippet/csharp/m-system.io.fileinfo.ope_3_1.cs)]\n [!code-vb[finfo openwrite#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.ope_3_1.vb)]\n [!code-cpp[finfo openwrite#1](~/add/codesnippet/cpp/m-system.io.fileinfo.ope_3_1.cpp)]"
   syntax:
@@ -976,15 +976,15 @@ items:
     parameters: []
     return:
       type: System.IO.FileStream
-      description: "A write-only unshared <xref href=&quot;System.IO.FileStream&quot;></xref> object for a new or existing file."
+      description: "書き込み専用の非共有<xref href=&quot;System.IO.FileStream&quot;></xref>新規または既存のファイルのオブジェクト。"
   overload: System.IO.FileInfo.OpenWrite*
   exceptions:
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The path specified when creating an instance of the <xref href=&quot;System.IO.FileInfo&quot;></xref> object is read-only or is a directory."
+    description: "インスタンスを作成するときに指定されたパス、 <xref href=&quot;System.IO.FileInfo&quot;> </xref>オブジェクトは読み取り専用または、ディレクトリです。"
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: "The path specified when creating an instance of the <xref href=&quot;System.IO.FileInfo&quot;></xref> object is invalid, such as being on an unmapped drive."
+    description: "インスタンスを作成するときに指定されたパス、 <xref href=&quot;System.IO.FileInfo&quot;> </xref>オブジェクトはマップされていないドライブにあるなど、無効です。"
   platform:
   - net462
 - uid: System.IO.FileInfo.Replace(System.String,System.String)
@@ -999,8 +999,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Replaces the contents of a specified file with the file described by the current <xref href=&quot;System.IO.FileInfo&quot;></xref> object, deleting the original file, and creating a backup of the replaced file."
-  remarks: "The Replace method replaces the contents of a specified file with the contents of the file described by the current <xref:System.IO.FileInfo> object.  It also creates a backup of the file that was replaced.  Finally, it returns a new <xref:System.IO.FileInfo> object that describes the overwritten file.      > [!CAUTION] >  This method will succeed in Windows 2000 environments if the `destFileName` is read-only and will not raise an exception. Use the <xref:System.IO.FileInfo.IsReadOnly%2A> property to check if the destination file is read-only before attempting to replace it.       Pass `null` to the `destBackupFileName` parameter if you do not want to create a backup of the file being replaced."
+  summary: "指定されたファイルの内容を現在によって記述されるファイルに置き換えます<xref href=&quot;System.IO.FileInfo&quot;></xref>オブジェクト、元のファイルは削除され、置き換えられたファイルのバックアップが作成されます。"
+  remarks: "Replace メソッドでは、現在によって記述されるファイルの内容に指定されたファイルの内容が置き換えられます<xref:System.IO.FileInfo>オブジェクト</xref:System.IO.FileInfo>。  また、置き換えられたファイルのバックアップを作成します。  最後に、新しい返します<xref:System.IO.FileInfo>上書きされたファイルを記述するオブジェクト</xref:System.IO.FileInfo>。      > [!CAUTION] > 場合は、Windows 2000 環境でこのメソッドは成功、`destFileName`は読み取り専用と、例外は発生しません。 <xref:System.IO.FileInfo.IsReadOnly%2A>対象のファイルがそれを交換する前に読み取り専用でかどうかを確認するプロパティ</xref:System.IO.FileInfo.IsReadOnly%2A>を使用します。       渡す`null`を`destBackupFileName`パラメーターが置き換えられるファイルのバックアップを作成したくない場合。"
   example:
   - "The following example uses the <xref:System.IO.File.Replace%2A> method to replace a file with another file and create a backup of the replaced file.  \n  \n [!code-cs[IO.FileInfo.Replace#1](~/add/codesnippet/csharp/m-system.io.fileinfo.rep_0_1.cs)]\n [!code-vb[IO.FileInfo.Replace#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.rep_0_1.vb)]\n [!code-cpp[IO.FileInfo.Replace#1](~/add/codesnippet/cpp/m-system.io.fileinfo.rep_0_1.cpp)]"
   syntax:
@@ -1008,27 +1008,27 @@ items:
     parameters:
     - id: destinationFileName
       type: System.String
-      description: "The name of a file to replace with the current file."
+      description: "現在のファイルと置き換えるファイルの名前。"
     - id: destinationBackupFileName
       type: System.String
-      description: "The name of a file with which to create a backup of the file described by the `destFileName` parameter."
+      description: "によって記述されるファイルのバックアップの作成に使用するファイルの名前、`destFileName`のパラメーターです。"
     return:
       type: System.IO.FileInfo
-      description: "A <xref href=&quot;System.IO.FileInfo&quot;></xref> object that encapsulates information about the file described by the <code>destFileName</code> parameter."
+      description: "A <xref href=&quot;System.IO.FileInfo&quot;> </xref>によって記述されるファイルに関する情報をカプセル化するオブジェクト、 <code> destFileName </code>パラメーター。"
   overload: System.IO.FileInfo.Replace*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The path described by the <code>destFileName</code> parameter was not of a legal form.       -or-       The path described by the <code>destBackupFileName</code> parameter was not of a legal form."
+    description: "により記述されたパス、 <code> destFileName </code>パラメーターは、正しい書式ではありませんでした。       - または - で記述されるパス、 <code> destBackupFileName </code>パラメーターは、正しい書式ではありませんでした。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: "The <code>destFileName</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file described by the current <xref href=&quot;System.IO.FileInfo&quot;></xref> object could not be found.       -or-       The file described by the <code>destinationFileName</code> parameter could not be found."
+    description: "現在の記述ファイル<xref href=&quot;System.IO.FileInfo&quot;></xref>オブジェクトが見つかりませんでした。       - または - によって記述されるファイル、 <code> destinationFileName </code>パラメーターが見つかりませんでした。"
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The current operating system is not Microsoft Windows NT or later."
+    description: "現在のオペレーティング システムは Microsoft Windows NT 以降です。"
   platform:
   - net462
 - uid: System.IO.FileInfo.Replace(System.String,System.String,System.Boolean)
@@ -1043,8 +1043,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Replaces the contents of a specified file with the file described by the current <xref href=&quot;System.IO.FileInfo&quot;></xref> object, deleting the original file, and creating a backup of the replaced file.  Also specifies whether to ignore merge errors."
-  remarks: "The Replace method replaces the contents of a specified file with the contents of the file described by the current <xref:System.IO.FileInfo> object.  It also creates a backup of the file that was replaced.  Finally, it returns a new <xref:System.IO.FileInfo> object that describes the overwritten file.      > [!CAUTION] >  This method will succeed in Windows 2000 environments if the `destFileName` is read-only and will not raise an exception. Use the <xref:System.IO.FileInfo.IsReadOnly%2A> property to check if the destination file is read-only before attempting to replace it.       Pass `null` to the `destBackupFileName` parameter if you do not want to create a backup of the file being replaced."
+  summary: "指定されたファイルの内容を現在によって記述されるファイルに置き換えます<xref href=&quot;System.IO.FileInfo&quot;></xref>オブジェクト、元のファイルは削除され、置き換えられたファイルのバックアップが作成されます。  また、マージ エラーを無視するかどうかを指定します。"
+  remarks: "Replace メソッドでは、現在によって記述されるファイルの内容に指定されたファイルの内容が置き換えられます<xref:System.IO.FileInfo>オブジェクト</xref:System.IO.FileInfo>。  また、置き換えられたファイルのバックアップを作成します。  最後に、新しい返します<xref:System.IO.FileInfo>上書きされたファイルを記述するオブジェクト</xref:System.IO.FileInfo>。      > [!CAUTION] > 場合は、Windows 2000 環境でこのメソッドは成功、`destFileName`は読み取り専用と、例外は発生しません。 <xref:System.IO.FileInfo.IsReadOnly%2A>対象のファイルがそれを交換する前に読み取り専用でかどうかを確認するプロパティ</xref:System.IO.FileInfo.IsReadOnly%2A>を使用します。       渡す`null`を`destBackupFileName`パラメーターが置き換えられるファイルのバックアップを作成したくない場合。"
   example:
   - "The following example uses the <xref:System.IO.File.Replace%2A> method to replace a file with another file and create a backup of the replaced file.  \n  \n [!code-cs[IO.FileInfo.Replace#1](~/add/codesnippet/csharp/m-system.io.fileinfo.rep_1_1.cs)]\n [!code-vb[IO.FileInfo.Replace#1](~/add/codesnippet/visualbasic/m-system.io.fileinfo.rep_1_1.vb)]\n [!code-cpp[IO.FileInfo.Replace#1](~/add/codesnippet/cpp/m-system.io.fileinfo.rep_1_1.cpp)]"
   syntax:
@@ -1052,30 +1052,30 @@ items:
     parameters:
     - id: destinationFileName
       type: System.String
-      description: "The name of a file to replace with the current file."
+      description: "現在のファイルと置き換えるファイルの名前。"
     - id: destinationBackupFileName
       type: System.String
-      description: "The name of a file with which to create a backup of the file described by the `destFileName` parameter."
+      description: "によって記述されるファイルのバックアップの作成に使用するファイルの名前、`destFileName`のパラメーターです。"
     - id: ignoreMetadataErrors
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to ignore merge errors (such as attributes and ACLs) from the replaced file to the replacement file; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>置き換えられるファイルから置換ファイルにマージ エラー (属性や Acl など) を無視するにはそれ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
     return:
       type: System.IO.FileInfo
-      description: "A <xref href=&quot;System.IO.FileInfo&quot;></xref> object that encapsulates information about the file described by the <code>destFileName</code> parameter."
+      description: "A <xref href=&quot;System.IO.FileInfo&quot;> </xref>によって記述されるファイルに関する情報をカプセル化するオブジェクト、 <code> destFileName </code>パラメーター。"
   overload: System.IO.FileInfo.Replace*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The path described by the <code>destFileName</code> parameter was not of a legal form.       -or-       The path described by the <code>destBackupFileName</code> parameter was not of a legal form."
+    description: "により記述されたパス、 <code> destFileName </code>パラメーターは、正しい書式ではありませんでした。       - または - で記述されるパス、 <code> destBackupFileName </code>パラメーターは、正しい書式ではありませんでした。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: "The <code>destFileName</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file described by the current <xref href=&quot;System.IO.FileInfo&quot;></xref> object could not be found.       -or-       The file described by the <code>destinationFileName</code> parameter could not be found."
+    description: "現在の記述ファイル<xref href=&quot;System.IO.FileInfo&quot;></xref>オブジェクトが見つかりませんでした。       - または - によって記述されるファイル、 <code> destinationFileName </code>パラメーターが見つかりませんでした。"
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The current operating system is not Microsoft Windows NT or later."
+    description: "現在のオペレーティング システムは Microsoft Windows NT 以降です。"
   platform:
   - net462
 - uid: System.IO.FileInfo.SetAccessControl(System.Security.AccessControl.FileSecurity)
@@ -1090,8 +1090,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Applies access control list (ACL) entries described by a <xref href=&quot;System.Security.AccessControl.FileSecurity&quot;></xref> object to the file described by the current <xref href=&quot;System.IO.FileInfo&quot;></xref> object."
-  remarks: "The SetAccessControl method applies access control list (ACL) entries to the current file that represents the noninherited ACL list.       Use the SetAccessControl method whenever you need to add or remove ACL entries from a file.      > [!CAUTION] >  The ACL specified for the `fileSecurity` parameter replaces the existing ACL for the file. To add permissions for a new user, use the <xref:System.IO.Directory.GetAccessControl%2A> method to obtain the existing ACL, modify it, and then use SetAccessControl to apply it back to the file.       An ACL describes individuals and/or groups who have, or do not have, rights to specific actions on the given file. For more information, see [How to: Add or Remove Access Control List Entries](~/add/includes/ajax-current-ext-md.md).       The SetAccessControl method persists only <xref:System.Security.AccessControl.FileSecurity> objects that have been modified after object creation.  If a <xref:System.Security.AccessControl.FileSecurity> object has not been modified, it will not be persisted to a file.  Therefore, it is not possible to retrieve a <xref:System.Security.AccessControl.FileSecurity> object from one file and reapply the same object to another file.       To copy ACL information from one file to another:      1.  Use the <xref:System.IO.FileInfo.GetAccessControl%2A> method to retrieve the <xref:System.Security.AccessControl.FileSecurity> object from the source file.      2.  Create a new <xref:System.Security.AccessControl.FileSecurity> object for the destination file.      3.  Use the <xref:System.Security.AccessControl.ObjectSecurity.GetSecurityDescriptorBinaryForm%2A> or <xref:System.Security.AccessControl.ObjectSecurity.GetSecurityDescriptorSddlForm%2A> method of the source <xref:System.Security.AccessControl.FileSecurity> object to retrieve the ACL information.      4.  Use the <xref:System.Security.AccessControl.ObjectSecurity.SetSecurityDescriptorBinaryForm%2A> or <xref:System.Security.AccessControl.ObjectSecurity.SetSecurityDescriptorSddlForm%2A> method to copy the information retrieved in step 3 to the destination <xref:System.Security.AccessControl.FileSecurity> object.      5.  Set the destination <xref:System.Security.AccessControl.FileSecurity> object to the destination file using the SetAccessControl method."
+  summary: "示すアクセス制御リスト (ACL) エントリを適用する<xref href=&quot;System.Security.AccessControl.FileSecurity&quot;></xref>オブジェクトが現在の説明されているファイルに<xref href=&quot;System.IO.FileInfo&quot;></xref>オブジェクト。"
+  remarks: "SetAccessControl メソッドでは、アクセス制御リスト (ACL) エントリを継承されない ACL リストを表す現在のファイルに適用されます。       追加またはファイルから ACL エントリを削除する必要がある場合は、SetAccessControl メソッドを使用します。      > [!CAUTION] >、ACL に指定された、`fileSecurity`パラメーターは、ファイルの既存の ACL を置き換えます。 新しいユーザーのアクセス許可を追加するには、使用、<xref:System.IO.Directory.GetAccessControl%2A>され、既存の ACL を取得して、変更、適用することを SetAccessControl を使用するメソッドが、ファイルをバックアップします</xref:System.IO.Directory.GetAccessControl%2A>。       ACL には、個人、グループ、または権限がない、指定されたファイルの特定のアクションをユーザーがについて説明します。 詳細については、次を参照してください。[する方法: アクセス制御リスト エントリを追加または](~/add/includes/ajax-current-ext-md.md)です。       SetAccessControl メソッドにのみが引き続き発生する<xref:System.Security.AccessControl.FileSecurity>オブジェクトがオブジェクトの作成後に変更されました</xref:System.Security.AccessControl.FileSecurity>。  場合、<xref:System.Security.AccessControl.FileSecurity>オブジェクトが変更されていない、ファイルに永続化はできません</xref:System.Security.AccessControl.FileSecurity>。  したがって、取得することはありません、 <xref:System.Security.AccessControl.FileSecurity>1 つのファイルからオブジェクトを別のファイルを同じオブジェクトを再適用します</xref:System.Security.AccessControl.FileSecurity>。       ACL の情報を別の 1 つのファイルにコピーする: 1。  使用して、<xref:System.IO.FileInfo.GetAccessControl%2A>を取得する方法、<xref:System.Security.AccessControl.FileSecurity>ソース ファイルからのオブジェクト</xref:System.Security.AccessControl.FileSecurity></xref:System.IO.FileInfo.GetAccessControl%2A>。      2.  新しい<xref:System.Security.AccessControl.FileSecurity>先のファイル オブジェクト</xref:System.Security.AccessControl.FileSecurity>。      3.  使用して、<xref:System.Security.AccessControl.ObjectSecurity.GetSecurityDescriptorBinaryForm%2A>または<xref:System.Security.AccessControl.ObjectSecurity.GetSecurityDescriptorSddlForm%2A>メソッドのソースの<xref:System.Security.AccessControl.FileSecurity>ACL 情報を取得するオブジェクト</xref:System.Security.AccessControl.FileSecurity></xref:System.Security.AccessControl.ObjectSecurity.GetSecurityDescriptorSddlForm%2A></xref:System.Security.AccessControl.ObjectSecurity.GetSecurityDescriptorBinaryForm%2A>。      4.  使用して、<xref:System.Security.AccessControl.ObjectSecurity.SetSecurityDescriptorBinaryForm%2A>または<xref:System.Security.AccessControl.ObjectSecurity.SetSecurityDescriptorSddlForm%2A>に情報をコピーする方法は、先には、手順 3. で取得<xref:System.Security.AccessControl.FileSecurity>オブジェクト</xref:System.Security.AccessControl.FileSecurity></xref:System.Security.AccessControl.ObjectSecurity.SetSecurityDescriptorSddlForm%2A></xref:System.Security.AccessControl.ObjectSecurity.SetSecurityDescriptorBinaryForm%2A>。      5.  出力先を設定<xref:System.Security.AccessControl.FileSecurity>SetAccessControl メソッドを使用して変換先ファイルへのオブジェクト</xref:System.Security.AccessControl.FileSecurity>。"
   example:
   - "The following code example uses the <xref:System.IO.FileInfo.GetAccessControl%2A> method and the SetAccessControl method to add and then remove an ACL entry from a file.  You must supply a valid user or group account to run this example.  \n  \n [!code-cpp[IO.FileInfo.GetAccessControl-SetAccessControl#1](~/add/codesnippet/cpp/c24a4717-31ac-4834-901c-_1.cpp)]\n [!code-vb[IO.FileInfo.GetAccessControl-SetAccessControl#1](~/add/codesnippet/visualbasic/c24a4717-31ac-4834-901c-_1.vb)]\n [!code-cs[IO.FileInfo.GetAccessControl-SetAccessControl#1](~/add/codesnippet/csharp/c24a4717-31ac-4834-901c-_1.cs)]"
   syntax:
@@ -1099,7 +1099,7 @@ items:
     parameters:
     - id: fileSecurity
       type: System.Security.AccessControl.FileSecurity
-      description: "A <xref href=&quot;System.Security.AccessControl.FileSecurity&quot;></xref> object that describes an access control list (ACL) entry to apply to the current file."
+      description: "A <xref href=&quot;System.Security.AccessControl.FileSecurity&quot;> </xref>を現在のファイルに適用するアクセス制御リスト (ACL) エントリを記述するオブジェクト。"
   overload: System.IO.FileInfo.SetAccessControl*
   exceptions:
   - type: System.ArgumentNullException
@@ -1107,13 +1107,13 @@ items:
     description: "The <code>fileSecurity</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.SystemException
     commentId: T:System.SystemException
-    description: "The file could not be found or modified."
+    description: "ファイルが見つからないか、変更します。"
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The current process does not have access to open the file."
+    description: "現在のプロセスには、ファイルを開くアクセスはありません。"
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The current operating system is not Microsoft Windows 2000 or later."
+    description: "現在のオペレーティング システムは Microsoft Windows 2000 以降ではありません。"
   platform:
   - net462
 - uid: System.IO.FileInfo.ToString
@@ -1128,14 +1128,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Returns the path as a string."
-  remarks: "The string returned by the ToString method represents path that was passed to the constructor.  When you create a <xref:System.IO.FileInfo> object using the constructors, the ToString method returns the fully qualified path.  However, there are cases where the string returned by the ToString method does not represent the fully qualified path.  For example, when you create a <xref:System.IO.FileInfo> object using the <xref:System.IO.DirectoryInfo.GetFiles%2A> method, the ToString method does not represent the fully qualified path."
+  summary: "このパスを文字列として返します。"
+  remarks: "ToString メソッドによって返される文字列は、コンス トラクターに渡されたパスを表します。  作成するときに、<xref:System.IO.FileInfo>オブジェクトのコンス トラクターを使用して、ToString メソッドは、完全修飾パスを返します</xref:System.IO.FileInfo>  ただしがあります、ToString メソッドによって返される文字列が完全修飾パスを表していません。  たとえば、<xref:System.IO.FileInfo><xref:System.IO.DirectoryInfo.GetFiles%2A>完全修飾パスを表さないメソッド、ToString メソッド</xref:System.IO.DirectoryInfo.GetFiles%2A>を使用してオブジェクト</xref:System.IO.FileInfo>を作成します。"
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "A string representing the path."
+      description: "パスを表す文字列。"
   overload: System.IO.FileInfo.ToString*
   exceptions: []
   platform:

@@ -30,7 +30,7 @@ items:
   nameWithType: SecurityTokenServiceConfiguration
   fullName: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration
   type: Class
-  summary: "Defines the configuration for a security token service (STS). Classes that implement STSs derive from the <xref href=&quot;System.IdentityModel.SecurityTokenService&quot;></xref> class."
+  summary: "セキュリティ トークン サービス (STS) の構成を定義します。 Sts を実装するクラスから派生し、 <xref href=&quot;System.IdentityModel.SecurityTokenService&quot;> </xref>クラスです。"
   remarks: ''
   example:
   - "The code examples that are used in the <xref:System.IdentityModel.SecurityTokenService> topics are taken from the `Custom Token` sample. This sample provides custom classes that enable processing of Simple Web Tokens (SWT) and it includes an implementation of a passive STS that is capable of serving an SWT token. For an example of how to implement an active STS, you can see the `Federation Metadata` sample. For information about these samples and other samples available for WIF and about where to download them, see [WIF Code Sample Index](~/add/includes/ajax-current-ext-md.md). The following code shows a custom implementation of the SecurityTokenServiceConfiguration class to support a passive STS that processes SWT tokens. The configuration is initialized and stored in the HTTP application state the first time the static `Current` property is accessed. The constructor initializes the properties of the custom configuration with the type of the custom STS, a custom issuer token resolver, and the default token type (the URI of the SWT token type). It also adds an SWT token handler to the default handler collection.  \n  \n [!code-cs[WIFCustomTokenSTS#2](~/add/codesnippet/csharp/passivests/customsecuritytokenserviceconfiguration.cs#2)]  \n  \n The following code shows how to invoke a custom passive STS to process a WS-Federation request by calling the <xref:System.IdentityModel.Services.FederatedPassiveSecurityTokenServiceOperations.ProcessRequest%28System.Web.HttpRequest%2CSystem.Security.Claims.ClaimsPrincipal%2CSystem.IdentityModel.SecurityTokenService%2CSystem.Web.HttpResponse%29?displayProperty=fullName> method from the code behind in the `default.aspx.cs` file. The <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.CreateSecurityTokenService%2A> method initializes an instance of the `PassiveSTS.CustomSecurityTokenService` class using the properties set on the `CustomSecurityTokenServiceConfiguration` class shown in the previous example.  \n  \n [!code-cs[WIFCustomTokenSTS#1](~/add/codesnippet/csharp/passivests/default.aspx.cs#1)]"
@@ -86,8 +86,8 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;></xref> class."
-  remarks: "The <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A> property must be set before the security token service is used to create a token."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;> </xref>クラスです。"
+  remarks: "<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>セキュリティ トークン サービスを使用してトークンを作成する前に、プロパティを設定する必要があります</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>。"
   syntax:
     content: public SecurityTokenServiceConfiguration ();
     parameters: []
@@ -107,14 +107,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;></xref> class. Optionally loads settings from the current configuration."
-  remarks: "The <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A> property must be set before the security token service is used to create a token."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;> </xref>クラスです。 必要に応じて、現在の構成から設定を読み込みます。"
+  remarks: "<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>セキュリティ トークン サービスを使用してトークンを作成する前に、プロパティを設定する必要があります</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>。"
   syntax:
     content: public SecurityTokenServiceConfiguration (bool loadConfig);
     parameters:
     - id: loadConfig
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to load settings from the configuration file; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>構成ファイルから設定を読み込めませんそれ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.#ctor*
   exceptions: []
   platform:
@@ -131,14 +131,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;></xref> class that has the specified issuer name."
-  remarks: "If `issuerName` is `null`, the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A> property must be set before the security token service is used to create a token."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;> </xref>を指定した発行者名を持つクラス。"
+  remarks: "場合`issuerName`は`null`、<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>セキュリティ トークン サービスを使用してトークンを作成する前に、プロパティを設定する必要があります</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>。"
   syntax:
     content: public SecurityTokenServiceConfiguration (string issuerName);
     parameters:
     - id: issuerName
       type: System.String
-      description: "The issuer name. Sets the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*> property."
+      description: "発行者の名前。 セット、<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*>プロパティ</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*>。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.#ctor*
   exceptions: []
   platform:
@@ -155,17 +155,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;></xref> class that has the specified issuer name. Optionally loads settings from the current configuration."
-  remarks: "If `issuerName` is `null`, the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A> property must be set before the security token service is used to create a token."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;> </xref>を指定した発行者名を持つクラス。 必要に応じて、現在の構成から設定を読み込みます。"
+  remarks: "場合`issuerName`は`null`、<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>セキュリティ トークン サービスを使用してトークンを作成する前に、プロパティを設定する必要があります</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>。"
   syntax:
     content: public SecurityTokenServiceConfiguration (string issuerName, bool loadConfig);
     parameters:
     - id: issuerName
       type: System.String
-      description: "The issuer name. Sets the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*> property."
+      description: "発行者の名前。 セット、<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*>プロパティ</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*>。"
     - id: loadConfig
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to load settings from the configuration file; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>構成ファイルから設定を読み込めませんそれ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.#ctor*
   exceptions: []
   platform:
@@ -182,17 +182,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;></xref> class that has the specified issuer name and signing credentials."
-  remarks: "If `issuerName` is `null`, the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A> property must be set before the security token service is used to create a token."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;> </xref>を指定した発行者名および資格情報の署名を持つクラス。"
+  remarks: "場合`issuerName`は`null`、<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>セキュリティ トークン サービスを使用してトークンを作成する前に、プロパティを設定する必要があります</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>。"
   syntax:
     content: public SecurityTokenServiceConfiguration (string issuerName, System.IdentityModel.Tokens.SigningCredentials signingCredentials);
     parameters:
     - id: issuerName
       type: System.String
-      description: "The issuer name. Sets the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*> property."
+      description: "発行者の名前。 セット、<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*>プロパティ</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*>。"
     - id: signingCredentials
       type: System.IdentityModel.Tokens.SigningCredentials
-      description: "The signing credentials for the STS. Sets the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SigningCredentials*> property."
+      description: "STS の署名資格情報。 セット、<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SigningCredentials*>プロパティ</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SigningCredentials*>。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.#ctor*
   exceptions: []
   platform:
@@ -209,20 +209,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;></xref> class that has the specified issuer name and signing credentials. Optionally loads settings from the current configuration."
-  remarks: "If `issuerName` is `null`, the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A> property must be set before the security token service is used to create a token."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;> </xref>を指定した発行者名および資格情報の署名を持つクラス。 必要に応じて、現在の構成から設定を読み込みます。"
+  remarks: "場合`issuerName`は`null`、<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>セキュリティ トークン サービスを使用してトークンを作成する前に、プロパティを設定する必要があります</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>。"
   syntax:
     content: public SecurityTokenServiceConfiguration (string issuerName, System.IdentityModel.Tokens.SigningCredentials signingCredentials, bool loadConfig);
     parameters:
     - id: issuerName
       type: System.String
-      description: "The issuer name. Sets the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*> property."
+      description: "発行者の名前。 セット、<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*>プロパティ</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*>。"
     - id: signingCredentials
       type: System.IdentityModel.Tokens.SigningCredentials
-      description: "The signing credentials for the STS. Sets the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SigningCredentials*> property."
+      description: "STS の署名資格情報。 セット、<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SigningCredentials*>プロパティ</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SigningCredentials*>。"
     - id: loadConfig
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to load settings from the configuration file; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>構成ファイルから設定を読み込めませんそれ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.#ctor*
   exceptions: []
   platform:
@@ -239,20 +239,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;></xref> class that has the specified issuer name and signing credentials. Settings are loaded from the specified named configuration."
-  remarks: "If `issuerName` is `null`, the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A> property must be set before the security token service is used to create a token."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;> </xref>を指定した発行者名および資格情報の署名を持つクラス。 設定は、指定された名前付き構成から読み込まれます。"
+  remarks: "場合`issuerName`は`null`、<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>セキュリティ トークン サービスを使用してトークンを作成する前に、プロパティを設定する必要があります</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>。"
   syntax:
     content: public SecurityTokenServiceConfiguration (string issuerName, System.IdentityModel.Tokens.SigningCredentials signingCredentials, string serviceName);
     parameters:
     - id: issuerName
       type: System.String
-      description: "The issuer name. Sets the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*> property."
+      description: "発行者の名前。 セット、<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*>プロパティ</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*>。"
     - id: signingCredentials
       type: System.IdentityModel.Tokens.SigningCredentials
-      description: "The signing credentials for the STS. Sets the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SigningCredentials*> property."
+      description: "STS の署名資格情報。 セット、<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SigningCredentials*>プロパティ</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SigningCredentials*>。"
     - id: serviceName
       type: System.String
-      description: "The name of the <xref uid=&quot;langword_csharp_&lt;identityConfiguration&gt;&quot; name=&quot;&lt;identityConfiguration&gt;&quot; href=&quot;&quot;></xref> element from which the configuration is to be loaded."
+      description: "名前、 <xref uid=&quot;langword_csharp_&lt;identityConfiguration&gt;&quot; name=&quot;&lt;identityConfiguration&gt;&quot; href=&quot;&quot;> </xref>構成が読み込まれるが元となる要素。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.#ctor*
   exceptions: []
   platform:
@@ -269,8 +269,8 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Creates an security token service (STS) instance from the <xref:System.Type> specified in the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SecurityTokenService*> property."
-  remarks: "The class specified in the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SecurityTokenService%2A> property must implement a constructor that takes a parameter of type <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration>."
+  summary: "セキュリティ トークン サービス (STS) のインスタンスを作成、<xref:System.Type>で指定されている、<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SecurityTokenService*>プロパティ</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SecurityTokenService*></xref:System.Type>。"
+  remarks: "<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SecurityTokenService%2A>プロパティが型<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration>。</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration>のパラメーターを受け取るコンス トラクターを実装する必要があります</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SecurityTokenService%2A>に指定されたクラス"
   example:
   - "The code examples that are used in the <xref:System.IdentityModel.SecurityTokenService> topics are taken from the `Custom Token` sample. This sample provides custom classes that enable processing of Simple Web Tokens (SWT) and it includes an implementation of a passive STS that is capable of serving an SWT token. For an example of how to implement an active STS, you can see the `Federation Metadata` sample. For information about these samples and other samples available for WIF and about where to download them, see [WIF Code Sample Index](~/add/includes/ajax-current-ext-md.md). The following code shows a custom implementation of the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration> class to support a passive STS that processes SWT tokens. The configuration is initialized and stored in the HTTP application state the first time the static `Current` property is accessed. The constructor initializes the properties of the custom configuration with the type of the custom STS, a custom issuer token resolver, and the default token type (the URI of the SWT token type). It also adds an SWT token handler to the default handler collection.  \n  \n The following code shows how to invoke a custom passive STS to process a WS-Federation request by calling the <xref:System.IdentityModel.Services.FederatedPassiveSecurityTokenServiceOperations.ProcessRequest%28System.Web.HttpRequest%2CSystem.Security.Claims.ClaimsPrincipal%2CSystem.IdentityModel.SecurityTokenService%2CSystem.Web.HttpResponse%29?displayProperty=fullName> method from the code behind in the `default.aspx.cs` file. The CreateSecurityTokenService method initializes an instance of the `PassiveSTS.CustomSecurityTokenService` class using the properties set on the current `CustomSecurityTokenServiceConfiguration` object. The `CustomSecurityTokenServiceConfiguration.Current` property is implemented by the `CustomSecurityTokenServiceConfiguration` class and returns the instance of the class that is saved in the HTTP application state.  \n  \n [!code-cs[WIFCustomTokenSTS#1](~/add/codesnippet/csharp/passivests/default.aspx.cs#1)]"
   syntax:
@@ -278,7 +278,7 @@ items:
     parameters: []
     return:
       type: System.IdentityModel.SecurityTokenService
-      description: "An instance of the <xref:System.Type> specified in the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SecurityTokenService*> property."
+      description: "インスタンス、<xref:System.Type>で指定されている、<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SecurityTokenService*>プロパティ</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SecurityTokenService*></xref:System.Type>。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.CreateSecurityTokenService*
   exceptions: []
   platform:
@@ -295,13 +295,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Gets or sets the default key size limit in bits used check if the KeySize specified in the request is within this limit."
-  remarks: "This only applies to the symmetric key case."
+  summary: "取得または要求に指定する KeySize がこの制限時間内にある場合に使用されるビット チェックで既定のキーのサイズ制限を設定します。"
+  remarks: "これは、対称キーの場合にのみ適用されます。"
   syntax:
     content: public int DefaultMaxSymmetricKeySizeInBits { get; set; }
     return:
       type: System.Int32
-      description: "The default key size limit, in bits. The default is 1024."
+      description: "既定キーのサイズの制限のビットです。 既定値は 1024 です。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DefaultMaxSymmetricKeySizeInBits*
   exceptions: []
   platform:
@@ -318,13 +318,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Gets or sets the default key size in bits used in the issued token."
-  remarks: "This only applies to the symmetric key case."
+  summary: "取得または発行されたトークンに使用されるビットの既定のキー サイズを設定します。"
+  remarks: "これは、対称キーの場合にのみ適用されます。"
   syntax:
     content: public int DefaultSymmetricKeySizeInBits { get; set; }
     return:
       type: System.Int32
-      description: "The key size used in the issued token, in bits. The default is 256."
+      description: "ビット単位で、発行されたトークンで使用されるキーのサイズ。 既定値は 256 です。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DefaultSymmetricKeySizeInBits*
   exceptions: []
   platform:
@@ -341,12 +341,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Gets or sets the default lifetime used in the issued tokens."
+  summary: "取得または発行済みトークンで使用される既定の有効期間を設定します。"
   syntax:
     content: public TimeSpan DefaultTokenLifetime { get; set; }
     return:
       type: System.TimeSpan
-      description: "The default lifetime to use in issued tokens. The default is 1 day."
+      description: "使用する既定の有効期間は、トークンを発行します。 既定値は、1 日です。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DefaultTokenLifetime*
   exceptions: []
   platform:
@@ -363,21 +363,21 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Gets or sets the default token type that is used in token issuance."
-  remarks: "The string values are specified in URI format; for example, for the SAML 1.1 token type, the following is the string value: http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV1.1.       The default token type is set to SAML 1.1."
+  summary: "取得またはトークンの発行に使用される既定トークンの種類を設定します。"
+  remarks: "文字列値は URI の形式で指定します。たとえば、SAML 1.1 トークンの種類を次は、文字列値: http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV1.1 です。       既定のトークンの種類は、SAML 1.1 に設定されます。"
   syntax:
     content: public string DefaultTokenType { get; set; }
     return:
       type: System.String
-      description: "Returns a string that contains the default token type."
+      description: "既定のトークンの種類を表す文字列を返します。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DefaultTokenType*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The specified value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or empty."
+    description: "指定した値が<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>または空です。"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The specified value is not defined in the token handlers."
+    description: "トークン ハンドラーでは、指定した値が定義されていません。"
   platform:
   - net462
 - uid: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DisableWsdl
@@ -392,12 +392,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Gets or sets a value that specifies whether WSDL generation should be enabled for the security token service (STS)."
+  summary: "取得またはセキュリティ トークン サービス (STS) の WSDL の生成を有効にするかどうかを指定する値を設定します。"
   syntax:
     content: public bool DisableWsdl { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to enable WSDL generation for the STS; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>STS; の WSDL の生成を有効にするにはそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。 既定値は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DisableWsdl*
   exceptions: []
   platform:
@@ -414,12 +414,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Gets or sets the maximum token lifetime for issued tokens."
+  summary: "取得または発行済みトークンの最大トークンの有効期間を設定します。"
   syntax:
     content: public TimeSpan MaximumTokenLifetime { get; set; }
     return:
       type: System.TimeSpan
-      description: "The maximum token lifetime for issued tokens. The default is 1 day."
+      description: "発行済みトークンの最大のトークン有効期間。 既定値は、1 日です。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.MaximumTokenLifetime*
   exceptions: []
   platform:
@@ -436,21 +436,21 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Gets or sets the <xref:System.Type> of the security token service (STS)."
-  remarks: "The class specified in the SecurityTokenService property must implement a constructor that takes a parameter of type <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration>."
+  summary: "取得または設定、<xref:System.Type>のセキュリティ トークン サービス (STS).</xref:System.Type>"
+  remarks: "SecurityTokenService プロパティで指定されたクラスが型<xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration>。</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration>のパラメーターを受け取るコンス トラクターを実装する必要があります。"
   syntax:
     content: public Type SecurityTokenService { get; set; }
     return:
       type: System.Type
-      description: "The type of the security token service. The type must derive from the <xref href=&quot;System.IdentityModel.SecurityTokenService&quot;></xref> class."
+      description: "セキュリティ トークン サービスの型。 種類はから派生する必要があります、 <xref href=&quot;System.IdentityModel.SecurityTokenService&quot;> </xref>クラスです。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SecurityTokenService*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The specified value is not assignable as <xref href=&quot;System.IdentityModel.SecurityTokenService&quot;></xref>."
+    description: "指定した値として割り当てることができる<xref href=&quot;System.IdentityModel.SecurityTokenService&quot;></xref>です。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The specified value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "指定した値が<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SigningCredentials
@@ -465,7 +465,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Gets or sets the signing credentials."
+  summary: "取得または署名資格情報を設定します。"
   remarks: >-
     > [!IMPORTANT]
 
@@ -474,7 +474,7 @@ items:
     content: public System.IdentityModel.Tokens.SigningCredentials SigningCredentials { get; set; }
     return:
       type: System.IdentityModel.Tokens.SigningCredentials
-      description: "The signing credentials."
+      description: "署名資格情報です。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.SigningCredentials*
   exceptions: []
   platform:
@@ -491,17 +491,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Gets or sets the issuer name so that it can be set in the issued token."
+  summary: "取得または発行されたトークンに設定できるようにするために、発行者名を設定します。"
   syntax:
     content: public string TokenIssuerName { get; set; }
     return:
       type: System.String
-      description: "The issuer name."
+      description: "発行者の名前。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "An attempt to set the property to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty string occurs."
+    description: "プロパティを設定しようとすると、 <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>または空の文字列が発生します。"
   platform:
   - net462
 - uid: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.WSTrust13RequestSerializer
@@ -516,17 +516,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Gets or sets the WS-Trust 1.3 Request (RST) serializer."
+  summary: "取得または Ws-trust 1.3 の要求 (RST) のシリアライザーを設定します。"
   syntax:
     content: public System.IdentityModel.Protocols.WSTrust.WSTrust13RequestSerializer WSTrust13RequestSerializer { get; set; }
     return:
       type: System.IdentityModel.Protocols.WSTrust.WSTrust13RequestSerializer
-      description: "The WS-Trust 1.3 Request (RST) serializer."
+      description: "Ws-trust 1.3 の要求 (RST) シリアライザー。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.WSTrust13RequestSerializer*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The specified value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "指定した値が<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.WSTrust13ResponseSerializer
@@ -541,17 +541,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Gets or sets the WS-Trust 1.3 Response (RSTR) serializer."
+  summary: "取得または Ws-trust 1.3 応答 (RSTR) シリアライザーを設定します。"
   syntax:
     content: public System.IdentityModel.Protocols.WSTrust.WSTrust13ResponseSerializer WSTrust13ResponseSerializer { get; set; }
     return:
       type: System.IdentityModel.Protocols.WSTrust.WSTrust13ResponseSerializer
-      description: "The WS-Trust 1.3 Response (RSTR) serializer."
+      description: "Ws-trust 1.3 応答 (RSTR) シリアライザー。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.WSTrust13ResponseSerializer*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The specified value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "指定した値が<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.WSTrustFeb2005RequestSerializer
@@ -566,17 +566,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Gets or sets the WS-Trust Feb 2005 Request (RST) serializer."
+  summary: "Ws-trust Feb 2005 の設定を取得または要求 (RST) のシリアライザー。"
   syntax:
     content: public System.IdentityModel.Protocols.WSTrust.WSTrustFeb2005RequestSerializer WSTrustFeb2005RequestSerializer { get; set; }
     return:
       type: System.IdentityModel.Protocols.WSTrust.WSTrustFeb2005RequestSerializer
-      description: "The WS-Trust Feb 2005 Request (RST) serializer."
+      description: "Ws-trust Feb 2005 要求 (RST) のシリアライザー。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.WSTrustFeb2005RequestSerializer*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The specified value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "指定した値が<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.WSTrustFeb2005ResponseSerializer
@@ -591,17 +591,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Configuration
-  summary: "Gets or sets the WS-Trust Feb 2005 Response (RSTR) serializer."
+  summary: "Ws-trust Feb 2005 の設定を取得または応答 (RSTR) シリアライザー。"
   syntax:
     content: public System.IdentityModel.Protocols.WSTrust.WSTrustFeb2005ResponseSerializer WSTrustFeb2005ResponseSerializer { get; set; }
     return:
       type: System.IdentityModel.Protocols.WSTrust.WSTrustFeb2005ResponseSerializer
-      description: "The WS-Trust Feb 2005 Response (RSTR) serializer."
+      description: "Ws-trust Feb 2005 応答 (RSTR) シリアライザー。"
   overload: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.WSTrustFeb2005ResponseSerializer*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The specified value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "指定した値が<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 references:

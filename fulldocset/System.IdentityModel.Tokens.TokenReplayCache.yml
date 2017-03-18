@@ -15,8 +15,8 @@ items:
   nameWithType: TokenReplayCache
   fullName: System.IdentityModel.Tokens.TokenReplayCache
   type: Class
-  summary: "The abstract base class that defines methods for a cache used to detect replayed tokens."
-  remarks: "When implemented, the cache should purge tokens on a scheduled time interval. The <xref:System.IdentityModel.Tokens.TokenReplayCache.AddOrUpdate%2A> method associates a security token with a key and an expiration time. The can be used to search the cache for the token or to remove the token from the cache. The expiration time indicates the time at which the token should be purged from the cache."
+  summary: "再生されたトークンを検出するために使用されるキャッシュのメソッドを定義する抽象基本クラス。"
+  remarks: "実装された場合、キャッシュは、スケジュールされた間隔でトークンを消去する必要があります。 <xref:System.IdentityModel.Tokens.TokenReplayCache.AddOrUpdate%2A>メソッドは、キーと有効期限にセキュリティ トークンを関連付けます</xref:System.IdentityModel.Tokens.TokenReplayCache.AddOrUpdate%2A>。 トークンのキャッシュを検索するか、トークンをキャッシュから削除するために使用できます。 有効期限は、トークンがキャッシュから削除する時間を示します。"
   syntax:
     content: 'public abstract class TokenReplayCache : System.IdentityModel.Configuration.ICustomIdentityConfiguration'
   inheritance:
@@ -38,7 +38,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Called from constructors in derived classes to initialize the <xref href=&quot;System.IdentityModel.Tokens.TokenReplayCache&quot;></xref>class."
+  summary: "初期化するために派生クラスのコンス トラクターから呼び出される、 <xref href=&quot;System.IdentityModel.Tokens.TokenReplayCache&quot;></xref>クラスです。"
   syntax:
     content: protected TokenReplayCache ();
     parameters: []
@@ -58,19 +58,19 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "When overridden in a derived class, attempts to add a new entry or update and existing entry."
+  summary: "派生クラスでオーバーライドされるは、新しいエントリまたは更新し、既存のエントリの追加を試みます。"
   syntax:
     content: public abstract void AddOrUpdate (string key, System.IdentityModel.Tokens.SecurityToken securityToken, DateTime expirationTime);
     parameters:
     - id: key
       type: System.String
-      description: "The key to use when adding the item."
+      description: "項目を追加するときに使用するキー。"
     - id: securityToken
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The token to add to the cache, can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "トークン キャッシュに追加する<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
     - id: expirationTime
       type: System.DateTime
-      description: "The time at which the entry expires."
+      description: "エントリの有効期限が切れる時刻。"
   overload: System.IdentityModel.Tokens.TokenReplayCache.AddOrUpdate*
   exceptions: []
   platform:
@@ -87,16 +87,16 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "When overridden in a derived class, returns a value that indicates whether a matching entry exists in the cache."
+  summary: "派生クラスでオーバーライドされると、一致するエントリがキャッシュに存在するかどうかを示す値を返します。"
   syntax:
     content: public abstract bool Contains (string key);
     parameters:
     - id: key
       type: System.String
-      description: "The key for which to search."
+      description: "検索対象のキー。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a matching entry is is found in the cache; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>一致するエントリが見つからない場合は、キャッシュ内それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.IdentityModel.Tokens.TokenReplayCache.Contains*
   exceptions: []
   platform:
@@ -113,16 +113,16 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "When overridden in a derived class, attempts to get the specified entry."
+  summary: "派生クラスでオーバーライドされるは、指定したエントリの取得を試みます。"
   syntax:
     content: public abstract System.IdentityModel.Tokens.SecurityToken Get (string key);
     parameters:
     - id: key
       type: System.String
-      description: "The key for which to search."
+      description: "検索対象のキー。"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The token that matches the key or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no token is found."
+      description: "キーに一致するトークンまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>トークンが見つからない場合。"
   overload: System.IdentityModel.Tokens.TokenReplayCache.Get*
   exceptions: []
   platform:
@@ -139,14 +139,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "When overridden in a derived class, loads custom configuration from the specified XML."
-  remarks: "By default, this method throws a <xref:System.NotImplementedException>"
+  summary: "派生クラスでオーバーライドされると、指定した XML からカスタム構成を読み込みます。"
+  remarks: "既定では、このメソッドは、<xref:System.NotImplementedException></xref:System.NotImplementedException>"
   syntax:
     content: public virtual void LoadCustomConfiguration (System.Xml.XmlNodeList nodelist);
     parameters:
     - id: nodelist
       type: System.Xml.XmlNodeList
-      description: "The custom configuration XML elements."
+      description: "カスタム構成の XML 要素です。"
   overload: System.IdentityModel.Tokens.TokenReplayCache.LoadCustomConfiguration*
   exceptions: []
   platform:
@@ -163,13 +163,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "When overridden in a derived class, attempts to remove an entry from the cache."
+  summary: "派生クラスでオーバーライドされると、キャッシュからエントリを削除する試行します。"
   syntax:
     content: public abstract void Remove (string key);
     parameters:
     - id: key
       type: System.String
-      description: "The key that identifies the entry to remove."
+      description: "削除するエントリを識別するキー。"
   overload: System.IdentityModel.Tokens.TokenReplayCache.Remove*
   exceptions: []
   platform:
