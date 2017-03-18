@@ -20,8 +20,8 @@ items:
   nameWithType: WebProcessStatistics
   fullName: System.Web.Management.WebProcessStatistics
   type: Class
-  summary: "Provides information for assessing the health of a running process."
-  remarks: "ASP.NET health monitoring allows production and operations staff to manage deployed Web applications. The <xref:System.Web.Management> namespace contains the health-event types responsible for packaging application health-status data and the provider types responsible for processing this data. It also contains supporting types that help during the management of health events.       Instances of the WebProcessStatistics class contain information that is obtained using the <xref:System.Web.Management.WebHeartbeatEvent> type.      > [!NOTE] >  In most cases you will be able to use the ASP.NET health-monitoring types as implemented, and you will control the health-monitoring system by specifying values in the `healthMonitoring` configuration section. You can also derive from the health-monitoring types to create your own custom events and providers. For an example of creating a custom event class, see the example provided in this topic.       The following is an excerpt of a configuration file you could use to enable ASP.NET to log heartbeat events that contain process statistics.      ```   <healthMonitoring      enabled=&quot;true&quot; heartBeatInterval=&quot;100&quot;>          <rules>         <add            name=&quot;Process Statistics&quot;           eventName=&quot;Heartbeats&quot;            provider=&quot;EventLogProvider&quot;             profile=&quot;Default&quot;/>       </rules>      </healthMonitoring>   ```"
+  summary: "実行中のプロセスの正常性を評価するための情報を提供します。"
+  remarks: "配置済みの Web アプリケーションの管理を運用環境と運用スタッフは、ASP.NET の状態監視できます。 <xref:System.Web.Management>名前空間には、アプリケーションの正常性状態のデータおよびプロバイダーの種類は、このデータ処理をパッケージ化する正常性イベントの種類が含まれています</xref:System.Web.Management>。 正常性イベントの管理を支援するサポート型も含まれています。       WebProcessStatistics クラスのインスタンスには使用して取得される情報が含まれて、<xref:System.Web.Management.WebHeartbeatEvent>型です</xref:System.Web.Management.WebHeartbeatEvent>。      > [!NOTE] > ほとんどの場合はできる実装されると、ASP.NET の稼働状況の監視の種類を使用して、内の値を指定することで、稼働状況の監視システムを制御する、`healthMonitoring`構成セクション。 独自のカスタム イベントおよびプロバイダーを作成する正常性の監視の種類からも派生できます。 カスタム イベント クラスの作成の例は、このトピックで例を参照してください。       次は、イベント ログに記録ハートビート プロセスの統計情報を含む ASP.NET を有効にするを使用すると、構成ファイルの抜粋です。      ```   <healthMonitoring      enabled=&quot;true&quot; heartBeatInterval=&quot;100&quot;>          <rules>         <add            name=&quot;Process Statistics&quot;           eventName=&quot;Heartbeats&quot;            provider=&quot;EventLogProvider&quot;             profile=&quot;Default&quot;/>       </rules>      </healthMonitoring>   ```"
   example:
   - "The following code example has two parts. The first is an excerpt of the configuration file that enables ASP.NET to use a custom event that uses the WebProcessStatistics type. The second shows how to implement this custom event..  \n  \n Ensure that your custom event is raised at the proper time, that is, when the equivalent system health event it replaces would be raised.  \n  \n```  \n<healthMonitoring   \n  enabled=\"true\" heartBeatInterval=\"0\">  \n  \n    <eventMappings>  \n      <add  name=\"SampleProcessStatistics\" type=\"SamplesAspNet.SampleWebProcessStatistics, webprocessstatistics, Version=1.0.1585.27289, Culture=neutral, PublicKeyToken=3648e5c763a8239f, processorArchitecture=MSIL\"/>  \n    </eventMappings>  \n  \n    <rules>  \n      <add   \n        name=\"Custom Process Statistics\"  \n        eventName=\"SampleProcessStatistics\"   \n        provider=\"EventLogProvider\"    \n        profile=\"Default\"/>  \n    </rules>  \n  \n</healthMonitoring>  \n```  \n  \n [!code-cs[System.Web.Management.WebProcessStatistics#1](~/add/codesnippet/csharp/t-system.web.management._3_1.cs)]\n [!code-vb[System.Web.Management.WebProcessStatistics#1](~/add/codesnippet/visualbasic/t-system.web.management._3_1.vb)]"
   syntax:
@@ -44,7 +44,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Management.WebProcessStatistics&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Web.Management.WebProcessStatistics&quot;> </xref>クラスです。"
   syntax:
     content: public WebProcessStatistics ();
     parameters: []
@@ -64,15 +64,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the number of application domains in the process."
-  remarks: "This property usually refers to the number of ASP.NET applications in the process, including the default domain."
+  summary: "プロセス内のアプリケーション ドメインの数を取得します。"
+  remarks: "このプロパティは、通常、プロセスでは、既定のドメインを含む ASP.NET アプリケーションの数を示します。"
   example:
   - "The following code example shows how to get the AppDomainCount value.  \n  \n [!code-cs[System.Web.Management.WebProcessStatistics#5](~/add/codesnippet/csharp/p-system.web.management._31_1.cs)]\n [!code-vb[System.Web.Management.WebProcessStatistics#5](~/add/codesnippet/visualbasic/p-system.web.management._31_1.vb)]"
   syntax:
     content: public int AppDomainCount { get; }
     return:
       type: System.Int32
-      description: "The number of application domains."
+      description: "アプリケーション ドメインの数。"
   overload: System.Web.Management.WebProcessStatistics.AppDomainCount*
   exceptions: []
   platform:
@@ -89,8 +89,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Formats the process statistics."
-  remarks: "The FormatToString method provides a uniform format for event information, which is useful if the event data must be logged and later presented to the user. It is called internally when the provider invokes one of the <xref:System.Web.Management.WebBaseEvent.ToString%2A> methods."
+  summary: "プロセスの統計情報を書式設定します。"
+  remarks: "FormatToString メソッドは、イベントについては、イベント データをログに記録され後で、ユーザーに提示する必要がある場合に便利です、同一の形式を提供します。 プロバイダーは、のいずれかを呼び出したときに内部的に呼び出されます、<xref:System.Web.Management.WebBaseEvent.ToString%2A>メソッド</xref:System.Web.Management.WebBaseEvent.ToString%2A>。"
   example:
   - "The following code example shows how to format custom information.  \n  \n [!code-cs[System.Web.Management.WebProcessStatistics#14](~/add/codesnippet/csharp/48042949-8229-44e8-b028-_1.cs)]\n [!code-vb[System.Web.Management.WebProcessStatistics#14](~/add/codesnippet/visualbasic/48042949-8229-44e8-b028-_1.vb)]"
   syntax:
@@ -98,7 +98,7 @@ items:
     parameters:
     - id: formatter
       type: System.Web.Management.WebEventFormatter
-      description: "The <xref href=&quot;System.Web.Management.WebEventFormatter&quot;></xref> that contains the tab and indentation settings used to format the Web health event information."
+      description: "<xref href=&quot;System.Web.Management.WebEventFormatter&quot;> </xref> Web 状態のイベント情報を書式設定に使用されるタブとインデントの設定を格納しています。"
   overload: System.Web.Management.WebProcessStatistics.FormatToString*
   exceptions: []
   platform:
@@ -115,7 +115,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the size of the managed heap."
+  summary: "マネージ ヒープのサイズを取得します。"
   remarks: ''
   example:
   - "The following code example shows how to get the ManagedHeapSize value.  \n  \n [!code-cs[System.Web.Management.WebProcessStatistics#6](~/add/codesnippet/csharp/p-system.web.management._1_1.cs)]\n [!code-vb[System.Web.Management.WebProcessStatistics#6](~/add/codesnippet/visualbasic/p-system.web.management._1_1.vb)]"
@@ -123,7 +123,7 @@ items:
     content: public long ManagedHeapSize { get; }
     return:
       type: System.Int64
-      description: "The size of the managed heap."
+      description: "マネージ ヒープのサイズ。"
   overload: System.Web.Management.WebProcessStatistics.ManagedHeapSize*
   exceptions: []
   platform:
@@ -140,7 +140,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the peak working set for the lifetime of the process to date."
+  summary: "ピーク時の日付にプロセスの有効期間のワーキング セットを取得します。"
   remarks: ''
   example:
   - "The following code example shows how to get the PeakWorkingSet value.  \n  \n [!code-cs[System.Web.Management.WebProcessStatistics#7](~/add/codesnippet/csharp/p-system.web.management._5_1.cs)]\n [!code-vb[System.Web.Management.WebProcessStatistics#7](~/add/codesnippet/visualbasic/p-system.web.management._5_1.vb)]"
@@ -148,7 +148,7 @@ items:
     content: public long PeakWorkingSet { get; }
     return:
       type: System.Int64
-      description: "The peak working set of the process."
+      description: "プロセスのピーク ワーキング セット。"
   overload: System.Web.Management.WebProcessStatistics.PeakWorkingSet*
   exceptions: []
   platform:
@@ -165,7 +165,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the time when the process started."
+  summary: "プロセスの開始時刻を取得します。"
   remarks: ''
   example:
   - "The following code example shows how to get the ProcessStartTime value.  \n  \n [!code-cs[System.Web.Management.WebProcessStatistics#8](~/add/codesnippet/csharp/p-system.web.management._42_1.cs)]\n [!code-vb[System.Web.Management.WebProcessStatistics#8](~/add/codesnippet/visualbasic/p-system.web.management._42_1.vb)]"
@@ -173,7 +173,7 @@ items:
     content: public DateTime ProcessStartTime { get; }
     return:
       type: System.DateTime
-      description: "The <xref:System.DateTime> when the process started."
+      description: "<xref:System.DateTime>プロセスが開始されたときにします</xref:System.DateTime>。"
   overload: System.Web.Management.WebProcessStatistics.ProcessStartTime*
   exceptions: []
   platform:
@@ -190,15 +190,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the number of requests currently executing."
-  remarks: "The RequestsExecuting value is a useful load indicator."
+  summary: "現在実行中の要求の数を取得します。"
+  remarks: "RequestsExecuting 値は、積載量インジケーターです。"
   example:
   - "The following code example shows how to get the RequestsExecuting value.  \n  \n [!code-cs[System.Web.Management.WebProcessStatistics#9](~/add/codesnippet/csharp/p-system.web.management._18_1.cs)]\n [!code-vb[System.Web.Management.WebProcessStatistics#9](~/add/codesnippet/visualbasic/p-system.web.management._18_1.vb)]"
   syntax:
     content: public int RequestsExecuting { get; }
     return:
       type: System.Int32
-      description: "The number of requests that the process is currently executing."
+      description: "プロセスが現在実行中の要求の数。"
   overload: System.Web.Management.WebProcessStatistics.RequestsExecuting*
   exceptions: []
   platform:
@@ -215,15 +215,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the number of requests waiting to be processed."
-  remarks: "The RequestsQueued value is a useful load indicator."
+  summary: "処理待ちの要求の数を取得します。"
+  remarks: "RequestsQueued 値は、積載量インジケーターです。"
   example:
   - "The following code example shows how to get the RequestsQueued value.  \n  \n [!code-cs[System.Web.Management.WebProcessStatistics#10](~/add/codesnippet/csharp/p-system.web.management._12_1.cs)]\n [!code-vb[System.Web.Management.WebProcessStatistics#10](~/add/codesnippet/visualbasic/p-system.web.management._12_1.vb)]"
   syntax:
     content: public int RequestsQueued { get; }
     return:
       type: System.Int32
-      description: "The number of requests waiting to be processed."
+      description: "処理待ちの要求の数。"
   overload: System.Web.Management.WebProcessStatistics.RequestsQueued*
   exceptions: []
   platform:
@@ -240,15 +240,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the number of rejected requests."
-  remarks: "This RequestsRejected value is a useful indicator of an overloaded or malfunctioning system."
+  summary: "拒否された要求の数を取得します。"
+  remarks: "この RequestsRejected 値は、オーバー ロードされたまたは誤動作しているシステムに役立ちますインジケーターです。"
   example:
   - "The following code example shows how to get the RequestsRejected value.  \n  \n [!code-cs[System.Web.Management.WebProcessStatistics#11](~/add/codesnippet/csharp/p-system.web.management._8_1.cs)]\n [!code-vb[System.Web.Management.WebProcessStatistics#11](~/add/codesnippet/visualbasic/p-system.web.management._8_1.vb)]"
   syntax:
     content: public int RequestsRejected { get; }
     return:
       type: System.Int32
-      description: "The number of rejected requests."
+      description: "拒否された要求の数。"
   overload: System.Web.Management.WebProcessStatistics.RequestsRejected*
   exceptions: []
   platform:
@@ -265,15 +265,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the total count of the process threads."
-  remarks: "The count refers to the managed and unmanaged threads."
+  summary: "プロセスのスレッドの合計数を取得します。"
+  remarks: "カウントは、マネージ コードとアンマネージ スレッドを指します。"
   example:
   - "The following code example shows how to get the ThreadCount value.  \n  \n [!code-cs[System.Web.Management.WebProcessStatistics#12](~/add/codesnippet/csharp/p-system.web.management._35_1.cs)]\n [!code-vb[System.Web.Management.WebProcessStatistics#12](~/add/codesnippet/visualbasic/p-system.web.management._35_1.vb)]"
   syntax:
     content: public int ThreadCount { get; }
     return:
       type: System.Int32
-      description: "The total count of the process threads."
+      description: "プロセスのスレッドの合計数。"
   overload: System.Web.Management.WebProcessStatistics.ThreadCount*
   exceptions: []
   platform:
@@ -290,7 +290,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the working set for the process."
+  summary: "プロセスのワーキング セットを取得します。"
   remarks: ''
   example:
   - "The following code example shows how to get the WorkingSet value.  \n  \n [!code-cs[System.Web.Management.WebProcessStatistics#13](~/add/codesnippet/csharp/p-system.web.management._27_1.cs)]\n [!code-vb[System.Web.Management.WebProcessStatistics#13](~/add/codesnippet/visualbasic/p-system.web.management._27_1.vb)]"
@@ -298,7 +298,7 @@ items:
     content: public long WorkingSet { get; }
     return:
       type: System.Int64
-      description: "The working set for the process."
+      description: "用にワーキング セットのプロセスです。"
   overload: System.Web.Management.WebProcessStatistics.WorkingSet*
   exceptions: []
   platform:

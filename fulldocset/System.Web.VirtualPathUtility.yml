@@ -22,7 +22,7 @@ items:
   nameWithType: VirtualPathUtility
   fullName: System.Web.VirtualPathUtility
   type: Class
-  summary: "Provides utility methods for common virtual path operations."
+  summary: "仮想パスの一般的な操作のためのユーティリティ メソッドを提供します。"
   remarks: "The VirtualPathUtility class provides utility methods for common operations involving virtual paths. For ASP.NET server controls and server code, virtual paths using the Web application root operator, the tilde (~), commonly are used instead of relative and absolute paths. For more information, see [ASP.NET Web Project Paths](~/add/includes/ajax-current-ext-md.md).  \n  \n Use the VirtualPathUtility class when you need to convert application-relative paths to absolute virtual paths, as might be the case in developing a custom Web service handler.  \n  \n An absolute virtual path starts with the literal slash mark (/). A relative virtual path is relative to the application root directory, if it is just a tilde (~) or starts with the tilde and a double backslash (~\\\\\\\\) or the tilde and a slash mark (~/). Making a virtual path relative makes the path independent of the application.  \n  \n The virtual directory for the application can be obtained from the <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A> and <xref:System.Web.HttpRequest.ApplicationPath%2A> properties.  \n  \n> [!NOTE]\n>  The VirtualPathUtility class is not intended for security or canonicalization purposes. For more information about Web application security, see [Overview of Web Application Security Threats](~/add/includes/ajax-current-ext-md.md). For generic URL processing functionality, see <xref:System.Uri>."
   example:
   - "The following code example demonstrates how to use the VirtualPathUtility class and some of its methods. First, the <xref:System.Web.HttpRequest.FilePath%2A> property generates the virtual path to the Web page. The <xref:System.Web.VirtualPathUtility.GetFileName%2A>, <xref:System.Web.VirtualPathUtility.GetExtension%2A>, and <xref:System.Web.VirtualPathUtility.GetDirectory%2A> methods return information about the virtual path. Next, the <xref:System.Web.HttpRequest.CurrentExecutionFilePath%2A> property generates a virtual path of the current request, which might be different from the <xref:System.Web.HttpRequest.FilePath%2A> property, if a <xref:System.Web.HttpResponse.Redirect%2A> method was called. The <xref:System.Web.VirtualPathUtility.IsAbsolute%2A>, <xref:System.Web.VirtualPathUtility.IsAppRelative%2A>, and <xref:System.Web.VirtualPathUtility.ToAppRelative%2A> methods return information about the virtual path.  \n  \n [!code-vb[System.Web.VirtualPathUtility#1](~/add/codesnippet/visualbasic/t-system.web.virtualpath_1.aspx)]\n [!code-cs[System.Web.VirtualPathUtility#1](~/add/codesnippet/csharp/t-system.web.virtualpath_1.aspx)]"
@@ -46,17 +46,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Appends the literal slash mark (/) to the end of the virtual path, if one does not already exist."
-  remarks: "If the literal slash mark (/) exists at the end of the virtual path, the virtual path is not modified."
+  summary: "既に存在しない場合は、仮想パスの末尾にリテラルのスラッシュ記号 (/) を追加します。"
+  remarks: "仮想パスの末尾にリテラルのスラッシュ記号 (/) が存在する場合の仮想パスは変更されません。"
   syntax:
     content: public static string AppendTrailingSlash (string virtualPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to append the slash mark to."
+      description: "スラッシュを追加する仮想パス。"
     return:
       type: System.String
-      description: "The modified virtual path."
+      description: "変更された仮想パス。"
   overload: System.Web.VirtualPathUtility.AppendTrailingSlash*
   exceptions: []
   platform:
@@ -73,17 +73,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Combines a base path and a relative path."
-  remarks: "TheCombine method returns the value of the <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A> property if the relative path is exactly a tilde (~).       The Combine method uses the <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A> property value rather than the base path, if the relative path starts with a tilde and a slash mark (~/); otherwise, the Combine method uses the base path."
+  summary: "基本パスと相対パスを結合します。"
+  remarks: "TheCombine メソッドの値を返します、<xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>プロパティの相対パスが正確にティルダ (~) である場合</xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>。       結合メソッドを使用して、<xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>プロパティ ベースのパスではなく値の相対パスがチルダとスラッシュ (/) で始まる場合 (~/)、それ以外の結合メソッドは基本のパスを使用して</xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>"
   syntax:
     content: public static string Combine (string basePath, string relativePath);
     parameters:
     - id: basePath
       type: System.String
-      description: "The base path."
+      description: "基本パス。"
     - id: relativePath
       type: System.String
-      description: "The relative path."
+      description: "相対パス。"
     return:
       type: System.String
       description: "The combined <code>basePath</code> and <code>relativePath</code>."
@@ -91,10 +91,10 @@ items:
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "<code>relativePath</code> is a physical path.       -or-       <code>relativePath</code> includes one or more colons."
+    description: "<code>relativePath</code>物理パスです。       - または - <code>relativePath</code>&1; つまたは複数のコロンが含まれています。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>relativePath</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty string.       -or-       <code>basePath</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty string."
+    description: "<code>relativePath</code><xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>または空の文字列。       - または -<code>basePath</code>は<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>または空の文字列。"
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.GetDirectory(System.String)
@@ -109,8 +109,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the directory portion of a virtual path."
-  remarks: "If `virtualPath` is not rooted; that is, it does not equal the root operator (the tilde [~]), does not start with a tilde (~), such as a tilde and a slash mark (~/) or a tilde and a double backslash (~//), or does not start with a slash mark (/), an <xref:System.ArgumentException> exception is thrown.       If the virtual path that is passed into the GetDirectory method is `&quot;/images/image1.gif&quot;`, the returned directory is `&quot;/images&quot;`."
+  summary: "仮想パスのディレクトリの部分を返します。"
+  remarks: "場合`virtualPath`ルートがありませんつまり、ルート演算子 (ティルダ [~]) と等しくない、パラメーターがチルダとスラッシュ (/) など、チルダ (~) で始まっていない (~/) またはチルダと二重の円記号 (~//)、スラッシュ (/) で始まっていないか、<xref:System.ArgumentException>例外がスローされます。</xref:System.ArgumentException> 。       かどうかは、GetDirectory メソッドに渡される仮想パスは`&quot;/images/image1.gif&quot;`、返されたディレクトリは`&quot;/images&quot;`します。"
   example:
   - "The following code example demonstrates how to use the <xref:System.Web.VirtualPathUtility.GetFileName%2A>, <xref:System.Web.VirtualPathUtility.GetExtension%2A>, and GetDirectory methods.  \n  \n [!code-vb[System.Web.VirtualPathUtility#2](~/add/codesnippet/visualbasic/m-system.web.virtualpath_3_1.aspx)]\n [!code-cs[System.Web.VirtualPathUtility#2](~/add/codesnippet/csharp/m-system.web.virtualpath_3_1.aspx)]"
   syntax:
@@ -118,10 +118,10 @@ items:
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path."
+      description: "仮想パス。"
     return:
       type: System.String
-      description: "The directory referenced in the virtual path."
+      description: "仮想パスで参照されているディレクトリです。"
   overload: System.Web.VirtualPathUtility.GetDirectory*
   exceptions:
   - type: System.ArgumentException
@@ -141,8 +141,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Retrieves the extension of the file that is referenced in the virtual path."
-  remarks: "If the virtual path that is passed into the GetExtension method is `&quot;/images/image1.gif&quot;`, the returned extension is `&quot;.gif&quot;`."
+  summary: "仮想パスで参照されているファイルの拡張子を取得します。"
+  remarks: "かどうかは、GetExtension メソッドに渡される仮想パスは`&quot;/images/image1.gif&quot;`、返される拡張は`&quot;.gif&quot;`します。"
   example:
   - "The following code example demonstrates how to use the <xref:System.Web.VirtualPathUtility.GetFileName%2A>, GetExtension, and <xref:System.Web.VirtualPathUtility.GetDirectory%2A> methods.  \n  \n [!code-vb[System.Web.VirtualPathUtility#2](~/add/codesnippet/visualbasic/m-system.web.virtualpath_0_1.aspx)]\n [!code-cs[System.Web.VirtualPathUtility#2](~/add/codesnippet/csharp/m-system.web.virtualpath_0_1.aspx)]"
   syntax:
@@ -150,15 +150,15 @@ items:
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path."
+      description: "仮想パス。"
     return:
       type: System.String
-      description: "The file name extension string literal, including the period (.), <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, or an empty string (&quot;&quot;)."
+      description: "ファイル名拡張子の文字列リテラル、ピリオド (.) を含む<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>、または空の文字列 (&quot;&quot;) です。"
   overload: System.Web.VirtualPathUtility.GetExtension*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>virtualPath</code> contains one or more characters that are not valid, as defined in <xref:System.IO.Path.InvalidPathChars>."
+    description: "<code>virtualPath</code>定義されている無効な文字が&1; つまたは複数含まれています<xref:System.IO.Path.InvalidPathChars>です。"
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.GetFileName(System.String)
@@ -173,8 +173,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Retrieves the file name of the file that is referenced in the virtual path."
-  remarks: "If the virtual path that is passed into the GetFileName method is `&quot;/images/image1.gif&quot;`, the returned file name is `&quot;image1.gif&quot;`."
+  summary: "仮想パスで参照されているファイルのファイル名を取得します。"
+  remarks: "かどうかは、GetFileName メソッドに渡される仮想パスは`&quot;/images/image1.gif&quot;`、返されたファイル名が`&quot;image1.gif&quot;`です。"
   example:
   - "The following code example demonstrates how to use the GetFileName, <xref:System.Web.VirtualPathUtility.GetExtension%2A>, and <xref:System.Web.VirtualPathUtility.GetDirectory%2A> methods.  \n  \n [!code-vb[System.Web.VirtualPathUtility#2](~/add/codesnippet/visualbasic/m-system.web.virtualpath_5_1.aspx)]\n [!code-cs[System.Web.VirtualPathUtility#2](~/add/codesnippet/csharp/m-system.web.virtualpath_5_1.aspx)]"
   syntax:
@@ -182,15 +182,15 @@ items:
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path."
+      description: "仮想パス。"
     return:
       type: System.String
-      description: "The file name literal after the last directory character in <code>virtualPath</code>; otherwise, the last directory name if the last character of <code>virtualPath</code> is a directory or volume separator character."
+      description: "ファイル名の最後のディレクトリ文字の後にリテラル<code> virtualPath </code>、それ以外の場合は、最後のディレクトリ名の最後の文字<code> virtualPath </code>ディレクトリまたはボリューム区切り文字します。"
   overload: System.Web.VirtualPathUtility.GetFileName*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>virtualPath</code> contains one or more characters that are not valid, as defined in <xref:System.IO.Path.InvalidPathChars>."
+    description: "<code>virtualPath</code>定義されている無効な文字が&1; つまたは複数含まれています<xref:System.IO.Path.InvalidPathChars>です。"
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.IsAbsolute(System.String)
@@ -205,8 +205,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns a Boolean value indicating whether the specified virtual path is absolute; that is, it starts with a literal slash mark (/)."
-  remarks: "A virtual path is absolute if it begins with a literal slash mark (/). For example, the <xref:System.Web.HttpRequest.Path%2A> property returns an absolute virtual path."
+  summary: "指定した仮想パスが絶対; するかどうかを示すブール値を返しますつまり、リテラルのスラッシュ記号 (/) で開始します。"
+  remarks: "仮想パスは、リテラルのスラッシュ記号 (/) で始まる場合は、絶対です。 <xref:System.Web.HttpRequest.Path%2A>プロパティは、絶対仮想パスを返します。</xref:System.Web.HttpRequest.Path%2A>たとえば、"
   example:
   - "The following code example demonstrates how to use the IsAbsolute, <xref:System.Web.VirtualPathUtility.IsAppRelative%2A>, and <xref:System.Web.VirtualPathUtility.ToAppRelative%2A> methods.  \n  \n [!code-vb[System.Web.VirtualPathUtility#3](~/add/codesnippet/visualbasic/m-system.web.virtualpath_2_1.aspx)]\n [!code-cs[System.Web.VirtualPathUtility#3](~/add/codesnippet/csharp/m-system.web.virtualpath_2_1.aspx)]"
   syntax:
@@ -214,15 +214,15 @@ items:
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to check."
+      description: "確認への仮想パス。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>virtualPath</code> is an absolute path and is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty string (&quot;&quot;); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合<code> virtualPath </code>絶対パスは、 <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>または空の文字列 (&quot;&quot;) です。otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
   overload: System.Web.VirtualPathUtility.IsAbsolute*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>virtualPath</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>virtualPath</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.IsAppRelative(System.String)
@@ -237,8 +237,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns a Boolean value indicating whether the specified virtual path is relative to the application."
-  remarks: "The virtual path can be just the root operator (the tilde [~]), or it can begin with the root operator. If `virtualPath` is `null`, an <xref:System.ArgumentNullException> exception is raised. If `virtualPath` is an empty string (&quot;&quot;), the IsAppRelative method returns `false`.      > [!NOTE] >  `&quot;~` `filename` `&quot;` is not a valid virtual path and returns `false` for the IsAppRelative method."
+  summary: "指定した仮想パスがアプリケーションを基準とするかどうかを示すブール値を返します。"
+  remarks: "仮想パスは、ルート演算子 (、チルダ [])、または演算子付きのルートを開始します。 場合`virtualPath`は`null`、<xref:System.ArgumentNullException>例外がスローされます</xref:System.ArgumentNullException>。 場合`virtualPath`空の文字列 (&quot;&quot;)、IsAppRelative メソッドを返します`false`です。      > [!NOTE]  >   `&quot;~` `filename` `&quot;`は有効な仮想パスではありませんし、返します`false`IsAppRelative メソッドです。"
   example:
   - "The following code example demonstrates how to use the <xref:System.Web.VirtualPathUtility.IsAbsolute%2A>, IsAppRelative, and <xref:System.Web.VirtualPathUtility.ToAppRelative%2A> methods.  \n  \n [!code-vb[System.Web.VirtualPathUtility#3](~/add/codesnippet/visualbasic/m-system.web.virtualpath_4_1.aspx)]\n [!code-cs[System.Web.VirtualPathUtility#3](~/add/codesnippet/csharp/m-system.web.virtualpath_4_1.aspx)]"
   syntax:
@@ -246,15 +246,15 @@ items:
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to check."
+      description: "確認への仮想パス。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>virtualPath</code> is relative to the application; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合<code> virtualPath </code> 、それ以外のアプリケーションに相対<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.VirtualPathUtility.IsAppRelative*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>virtualPath</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>virtualPath</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.MakeRelative(System.String,System.String)
@@ -269,20 +269,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the relative virtual path from one virtual path containing the root operator (the tilde [~]) to another."
-  remarks: "If the `fromPath` and `toPath` parameters are not rooted; that is, they do not equal the root operator (the tilde [~]), do not start with a tilde (~), such as a tilde and a slash mark (~/) or a tilde and a double backslash (~//), or do not start with a slash mark (/), an <xref:System.ArgumentException> exception is thrown.       Query string parameters and HTML anchors that are used in the URI are not used in determining the relative path.       If `fromPath` is `&quot;/directory1/file1.aspx&quot;` and `toPath` is `&quot;/directory2/file2.aspx&quot;`, the MakeRelative method returns `&quot;../directory2/file2.aspx&quot;`."
+  summary: "別に、ルート演算子 (ティルダ [~]) を含む&1; つの仮想パスからの相対仮想パスを返します。"
+  remarks: "場合、`fromPath`と`toPath`パラメーターはルートがないですつまり、ルート演算子 (ティルダ [~]) が等しくないが、パラメーターがチルダとスラッシュ (/) など、チルダ (~) で始まらない (~/) またはチルダと二重の円記号 (~//)、またはスラッシュ (/) で始まらない、<xref:System.ArgumentException>例外がスローされます。</xref:System.ArgumentException> 。       クエリ文字列パラメーターとは、URI で使用する HTML アンカーは、相対パスを決定するのには使用されません。       場合`fromPath`は`&quot;/directory1/file1.aspx&quot;`と`toPath`は`&quot;/directory2/file2.aspx&quot;`、MakeRelative メソッドを返します`&quot;../directory2/file2.aspx&quot;`です。"
   syntax:
     content: public static string MakeRelative (string fromPath, string toPath);
     parameters:
     - id: fromPath
       type: System.String
-      description: "The starting virtual path to return the relative virtual path from."
+      description: "相対仮想パスを返すの開始となる仮想パス。"
     - id: toPath
       type: System.String
-      description: "The ending virtual path to return the relative virtual path to."
+      description: "相対仮想パスを返すの終了となる仮想パス。"
     return:
       type: System.String
-      description: "The relative virtual path from <code>fromPath</code> to <code>toPath</code>."
+      description: "相対仮想パス<code> fromPath </code>に<code> toPath</code>です。"
   overload: System.Web.VirtualPathUtility.MakeRelative*
   exceptions:
   - type: System.ArgumentException
@@ -302,17 +302,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Removes a trailing slash mark (/) from a virtual path."
-  remarks: "The RemoveTrailingSlash method removes a slash mark (/) from the end of the virtual path. If the virtual path is already the root directory (`&quot;/&quot;`), no action is taken. If the virtual path is `null` or an empty string (&quot;&quot;), the RemoveTrailingSlash method returns `null`."
+  summary: "仮想パスから末尾のスラッシュ記号 (/) を削除します。"
+  remarks: "RemoveTrailingSlash メソッドは、スラッシュ (/) を仮想パスの末尾から削除します。 仮想パスがルート ディレクトリで既に場合 (`&quot;/&quot;`)、アクションは実行されません。 仮想パスが場合`null`または空の文字列 (&quot;&quot;)、RemoveTrailingSlash メソッドを返します`null`です。"
   syntax:
     content: public static string RemoveTrailingSlash (string virtualPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to remove any trailing slash mark from."
+      description: "末尾のスラッシュを削除する仮想パスからマークを付けます。"
     return:
       type: System.String
-      description: "A virtual path without a trailing slash mark, if the virtual path is not already the root directory (&quot;/&quot;); otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "仮想パスが末尾にスラッシュ記号、仮想パスがまだいない場合、ルート ディレクトリ (「/」) です。それ以外の場合、 <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.VirtualPathUtility.RemoveTrailingSlash*
   exceptions: []
   platform:
@@ -329,25 +329,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Converts a virtual path to an application absolute path."
-  remarks: "An application absolute path is one where the application path is used instead of the root operator (the tilde [~]).       If `virtualPath` is:      -   Absolute, the ToAbsolute method returns the virtual path unchanged.      -   Application relative, the ToAbsolute method appends the current application virtual directory path to the beginning of the `virtualPath`. For example, the current application virtual directory path can be accessed from the <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A> property.      -   Not rooted, the ToAbsolute method raises an <xref:System.ArgumentOutOfRangeException> exception."
+  summary: "仮想パスをアプリケーション絶対パスに変換します。"
+  remarks: "アプリケーション絶対パスは、ルート演算子 (ティルダ [~]) ではなく、アプリケーション パスが使用されているいずれかです。       場合`virtualPath`: 絶対 - ToAbsolute メソッドが変更されていない仮想パスを返します。      のアプリケーション相対パス、ToAbsolute メソッドの先頭に現在のアプリケーション仮想ディレクトリ パスを追加、`virtualPath`です。 現在のアプリケーションの仮想ディレクトリ パスのアクセスなど、<xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>プロパティ</xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>。      -Root 化されている、ToAbsolute メソッド、<xref:System.ArgumentOutOfRangeException>例外です</xref:System.ArgumentOutOfRangeException>。"
   syntax:
     content: public static string ToAbsolute (string virtualPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to convert to an application-relative path."
+      description: "アプリケーションの相対パスに変換する仮想パス。"
     return:
       type: System.String
-      description: "The absolute path representation of the specified virtual path."
+      description: "指定した仮想パスの絶対パス形式です。"
   overload: System.Web.VirtualPathUtility.ToAbsolute*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>virtualPath</code> is not rooted."
+    description: "<code>virtualPath</code>ルートがありません。"
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "A leading double period (..) is used to exit above the top directory."
+    description: "先頭に二重ピリオド (.) を使用すると、最上位ディレクトリを終了します。"
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.ToAbsolute(System.String,System.String)
@@ -362,28 +362,28 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Converts a virtual path to an application absolute path using the specified application path."
-  remarks: "The ToAbsolute overload of the <xref:System.Web.VirtualPathUtility.ToAbsolute%2A> method uses the supplied application path rather than the current application path.       If `virtualPath` is:      -   Absolute, the ToAbsolute method returns the virtual path with no changes.      -   Application relative, the ToAbsolute method adds `applicationPath` to the beginning of the virtual path.      -   Not rooted, the ToAbsolute method raises an <xref:System.ArgumentOutOfRangeException> exception."
+  summary: "仮想パスを指定したアプリケーションのパスを使用してアプリケーション絶対パスに変換します。"
+  remarks: "ToAbsolute のオーバー ロード<xref:System.Web.VirtualPathUtility.ToAbsolute%2A>メソッドは現在のアプリケーションのパスではなく、指定されたアプリケーション パスを使用</xref:System.Web.VirtualPathUtility.ToAbsolute%2A>する       場合`virtualPath`: 絶対 - ToAbsolute メソッドは、変更せずに仮想パスを返します。      のアプリケーション相対パス、ToAbsolute メソッドは、追加`applicationPath`仮想パスの先頭にします。      -Root 化されている、ToAbsolute メソッド、<xref:System.ArgumentOutOfRangeException>例外です</xref:System.ArgumentOutOfRangeException>。"
   syntax:
     content: public static string ToAbsolute (string virtualPath, string applicationPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to convert to an application-relative path."
+      description: "アプリケーションの相対パスに変換する仮想パス。"
     - id: applicationPath
       type: System.String
-      description: "The application path to use to convert `virtualPath` to a relative path."
+      description: "変換に使用するアプリケーション パス`virtualPath`の相対パスにします。"
     return:
       type: System.String
-      description: "The absolute virtual path representation of <code>virtualPath</code>."
+      description: "絶対仮想パスの形式を<code> virtualPath</code>です。"
   overload: System.Web.VirtualPathUtility.ToAbsolute*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>applicationPath</code> is not rooted."
+    description: "<code>applicationPath</code>ルートがありません。"
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "A leading double period (..) is used in the application path to exit above the top directory."
+    description: "先頭に二重ピリオド (.) は、最上位ディレクトリを終了するアプリケーションのパスで使用されます。"
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.ToAppRelative(System.String)
@@ -398,8 +398,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Converts a virtual path to an application-relative path using the application virtual path that is in the <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath*> property."
-  remarks: "If the virtual path for the application is `&quot;myapp&quot;` and the virtual path `&quot;/myApp/sub/default.asp&quot;` is passed into the ToAppRelative method, the resulting application-relative path is `&quot;~/sub/default.aspx&quot;`.       If `virtualPath` does not start with the current application path, the ToAppRelative method returns the virtual path unchanged.       If `virtualPath` is the same as the application path, the root operator (the tilde [~]), is returned. For example, the current application virtual directory path can be accessed from the <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A> property."
+  summary: "仮想パスでは、アプリケーションの仮想パスを使用してアプリケーションの相対パスに変換、<xref:System.Web.HttpRuntime.AppDomainAppVirtualPath*>プロパティ</xref:System.Web.HttpRuntime.AppDomainAppVirtualPath*>。"
+  remarks: "場合は、アプリケーションの仮想パス`&quot;myapp&quot;`および仮想パス`&quot;/myApp/sub/default.asp&quot;`渡される結果として得られるアプリケーションの相対パスは、ToAppRelative メソッドに`&quot;~/sub/default.aspx&quot;`です。       場合`virtualPath`と現在のアプリケーション パス、メソッドの仮想パスが変更せずに返します ToAppRelative が起動しません。       場合`virtualPath`はアプリケーションのパスと同じルート演算子 (、チルダ []) が返されます。 現在のアプリケーションの仮想ディレクトリ パスのアクセスなど、<xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>プロパティ</xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>。"
   example:
   - "The following code example demonstrates how to use the <xref:System.Web.VirtualPathUtility.IsAbsolute%2A>, <xref:System.Web.VirtualPathUtility.IsAppRelative%2A>, and <xref:System.Web.VirtualPathUtility.ToAppRelative%2A> methods.  \n  \n [!code-vb[System.Web.VirtualPathUtility#3](~/add/codesnippet/visualbasic/m-system.web.virtualpath_1_1.aspx)]\n [!code-cs[System.Web.VirtualPathUtility#3](~/add/codesnippet/csharp/m-system.web.virtualpath_1_1.aspx)]"
   syntax:
@@ -407,15 +407,15 @@ items:
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to convert to an application-relative path."
+      description: "アプリケーションの相対パスに変換する仮想パス。"
     return:
       type: System.String
-      description: "The application-relative path representation of <code>virtualPath</code>."
+      description: "アプリケーションの相対パス形式を<code> virtualPath</code>です。"
   overload: System.Web.VirtualPathUtility.ToAppRelative*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>virtualPath</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>virtualPath</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.ToAppRelative(System.String,System.String)
@@ -430,20 +430,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Converts a virtual path to an application-relative path using a specified application path."
-  remarks: "The ToAppRelative overload of the <xref:System.Web.VirtualPathUtility.ToAppRelative%2A> method uses `applicationPath` rather than the current application path. If `virtualPath` does not start with `applicationPath`, the ToAppRelative method returns the virtual path unchanged."
+  summary: "仮想パスを指定したアプリケーションのパスを使用してアプリケーションの相対パスに変換します。"
+  remarks: "ToAppRelative オーバー ロード、<xref:System.Web.VirtualPathUtility.ToAppRelative%2A>メソッドを使用`applicationPath`現在のアプリケーションのパスではなく</xref:System.Web.VirtualPathUtility.ToAppRelative%2A> 場合`virtualPath`で始まっていない`applicationPath`、ToAppRelative メソッドが変更されていない仮想パスを返します。"
   syntax:
     content: public static string ToAppRelative (string virtualPath, string applicationPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to convert to an application-relative path."
+      description: "アプリケーションの相対パスに変換する仮想パス。"
     - id: applicationPath
       type: System.String
-      description: "The application path to use to convert `virtualPath` to a relative path."
+      description: "変換に使用するアプリケーション パス`virtualPath`の相対パスにします。"
     return:
       type: System.String
-      description: "The application-relative path representation of <code>virtualPath</code>."
+      description: "アプリケーションの相対パス形式を<code> virtualPath</code>です。"
   overload: System.Web.VirtualPathUtility.ToAppRelative*
   exceptions: []
   platform:
