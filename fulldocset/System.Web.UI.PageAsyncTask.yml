@@ -18,8 +18,8 @@ items:
   nameWithType: PageAsyncTask
   fullName: System.Web.UI.PageAsyncTask
   type: Class
-  summary: "Contains information about an asynchronous task registered to a page. This class cannot be inherited."
-  remarks: "ASP.NET version 2.0 allows you to register multiple tasks to a page and run them asynchronously prior to rendering the page. You might specify that a task be run asynchronously if it is a slow process and you do not want other processes to be tied up while it is executing. The asynchronous tasks can be executed in parallel or sequentially.       A PageAsyncTask object must be registered to the page through the <xref:System.Web.UI.Page.RegisterAsyncTask%2A> method. The page itself does not have to be processed asynchronously to execute asynchronous tasks. You can set the `Async` attribute to either `true` (as shown in the following code example) or `false` on the page directive and the asynchronous tasks will still be processed asynchronously:       `<%@ Page Async=&quot;true&quot; %>`       When the `Async` attribute is set to `false`, the thread that executes the page will be blocked until all asynchronous tasks are complete.       Any asynchronous tasks registered before the <xref:System.Web.UI.Page.PreRenderComplete> event will be executed automatically by the page if they have not already been executed. Those asynchronous tasks registered after the <xref:System.Web.UI.Page.PreRenderComplete> event must be executed explicitly through the <xref:System.Web.UI.Page.ExecuteRegisteredAsyncTasks%2A> method. The <xref:System.Web.UI.Page.ExecuteRegisteredAsyncTasks%2A> method can also be used to start tasks before the <xref:System.Web.UI.Page.PreRenderComplete> event. The <xref:System.Web.UI.Page.ExecuteRegisteredAsyncTasks%2A> method executes all the registered asynchronous tasks on the page that have not been executed.       By default, an asynchronous task will time out if it has not completed within 45 seconds. You can specify a different time-out value in either the Web.config file or the page directive. The `<pages>` section of the Web.config file contains an `asyncTimeout` attribute, as shown below.       `<system.web>`       `<pages asyncTimeout=&quot;30&quot;>`       `</pages>`       `</system.web>`       The page directive contains an `AsyncTimeout` attribute.       `<%@ Page AsyncTimeout=&quot;30&quot; %>`"
+  summary: "ページに登録されている非同期タスクについてを説明します。 このクラスは継承できません。"
+  remarks: "ASP.NET version 2.0 を使用すると、ページに複数のタスクを登録し、ページを表示する前に非同期的に実行できます。 タスクが、低速な処理は、他のプロセスが実行中に占有するしたくない場合に、非同期でに実行するを指定する場合があります。 並列または順番に、非同期タスクを実行できます。       ページをめくる PageAsyncTask オブジェクトを登録する必要があります、<xref:System.Web.UI.Page.RegisterAsyncTask%2A>メソッド</xref:System.Web.UI.Page.RegisterAsyncTask%2A>。 ページ自体は、非同期タスクの実行に非同期に処理する必要はありません。 設定することができます、`Async`属性のいずれかに`true`(示すように、次のコード例) または`false`ページ ディレクティブと非同期のタスクは引き続き処理されます非同期的に:`<%@ Page Async=&quot;true&quot; %>`ときに、`Async`属性に設定されている`false`、すべての非同期タスクが完了するまで、ページを実行するスレッドはブロックされます。       非同期タスクを登録する前に、<xref:System.Web.UI.Page.PreRenderComplete>イベントによって実行される自動的にページが既に実行されていない場合</xref:System.Web.UI.Page.PreRenderComplete>。 これらの非同期タスクが後に登録されている、<xref:System.Web.UI.Page.PreRenderComplete>を通じて明示的にイベントを実行する必要があります、<xref:System.Web.UI.Page.ExecuteRegisteredAsyncTasks%2A>メソッド</xref:System.Web.UI.Page.ExecuteRegisteredAsyncTasks%2A></xref:System.Web.UI.Page.PreRenderComplete>。 <xref:System.Web.UI.Page.ExecuteRegisteredAsyncTasks%2A>メソッドは前に、のタスクを開始するも使用できます、<xref:System.Web.UI.Page.PreRenderComplete>イベント</xref:System.Web.UI.Page.PreRenderComplete></xref:System.Web.UI.Page.ExecuteRegisteredAsyncTasks%2A>。 <xref:System.Web.UI.Page.ExecuteRegisteredAsyncTasks%2A>メソッドが実行されていないページに登録されているすべての非同期タスクを実行します</xref:System.Web.UI.Page.ExecuteRegisteredAsyncTasks%2A>。       既定は 45 秒以内に完了していない場合の非同期タスクがタイムアウトします。 Web.config ファイルまたは page ディレクティブでは、別のタイムアウト値を指定できます。 `<pages>` 、Web.config ファイルのセクションが含まれています、`asyncTimeout`属性が次のようにします。       `<system.web>`       `<pages asyncTimeout=&quot;30&quot;>`       `</pages>`       `</system.web>`ページ ディレクティブが含まれています、`AsyncTimeout`属性。       `<%@ Page AsyncTimeout=&quot;30&quot; %>`"
   example:
   - "The following code example registers three asynchronous tasks to a page and executes them in parallel. Each task calls a method that merely causes the thread to sleep for 5 seconds.  \n  \n [!code-cs[System.Web.UI.PageAsyncTask#1](~/add/codesnippet/csharp/t-system.web.ui.pageasyn_1.aspx)]\n [!code-vb[System.Web.UI.PageAsyncTask#1](~/add/codesnippet/visualbasic/t-system.web.ui.pageasyn_1.aspx)]  \n  \n [!code-vb[System.Web.UI.PageAsyncTask#2](~/add/codesnippet/visualbasic/t-system.web.ui.pageasyn_2.vb)]\n [!code-cs[System.Web.UI.PageAsyncTask#2](~/add/codesnippet/csharp/t-system.web.ui.pageasyn_2.cs)]"
   syntax:
@@ -42,14 +42,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.PageAsyncTask&quot;></xref> class using an event handler that enables the task to be canceled."
-  remarks: "This constructor wraps a <xref:System.Web.CancellableTaskEventHandler> delegate so that the <xref:System.Web.UI.PageAsyncTask> object can integrate asynchronous code (based on <xref:System.Threading.Tasks.Task> objects) with the existing ASP.NET Web Forms asynchronous pages feature. ASP.NET will signal the <xref:System.Threading.CancellationToken> object that is passed to a <xref:System.Web.CancellableTaskEventHandler> delegate for cancellation based on the <xref:System.Web.UI.Page.AsyncTimeout%2A> attribute set in the `@ Page` directive of the Web page. When the <xref:System.Web.UI.Page.AsyncTimeout%2A> value has been reached, the <xref:System.Threading.CancellationToken> object will be signaled. The `CancellationToken` parameter must be passed to any asynchronous APIs that are called by your implementation of the <xref:System.Web.CancellableTaskEventHandler> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Web.UI.PageAsyncTask&quot;> </xref>クラスをキャンセル可能タスクを有効にするイベント ハンドラーを使用します。"
+  remarks: "このコンス トラクターをラップ、<xref:System.Web.CancellableTaskEventHandler>を委任できるように、<xref:System.Web.UI.PageAsyncTask>オブジェクトは非同期コードを統合できます (に基づいて<xref:System.Threading.Tasks.Task>オブジェクト) 既存の ASP.NET Web フォーム ページの非同期機能を使用します</xref:System.Threading.Tasks.Task></xref:System.Web.UI.PageAsyncTask></xref:System.Web.CancellableTaskEventHandler>。 ASP.NET に通知する、<xref:System.Threading.CancellationToken>に渡されるオブジェクト、<xref:System.Web.CancellableTaskEventHandler>に基づくキャンセルの委任、<xref:System.Web.UI.Page.AsyncTimeout%2A>属性の設定、 `@ Page` Web ページのディレクティブ</xref:System.Web.UI.Page.AsyncTimeout%2A></xref:System.Web.CancellableTaskEventHandler></xref:System.Threading.CancellationToken>。 ときに、<xref:System.Web.UI.Page.AsyncTimeout%2A>値に達している、<xref:System.Threading.CancellationToken>通知されるオブジェクト</xref:System.Threading.CancellationToken></xref:System.Web.UI.Page.AsyncTimeout%2A>。 `CancellationToken`パラメーターは、<xref:System.Web.CancellableTaskEventHandler>クラス</xref:System.Web.CancellableTaskEventHandler>の実装によって呼び出される非同期の Api に渡す必要があります"
   syntax:
     content: public PageAsyncTask (Func<System.Threading.CancellationToken,System.Threading.Tasks.Task> handler);
     parameters:
     - id: handler
       type: System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task}
-      description: "An event handler."
+      description: "イベント ハンドラー。"
   overload: System.Web.UI.PageAsyncTask.#ctor*
   exceptions: []
   platform:
@@ -66,13 +66,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.PageAsyncTask&quot;></xref> class using an event handler that enables the task to be handled."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Web.UI.PageAsyncTask&quot;> </xref>クラスを処理するタスクを有効にするイベント ハンドラーを使用します。"
   syntax:
     content: public PageAsyncTask (Func<System.Threading.Tasks.Task> handler);
     parameters:
     - id: handler
       type: System.Func{System.Threading.Tasks.Task}
-      description: "An event handler."
+      description: "イベント ハンドラー。"
   overload: System.Web.UI.PageAsyncTask.#ctor*
   exceptions: []
   platform:
@@ -89,28 +89,28 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.PageAsyncTask&quot;></xref> class using the default value for executing in parallel."
-  remarks: "This implementation of the constructor sets the <xref:System.Web.UI.PageAsyncTask.ExecuteInParallel%2A> property to `false` so the asynchronous task is not processed in parallel with other tasks on the page."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Web.UI.PageAsyncTask&quot;> </xref>クラス並列で実行するための既定値を使用します。"
+  remarks: "このコンス トラクターのセットの実装、<xref:System.Web.UI.PageAsyncTask.ExecuteInParallel%2A>プロパティを`false`のため、非同期タスクは、ページ上の他のタスクと並列で処理されません</xref:System.Web.UI.PageAsyncTask.ExecuteInParallel%2A>。"
   syntax:
     content: public PageAsyncTask (System.Web.BeginEventHandler beginHandler, System.Web.EndEventHandler endHandler, System.Web.EndEventHandler timeoutHandler, object state);
     parameters:
     - id: beginHandler
       type: System.Web.BeginEventHandler
-      description: "The handler to call when beginning an asynchronous task."
+      description: "非同期タスクの開始時に呼び出すハンドラー。"
     - id: endHandler
       type: System.Web.EndEventHandler
-      description: "The handler to call when the task is completed successfully within the time-out period."
+      description: "タイムアウト期間内のタスクが正常に完了したときに呼び出すハンドラー。"
     - id: timeoutHandler
       type: System.Web.EndEventHandler
-      description: "The handler to call when the task is not completed successfully within the time-out period."
+      description: "タイムアウト期間内にタスクが正常に完了しなかった場合に呼び出すハンドラー。"
     - id: state
       type: System.Object
-      description: "The object that represents the state of the task."
+      description: "タスクの状態を表すオブジェクト。"
   overload: System.Web.UI.PageAsyncTask.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <code>beginHandler</code> parameter or <code>endHandler</code> parameter is not specified."
+    description: "<code> beginHandler </code>パラメーターまたは<code> endHandler </code>パラメーターが指定されていません。"
   platform:
   - net462
 - uid: System.Web.UI.PageAsyncTask.#ctor(System.Web.BeginEventHandler,System.Web.EndEventHandler,System.Web.EndEventHandler,System.Object,System.Boolean)
@@ -125,8 +125,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.PageAsyncTask&quot;></xref> class using the specified value for executing in parallel."
-  remarks: "This implementation of the constructor allows you to set whether the asynchronous task will be processed in parallel with other tasks on the page."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Web.UI.PageAsyncTask&quot;> </xref>クラス並列で実行するため、指定された値を使用します。"
+  remarks: "このコンス トラクターの実装では、非同期タスクは、ページ上の他のタスクと並列で処理されるかどうかを設定することができます。"
   example:
   - "The following code example creates three asynchronous tasks that are processed in parallel to each other. This example is part of a larger example found in the <xref:System.Web.UI.PageAsyncTask> class overview.  \n  \n [!code-cs[System.Web.UI.PageAsyncTask#3](~/add/codesnippet/csharp/3bf006c1-f830-4b70-9cc2-_1.aspx)]\n [!code-vb[System.Web.UI.PageAsyncTask#3](~/add/codesnippet/visualbasic/3bf006c1-f830-4b70-9cc2-_1.aspx)]"
   syntax:
@@ -134,24 +134,24 @@ items:
     parameters:
     - id: beginHandler
       type: System.Web.BeginEventHandler
-      description: "The handler to call when beginning an asynchronous task."
+      description: "非同期タスクの開始時に呼び出すハンドラー。"
     - id: endHandler
       type: System.Web.EndEventHandler
-      description: "The handler to call when the task is completed successfully within the time-out period."
+      description: "タイムアウト期間内のタスクが正常に完了したときに呼び出すハンドラー。"
     - id: timeoutHandler
       type: System.Web.EndEventHandler
-      description: "The handler to call when the task is not completed successfully within the time-out period."
+      description: "タイムアウト期間内にタスクが正常に完了しなかった場合に呼び出すハンドラー。"
     - id: state
       type: System.Object
-      description: "The object that represents the state of the task."
+      description: "タスクの状態を表すオブジェクト。"
     - id: executeInParallel
       type: System.Boolean
-      description: "The value that indicates whether the task can be processed in parallel with other tasks."
+      description: "その他のタスクと並列で処理できるかどうかを示す値。"
   overload: System.Web.UI.PageAsyncTask.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <code>beginHandler</code> parameter or <code>endHandler</code> parameter is not specified."
+    description: "<code> beginHandler </code>パラメーターまたは<code> endHandler </code>パラメーターが指定されていません。"
   platform:
   - net462
 - uid: System.Web.UI.PageAsyncTask.BeginHandler
@@ -166,15 +166,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the method to call when beginning an asynchronous task."
-  remarks: "The BeginHandler delegate is set in the constructor."
+  summary: "非同期タスクの開始時に呼び出すメソッドを取得します。"
+  remarks: "BeginHandler デリゲートは、コンス トラクターで設定されています。"
   example:
   - "The following code example registers three asynchronous tasks to a page and executes them in parallel. Each task calls a method that merely causes the thread to sleep for 5 seconds. A BeginHandler delegate is specified for each task.  \n  \n [!code-cs[System.Web.UI.PageAsyncTask#1](~/add/codesnippet/csharp/p-system.web.ui.pageasyn_2_1.aspx)]\n [!code-vb[System.Web.UI.PageAsyncTask#1](~/add/codesnippet/visualbasic/p-system.web.ui.pageasyn_2_1.aspx)]  \n  \n [!code-vb[System.Web.UI.PageAsyncTask#2](~/add/codesnippet/visualbasic/p-system.web.ui.pageasyn_2_2.vb)]\n [!code-cs[System.Web.UI.PageAsyncTask#2](~/add/codesnippet/csharp/p-system.web.ui.pageasyn_2_2.cs)]"
   syntax:
     content: public System.Web.BeginEventHandler BeginHandler { get; }
     return:
       type: System.Web.BeginEventHandler
-      description: "A <xref href=&quot;System.Web.BeginEventHandler&quot;></xref> delegate that represents the method to call when beginning the asynchronous task."
+      description: "A <xref href=&quot;System.Web.BeginEventHandler&quot;> </xref>非同期タスクを開始したときに呼び出すメソッドを表すデリゲート。"
   overload: System.Web.UI.PageAsyncTask.BeginHandler*
   exceptions: []
   platform:
@@ -191,15 +191,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the method to call when the task completes successfully within the time-out period."
-  remarks: "The EndHandler delegate is set in the constructor."
+  summary: "タイムアウト期間内のタスクが正常に完了するときに呼び出すメソッドを取得します。"
+  remarks: "EndHandler デリゲートは、コンス トラクターで設定されています。"
   example:
   - "The following code example registers three asynchronous tasks to a page and executes them in parallel. Each task calls a method that merely causes the thread to sleep for 5 seconds. An EndHandler delegate is specified for each task.  \n  \n [!code-cs[System.Web.UI.PageAsyncTask#1](~/add/codesnippet/csharp/p-system.web.ui.pageasyn_0_1.aspx)]\n [!code-vb[System.Web.UI.PageAsyncTask#1](~/add/codesnippet/visualbasic/p-system.web.ui.pageasyn_0_1.aspx)]  \n  \n [!code-vb[System.Web.UI.PageAsyncTask#2](~/add/codesnippet/visualbasic/p-system.web.ui.pageasyn_0_2.vb)]\n [!code-cs[System.Web.UI.PageAsyncTask#2](~/add/codesnippet/csharp/p-system.web.ui.pageasyn_0_2.cs)]"
   syntax:
     content: public System.Web.EndEventHandler EndHandler { get; }
     return:
       type: System.Web.EndEventHandler
-      description: "An <xref href=&quot;System.Web.EndEventHandler&quot;></xref> delegate that represents the method to call when the task completes successfully within the time-out period."
+      description: "<xref href=&quot;System.Web.EndEventHandler&quot;> </xref>タイムアウト期間内のタスクが正常に完了するときに呼び出すメソッドを表すデリゲート。"
   overload: System.Web.UI.PageAsyncTask.EndHandler*
   exceptions: []
   platform:
@@ -216,15 +216,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets a value that indicates whether the task can be processed in parallel with other tasks."
-  remarks: "The ExecuteInParallel property is set in the constructor. When multiple tasks are registered in a page and the ExecuteInParallel property is set to `true`, then those tasks are processed concurrently. However, if the ExecuteInParallel property is set to `false`, then those tasks are processed sequentially. For example, if a page contained two asynchronous tasks that each took 5 seconds to complete and ExecuteInParallel is set to `true`, both tasks will complete in 5 seconds. If ExecuteInParallel is set to `false` for these same two tasks, then the first task will complete in 5 seconds and the second task will complete 5 seconds after the completion of the first task."
+  summary: "その他のタスクと並列で処理できるかどうかを示す値を取得します。"
+  remarks: "ExecuteInParallel プロパティはコンス トラクターで設定します。 ページに複数のタスクが登録されているし、ExecuteInParallel プロパティに設定`true`、それらのタスクが同時に処理します。 ただし、ExecuteInParallel プロパティ設定されている場合`false`、それらのタスクが順番に処理します。 たとえば、ページには、2 つの非同期タスクが含まれている場合、それぞれの所要時間を完了する 5 秒し、ExecuteInParallel に設定されている`true`、両方のタスクは 5 秒以内に完了します。 ExecuteInParallel に設定されている場合`false`同じこれらの 2 つのタスク、最初のタスクは 5 秒以内に完了し、2 番目のタスクは、最初のタスクの完了後に 5 秒を完了します。"
   example:
   - "The following code example defines three asynchronous tasks that are each set to be processed in parallel. This example is part of a larger example found in the <xref:System.Web.UI.PageAsyncTask> class overview.  \n  \n [!code-cs[System.Web.UI.PageAsyncTask#3](~/add/codesnippet/csharp/p-system.web.ui.pageasyn_3_1.aspx)]\n [!code-vb[System.Web.UI.PageAsyncTask#3](~/add/codesnippet/visualbasic/p-system.web.ui.pageasyn_3_1.aspx)]"
   syntax:
     content: public bool ExecuteInParallel { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the task should be processed in parallel with other tasks; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、タスクは、他のタスクと並列で処理する必要があります。それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.UI.PageAsyncTask.ExecuteInParallel*
   exceptions: []
   platform:
@@ -241,15 +241,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets an object that represents the state of the task."
-  remarks: "The State property is set in the constructor and cannot be modified during execution of the asynchronous task. You can differentiate asynchronous tasks in a page by assigning unique string values to their respective State properties."
+  summary: "タスクの状態を表すオブジェクトを取得します。"
+  remarks: "State プロパティは、コンス トラクターで設定され、非同期タスクの実行中に変更することはできません。 ページ内の非同期タスクを区別するには、対応する状態プロパティに一意の文字列値を割り当てます。"
   example:
   - "The following code example creates three asynchronous tasks and gives them unique values for their State properties. This example is part of a larger example found in the <xref:System.Web.UI.PageAsyncTask> class overview.  \n  \n [!code-cs[System.Web.UI.PageAsyncTask#3](~/add/codesnippet/csharp/p-system.web.ui.pageasyn_4_1.aspx)]\n [!code-vb[System.Web.UI.PageAsyncTask#3](~/add/codesnippet/visualbasic/p-system.web.ui.pageasyn_4_1.aspx)]"
   syntax:
     content: public object State { get; }
     return:
       type: System.Object
-      description: "An <xref:System.Object> that represents the state of the task."
+      description: "<xref:System.Object>タスクの状態を表す</xref:System.Object>。"
   overload: System.Web.UI.PageAsyncTask.State*
   exceptions: []
   platform:
@@ -266,15 +266,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the method to call when the task does not complete successfully within the time-out period."
-  remarks: "The TimeoutHandler delegate is set in the constructor."
+  summary: "タイムアウト期間内で、タスクが正常に完了しないときに呼び出すメソッドを取得します。"
+  remarks: "TimeoutHandler デリゲートは、コンス トラクターで設定されています。"
   example:
   - "The following code example registers three asynchronous tasks to a page and executes them in parallel. Each task calls a method that merely causes the thread to sleep for 5 seconds. A TimeoutHandler delegate is specified for each task.  \n  \n [!code-cs[System.Web.UI.PageAsyncTask#1](~/add/codesnippet/csharp/p-system.web.ui.pageasyn_1_1.aspx)]\n [!code-vb[System.Web.UI.PageAsyncTask#1](~/add/codesnippet/visualbasic/p-system.web.ui.pageasyn_1_1.aspx)]  \n  \n [!code-vb[System.Web.UI.PageAsyncTask#2](~/add/codesnippet/visualbasic/p-system.web.ui.pageasyn_1_2.vb)]\n [!code-cs[System.Web.UI.PageAsyncTask#2](~/add/codesnippet/csharp/p-system.web.ui.pageasyn_1_2.cs)]"
   syntax:
     content: public System.Web.EndEventHandler TimeoutHandler { get; }
     return:
       type: System.Web.EndEventHandler
-      description: "An <xref href=&quot;System.Web.EndEventHandler&quot;></xref> delegate that represents the method to call when the task does not complete successfully within the time-out period."
+      description: "<xref href=&quot;System.Web.EndEventHandler&quot;> </xref>タイムアウト期間内で、タスクが正常に完了しないときに呼び出すメソッドを表すデリゲート。"
   overload: System.Web.UI.PageAsyncTask.TimeoutHandler*
   exceptions: []
   platform:

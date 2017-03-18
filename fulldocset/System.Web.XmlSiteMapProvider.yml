@@ -26,8 +26,8 @@ items:
   nameWithType: XmlSiteMapProvider
   fullName: System.Web.XmlSiteMapProvider
   type: Class
-  summary: "The XmlSiteMapProvider class is derived from the <xref href=&quot;System.Web.SiteMapProvider&quot;></xref> class and is the default site map provider for ASP.NET. The XmlSiteMapProvider class generates site map trees from XML files with the file name extension .sitemap."
-  remarks: "The XmlSiteMapProvider class loads site map data from an XML file that follows a known schema. The site map data is bounded by `<siteMap>` tags and consists of nested `<siteMapNode>` tags. Two constraints are imposed by the <xref:System.Web.SiteMapProvider> and XmlSiteMapProvider classes on the structure of the site map data:      -   Only one root node can exist.      -   For <xref:System.Web.SiteMapNode> objects that specify URLs, the URLs must be unique within the scope of the provider. (For nodes that do not specify URLs, all keys must be unique.)       The following code example shows an example of an XML file that can be used with the XmlSiteMapProvider.      ```   <siteMap>     <siteMapNode title=&quot;RootNode&quot; description=&quot;This is the root node of the site map. There can be only one root node.&quot; url=&quot;Page1.aspx&quot; >       <siteMapNode title=&quot;ChildofRootNode&quot; description=&quot;Descriptions do not have to be unique.&quot; url=&quot;Page2.aspx&quot;>         <siteMapNode title=&quot;ChildOfChildNode&quot; description=&quot;SiteMapNode objects can be nested to any level.&quot; url=&quot;Page3.aspx&quot;/>       </siteMapNode>       <siteMapNode title=&quot;ChildofRootNode&quot; description=&quot;Descriptions do not have to be unique.&quot; url=&quot;Page4.aspx&quot;/>     </siteMapNode>   </siteMap>   ```       The XmlSiteMapProvider is the default provider for ASP.NET and it reads XML data from a file named Web.sitemap that is located within the directory structure of the ASP.NET application. By default, the Web.sitemap file is located at the application root; however, if you want to change the name or location of the file from which the XmlSiteMapProvider loads data, you can override the default configuration in your Web.config file. By overriding the default configuration settings in your Web.config file, you can tailor the behavior of the XmlSiteMapProvider for each ASP.NET application, as necessary.       The following code example demonstrates an example Web.config file, where the XmlSiteMapProvider is still used, but a different site map file is used. Because all providers in a <xref:System.Web.SiteMapProviderCollection> object must be named uniquely, the one that is specified in the Web.config file uses a name other than the default but is also set as the default provider so that it will be used instead of the XmlSiteMapProvider that is specified in the default ASP.NET configuration.      > [!NOTE] >  You can change the name of the site navigation data file, but you cannot change its extension. The XmlSiteMapProvider only reads data from files that are named with the file name extension .sitemap.      ```   <siteMap defaultProvider=&quot;MyXmlSiteMapProvider&quot; enabled=&quot;true&quot;>     <providers>       <add name=&quot;MyXmlSiteMapProvider&quot;         description=&quot;SiteMap provider that reads in .sitemap files.&quot;         type=&quot;System.Web.XmlSiteMapProvider, System.Web, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a&quot;         siteMapFile=&quot;CustomWeb.sitemap&quot; />     </providers>   </siteMap>   ```"
+  summary: "XmlSiteMapProvider クラスから派生、 <xref href=&quot;System.Web.SiteMapProvider&quot;> </xref>クラスし、は、ASP.NET の既定のサイト マップ プロバイダー。 XmlSiteMapProvider クラスは、ファイル名拡張子 .sitemap XML ファイルからサイト マップのツリーを生成します。"
+  remarks: "XmlSiteMapProvider クラスは、既知のスキーマに従っている XML ファイルからサイト マップ データを読み込みます。 サイト マップ データに制限されます`<siteMap>`タグし、から成る入れ子になった`<siteMapNode>`タグ。 2 つの制約が課されて、 <xref:System.Web.SiteMapProvider>XmlSiteMapProvider クラス、サイトの構造には、データをマップおよび:-1 つだけのルート ノードが存在できます</xref:System.Web.SiteMapProvider>。      - <xref:System.Web.SiteMapNode>Url、Url は、プロバイダーのスコープ内で一意にする必要がありますを指定するオブジェクト</xref:System.Web.SiteMapNode>。 (Url が指定されていないノードのすべてのキー一意でなければなりません。)     次のコード例は XmlSiteMapProvider に使用できる XML ファイルの例を示します。      ```   <siteMap>     <siteMapNode title=&quot;RootNode&quot; description=&quot;This is the root node of the site map. There can be only one root node.&quot; url=&quot;Page1.aspx&quot; >       <siteMapNode title=&quot;ChildofRootNode&quot; description=&quot;Descriptions do not have to be unique.&quot; url=&quot;Page2.aspx&quot;>         <siteMapNode title=&quot;ChildOfChildNode&quot; description=&quot;SiteMapNode objects can be nested to any level.&quot; url=&quot;Page3.aspx&quot;/>       </siteMapNode>       <siteMapNode title=&quot;ChildofRootNode&quot; description=&quot;Descriptions do not have to be unique.&quot; url=&quot;Page4.aspx&quot;/>     </siteMapNode>   </siteMap>   ```XmlSiteMapProvider は ASP.NET の既定のプロバイダー、ASP.NET アプリケーションのディレクトリ構造内にある Web.sitemap をという名前のファイルから XML データを読み取ります。 既定では、Web.sitemap ファイルにあるアプリケーションのルートです。ただし、名前または XmlSiteMapProvider がデータを読み込み元となるファイルの場所を変更する場合は、Web.config ファイルで、既定の構成をオーバーライドできます。 Web.config ファイルで既定の構成設定をオーバーライドするには、必要に応じて、ASP.NET アプリケーションごとに XmlSiteMapProvider の動作を調整できます。       次のコード例では、Web.config ファイルの例、ここでは XmlSiteMapProvider が使用できますしますが、別のサイト マップ ファイルの使用を示します。 のすべてのプロバイダー、<xref:System.Web.SiteMapProviderCollection>オブジェクトに名前を一意にする必要があります、Web.config ファイルで指定されている&1; つは、既定値以外の名前を使用しますが既定の ASP.NET 構成で指定されている XmlSiteMapProvider の代わりに使用できるように、既定のプロバイダーとしても設定します</xref:System.Web.SiteMapProviderCollection>。      > [!NOTE] > サイト ナビゲーションのデータ ファイルの名前を変更することができますが、その拡張子を変更することはできません。 XmlSiteMapProvider は、ファイル名拡張子 .sitemap で名前が付けられるファイルからのみデータを読み取ります。      ```   <siteMap defaultProvider=&quot;MyXmlSiteMapProvider&quot; enabled=&quot;true&quot;>     <providers>       <add name=&quot;MyXmlSiteMapProvider&quot;         description=&quot;SiteMap provider that reads in .sitemap files.&quot;         type=&quot;System.Web.XmlSiteMapProvider, System.Web, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a&quot;         siteMapFile=&quot;CustomWeb.sitemap&quot; />     </providers>   </siteMap>   ```"
   syntax:
     content: 'public class XmlSiteMapProvider : System.Web.StaticSiteMapProvider, IDisposable'
   inheritance:
@@ -71,7 +71,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Creates a new, unnamed, instance of the <xref href=&quot;System.Web.XmlSiteMapProvider&quot;></xref> class."
+  summary: "新しい名前のない、インスタンスを作成、 <xref href=&quot;System.Web.XmlSiteMapProvider&quot;> </xref>クラスです。"
   syntax:
     content: public XmlSiteMapProvider ();
     parameters: []
@@ -91,25 +91,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Adds a <xref href=&quot;System.Web.SiteMapNode&quot;></xref> object to the collections that are maintained by the current provider."
-  remarks: "The `node` parameter is added to an internal collection, and a parent/child relationship is created between it and `parentNode`.       The <xref:System.Web.XmlSiteMapProvider> class, derived from the <xref:System.Web.StaticSiteMapProvider> class and the default site map provider for ASP.NET, uses the <xref:System.Web.SiteMapNode.Url%2A> property of a <xref:System.Web.SiteMapNode> object as a lookup key in its internal collections, by default. If the <xref:System.Web.SiteMapNode.Url%2A> property of the <xref:System.Web.SiteMapNode> is set, it must be unique within the scope of the provider. The <xref:System.Web.XmlSiteMapProvider.FindSiteMapNode%2A> method attempts to retrieve nodes based on their <xref:System.Web.SiteMapNode.Url%2A>. Otherwise, you can use the <xref:System.Web.SiteMapNode.Key%2A> property, and the corresponding <xref:System.Web.XmlSiteMapProvider.FindSiteMapNodeFromKey%2A> method, to retrieve nodes."
+  summary: "追加、 <xref href=&quot;System.Web.SiteMapNode&quot;> </xref>は現在のプロバイダーによって保持されているコレクションにオブジェクト。"
+  remarks: "`node`パラメーターは、内部コレクションに追加し、その間に、親/子リレーションシップが作成および`parentNode`です。       <xref:System.Web.XmlSiteMapProvider>から派生したクラス、<xref:System.Web.StaticSiteMapProvider>クラスとは、ASP.NET 用の既定のサイト マップ プロバイダー、<xref:System.Web.SiteMapNode.Url%2A>のプロパティ、<xref:System.Web.SiteMapNode>オブジェクトの内部コレクション で、既定では、参照キーとして</xref:System.Web.SiteMapNode></xref:System.Web.SiteMapNode.Url%2A></xref:System.Web.StaticSiteMapProvider></xref:System.Web.XmlSiteMapProvider>。 場合、<xref:System.Web.SiteMapNode.Url%2A>のプロパティ、<xref:System.Web.SiteMapNode>が設定されている、プロバイダーのスコープ内で一意である必要があります</xref:System.Web.SiteMapNode></xref:System.Web.SiteMapNode.Url%2A>。 <xref:System.Web.XmlSiteMapProvider.FindSiteMapNode%2A>メソッドが、その<xref:System.Web.SiteMapNode.Url%2A>。</xref:System.Web.SiteMapNode.Url%2A>ベース ノードを取得しようとしています。</xref:System.Web.XmlSiteMapProvider.FindSiteMapNode%2A> それ以外の場合、使用することができます、<xref:System.Web.SiteMapNode.Key%2A>プロパティ、および対応する<xref:System.Web.XmlSiteMapProvider.FindSiteMapNodeFromKey%2A>メソッドは、ノードを取得します</xref:System.Web.XmlSiteMapProvider.FindSiteMapNodeFromKey%2A></xref:System.Web.SiteMapNode.Key%2A>。"
   syntax:
     content: protected override void AddNode (System.Web.SiteMapNode node, System.Web.SiteMapNode parentNode);
     parameters:
     - id: node
       type: System.Web.SiteMapNode
-      description: "The <xref href=&quot;System.Web.SiteMapNode&quot;></xref> to add to the provider."
+      description: "<xref href=&quot;System.Web.SiteMapNode&quot;> </xref>プロバイダーを追加します。"
     - id: parentNode
       type: System.Web.SiteMapNode
-      description: "The <xref href=&quot;System.Web.SiteMapNode&quot;></xref> under which to add `node`."
+      description: "<xref href=&quot;System.Web.SiteMapNode&quot;> </xref>を追加する`node`です。"
   overload: System.Web.XmlSiteMapProvider.AddNode*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>node</code> or <code>parentNode</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>node</code>or <code>parentNode</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The current <xref href=&quot;System.Web.XmlSiteMapProvider&quot;></xref> is not the provider associated with <code>node</code>."
+    description: "現在<xref href=&quot;System.Web.XmlSiteMapProvider&quot;></xref>いないプロバイダーに関連付けられている<code> node</code>です。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: "A node with the same URL or key is already registered with the <xref href=\"System.Web.XmlSiteMapProvider\"></xref>. - or -  \n  \n A duplicate site map node has been encountered programmatically, such as when linking two site map providers.  \n  \n \\- or -  \n  \n <code>node</code> is the root node of the <xref href=\"System.Web.XmlSiteMapProvider\"></xref>."
@@ -127,31 +127,31 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Links a child site map provider to the current provider."
-  remarks: "The AddProvider method links `providerName` to the current provider as a child of the current provider. The root node of `providerName` is added to the hierarchy for the current provider as a child node of `parentNode`. Because the parent provider calls the <xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A> method on `providerName`, the exceptions that are described in the <xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A> method might be thrown."
+  summary: "子サイト マップ プロバイダーを現在のプロバイダーにリンクします。"
+  remarks: "メソッドへのリンク AddProvider`providerName`を現在のプロバイダーの子として現在のプロバイダー。 ルート ノード`providerName`はの子ノードとして、階層内の現在のプロバイダーに追加`parentNode`です。 親プロバイダーを呼び出すため、<xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>メソッド`providerName`に記載されている例外、<xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>メソッドをスローする可能性があります</xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A></xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>。"
   syntax:
     content: protected virtual void AddProvider (string providerName, System.Web.SiteMapNode parentNode);
     parameters:
     - id: providerName
       type: System.String
-      description: "The name of one of the <xref href=&quot;System.Web.SiteMapProvider&quot;></xref> objects currently registered in the <xref:System.Web.SiteMap.Providers*>."
+      description: "いずれかの名前、 <xref href=&quot;System.Web.SiteMapProvider&quot;> </xref> <xref:System.Web.SiteMap.Providers*></xref:System.Web.SiteMap.Providers*>現在登録されているオブジェクト。"
     - id: parentNode
       type: System.Web.SiteMapNode
-      description: "A site map node of the current site map provider under which the root node and all nodes of the child provider is added."
+      description: "ルート ノードと子プロバイダーのすべてのノードが追加に使用され、現在のサイト マップ プロバイダーのサイト マップ ノード。"
   overload: System.Web.XmlSiteMapProvider.AddProvider*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref:System.Web.SiteMapNode.Provider*> property of the <code>parentNode</code> does not reference the current provider."
+    description: "<xref:System.Web.SiteMapNode.Provider*>のプロパティ、 <code> parentNode </code>は現在のプロバイダーを参照していません</xref:System.Web.SiteMapNode.Provider*>。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>parentNode</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>parentNode</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "<code>providerName</code> cannot be resolved."
+    description: "<code>providerName</code>解決できません。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The site map file used by <code>providerName</code> is already in use within the provider hierarchy.       -or-       The root node returned by <code>providerName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The root node returned by <code>providerName</code> has a URL or key that is already registered with the parent <xref href=&quot;System.Web.XmlSiteMapProvider&quot;></xref>."
+    description: "によって使用されるサイト マップ ファイル<code> providerName </code>は既に、プロバイダー階層内で使用します。       - または - によって返されるルート ノード<code> providerName </code>は<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。       - または - によって返されるルート ノード<code> providerName </code> URL または親に既に登録されているキーを持つ<xref href=&quot;System.Web.XmlSiteMapProvider&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Web.XmlSiteMapProvider.BuildSiteMap
@@ -166,8 +166,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Loads the site map information from an XML file and builds it in memory."
-  remarks: "The BuildSiteMap method is called to load and build the site map from persistent storage.       For the default behavior when security trimming is enabled, see &quot;Remarks&quot; in <xref:System.Web.SiteMapProvider.IsAccessibleToUser%2A>.       After the <xref:System.Web.XmlSiteMapProvider> object parses and loads site map data, all loaded <xref:System.Web.SiteMapNode> objects and <xref:System.Web.SiteMapNodeCollection> collections are made read-only. When the <xref:System.Web.XmlSiteMapProvider> parses the <xref:System.Web.SiteMapNode.Url%2A> property from a site map file, it converts application-relative URLs, as well as relative URLs, to application-absolute virtual paths.       The <xref:System.Web.XmlSiteMapProvider> subscribes to file change notifications for the .sitemap file. If any change is made to the .sitemap file, the <xref:System.Web.XmlSiteMapProvider> is reloaded, and the site map structure is rebuilt."
+  summary: "XML ファイルからサイト マップ情報を読み込み、メモリ内で構築します。"
+  remarks: "BuildSiteMap メソッドは、読み込んで永続ストレージからのサイト マップをビルドして呼び出されます。       既定の動作セキュリティ トリミングを有効にするを参照してください「解説」 <xref:System.Web.SiteMapProvider.IsAccessibleToUser%2A>。</xref:System.Web.SiteMapProvider.IsAccessibleToUser%2A>       後に、<xref:System.Web.XmlSiteMapProvider>オブジェクトを解析し、サイト マップ データを読み込みます、すべての読み込まれた<xref:System.Web.SiteMapNode>オブジェクトおよび<xref:System.Web.SiteMapNodeCollection>読み取り専用コレクションが行われる</xref:System.Web.SiteMapNodeCollection></xref:System.Web.SiteMapNode></xref:System.Web.XmlSiteMapProvider>。 ときに、<xref:System.Web.XmlSiteMapProvider>解析、<xref:System.Web.SiteMapNode.Url%2A>プロパティ、サイト マップ ファイルからに変換アプリケーション相対 Url と相対 Url は、アプリケーション絶対仮想パス</xref:System.Web.SiteMapNode.Url%2A></xref:System.Web.XmlSiteMapProvider>。       <xref:System.Web.XmlSiteMapProvider>.Sitemap ファイルのファイル変更通知をサブスクライブします</xref:System.Web.XmlSiteMapProvider>。 .Sitemap ファイルへの変更が行われた場合、<xref:System.Web.XmlSiteMapProvider>を再読み込みされ、サイト マップ構造が再構築されます</xref:System.Web.XmlSiteMapProvider>。"
   example:
   - "The following code example demonstrates how to create a new instance of the <xref:System.Web.XmlSiteMapProvider> class and initialize it to build a site map from XML data.  \n  \n```c#  \n<%@ Page Language=\"c#\" %>  \n <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">  \n <SCRIPT runat=\"server\">  \n private void Page_Load(object sender, System.EventArgs e)  \n {  \n     // Create an instance of the XmlSiteMapProvider class.  \n     XmlSiteMapProvider testXmlProvider = new XmlSiteMapProvider();  \n     NameValueCollection providerAttributes = new NameValueCollection(1);  \n     providerAttributes.Add(\"siteMapFile\",\"test.sitemap\");  \n     // Initialize the provider with a provider name and file name.  \n     testXmlProvider.Initialize(\"testProvider\", providerAttributes);  \n  \n     // The BuildSiteMap method is implicitly called when the   \n     // RootNode propety is accessed.  \n  \n     // Prints \"/myvirtualdirectory/WebForm1.aspx\"  \n     Response.Write(testXmlProvider.RootNode.Url + \"<BR>\");  \n     // Prints \"/myvirtualdirectory/WebForm2.aspx\"  \n     Response.Write(testXmlProvider.CurrentNode.Url + \"<BR>\");  \n }  \n```  \n  \n The preceding code example uses an XML file that is located in the virtual root of the ASP.NET application. The file has the following format:  \n  \n```  \n<siteMap>  \n     <siteMapNode title=\"RootNode\" description=\"The root page.\" url=\"WebForm1.aspx\">  \n         <siteMapNode title=\"CurrentNode\" description=\"Some sub page.\" url=\"WebForm2.aspx\"/>  \n     </siteMapNode>  \n </siteMap>  \n```"
   syntax:
@@ -175,7 +175,7 @@ items:
     parameters: []
     return:
       type: System.Web.SiteMapNode
-      description: "Returns the root <xref href=&quot;System.Web.SiteMapNode&quot;></xref> of the site map navigation structure."
+      description: "ルートを返します<xref href=&quot;System.Web.SiteMapNode&quot;></xref>サイト マップ ナビゲーション構造体の。"
   overload: System.Web.XmlSiteMapProvider.BuildSiteMap*
   exceptions:
   - type: System.InvalidOperationException
@@ -183,16 +183,16 @@ items:
     description: "The <xref href=\"System.Web.XmlSiteMapProvider\"></xref> was not initialized properly.  \n  \n \\- or -  \n  \n A <xref uid=\"langword_csharp_siteMapFile\" name=\"siteMapFile\" href=\"\"></xref> is parsed for a <xref uid=\"langword_csharp_&lt;siteMapNode&gt;\" name=\"&lt;siteMapNode&gt;\" href=\"\"></xref> that is not unique.  \n  \n \\- or -  \n  \n The file specified by the <xref uid=\"langword_csharp_siteMapFile\" name=\"siteMapFile\" href=\"\"></xref> does not have the file name extension .sitemap.  \n  \n \\- or -  \n  \n The file specified by the <xref uid=\"langword_csharp_siteMapFile\" name=\"siteMapFile\" href=\"\"></xref> does not exist.  \n  \n \\- or -  \n  \n A provider configured in the <xref uid=\"langword_csharp_provider\" name=\"provider\" href=\"\"></xref> of a <xref uid=\"langword_csharp_&lt;siteMapNode&gt;\" name=\"&lt;siteMapNode&gt;\" href=\"\"></xref> returns a null root node."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref uid=&quot;langword_csharp_siteMapFile&quot; name=&quot;siteMapFile&quot; href=&quot;&quot;></xref> is specified but the path lies outside the current directory structure for the application."
+    description: "<xref uid=&quot;langword_csharp_siteMapFile&quot; name=&quot;siteMapFile&quot; href=&quot;&quot;> </xref>が指定されているが、パスは、アプリケーションの現在のディレクトリ構造の外側にします。"
   - type: System.Configuration.ConfigurationErrorsException
     commentId: T:System.Configuration.ConfigurationErrorsException
     description: "There is an error loading the configuration file.  \n  \n \\- or -  \n  \n The top element of the configuration file is not <xref uid=\"langword_csharp_named &lt;siteMap&gt;\" name=\"named &lt;siteMap&gt;\" href=\"\"></xref>.  \n  \n \\- or -  \n  \n More than one top node exists in the configuration file.  \n  \n \\- or -  \n  \n A child of the <xref uid=\"langword_csharp_&lt;siteMap&gt;\" name=\"&lt;siteMap&gt;\" href=\"\"></xref> has a name other than <xref uid=\"langword_csharp_&lt;siteMapNode&gt;\" name=\"&lt;siteMapNode&gt;\" href=\"\"></xref>.  \n  \n \\- or -  \n  \n An unexpected attribute is parsed for the <xref uid=\"langword_csharp_&lt;siteMapNode&gt;\" name=\"&lt;siteMapNode&gt;\" href=\"\"></xref>.  \n  \n \\- or -  \n  \n Sub-elements are nested beneath a <xref uid=\"langword_csharp_&lt;siteMapNode&gt;\" name=\"&lt;siteMapNode&gt;\" href=\"\"></xref> where the <xref uid=\"langword_csharp_provider\" name=\"provider\" href=\"\"></xref> is set.  \n  \n \\- or -  \n  \n The <xref uid=\"langword_csharp_roles\" name=\"roles\" href=\"\"></xref> of the <xref uid=\"langword_csharp_&lt;siteMapNode&gt;\" name=\"&lt;siteMapNode&gt;\" href=\"\"></xref> contain characters that are not valid.  \n  \n \\- or -  \n  \n A <xref uid=\"langword_csharp_url\" name=\"url\" href=\"\"></xref> is parsed for a <xref uid=\"langword_csharp_&lt;siteMapNode&gt;\" name=\"&lt;siteMapNode&gt;\" href=\"\"></xref> that is not unique.  \n  \n \\- or -  \n  \n A <xref href=\"System.Web.SiteMapNode\"></xref> was encountered with a duplicate value for <xref:System.Web.SiteMapNode.Key*>.  \n  \n \\- or -  \n  \n The <xref:System.Web.SiteMapNode.ResourceKey*> or <xref:System.Web.SiteMapNode.Title*> was specified on a <xref href=\"System.Web.SiteMapNode\"></xref> or a <xref uid=\"langword_csharp_custom\" name=\"custom\" href=\"\"></xref> attribute defined for the node contained an explicit resource expression.  \n  \n \\- or -  \n  \n An explicit resource expression was applied either to the <xref:System.Web.SiteMapNode.Title*> or <xref:System.Web.SiteMapNode.Description*> or to a <xref uid=\"langword_csharp_custom\" name=\"custom\" href=\"\"></xref> attribute of a <xref href=\"System.Web.SiteMapNode\"></xref> but the explicit information was not valid.  \n  \n \\- or -  \n  \n An error occurred while parsing the <xref:System.Web.SiteMapNode.Url*> of a <xref href=\"System.Web.SiteMapNode\"></xref>."
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "A named provider cannot be found in the current site map providers collection."
+    description: "現在のサイト マップ プロバイダーのコレクションで指定されたプロバイダーが見つかりません。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "A <xref uid=&quot;langword_csharp_&lt;siteMapNode&gt;&quot; name=&quot;&lt;siteMapNode&gt;&quot; href=&quot;&quot;></xref> referencing a site map file contains an empty string for the <xref uid=&quot;langword_csharp_siteMapFile&quot; name=&quot;siteMapFile&quot; href=&quot;&quot;></xref>."
+    description: "A <xref uid=&quot;langword_csharp_&lt;siteMapNode&gt;&quot; name=&quot;&lt;siteMapNode&gt;&quot; href=&quot;&quot;> </xref>に空の文字列を含むサイト マップ ファイルを参照する、 <xref uid=&quot;langword_csharp_siteMapFile&quot; name=&quot;siteMapFile&quot; href=&quot;&quot;></xref>です。"
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
     description: "A <xref uid=\"langword_csharp_siteMapFile\" name=\"siteMapFile\" href=\"\"></xref> of a <xref uid=\"langword_csharp_&lt;siteMapNode&gt;\" name=\"&lt;siteMapNode&gt;\" href=\"\"></xref> uses a physical path.  \n  \n \\- or -  \n  \n An error occurred while attempting to parse the virtual path to the file specified in the <xref uid=\"langword_csharp_siteMapFile\" name=\"siteMapFile\" href=\"\"></xref>."
@@ -210,8 +210,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Removes all elements in the collections of child and parent site map nodes and site map providers that the <xref href=&quot;System.Web.XmlSiteMapProvider&quot;></xref> object internally tracks as part of its state."
-  remarks: "The <xref:System.Web.XmlSiteMapProvider> class overrides the inherited Clear method to provide additional state cleanup beyond the basic <xref:System.Web.StaticSiteMapProvider.Clear%2A?displayProperty=fullName> implementation, including clearing its child provider tracking and the <xref:System.Web.XmlSiteMapProvider.RootNode%2A> property tracking mechanisms."
+  summary: "子と親のサイト マップ ノードおよびサイト マップ プロバイダーのコレクション内のすべての要素を削除する、 <xref href=&quot;System.Web.XmlSiteMapProvider&quot;> </xref>オブジェクトを内部的にその状態の一部として追跡します。"
+  remarks: "<xref:System.Web.XmlSiteMapProvider>クラスは、basic を超えて追加の状態のクリーンアップを提供する継承されたクリア メソッド オーバーライド<xref:System.Web.StaticSiteMapProvider.Clear%2A?displayProperty=fullName>実装では、その子プロバイダーの追跡の消去を含む、<xref:System.Web.XmlSiteMapProvider.RootNode%2A>プロパティの追跡メカニズム</xref:System.Web.XmlSiteMapProvider.RootNode%2A></xref:System.Web.StaticSiteMapProvider.Clear%2A?displayProperty=fullName></xref:System.Web.XmlSiteMapProvider>。"
   syntax:
     content: protected override void Clear ();
     parameters: []
@@ -231,12 +231,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets the <xref href=&quot;System.Web.SiteMapNode&quot;></xref> object that represents the currently requested page."
+  summary: "取得、 <xref href=&quot;System.Web.SiteMapNode&quot;> </xref>を現在の要求されたページを表すオブジェクト。"
   syntax:
     content: public override System.Web.SiteMapNode CurrentNode { get; }
     return:
       type: System.Web.SiteMapNode
-      description: "The site map object that represents the currently requested page."
+      description: "現在の要求されたページを表すサイト マップ オブジェクトです。"
   overload: System.Web.XmlSiteMapProvider.CurrentNode*
   exceptions: []
   platform:
@@ -253,8 +253,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Notifies the file monitor of the Web.sitemap file that the <xref href=&quot;System.Web.XmlSiteMapProvider&quot;></xref> object no longer requires the file to be monitored."
-  remarks: "The <xref:System.Web.XmlSiteMapProvider> class implements the <xref:System.IDisposable.Dispose%2A> method of the <xref:System.IDisposable> interface to release its associated file monitor when the site map file is unloaded from memory. This overload of the <xref:System.Web.XmlSiteMapProvider.Dispose%2A> method calls the overload that takes a <xref:System.Boolean> parameter and sets the value to `true`."
+  summary: "Web.sitemap のファイル モニターに通知するファイル、 <xref href=&quot;System.Web.XmlSiteMapProvider&quot;> </xref>オブジェクトには、不要になった的に監視するファイルが必要です。"
+  remarks: "<xref:System.Web.XmlSiteMapProvider>クラスが実装する、<xref:System.IDisposable.Dispose%2A>のメソッド、<xref:System.IDisposable>サイト マップ ファイルがメモリからアンロードされるときに、関連付けられているファイル モニターを解放するインターフェイス</xref:System.IDisposable></xref:System.IDisposable.Dispose%2A></xref:System.Web.XmlSiteMapProvider>。 このオーバー ロード、<xref:System.Web.XmlSiteMapProvider.Dispose%2A>メソッド呼び出しを受け取るオーバー ロード、<xref:System.Boolean>パラメーター値を設定および`true`</xref:System.Boolean></xref:System.Web.XmlSiteMapProvider.Dispose%2A>。"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -274,14 +274,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Notifies the file monitor of the Web.sitemap file that the <xref href=&quot;System.Web.XmlSiteMapProvider&quot;></xref> object no longer requires the file to be monitored. The Dispose method takes a Boolean parameter indicating whether the method is called by user code."
-  remarks: "The Dispose method returns `true` if the Dispose method is called by user code. Otherwise it returns `false`, if the Dispose method is called by the finalizer thread during run time."
+  summary: "Web.sitemap のファイル モニターに通知するファイル、 <xref href=&quot;System.Web.XmlSiteMapProvider&quot;> </xref>オブジェクトには、不要になった的に監視するファイルが必要です。 Dispose メソッドは、ユーザー コードからメソッドを呼び出すかどうかを示すブール値パラメーターを受け取ります。"
+  remarks: "Dispose メソッドを返します`true`Dispose メソッドはユーザー コードによって呼び出された場合。 返しますそれ以外の場合`false`Dispose メソッドがファイナライザー スレッドで実行時に呼び出された場合、します。"
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>マネージ コードとアンマネージ リソースを解放するには<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>アンマネージ リソースだけを解放します。"
   overload: System.Web.XmlSiteMapProvider.Dispose*
   exceptions: []
   platform:
@@ -298,22 +298,22 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Retrieves a <xref href=&quot;System.Web.SiteMapNode&quot;></xref> object that represents the page at the specified URL."
-  remarks: "The <xref:System.Web.XmlSiteMapProvider> object overrides the <xref:System.Web.StaticSiteMapProvider.FindSiteMapNode%2A> method to ensure that any linked child providers are searched for the node if the implementation of the base class does not return a node for the specified URL.       The `rawUrl` parameter should be either an absolute virtual path or an application-relative path, depending on how it is specified in the XML site map data file.       The <xref:System.Web.XmlSiteMapProvider> class and classes that are derived from it use the URL of a <xref:System.Web.SiteMapNode> object as a key in the various collections that the class maintains. Therefore, these URLs must be unique within the scope of the site map. If the URL is not found within the immediate site map data that is managed by the <xref:System.Web.XmlSiteMapProvider>, it calls the FindSiteMapNode on each child provider that is linked to it through the `provider` attribute of its site map nodes.       The FindSiteMapNode method indirectly calls the <xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A> method to retrieve the top-level node in the site map. Therefore, any exceptions that occur for the <xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A> method can also occur when calling the FindSiteMapNode method."
+  summary: "取得、 <xref href=&quot;System.Web.SiteMapNode&quot;> </xref> url で指定したページを表すオブジェクト。"
+  remarks: "<xref:System.Web.XmlSiteMapProvider>オブジェクトの上書き、<xref:System.Web.StaticSiteMapProvider.FindSiteMapNode%2A>メソッドにリンクされた子の任意のプロバイダーは、基本クラスの実装が、指定された URL のノードを返さない場合、ノードの検索されます</xref:System.Web.StaticSiteMapProvider.FindSiteMapNode%2A></xref:System.Web.XmlSiteMapProvider>。       `rawUrl` XML サイト マップ データ ファイル内の指定方法によって、アプリケーションの相対パスまたは絶対仮想パスのいずれかをパラメーターとして使用することがあります。       <xref:System.Web.XmlSiteMapProvider>クラスとそこから派生したクラスの URL を使用して、<xref:System.Web.SiteMapNode>オブジェクト クラスを保持するさまざまなコレクション内のキーとして</xref:System.Web.SiteMapNode></xref:System.Web.XmlSiteMapProvider>。 したがって、これらの Url は、サイト マップのスコープ内で一意でなければなりません。 管理されている即時サイト マップ データ内で URL が見つからない場合、 <xref:System.Web.XmlSiteMapProvider>、を通じてにリンクされている子プロバイダーごとに、FindSiteMapNode を呼び出して、`provider`サイト マップ ノードの属性です</xref:System.Web.XmlSiteMapProvider>。       FindSiteMapNode メソッドを間接的に呼び出す、<xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>サイト マップ内の最上位ノードを取得します</xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>。 そのため、すべての例外で発生する、<xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>メソッドは、FindSiteMapNode メソッドを呼び出す場合にも発生することができます</xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>。"
   syntax:
     content: public override System.Web.SiteMapNode FindSiteMapNode (string rawUrl);
     parameters:
     - id: rawUrl
       type: System.String
-      description: "A URL that identifies the page for which to retrieve a <xref href=&quot;System.Web.SiteMapNode&quot;></xref>."
+      description: "取得する対象のページを識別する URL、 <xref href=&quot;System.Web.SiteMapNode&quot;></xref>です。"
     return:
       type: System.Web.SiteMapNode
-      description: "A <xref href=&quot;System.Web.SiteMapNode&quot;></xref> that represents the page identified by <code>rawURL</code>."
+      description: "A <xref href=&quot;System.Web.SiteMapNode&quot;> </xref>で識別されるページを表す<code> rawURL</code>です。"
   overload: System.Web.XmlSiteMapProvider.FindSiteMapNode*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "A child provider linked to the current site map provider returned a node that is not valid."
+    description: "子プロバイダーは、無効なノードが返される現在のサイト マップ プロバイダーにリンクされます。"
   platform:
   - net462
 - uid: System.Web.XmlSiteMapProvider.FindSiteMapNodeFromKey(System.String)
@@ -328,22 +328,22 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Retrieves a <xref href=&quot;System.Web.SiteMapNode&quot;></xref> object based on a specified key."
-  remarks: "The <xref:System.Web.XmlSiteMapProvider> class overrides the <xref:System.Web.StaticSiteMapProvider.FindSiteMapNodeFromKey%2A> method to ensure that any linked child providers are searched for the node, if the implementation for the base class does not return a node for `key`.       The <xref:System.Web.XmlSiteMapProvider> object, derived from the <xref:System.Web.StaticSiteMapProvider> class and the default site map provider for ASP.NET, uses the <xref:System.Web.SiteMapNode.Url%2A> property of a <xref:System.Web.SiteMapNode> object as a lookup key in its internal collections, by default. If the <xref:System.Web.SiteMapNode.Url%2A> property of the <xref:System.Web.SiteMapNode> is set, it must be unique within the scope of the provider. If no <xref:System.Web.SiteMapNode.Url%2A> is specified, the <xref:System.Web.XmlSiteMapProvider> automatically generates a <xref:System.Web.SiteMapNode.Key%2A> to track the nodes.       The FindSiteMapNodeFromKey method might call the <xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A> method on any child providers that are associated with the current provider. Therefore, the exceptions that are described in the <xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A> method might be thrown."
+  summary: "取得、 <xref href=&quot;System.Web.SiteMapNode&quot;> </xref>オブジェクトが、指定したキーに基づいています。"
+  remarks: "<xref:System.Web.XmlSiteMapProvider>クラスのオーバーライド、<xref:System.Web.StaticSiteMapProvider.FindSiteMapNodeFromKey%2A>基底クラスの実装でのノードが返されない場合は、ノードは、リンクされた子の任意のプロバイダーを検索することを確認するメソッド`key`</xref:System.Web.StaticSiteMapProvider.FindSiteMapNodeFromKey%2A></xref:System.Web.XmlSiteMapProvider>。       <xref:System.Web.XmlSiteMapProvider>から派生したオブジェクト、<xref:System.Web.StaticSiteMapProvider>クラスとは、ASP.NET 用の既定のサイト マップ プロバイダー、<xref:System.Web.SiteMapNode.Url%2A>のプロパティ、<xref:System.Web.SiteMapNode>オブジェクトの内部コレクション で、既定では、参照キーとして</xref:System.Web.SiteMapNode></xref:System.Web.SiteMapNode.Url%2A></xref:System.Web.StaticSiteMapProvider></xref:System.Web.XmlSiteMapProvider>。 場合、<xref:System.Web.SiteMapNode.Url%2A>のプロパティ、<xref:System.Web.SiteMapNode>が設定されている、プロバイダーのスコープ内で一意である必要があります</xref:System.Web.SiteMapNode></xref:System.Web.SiteMapNode.Url%2A>。 ない場合は<xref:System.Web.SiteMapNode.Url%2A>が指定されている、<xref:System.Web.XmlSiteMapProvider>を自動的に生成、<xref:System.Web.SiteMapNode.Key%2A>ノードを追跡するためにします</xref:System.Web.SiteMapNode.Key%2A></xref:System.Web.XmlSiteMapProvider></xref:System.Web.SiteMapNode.Url%2A>。       FindSiteMapNodeFromKey メソッドを呼び出すことがあります、<xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>メソッドを現在のプロバイダーに関連付けられている子の任意のプロバイダー</xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A> 。 したがっての例外で説明されている、<xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>メソッドをスローする可能性があります</xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>。"
   syntax:
     content: public override System.Web.SiteMapNode FindSiteMapNodeFromKey (string key);
     parameters:
     - id: key
       type: System.String
-      description: "A lookup key with which to search for a <xref href=&quot;System.Web.SiteMapNode&quot;></xref>."
+      description: "参照のキーを検索するが、 <xref href=&quot;System.Web.SiteMapNode&quot;></xref>です。"
     return:
       type: System.Web.SiteMapNode
-      description: "A <xref href=&quot;System.Web.SiteMapNode&quot;></xref> that represents the page identified by <code>key</code>; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, if security trimming is enabled and the node cannot be shown to the current user or the node is not found by <code>key</code> in the node collection."
+      description: "A <xref href=&quot;System.Web.SiteMapNode&quot;> </xref>で識別されるページを表す<code> key </code>、それ以外の<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>セキュリティ トリミングを有効にし、ノードは、現在のユーザーに表示されることはできませんによってノードが見つからない場合は、 <code> key </code>ノード コレクション内で。"
   overload: System.Web.XmlSiteMapProvider.FindSiteMapNodeFromKey*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "A child provider linked to the current site map provider returned a node that is not valid."
+    description: "子プロバイダーは、無効なノードが返される現在のサイト マップ プロバイダーにリンクされます。"
   platform:
   - net462
 - uid: System.Web.XmlSiteMapProvider.GetChildNodes(System.Web.SiteMapNode)
@@ -358,16 +358,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the child nodes of the site map."
+  summary: "サイト マップ ノードの子を返します。"
   syntax:
     content: public override System.Web.SiteMapNodeCollection GetChildNodes (System.Web.SiteMapNode node);
     parameters:
     - id: node
       type: System.Web.SiteMapNode
-      description: "The <xref href=&quot;System.Web.SiteMapNode&quot;></xref> object to get child nodes from."
+      description: "<xref href=&quot;System.Web.SiteMapNode&quot;> </xref>から子ノードを取得するオブジェクト。"
     return:
       type: System.Web.SiteMapNodeCollection
-      description: "A collection of site map nodes."
+      description: "サイト マップ ノードのコレクション。"
   overload: System.Web.XmlSiteMapProvider.GetChildNodes*
   exceptions: []
   platform:
@@ -384,16 +384,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the parent node of the site map."
+  summary: "サイト マップの親ノードを返します。"
   syntax:
     content: public override System.Web.SiteMapNode GetParentNode (System.Web.SiteMapNode node);
     parameters:
     - id: node
       type: System.Web.SiteMapNode
-      description: "The <xref href=&quot;System.Web.SiteMapNode&quot;></xref> object to get the parent node from."
+      description: "<xref href=&quot;System.Web.SiteMapNode&quot;> </xref>から親ノードを取得するオブジェクト。"
     return:
       type: System.Web.SiteMapNode
-      description: "The parent node of the site map."
+      description: "サイト マップの親ノードです。"
   overload: System.Web.XmlSiteMapProvider.GetParentNode*
   exceptions: []
   platform:
@@ -410,14 +410,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Retrieves the top-level node of the current site map data structure."
-  remarks: "The GetRootNodeCore method calls the <xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A> method to retrieve the top-level node in the site map. Therefore, any exceptions that occur for the <xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A> method can also occur when calling the GetRootNodeCore method."
+  summary: "現在のサイト マップ データ構造の最上位ノードを取得します。"
+  remarks: "GetRootNodeCore メソッドの呼び出し、<xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>サイト マップ内の最上位ノードを取得します</xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>。 そのため、すべての例外で発生する、<xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>メソッドは、GetRootNodeCore メソッドを呼び出す場合にも発生することができます</xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>。"
   syntax:
     content: protected override System.Web.SiteMapNode GetRootNodeCore ();
     parameters: []
     return:
       type: System.Web.SiteMapNode
-      description: "A <xref href=&quot;System.Web.SiteMapNode&quot;></xref> that represents the top-level node in the current site map data structure."
+      description: "A <xref href=&quot;System.Web.SiteMapNode&quot;> </xref>を表す現在のサイト マップ データ構造の最上位ノード。"
   overload: System.Web.XmlSiteMapProvider.GetRootNodeCore*
   exceptions: []
   platform:
@@ -434,8 +434,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Initializes the <xref href=&quot;System.Web.XmlSiteMapProvider&quot;></xref> object. The Initialize method does not actually build a site map, it only prepares the state of the <xref href=&quot;System.Web.XmlSiteMapProvider&quot;></xref> to do so."
-  remarks: "The <xref:System.Web.XmlSiteMapProvider> class overrides the inherited Initialize method to apply several attributes, such as the `siteMapFile` and `description` attributes, to the `attributes` collection."
+  summary: "初期化、 <xref href=&quot;System.Web.XmlSiteMapProvider&quot;> </xref>オブジェクト。 Initialize メソッドは実際に、サイト マップを作成していない、のみの状態を準備、 <xref href=&quot;System.Web.XmlSiteMapProvider&quot;> </xref>するようにします。"
+  remarks: "<xref:System.Web.XmlSiteMapProvider>クラスなど、いくつかの属性を適用する継承された Initialize メソッドをオーバーライドします`siteMapFile`と`description`属性に、`attributes`コレクションです</xref:System.Web.XmlSiteMapProvider>。"
   example:
   - "The following code example demonstrates how to create a new instance of the <xref:System.Web.XmlSiteMapProvider> class and initialize it to build a site map from XML data.  \n  \n```c#  \n<%@ Page Language=\"c#\" %>  \n<SCRIPT runat=\"server\">  \n private void Page_Load(object sender, System.EventArgs e) {  \n     // Create an instance of the XmlSiteMapProvider class.  \n     XmlSiteMapProvider testXmlProvider = new XmlSiteMapProvider();  \n     NameValueCollection providerAttributes = new NameValueCollection(1);  \n     providerAttributes.Add(\"siteMapFile\",\"test.sitemap\");  \n  \n     // Initialize the provider with a provider name and file name.  \n     testXmlProvider.Initialize(\"testProvider\", providerAttributes);  \n  \n     // Call the BuildSiteMap to load the site map information into memory.  \n     testXmlProvider.BuildSiteMap();  \n  \n     // Prints \"/myvirtualdirectory/WebForm1.aspx\"  \n     Response.Write(testXmlProvider.RootNode.Url + \"<BR>\");  \n  \n     // Prints \"/myvirtualdirectory/WebForm2.aspx\"  \n     Response.Write(testXmlProvider.CurrentNode.Url + \"<BR>\");  \n }  \n </SCRIPT>  \n```  \n  \n The preceding code example uses an XML file that is located in the virtual root of the ASP.NET application. The file has the following format:  \n  \n```  \n<siteMap>  \n  <siteMapNode title=\"RootNode\" description=\"The root page.\" url=\"WebForm1.aspx\">  \n    <siteMapNode title=\"CurrentNode\" description=\"Some sub page.\" url=\"WebForm2.aspx\"/>  \n  </siteMapNode>  \n</siteMap>  \n```"
   syntax:
@@ -443,15 +443,15 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The <xref href=&quot;System.Web.XmlSiteMapProvider&quot;></xref> to initialize."
+      description: "<xref href=&quot;System.Web.XmlSiteMapProvider&quot;> </xref>を初期化します。"
     - id: attributes
       type: System.Collections.Specialized.NameValueCollection
-      description: "A <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;></xref> that can contain additional attributes to help initialize `name`. These attributes are read from the <xref href=&quot;System.Web.XmlSiteMapProvider&quot;></xref> configuration in the Web.config file."
+      description: "A <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;> </xref>初期化を支援する追加の属性を持つことができる`name`です。 これらの属性を読み取る、 <xref href=&quot;System.Web.XmlSiteMapProvider&quot;> </xref> Web.config ファイルで構成します。"
   overload: System.Web.XmlSiteMapProvider.Initialize*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Web.XmlSiteMapProvider&quot;></xref> is initialized more than once."
+    description: "<xref href=&quot;System.Web.XmlSiteMapProvider&quot;> </xref>が&2; 回以上初期化されています。"
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
     description: "A <xref href=\"System.Web.SiteMapNode\"></xref> used a physical path to reference a site map file.  \n  \n \\- or -  \n  \n An error occurred while attempting to parse the virtual path supplied for the <xref uid=\"langword_csharp_siteMapFile\" name=\"siteMapFile\" href=\"\"></xref> attribute."
@@ -469,13 +469,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Removes the specified <xref href=&quot;System.Web.SiteMapNode&quot;></xref> object from all node collections that are tracked by the provider."
+  summary: "指定された削除<xref href=&quot;System.Web.SiteMapNode&quot;></xref>はプロバイダーによって追跡されているすべてのノード コレクションからオブジェクト。"
   syntax:
     content: protected override void RemoveNode (System.Web.SiteMapNode node);
     parameters:
     - id: node
       type: System.Web.SiteMapNode
-      description: "The node to remove from the node collections."
+      description: "ノードのコレクションから削除するノードです。"
   overload: System.Web.XmlSiteMapProvider.RemoveNode*
   exceptions:
   - type: System.InvalidOperationException
@@ -483,7 +483,7 @@ items:
     description: "<code>node</code> is the root node of the site map provider that owns it.  \n  \n \\- or -  \n  \n <code>node</code> is not managed by the provider or by a provider in the chain of parent providers for this provider."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>node</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>node</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.XmlSiteMapProvider.RemoveProvider(System.String)
@@ -498,25 +498,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Removes a linked child site map provider from the hierarchy for the current provider."
-  remarks: "The RemoveProvider method removes `providerName` from the hierarchy for the current provider, including any parent/child relationships that are established by the <xref:System.Web.XmlSiteMapProvider.AddProvider%2A> method between site map nodes of the current provider and the removed provider."
+  summary: "現在のプロバイダーの階層からのリンクされた子サイト マップ プロバイダーを削除します。"
+  remarks: "RemoveProvider メソッドは、削除`providerName`で確立されている親/子の関係を含む、現在のプロバイダーの階層から、<xref:System.Web.XmlSiteMapProvider.AddProvider%2A>現在のプロバイダーのサイト マップ ノードと削除されたプロバイダーのメソッド</xref:System.Web.XmlSiteMapProvider.AddProvider%2A>。"
   syntax:
     content: protected virtual void RemoveProvider (string providerName);
     parameters:
     - id: providerName
       type: System.String
-      description: "The name of one of the <xref href=&quot;System.Web.SiteMapProvider&quot;></xref> objects currently registered in the <xref:System.Web.SiteMap.Providers*>."
+      description: "いずれかの名前、 <xref href=&quot;System.Web.SiteMapProvider&quot;> </xref> <xref:System.Web.SiteMap.Providers*></xref:System.Web.SiteMap.Providers*>現在登録されているオブジェクト。"
   overload: System.Web.XmlSiteMapProvider.RemoveProvider*
   exceptions:
   - type: System.Configuration.Provider.ProviderException
     commentId: T:System.Configuration.Provider.ProviderException
-    description: "<code>providerName</code> cannot be resolved."
+    description: "<code>providerName</code>解決できません。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>providerName</code> is not a registered child provider of the current site map provider."
+    description: "<code>providerName</code>現在のサイト マップ プロバイダーの登録済みの子プロバイダーではありません。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>providerName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>providerName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.XmlSiteMapProvider.RootNode
@@ -531,13 +531,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets the root node of the site map."
-  remarks: "The RootNode property calls the <xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A> method to retrieve the top-level node in the site map. Therefore, any exceptions that occur for the <xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A> method can also occur when accessing the RootNode property.       The <xref:System.Web.SiteMapProvider> and <xref:System.Web.XmlSiteMapProvider> classes permit only one root <xref:System.Web.SiteMapNode> object in a site map. The <xref:System.Web.XmlSiteMapProvider> class overrides the abstract <xref:System.Web.SiteMapProvider.RootNode%2A?displayProperty=fullName> property and provides a simple implementation to track the root node."
+  summary: "サイト マップのルート ノードを取得します。"
+  remarks: "RootNode プロパティの呼び出し、<xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>サイト マップ内の最上位ノードを取得します</xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>。 そのため、すべての例外で発生する、<xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>メソッドは、RootNode プロパティにアクセスするときにも発生することができます</xref:System.Web.XmlSiteMapProvider.BuildSiteMap%2A>。       <xref:System.Web.SiteMapProvider>と<xref:System.Web.XmlSiteMapProvider>クラスが&1; つだけのルートを許可<xref:System.Web.SiteMapNode>サイト マップ内のオブジェクト</xref:System.Web.SiteMapNode></xref:System.Web.XmlSiteMapProvider></xref:System.Web.SiteMapProvider>。 <xref:System.Web.XmlSiteMapProvider>クラスでオーバーライド抽象<xref:System.Web.SiteMapProvider.RootNode%2A?displayProperty=fullName>プロパティし、ルート ノードを追跡するために単純な実装を提供します</xref:System.Web.SiteMapProvider.RootNode%2A?displayProperty=fullName></xref:System.Web.XmlSiteMapProvider>。"
   syntax:
     content: public override System.Web.SiteMapNode RootNode { get; }
     return:
       type: System.Web.SiteMapNode
-      description: "A <xref href=&quot;System.Web.SiteMapNode&quot;></xref> that represents the root node of the site map; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, if security trimming is enabled and the root node is not accessible to the current user."
+      description: "A <xref href=&quot;System.Web.SiteMapNode&quot;> </xref>サイト マップのルート ノードを表す、それ以外の<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>セキュリティ トリミングが有効になっている場合は、ルート ノードは、現在のユーザーにアクセスできません。"
   overload: System.Web.XmlSiteMapProvider.RootNode*
   exceptions: []
   platform:
