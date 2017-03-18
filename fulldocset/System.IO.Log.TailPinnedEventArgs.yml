@@ -11,8 +11,8 @@ items:
   nameWithType: TailPinnedEventArgs
   fullName: System.IO.Log.TailPinnedEventArgs
   type: Class
-  summary: "Provides data for the <xref href=&quot;System.IO.Log.IRecordSequence.TailPinned&quot;></xref> event. This class cannot be inherited."
-  remarks: "The <xref:System.IO.Log.IRecordSequence.TailPinned> event can be fired when the record sequence has run out of space. When this event is fired, the tail of the sequence (that is, the base sequence number) is moved forward to free up space."
+  summary: "データを提供、 <xref href=&quot;System.IO.Log.IRecordSequence.TailPinned&quot;> </xref>イベント。 このクラスは継承できません。"
+  remarks: "<xref:System.IO.Log.IRecordSequence.TailPinned>、レコード シーケンスが領域を使い果たしたときに、イベントが発生することができます</xref:System.IO.Log.IRecordSequence.TailPinned>。 このイベントが発生したときに、シーケンス (つまり、基本シーケンス番号) の末尾は領域を解放する前方に移動します。"
   example:
   - "This example shows how to use the <xref:System.IO.Log.LogRecordSequence.TailPinned> event to free up space in a log sequence.  \n  \n```  \nrecordSequence.RetryAppend = true;  \nrecordSequence.TailPinned += new EventHandler<TailPinnedEventArgs>(HandleTailPinned);  \n  \nvoid HandleTailPinned(object sender, TailPinnedEventArgs tailPinnedEventArgs)  \n{  \n   // tailPinnedEventArgs.TargetSequenceNumber is the target   \n   // sequence number to free up space to.    \n   // However, this sequence number is not necessarily valid.  We have  \n   // to use this sequence number as a starting point for finding a  \n   // valid point within the log to advance toward. You need to  \n   // identify a record with a sequence number equal to, or greater  \n   // than TargetSequenceNumber; let's call this   \n   // realTargetSequenceNumber. Once found, move the base  \n  \n   recordSequence.AdvanceBaseSequenceNumber(realTargetSequenceNumber);  \n  \n}  \n```"
   syntax:
@@ -35,13 +35,13 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.Log.TailPinnedEventArgs&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IO.Log.TailPinnedEventArgs&quot;> </xref>クラスです。"
   syntax:
     content: public TailPinnedEventArgs (System.IO.Log.SequenceNumber sequenceNumber);
     parameters:
     - id: sequenceNumber
       type: System.IO.Log.SequenceNumber
-      description: "The target sequence number."
+      description: "対象のシーケンス番号。"
   overload: System.IO.Log.TailPinnedEventArgs.#ctor*
   exceptions: []
   platform:
@@ -58,12 +58,12 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Gets the sequence number that the tail should be moved past."
+  summary: "末尾を移動する必要がありますシーケンス番号を取得します。"
   syntax:
     content: public System.IO.Log.SequenceNumber TargetSequenceNumber { get; }
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number that the tail should be moved past."
+      description: "シーケンス番号を末尾を移動する必要があります。"
   overload: System.IO.Log.TailPinnedEventArgs.TargetSequenceNumber*
   exceptions: []
   platform:

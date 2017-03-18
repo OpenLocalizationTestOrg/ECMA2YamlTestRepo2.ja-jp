@@ -35,7 +35,7 @@ items:
   nameWithType: FileSystemWatcher
   fullName: System.IO.FileSystemWatcher
   type: Class
-  summary: "Listens to the file system change notifications and raises events when a directory, or file in a directory, changes.       To browse the .NET Framework source code for this type, see the [Reference Source](http://referencesource.microsoft.com/#System/services/io/system/io/FileSystemWatcher.cs#a9eb0249dc928b09)."
+  summary: "ディレクトリ、または変更のディレクトリにファイルときに通知し、発生イベントを変更するファイル システムに待機します。       この型の .NET Framework ソース コードを参照するを参照してください。、[参照ソース](http://referencesource.microsoft.com/#System/services/io/system/io/FileSystemWatcher.cs#a9eb0249dc928b09)です。"
   remarks: "> [!NOTE]\n>  To view the .NET Framework source code for this type, see the [Reference Source](http://referencesource.microsoft.com/#System/services/io/system/io/FileSystemWatcher.cs#a9eb0249dc928b09). You can browse through the source code online, download the reference for offline viewing, and step through the sources (including patches and updates) during debugging; see [instructions](http://referencesource.microsoft.com/).  \n  \n Use FileSystemWatcher to watch for changes in a specified directory. You can watch for changes in files and subdirectories of the specified directory. You can create a component to watch files on a local computer, a network drive, or a remote computer.  \n  \n To watch for changes in all files, set the <xref:System.IO.FileSystemWatcher.Filter%2A> property to an empty string (\"\") or use wildcards (\"*.\\*\"). To watch a specific file, set the <xref:System.IO.FileSystemWatcher.Filter%2A> property to the file name. For example, to watch for changes in the file MyDoc.txt, set the <xref:System.IO.FileSystemWatcher.Filter%2A> property to \"MyDoc.txt\". You can also watch for changes in a certain type of file. For example, to watch for changes in text files, set the <xref:System.IO.FileSystemWatcher.Filter%2A> property to \"\\*.txt\".  \n  \n There are several types of changes you can watch for in a directory or file. For example, you can watch for changes in `Attributes`, the `LastWrite` date and time, or the `Size` of files or directories. This is done by setting the <xref:System.IO.FileSystemWatcher.NotifyFilter%2A> property to one of the <xref:System.IO.NotifyFilters> values. For more information on the type of changes you can watch, see <xref:System.IO.NotifyFilters>.  \n  \n You can watch for renaming, deletion, or creation of files or directories. For example, to watch for renaming of text files, set the <xref:System.IO.FileSystemWatcher.Filter%2A> property to \"*.txt\" and call the <xref:System.IO.FileSystemWatcher.WaitForChanged%2A> method with a <xref:System.IO.WatcherChangeTypes> specified for its parameter.  \n  \n The Windows operating system notifies your component of file changes in a buffer created by the FileSystemWatcher. If there are many changes in a short time, the buffer can overflow. This causes the component to lose track of changes in the directory, and it will only provide blanket notification. Increasing the size of the buffer with the <xref:System.IO.FileSystemWatcher.InternalBufferSize%2A> property is expensive, as it comes from non-paged memory that cannot be swapped out to disk, so keep the buffer as small yet large enough to not miss any file change events. To avoid a buffer overflow, use the <xref:System.IO.FileSystemWatcher.NotifyFilter%2A> and <xref:System.IO.FileSystemWatcher.IncludeSubdirectories%2A> properties so you can filter out unwanted change notifications.  \n  \n For a list of initial property values for an instance of FileSystemWatcher, see the <xref:System.IO.FileSystemWatcher.%23ctor%2A> constructor.  \n  \n Please note the following when using the FileSystemWatcher class.  \n  \n-   Hidden files are not ignored.  \n  \n-   In some systems, FileSystemWatcher reports changes to files using the short 8.3 file name format. For example, a change to  \"LongFileName.LongExtension\" could be reported as \"LongFil~.Lon\".  \n  \n-   This class contains a link demand and an inheritance demand at the class level that applies to all members. A <xref:System.Security.SecurityException> is thrown when either the immediate caller or the derived class does not have full-trust permission. For details about security demands, see [Link Demands](~/add/includes/ajax-current-ext-md.md).  \n  \n-   The maximum size you can set for the <xref:System.IO.FileSystemWatcher.InternalBufferSize%2A> property for monitoring a directory over the network is 64 KB.  \n  \n> [!NOTE]\n>  Running FileSystemWatcher on Windows 98 is not supported.  \n  \n## Copying and moving folders  \n The operating system and FileSystemWatcher object interpret a cut-and-paste action or a move action as a rename action for a folder and its contents. If you cut and paste a folder with files into a folder being watched, the FileSystemWatcher object reports only the folder as new, but not its contents because they are essentially only renamed.  \n  \n To be notified that the contents of folders have been moved or copied into a watched folder, provide <xref:System.IO.FileSystemWatcher.OnChanged%2A> and <xref:System.IO.FileSystemWatcher.OnRenamed%2A> event handler methods as suggested in the following table.  \n  \n|Event Handler|Events Handled|Performs|  \n|-------------------|--------------------|--------------|  \n|<xref:System.IO.FileSystemWatcher.OnChanged%2A>|<xref:System.IO.FileSystemWatcher.Changed>, <xref:System.IO.FileSystemWatcher.Created>, <xref:System.IO.FileSystemWatcher.Deleted>|Report changes in file attributes, created files, and deleted files.|  \n|<xref:System.IO.FileSystemWatcher.OnRenamed%2A>|<xref:System.IO.FileSystemWatcher.Renamed>|List the old and new paths of renamed files and folders, expanding recursively if needed.|  \n  \n## Events and Buffer Sizes  \n Note that several factors can affect which file system change events are raised, as described by the following:  \n  \n-   Common file system operations might raise more than one event. For example, when a file is moved from one directory to another, several <xref:System.IO.FileSystemWatcher.OnChanged%2A> and some <xref:System.IO.FileSystemWatcher.OnCreated%2A> and <xref:System.IO.FileSystemWatcher.OnDeleted%2A> events might be raised. Moving a file is a complex operation that consists of multiple simple operations, therefore raising multiple events. Likewise, some applications (for example, antivirus software) might cause additional file system events that are detected by FileSystemWatcher.  \n  \n-   The FileSystemWatcher can watch disks as long as they are not switched or removed. The FileSystemWatcher does not raise events for CDs and DVDs, because time stamps and properties cannot change. Remote computers must have one of the required platforms installed for the component to function properly.  \n  \n-   If multiple FileSystemWatcher objects are watching the same UNC path in Windows XP prior to Service Pack 1, or Windows 2000 SP2 or earlier, then only one of the objects will raise an event. On machines running Windows XP SP1 and newer, Windows 2000 SP3 or newer or Windows Server 2003, all FileSystemWatcher objects will raise the appropriate events.  \n  \n Note that a FileSystemWatcher may miss an event when the buffer size is exceeded. To avoid missing events, follow these guidelines:  \n  \n-   Increase the buffer size by setting the <xref:System.IO.FileSystemWatcher.InternalBufferSize%2A> property.  \n  \n-   Avoid watching files with long file names, because a long file name contributes to filling up the buffer. Consider renaming these files using shorter names.  \n  \n-   Keep your event handling code as short as possible."
   example:
   - "The following example creates a FileSystemWatcher to watch the directory specified at run time. The component is set to watch for changes in `LastWrite` and `LastAccess` time, the creation, deletion, or renaming of text files in the directory. If a file is changed, created, or deleted, the path to the file prints to the console. When a file is renamed, the old and new paths print to the console.  \n  \n Use the <xref:System.Diagnostics> and <xref:System.IO> namespaces for this example.  \n  \n [!code-cpp[Classic NotifyFilters Example#1](~/add/codesnippet/cpp/t-system.io.filesystemwa_1.cpp)]\n [!code-cs[Classic NotifyFilters Example#1](~/add/codesnippet/csharp/t-system.io.filesystemwa_1.cs)]\n [!code-vb[Classic NotifyFilters Example#1](~/add/codesnippet/visualbasic/t-system.io.filesystemwa_1.vb)]"
@@ -79,7 +79,7 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.FileSystemWatcher&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IO.FileSystemWatcher&quot;> </xref>クラスです。"
   remarks: "You cannot watch a remote computer that does not have Windows NT or Windows 2000. You cannot watch a remote Windows NT 4.0 computer from a Windows NT 4.0 computer.  \n  \n The following table shows initial property values for an instance of <xref:System.IO.FileSystemWatcher>.  \n  \n|Property|Initial Value|  \n|--------------|-------------------|  \n|<xref:System.IO.FileSystemWatcher.NotifyFilter%2A>|bitwise OR combination of `LastWrite`, `FileName`, and `DirectoryName`|  \n|<xref:System.IO.FileSystemWatcher.EnableRaisingEvents%2A>|`false`|  \n|<xref:System.IO.FileSystemWatcher.Filter%2A>|\"*.\\*\" (Watch all files.)|  \n|<xref:System.IO.FileSystemWatcher.IncludeSubdirectories%2A>|`false`|  \n|<xref:System.IO.FileSystemWatcher.InternalBufferSize%2A>|8192|  \n|<xref:System.IO.FileSystemWatcher.Path%2A>|empty string (\"\")|  \n  \n> [!NOTE]\n>  The component will not watch the specified directory until the <xref:System.IO.FileSystemWatcher.Path%2A> is set, and <xref:System.IO.FileSystemWatcher.EnableRaisingEvents%2A> is `true`."
   example:
   - "The following example creates a <xref:System.IO.FileSystemWatcher> object to watch the directory specified at run time. The <xref:System.IO.FileSystemWatcher> object watches for changes in `LastWrite` and `LastAccess` times, and for the creation, deletion, or renaming of text files in the directory. If a file is changed, created, or deleted, the path to the file displays to the console. When a file is renamed, the old and new paths display to the console.  \n  \n This example uses the <xref:System.Diagnostics> and <xref:System.IO> namespaces.  \n  \n [!code-cpp[Classic NotifyFilters Example#1](~/add/codesnippet/cpp/m-system.io.filesystemwa_1.cpp)]\n [!code-cs[Classic NotifyFilters Example#1](~/add/codesnippet/csharp/m-system.io.filesystemwa_1.cs)]\n [!code-vb[Classic NotifyFilters Example#1](~/add/codesnippet/visualbasic/m-system.io.filesystemwa_1.vb)]"
@@ -102,14 +102,14 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.FileSystemWatcher&quot;></xref> class, given the specified directory to monitor."
-  remarks: "> [!NOTE] >  The component will not watch the specified directory until the <xref:System.IO.FileSystemWatcher.Path%2A> is set, and <xref:System.IO.FileSystemWatcher.EnableRaisingEvents%2A> is `true`.       The component can watch files on your personal computer, a network drive, or a remote computer.       You cannot watch a remote computer that does not have Windows NT or Windows 2000. You cannot watch a remote Windows NT 4.0 computer from a Windows NT 4.0 computer. The <xref:System.IO.FileSystemWatcher.Filter%2A> property is set by default to watch all files."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IO.FileSystemWatcher&quot;> </xref>クラスを監視するディレクトリを指定します。"
+  remarks: "> [!NOTE]> コンポーネントは、指定したディレクトリまでを視聴しません、<xref:System.IO.FileSystemWatcher.Path%2A>が設定されていると<xref:System.IO.FileSystemWatcher.EnableRaisingEvents%2A>は`true`</xref:System.IO.FileSystemWatcher.EnableRaisingEvents%2A></xref:System.IO.FileSystemWatcher.Path%2A>。       コンポーネントは、パーソナル コンピューター、ネットワーク ドライブ、またはリモート コンピューター上のファイルを見ることができます。       Windows NT または Windows 2000 がないリモート コンピューターを監視することはできません。 Windows NT 4.0 のコンピューターからリモートの Windows NT 4.0 コンピューターを監視することはできません。 <xref:System.IO.FileSystemWatcher.Filter%2A>プロパティが既定ですべてのファイルを監視します</xref:System.IO.FileSystemWatcher.Filter%2A>。"
   syntax:
     content: public FileSystemWatcher (string path);
     parameters:
     - id: path
       type: System.String
-      description: "The directory to monitor, in standard or Universal Naming Convention (UNC) notation."
+      description: "標準表記または汎用名前付け規則 (UNC) 表記で、監視するディレクトリ。"
   overload: System.IO.FileSystemWatcher.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -117,10 +117,10 @@ items:
     description: "The <code>path</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>path</code> parameter is an empty string (&quot;&quot;).       -or-       The path specified through the <code>path</code> parameter does not exist."
+    description: "<code> path </code>パラメーターが空の文字列 (&quot;&quot;) です。       - または - で指定されたパス、 <code> path </code>パラメーターが存在しません。"
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: "<code>path</code> is too long."
+    description: "<code>path</code>長すぎます。"
   platform:
   - net462
 - uid: System.IO.FileSystemWatcher.#ctor(System.String,System.String)
@@ -135,17 +135,17 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.FileSystemWatcher&quot;></xref> class, given the specified directory and type of files to monitor."
-  remarks: "> [!NOTE] >  The component will not watch the specified directory until the <xref:System.IO.FileSystemWatcher.Path%2A> is set, and <xref:System.IO.FileSystemWatcher.EnableRaisingEvents%2A> is `true`.       The component can watch files on your personal computer, a network drive, or a remote computer.       You cannot watch a remote computer that does not have Windows NT or Windows 2000. You cannot watch a remote Windows NT 4.0 computer from a Windows NT 4.0 computer."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.IO.FileSystemWatcher&quot;> </xref>クラス、指定したディレクトリおよび監視するファイルの種類を指定します。"
+  remarks: "> [!NOTE]> コンポーネントは、指定したディレクトリまでを視聴しません、<xref:System.IO.FileSystemWatcher.Path%2A>が設定されていると<xref:System.IO.FileSystemWatcher.EnableRaisingEvents%2A>は`true`</xref:System.IO.FileSystemWatcher.EnableRaisingEvents%2A></xref:System.IO.FileSystemWatcher.Path%2A>。       コンポーネントは、パーソナル コンピューター、ネットワーク ドライブ、またはリモート コンピューター上のファイルを見ることができます。       Windows NT または Windows 2000 がないリモート コンピューターを監視することはできません。 Windows NT 4.0 のコンピューターからリモートの Windows NT 4.0 コンピューターを監視することはできません。"
   syntax:
     content: public FileSystemWatcher (string path, string filter);
     parameters:
     - id: path
       type: System.String
-      description: "The directory to monitor, in standard or Universal Naming Convention (UNC) notation."
+      description: "標準表記または汎用名前付け規則 (UNC) 表記で、監視するディレクトリ。"
     - id: filter
       type: System.String
-      description: "The type of files to watch. For example, &quot;*.txt&quot; watches for changes to all text files."
+      description: "ウォッチするファイルの種類。 たとえば、&quot;*.txt&quot;は、すべてのテキスト ファイルへの変更は監視します。"
   overload: System.IO.FileSystemWatcher.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -153,10 +153,10 @@ items:
     description: "The <code>path</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <code>filter</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>path</code> parameter is an empty string (&quot;&quot;).       -or-       The path specified through the <code>path</code> parameter does not exist."
+    description: "<code> path </code>パラメーターが空の文字列 (&quot;&quot;) です。       - または - で指定されたパス、 <code> path </code>パラメーターが存在しません。"
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: "<code>path</code> is too long."
+    description: "<code>path</code>長すぎます。"
   platform:
   - net462
 - uid: System.IO.FileSystemWatcher.BeginInit
@@ -171,8 +171,8 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Begins the initialization of a <xref href=&quot;System.IO.FileSystemWatcher&quot;></xref> used on a form or used by another component. The initialization occurs at run time."
-  remarks: "The [!INCLUDE[vsprvslong](~/add/includes/ajax-current-ext-md.md)] design environment uses this method to start the initialization of a component used on a form or used by another component. The <xref:System.IO.FileSystemWatcher.EndInit%2A> method ends the initialization. Using the BeginInit and <xref:System.IO.FileSystemWatcher.EndInit%2A> methods prevents the control from being used before it is fully initialized."
+  summary: "初期化を開始、 <xref href=&quot;System.IO.FileSystemWatcher&quot;> </xref>フォームまたは別のコンポーネントで使用します。 初期化は実行時に発生します。"
+  remarks: "[!INCLUDE[vsprvslong](~/add/includes/ajax-current-ext-md.md)]デザイン環境では、このメソッドを使用して、コンポーネントの初期化を開始フォームまたは別のコンポーネントを使用します。 <xref:System.IO.FileSystemWatcher.EndInit%2A>メソッドが初期化を終了します</xref:System.IO.FileSystemWatcher.EndInit%2A>。 BeginInit を使用して<xref:System.IO.FileSystemWatcher.EndInit%2A>メソッド使用されないように、コントロールが完全に初期化される前にします</xref:System.IO.FileSystemWatcher.EndInit%2A>。"
   syntax:
     content: public void BeginInit ();
     parameters: []
@@ -192,15 +192,15 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Occurs when a file or directory in the specified <xref:System.IO.FileSystemWatcher.Path*> is changed."
-  remarks: "The Changed event is raised when changes are made to the size, system attributes, last write time, last access time, or security permissions of a file or directory in the directory being monitored.      > [!NOTE] >  Common file system operations might raise more than one event. For example, when a file is moved from one directory to another, several <xref:System.IO.FileSystemWatcher.OnChanged%2A> and some <xref:System.IO.FileSystemWatcher.OnCreated%2A> and <xref:System.IO.FileSystemWatcher.OnDeleted%2A> events might be raised. Moving a file is a complex operation that consists of multiple simple operations, therefore raising multiple events. Likewise, some applications (for example, antivirus software) might cause additional file system events that are detected by <xref:System.IO.FileSystemWatcher>.       Use <xref:System.IO.FileSystemWatcher.NotifyFilter%2A> to restrict the number of notifications raised when this event is handled.      > [!NOTE] >  The Changed event is raised unexpectedly when a file is renamed, but is not raised when a directory is renamed. To watch for renaming, use the <xref:System.IO.FileSystemWatcher.Renamed> event.      > [!NOTE] >  The order in which the Changed event is raised in relation to the other <xref:System.IO.FileSystemWatcher> events may change when the <xref:System.IO.FileSystemWatcher.SynchronizingObject%2A> property is not `null`."
+  summary: "ファイルまたはディレクトリが指定されたときに発生<xref:System.IO.FileSystemWatcher.Path*>が変更された</xref:System.IO.FileSystemWatcher.Path*>。"
+  remarks: "Changed イベントが発生するは、サイズが変更されたときに、システム属性では、最終書き込み時刻、最終アクセス時刻、またはファイルまたはディレクトリのセキュリティ アクセス許可で監視されているディレクトリ。      > [!NOTE] > 一般的なファイル システム操作が&1; つ以上のイベントを発生させる可能性があります。 たとえば、移動した場合、ファイル別に、いくつかの&1; つのディレクトリから<xref:System.IO.FileSystemWatcher.OnChanged%2A>といくつか<xref:System.IO.FileSystemWatcher.OnCreated%2A>と<xref:System.IO.FileSystemWatcher.OnDeleted%2A>イベントを発生させる可能性があります</xref:System.IO.FileSystemWatcher.OnDeleted%2A></xref:System.IO.FileSystemWatcher.OnCreated%2A></xref:System.IO.FileSystemWatcher.OnChanged%2A>。 複数のイベントを発生させるためファイルが複数の単純な操作で構成される複雑な操作を移動するには、します。 同様に、一部のアプリケーション (ウイルス対策ソフトウェアなど) が<xref:System.IO.FileSystemWatcher>。</xref:System.IO.FileSystemWatcher>によって検出された追加のファイル システムのイベントを発生可能性があります。       使用して<xref:System.IO.FileSystemWatcher.NotifyFilter%2A>をこのイベントが処理されるときに発生する通知の数を制限します</xref:System.IO.FileSystemWatcher.NotifyFilter%2A>。      > [!NOTE] > の変更イベントは、予期しないファイルの名前を変更がディレクトリの名前が変更されるには発生しません。 名前を変更するをウォッチするを使用して、<xref:System.IO.FileSystemWatcher.Renamed>イベント</xref:System.IO.FileSystemWatcher.Renamed>。      > [!NOTE] > Changed イベントが、他の関連して発生する順序<xref:System.IO.FileSystemWatcher>イベントが変更可能性があります、<xref:System.IO.FileSystemWatcher.SynchronizingObject%2A>プロパティは使用されません`null`</xref:System.IO.FileSystemWatcher.SynchronizingObject%2A></xref:System.IO.FileSystemWatcher>。"
   example:
   - "The following example uses the Changed event to display the file path to the console whenever the watched file is changed.  \n  \n [!code-cpp[Classic NotifyFilters Example#1](~/add/codesnippet/cpp/e-system.io.filesystemwa_0_1.cpp)]\n [!code-cs[Classic NotifyFilters Example#1](~/add/codesnippet/csharp/e-system.io.filesystemwa_0_1.cs)]\n [!code-vb[Classic NotifyFilters Example#1](~/add/codesnippet/visualbasic/e-system.io.filesystemwa_0_1.vb)]"
   syntax:
     content: public event System.IO.FileSystemEventHandler Changed;
     return:
       type: System.IO.FileSystemEventHandler
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -216,7 +216,7 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Occurs when a file or directory in the specified <xref:System.IO.FileSystemWatcher.Path*> is created."
+  summary: "ファイルまたはディレクトリが指定されたときに発生<xref:System.IO.FileSystemWatcher.Path*>が作成されます</xref:System.IO.FileSystemWatcher.Path*>。"
   remarks: "Some common occurrences, such as copying or moving a file or directory, do not correspond directly to an event, but these occurrences do cause events to be raised. When you copy a file or directory, the system raises a Created event in the directory to which the file was copied, if that directory is being watched. If the directory from which you copied was being watched by another instance of <xref:System.IO.FileSystemWatcher>, no event would be raised. For example, you create two instances of <xref:System.IO.FileSystemWatcher>. FileSystemWatcher1 is set to watch \"C:\\My Documents\", and FileSystemWatcher2 is set to watch \"C:\\Your Documents\". If you copy a file from \"My Documents\" into \"Your Documents\", a Created event will be raised by FileSystemWatcher2, but no event is raised for FileSystemWatcher1. Unlike copying, moving a file or directory would raise two events. From the previous example, if you moved a file from \"My Documents\" to \"Your Documents\", a Created event would be raised by FileSystemWatcher2 and a <xref:System.IO.FileSystemWatcher.Deleted> event would be raised by FileSystemWatcher1.  \n  \n> [!NOTE]\n>  Common file system operations might raise more than one event. For example, when a file is moved from one directory to another, several <xref:System.IO.FileSystemWatcher.OnChanged%2A> and some <xref:System.IO.FileSystemWatcher.OnCreated%2A> and <xref:System.IO.FileSystemWatcher.OnDeleted%2A> events might be raised. Moving a file is a complex operation that consists of multiple simple operations, therefore raising multiple events. Likewise, some applications (for example, antivirus software) might cause additional file system events that are detected by <xref:System.IO.FileSystemWatcher>.  \n  \n> [!NOTE]\n>  The order in which the Created event is raised in relation to the other <xref:System.IO.FileSystemWatcher> events may change when the <xref:System.IO.FileSystemWatcher.SynchronizingObject%2A> property is not `null`.  \n  \n The <xref:System.IO.FileSystemWatcher.OnCreated%2A> event is raised as soon as a file is created. If a file is being copied or transferred into a watched directory, the <xref:System.IO.FileSystemWatcher.OnCreated%2A> event will be raised immediately, followed by one or more <xref:System.IO.FileSystemWatcher.OnChanged%2A> events."
   example:
   - "The following example uses the Created event to display the file path to the console whenever the watched file is created.  \n  \n [!code-cpp[Classic NotifyFilters Example#1](~/add/codesnippet/cpp/e-system.io.filesystemwa_3_1.cpp)]\n [!code-cs[Classic NotifyFilters Example#1](~/add/codesnippet/csharp/e-system.io.filesystemwa_3_1.cs)]\n [!code-vb[Classic NotifyFilters Example#1](~/add/codesnippet/visualbasic/e-system.io.filesystemwa_3_1.vb)]"
@@ -224,7 +224,7 @@ items:
     content: public event System.IO.FileSystemEventHandler Created;
     return:
       type: System.IO.FileSystemEventHandler
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -240,7 +240,7 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Occurs when a file or directory in the specified <xref:System.IO.FileSystemWatcher.Path*> is deleted."
+  summary: "ファイルまたはディレクトリが指定されたときに発生<xref:System.IO.FileSystemWatcher.Path*>を削除します</xref:System.IO.FileSystemWatcher.Path*>。"
   remarks: "Some common occurrences, such as copying or moving a file or directory, do not correspond directly to an event, but these occurrences do cause events to be raised. When you copy a file or directory, the system raises a <xref:System.IO.FileSystemWatcher.Created> event in the directory to which the file was copied, if that directory is being watched. If the directory from which you copied was being watched by another instance of <xref:System.IO.FileSystemWatcher>, no event would be raised. For example, you create two instances of <xref:System.IO.FileSystemWatcher>. FileSystemWatcher1 is set to watch \"C:\\My Documents\", and FileSystemWatcher2 is set to watch \"C:\\Your Documents\". If you copy a file from \"My Documents\" into \"Your Documents\", a <xref:System.IO.FileSystemWatcher.Created> event will be raised by FileSystemWatcher2, but no event is raised for FileSystemWatcher1. Unlike copying, moving a file or directory would raise two events. From the previous example, if you moved a file from \"My Documents\" to \"Your Documents\", a <xref:System.IO.FileSystemWatcher.Created> event would be raised by FileSystemWatcher2 and a Deleted event would be raised by FileSystemWatcher1.  \n  \n> [!NOTE]\n>  Common file system operations might raise more than one event. For example, when a file is moved from one directory to another, several <xref:System.IO.FileSystemWatcher.OnChanged%2A> and some <xref:System.IO.FileSystemWatcher.OnCreated%2A> and <xref:System.IO.FileSystemWatcher.OnDeleted%2A> events might be raised. Moving a file is a complex operation that consists of multiple simple operations, therefore raising multiple events. Likewise, some applications (for example, antivirus software) might cause additional file system events that are detected by <xref:System.IO.FileSystemWatcher>.  \n  \n> [!NOTE]\n>  The order in which the Deleted event is raised in relation to the other <xref:System.IO.FileSystemWatcher> events may change when the <xref:System.IO.FileSystemWatcher.SynchronizingObject%2A> property is not `null`."
   example:
   - "The following example uses the Deleted event to display the file path to the console whenever the watched file is deleted.  \n  \n [!code-cpp[Classic NotifyFilters Example#1](~/add/codesnippet/cpp/e-system.io.filesystemwa_1_1.cpp)]\n [!code-cs[Classic NotifyFilters Example#1](~/add/codesnippet/csharp/e-system.io.filesystemwa_1_1.cs)]\n [!code-vb[Classic NotifyFilters Example#1](~/add/codesnippet/visualbasic/e-system.io.filesystemwa_1_1.vb)]"
@@ -248,7 +248,7 @@ items:
     content: public event System.IO.FileSystemEventHandler Deleted;
     return:
       type: System.IO.FileSystemEventHandler
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -264,14 +264,14 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.IO.FileSystemWatcher&quot;></xref> and optionally releases the managed resources."
-  remarks: "This method is called by the public <xref:System.ComponentModel.Component.Dispose%2A> method and the <xref:System.Object.Finalize%2A> method. <xref:System.ComponentModel.Component.Dispose%2A> invokes the protected Dispose method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes Dispose with `disposing` set to `false`.       When the `disposing` parameter is `true`, this method releases all resources held by any managed objects that this <xref:System.IO.Compression.DeflateStream> references. This method invokes the <xref:System.ComponentModel.Component.Dispose%2A> method of each referenced object."
+  summary: "によって使用されるアンマネージ リソースを解放、 <xref href=&quot;System.IO.FileSystemWatcher&quot;> </xref>し、必要に応じてマネージ リソースを解放します。"
+  remarks: "このメソッドは、パブリック<xref:System.ComponentModel.Component.Dispose%2A>メソッドおよび<xref:System.Object.Finalize%2A>メソッド</xref:System.Object.Finalize%2A></xref:System.ComponentModel.Component.Dispose%2A>。 <xref:System.ComponentModel.Component.Dispose%2A>保護された Dispose メソッドを呼び出し、`disposing`パラメーターに設定`true`です。</xref:System.ComponentModel.Component.Dispose%2A> <xref:System.Object.Finalize%2A>Dispose を呼び出す`disposing`&quot;éý&quot;`false`です。</xref:System.Object.Finalize%2A>       ときに、`disposing`パラメーターは`true`、このメソッドは、すべてのマネージ オブジェクトによって保持されているすべてのリソースを解放しますこの<xref:System.IO.Compression.DeflateStream>参照。</xref:System.IO.Compression.DeflateStream> 。 このメソッドを呼び出して、<xref:System.ComponentModel.Component.Dispose%2A>参照される各オブジェクトのメソッド</xref:System.ComponentModel.Component.Dispose%2A>。"
   syntax:
     content: protected override void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>マネージ コードとアンマネージ リソースを解放するには<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>アンマネージ リソースだけを解放します。"
   overload: System.IO.FileSystemWatcher.Dispose*
   exceptions: []
   platform:
@@ -288,29 +288,29 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Gets or sets a value indicating whether the component is enabled."
-  remarks: "The component will not raise events unless you set EnableRaisingEvents to `true`.      > [!NOTE] >  The component will not watch the specified directory until the <xref:System.IO.FileSystemWatcher.Path%2A> property has been set and EnableRaisingEvents is `true`.       The <xref:System.IO.FileSystemWatcher.WaitForChanged%2A> method allows event handlers to be invoked to respond to file changes even if this property is set to `false`."
+  summary: "取得またはコンポーネントが有効になっているかどうかを示す値を設定します。"
+  remarks: "コンポーネントがないイベントを発生させる EnableRaisingEvents に設定する場合を除き、`true`です。      > [!NOTE] > コンポーネントは、指定したディレクトリまでを視聴しません、<xref:System.IO.FileSystemWatcher.Path%2A>プロパティが設定されている、EnableRaisingEvents `true`</xref:System.IO.FileSystemWatcher.Path%2A> 。       <xref:System.IO.FileSystemWatcher.WaitForChanged%2A>メソッドにより、イベント ハンドラーをこのプロパティ設定されている場合でも、ファイルの変更に応答するに呼び出せる`false`</xref:System.IO.FileSystemWatcher.WaitForChanged%2A>。"
   example:
   - "The following example creates a <xref:System.IO.FileSystemWatcher> to watch the directory specified at run time. The component is set to watch for changes in `LastWrite` and `LastAccess` time, the creation, deletion, or renaming of text files in the directory. If a file is changed, created, or deleted, the path to the file prints to the console. When a file is renamed, the old and new paths print to the console.  \n  \n Use the <xref:System.Diagnostics> and <xref:System.IO> namespaces for this example.  \n  \n [!code-cpp[Classic NotifyFilters Example#1](~/add/codesnippet/cpp/p-system.io.filesystemwa_2_1.cpp)]\n [!code-cs[Classic NotifyFilters Example#1](~/add/codesnippet/csharp/p-system.io.filesystemwa_2_1.cs)]\n [!code-vb[Classic NotifyFilters Example#1](~/add/codesnippet/visualbasic/p-system.io.filesystemwa_2_1.vb)]"
   syntax:
     content: public bool EnableRaisingEvents { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the component is enabled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. If you are using the component on a designer in [!INCLUDE[vsprvslong](~/add/includes/ajax-current-ext-md.md)], the default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>コンポーネントが有効である場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。 既定値は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。 使用するかどうかは、コンポーネントのデザイナーで[!INCLUDE[vsprvslong](~/add/includes/ajax-current-ext-md.md)]、既定値は<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>です。"
   overload: System.IO.FileSystemWatcher.EnableRaisingEvents*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.IO.FileSystemWatcher&quot;></xref> object has been disposed."
+    description: "<xref href=&quot;System.IO.FileSystemWatcher&quot;> </xref>オブジェクトは破棄されました。"
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The current operating system is not Microsoft Windows NT or later."
+    description: "現在のオペレーティング システムは Microsoft Windows NT 以降です。"
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The directory specified in <xref:System.IO.FileSystemWatcher.Path*> could not be found."
+    description: "指定されたディレクトリ<xref:System.IO.FileSystemWatcher.Path*>で見つかりませんでした</xref:System.IO.FileSystemWatcher.Path*>。"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<xref:System.IO.FileSystemWatcher.Path*> has not been set or is invalid."
+    description: "<xref:System.IO.FileSystemWatcher.Path*>設定されていないか、無効です。</xref:System.IO.FileSystemWatcher.Path*>"
   platform:
   - net462
 - uid: System.IO.FileSystemWatcher.EndInit
@@ -325,8 +325,8 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Ends the initialization of a <xref href=&quot;System.IO.FileSystemWatcher&quot;></xref> used on a form or used by another component. The initialization occurs at run time."
-  remarks: "The [!INCLUDE[vsprvslong](~/add/includes/ajax-current-ext-md.md)] design environment uses this method to end the initialization of a component used on a form or used by another component. The <xref:System.IO.FileSystemWatcher.BeginInit%2A> method starts the initialization. Using the <xref:System.IO.FileSystemWatcher.BeginInit%2A> and EndInit methods prevents the control from being used before it is fully initialized."
+  summary: "初期化を終了、 <xref href=&quot;System.IO.FileSystemWatcher&quot;> </xref>フォームまたは別のコンポーネントで使用します。 初期化は実行時に発生します。"
+  remarks: "[!INCLUDE[vsprvslong](~/add/includes/ajax-current-ext-md.md)]デザイン環境では、このメソッドを使用して、コンポーネントの初期化を終了フォームまたは別のコンポーネントを使用します。 <xref:System.IO.FileSystemWatcher.BeginInit%2A>メソッドは、初期化を開始します</xref:System.IO.FileSystemWatcher.BeginInit%2A>。 使用して、 <xref:System.IO.FileSystemWatcher.BeginInit%2A>EndInit メソッド使用されないように、コントロールが完全に初期化される前に、</xref:System.IO.FileSystemWatcher.BeginInit%2A> 。"
   syntax:
     content: public void EndInit ();
     parameters: []
@@ -346,13 +346,13 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Occurs when the instance of <xref href=&quot;System.IO.FileSystemWatcher&quot;></xref> is unable to continue monitoring changes or when the internal buffer overflows."
-  remarks: "This event is raised whenever something prevents the <xref:System.IO.FileSystemWatcher> object from monitoring changes. For example, if the object is monitoring changes in a remote directory and the connection to that directory is lost, the Error event is raised.       The system notifies you of file changes, and it stores those changes in a buffer that the component creates and passes to the APIs. If there are many changes in a short time, the buffer can overflow. This causes the component to lose track of changes in the directory, and it will only provide blanket notification. Increasing the size of the buffer is expensive, because it comes from non paged memory that cannot be swapped out to disk, so keep the buffer as small as possible. To avoid a buffer overflow, use the <xref:System.IO.FileSystemWatcher.NotifyFilter%2A>, <xref:System.IO.FileSystemWatcher.Filter%2A>, and <xref:System.IO.FileSystemWatcher.IncludeSubdirectories%2A> properties to filter out unwanted change notifications.      > [!NOTE] >  Common file system operations might raise more than one event. For example, when a file is moved from one directory to another, several <xref:System.IO.FileSystemWatcher.OnChanged%2A> and some <xref:System.IO.FileSystemWatcher.OnCreated%2A> and <xref:System.IO.FileSystemWatcher.OnDeleted%2A> events might be raised. Moving a file is a complex operation that consists of multiple simple operations, therefore raising multiple events. Likewise, some applications (for example, antivirus software) might cause additional file system events that are detected by <xref:System.IO.FileSystemWatcher>."
+  summary: "発生したときに、インスタンスの<xref href=&quot;System.IO.FileSystemWatcher&quot;></xref>は変更または内部バッファーがオーバーフローした場合の監視を継続できません。"
+  remarks: "このイベントは、問題を防止するたびに、<xref:System.IO.FileSystemWatcher>オブジェクトからの変更の監視します</xref:System.IO.FileSystemWatcher>。 たとえば、オブジェクトは、リモート ディレクトリの変更を監視は、そのディレクトリへの接続が失われた場合、エラー イベントが発生します。       システムでは、ファイルの変更、ユーザーに通知し、その変更をコンポーネントを作成し、Api に渡すバッファーに格納します。 短期間に多数の変更がある場合、バッファーがオーバーフローすることができます。 これにより、コンポーネントは、ディレクトリ内の変更の追跡とブランケットの通知のみ提供されます。 バッファーのサイズを増やす、負荷が高い、以外のものであるためにページは維持する、ディスクにスワップ アウトできませんメモリ バッファーをできるだけ小さくします。 バッファー オーバーフローを避けるためを使用して、 <xref:System.IO.FileSystemWatcher.NotifyFilter%2A>、 <xref:System.IO.FileSystemWatcher.Filter%2A>、および<xref:System.IO.FileSystemWatcher.IncludeSubdirectories%2A>望ましくないを除外するプロパティの変更通知</xref:System.IO.FileSystemWatcher.IncludeSubdirectories%2A></xref:System.IO.FileSystemWatcher.Filter%2A></xref:System.IO.FileSystemWatcher.NotifyFilter%2A>。      > [!NOTE] > 一般的なファイル システム操作が&1; つ以上のイベントを発生させる可能性があります。 たとえば、移動した場合、ファイル別に、いくつかの&1; つのディレクトリから<xref:System.IO.FileSystemWatcher.OnChanged%2A>といくつか<xref:System.IO.FileSystemWatcher.OnCreated%2A>と<xref:System.IO.FileSystemWatcher.OnDeleted%2A>イベントを発生させる可能性があります</xref:System.IO.FileSystemWatcher.OnDeleted%2A></xref:System.IO.FileSystemWatcher.OnCreated%2A></xref:System.IO.FileSystemWatcher.OnChanged%2A>。 複数のイベントを発生させるためファイルが複数の単純な操作で構成される複雑な操作を移動するには、します。 同様に、一部のアプリケーション (ウイルス対策ソフトウェアなど) が<xref:System.IO.FileSystemWatcher>。</xref:System.IO.FileSystemWatcher>によって検出された追加のファイル システムのイベントを発生可能性があります。"
   syntax:
     content: public event System.IO.ErrorEventHandler Error;
     return:
       type: System.IO.ErrorEventHandler
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -368,7 +368,7 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Gets or sets the filter string used to determine what files are monitored in a directory."
+  summary: "取得またはディレクトリに監視するファイルを決定するためのフィルター文字列を設定します。"
   remarks: "To watch changes in all files, set the Filter property to an empty string (\"\"). To watch a specific file, set the Filter property to the file name. For example, to watch for changes in the file MyDoc.txt, set the Filter property to \"MyDoc.txt\". You can also watch for changes in a certain type of file. For example, to watch for changes in any text files, set the Filter property to \"*.txt\". Use of multiple filters such as \"\\*.txt&#124;\\*.doc\" is not supported.  \n  \n The Filter property can be changed after the <xref:System.IO.FileSystemWatcher> object has started receiving events.  \n  \n For more information about filtering out unwanted notifications, see the <xref:System.IO.FileSystemWatcher.NotifyFilter%2A>, <xref:System.IO.FileSystemWatcher.IncludeSubdirectories%2A>, and <xref:System.IO.FileSystemWatcher.InternalBufferSize%2A> properties.  \n  \n Filter accepts wildcards for matching files, as shown in the following examples.  \n  \n|Filter string|Watches the following files|  \n|-------------------|---------------------------------|  \n|*.\\*|All files (default). An empty string (\"\") also watches all files.|  \n|*.txt|All files with a \"txt\" extension.|  \n|*recipe.doc|All files ending in \"recipe\" with a \"doc\" extension.|  \n|win*.xml|All files beginning with \"win\" with an \"xml\" extension.|  \n|Sales*200?.xls|Matches the following:<br /><br /> Sales July 2001.xlsSales Aug 2002.xlsSales March 2004.xls<br /><br /> but does not match:<br /><br /> Sales Nov 1999.xls|  \n|MyReport.Doc|Watches only MyReport.doc|"
   example:
   - "The following example creates a <xref:System.IO.FileSystemWatcher> to watch the directory specified at run time. The component is set to watch for changes in `LastWrite` and `LastAccess` time, the creation, deletion, or renaming of text files in the directory. If a file is changed, created, or deleted, the path to the file prints to the console. When a file is renamed, the old and new paths print to the console.  \n  \n Use the <xref:System.Diagnostics> and <xref:System.IO> namespaces for this example.  \n  \n [!code-cpp[Classic NotifyFilters Example#1](~/add/codesnippet/cpp/p-system.io.filesystemwa_3_1.cpp)]\n [!code-cs[Classic NotifyFilters Example#1](~/add/codesnippet/csharp/p-system.io.filesystemwa_3_1.cs)]\n [!code-vb[Classic NotifyFilters Example#1](~/add/codesnippet/visualbasic/p-system.io.filesystemwa_3_1.vb)]"
@@ -376,7 +376,7 @@ items:
     content: public string Filter { get; set; }
     return:
       type: System.String
-      description: "The filter string. The default is &quot;*.\\*&quot; (Watches all files.)"
+      description: "フィルター文字列。 既定値は&quot;* です。\\*&quot; (すべてのファイルをウォッチします)。"
   overload: System.IO.FileSystemWatcher.Filter*
   exceptions: []
   platform:
@@ -393,13 +393,13 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Gets or sets a value indicating whether subdirectories within the specified path should be monitored."
-  remarks: "Set IncludeSubdirectories to `true` when you want to watch for change notifications for files and directories contained within the directory specified through the <xref:System.IO.FileSystemWatcher.Path%2A> property, and its subdirectories. Setting the IncludeSubdirectories property to `false` helps reduce the number of notifications sent to the internal buffer. For more information on filtering out unwanted notifications, see the <xref:System.IO.FileSystemWatcher.NotifyFilter%2A> and <xref:System.IO.FileSystemWatcher.InternalBufferSize%2A> properties.       When `true`, IncludeSubdirectories is recursive through the entire sub tree, not just the immediate child directories. The relative path to a file or directory within the sub tree returns in the <xref:System.IO.FileSystemEventArgs.Name%2A> property of <xref:System.IO.FileSystemEventArgs> and the <xref:System.IO.RenamedEventArgs.OldName%2A> property of <xref:System.IO.RenamedEventArgs>, depending on changes you are watching for. You can get the fully qualified path from the <xref:System.IO.FileSystemEventArgs.FullPath%2A> property of <xref:System.IO.FileSystemEventArgs> and the <xref:System.IO.RenamedEventArgs.OldFullPath%2A> property of <xref:System.IO.RenamedEventArgs>, depending on the changes you are watching for.       If a directory is created in the sub tree of the directory you are watching, and IncludeSubdirectories is `true`, that directory will automatically be watched."
+  summary: "取得または指定したパスのサブディレクトリを監視する必要があるかどうかを示す値を設定します。"
+  remarks: "IncludeSubdirectories &quot;éý&quot;`true`ファイルとディレクトリを指定したディレクトリ内に含まれる変更通知を監視する場合、<xref:System.IO.FileSystemWatcher.Path%2A>プロパティ、およびそのサブディレクトリ</xref:System.IO.FileSystemWatcher.Path%2A>。 IncludeSubdirectories プロパティを設定`false`内部バッファーに送信された通知の数を削減できます。 不必要な通知をフィルター処理の詳細については、次を参照してください、<xref:System.IO.FileSystemWatcher.NotifyFilter%2A>と<xref:System.IO.FileSystemWatcher.InternalBufferSize%2A>プロパティ。</xref:System.IO.FileSystemWatcher.InternalBufferSize%2A> </xref:System.IO.FileSystemWatcher.NotifyFilter%2A> 。       ときに`true`IncludeSubdirectories は直下の子ディレクトリだけでなく、全体のサブ ツリーを再帰的です。 <xref:System.IO.FileSystemEventArgs.Name%2A><xref:System.IO.FileSystemEventArgs>および<xref:System.IO.RenamedEventArgs.OldName%2A><xref:System.IO.RenamedEventArgs>データ型を試聴して変更内容に応じて</xref:System.IO.RenamedEventArgs>、プロパティ</xref:System.IO.RenamedEventArgs.OldName%2A></xref:System.IO.FileSystemEventArgs>のプロパティ</xref:System.IO.FileSystemEventArgs.Name%2A>内のファイルまたはサブツリー内のディレクトリへの相対パスを返します <xref:System.IO.FileSystemEventArgs.FullPath%2A><xref:System.IO.FileSystemEventArgs>および<xref:System.IO.RenamedEventArgs.OldFullPath%2A><xref:System.IO.RenamedEventArgs>データ型を試聴して変更内容に応じて</xref:System.IO.RenamedEventArgs>、プロパティ</xref:System.IO.RenamedEventArgs.OldFullPath%2A></xref:System.IO.FileSystemEventArgs>のプロパティ</xref:System.IO.FileSystemEventArgs.FullPath%2A>から完全修飾パスを取得できます。       ディレクトリのサブツリーには、次の監視は、ディレクトリが作成された場合、IncludeSubdirectories `true`、そのディレクトリが自動的に監視します。"
   syntax:
     content: public bool IncludeSubdirectories { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if you want to monitor subdirectories; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>サブディレクトリを監視する場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。 既定値は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.IO.FileSystemWatcher.IncludeSubdirectories*
   exceptions: []
   platform:
@@ -416,13 +416,13 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Gets or sets the size (in bytes) of the internal buffer."
-  remarks: "You can set the buffer to 4 KB or larger, but it must not exceed 64 KB. If you try to set the InternalBufferSize property to less than 4096 bytes, your value is discarded and the InternalBufferSize property is set to 4096 bytes. For best performance, use a multiple of 4 KB on Intel-based computers.       The system notifies the component of file changes, and it stores those changes in a buffer the component creates and passes to the APIs. Each event can use up to 16 bytes of memory, not including the file name. If there are many changes in a short time, the buffer can overflow. This causes the component to lose track of changes in the directory, and it will only provide blanket notification. Increasing the size of the buffer can prevent missing file system change events. However, increasing buffer size is expensive, because it comes from non-paged memory that cannot be swapped out to disk, so keep the buffer as small as possible. To avoid a buffer overflow, use the <xref:System.IO.FileSystemWatcher.NotifyFilter%2A> and <xref:System.IO.FileSystemWatcher.IncludeSubdirectories%2A> properties to filter out unwanted change notifications."
+  summary: "取得またはサイズ (バイト単位) の内部バッファーを設定します。"
+  remarks: "4 KB 以上では、バッファーを設定することができますが、64 KB を超えない必要があります。 4096 バイト未満に InternalBufferSize プロパティを設定しようとする場合、値が破棄され、InternalBufferSize プロパティが 4096 バイトに設定します。 パフォーマンスを得るには、Intel ベース コンピューター上で 4 KB の倍数を使用します。       システム ファイルの変更のコンポーネントに通知し、その変更をコンポーネントを作成し、Api に渡すバッファーに格納します。 各イベントは、最大 16 バイトのファイル名を含まない、メモリを使用できます。 短期間に多数の変更がある場合、バッファーがオーバーフローすることができます。 これにより、コンポーネントは、ディレクトリ内の変更の追跡とブランケットの通知のみ提供されます。 バッファーのサイズを増やすことを防ぐことができます変更イベントをファイル システムがありません。 ただし、バッファー サイズを増やすことは、コストがディスクに保管しておいてバッファー可能な限り小さくスワップ アウトできない非ページ メモリのものであるためです。 バッファー オーバーフローを避けるためを使用して、<xref:System.IO.FileSystemWatcher.NotifyFilter%2A>と<xref:System.IO.FileSystemWatcher.IncludeSubdirectories%2A>望ましくないを除外するプロパティの変更通知</xref:System.IO.FileSystemWatcher.IncludeSubdirectories%2A></xref:System.IO.FileSystemWatcher.NotifyFilter%2A>。"
   syntax:
     content: public int InternalBufferSize { get; set; }
     return:
       type: System.Int32
-      description: "The internal buffer size in bytes. The default is 8192 (8 KB)."
+      description: "バイトの内部バッファー サイズ。 既定値は、8192 (8 KB) です。"
   overload: System.IO.FileSystemWatcher.InternalBufferSize*
   exceptions: []
   platform:
@@ -439,23 +439,23 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Gets or sets the type of changes to watch for."
-  remarks: "You can combine the members of the <xref:System.IO.NotifyFilters> enumeration to watch for more than one type of change at a time. For example, you can watch for changes in size of a file, and for changes in the `LastWrite` time. This raises an event anytime there is a change in file or folder size, or a change in the `LastWrite` time of the file or folder.       This is one way to filter out unwanted notifications. For more information on filtering out unwanted notifications, see the <xref:System.IO.FileSystemWatcher.Filter%2A>, <xref:System.IO.FileSystemWatcher.IncludeSubdirectories%2A>, and <xref:System.IO.FileSystemWatcher.InternalBufferSize%2A> properties."
+  summary: "取得またはウォッチする変更の種類を設定します。"
+  remarks: "メンバーを組み合わせることができます、<xref:System.IO.NotifyFilters>列挙型を一度に変更の&1; つ以上の種類を監視します</xref:System.IO.NotifyFilters>。 たとえば、ファイルのサイズの変更との変更を見ることができます、`LastWrite`時間。 これは、イベントを発生させますが、ファイルまたはフォルダーのサイズの変更や、`LastWrite`ファイルまたはフォルダーの時間。       これは、不必要な通知をフィルター処理する方法の&1; つです。 不必要な通知をフィルター処理の詳細については、次を参照してください、 <xref:System.IO.FileSystemWatcher.Filter%2A>、 <xref:System.IO.FileSystemWatcher.IncludeSubdirectories%2A>、および<xref:System.IO.FileSystemWatcher.InternalBufferSize%2A>プロパティ。</xref:System.IO.FileSystemWatcher.InternalBufferSize%2A> </xref:System.IO.FileSystemWatcher.IncludeSubdirectories%2A> </xref:System.IO.FileSystemWatcher.Filter%2A> 。"
   example:
   - "The following example creates a <xref:System.IO.FileSystemWatcher> to watch the directory specified at run time. The component is set to watch for changes in `LastWrite` and `LastAccess` time, the creation, deletion, or renaming of text files in the directory. If a file is changed, created, or deleted, the path to the file prints to the console. When a file is renamed, the old and new paths print to the console.  \n  \n Use the <xref:System.Diagnostics> and <xref:System.IO> namespaces for this example.  \n  \n [!code-cpp[Classic NotifyFilters Example#1](~/add/codesnippet/cpp/p-system.io.filesystemwa_0_1.cpp)]\n [!code-cs[Classic NotifyFilters Example#1](~/add/codesnippet/csharp/p-system.io.filesystemwa_0_1.cs)]\n [!code-vb[Classic NotifyFilters Example#1](~/add/codesnippet/visualbasic/p-system.io.filesystemwa_0_1.vb)]"
   syntax:
     content: public System.IO.NotifyFilters NotifyFilter { get; set; }
     return:
       type: System.IO.NotifyFilters
-      description: "One of the <xref href=&quot;System.IO.NotifyFilters&quot;></xref> values. The default is the bitwise OR combination of <xref uid=&quot;langword_csharp_LastWrite&quot; name=&quot;LastWrite&quot; href=&quot;&quot;></xref>, <xref uid=&quot;langword_csharp_FileName&quot; name=&quot;FileName&quot; href=&quot;&quot;></xref>, and <xref uid=&quot;langword_csharp_DirectoryName&quot; name=&quot;DirectoryName&quot; href=&quot;&quot;></xref>."
+      description: "1 つ、 <xref href=&quot;System.IO.NotifyFilters&quot;> </xref>値。 既定値のビットごとの OR の組み合わせは、 <xref uid=&quot;langword_csharp_LastWrite&quot; name=&quot;LastWrite&quot; href=&quot;&quot;> </xref>、 <xref uid=&quot;langword_csharp_FileName&quot; name=&quot;FileName&quot; href=&quot;&quot;> </xref>、および<xref uid=&quot;langword_csharp_DirectoryName&quot; name=&quot;DirectoryName&quot; href=&quot;&quot;></xref>です。"
   overload: System.IO.FileSystemWatcher.NotifyFilter*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value is not a valid bitwise OR combination of the <xref href=&quot;System.IO.NotifyFilters&quot;></xref> values."
+    description: "値は、有効なビットごとの OR の組み合わせではない、 <xref href=&quot;System.IO.NotifyFilters&quot;> </xref>値。"
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "The value that is being set is not valid."
+    description: "設定されている値が正しくありません。"
   platform:
   - net462
 - uid: System.IO.FileSystemWatcher.OnChanged(System.IO.FileSystemEventArgs)
@@ -470,14 +470,14 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Raises the <xref href=&quot;System.IO.FileSystemWatcher.Changed&quot;></xref> event."
-  remarks: "OnChanged is called when changes are made to the size, system attributes, last write time, last access time, or security permissions of a file or directory in the directory being monitored.       Use the <xref:System.IO.FileSystemWatcher.NotifyFilter%2A> property to restrict the number of events raised when the <xref:System.IO.FileSystemWatcher.Changed> event is handled.       The <xref:System.IO.FileSystemWatcher.OnCreated%2A> event is raised as soon as a file is created. If a file is being copied or transferred into a watched directory, the <xref:System.IO.FileSystemWatcher.OnCreated%2A> event will be raised immediately, followed by one or more OnChanged events.       Raising an event invokes the event handler through a delegate. For more information, see [Events](~/add/includes/ajax-current-ext-md.md)."
+  summary: "発生させる、 <xref href=&quot;System.IO.FileSystemWatcher.Changed&quot;> </xref>イベント。"
+  remarks: "OnChanged は、サイズが変更されたときに呼び出されますが、システム属性では、最終書き込み時刻、最終アクセス時刻、またはファイルまたはディレクトリのセキュリティ アクセス許可で監視されているディレクトリ。       使用して、<xref:System.IO.FileSystemWatcher.NotifyFilter%2A>いつ発生するイベントの数を制限するプロパティ、<xref:System.IO.FileSystemWatcher.Changed>イベントを処理します</xref:System.IO.FileSystemWatcher.Changed></xref:System.IO.FileSystemWatcher.NotifyFilter%2A>。       <xref:System.IO.FileSystemWatcher.OnCreated%2A>ファイルが作成されるとすぐにイベントが発生します</xref:System.IO.FileSystemWatcher.OnCreated%2A>。 ファイルの中の場合コピーまたは転送を監視対象のディレクトリに、<xref:System.IO.FileSystemWatcher.OnCreated%2A>イベントを発生させる、すぐに&1; つまたは複数の OnChanged イベント続く</xref:System.IO.FileSystemWatcher.OnCreated%2A>。       イベントを発生させるには、イベント ハンドラーがデリゲートからを呼び出されます。 詳細については、次を参照してください。[イベント](~/add/includes/ajax-current-ext-md.md)です。"
   syntax:
     content: protected void OnChanged (System.IO.FileSystemEventArgs e);
     parameters:
     - id: e
       type: System.IO.FileSystemEventArgs
-      description: "A <xref href=&quot;System.IO.FileSystemEventArgs&quot;></xref> that contains the event data."
+      description: "A <xref href=&quot;System.IO.FileSystemEventArgs&quot;> </xref>イベント データを格納します。"
   overload: System.IO.FileSystemWatcher.OnChanged*
   exceptions: []
   platform:
@@ -494,14 +494,14 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Raises the <xref href=&quot;System.IO.FileSystemWatcher.Created&quot;></xref> event."
+  summary: "発生させる、 <xref href=&quot;System.IO.FileSystemWatcher.Created&quot;> </xref>イベント。"
   remarks: "OnCreated is called when a file or directory is created in the directory being monitored.  \n  \n Some common occurrences, such as copying or moving a file or directory, do not correspond directly to an event, but these occurrences do cause events to be raised. When you copy a file or directory, the system raises a <xref:System.IO.FileSystemWatcher.Created> event in the directory to which the file was copied, if that directory is being watched. If the directory from which you copied was being watched by another instance of <xref:System.IO.FileSystemWatcher>, no event would be raised. For example, you create two instances of <xref:System.IO.FileSystemWatcher>. FileSystemWatcher1 is set to watch \"C:\\My Documents\", and FileSystemWatcher2 is set to watch \"C:\\Your Documents\". If you copy a file from \"My Documents\" and paste it into \"Your Documents\", a <xref:System.IO.FileSystemWatcher.Created> event will be raised in FileSystemWatcher2, but no event is raised for FileSystemWatcher1. Unlike copying, moving a file or directory raises two events. From the previous example, if you moved a file from \"My Documents\" to \"Your Documents\", a <xref:System.IO.FileSystemWatcher.Created> event would be raised in FileSystemWatcher2 and a <xref:System.IO.FileSystemWatcher.Deleted> event would be raised in FileSystemWatcher1.  \n  \n The OnCreated event is raised as soon as a file is created. If a file is being copied or transferred into a watched directory, the OnCreated event will be raised immediately, followed by one or more <xref:System.IO.FileSystemWatcher.OnChanged%2A> events.  \n  \n Raising an event invokes the event handler through a delegate. For more information, see [Events](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: protected void OnCreated (System.IO.FileSystemEventArgs e);
     parameters:
     - id: e
       type: System.IO.FileSystemEventArgs
-      description: "A <xref href=&quot;System.IO.FileSystemEventArgs&quot;></xref> that contains the event data."
+      description: "A <xref href=&quot;System.IO.FileSystemEventArgs&quot;> </xref>イベント データを格納します。"
   overload: System.IO.FileSystemWatcher.OnCreated*
   exceptions: []
   platform:
@@ -518,14 +518,14 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Raises the <xref href=&quot;System.IO.FileSystemWatcher.Deleted&quot;></xref> event."
+  summary: "発生させる、 <xref href=&quot;System.IO.FileSystemWatcher.Deleted&quot;> </xref>イベント。"
   remarks: "OnDeleted is called when a file or directory, within the directory being monitored, is deleted.  \n  \n Some common occurrences, such as copying or moving a file or directory, do not correspond directly to an event, but these occurrences do cause events to be raised. When you copy a file or directory, the system raises a <xref:System.IO.FileSystemWatcher.Created> event in the directory to which the file was copied, if that directory is being watched. If the directory from which you copied was being watched by another instance of <xref:System.IO.FileSystemWatcher>, no event would be raised. For example, you create two instances of <xref:System.IO.FileSystemWatcher>. FileSystemWatcher1 is set to watch \"C:\\My Documents\", and FileSystemWatcher2 is set to watch \"C:\\Your Documents\". If you copy a file from \"My Documents\" into \"Your Documents\", a <xref:System.IO.FileSystemWatcher.Created> event will be raised by FileSystemWatcher2, but no event is raised for FileSystemWatcher1. Unlike copying, moving a file or directory raises two events. From the previous example, if you moved a file from \"My Documents\" to \"Your Documents\", a <xref:System.IO.FileSystemWatcher.Created> event would be raised by FileSystemWatcher2 and a <xref:System.IO.FileSystemWatcher.Deleted> event would be raised by FileSystemWatcher1.  \n  \n Raising an event invokes the event handler through a delegate. For more information, see [Events](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: protected void OnDeleted (System.IO.FileSystemEventArgs e);
     parameters:
     - id: e
       type: System.IO.FileSystemEventArgs
-      description: "A <xref href=&quot;System.IO.FileSystemEventArgs&quot;></xref> that contains the event data."
+      description: "A <xref href=&quot;System.IO.FileSystemEventArgs&quot;> </xref>イベント データを格納します。"
   overload: System.IO.FileSystemWatcher.OnDeleted*
   exceptions: []
   platform:
@@ -542,14 +542,14 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Raises the <xref href=&quot;System.IO.FileSystemWatcher.Error&quot;></xref> event."
-  remarks: "OnError is called when an error occurs.       Raising an event invokes the event handler through a delegate. For more information, see [Events](~/add/includes/ajax-current-ext-md.md)."
+  summary: "発生させる、 <xref href=&quot;System.IO.FileSystemWatcher.Error&quot;> </xref>イベント。"
+  remarks: "OnError は、エラーが発生したときに呼び出されます。       イベントを発生させるには、イベント ハンドラーがデリゲートからを呼び出されます。 詳細については、次を参照してください。[イベント](~/add/includes/ajax-current-ext-md.md)です。"
   syntax:
     content: protected void OnError (System.IO.ErrorEventArgs e);
     parameters:
     - id: e
       type: System.IO.ErrorEventArgs
-      description: "An <xref href=&quot;System.IO.ErrorEventArgs&quot;></xref> that contains the event data."
+      description: "<xref href=&quot;System.IO.ErrorEventArgs&quot;> </xref>イベント データを格納します。"
   overload: System.IO.FileSystemWatcher.OnError*
   exceptions: []
   platform:
@@ -566,14 +566,14 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Raises the <xref href=&quot;System.IO.FileSystemWatcher.Renamed&quot;></xref> event."
-  remarks: "OnRenamed is called when a file or directory within the directory being monitored is renamed.       Raising an event invokes the event handler through a delegate. For more information, see [Events](~/add/includes/ajax-current-ext-md.md)."
+  summary: "発生させる、 <xref href=&quot;System.IO.FileSystemWatcher.Renamed&quot;> </xref>イベント。"
+  remarks: "OnRenamed は、ファイルまたは監視されているディレクトリ内のディレクトリの名前を変更するときに呼び出されます。       イベントを発生させるには、イベント ハンドラーがデリゲートからを呼び出されます。 詳細については、次を参照してください。[イベント](~/add/includes/ajax-current-ext-md.md)です。"
   syntax:
     content: protected void OnRenamed (System.IO.RenamedEventArgs e);
     parameters:
     - id: e
       type: System.IO.RenamedEventArgs
-      description: "A <xref href=&quot;System.IO.RenamedEventArgs&quot;></xref> that contains the event data."
+      description: "A <xref href=&quot;System.IO.RenamedEventArgs&quot;> </xref>イベント データを格納します。"
   overload: System.IO.FileSystemWatcher.OnRenamed*
   exceptions: []
   platform:
@@ -590,7 +590,7 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Gets or sets the path of the directory to watch."
+  summary: "取得またはウォッチするディレクトリのパスを設定します。"
   remarks: "This is a fully qualified path to a directory. If the <xref:System.IO.FileSystemWatcher.IncludeSubdirectories%2A> property is `true`, this directory is the root at which the system watches for changes; otherwise it is the only directory watched. To watch a specific file, set the Path property to the fully qualified, correct directory, and the <xref:System.IO.FileSystemWatcher.Filter%2A> property to the file name.  \n  \n The Path property supports Universal Naming Convention (UNC) paths.  \n  \n> [!NOTE]\n>  This property must be set before the component can watch for changes.  \n  \n When a directory is renamed, the <xref:System.IO.FileSystemWatcher> automatically reattaches itself to the newly renamed item. For example, if you set the Path property to \"C:\\My Documents\" and then manually rename the directory to \"C:\\Your Documents\", the component continues listening for change notifications on the newly renamed directory. However, when you ask for the Path property, it contains the old path. This happens because the component determines what directory watches based on the handle, rather than the name of the directory. Renaming does not affect the handle. So, if you destroy the component, and then recreate it without updating the Path property, your application will fail because the directory no longer exists."
   example:
   - "The following example creates a <xref:System.IO.FileSystemWatcher> to watch the directory specified at run time. The component is set to watch for changes in `LastWrite` and `LastAccess` time, the creation, deletion, or renaming of text files in the directory. If a file is changed, created, or deleted, the path to the file prints to the console. When a file is renamed, the old and new paths print to the console.  \n  \n Use the <xref:System.Diagnostics> and <xref:System.IO> namespaces for this example.  \n  \n [!code-cpp[Classic NotifyFilters Example#1](~/add/codesnippet/cpp/p-system.io.filesystemwa_1_1.cpp)]\n [!code-cs[Classic NotifyFilters Example#1](~/add/codesnippet/csharp/p-system.io.filesystemwa_1_1.cs)]\n [!code-vb[Classic NotifyFilters Example#1](~/add/codesnippet/visualbasic/p-system.io.filesystemwa_1_1.vb)]"
@@ -598,12 +598,12 @@ items:
     content: public string Path { get; set; }
     return:
       type: System.String
-      description: "The path to monitor. The default is an empty string (&quot;&quot;)."
+      description: "監視するパス。 既定値は空の文字列 (&quot;&quot;) です。"
   overload: System.IO.FileSystemWatcher.Path*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The specified path does not exist or could not be found.       -or-       The specified path contains wildcard characters.       -or-       The specified path contains invalid path characters."
+    description: "指定されたパスは存在しないか、見つかりませんでした。       または、指定されたパスにワイルドカード文字が含まれています。       または、指定されたパスに無効なパス文字が含まれています。"
   platform:
   - net462
 - uid: System.IO.FileSystemWatcher.Renamed
@@ -618,15 +618,15 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Occurs when a file or directory in the specified <xref:System.IO.FileSystemWatcher.Path*> is renamed."
-  remarks: "Renaming the directory you are watching will not raise a notification. Notifications are only raised for entries inside the directory you are watching."
+  summary: "ファイルまたはディレクトリが指定されたときに発生<xref:System.IO.FileSystemWatcher.Path*>名前が変更されます</xref:System.IO.FileSystemWatcher.Path*>。"
+  remarks: "ウォッチするディレクトリの名前を変更する場合は、通知は発生しません。 通知を試聴しているディレクトリ内のエントリに対してのみ発生します。"
   example:
   - "The following example uses the Renamed event to display the file path to the console whenever the watched file is renamed.  \n  \n [!code-cpp[Classic NotifyFilters Example#1](~/add/codesnippet/cpp/e-system.io.filesystemwa_2_1.cpp)]\n [!code-cs[Classic NotifyFilters Example#1](~/add/codesnippet/csharp/e-system.io.filesystemwa_2_1.cs)]\n [!code-vb[Classic NotifyFilters Example#1](~/add/codesnippet/visualbasic/e-system.io.filesystemwa_2_1.vb)]"
   syntax:
     content: public event System.IO.RenamedEventHandler Renamed;
     return:
       type: System.IO.RenamedEventHandler
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -642,8 +642,8 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Gets or sets an <xref href=&quot;System.ComponentModel.ISite&quot;></xref> for the <xref href=&quot;System.IO.FileSystemWatcher&quot;></xref>."
-  remarks: "Sites bind a <xref:System.ComponentModel.Component> to a <xref:System.ComponentModel.Design.IDesignerHost.Container%2A> and enable communication between them, as well as provide a way for the container to manage its components."
+  summary: "取得または設定、 <xref href=&quot;System.ComponentModel.ISite&quot;> </xref>の<xref href=&quot;System.IO.FileSystemWatcher&quot;></xref>です。"
+  remarks: "サイトのバインド、<xref:System.ComponentModel.Component>を<xref:System.ComponentModel.Design.IDesignerHost.Container%2A>とそれらの間で通信を有効にするだけでなく、コンテナーは、そのコンポーネントを管理するための手段を提供します</xref:System.ComponentModel.Design.IDesignerHost.Container%2A></xref:System.ComponentModel.Component>。"
   syntax:
     content: public override System.ComponentModel.ISite Site { get; set; }
     return:
@@ -665,13 +665,13 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "Gets or sets the object used to marshal the event handler calls issued as a result of a directory change."
-  remarks: "When SynchronizingObject is `null`, methods handling the <xref:System.IO.FileSystemWatcher.Changed>, <xref:System.IO.FileSystemWatcher.Created>, <xref:System.IO.FileSystemWatcher.Deleted>, and <xref:System.IO.FileSystemWatcher.Renamed> events are called on a thread from the system thread pool. For more information on system thread pools, see <xref:System.Threading.ThreadPool>.       When the <xref:System.IO.FileSystemWatcher.Changed>, <xref:System.IO.FileSystemWatcher.Created>, <xref:System.IO.FileSystemWatcher.Deleted>, and <xref:System.IO.FileSystemWatcher.Renamed> events are handled by a visual Windows Forms component, such as a <xref:System.Windows.Forms.Button>, accessing the component through the system thread pool might not work, or may result in an exception. Avoid this by setting SynchronizingObject to a Windows Forms component, which causes the methods that handle the <xref:System.IO.FileSystemWatcher.Changed>, <xref:System.IO.FileSystemWatcher.Created>, <xref:System.IO.FileSystemWatcher.Deleted>, and <xref:System.IO.FileSystemWatcher.Renamed> events to be called on the same thread on which the component was created.       If the <xref:System.IO.FileSystemWatcher> is used inside [!INCLUDE[vsprvslong](~/add/includes/ajax-current-ext-md.md)] in a Windows Forms designer, SynchronizingObject automatically sets to the control that contains the <xref:System.IO.FileSystemWatcher>. For example, if you place a <xref:System.IO.FileSystemWatcher> on a designer for Form1 (which inherits from <xref:System.Windows.Forms.Form>) the SynchronizingObject property of <xref:System.IO.FileSystemWatcher> is set to the instance of Form1."
+  summary: "取得または、ディレクトリ変更の結果として発行されるイベント ハンドラー呼び出しをマーシャ リングに使用するオブジェクトを設定します。"
+  remarks: "SynchronizingObject がある場合`null`、処理方法、 <xref:System.IO.FileSystemWatcher.Changed>、 <xref:System.IO.FileSystemWatcher.Created>、 <xref:System.IO.FileSystemWatcher.Deleted>、および<xref:System.IO.FileSystemWatcher.Renamed>イベントがシステムのスレッド プールのスレッドで呼び出されます</xref:System.IO.FileSystemWatcher.Renamed></xref:System.IO.FileSystemWatcher.Deleted></xref:System.IO.FileSystemWatcher.Created></xref:System.IO.FileSystemWatcher.Changed>。 システム スレッド プールの詳細については、 <xref:System.Threading.ThreadPool>。</xref:System.Threading.ThreadPool>を参照してください。       ときに、 <xref:System.IO.FileSystemWatcher.Changed>、 <xref:System.IO.FileSystemWatcher.Created>、 <xref:System.IO.FileSystemWatcher.Deleted>、および<xref:System.IO.FileSystemWatcher.Renamed>ようイベントを Windows フォームのビジュアル コンポーネントによって処理される、 <xref:System.Windows.Forms.Button>、システム スレッド プールを介したコンポーネントへのアクセスが機能しない、または例外が発生する可能性があります</xref:System.Windows.Forms.Button></xref:System.IO.FileSystemWatcher.Renamed></xref:System.IO.FileSystemWatcher.Deleted></xref:System.IO.FileSystemWatcher.Created></xref:System.IO.FileSystemWatcher.Changed>。 SynchronizingObject を処理するメソッドを、Windows フォームのコンポーネントに設定してこれを避けるため、 <xref:System.IO.FileSystemWatcher.Changed>、 <xref:System.IO.FileSystemWatcher.Created>、 <xref:System.IO.FileSystemWatcher.Deleted>、および<xref:System.IO.FileSystemWatcher.Renamed>コンポーネントが作成されたスレッドと同じスレッドで呼び出されるイベント</xref:System.IO.FileSystemWatcher.Renamed></xref:System.IO.FileSystemWatcher.Deleted></xref:System.IO.FileSystemWatcher.Created></xref:System.IO.FileSystemWatcher.Changed>。       場合、<xref:System.IO.FileSystemWatcher>内で使用する[!INCLUDE[vsprvslong](~/add/includes/ajax-current-ext-md.md)]、Windows フォーム デザイナーで SynchronizingObject に自動的に設定を含む<xref:System.IO.FileSystemWatcher>.</xref:System.IO.FileSystemWatcher>コントロール</xref:System.IO.FileSystemWatcher> 配置する場合など、 <xref:System.IO.FileSystemWatcher>Form1 のデザイナー上 (から継承される<xref:System.Windows.Forms.Form>) の SynchronizingObject プロパティ<xref:System.IO.FileSystemWatcher>Form1 のインスタンスに設定されている</xref:System.IO.FileSystemWatcher></xref:System.Windows.Forms.Form></xref:System.IO.FileSystemWatcher>。"
   syntax:
     content: public System.ComponentModel.ISynchronizeInvoke SynchronizingObject { get; set; }
     return:
       type: System.ComponentModel.ISynchronizeInvoke
-      description: "The <xref href=&quot;System.ComponentModel.ISynchronizeInvoke&quot;></xref> that represents the object used to marshal the event handler calls issued as a result of a directory change. The default is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "<xref href=&quot;System.ComponentModel.ISynchronizeInvoke&quot;> </xref>ディレクトリ変更の結果として発行されるイベント ハンドラー呼び出しをマーシャ リングするために使用するオブジェクトを表すです。 既定値は<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   overload: System.IO.FileSystemWatcher.SynchronizingObject*
   exceptions: []
   platform:
@@ -688,17 +688,17 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "A synchronous method that returns a structure that contains specific information on the change that occurred, given the type of change you want to monitor."
-  remarks: "This method waits indefinitely until the first change occurs and then returns. This is the same as using WaitForChanged with the `timeout` parameter set to -1.      > [!NOTE] >  This method allows an event handler to be invoked to respond to file changes even if the <xref:System.IO.FileSystemWatcher.EnableRaisingEvents%2A> property is set to `false`.       In some systems, <xref:System.IO.FileSystemWatcher> reports changes to files using the short 8.3 file name format. For example, a change to  &quot;LongFileName.LongExtension&quot; could be reported as &quot;LongFi~.Lon&quot;."
+  summary: "監視する変更の種類を指定して、発生した変更についての特定の情報を格納する構造体を返す同期メソッド。"
+  remarks: "このメソッドは、最初の変更が発生し、返しますまで無期限に待機します。 これと同じで WaitForChanged を使用して、`timeout`パラメーターが-1 に設定します。      > [!NOTE] > このメソッドに応答ファイルの変更の場合でも呼び出されるイベント ハンドラーを使用する、<xref:System.IO.FileSystemWatcher.EnableRaisingEvents%2A>プロパティに設定されている`false`</xref:System.IO.FileSystemWatcher.EnableRaisingEvents%2A>。       一部のシステムで<xref:System.IO.FileSystemWatcher>短い 8.3 ファイル名の形式を使用してファイルへの変更を報告します</xref:System.IO.FileSystemWatcher>。 たとえば、&quot;LongFileName.LongExtension&quot;への変更として報告する&quot;LongFi ~ です。Lon&quot;です。"
   syntax:
     content: public System.IO.WaitForChangedResult WaitForChanged (System.IO.WatcherChangeTypes changeType);
     parameters:
     - id: changeType
       type: System.IO.WatcherChangeTypes
-      description: "The <xref href=&quot;System.IO.WatcherChangeTypes&quot;></xref> to watch for."
+      description: "<xref href=&quot;System.IO.WatcherChangeTypes&quot;> </xref>を監視します。"
     return:
       type: System.IO.WaitForChangedResult
-      description: "A <xref href=&quot;System.IO.WaitForChangedResult&quot;></xref> that contains specific information on the change that occurred."
+      description: "A <xref href=&quot;System.IO.WaitForChangedResult&quot;> </xref>発生した変更についての特定の情報を格納します。"
   overload: System.IO.FileSystemWatcher.WaitForChanged*
   exceptions: []
   platform:
@@ -715,20 +715,20 @@ items:
   assemblies:
   - System
   namespace: System.IO
-  summary: "A synchronous method that returns a structure that contains specific information on the change that occurred, given the type of change you want to monitor and the time (in milliseconds) to wait before timing out."
-  remarks: "This method waits until a change occurs or it has timed out. A value of -1 for the `timeout` parameter means wait indefinitely.      > [!NOTE] >  This method allows an event handler to be invoked to respond to file changes even if the <xref:System.IO.FileSystemWatcher.EnableRaisingEvents%2A> property is set to `false`.       In some systems, <xref:System.IO.FileSystemWatcher> reports changes to files using the short 8.3 file name format. For example, a change to  &quot;LongFileName.LongExtension&quot; could be reported as &quot;LongFi~.Lon&quot;."
+  summary: "タイムアウトになるまで待機する時間 (ミリ秒) の監視と変更の種類を指定して、発生した変更についての特定の情報を含む構造体を返す同期メソッド。"
+  remarks: "このメソッドは、変更が発生したかがタイムアウトするまで待機します。 達すると-1 の値、`timeout`パラメーターは、無期限に待機することを意味します。      > [!NOTE] > このメソッドに応答ファイルの変更の場合でも呼び出されるイベント ハンドラーを使用する、<xref:System.IO.FileSystemWatcher.EnableRaisingEvents%2A>プロパティに設定されている`false`</xref:System.IO.FileSystemWatcher.EnableRaisingEvents%2A>。       一部のシステムで<xref:System.IO.FileSystemWatcher>短い 8.3 ファイル名の形式を使用してファイルへの変更を報告します</xref:System.IO.FileSystemWatcher>。 たとえば、&quot;LongFileName.LongExtension&quot;への変更として報告する&quot;LongFi ~ です。Lon&quot;です。"
   syntax:
     content: public System.IO.WaitForChangedResult WaitForChanged (System.IO.WatcherChangeTypes changeType, int timeout);
     parameters:
     - id: changeType
       type: System.IO.WatcherChangeTypes
-      description: "The <xref href=&quot;System.IO.WatcherChangeTypes&quot;></xref> to watch for."
+      description: "<xref href=&quot;System.IO.WatcherChangeTypes&quot;> </xref>を監視します。"
     - id: timeout
       type: System.Int32
-      description: "The time (in milliseconds) to wait before timing out."
+      description: "時間 (ミリ秒単位) をタイムアウトになるまで待機します。"
     return:
       type: System.IO.WaitForChangedResult
-      description: "A <xref href=&quot;System.IO.WaitForChangedResult&quot;></xref> that contains specific information on the change that occurred."
+      description: "A <xref href=&quot;System.IO.WaitForChangedResult&quot;> </xref>発生した変更についての特定の情報を格納します。"
   overload: System.IO.FileSystemWatcher.WaitForChanged*
   exceptions: []
   platform:
