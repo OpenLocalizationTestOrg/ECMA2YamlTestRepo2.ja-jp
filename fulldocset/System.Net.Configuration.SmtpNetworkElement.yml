@@ -20,8 +20,8 @@ items:
   nameWithType: SmtpNetworkElement
   fullName: System.Net.Configuration.SmtpNetworkElement
   type: Class
-  summary: "Represents the network element in the SMTP configuration file. This class cannot be inherited."
-  remarks: "Use this class to configure an SMTP client."
+  summary: "SMTP 構成ファイル内のネットワーク要素を表します。 このクラスは継承できません。"
+  remarks: "このクラスを使用すると、SMTP クライアントを構成します。"
   syntax:
     content: 'public sealed class SmtpNetworkElement : System.Configuration.ConfigurationElement'
   inheritance:
@@ -76,7 +76,7 @@ items:
   assemblies:
   - System
   namespace: System.Net.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Configuration.SmtpNetworkElement&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Net.Configuration.SmtpNetworkElement&quot;> </xref>クラスです。"
   syntax:
     content: public SmtpNetworkElement ();
     parameters: []
@@ -96,13 +96,13 @@ items:
   assemblies:
   - System
   namespace: System.Net.Configuration
-  summary: "Gets or sets the client domain name used in the initial SMTP protocol request to connect to an SMTP mail server."
-  remarks: "The ClientDomain property allows an application to change the client domain name used in the initial SMTP protocol request to an SMTP server. If the ClientDomain property is not set, the default is to use the localhost name of the local computer sending the request.       RFC 2821 that defines the details of the Simple Mail Transport Protocol (SMTP). This RFC stipulates that an SMTP client should use a fully-qualified domain name as part of its HELO or Extended HELO (EHLO) message to a server.       The ClientDomain property allows an application to change the client domain name (the RFC uses the term Domain in the protocol description) to use the fully-qualified domain name of the local machine, rather than the localhost name that is used by default. This provides greater compliance with the SMTP protocol standards. However, the fully-qualified domain name may expose private information about the local computer.       Any name set in the ClientDomain property should conform to DNS rules for 7-bit ASCII names.       The default value for this network element in the SMTP configuration file can also be changed by manually editing the machine or application configuration files directly."
+  summary: "取得または SMTP メール サーバーに接続する最初の SMTP プロトコルの要求で使用されるクライアントのドメイン名を設定します。"
+  remarks: "ClientDomain プロパティでは、SMTP サーバーに初期の SMTP プロトコルの要求で使用されるクライアントのドメイン名を変更するアプリケーションを使用できます。 ClientDomain プロパティが設定されていない場合、既定では、要求を送信するローカル コンピューターのローカル ホスト名を使用します。       簡易メール転送プロトコル (SMTP) の詳細を定義する RFC 2821 です。 この RFC では、SMTP クライアントがサーバーにその HELO または拡張 HELO (EHLO) メッセージの一部として完全修飾ドメイン名を使用する必要がありますと規定されています。       ClientDomain プロパティでは、既定で使用されるローカル ホスト名ではなく、ローカル コンピューターの完全修飾ドメイン名を使用する (RFC は、プロトコルの説明のドメインの用語を使用)、クライアントのドメイン名を変更するアプリケーションを使用できます。 これは、大きい標準に準拠して、SMTP プロトコルを提供します。 ただし、完全修飾ドメイン名は、ローカル コンピューターに関するプライベートな情報を公開することがあります。       ClientDomain プロパティで設定された任意の名前は、7 ビット ASCII 名の DNS の規則に従う必要があります。       SMTP 構成ファイルでは、このネットワーク要素の既定値は、コンピューターまたはアプリケーションを手動で編集して変更することもファイルを直接構成します。"
   syntax:
     content: public string ClientDomain { get; set; }
     return:
       type: System.String
-      description: "A string that represents the client domain name used in the initial SMTP protocol request to connect to an SMTP mail server."
+      description: "SMTP メール サーバーに接続する最初の SMTP プロトコルの要求で使用されるクライアントのドメイン名を表す文字列。"
   overload: System.Net.Configuration.SmtpNetworkElement.ClientDomain*
   exceptions: []
   platform:
@@ -119,12 +119,12 @@ items:
   assemblies:
   - System
   namespace: System.Net.Configuration
-  summary: "Determines whether or not default user credentials are used to access an SMTP server. The default value is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+  summary: "SMTP サーバーへのアクセスを既定のユーザー資格情報が使用されるかどうかを判断します。 既定値は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   syntax:
     content: public bool DefaultCredentials { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> indicates that default user credentials will be used to access the SMTP server; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>その既定のユーザー資格情報を使用して、SMTP サーバーへのアクセスを示しますそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.Configuration.SmtpNetworkElement.DefaultCredentials*
   exceptions: []
   platform:
@@ -141,13 +141,13 @@ items:
   assemblies:
   - System
   namespace: System.Net.Configuration
-  summary: "Gets or sets whether SSL is used to access an SMTP mail server. The default value is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
-  remarks: "The EnableSsl property indicates if SSL is used to access an SMTP mail server. The <xref:System.Net.Mail.SmtpClient> class only supports the SMTP Service Extension for Secure SMTP over Transport Layer Security as defined in RFC 3207. In this mode, the SMTP session begins on an unencrypted channel, then a STARTTLS command is issued by the client to the server to switch to secure communication using SSL. See RFC 3207 published by the Internet Engineering Task Force (IETF) for more information.       An alternate connection method is where an SSL session is established up front before any protocol commands are sent. This connection method is sometimes called SMTPS and by default uses port 465. This alternate connection method using SSL is not currently supported."
+  summary: "取得または SMTP メール サーバーへのアクセスに SSL が使用されるかどうかを設定します。 既定値は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
+  remarks: "EnableSsl プロパティは、SMTP メール サーバーへのアクセスに SSL が使用されるかどうかを示します。 <xref:System.Net.Mail.SmtpClient>クラスのみがサポート SMTP サービス拡張 SMTP のセキュリティで保護されたトランスポート層セキュリティ経由での RFC 3207 で定義されている</xref:System.Net.Mail.SmtpClient>。 このモードでは、SMTP セッションが暗号化されていないチャネルで開始し、STARTTLS コマンドがクライアントで SSL を使用してセキュリティで保護された通信に切り替えるには、サーバーに発行します。 詳細についてはインターネット技術標準化委員会 (IETF) によって発行された RFC 3207 を参照してください。       代替の接続方法は、任意のプロトコル コマンドを送信する前の SSL セッションの前払いの確立です。 この接続方法は、SMTPS とも呼ばれますが、既定ではポート 465 を使用します。 SSL を使用してこの代替の接続方法は現在サポートされていません。"
   syntax:
     content: public bool EnableSsl { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> indicates that SSL will be used to access the SMTP mail server; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>SSL が SMTP メール サーバーへのアクセスに使用されることを示しますそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Net.Configuration.SmtpNetworkElement.EnableSsl*
   exceptions: []
   platform:
@@ -164,12 +164,12 @@ items:
   assemblies:
   - System
   namespace: System.Net.Configuration
-  summary: "Gets or sets the name of the SMTP server."
+  summary: "取得または SMTP サーバーの名前を設定します。"
   syntax:
     content: public string Host { get; set; }
     return:
       type: System.String
-      description: "A string that represents the name of the SMTP server to connect to."
+      description: "接続に SMTP サーバーの名前を表す文字列。"
   overload: System.Net.Configuration.SmtpNetworkElement.Host*
   exceptions: []
   platform:
@@ -186,13 +186,13 @@ items:
   assemblies:
   - System
   namespace: System.Net.Configuration
-  summary: "Gets or sets the user password to use to connect to an SMTP mail server."
-  remarks: "Setting <xref:System.Net.Configuration.SmtpNetworkElement.DefaultCredentials%2A> takes precedence over setting <xref:System.Net.Configuration.SmtpNetworkElement.UserName%2A> and Password. <xref:System.Net.Configuration.SmtpNetworkElement.UserName%2A> and Password are used only if <xref:System.Net.Configuration.SmtpNetworkElement.DefaultCredentials%2A> is set to `false`."
+  summary: "取得または使用して、SMTP メール サーバーに接続するユーザー パスワードを設定します。"
+  remarks: "設定<xref:System.Net.Configuration.SmtpNetworkElement.DefaultCredentials%2A>設定よりも優先<xref:System.Net.Configuration.SmtpNetworkElement.UserName%2A>とパスワード</xref:System.Net.Configuration.SmtpNetworkElement.UserName%2A></xref:System.Net.Configuration.SmtpNetworkElement.DefaultCredentials%2A>。 <xref:System.Net.Configuration.SmtpNetworkElement.UserName%2A>パスワードが使用されるは、場合にのみ、<xref:System.Net.Configuration.SmtpNetworkElement.DefaultCredentials%2A>に設定されている`false`</xref:System.Net.Configuration.SmtpNetworkElement.DefaultCredentials%2A>。</xref:System.Net.Configuration.SmtpNetworkElement.UserName%2A>"
   syntax:
     content: public string Password { get; set; }
     return:
       type: System.String
-      description: "A string that represents the password to use to connect to an SMTP mail server."
+      description: "SMTP メール サーバーへの接続に使用するパスワードを表す文字列。"
   overload: System.Net.Configuration.SmtpNetworkElement.Password*
   exceptions: []
   platform:
@@ -209,12 +209,12 @@ items:
   assemblies:
   - System
   namespace: System.Net.Configuration
-  summary: "Gets or sets the port that SMTP clients use to connect to an SMTP mail server. The default value is 25."
+  summary: "取得または SMTP のクライアントが、SMTP メール サーバーへの接続に使用するポートを設定します。 既定値は 25 です。"
   syntax:
     content: public int Port { get; set; }
     return:
       type: System.Int32
-      description: "A string that represents the port to connect to an SMTP mail server."
+      description: "SMTP メール サーバーに接続するポートを表す文字列。"
   overload: System.Net.Configuration.SmtpNetworkElement.Port*
   exceptions: []
   platform:
@@ -254,7 +254,7 @@ items:
     content: protected override System.Configuration.ConfigurationPropertyCollection Properties { get; }
     return:
       type: System.Configuration.ConfigurationPropertyCollection
-      description: "To be added."
+      description: "追加します。"
   overload: System.Net.Configuration.SmtpNetworkElement.Properties*
   exceptions: []
   platform:
@@ -271,13 +271,13 @@ items:
   assemblies:
   - System
   namespace: System.Net.Configuration
-  summary: "Gets or sets the Service Provider Name (SPN) to use for authentication when using extended protection to connect to an SMTP mail server."
+  summary: "取得または拡張保護を使用して、SMTP メール サーバーに接続するときに、認証に使用するサービス プロバイダー名 (SPN) を設定します。"
   remarks: "The TargetName property allows an application to get or set the SPN to use for authentication when integrated Windows authentication with extended protection. If the TargetName property is not set, the default value for this SPN is of the form \"SMTPSVC/\\<host>\" where \\<host> is the hostname of the SMTP mail server.  \n  \n The default value for this network element in the SMTP configuration file can also be changed by manually editing the machine or application configuration files directly."
   syntax:
     content: public string TargetName { get; set; }
     return:
       type: System.String
-      description: "A string that represents the SPN to use for authentication when using extended protection to connect to an SMTP mail server."
+      description: "拡張保護を使用して、SMTP メール サーバーに接続するときに、認証に使用する SPN を表す文字列。"
   overload: System.Net.Configuration.SmtpNetworkElement.TargetName*
   exceptions: []
   platform:
@@ -294,13 +294,13 @@ items:
   assemblies:
   - System
   namespace: System.Net.Configuration
-  summary: "Gets or sets the user name to connect to an SMTP mail server."
-  remarks: "Setting <xref:System.Net.Configuration.SmtpNetworkElement.DefaultCredentials%2A> takes precedence over setting UserName and <xref:System.Net.Configuration.SmtpNetworkElement.Password%2A>. UserName and <xref:System.Net.Configuration.SmtpNetworkElement.Password%2A> are used only if <xref:System.Net.Configuration.SmtpNetworkElement.DefaultCredentials%2A> is set to `false`."
+  summary: "取得または SMTP メール サーバーに接続するユーザー名を設定します。"
+  remarks: "<xref:System.Net.Configuration.SmtpNetworkElement.DefaultCredentials%2A>ユーザー名と<xref:System.Net.Configuration.SmtpNetworkElement.Password%2A>。</xref:System.Net.Configuration.SmtpNetworkElement.Password%2A>設定を優先</xref:System.Net.Configuration.SmtpNetworkElement.DefaultCredentials%2A>設定 ユーザー名と<xref:System.Net.Configuration.SmtpNetworkElement.Password%2A>場合にだけ使用<xref:System.Net.Configuration.SmtpNetworkElement.DefaultCredentials%2A>に設定されている`false`</xref:System.Net.Configuration.SmtpNetworkElement.DefaultCredentials%2A></xref:System.Net.Configuration.SmtpNetworkElement.Password%2A>。"
   syntax:
     content: public string UserName { get; set; }
     return:
       type: System.String
-      description: "A string that represents the user name to connect to an SMTP mail server."
+      description: "SMTP メール サーバーに接続するユーザー名を表す文字列。"
   overload: System.Net.Configuration.SmtpNetworkElement.UserName*
   exceptions: []
   platform:

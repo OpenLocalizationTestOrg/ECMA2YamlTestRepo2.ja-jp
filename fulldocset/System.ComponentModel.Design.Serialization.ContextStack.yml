@@ -16,8 +16,8 @@ items:
   nameWithType: ContextStack
   fullName: System.ComponentModel.Design.Serialization.ContextStack
   type: Class
-  summary: "Provides a stack object that can be used by a serializer to make information available to nested serializers."
-  remarks: "Some serializers require information about the context of an object to correctly persist their state. The ContextStack class enables a serializer to set data about the context of an object that is being serialized to a stack where another serializer can access it. The value of the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Context%2A> property is provided by an <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager> to share information of use to some serializers.       A context stack is useful because the process of serializing a design document can be deeply nested, and objects at each level of nesting may require context information to correctly persist the state of the object. A serializer can set a context object to the stack before invoking a nested serializer. Each object set to the stack should be removed by the serializer that set it after a call to a nested serializer returns.       Typically, the objects on the stack contain information about the context of the current object that is being serialized. A parent serializer adds context information to the stack about the next object to be serialized, calls an appropriate serializer and, when the serializer finishes executing on the object, removes the context information from the stack. It is up to the implementation of each serializer to determine what objects get pushed on this stack.       As an example, an object with a property named `Enabled` has a data type of <xref:System.Boolean>. If a serializer writes this value to a data stream, it might need to include the context or type of property it is writing. The serializer does not have this information, however, because it is only instructed to write the <xref:System.Boolean> value. To provide this information to the serializer, the parent serializer can push a <xref:System.ComponentModel.PropertyDescriptor> that points to the `Enabled` property on the context stack."
+  summary: "入れ子になったシリアライザーに情報を使用できるように、シリアライザーで使用できるスタック オブジェクトを提供します。"
+  remarks: "シリアライザーによっては、正しくの状態を維持するためのオブジェクトのコンテキストに関する情報を必要とします。 ContextStack クラスは、別のシリアライザーがアクセスできる場所スタックにシリアル化するオブジェクトのコンテキストに関するデータを設定するシリアライザーを使用します。 値、<xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Context%2A>によって提供されるプロパティ、<xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager>のいくつかのシリアライザーを使用して情報を共有します</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager></xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Context%2A>。       コンテキスト スタック便利なデザイン ドキュメントのシリアル化のプロセスを深く入れ子にすることができます、およびオブジェクトの入れ子の各レベルにはオブジェクトの状態を正しく維持するためのコンテキスト情報が必要です。 シリアライザーは、入れ子になったシリアライザーを呼び出す前に、スタックにコンテキストのオブジェクトを設定できます。 入れ子になったシリアライザーへの呼び出しが返された後に設定するシリアライザーによってスタックに設定された各オブジェクトを削除してください。       通常、スタック上のオブジェクトには、現在のオブジェクトのシリアル化するコンテキストについての情報が含まれて。 親シリアライザーは、適切なシリアライザーを呼び出しますコンテキスト情報をシリアル化するのには、次のオブジェクトはスタックに追加、および、このシリアライザーは、オブジェクトの実行が完了したら、スタックからコンテキスト情報を削除します。 このスタックにプッシュされるどのようなオブジェクトを決定するには、各シリアライザーの実装の責任です。       たとえば、プロパティを持つオブジェクトが名前付き`Enabled` <xref:System.Boolean>.</xref:System.Boolean>のデータ型を持つ シリアライザーは、この値をデータ ストリームに書き込み場合、は、コンテキストまたはデータが書き込まれてプロパティの型を含める必要があります。 シリアライザーがこの情報は、ただし、書き込むのみから指示されたため、<xref:System.Boolean>値</xref:System.Boolean>。 親のシリアライザーをプッシュできるシリアライザーにこの情報を提供する、<xref:System.ComponentModel.PropertyDescriptor>を指す、`Enabled`コンテキスト スタックにプロパティ</xref:System.ComponentModel.PropertyDescriptor>。"
   example:
   - "The following code example demonstrates using a ContextStack to push and then remove 10 values.  \n  \n [!code-cpp[ContextStackExample#1](~/add/codesnippet/cpp/t-system.componentmodel._11_1.cpp)]\n [!code-vb[ContextStackExample#1](~/add/codesnippet/visualbasic/t-system.componentmodel._11_1.vb)]\n [!code-cs[ContextStackExample#1](~/add/codesnippet/csharp/t-system.componentmodel._11_1.cs)]"
   syntax:
@@ -40,7 +40,7 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.Serialization.ContextStack&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ComponentModel.Design.Serialization.ContextStack&quot;> </xref>クラスです。"
   remarks: ''
   example:
   - "The following code example demonstrates creating a <xref:System.ComponentModel.Design.Serialization.ContextStack> instance.  \n  \n [!code-cpp[ContextStackExample#2](~/add/codesnippet/cpp/m-system.componentmodel._1_1.cpp)]\n [!code-vb[ContextStackExample#2](~/add/codesnippet/visualbasic/m-system.componentmodel._1_1.vb)]\n [!code-cs[ContextStackExample#2](~/add/codesnippet/csharp/m-system.componentmodel._1_1.cs)]"
@@ -63,19 +63,19 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Appends an object to the end of the stack, rather than pushing it onto the top of the stack."
-  remarks: "This method allows a serializer to communicate with other serializers by adding contextual data objects that do not have to be removed in order. There is no way to remove an object that was appended to the end of the stack without removing all other objects."
+  summary: "スタックの一番上にプッシュするのではなく、スタックの末尾にオブジェクトを追加します。"
+  remarks: "このメソッドは、他のシリアライザーがない順序で削除するコンテキスト データ オブジェクトを追加することによって通信するためにシリアライザーを使用します。 その他のすべてのオブジェクトを削除することがなく、スタックの末尾に追加されたオブジェクトを削除する方法はありません。"
   syntax:
     content: public void Append (object context);
     parameters:
     - id: context
       type: System.Object
-      description: "A context object to append to the stack."
+      description: "スタックに追加するコンテキスト オブジェクト。"
   overload: System.ComponentModel.Design.Serialization.ContextStack.Append*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>context</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>context</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.ContextStack.Current
@@ -90,13 +90,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the current object on the stack."
-  remarks: "The current object is the object at the top of the stack, or the object last added to the stack."
+  summary: "スタック上には、現在のオブジェクトを取得します。"
+  remarks: "現在のオブジェクトは、スタックの上部にあるオブジェクトまたはスタックに最後に追加されたオブジェクトです。"
   syntax:
     content: public object Current { get; }
     return:
       type: System.Object
-      description: "The current object on the stack, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no objects were pushed."
+      description: "スタック上の現在のオブジェクトまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>オブジェクトにプッシュされていない場合。"
   overload: System.ComponentModel.Design.Serialization.ContextStack.Current*
   exceptions: []
   platform:
@@ -113,21 +113,21 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the object on the stack at the specified level."
+  summary: "スタック上で、指定されたレベル オブジェクトを取得します。"
   syntax:
     content: public object this[int level] { get; }
     parameters:
     - id: level
       type: System.Int32
-      description: "The level of the object to retrieve on the stack. Level 0 is the top of the stack, level 1 is the next down, and so on. This level must be 0 or greater. If level is greater than the number of levels on the stack, it returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "スタック上で取得するオブジェクトのレベル。 レベル 0 は、スタックの一番上、レベル 1 次、ダウンします。 このレベルは、0 以上にする必要があります。 レベルがかどうか、スタック上のレベル数より大きく、それを返します<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
     return:
       type: System.Object
-      description: "The object on the stack at the specified level, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no object exists at that level."
+      description: "指定されたレベルでは、スタック上のオブジェクトまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>そのレベルでオブジェクトが存在しない場合。"
   overload: System.ComponentModel.Design.Serialization.ContextStack.Item*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>level</code> is less than 0."
+    description: "<code>level</code>0 未満です。"
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.ContextStack.Item(System.Type)
@@ -142,22 +142,22 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the first object on the stack that inherits from or implements the specified type."
-  remarks: "A check is made on each level of the stack, searching for an object that implements or inherits `type`. If a match is found, it is returned."
+  summary: "継承されるか、指定された型を実装するスタックの最初のオブジェクトを取得します。"
+  remarks: "実装または継承するオブジェクトを検索、スタックの各レベルのチェックを行う`type`です。 一致が見つかった場合が返されます。"
   syntax:
     content: public object this[Type type] { get; }
     parameters:
     - id: type
       type: System.Type
-      description: "A type to retrieve from the context stack."
+      description: "コンテキスト スタックから取得する型。"
     return:
       type: System.Object
-      description: "The first object on the stack that inherits from or implements the specified type, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no object on the stack implements the type."
+      description: "継承されるか、指定された型を実装して、スタックの最初のオブジェクトまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>型を実装するスタック上のオブジェクトがない場合。"
   overload: System.ComponentModel.Design.Serialization.ContextStack.Item*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>type</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>type</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.ContextStack.Pop
@@ -172,7 +172,7 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Removes the current object off of the stack, returning its value."
+  summary: "その値を返す、スタックから現在のオブジェクトを削除します。"
   remarks: ''
   example:
   - "The following code example demonstrates removing a value from a <xref:System.ComponentModel.Design.Serialization.ContextStack>.  \n  \n [!code-cpp[ContextStackExample#4](~/add/codesnippet/cpp/m-system.componentmodel._2_1.cpp)]\n [!code-vb[ContextStackExample#4](~/add/codesnippet/visualbasic/m-system.componentmodel._2_1.vb)]\n [!code-cs[ContextStackExample#4](~/add/codesnippet/csharp/m-system.componentmodel._2_1.cs)]"
@@ -181,7 +181,7 @@ items:
     parameters: []
     return:
       type: System.Object
-      description: "The object removed from the stack; <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no objects are on the stack."
+      description: "スタックから削除されたオブジェクト<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>オブジェクトがない場合、スタックにします。"
   overload: System.ComponentModel.Design.Serialization.ContextStack.Pop*
   exceptions: []
   platform:
@@ -198,7 +198,7 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Pushes, or places, the specified object onto the stack."
+  summary: "プッシュ、またはオブジェクトを配置して、指定したスタックにします。"
   remarks: ''
   example:
   - "The following code example demonstrates pushing values to a <xref:System.ComponentModel.Design.Serialization.ContextStack>.  \n  \n [!code-cpp[ContextStackExample#3](~/add/codesnippet/cpp/m-system.componentmodel._20_1.cpp)]\n [!code-vb[ContextStackExample#3](~/add/codesnippet/visualbasic/m-system.componentmodel._20_1.vb)]\n [!code-cs[ContextStackExample#3](~/add/codesnippet/csharp/m-system.componentmodel._20_1.cs)]"
@@ -207,12 +207,12 @@ items:
     parameters:
     - id: context
       type: System.Object
-      description: "The context object to push onto the stack."
+      description: "スタックにプッシュするコンテキスト オブジェクト。"
   overload: System.ComponentModel.Design.Serialization.ContextStack.Push*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>context</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>context</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:

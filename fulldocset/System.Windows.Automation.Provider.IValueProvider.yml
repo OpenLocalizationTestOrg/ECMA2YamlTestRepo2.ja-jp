@@ -12,8 +12,8 @@ items:
   nameWithType: IValueProvider
   fullName: System.Windows.Automation.Provider.IValueProvider
   type: Interface
-  summary: "Exposes methods and properties to support UI Automation client access to controls having an intrinsic value that does not span a range and that can be represented as a string."
-  remarks: "The value of the control may or may not be editable depending on the control and its settings.       Implemented on a UI Automation provider that must support the <xref:System.Windows.Automation.ValuePattern> control pattern."
+  summary: "範囲に広がらず、文字列として表すこと固有の値を持つコントロールへの UI オートメーション クライアント アクセスをサポートするメソッドとプロパティを公開します。"
+  remarks: "コントロールの値は、可能性がありますかに応じて、コントロールとその設定は編集できません。       サポートする UI オートメーション プロバイダーに実装される、<xref:System.Windows.Automation.ValuePattern>コントロール パターン</xref:System.Windows.Automation.ValuePattern>。"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -38,15 +38,15 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets a value that specifies whether the value of a control is read-only."
-  remarks: "A control should have its <xref:System.Windows.Automation.AutomationElement.IsEnabledProperty> set to `true` and its <xref:System.Windows.Automation.ValuePattern.IsReadOnlyProperty> set to `false` before allowing a call to <xref:System.Windows.Automation.Provider.IValueProvider.SetValue%2A>."
+  summary: "コントロールの値は読み取り専用であるかどうかを指定する値を取得します。"
+  remarks: "コントロールが必要、 <xref:System.Windows.Automation.AutomationElement.IsEnabledProperty>&quot;éý&quot;`true`とその<xref:System.Windows.Automation.ValuePattern.IsReadOnlyProperty>&quot;éý&quot; `false` <xref:System.Windows.Automation.Provider.IValueProvider.SetValue%2A>.</xref:System.Windows.Automation.Provider.IValueProvider.SetValue%2A>への呼び出しを許可する前に</xref:System.Windows.Automation.ValuePattern.IsReadOnlyProperty></xref:System.Windows.Automation.AutomationElement.IsEnabledProperty>"
   example:
   - "The following example shows an implementation of this method for a control that allows its value to be changed.  \n  \n [!code-vb[UIAIValueProvider_snip#IsReadOnly](~/add/codesnippet/visualbasic/uiaivalueprovider_snip/valuefragment.vb#isreadonly)]\n [!code-cs[UIAIValueProvider_snip#IsReadOnly](~/add/codesnippet/csharp/UIAIValueProvider_snip/ValueFragment.cs#isreadonly)]"
   syntax:
     content: public bool IsReadOnly { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the value is read-only; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if it can be modified."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>値が読み取り専用の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>場合は、変更することができます。"
   overload: System.Windows.Automation.Provider.IValueProvider.IsReadOnly*
   exceptions: []
   platform:
@@ -63,8 +63,8 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Sets the value of a control."
-  remarks: "Single-line edit controls support programmatic access to their contents by implementing <xref:System.Windows.Automation.Provider.IValueProvider>. However, multi-line edit controls do not implement <xref:System.Windows.Automation.Provider.IValueProvider>; instead they provide access to their content by implementing <xref:System.Windows.Automation.Provider.ITextProvider>.       Controls such as <xref:System.Windows.Automation.ControlType.ListItem> and <xref:System.Windows.Automation.ControlType.TreeItem> must implement <xref:System.Windows.Automation.Provider.IValueProvider> if the value of any of the items is editable, regardless of the current edit mode of the control. The parent control must also implement <xref:System.Windows.Automation.Provider.IValueProvider> if the child items are editable.       ![Editable list item.](~/add/media/uia-valuepattern-editable-listitem.PNG &quot;Editable list item.&quot;)   Example of an Editable List Item"
+  summary: "コントロールの値を設定します。"
+  remarks: "単一行エディット コントロールが<xref:System.Windows.Automation.Provider.IValueProvider>。</xref:System.Windows.Automation.Provider.IValueProvider>を実装することでその内容へのプログラムによるアクセスをサポートします。 ただし、複数行エディット コントロール実装しない<xref:System.Windows.Automation.Provider.IValueProvider><xref:System.Windows.Automation.Provider.ITextProvider>。</xref:System.Windows.Automation.Provider.ITextProvider>を実装することでそのコンテンツへのアクセスを提供する代わりにです。</xref:System.Windows.Automation.Provider.IValueProvider>       などのコントロール<xref:System.Windows.Automation.ControlType.ListItem>と<xref:System.Windows.Automation.ControlType.TreeItem>実装する必要があります<xref:System.Windows.Automation.Provider.IValueProvider>編集コントロールのモードを現在に関係なく、項目のいずれかの値が編集可能な場合</xref:System.Windows.Automation.Provider.IValueProvider></xref:System.Windows.Automation.ControlType.TreeItem></xref:System.Windows.Automation.ControlType.ListItem>。 親コントロールを実装する必要がありますも<xref:System.Windows.Automation.Provider.IValueProvider>子項目が編集可能な場合</xref:System.Windows.Automation.Provider.IValueProvider>。       ![編集可能なリスト項目。](~/add/media/uia-valuepattern-editable-listitem.PNG &quot;編集可能なリスト項目。&quot;)   編集可能なリスト項目の例"
   example:
   - "The following example code demonstrates a custom control that allows its value to be set to a string of limited length.  \n  \n [!code-vb[UIAIValueProvider_snip#SetValue](~/add/codesnippet/visualbasic/uiaivalueprovider_snip/valuefragment.vb#setvalue)]\n [!code-cs[UIAIValueProvider_snip#SetValue](~/add/codesnippet/csharp/UIAIValueProvider_snip/ValueFragment.cs#setvalue)]"
   syntax:
@@ -72,18 +72,18 @@ items:
     parameters:
     - id: value
       type: System.String
-      description: "The value to set. The provider is responsible for converting the value to the appropriate data type."
+      description: "設定する値。 プロバイダーは、値を適切なデータ型に変換します。"
   overload: System.Windows.Automation.Provider.IValueProvider.SetValue*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "If locale-specific information is passed to a control in an incorrect format such as an incorrectly formatted date."
+    description: "ロケール固有の情報は、正しくない形式の日付などの不適切な形式でのコントロールに渡されます場合。"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "If a new value cannot be converted from a string to a format the control recognizes."
+    description: "新しい値は、文字列から形式に変換できない場合、コントロールを認識します。"
   - type: System.Windows.Automation.ElementNotEnabledException
     commentId: T:System.Windows.Automation.ElementNotEnabledException
-    description: "When an attempt is made to manipulate a control that is not enabled."
+    description: "ときにしようとしましたが無効になっているコントロールを操作します。"
   platform:
   - net462
 - uid: System.Windows.Automation.Provider.IValueProvider.Value
@@ -98,15 +98,15 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets the value of the control."
-  remarks: "Single-line edit controls support programmatic access to their contents by implementing <xref:System.Windows.Automation.Provider.IValueProvider> (in addition to <xref:System.Windows.Automation.Provider.ITextProvider>). However, multi-line edit controls do not implement <xref:System.Windows.Automation.Provider.IValueProvider>.       To retrieve the textual contents of multi-line edit controls, the controls must implement <xref:System.Windows.Automation.Provider.ITextProvider>. However, <xref:System.Windows.Automation.Provider.ITextProvider> does not support setting the value of a control.       <xref:System.Windows.Automation.Provider.IValueProvider> does not support the retrieval of formatting information or substring values. Implement <xref:System.Windows.Automation.Provider.ITextProvider> in these scenarios."
+  summary: "コントロールの値を取得します。"
+  remarks: "単一行エディット コントロールを実装してその内容へのプログラムによるアクセスをサポートする<xref:System.Windows.Automation.Provider.IValueProvider>(に加えて<xref:System.Windows.Automation.Provider.ITextProvider>).</xref:System.Windows.Automation.Provider.ITextProvider> </xref:System.Windows.Automation.Provider.IValueProvider> ただし、複数行エディット コントロールが<xref:System.Windows.Automation.Provider.IValueProvider>。</xref:System.Windows.Automation.Provider.IValueProvider>を実装しないでください。       複数行エディット コントロールのテキスト コンテンツを取得するには、コントロールが<xref:System.Windows.Automation.Provider.ITextProvider>。</xref:System.Windows.Automation.Provider.ITextProvider>を実装する必要があります。 ただし、<xref:System.Windows.Automation.Provider.ITextProvider>コントロールの値の設定をサポートしていません</xref:System.Windows.Automation.Provider.ITextProvider>。       <xref:System.Windows.Automation.Provider.IValueProvider>書式設定情報や部分文字列の値の取得はサポートされません。</xref:System.Windows.Automation.Provider.IValueProvider> 実装<xref:System.Windows.Automation.Provider.ITextProvider>これらのシナリオでします</xref:System.Windows.Automation.Provider.ITextProvider>。"
   example:
   - "The following example shows an implementation of this method for a control that allows its value to be retrieved.  \n  \n [!code-vb[UIAIValueProvider_snip#Value](~/add/codesnippet/visualbasic/uiaivalueprovider_snip/valuefragment.vb#value)]\n [!code-cs[UIAIValueProvider_snip#Value](~/add/codesnippet/csharp/UIAIValueProvider_snip/ValueFragment.cs#value)]"
   syntax:
     content: public string Value { get; }
     return:
       type: System.String
-      description: "The value of the control as a string."
+      description: "文字列としてのコントロールの値。"
   overload: System.Windows.Automation.Provider.IValueProvider.Value*
   exceptions: []
   platform:

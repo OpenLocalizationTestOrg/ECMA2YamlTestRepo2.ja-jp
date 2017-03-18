@@ -15,8 +15,8 @@ items:
   nameWithType: ITextProvider
   fullName: System.Windows.Automation.Provider.ITextProvider
   type: Interface
-  summary: "Exposes methods and properties to support UI Automation client access to controls that contain text."
-  remarks: "Implemented on a UI Automation provider that must support the <xref:System.Windows.Automation.TextPattern> control pattern."
+  summary: "テキストを格納しているコントロールへの UI オートメーション クライアント アクセスをサポートするメソッドとプロパティを公開します。"
+  remarks: "サポートする UI オートメーション プロバイダーに実装される、<xref:System.Windows.Automation.TextPattern>コントロール パターン</xref:System.Windows.Automation.TextPattern>。"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -41,13 +41,13 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets a text range that encloses the main text of a document."
-  remarks: "Some auxiliary text such as headers, footnotes, or annotations may not be included."
+  summary: "ドキュメントのメイン テキストを囲むテキスト範囲を取得します。"
+  remarks: "ヘッダー、脚注、または注釈などの補助テキストは、含まれていない場合があります。"
   syntax:
     content: public System.Windows.Automation.Provider.ITextRangeProvider DocumentRange { get; }
     return:
       type: System.Windows.Automation.Provider.ITextRangeProvider
-      description: "To be added."
+      description: "追加します。"
   overload: System.Windows.Automation.Provider.ITextProvider.DocumentRange*
   exceptions: []
   platform:
@@ -64,19 +64,19 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Retrieves a collection of disjoint text ranges associated with the current text selection or selections."
-  remarks: "For UI Automation providers that support text selection, the provider should implement this method and also return a <xref:System.Windows.Automation.Provider.ITextProvider.SupportedTextSelection%2A> value.       If no text is selected, GetSelection returns the degenerate text range (empty range) at the position of the system cursor (text insertion point).       If the system cursor (text insertion point) is not present, GetSelection may return a null reference (`Nothing` in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)])."
+  summary: "現在のテキストの選択または選択項目に関連付けられている非結合テキスト範囲のコレクションを取得します。"
+  remarks: "テキスト選択範囲をサポートする UI オートメーション プロバイダーの場合、プロバイダー必要がありますこのメソッドを実装およびを返すことも、<xref:System.Windows.Automation.Provider.ITextProvider.SupportedTextSelection%2A>値</xref:System.Windows.Automation.Provider.ITextProvider.SupportedTextSelection%2A>。       テキストが選択されていない場合、GetSelection はシステム カーソル (テキスト挿入ポイント) の位置にある低次元テキスト範囲 (空の範囲) を返します。       システム カーソル (テキスト挿入ポイント) が存在しない場合は、GetSelection が null 参照を返す可能性があります (`Nothing`で[!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)])。"
   syntax:
     content: public System.Windows.Automation.Provider.ITextRangeProvider[] GetSelection ();
     parameters: []
     return:
       type: System.Windows.Automation.Provider.ITextRangeProvider[]
-      description: "A collection of disjoint text ranges."
+      description: "非結合テキスト範囲のコレクション。"
   overload: System.Windows.Automation.Provider.ITextProvider.GetSelection*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "If the UI Automation provider does not support text selection."
+    description: "場合は、UI オートメーション プロバイダーでは、テキスト選択をサポートしていません。"
   platform:
   - net462
 - uid: System.Windows.Automation.Provider.ITextProvider.GetVisibleRanges
@@ -91,14 +91,14 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Retrieves an array of disjoint text ranges from a text container where each text range begins with the first partially visible line through to the end of the last partially visible line."
-  remarks: "UI Automation providers should ensure that they return, at most, the text ranges that are visible within the container.       Disjoint text ranges may occur when any content of a text container is obscured by an overlapping window or other object, or when a text container with a multi-column layout has one or more columns partially scrolled out of view.       If no text is visible, a degenerate (empty) text range is returned. This empty range can be returned if the text container is empty or when all text is scrolled out of view."
+  summary: "ここでそれぞれのテキスト範囲行で始まる、最初部分的に表示を部分的に表示される最後の行の末尾にテキスト コンテナーから非結合テキスト範囲の配列を取得します。"
+  remarks: "UI オートメーション プロバイダーは、ある手順に戻って、多くても、コンテナー内で表示されるテキスト範囲を確認します。       非結合テキスト範囲は、テキスト コンテナーのコンテンツが重なったウィンドウまたはその他のオブジェクトによって隠されるとき、または複数列のレイアウトとテキストのコンテナーが&1; つまたは多くの列が部分的にスクロール見えないに発生する可能性があります。       テキストが表示されていない場合 (空) の低次元テキスト範囲が返されます。 テキスト コンテナーが空の場合、またはすべてのテキストのスクロールされて見えない場合に、この空の範囲を返すことができます。"
   syntax:
     content: public System.Windows.Automation.Provider.ITextRangeProvider[] GetVisibleRanges ();
     parameters: []
     return:
       type: System.Windows.Automation.Provider.ITextRangeProvider[]
-      description: "The collection of visible text ranges within the container or an empty array. A null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)]) is never returned."
+      description: "コンテナーまたは空の配列内で表示されるテキスト範囲のコレクション。 Null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref>で[!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)]) は返されません。"
   overload: System.Windows.Automation.Provider.ITextProvider.GetVisibleRanges*
   exceptions: []
   platform:
@@ -115,22 +115,22 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Retrieves a text range enclosing a child element such as an image, hyperlink, or other embedded object."
-  remarks: "A UI Automation provider should check that the passed element is a child of the text container.       If there is no text in the range where the child element exists, a degenerate (empty) range is returned.       The `childElement` parameter is either a child of the <xref:System.Windows.Automation.AutomationElement> associated with a <xref:System.Windows.Automation.TextPattern> or from the array of children of a <xref:System.Windows.Automation.Text.TextPatternRange>."
+  summary: "イメージ、ハイパーリンク、または他の埋め込みオブジェクトなどの子要素を囲むテキスト範囲を取得します。"
+  remarks: "UI オートメーション プロバイダーは、渡された要素のテキスト コンテナーの子であることを確認する必要があります。       子要素が存在する範囲でテキストがない場合は、低次元 (空) の範囲が返されます。       `childElement`パラメーターが<xref:System.Windows.Automation.AutomationElement>関連付けられている、<xref:System.Windows.Automation.TextPattern>または<xref:System.Windows.Automation.Text.TextPatternRange>.</xref:System.Windows.Automation.Text.TextPatternRange>の子の配列から</xref:System.Windows.Automation.TextPattern></xref:System.Windows.Automation.AutomationElement>の子"
   syntax:
     content: public System.Windows.Automation.Provider.ITextRangeProvider RangeFromChild (System.Windows.Automation.Provider.IRawElementProviderSimple childElement);
     parameters:
     - id: childElement
       type: System.Windows.Automation.Provider.IRawElementProviderSimple
-      description: "The enclosed object."
+      description: "含まれているオブジェクト。"
     return:
       type: System.Windows.Automation.Provider.ITextRangeProvider
-      description: "A range that spans the child element."
+      description: "子要素に及ぶ範囲。"
   overload: System.Windows.Automation.Provider.ITextProvider.RangeFromChild*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "If the child element is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)])."
+    description: "子要素が null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref>で[!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)])。"
   platform:
   - net462
 - uid: System.Windows.Automation.Provider.ITextProvider.RangeFromPoint(System.Windows.Point)
@@ -145,22 +145,22 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Returns the degenerate (empty) text range nearest to the specified screen coordinates."
-  remarks: "A text range that encloses a child object is returned if the screen coordinates are within the coordinates of an image, hyperlink, or other embedded object.       Because hidden text is not ignored by RangeFromPoint a degenerate range from the visible text closest to the given point is returned."
+  summary: "指定した画面座標に最も近い低次元 (空) テキスト範囲を返します。"
+  remarks: "画面座標が、イメージ、ハイパーリンク、または他の埋め込みオブジェクトの座標を子オブジェクトを囲むテキスト範囲が返されます。       RangeFromPoint によって非表示のテキストが無視されないため、低次元テキスト範囲特定の時点に最も近い表示されるテキストからが返されます。"
   syntax:
     content: public System.Windows.Automation.Provider.ITextRangeProvider RangeFromPoint (System.Windows.Point screenLocation);
     parameters:
     - id: screenLocation
       type: System.Windows.Point
-      description: "The location in screen coordinates."
+      description: "画面座標での位置。"
     return:
       type: System.Windows.Automation.Provider.ITextRangeProvider
-      description: "A degenerate range nearest the specified location. A null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)]) is never returned."
+      description: "指定した場所に最も近い低次元テキスト範囲。 Null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref>で[!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)]) は返されません。"
   overload: System.Windows.Automation.Provider.ITextProvider.RangeFromPoint*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "If a given point is outside the [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element associated with the text pattern."
+    description: "特定の時点が外の場合、[!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)]テキストのパターンに関連付けられた要素。"
   platform:
   - net462
 - uid: System.Windows.Automation.Provider.ITextProvider.SupportedTextSelection
@@ -175,7 +175,7 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets a value that specifies whether a text provider supports selection and, if so, the type of selection supported."
+  summary: "その場合、テキスト プロバイダーの選択をサポートするかどうかを指定する値を取得、選択項目の種類のサポート。"
   syntax:
     content: public System.Windows.Automation.SupportedTextSelection SupportedTextSelection { get; }
     return:

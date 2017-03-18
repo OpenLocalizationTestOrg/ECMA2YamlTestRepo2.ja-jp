@@ -11,8 +11,8 @@ items:
   nameWithType: EvidenceBase
   fullName: System.Security.Policy.EvidenceBase
   type: Class
-  summary: "Provides a base class from which all objects to be used as evidence must derive."
-  remarks: "Before the [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)], almost any object could be used as an evidence object if the hosting code wanted to apply it as evidence. For example, some .NET Framework code recognized <xref:System.Uri?displayProperty=fullName> objects as evidence. The common language runtime (CLR) considered evidence objects as <xref:System.Object?displayProperty=fullName> references, and did not apply any type safety to them.       This presented a problem because there were implicit restrictions on which types could be used as evidence objects. Specifically, any object used as evidence had to be serializable and could not be `null`. If these requirements were not met, the CLR threw an exception whenever an operation that required one of these assumptions was performed.       The EvidenceBase class, which all evidence objects must derive from, was introduced in the [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)] to enable constraints on the types of objects that can be used as evidence and to provide the ability to add new features and requirements to all evidence objects. The EvidenceBase class ensures, upon instantiation, that the evidence object is serializable. In addition, it enables new evidence requirements to be created by adding new default implementations to the base class.       All the types used by the CLR as evidence objects have been updated in the [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)] to derive from EvidenceBase."
+  summary: "証拠の派生元として使用するすべてのオブジェクトから基本クラスを提供します。"
+  remarks: "前に、 [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)]、ほとんどすべてのオブジェクトは、ホスティング コードが証拠として適用する場合、evidence オブジェクトとして使用可能性があります。 たとえば、一部の .NET Framework コードが認識される<xref:System.Uri?displayProperty=fullName>証拠としてオブジェクト</xref:System.Uri?displayProperty=fullName>。 共通言語ランタイム (CLR) が証拠オブジェクトとしてと見なされます<xref:System.Object?displayProperty=fullName>参照、およびそれらにタイプ セーフは適用されませんでした</xref:System.Object?displayProperty=fullName>。       証拠オブジェクトとして使用できる型を暗黙の制限があったために、問題が表示されます。 具体的には、証拠として使用されるオブジェクトはシリアル化するのには含まれており、できませんでした`null`です。 これらの要件が満たされていない場合、CLR は、これらの前提条件のいずれかが必要な操作が実行されるたびに例外を返しました。       証拠のすべてのオブジェクトから派生する必要があります、EvidenceBase クラスで導入された、[!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)]証拠として使用できるオブジェクトの型に対する制約を有効にして、証拠のすべてのオブジェクトに新しい機能や要件を追加する機能を提供します。 EvidenceBase クラスにより、インスタンス化時に証拠オブジェクトがシリアル化可能であります。 さらに、新しい既定の実装を基底クラスに追加することによって作成される新しい証拠の要求を使用できます。       証拠オブジェクトが更新されたとき、CLR で使用されるすべての型、 [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)] EvidenceBase から派生します。"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -36,8 +36,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Policy.EvidenceBase&quot;></xref> class."
-  remarks: "All objects to be used as evidence must be serializable. You must mark any derived types as serializable, because the serializable attribute does not propagate to derived classes."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Policy.EvidenceBase&quot;> </xref>クラスです。"
+  remarks: "証拠として使用するすべてのオブジェクトをシリアル化可能にする必要があります。 シリアル化可能な属性が派生クラスに反映されないため、シリアル化可能として、派生型をマークする必要があります。"
   syntax:
     content: protected EvidenceBase ();
     parameters: []
@@ -45,7 +45,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An object to be used as evidence is not serializable."
+    description: "証拠として使用するオブジェクトはシリアル化できません。"
   platform:
   - net462
 - uid: System.Security.Policy.EvidenceBase.Clone
@@ -60,14 +60,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Creates a new object that is a complete copy of the current instance."
-  remarks: "The duplicate copy is a complete copy that includes all the evidence objects in the collection."
+  summary: "現在のインスタンスの完全なコピーである新しいオブジェクトを作成します。"
+  remarks: "複製のコピーは、コレクション内のすべての証拠オブジェクトを含む完全なコピーです。"
   syntax:
     content: public virtual System.Security.Policy.EvidenceBase Clone ();
     parameters: []
     return:
       type: System.Security.Policy.EvidenceBase
-      description: "A duplicate copy of this evidence object."
+      description: "この証拠オブジェクトの複製コピー。"
   overload: System.Security.Policy.EvidenceBase.Clone*
   exceptions: []
   platform:
