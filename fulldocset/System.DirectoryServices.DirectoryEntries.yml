@@ -15,7 +15,7 @@ items:
   nameWithType: DirectoryEntries
   fullName: System.DirectoryServices.DirectoryEntries
   type: Class
-  summary: "Contains a collection of <xref href=&quot;System.DirectoryServices.DirectoryEntry&quot;></xref> objects."
+  summary: "コレクションを格納<xref href=&quot;System.DirectoryServices.DirectoryEntry&quot;></xref>オブジェクト。"
   syntax:
     content: 'public class DirectoryEntries : System.Collections.IEnumerable'
   inheritance:
@@ -37,8 +37,8 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "Creates a new entry in the container."
-  remarks: "You must call the <xref:System.DirectoryServices.DirectoryEntry.CommitChanges%2A> method on the new entry to make the creation permanent. When you call this method, you can then set mandatory property values on the new entry. The providers each have different requirements for properties that need to be set before a call to the <xref:System.DirectoryServices.DirectoryEntry.CommitChanges%2A> method is made. If those requirements are not met, the provider might throw an exception. Check with your provider to determine which properties must be set before committing changes."
+  summary: "コンテナーに新しいエントリを作成します。"
+  remarks: "呼び出す必要があります、<xref:System.DirectoryServices.DirectoryEntry.CommitChanges%2A>永続的な作成できるようにする新しいエントリのメソッド</xref:System.DirectoryServices.DirectoryEntry.CommitChanges%2A>。 このメソッドを呼び出すときに、新しいエントリの必須プロパティの値を設定できます。 各プロバイダーの呼び出しの前に設定する必要があるプロパティの別の要件があります、<xref:System.DirectoryServices.DirectoryEntry.CommitChanges%2A>メソッドが行われます</xref:System.DirectoryServices.DirectoryEntry.CommitChanges%2A>。 これらの要件が満たされず、プロバイダーで例外がスローする可能性があります。 変更をコミットする前に設定する必要がありますのあるプロパティを決定するプロバイダーに確認します。"
   example:
   - "The following Visual Basic .NET example creates a new <xref:System.DirectoryServices.DirectoryEntry> object with a specified path, then creates a new entry in the container and saves it.  \n  \n```vb  \nDim strPath As String = \"IIS://localhost/W3SVC/1/Root\"  \n' Create a new 'DirectoryEntry' object with the given path.  \nDim myDE As New DirectoryEntry(strPath)  \nDim myEntries As DirectoryEntries = myDE.Children  \n' Create a new entry 'Sample' in the container.  \nDim myDirectoryEntry As DirectoryEntry = myEntries.Add(\"CN=Sample\", myDE.SchemaClassName)  \n' Save changes of entry in the 'Active Directory Domain Services'.  \nmyDirectoryEntry.CommitChanges()  \nConsole.WriteLine(myDirectoryEntry.Name + \" entry is created in container.\")  \n```  \n  \n The following C# example creates a new <xref:System.DirectoryServices.DirectoryEntry> object with a specified path, then creates a new entry in the container and saves it.  \n  \n [C#]  \n  \n```  \nString strPath = \"IIS://localhost/W3SVC/1/Root\";  \n  \n// Create a new 'DirectoryEntry' object with the given path.  \nDirectoryEntry myDE = new DirectoryEntry(strPath);  \nDirectoryEntries myEntries = myDE.Children;  \n  \n// Create a new entry 'Sample' in the container.  \nDirectoryEntry myDirectoryEntry =   \n   myEntries.Add(\"CN=Sample\", myDE.SchemaClassName);  \n// Save changes of entry in the 'Active Directory Domain Services'.  \nmyDirectoryEntry.CommitChanges();  \nConsole.WriteLine (myDirectoryEntry.Name + \" entry is created in container.\");  \n```  \n  \n The following C++ example creates a new <xref:System.DirectoryServices.DirectoryEntry> object with a specified path, then creates a new entry in the container and saves it.  \n  \n```  \nString* strPath = S\"IIS://localhost/W3SVC/1/Root\";  \n  \n// Create a new 'DirectoryEntry' object with the given path.  \nDirectoryEntry* myDE = new DirectoryEntry(strPath);  \nDirectoryEntries* myEntries = myDE->Children;  \n  \n// Create a new entry 'Sample' in the container.  \nDirectoryEntry* myDirectoryEntry = myEntries->Add(S\"CN=Sample\", myDE->SchemaClassName);  \n// Save changes of entry in the 'Active Directory Domain Services'.  \nmyDirectoryEntry->CommitChanges();  \nConsole::WriteLine(\"{0} entry is created in container.\", myDirectoryEntry->Name);  \n  \n```"
   syntax:
@@ -46,18 +46,18 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the new entry."
+      description: "新しいエントリの名前。"
     - id: schemaClassName
       type: System.String
-      description: "The name of the schema that is used for the new entry."
+      description: "新しいエントリのために使用するスキーマの名前です。"
     return:
       type: System.DirectoryServices.DirectoryEntry
-      description: "A <xref href=&quot;System.DirectoryServices.DirectoryEntry&quot;></xref> object that represents the new entry."
+      description: "A <xref href=&quot;System.DirectoryServices.DirectoryEntry&quot;> </xref>新しいエントリを表すオブジェクト。"
   overload: System.DirectoryServices.DirectoryEntries.Add*
   exceptions:
   - type: System.Runtime.InteropServices.COMException
     commentId: T:System.Runtime.InteropServices.COMException
-    description: "An error occurred during the call to the underlying interface."
+    description: "基になるインターフェイスへの呼び出し中にエラーが発生しました。"
   platform:
   - net462
 - uid: System.DirectoryServices.DirectoryEntries.Find(System.String)
@@ -72,25 +72,25 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "Returns the member of this collection with the specified name."
-  remarks: "If child objects of different types have the same name, the first matching child object is returned.      > [!NOTE] >  The Internet Information Services (IIS) provider does not support this method. Use the overloaded <xref:System.DirectoryServices.DirectoryEntries.Find%2A> method and specify an empty string (&quot;&quot;) for the `schemaClassName` parameter.   >    >  If no matching result is found, a <xref:System.DirectoryServices.DirectoryServicesCOMException> with error code 0x2030 is thrown."
+  summary: "指定した名前には、このコレクションのメンバーを返します。"
+  remarks: "さまざまな種類の子オブジェクトが同じ名前である場合は、最初の一致する子オブジェクトが返されます。      > [!NOTE] >、インターネット インフォメーション サービス (IIS) プロバイダーがこのメソッドをサポートしていません。 オーバー ロードされた使用<xref:System.DirectoryServices.DirectoryEntries.Find%2A>メソッド、空の文字列を指定し、(&quot;&quot;) の`schemaClassName`パラメーター</xref:System.DirectoryServices.DirectoryEntries.Find%2A> 。   >> 一致する結果が見つからない場合、<xref:System.DirectoryServices.DirectoryServicesCOMException>コード 0x2030 エラーがスローされます</xref:System.DirectoryServices.DirectoryServicesCOMException>。"
   syntax:
     content: public System.DirectoryServices.DirectoryEntry Find (string name);
     parameters:
     - id: name
       type: System.String
-      description: "Contains the name of the child object for which to search."
+      description: "検索対象の子オブジェクトの名前が含まれています。"
     return:
       type: System.DirectoryServices.DirectoryEntry
-      description: "A <xref href=&quot;System.DirectoryServices.DirectoryEntry&quot;></xref> that represents the child object that was found."
+      description: "A <xref href=&quot;System.DirectoryServices.DirectoryEntry&quot;> </xref>を表すことが検出された子オブジェクト。"
   overload: System.DirectoryServices.DirectoryEntries.Find*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The Active Directory Domain Services object is not a container."
+    description: "Active Directory ドメイン サービス オブジェクトは、コンテナーではありません。"
   - type: System.Runtime.InteropServices.COMException
     commentId: T:System.Runtime.InteropServices.COMException
-    description: "An error occurred during the call to the underlying interface."
+    description: "基になるインターフェイスへの呼び出し中にエラーが発生しました。"
   platform:
   - net462
 - uid: System.DirectoryServices.DirectoryEntries.Find(System.String,System.String)
@@ -105,8 +105,8 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "Returns the member of this collection with the specified name and of the specified type."
-  remarks: "If no matching result is found, a <xref:System.DirectoryServices.DirectoryServicesCOMException> with error code 0x2030 is thrown."
+  summary: "指定した名前には、このコレクションの指定した型のメンバーを返します。"
+  remarks: "一致する結果が見つからない場合、<xref:System.DirectoryServices.DirectoryServicesCOMException>コード 0x2030 エラーがスローされます</xref:System.DirectoryServices.DirectoryServicesCOMException>。"
   example:
   - "The following Visual Basic .NET example creates a new <xref:System.DirectoryServices.DirectoryEntry> object with the specified path, then creates a new entry in the container and saves it. It attempts to retrieve the newly created entry.  \n  \n```vb  \nTry  \n     Dim myEntry1 As DirectoryEntry  \n     Dim myEntry2 As DirectoryEntry  \n     Dim strPath As String = \"LDAP://DC=fabrikam,DC=com\"  \n  \n     ' Create a 'DirectoryEntry' object with the given path.  \n     Dim myDE As New DirectoryEntry(strPath)  \n     Dim myEntries As DirectoryEntries = myDE.Children  \n  \n     ' Create a new entry in the container.  \n     myEntry1 = myEntries.Add(\"CN=Sample Entry\", myDE.SchemaClassName)  \n     ' Save changes in the 'Active Directory Domain Services' store.  \n     myEntry1.CommitChanges()  \n  \n     ' Find a child in the 'DirectoryEntries' collection which has the   \n     ' specified name and type.  \n     myEntry2 = myEntries.Find(\"CN=Sample Entry\", myDE.SchemaClassName)  \n     Console.WriteLine(myEntry2.Name + \" is found in container.\")  \n  \n     Catch e As Exception  \n          Console.WriteLine(\"The following exception was raised : {0}\", e.Message.ToString())  \n     End Try  \n```  \n  \n The following C# example shows how to create a new <xref:System.DirectoryServices.DirectoryEntry> object with the specified path, then creates a new entry in the container and saves it. It attempts to retrieve the newly- created entry.  \n  \n```c#  \nusing System;  \nusing System.DirectoryServices;   \n  \nclass MyClass1  \n{  \n   static void Main()  \n   {  \n      try  \n      {          \n         DirectoryEntry myEntry1;  \n         DirectoryEntry myEntry2;  \n         String strPath = \"LDAP://DC=fabrikam,DC=com\";  \n  \n         // Create a 'DirectoryEntry' object with the given path.  \n         DirectoryEntry myDE = new DirectoryEntry(strPath);  \n         DirectoryEntries myEntries = myDE.Children;  \n  \n         // Create a new entry in the container.  \n         myEntry1 = myEntries.Add(\"CN=Sample Entry\",myDE.SchemaClassName);  \n         // Save changes in the 'Active Directory Domain Services' store.  \n         myEntry1.CommitChanges();  \n  \n         // Find a child in the 'DirectoryEntries' collection which has the   \n         // specified name and type.  \n         myEntry2 = myEntries.Find(\"CN=Sample Entry\",myDE.SchemaClassName);  \n         Console.WriteLine (myEntry2.Name + \" is found in container.\");  \n  \n      }  \n      catch(Exception e)  \n      {  \n         Console.WriteLine(\"The following exception was raised : {0}\",e.Message);  \n      }  \n   }  \n}  \n  \n```  \n  \n The following C++ example creates a new <xref:System.DirectoryServices.DirectoryEntry> object with the specified path, then creates a new entry in the container and saves it. It attempts to retrieve the new entry.  \n  \n```cpp#  \n#using <mscorlib.dll>  \n#using <System.dll>  \n#using <System.Directoryservices.dll>  \n  \nusing namespace System;  \nusing namespace System::DirectoryServices;   \n  \nint main() {  \n    try {          \n        DirectoryEntry* myEntry1;  \n        DirectoryEntry* myEntry2;  \n        String* strPath = S\"LDAP://DC=fabrikam,DC=com\";  \n  \n        // Create a 'DirectoryEntry' object with the given path.  \n        DirectoryEntry* myDE = new DirectoryEntry(strPath);  \n        DirectoryEntries* myEntries = myDE->Children;  \n  \n        // Create a new entry in the container.  \n        myEntry1 = myEntries->Add(S\"CN=Sample Entry\", myDE->SchemaClassName);  \n        // Save changes in the 'Active Directory Domain Services' store.  \n        myEntry1->CommitChanges();  \n  \n        // Find a child in the 'DirectoryEntries' collection which has the   \n        // specified name and type.  \n        myEntry2 = myEntries->Find(S\"CN=Sample Entry\", myDE->SchemaClassName);  \n        Console::WriteLine (\"{0} is found in container.\", myEntry2->Name);  \n    } catch(Exception* e) {  \n        Console::WriteLine(\"The following exception was raised : {0}\", e->Message);  \n    }  \n}  \n  \n```"
   syntax:
@@ -114,21 +114,21 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the child directory object for which to search."
+      description: "検索対象の子ディレクトリ オブジェクトの名前。"
     - id: schemaClassName
       type: System.String
-      description: "The class name of the child directory object for which to search."
+      description: "検索対象の子ディレクトリ オブジェクトのクラス名。"
     return:
       type: System.DirectoryServices.DirectoryEntry
-      description: "A <xref href=&quot;System.DirectoryServices.DirectoryEntry&quot;></xref> object that represents the child object that was found."
+      description: "A <xref href=&quot;System.DirectoryServices.DirectoryEntry&quot;> </xref>ことが検出された子オブジェクトを表すオブジェクト。"
   overload: System.DirectoryServices.DirectoryEntries.Find*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The Active Directory Domain Services object is not a container."
+    description: "Active Directory ドメイン サービス オブジェクトは、コンテナーではありません。"
   - type: System.Runtime.InteropServices.COMException
     commentId: T:System.Runtime.InteropServices.COMException
-    description: "An error occurred during the call to the underlying interface."
+    description: "基になるインターフェイスへの呼び出し中にエラーが発生しました。"
   platform:
   - net462
 - uid: System.DirectoryServices.DirectoryEntries.GetEnumerator
@@ -143,13 +143,13 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "Returns an enumerator that iterates through the collection."
+  summary: "コレクションを反復処理する列挙子を返します。"
   syntax:
     content: public System.Collections.IEnumerator GetEnumerator ();
     parameters: []
     return:
       type: System.Collections.IEnumerator
-      description: "An <xref:System.Collections.IEnumerator> object that can be used to iterate through the collection."
+      description: "<xref:System.Collections.IEnumerator>コレクションを反復処理するために使用できるオブジェクト</xref:System.Collections.IEnumerator>。"
   overload: System.DirectoryServices.DirectoryEntries.GetEnumerator*
   exceptions: []
   platform:
@@ -166,8 +166,8 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "Deletes a member of this collection."
-  remarks: "If the entry to be removed is a container, the container must be empty. To delete a container and all its children, use the <xref:System.DirectoryServices.DirectoryEntry.DeleteTree%2A> method."
+  summary: "このコレクションのメンバーを削除します。"
+  remarks: "削除するエントリが、コンテナーの場合は、コンテナーを空にする必要があります。 削除するコンテナーとそのすべての子を使用して、<xref:System.DirectoryServices.DirectoryEntry.DeleteTree%2A>メソッド</xref:System.DirectoryServices.DirectoryEntry.DeleteTree%2A>。"
   example:
   - "The following Visual Basic .NET example creates a new <xref:System.DirectoryServices.DirectoryEntry> object with the specified path, then creates a new entry in the container and saves it. Finally, it retrieves the new entry and deletes it.  \n  \n```vb  \nImports System  \nImports System.DirectoryServices  \n  \nClass MyClass1  \n   Shared Sub Main()  \n      Try  \n         Dim strPath As String = \"IIS://localhost/W3SVC/1/Root\"  \n         Dim strName As String = \"\"  \n  \n         ' Create a new 'DirectoryEntry' object with the given path.  \n         Dim myDE As New DirectoryEntry(strPath)  \n         Dim myEntries As DirectoryEntries = myDE.Children  \n  \n         ' Create a new entry 'Sample' in the container.  \n         Dim myDirectoryEntry As DirectoryEntry = myEntries.Add(\"Sample\", myDE.SchemaClassName)  \n         ' Save changes of entry in the 'Active Directory Domain Services'.  \n         myDirectoryEntry.CommitChanges()  \n         Console.WriteLine(myDirectoryEntry.Name + \" entry is created in container.\")  \n  \n         ' Find 'Sample' entry in container.  \n         myDirectoryEntry = myEntries.Find(\"Sample\", myDE.SchemaClassName)  \n         Console.WriteLine(myDirectoryEntry.Name + \" found in container.\")  \n         ' Remove 'Sample' entry from container.  \n         strName = myDirectoryEntry.Name  \n         myEntries.Remove(myDirectoryEntry)  \n         Console.WriteLine(strName + \" entry is removed from container.\")  \n  \n      Catch e As Exception  \n         Console.WriteLine(\"The following exception was raised : {0}\", e.Message.ToString())  \n      End Try  \n   End Sub 'Main  \nEnd Class 'MyClass1  \n  \n```  \n  \n The following C# example creates a new <xref:System.DirectoryServices.DirectoryEntry> object with the specified path, then creates a new entry in the container and saves it. Finally, it retrieves the new entry and deletes it.  \n  \n```c#  \nusing System;  \nusing System.DirectoryServices;   \n  \nclass MyClass1  \n{  \n   static void Main()  \n   {  \n      try  \n      {  \n         String strPath = \"IIS://localhost/W3SVC/1/Root\";  \n         String strName = \"\";  \n  \n         // Create a new 'DirectoryEntry' object with the given path.  \n         DirectoryEntry myDE = new DirectoryEntry(strPath);  \n         DirectoryEntries myEntries = myDE.Children;  \n  \n         // Create a new entry 'Sample' in the container.  \n         DirectoryEntry myDirectoryEntry =   \n            myEntries.Add(\"Sample\", myDE.SchemaClassName);  \n         // Save changes of entry in the 'Active Directory Domain Services'.  \n         myDirectoryEntry.CommitChanges();  \n         Console.WriteLine (myDirectoryEntry.Name +   \n            \" entry is created in container.\");  \n  \n         // Find 'Sample' entry in container.  \n         myDirectoryEntry = myEntries.Find(\"Sample\", myDE.SchemaClassName);  \n         Console.WriteLine(myDirectoryEntry.Name + \" found in container.\");  \n         // Remove 'Sample' entry from container.  \n         strName = myDirectoryEntry.Name;  \n         myEntries.Remove(myDirectoryEntry);  \n         Console.WriteLine(strName+ \" entry is removed from container.\");  \n  \n      }  \n      catch(Exception e)  \n      {  \n         Console.WriteLine(\"The following exception was raised : {0}\",  \n            e.Message);  \n      }  \n   }  \n}  \n  \n```  \n  \n The following C++ example creates a new <xref:System.DirectoryServices.DirectoryEntry> object with the specified path, then creates a new entry in the container and saves it. Finally, it retrieves the new entry and deletes it.  \n  \n```cpp#  \n#using <mscorlib.dll>  \n#using <System.dll>  \n#using <System.Directoryservices.dll>  \n  \nusing namespace System;  \nusing namespace System::DirectoryServices;   \n  \nint main() {  \n    try {  \n        String* strPath = S\"IIS://localhost/W3SVC/1/Root\";  \n        String* strName = S\"\";  \n  \n        // Create a new 'DirectoryEntry' object with the given path.  \n        DirectoryEntry* myDE = new DirectoryEntry(strPath);  \n        DirectoryEntries* myEntries = myDE->Children;  \n  \n        // Create a new entry 'Sample' in the container.  \n        DirectoryEntry* myDirectoryEntry =  myEntries->Add(S\"Sample\", myDE->SchemaClassName);  \n        // Save changes of entry in the 'Active Directory Domain Services'.  \n        myDirectoryEntry->CommitChanges();  \n        Console::WriteLine(S\"{0} entry is created in container.\", myDirectoryEntry->Name);  \n  \n        // Find 'Sample' entry in container.  \n        myDirectoryEntry = myEntries->Find(S\"Sample\", myDE->SchemaClassName);  \n        Console::WriteLine(S\"{0} found in container.\", myDirectoryEntry->Name);  \n        // Remove 'Sample' entry from container.  \n        strName = myDirectoryEntry->Name;  \n        myEntries->Remove(myDirectoryEntry);  \n        Console::WriteLine(S\"{0} entry is removed from container.\", strName);  \n    } catch(Exception* e) {  \n        Console::WriteLine(S\"The following exception was raised : {0}\", e->Message);  \n    }  \n}  \n  \n```"
   syntax:
@@ -175,12 +175,12 @@ items:
     parameters:
     - id: entry
       type: System.DirectoryServices.DirectoryEntry
-      description: "The name of the <xref href=&quot;System.DirectoryServices.DirectoryEntry&quot;></xref> object to delete."
+      description: "名前、 <xref href=&quot;System.DirectoryServices.DirectoryEntry&quot;> </xref>オブジェクトを削除します。"
   overload: System.DirectoryServices.DirectoryEntries.Remove*
   exceptions:
   - type: System.Runtime.InteropServices.COMException
     commentId: T:System.Runtime.InteropServices.COMException
-    description: "An error occurred during the call to the underlying interface."
+    description: "基になるインターフェイスへの呼び出し中にエラーが発生しました。"
   platform:
   - net462
 - uid: System.DirectoryServices.DirectoryEntries.SchemaFilter
@@ -195,13 +195,13 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "Gets the schemas that specify which child objects are contained in the collection."
-  remarks: "If the SchemaFilter property is empty, child objects of all types are visible in the collection; otherwise, only those of the specified types are visible."
+  summary: "子オブジェクトがコレクションに含まれているを指定するスキーマを取得します。"
+  remarks: "すべての種類の子オブジェクトがコレクションに表示されている SchemaFilter プロパティが空である場合それ以外の場合、指定した型のもののみ表示されます。"
   syntax:
     content: public System.DirectoryServices.SchemaNameCollection SchemaFilter { get; }
     return:
       type: System.DirectoryServices.SchemaNameCollection
-      description: "A <xref href=&quot;System.DirectoryServices.SchemaNameCollection&quot;></xref> that specifies which child objects are contained in the <xref href=&quot;System.DirectoryServices.DirectoryEntries&quot;></xref> instance."
+      description: "A <xref href=&quot;System.DirectoryServices.SchemaNameCollection&quot;> </xref>にする子オブジェクトが含まれているを指定する、 <xref href=&quot;System.DirectoryServices.DirectoryEntries&quot;> </xref>インスタンス。"
   overload: System.DirectoryServices.DirectoryEntries.SchemaFilter*
   exceptions: []
   platform:

@@ -17,8 +17,8 @@ items:
   nameWithType: LateBoundBitmapDecoder
   fullName: System.Windows.Media.Imaging.LateBoundBitmapDecoder
   type: Class
-  summary: "Defines a decoder that requires delayed bitmap creation such as asynchronous image downloads."
-  remarks: "A LateBoundBitmapDecoder is used when <xref:System.Windows.Media.Imaging.BitmapCreateOptions> is specified. The <xref:System.Windows.Media.Imaging.LateBoundBitmapDecoder.Decoder%2A> property creates the necessary &quot;real decoder&quot; on an on-demand basis. All decoder properties return `null` while content is downloading.       A LateBoundBitmapDecoder can also be created when the system has an image that is being asynchronously downloaded locally. In this case, the decoder also returns `null` for properties until the image has been downloaded. The application can check the <xref:System.Windows.Media.Imaging.LateBoundBitmapDecoder.IsDownloading%2A> property or add a delegate for the <xref:System.Windows.Media.Imaging.BitmapDecoder.DownloadCompleted> event to monitor the download status. Furthermore, any frames obtained from a LateBoundBitmapDecoder while the image is downloading will return a width/height of 1,1 until the frames have finished downloading.       <xref:System.Windows.Media.Imaging.BitmapFrame> objects that are returned by this class are frozen and are therefore immutable."
+  summary: "非同期のイメージのダウンロードなどに、遅延のビットマップ作成を必要とするデコーダーを定義します。"
+  remarks: "LateBoundBitmapDecoder が使用されるときに<xref:System.Windows.Media.Imaging.BitmapCreateOptions>が指定されています</xref:System.Windows.Media.Imaging.BitmapCreateOptions>。 <xref:System.Windows.Media.Imaging.LateBoundBitmapDecoder.Decoder%2A>プロパティは、オンデマンドごとに、必要な「実際デコーダー」を作成します</xref:System.Windows.Media.Imaging.LateBoundBitmapDecoder.Decoder%2A>。 デコーダーのすべてのプロパティを返す`null`コンテンツのダウンロード中にします。       システムにダウンロードされている非同期的にローカルにイメージがあるときに、LateBoundBitmapDecoder を作成することもできます。 この場合、デコーダーもを返します`null`イメージのダウンロードが完了するまでのプロパティです。 アプリケーションを確認できる、<xref:System.Windows.Media.Imaging.LateBoundBitmapDecoder.IsDownloading%2A>プロパティのデリゲートを追加または、<xref:System.Windows.Media.Imaging.BitmapDecoder.DownloadCompleted>ダウンロードの状態を監視するイベントです</xref:System.Windows.Media.Imaging.BitmapDecoder.DownloadCompleted></xref:System.Windows.Media.Imaging.LateBoundBitmapDecoder.IsDownloading%2A>。 さらに、イメージのダウンロード中に、LateBoundBitmapDecoder から取得したすべてのフレームであっても、フレームでは、ダウンロードが完了したらまで、1, 1 の幅と高さが返されます。       <xref:System.Windows.Media.Imaging.BitmapFrame>このクラスによって返されるオブジェクトが固定されている、したがって変更可能ではありません。</xref:System.Windows.Media.Imaging.BitmapFrame>"
   syntax:
     content: 'public sealed class LateBoundBitmapDecoder : System.Windows.Media.Imaging.BitmapDecoder'
   inheritance:
@@ -53,7 +53,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Gets information that describes this codec."
+  summary: "このコーデックを説明する情報を取得します。"
   remarks: ''
   example:
   - "The following example shows how to read information from a <xref:System.Windows.Media.Imaging.BitmapCodecInfo> object and send it to a string.  \n  \n [!code-vb[bmpbitmapdecoderencoder#3](~/add/codesnippet/visualbasic/BitmapEncoderDecoder/BitmapFrame.vb#3)]\n [!code-cs[bmpbitmapdecoderencoder#3](~/add/codesnippet/csharp/BitmapEncoderDecoder/BitmapFrame.cs#3)]\n [!code-cpp[bmpbitmapdecoderencoder#3](~/add/codesnippet/cpp/anotherproject/anotherfile.cpp#3)]"
@@ -61,7 +61,7 @@ items:
     content: public override System.Windows.Media.Imaging.BitmapCodecInfo CodecInfo { get; }
     return:
       type: System.Windows.Media.Imaging.BitmapCodecInfo
-      description: "An instance of <xref href=&quot;System.Windows.Media.Imaging.BitmapCodecInfo&quot;></xref>. This property has no default value. If the late bound decoder is still downloading, this property returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "インスタンス<xref href=&quot;System.Windows.Media.Imaging.BitmapCodecInfo&quot;></xref>です。 このプロパティには、既定値はありません。 このプロパティを返しますのかどうかは遅延バインド デコーダーがまだダウンロード中、 <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   overload: System.Windows.Media.Imaging.LateBoundBitmapDecoder.CodecInfo*
   exceptions: []
   platform:
@@ -78,12 +78,12 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Gets a value that represents the color profile that is associated with a bitmap, if one is defined."
+  summary: "定義されている場合、ビットマップに関連付けられているカラー プロファイルを表す値を取得します。"
   syntax:
     content: public override System.Collections.ObjectModel.ReadOnlyCollection<System.Windows.Media.ColorContext> ColorContexts { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Windows.Media.ColorContext}
-      description: "An instance of <xref href=&quot;System.Windows.Media.ColorContext&quot;></xref> that represents the embedded color profile of the bitmap. If no color profile has been defined, or if the <xref href=&quot;System.Windows.Media.Imaging.LateBoundBitmapDecoder&quot;></xref> is still downloading content, this property returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>. This property has no default value."
+      description: "インスタンス<xref href=&quot;System.Windows.Media.ColorContext&quot;></xref>ビットマップの埋め込みのカラー プロファイルを表すです。 カラー プロファイルが定義されていない場合、または場合、 <xref href=&quot;System.Windows.Media.Imaging.LateBoundBitmapDecoder&quot;> </xref>まだコンテンツがダウンロード中、このプロパティを返します<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。 このプロパティには、既定値はありません。"
   overload: System.Windows.Media.Imaging.LateBoundBitmapDecoder.ColorContexts*
   exceptions: []
   platform:
@@ -100,12 +100,12 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Gets the underlying decoder that is associated with this late-bound decoder."
+  summary: "この遅延バインド デコーダーに関連付けられている基になるデコーダーを取得します。"
   syntax:
     content: public System.Windows.Media.Imaging.BitmapDecoder Decoder { get; }
     return:
       type: System.Windows.Media.Imaging.BitmapDecoder
-      description: "The underlying <xref href=&quot;System.Windows.Media.Imaging.BitmapDecoder&quot;></xref>. If the <xref href=&quot;System.Windows.Media.Imaging.LateBoundBitmapDecoder&quot;></xref> is still downloading a bitmap, the underlying decoder is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>. Otherwise, the underlying decoder is created on first access."
+      description: "基になる<xref href=&quot;System.Windows.Media.Imaging.BitmapDecoder&quot;></xref>です。 場合、 <xref href=&quot;System.Windows.Media.Imaging.LateBoundBitmapDecoder&quot;> </xref>はビットマップをまだダウンロード中には、基になるデコーダーが<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。 それ以外の場合、最初のアクセス時は、基になるデコーダーが作成されます。"
   overload: System.Windows.Media.Imaging.LateBoundBitmapDecoder.Decoder*
   exceptions: []
   platform:
@@ -122,15 +122,15 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Gets the content of an individual frame within a bitmap."
-  remarks: "Because a <xref:System.Windows.Media.Imaging.LateBoundBitmapDecoder> is downloaded asynchronously, it is possible for the underlying collection of Frames to change after content is downloaded and decoded. While content is downloading, the collection always returns at least one item. When downloading and decoding are complete, the <xref:System.Windows.Media.Imaging.BitmapFrame> automatically changes its underlying content. In other words, only the collection object can change; the actual frame object remains the same.       Any frame obtained from a <xref:System.Windows.Media.Imaging.LateBoundBitmapDecoder> while the image is downloading will return a width/height of `1,1` until the frames have finished downloading.       Only [!INCLUDE[TLA#tla_tiff](~/add/includes/tlasharptla-tiff-md.md)] and [!INCLUDE[TLA#tla_gif](~/add/includes/tlasharptla-gif-md.md)] images support more than one frame.       Any <xref:System.Windows.Media.Imaging.BitmapFrame> objects that this property returns are frozen."
+  summary: "ビットマップ内で個々 のフレームのコンテンツを取得します。"
+  remarks: "<xref:System.Windows.Media.Imaging.LateBoundBitmapDecoder>は非同期的にダウンロードされると、可能であればのコンテンツがダウンロードされ、デコード後に変更するフレームの基になるコレクション</xref:System.Windows.Media.Imaging.LateBoundBitmapDecoder>。 コンテンツのダウンロード中にコレクションを常には、少なくとも&1; つの項目を返します。 ダウンロードとデコードの完了後に、<xref:System.Windows.Media.Imaging.BitmapFrame>その基になるコンテンツが自動的に変更します</xref:System.Windows.Media.Imaging.BitmapFrame>。 つまり、コレクション オブジェクトのみを変更できます。実際のフレーム オブジェクトは変わりません。       任意のフレームがから取得した、<xref:System.Windows.Media.Imaging.LateBoundBitmapDecoder>イメージのダウンロード中にはの幅と高さを返します`1,1`フレームのダウンロードが完了するまで</xref:System.Windows.Media.Imaging.LateBoundBitmapDecoder>。       のみ[!INCLUDE[TLA#tla_tiff](~/add/includes/tlasharptla-tiff-md.md)]と[!INCLUDE[TLA#tla_gif](~/add/includes/tlasharptla-gif-md.md)]イメージが複数のフレームをサポートします。       どの<xref:System.Windows.Media.Imaging.BitmapFrame>このプロパティによって返されるオブジェクトが固定されている</xref:System.Windows.Media.Imaging.BitmapFrame>。"
   example:
   - "The following example demonstrates how to use a <xref:System.Windows.Media.Imaging.BitmapFrame> as a <xref:System.Windows.Media.Imaging.BitmapSource>.  \n  \n [!code-vb[bitmapframeexample#4](~/add/codesnippet/visualbasic/BitmapFrame/BitmapFrame.vb#4)]\n [!code-cs[bitmapframeexample#4](~/add/codesnippet/csharp/BitmapFrame/BitmapFrame.cs#4)]"
   syntax:
     content: public override System.Collections.ObjectModel.ReadOnlyCollection<System.Windows.Media.Imaging.BitmapFrame> Frames { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Windows.Media.Imaging.BitmapFrame}
-      description: "An instance of <xref href=&quot;System.Windows.Media.Imaging.BitmapFrame&quot;></xref>. This property has no default value."
+      description: "インスタンス<xref href=&quot;System.Windows.Media.Imaging.BitmapFrame&quot;></xref>です。 このプロパティには、既定値はありません。"
   overload: System.Windows.Media.Imaging.LateBoundBitmapDecoder.Frames*
   exceptions: []
   platform:
@@ -147,12 +147,12 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Gets a value that indicates whether the decoder is currently downloading content."
+  summary: "デコーダーが現在のコンテンツをダウンロードしているかどうかを示す値を取得します。"
   syntax:
     content: public override bool IsDownloading { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the decoder is downloading content; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>デコーダーがコンテンツをダウンロードする場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Windows.Media.Imaging.LateBoundBitmapDecoder.IsDownloading*
   exceptions: []
   platform:
@@ -169,12 +169,12 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Gets the <xref href=&quot;System.Windows.Media.Imaging.BitmapPalette&quot;></xref> that is associated with this decoder."
+  summary: "取得、 <xref href=&quot;System.Windows.Media.Imaging.BitmapPalette&quot;> </xref>このデコーダーに関連付けられています。"
   syntax:
     content: public override System.Windows.Media.Imaging.BitmapPalette Palette { get; }
     return:
       type: System.Windows.Media.Imaging.BitmapPalette
-      description: "The <xref href=&quot;System.Windows.Media.Imaging.BitmapPalette&quot;></xref> that is associated with this decoder. If the bitmap has no palette, or if the <xref href=&quot;System.Windows.Media.Imaging.LateBoundBitmapDecoder&quot;></xref> is still downloading content, this property returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>. This property has no default value."
+      description: "<xref href=&quot;System.Windows.Media.Imaging.BitmapPalette&quot;> </xref>このデコーダーに関連付けられています。 ビットマップにパレットがあるない場合、または場合、 <xref href=&quot;System.Windows.Media.Imaging.LateBoundBitmapDecoder&quot;> </xref>まだコンテンツがダウンロード中、このプロパティを返します<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。 このプロパティには、既定値はありません。"
   overload: System.Windows.Media.Imaging.LateBoundBitmapDecoder.Palette*
   exceptions: []
   platform:
@@ -191,13 +191,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Gets a <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;></xref> that represents the global preview of this bitmap, if one is defined."
-  remarks: "The <xref:System.Windows.Media.Imaging.BitmapSource> that this property returns is frozen."
+  summary: "取得、 <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;> </xref>が定義されている場合は、このビットマップのグローバル プレビューを表すです。"
+  remarks: "<xref:System.Windows.Media.Imaging.BitmapSource>このプロパティを返すことが固定されている</xref:System.Windows.Media.Imaging.BitmapSource>。"
   syntax:
     content: public override System.Windows.Media.Imaging.BitmapSource Preview { get; }
     return:
       type: System.Windows.Media.Imaging.BitmapSource
-      description: "A <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;></xref> that represents the global preview of the bitmap. If no preview is defined, or if the <xref href=&quot;System.Windows.Media.Imaging.LateBoundBitmapDecoder&quot;></xref> is still downloading content, this property returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>. This property has no default value."
+      description: "A <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;> </xref>ビットマップのグローバル プレビューを表すです。 プレビューが定義されていない場合、または場合、 <xref href=&quot;System.Windows.Media.Imaging.LateBoundBitmapDecoder&quot;> </xref>まだコンテンツがダウンロード中、このプロパティを返します<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。 このプロパティには、既定値はありません。"
   overload: System.Windows.Media.Imaging.LateBoundBitmapDecoder.Preview*
   exceptions: []
   platform:
@@ -214,13 +214,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Gets a <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;></xref> that represents the thumbnail of the bitmap, if one is defined."
-  remarks: "The <xref:System.Windows.Media.Imaging.BitmapSource> that this property returns is frozen."
+  summary: "取得、 <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;> </xref>が定義されている場合、ビットマップのサムネイルを表すです。"
+  remarks: "<xref:System.Windows.Media.Imaging.BitmapSource>このプロパティを返すことが固定されている</xref:System.Windows.Media.Imaging.BitmapSource>。"
   syntax:
     content: public override System.Windows.Media.Imaging.BitmapSource Thumbnail { get; }
     return:
       type: System.Windows.Media.Imaging.BitmapSource
-      description: "A <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;></xref> that represents a thumbnail of the bitmap. If no thumbnail is defined, or if the <xref href=&quot;System.Windows.Media.Imaging.LateBoundBitmapDecoder&quot;></xref> is still downloading content, this property returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>. This property has no default value."
+      description: "A <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;> </xref>ビットマップのサムネイルを表すです。 サムネイルが定義されていない場合、または場合、 <xref href=&quot;System.Windows.Media.Imaging.LateBoundBitmapDecoder&quot;> </xref>まだコンテンツがダウンロード中、このプロパティを返します<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。 このプロパティには、既定値はありません。"
   overload: System.Windows.Media.Imaging.LateBoundBitmapDecoder.Thumbnail*
   exceptions: []
   platform:

@@ -15,8 +15,8 @@ items:
   nameWithType: Validator
   fullName: System.Workflow.ComponentModel.Compiler.Validator
   type: Class
-  summary: "Base class for all validator components."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       The Validator class is used to ensure that activities are configured properly at design time. Validators are instantiated during design time when the designer validates the properties assigned to activities; if an activity&quot;s parameters are not configured properly, the designer will show smart tag errors for the incorrect values. Validators also run during compile time, and will return validation errors if constraints such as object parent or child type, minimum number of children, etc. are not correct.  Validators will also run at runtime when a markup-based workflow is instantiated using the <xref:System.Workflow.Runtime.WorkflowRuntime.CreateWorkflow%2A> method.       The main purpose of a Validator is to ensure that errors are known during design time, and are not exposed as exceptions during runtime.       Validators are associated with the activities that they validate using the <xref:System.Workflow.ComponentModel.Compiler.ActivityValidatorAttribute.ValidatorTypeName%2A> attribute; all activity validators must inherit from the <xref:System.Workflow.ComponentModel.Compiler.ActivityValidator> class.       By default, validators will validate meta properties; they do not validate instance properties which are settable at runtime."
+  summary: "バリデーター コンポーネントすべての基本クラスです。"
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]検証コントロール クラスを使用して、デザイン時にアクティビティが正しく構成されていることを確認します。 検証コントロールがデザイン時に、デザイナーがアクティビティに割り当てられているプロパティを検証するときにインスタンス化します。アクティビティのパラメーターが正しく構成されていない場合、デザイナーは不適切な値にスマート タグ エラーを表示します。 中にはもバリデーターは、コンパイル時と制約オブジェクトの親または子の種類など、子供などの最小数が正しくない場合の検証エラーが返されます。  マークアップ ベースのワークフローが使用してインスタンス化されるときに検証コントロールは実行時に実行も、<xref:System.Workflow.Runtime.WorkflowRuntime.CreateWorkflow%2A>メソッド</xref:System.Workflow.Runtime.WorkflowRuntime.CreateWorkflow%2A>。       バリデーターの主な目的は、エラーは、デザイン時に既知し、実行時に例外として公開されていないことを確認します。       検証コントロールは、<xref:System.Workflow.ComponentModel.Compiler.ActivityValidatorAttribute.ValidatorTypeName%2A>属性以外のすべてのアクティビティの検証コントロールが<xref:System.Workflow.ComponentModel.Compiler.ActivityValidator>クラス</xref:System.Workflow.ComponentModel.Compiler.ActivityValidator>から継承する必要があります</xref:System.Workflow.ComponentModel.Compiler.ActivityValidatorAttribute.ValidatorTypeName%2A>を使用して検証するアクティビティに関連付けられました。       既定では、検証対象とメタ プロパティです。実行時に変わるインスタンス プロパティは検証しません。"
   syntax:
     content: >-
       [System.Obsolete("The System.Workflow.* types are deprecated.  Instead, please use the new types from System.Activities.*")]
@@ -40,7 +40,7 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel.Compiler
-  summary: "Initializes a new instance of the <xref href=&quot;System.Workflow.ComponentModel.Compiler.Validator&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Workflow.ComponentModel.Compiler.Validator&quot;> </xref>クラスです。"
   syntax:
     content: public Validator ();
     parameters: []
@@ -60,22 +60,22 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel.Compiler
-  summary: "Helper method to extract the full property name."
-  remarks: "Useful when the validated property is nested.  The method traverses the <xref:System.Workflow.ComponentModel.Compiler.PropertyValidationContext> in the stack to build the full name of the property.       For example: the name My.Actor.Bas is built using three <xref:System.Workflow.ComponentModel.Compiler.PropertyValidationContext> items.       If the validated property belongs to an object that is an item in a collection, the method will produce the name of the collection."
+  summary: "プロパティの完全名を抽出するヘルパー メソッドです。"
+  remarks: "検証するプロパティが入れ子になった場合に役立ちます。  メソッドを通過する時間、<xref:System.Workflow.ComponentModel.Compiler.PropertyValidationContext>プロパティの完全な名前をビルドするスタック内</xref:System.Workflow.ComponentModel.Compiler.PropertyValidationContext>。       例: My.Actor.Bas は&3; つを使用して構築された名<xref:System.Workflow.ComponentModel.Compiler.PropertyValidationContext>項目</xref:System.Workflow.ComponentModel.Compiler.PropertyValidationContext>。       検証するプロパティに属する場合、コレクション内の項目であるオブジェクト、メソッドには、コレクションの名前が生成されます。"
   syntax:
     content: protected string GetFullPropertyName (System.Workflow.ComponentModel.Compiler.ValidationManager manager);
     parameters:
     - id: manager
       type: System.Workflow.ComponentModel.Compiler.ValidationManager
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationManager&quot;></xref> linked to the validation."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationManager&quot;> </xref>検証にリンクします。"
     return:
       type: System.String
-      description: "The full property name."
+      description: "プロパティの完全名。"
   overload: System.Workflow.ComponentModel.Compiler.Validator.GetFullPropertyName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Compiler.Validator.Validate(System.Workflow.ComponentModel.Compiler.ValidationManager,System.Object)
@@ -90,24 +90,24 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel.Compiler
-  summary: "Validates the specified object and returns a collection of validation errors."
+  summary: "指定したオブジェクトを検証し、検証エラーのコレクションを返します。"
   syntax:
     content: public virtual System.Workflow.ComponentModel.Compiler.ValidationErrorCollection Validate (System.Workflow.ComponentModel.Compiler.ValidationManager manager, object obj);
     parameters:
     - id: manager
       type: System.Workflow.ComponentModel.Compiler.ValidationManager
-      description: "The validation manager linked to the validation."
+      description: "検証に関連付けられている検証マネージャー。"
     - id: obj
       type: System.Object
-      description: "The <xref:System.Object> to be validated."
+      description: "<xref:System.Object>検証に使用する</xref:System.Object>。"
     return:
       type: System.Workflow.ComponentModel.Compiler.ValidationErrorCollection
-      description: "A <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;></xref> that contains the validation errors resulting from this operation."
+      description: "A <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;> </xref>この操作によって発生した検証エラーを格納しています。"
   overload: System.Workflow.ComponentModel.Compiler.Validator.Validate*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>obj</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)."
+    description: "<code>obj</code>null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)。"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Compiler.Validator.ValidateActivityChange(System.Workflow.ComponentModel.Activity,System.Workflow.ComponentModel.ActivityChangeAction)
@@ -122,25 +122,25 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel.Compiler
-  summary: "When overridden in a derived class, validates a change based on a specified <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> being added or removed. This function is called during the application of changes that are made to the workflow during dynamic updates."
-  remarks: "In the base implementation, a null reference (Visual Basic `Nothing`) is returned."
+  summary: "派生クラスでオーバーライドされると、検証に基づいて、指定された変更<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>が追加または削除します。 この関数は、動的更新中に、ワークフローに加えられた変更の適用中に呼び出されます。"
+  remarks: "基底クラスの実装では、null 参照 (Visual Basic `Nothing`) が返されます。"
   syntax:
     content: public virtual System.Workflow.ComponentModel.Compiler.ValidationError ValidateActivityChange (System.Workflow.ComponentModel.Activity activity, System.Workflow.ComponentModel.ActivityChangeAction action);
     parameters:
     - id: activity
       type: System.Workflow.ComponentModel.Activity
-      description: "The specified <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
+      description: "指定した<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>です。"
     - id: action
       type: System.Workflow.ComponentModel.ActivityChangeAction
-      description: "The specified <xref href=&quot;System.Workflow.ComponentModel.ActivityChangeAction&quot;></xref>."
+      description: "指定した<xref href=&quot;System.Workflow.ComponentModel.ActivityChangeAction&quot;></xref>です。"
     return:
       type: System.Workflow.ComponentModel.Compiler.ValidationError
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationError&quot;></xref> generated by the operation."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationError&quot;> </xref>操作によって生成されます。"
   overload: System.Workflow.ComponentModel.Compiler.Validator.ValidateActivityChange*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>action</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)."
+    description: "<code>action</code>null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)。"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Compiler.Validator.ValidateProperties(System.Workflow.ComponentModel.Compiler.ValidationManager,System.Object)
@@ -155,24 +155,24 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel.Compiler
-  summary: "Helper method to automatically validate the specific objects properties."
+  summary: "特定のオブジェクトのプロパティを自動的に検証するヘルパー メソッドです。"
   syntax:
     content: public virtual System.Workflow.ComponentModel.Compiler.ValidationErrorCollection ValidateProperties (System.Workflow.ComponentModel.Compiler.ValidationManager manager, object obj);
     parameters:
     - id: manager
       type: System.Workflow.ComponentModel.Compiler.ValidationManager
-      description: "The validation manager linked to the validation."
+      description: "検証に関連付けられている検証マネージャー。"
     - id: obj
       type: System.Object
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> to be validated."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>検証に使用します。"
     return:
       type: System.Workflow.ComponentModel.Compiler.ValidationErrorCollection
-      description: "A <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;></xref> that contains the validation errors resulting from this operation."
+      description: "A <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;> </xref>この操作によって発生した検証エラーを格納しています。"
   overload: System.Workflow.ComponentModel.Compiler.Validator.ValidateProperties*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>obj</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)."
+    description: "<code>obj</code>null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)。"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Compiler.Validator.ValidateProperty(System.Reflection.PropertyInfo,System.Object,System.Object,System.Workflow.ComponentModel.Compiler.ValidationManager)
@@ -187,26 +187,26 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel.Compiler
-  summary: "Performs validation on a property and returns a <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;></xref> that contains the results of that validation."
-  remarks: "If no errors result from the validation, an empty <xref:System.Workflow.ComponentModel.Compiler.ValidationErrorCollection> is returned."
+  summary: "プロパティの検証を実行し、返します、 <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;> </xref>その検証の結果を格納しています。"
+  remarks: "エラーがなかった場合、検証は、空<xref:System.Workflow.ComponentModel.Compiler.ValidationErrorCollection>が返されます</xref:System.Workflow.ComponentModel.Compiler.ValidationErrorCollection>。"
   syntax:
     content: protected System.Workflow.ComponentModel.Compiler.ValidationErrorCollection ValidateProperty (System.Reflection.PropertyInfo propertyInfo, object propertyOwner, object propertyValue, System.Workflow.ComponentModel.Compiler.ValidationManager manager);
     parameters:
     - id: propertyInfo
       type: System.Reflection.PropertyInfo
-      description: "The <xref:System.Reflection.PropertyInfo> on the subject property."
+      description: "<xref:System.Reflection.PropertyInfo>Subject プロパティにします</xref:System.Reflection.PropertyInfo>。"
     - id: propertyOwner
       type: System.Object
-      description: "The owner of the property."
+      description: "プロパティの所有者です。"
     - id: propertyValue
       type: System.Object
-      description: "The value of the property."
+      description: "プロパティの値です。"
     - id: manager
       type: System.Workflow.ComponentModel.Compiler.ValidationManager
-      description: "A <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationManager&quot;></xref> for this operation."
+      description: "A <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationManager&quot;> </xref>この操作にします。"
     return:
       type: System.Workflow.ComponentModel.Compiler.ValidationErrorCollection
-      description: "A <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;></xref> that contains the results of that validation."
+      description: "A <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;> </xref>その検証の結果を格納しています。"
   overload: System.Workflow.ComponentModel.Compiler.Validator.ValidateProperty*
   exceptions: []
   platform:

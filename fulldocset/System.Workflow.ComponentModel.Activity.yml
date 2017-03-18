@@ -57,8 +57,8 @@ items:
   nameWithType: Activity
   fullName: System.Workflow.ComponentModel.Activity
   type: Class
-  summary: "Represents the fundamental building block of workflows. Activity is the base class for all activities."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       An Activity is the fundamental building block of workflows. An Activity defines a set of properties and events, such as any class, along with execution logic that defines the activity&quot;s run-time behavior. A set of additional components can be associated with an Activity. These include, but are not limited to a validator, a code generator, custom serializers, and a designer.       All activities share a common set of properties defined on the Activity base class.  Each Activity can declare its own additional properties according to its requirements by extending this class.  Because Activity derives from <xref:System.Workflow.ComponentModel.DependencyObject>, properties can be defined as standard CLR properties and as dependency properties.       The execution logic of an Activity fulfills a contract that exists between any Activity and the workflow runtime. You must document the execution logic of any Activity in a functional sense, so that a workflow developer who uses the Activity knows how it behaves. The execution logic itself is hidden from the workflow developer who includes the activity in a workflow, because the execution logic is part of a contract that exists strictly between the workflow runtime and the Activity."
+  summary: "ワークフローの基本的なビルディング ブロックを表します。 アクティビティは、すべての活動の基本クラスです。"
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]アクティビティは、ワークフローの基本的なビルド ブロックです。 アクティビティでは、一連のプロパティと、アクティビティの実行時の動作を定義する実行ロジックと共に、クラスなどのイベントを定義します。 その他のコンポーネントのセットは、アクティビティに関連付けできます。 これらしますが、バリデーター、コード ジェネレーター、カスタム シリアライザーに加え、およびデザイナーに限定されていません。       すべてのアクティビティは、アクティビティの基本クラスで定義されたプロパティの共通セットを共有します。  各アクティビティは、このクラスを拡張することによって、必要に応じて、独自の追加プロパティを宣言できます。  派生するアクティビティので<xref:System.Workflow.ComponentModel.DependencyObject>、依存関係プロパティと標準の CLR プロパティとしてプロパティを定義することができます</xref:System.Workflow.ComponentModel.DependencyObject>。       アクティビティの実行ロジックには、任意のアクティビティとワークフロー ランタイムの間に存在する、コントラクトが満たされます。 機能の意味で任意のアクティビティの実行ロジックを文書化、アクティビティを使用して、ワークフロー開発者がその動作を認識できるようにする必要があります。 実行ロジックは、ワークフロー ランタイムと、アクティビティの間で厳密に存在するコントラクトの一部であるために、ワークフローでは、アクティビティが含まれています、ワークフロー開発者からの実行ロジックそのものは表示されません。"
   example:
   - "This example defines an activity whose purpose is to send an email. The activity defines one property, `Subject`, that uses a dependency property in its implementation. Other properties can be defined in a similar way. The `Execute` method is overridden to provide the logic for sending the email. For a complete example, see the [Send E-mail Activity Sample](http://msdn.microsoft.com/en-us/bfb5939e-60a9-4037-af4e-2cea9e654669).  \n  \n```c#  \npublic class SendEmail : Activity  \n{  \n    public static readonly DependencyProperty SubjectProperty =  \n        DependencyProperty.Register(\"Subject\", typeof(string), typeof(SendEmail));  \n  \n    public string Subject  \n    {  \n        get { return base.GetValue(SubjectProperty) as string; }  \n        set { base.SetValue(SubjectProperty, value); }  \n    }  \n  \n    // Define other properties...  \n  \n    protected override ActivityExecutionStatus Execute(ActivityExecutionContext executionContext)  \n    {  \n        // Logic to send the e-mail goes here...  \n        return ActivityExecutionStatus.Closed;  \n    }  \n}  \n```"
   syntax:
@@ -133,7 +133,7 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Initializes a new instance of the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>クラスです。"
   remarks: ''
   example:
   - "The following code shows how to create activities and add them as children to a composite activity.  \n  \n This code example is part of the Throw SDK sample and is from the ThrowWorkFlow.cs file. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][Throw Sample](http://msdn.microsoft.com/en-us/aa5b9546-ec95-4e43-8337-20e26f8d71cc).  \n  \n [!code-cs[WF_Samples#179](~/add/codesnippet/csharp/wf_snippets/snippets11.cs#179)]\n [!code-vb[WF_Samples#179](~/add/codesnippet/visualbasic/wf_snippets/snippets11.vb#179)]"
@@ -156,18 +156,18 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Initializes a new instance of the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> class, while initializing the <xref:System.Workflow.ComponentModel.Activity.Name*>."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> <xref:System.Workflow.ComponentModel.Activity.Name*>.</xref:System.Workflow.ComponentModel.Activity.Name*>の初期化中に、クラス"
   syntax:
     content: public Activity (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name to associate with this instance. The name must conform to the variable naming conventions for the programming language that is being used in the Workflow project, and must be unique in the workflow."
+      description: "このインスタンスに関連付ける名前。 名前は、ワークフロー プロジェクトで使用されているプログラミング言語の変数の名前付け規則に従う必要があり、ワークフロー内で一意である必要があります。"
   overload: System.Workflow.ComponentModel.Activity.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>name</code>null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> Visual Basic で)。"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Activity.ActivityContextGuidProperty
@@ -182,13 +182,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "The <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;></xref> that represents the <xref:System.Guid> of the <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref> that is associated with the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
+  summary: "<xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;> </xref>を表す、<xref:System.Guid>の<xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref>と関連付けられている、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref></xref:System.Guid> 。"
   remarks: '[!INCLUDE[DependencyPropertyRemark](~/add/includes/dependencypropertyremark-md.md)]'
   syntax:
     content: public static readonly System.Workflow.ComponentModel.DependencyProperty ActivityContextGuidProperty;
     return:
       type: System.Workflow.ComponentModel.DependencyProperty
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -204,16 +204,16 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Called by the workflow runtime to cancel execution of an activity that is currently executing."
+  summary: "現在実行中のアクティビティの実行のキャンセル、ワークフロー ランタイムによって呼び出されます。"
   syntax:
     content: protected virtual System.Workflow.ComponentModel.ActivityExecutionStatus Cancel (System.Workflow.ComponentModel.ActivityExecutionContext executionContext);
     parameters:
     - id: executionContext
       type: System.Workflow.ComponentModel.ActivityExecutionContext
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref> that contains the instance to cancel."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;> </xref>をキャンセルするインスタンスが含まれています。"
     return:
       type: System.Workflow.ComponentModel.ActivityExecutionStatus
-      description: "The status at the end of the operation that determines whether the activity remains in the canceling state or transitions to the closed state."
+      description: "アクティビティをキャンセル状態のまま残すか、クローズド状態に遷移するかどうか、操作の最後に状態です。"
   overload: System.Workflow.ComponentModel.Activity.Cancel*
   exceptions: []
   platform:
@@ -230,13 +230,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Occurs when the activity execution is canceled."
-  remarks: "Raising an event invokes the event handler through a delegate. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       The <xref:System.Workflow.ComponentModel.Activity.Cancel%2A> method also allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class.  [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)] handling events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
+  summary: "アクティビティの実行が取り消された場合に発生します。"
+  remarks: "イベントを発生させるには、イベント ハンドラーがデリゲートからを呼び出されます。 [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][NIB: イベントを発生させる](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2)です。       <xref:System.Workflow.ComponentModel.Activity.Cancel%2A>メソッドでは、派生クラスでデリゲートを結び付けずに、イベントを処理することもできます</xref:System.Workflow.ComponentModel.Activity.Cancel%2A>。 これは、派生クラスでイベントを処理するための手法をお勧めします。  [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)]イベントを処理するを参照してください[NIB: イベントの利用](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)です。"
   syntax:
     content: public event EventHandler<System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs> Canceling;
     return:
       type: System.EventHandler{System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs}
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -252,13 +252,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Represents the <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;></xref> that targets the <xref href=&quot;System.Workflow.ComponentModel.Activity.Canceling&quot;></xref> event."
-  remarks: "You indirectly access each public property and event of this type by the resolution of a corresponding dependency property. This dependency property is the public static field named `XProperty` or `XEvent`, where X is the corresponding property.       [!INCLUDE[DependencyPropertyRemark](~/add/includes/dependencypropertyremark-md.md)]"
+  summary: "表す、 <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;> </xref>を対象とする、 <xref href=&quot;System.Workflow.ComponentModel.Activity.Canceling&quot;> </xref>イベント。"
+  remarks: "間接的にアクセス各パブリック プロパティとイベントがこの型の対応する依存関係プロパティの解決でします。 この依存関係プロパティがという名前のパブリック静的フィールド`XProperty`または`XEvent`X は対応するプロパティです。       [!INCLUDE[DependencyPropertyRemark](~/add/includes/dependencypropertyremark-md.md)]"
   syntax:
     content: public static readonly System.Workflow.ComponentModel.DependencyProperty CancelingEvent;
     return:
       type: System.Workflow.ComponentModel.DependencyProperty
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -274,14 +274,14 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Creates a deep copy of the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
-  remarks: "Uses a <xref:System.IO.MemoryStream> to copy the activity and creates a new activity by deserializing from that particular <xref:System.IO.MemoryStream>."
+  summary: "ディープ コピーを作成、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>です。"
+  remarks: "使用して、<xref:System.IO.MemoryStream>アクティビティをコピーから逆シリアル化して、新しいアクティビティを作成し、その特定<xref:System.IO.MemoryStream>.</xref:System.IO.MemoryStream> </xref:System.IO.MemoryStream>"
   syntax:
     content: public System.Workflow.ComponentModel.Activity Clone ();
     parameters: []
     return:
       type: System.Workflow.ComponentModel.Activity
-      description: "A deep copy of the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
+      description: "詳細なコピー、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>です。"
   overload: System.Workflow.ComponentModel.Activity.Clone*
   exceptions: []
   platform:
@@ -298,13 +298,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Occurs when an <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> has completed execution."
-  remarks: "Raising an event invokes the event handler through a delegate. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       The Closed method also allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "発生したときに、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>が実行を完了します。"
+  remarks: "イベントを発生させるには、イベント ハンドラーがデリゲートからを呼び出されます。 [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][NIB: イベントを発生させる](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2)です。       クローズ メソッドでは、派生クラスでデリゲートを結び付けずに、イベントを処理することもできます。 これは、派生クラスでイベントを処理するための手法をお勧めします。"
   syntax:
     content: public event EventHandler<System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs> Closed;
     return:
       type: System.EventHandler{System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs}
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -320,13 +320,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Represents the <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;></xref> that targets the <xref href=&quot;System.Workflow.ComponentModel.Activity.Closed&quot;></xref> event."
-  remarks: "You indirectly access each public property and event of this type by the resolution of a corresponding dependency property. This dependency property is the public static field named `XProperty` or `XEvent`, where X is the corresponding property.       [!INCLUDE[DependencyPropertyRemark](~/add/includes/dependencypropertyremark-md.md)]"
+  summary: "表す、 <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;> </xref>を対象とする、 <xref href=&quot;System.Workflow.ComponentModel.Activity.Closed&quot;> </xref>イベント。"
+  remarks: "間接的にアクセス各パブリック プロパティとイベントがこの型の対応する依存関係プロパティの解決でします。 この依存関係プロパティがという名前のパブリック静的フィールド`XProperty`または`XEvent`X は対応するプロパティです。       [!INCLUDE[DependencyPropertyRemark](~/add/includes/dependencypropertyremark-md.md)]"
   syntax:
     content: public static readonly System.Workflow.ComponentModel.DependencyProperty ClosedEvent;
     return:
       type: System.Workflow.ComponentModel.DependencyProperty
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -342,13 +342,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Occurs when running a compensation method on the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
-  remarks: "Raising an event invokes the event handler through a delegate. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       The Compensating method also allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "補正メソッドを実行しているときに発生、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>です。"
+  remarks: "イベントを発生させるには、イベント ハンドラーがデリゲートからを呼び出されます。 [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][NIB: イベントを発生させる](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2)です。       Compensating メソッドでは、派生クラスでデリゲートを結び付けずに、イベントを処理することもできます。 これは、派生クラスでイベントを処理するための手法をお勧めします。"
   syntax:
     content: public event EventHandler<System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs> Compensating;
     return:
       type: System.EventHandler{System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs}
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -364,13 +364,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Represents the <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;></xref> that targets the <xref href=&quot;System.Workflow.ComponentModel.Activity.Compensating&quot;></xref> event."
-  remarks: "You indirectly access each public property and event of this type by the resolution of a corresponding dependency property. This dependency property is the public static field named `XProperty` or `XEvent`, where X is the corresponding property.       [!INCLUDE[DependencyPropertyRemark](~/add/includes/dependencypropertyremark-md.md)]"
+  summary: "表す、 <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;> </xref>を対象とする、 <xref href=&quot;System.Workflow.ComponentModel.Activity.Compensating&quot;> </xref>イベント。"
+  remarks: "間接的にアクセス各パブリック プロパティとイベントがこの型の対応する依存関係プロパティの解決でします。 この依存関係プロパティがという名前のパブリック静的フィールド`XProperty`または`XEvent`X は対応するプロパティです。       [!INCLUDE[DependencyPropertyRemark](~/add/includes/dependencypropertyremark-md.md)]"
   syntax:
     content: public static readonly System.Workflow.ComponentModel.DependencyProperty CompensatingEvent;
     return:
       type: System.Workflow.ComponentModel.DependencyProperty
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -386,13 +386,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Gets or sets the user-defined description of the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
-  remarks: "This property is a meta property, which means it cannot be changed at runtime. Meta properties do not change after a property instance is created at runtime, so the property must be set to a literal value at design time."
+  summary: "取得または設定のユーザー定義の説明、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>です。"
+  remarks: "このプロパティは、プロパティをメタ プロパティ、つまり、実行時に変更することはできません。 プロパティは、デザイン時にリテラル値を設定する必要がありますので、実行時にプロパティ インスタンスを作成した後、メタ プロパティは変更されません。"
   syntax:
     content: public string Description { get; set; }
     return:
       type: System.String
-      description: "The text description of the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
+      description: "テキストの説明、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>です。"
   overload: System.Workflow.ComponentModel.Activity.Description*
   exceptions: []
   platform:
@@ -409,13 +409,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Gets or sets a value that indicates whether this instance is enabled for execution and validation."
-  remarks: "If `false`, all child activities are treated as if this value is `false` for them also.       This property is a meta property, which means it cannot be changed at runtime. Meta properties do not change after a property instance is created at runtime, so the property must be set to a literal value at design time."
+  summary: "取得またはを実行および検証のこのインスタンスが有効になっているかどうかを示す値を設定します。"
+  remarks: "場合`false`、すべての子アクティビティとして扱われます、この値は`false`にもします。       このプロパティは、プロパティをメタ プロパティ、つまり、実行時に変更することはできません。 プロパティは、デザイン時にリテラル値を設定する必要がありますので、実行時にプロパティ インスタンスを作成した後、メタ プロパティは変更されません。"
   syntax:
     content: public bool Enabled { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if enabled for execution and validation; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> otherwise."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>実行と検証を有効になっている場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>それ以外の場合。"
   overload: System.Workflow.ComponentModel.Activity.Enabled*
   exceptions: []
   platform:
@@ -432,8 +432,8 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Called by the workflow runtime to execute an activity."
-  remarks: "The <xref:System.Workflow.ComponentModel.ActivityExecutionContext> is used to get information about the currently running activity and workflow, and is also used to obtain services from the runtime environment.       The running occurs synchronously, returning control to the caller when the activity is completed or reaches an intermediate state."
+  summary: "アクティビティの実行に、ワークフロー ランタイムによって呼び出されます。"
+  remarks: "<xref:System.Workflow.ComponentModel.ActivityExecutionContext>は現在実行中のアクティビティやワークフローに関する情報の取得に使用されは、ランタイム環境からサービスを得るためにも使用します</xref:System.Workflow.ComponentModel.ActivityExecutionContext>。       実行は、アクティビティが完了するか中間状態になったときに、呼び出し元に制御を返す同期的に発生します。"
   example:
   - "The following code example shows an implementation of the `Execute` method. In this example, an Outlook e-mail message is constructed and sent. This example is from the Outlook Workflow Wizard SDK sample. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][Outlook Workflow Wizard Sample](http://msdn.microsoft.com/en-us/7b2ba92b-8456-43f3-87fc-184ffdec4408).  \n  \n [!code-cs[WF_Samples#98](~/add/codesnippet/csharp/wf_snippets/snippets1.cs#98)]\n [!code-vb[WF_Samples#98](~/add/codesnippet/visualbasic/wf_snippets/snippets1.vb#98)]"
   syntax:
@@ -441,10 +441,10 @@ items:
     parameters:
     - id: executionContext
       type: System.Workflow.ComponentModel.ActivityExecutionContext
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref> to associate with this <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> and execution."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;> </xref>に関連付けるこの<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>および実行します。"
     return:
       type: System.Workflow.ComponentModel.ActivityExecutionStatus
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionStatus&quot;></xref> of the run task, which determines whether the activity remains in the executing state, or transitions to the closed state."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionStatus&quot;> </xref>のタスクの実行をアクティビティが実行中の状態のまま残すか、クローズド状態に遷移するかどうか。"
   overload: System.Workflow.ComponentModel.Activity.Execute*
   exceptions: []
   platform:
@@ -461,13 +461,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Occurs when the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> is run."
-  remarks: "Raising an event invokes the event handler through a delegate. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       The Executing method also allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "発生したときに、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>を実行します。"
+  remarks: "イベントを発生させるには、イベント ハンドラーがデリゲートからを呼び出されます。 [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][NIB: イベントを発生させる](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2)です。       実行中のメソッドでは、派生クラスでデリゲートを結び付けずに、イベントを処理することもできます。 これは、派生クラスでイベントを処理するための手法をお勧めします。"
   syntax:
     content: public event EventHandler<System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs> Executing;
     return:
       type: System.EventHandler{System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs}
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -483,13 +483,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Represents the <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;></xref> that targets the <xref href=&quot;System.Workflow.ComponentModel.Activity.Executing&quot;></xref> event, which occurs when the activity is executed."
-  remarks: "You indirectly access each public property and event of this type by the resolution of a corresponding dependency property. This dependency property is the public static field named `XProperty` or `XEvent`, where X is the corresponding property.       [!INCLUDE[DependencyPropertyRemark](~/add/includes/dependencypropertyremark-md.md)]"
+  summary: "表す、 <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;> </xref>を対象とする、 <xref href=&quot;System.Workflow.ComponentModel.Activity.Executing&quot;> </xref>イベント、アクティビティが実行されるときに発生します。"
+  remarks: "間接的にアクセス各パブリック プロパティとイベントがこの型の対応する依存関係プロパティの解決でします。 この依存関係プロパティがという名前のパブリック静的フィールド`XProperty`または`XEvent`X は対応するプロパティです。       [!INCLUDE[DependencyPropertyRemark](~/add/includes/dependencypropertyremark-md.md)]"
   syntax:
     content: public static readonly System.Workflow.ComponentModel.DependencyProperty ExecutingEvent;
     return:
       type: System.Workflow.ComponentModel.DependencyProperty
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -505,13 +505,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Gets the <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionResult&quot;></xref> of the last attempt to run this instance."
-  remarks: "This property is only useful when a workflow instance is running."
+  summary: "取得、 <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionResult&quot;> </xref>インスタンスを実行する試行が最後です。"
+  remarks: "このプロパティは、ワークフロー インスタンスが実行されている場合にのみ使用します。"
   syntax:
     content: public System.Workflow.ComponentModel.ActivityExecutionResult ExecutionResult { get; }
     return:
       type: System.Workflow.ComponentModel.ActivityExecutionResult
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionResult&quot;></xref> of the last attempt to run this instance."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionResult&quot;> </xref>インスタンスを実行する試行が最後です。"
   overload: System.Workflow.ComponentModel.Activity.ExecutionResult*
   exceptions: []
   platform:
@@ -528,13 +528,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Gets the current <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionStatus&quot;></xref> of this instance."
-  remarks: "This property is only useful when a workflow instance is running."
+  summary: "現在の取得<xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionStatus&quot;></xref>のこのインスタンス。"
+  remarks: "このプロパティは、ワークフロー インスタンスが実行されている場合にのみ使用します。"
   syntax:
     content: public System.Workflow.ComponentModel.ActivityExecutionStatus ExecutionStatus { get; }
     return:
       type: System.Workflow.ComponentModel.ActivityExecutionStatus
-      description: "The current <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionStatus&quot;></xref> of this instance."
+      description: "現在<xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionStatus&quot;></xref>のこのインスタンス。"
   overload: System.Workflow.ComponentModel.Activity.ExecutionStatus*
   exceptions: []
   platform:
@@ -551,13 +551,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Occurs when an exception is raised during the running of the instance."
-  remarks: '[!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)] handling events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67).'
+  summary: "インスタンスの実行中に例外が発生したときに発生します。"
+  remarks: '[!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)]イベントを処理するを参照してください[NIB: イベントの利用](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)です。'
   syntax:
     content: public event EventHandler<System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs> Faulting;
     return:
       type: System.EventHandler{System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs}
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -573,13 +573,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "The <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;></xref> that represents the <xref href=&quot;System.Workflow.ComponentModel.Activity.Faulting&quot;></xref> event."
-  remarks: "You indirectly access each public property and event of this type by the resolution of a corresponding dependency property. This dependency property is the public static field named `XProperty` or `XEvent`, where X is the corresponding property.       [!INCLUDE[DependencyPropertyRemark](~/add/includes/dependencypropertyremark-md.md)]"
+  summary: "<xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;> </xref>を表す、 <xref href=&quot;System.Workflow.ComponentModel.Activity.Faulting&quot;> </xref>イベント。"
+  remarks: "間接的にアクセス各パブリック プロパティとイベントがこの型の対応する依存関係プロパティの解決でします。 この依存関係プロパティがという名前のパブリック静的フィールド`XProperty`または`XEvent`X は対応するプロパティです。       [!INCLUDE[DependencyPropertyRemark](~/add/includes/dependencypropertyremark-md.md)]"
   syntax:
     content: public static readonly System.Workflow.ComponentModel.DependencyProperty FaultingEvent;
     return:
       type: System.Workflow.ComponentModel.DependencyProperty
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -595,22 +595,22 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Returns the instance of the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> whose name is requested from the set of all activities running under the root activity of this instance, which is within the workflow."
-  remarks: "Calling `GetActivityByName` from within the constructor of a custom activity is not supported and can have unexpected results."
+  summary: "インスタンスを返します、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>名前は、ワークフロー内では、このインスタンスのルート アクティビティで実行されているすべてのアクティビティのセットから要求します。"
+  remarks: "呼び出す`GetActivityByName`内からカスタム アクティビティのコンス トラクターはサポートされていませんおよびが予期しない結果。"
   syntax:
     content: public System.Workflow.ComponentModel.Activity GetActivityByName (string activityQualifiedName);
     parameters:
     - id: activityQualifiedName
       type: System.String
-      description: "The name of the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> to search for."
+      description: "名前、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>を検索します。"
     return:
       type: System.Workflow.ComponentModel.Activity
-      description: "The instance of the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> whose name is requested from the set of all activities running under the root activity of this instance."
+      description: "インスタンス、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>のこのインスタンスのルート アクティビティで実行されているすべての活動セットから名前を要求します。"
   overload: System.Workflow.ComponentModel.Activity.GetActivityByName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>activityQualifiedID</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>activityQualifiedID</code>null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> Visual Basic で)。"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Activity.GetActivityByName(System.String,System.Boolean)
@@ -625,25 +625,25 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Returns the instance of the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> whose name is requested from the set of all activities under the root the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> of this instance if the second parameter is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> and under the current <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> if the second parameter is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
-  remarks: "Returns the instance of the <xref:System.Workflow.ComponentModel.Activity> whose name is requested from the set of all activities under the root the <xref:System.Workflow.ComponentModel.Activity> of this instance if the second parameter is `false` and under the current <xref:System.Workflow.ComponentModel.Activity> if the second parameter is `true`.       Calling `GetActivityByName` from within the constructor of a custom activity is not supported and can have unexpected results."
+  summary: "インスタンスを返します、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>ルートの下のすべての活動のセットから要求される名前を持つ、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>&2; 番目のパラメーターがある場合は、このインスタンスの<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>内で、現在<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>場合は、2 番目のパラメーターが<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>です。"
+  remarks: "インスタンスを返します、<xref:System.Workflow.ComponentModel.Activity>ルートの下のすべての活動のセットから要求される名前を持つ、 <xref:System.Workflow.ComponentModel.Activity>2 番目のパラメーターがある場合は、このインスタンスの`false`内で、現在<xref:System.Workflow.ComponentModel.Activity>場合は、2 番目のパラメーターが`true`</xref:System.Workflow.ComponentModel.Activity></xref:System.Workflow.ComponentModel.Activity></xref:System.Workflow.ComponentModel.Activity>。       呼び出す`GetActivityByName`内からカスタム アクティビティのコンス トラクターはサポートされていませんおよびが予期しない結果。"
   syntax:
     content: public System.Workflow.ComponentModel.Activity GetActivityByName (string activityQualifiedName, bool withinThisActivityOnly);
     parameters:
     - id: activityQualifiedName
       type: System.String
-      description: "The name of the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> to search for."
+      description: "名前、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>を検索します。"
     - id: withinThisActivityOnly
       type: System.Boolean
-      description: "The value that indicates whether to limit the search to activities contained within this instance."
+      description: "このインスタンス内に含まれるアクティビティに検索を制限するかどうかを示す値。"
     return:
       type: System.Workflow.ComponentModel.Activity
-      description: "The instance of the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> whose name is requested from the set of all activities under the root the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> of this instance if the second parameter is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> and under the current <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> if the second parameter is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "インスタンス、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>ルートの下のすべての活動のセットから要求される名前を持つ、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>&2; 番目のパラメーターがある場合は、このインスタンスの<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>内で、現在<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>場合は、2 番目のパラメーターが<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>です。"
   overload: System.Workflow.ComponentModel.Activity.GetActivityByName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>activityQualifiedID</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>activityQualifiedID</code>null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> Visual Basic で)。"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Activity.HandleFault(System.Workflow.ComponentModel.ActivityExecutionContext,System.Exception)
@@ -658,25 +658,25 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Called when an exception is raised within the context of the execution of this instance."
-  remarks: "The default method tries to call the <xref:System.Workflow.ComponentModel.Activity.Cancel%2A> method and returns the result of this attempt."
+  summary: "このインスタンスの実行のコンテキスト内で例外が発生したときに呼び出されます。"
+  remarks: "既定のメソッドを呼び出そうとすると、<xref:System.Workflow.ComponentModel.Activity.Cancel%2A>メソッドのこの試行の結果を返します</xref:System.Workflow.ComponentModel.Activity.Cancel%2A>。"
   syntax:
     content: protected virtual System.Workflow.ComponentModel.ActivityExecutionStatus HandleFault (System.Workflow.ComponentModel.ActivityExecutionContext executionContext, Exception exception);
     parameters:
     - id: executionContext
       type: System.Workflow.ComponentModel.ActivityExecutionContext
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref> for this instance."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;> </xref>のこのインスタンス。"
     - id: exception
       type: System.Exception
-      description: "The <xref:System.Exception> that caused this fault."
+      description: "<xref:System.Exception>このフォールトの原因となった</xref:System.Exception>。"
     return:
       type: System.Workflow.ComponentModel.ActivityExecutionStatus
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionStatus&quot;></xref> that results from an attempt to cancel this instance."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionStatus&quot;> </xref>結果生成されたこのインスタンスをキャンセルしようとします。"
   overload: System.Workflow.ComponentModel.Activity.HandleFault*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>exception</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>exception</code>null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> Visual Basic で)。"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Activity.Initialize(System.IServiceProvider)
@@ -691,18 +691,18 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Called by the workflow runtime to initialize an activity during the construction of a new workflow instance. This method is called during the construction of a dynamic <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref>."
+  summary: "新しいワークフロー インスタンスの構築時にアクティビティを初期化するために、ワークフロー ランタイムによって呼び出されます。 このメソッドは、動的な構築するときに<xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref>です。"
   syntax:
     content: protected virtual void Initialize (IServiceProvider provider);
     parameters:
     - id: provider
       type: System.IServiceProvider
-      description: "The <xref:System.IServiceProvider> that provides the initialization service."
+      description: "<xref:System.IServiceProvider>初期化サービスを提供します</xref:System.IServiceProvider>。"
   overload: System.Workflow.ComponentModel.Activity.Initialize*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>provider</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing &quot; name=&quot;Nothing &quot; href=&quot;&quot;></xref>in Visual Basic)."
+    description: "<code>provider</code>null 参照 (<xref uid=&quot;langword_csharp_Nothing &quot; name=&quot;Nothing &quot; href=&quot;&quot;></xref>Visual Basic で)。"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Activity.Invoke``1(System.EventHandler{``0},``0)
@@ -722,10 +722,10 @@ items:
     parameters:
     - id: handler
       type: System.EventHandler{T}
-      description: "To be added."
+      description: "追加します。"
     - id: e
       type: T
-      description: "To be added."
+      description: "追加します。"
   overload: System.Workflow.ComponentModel.Activity.Invoke<T>*
   exceptions: []
   platform:
@@ -747,10 +747,10 @@ items:
     parameters:
     - id: eventListener
       type: System.Workflow.ComponentModel.IActivityEventListener`1
-      description: "To be added."
+      description: "追加します。"
     - id: e
       type: T
-      description: "To be added."
+      description: "追加します。"
   overload: System.Workflow.ComponentModel.Activity.Invoke<T>*
   exceptions: []
   platform:
@@ -767,12 +767,12 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Gets information about whether the activity is executing within the default <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref> of the workflow instance."
+  summary: "既定値で、アクティビティが実行されているかどうかに関する情報を取得<xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref>ワークフロー インスタンスのです。"
   syntax:
     content: public bool IsDynamicActivity { get; }
     return:
       type: System.Boolean
-      description: "Returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the activity is executing within the default <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref> of the workflow instance, otherwise returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "返します<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>場合は、既定では、アクティビティを実行してください。 <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;> </xref>のワークフロー インスタンスを返しますそれ以外の場合<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>です。"
   overload: System.Workflow.ComponentModel.Activity.IsDynamicActivity*
   exceptions: []
   platform:
@@ -789,7 +789,7 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Loads an instance of an <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> from a <xref:System.IO.Stream>."
+  summary: "インスタンスを読み込みます、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> <xref:System.IO.Stream>.</xref:System.IO.Stream>から"
   remarks: >-
     > [!IMPORTANT]
 
@@ -799,18 +799,18 @@ items:
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The <xref:System.IO.Stream> from which to load."
+      description: "<xref:System.IO.Stream>読み込み先となるからです</xref:System.IO.Stream>。"
     - id: outerActivity
       type: System.Workflow.ComponentModel.Activity
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> that owns the context for the deserialized <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> 、逆シリアル化のコンテキストを所有している<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>です。"
     return:
       type: System.Workflow.ComponentModel.Activity
-      description: "An instance of an <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> from a <xref:System.IO.Stream>."
+      description: "インスタンス、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> <xref:System.IO.Stream>.</xref:System.IO.Stream>から"
   overload: System.Workflow.ComponentModel.Activity.Load*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>stream</code>null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> Visual Basic で)。"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Activity.Load(System.IO.Stream,System.Workflow.ComponentModel.Activity,System.Runtime.Serialization.IFormatter)
@@ -825,7 +825,7 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Loads an instance of an <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> from a <xref:System.IO.Stream> using the custom <xref href=&quot;System.Runtime.Serialization.IFormatter&quot;></xref> for deserialization."
+  summary: "インスタンスを読み込みます、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>から、<xref:System.IO.Stream>ユーザー設定を使用して<xref href=&quot;System.Runtime.Serialization.IFormatter&quot;></xref>逆シリアル化します</xref:System.IO.Stream>。"
   remarks: >-
     > [!IMPORTANT]
 
@@ -835,21 +835,21 @@ items:
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The target <xref:System.IO.Stream> of the load operation."
+      description: "ターゲット<xref:System.IO.Stream>読み込み操作</xref:System.IO.Stream>。"
     - id: outerActivity
       type: System.Workflow.ComponentModel.Activity
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> that owns the context for the deserialized <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> 、逆シリアル化のコンテキストを所有している<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>です。"
     - id: formatter
       type: System.Runtime.Serialization.IFormatter
-      description: "The <xref href=&quot;System.Runtime.Serialization.IFormatter&quot;></xref> used to read from the <xref:System.IO.Stream>."
+      description: "<xref href=&quot;System.Runtime.Serialization.IFormatter&quot;> </xref> <xref:System.IO.Stream>.</xref:System.IO.Stream>から読み取りに使用します。"
     return:
       type: System.Workflow.ComponentModel.Activity
-      description: "An instance of an <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> from a <xref:System.IO.Stream>."
+      description: "インスタンス、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> <xref:System.IO.Stream>.</xref:System.IO.Stream>から"
   overload: System.Workflow.ComponentModel.Activity.Load*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>formatter</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)."
+    description: "<code>formatter</code>null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)。"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Activity.Name
@@ -864,15 +864,15 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Gets or sets the name of this instance. This name must conform to the variable naming convention of the programming language that is being used in the Workflow project."
-  remarks: "Default value for this is the empty string.       This property is a meta property, which means it cannot be changed at runtime. Meta properties do not change after a property instance is created at runtime, so the property must be set to a literal value at design time."
+  summary: "取得またはこのインスタンスの名前を設定します。 この名前は、ワークフロー プロジェクトで使用されているプログラミング言語の変数の名前付け規則に従っている必要があります。"
+  remarks: "この既定値は、空の文字列です。       このプロパティは、プロパティをメタ プロパティ、つまり、実行時に変更することはできません。 プロパティは、デザイン時にリテラル値を設定する必要がありますので、実行時にプロパティ インスタンスを作成した後、メタ プロパティは変更されません。"
   example:
   - "The following code shows how to create activities and add them as children to a composite activity and set the value for Name.  \n  \n This code example is part of the Throw SDK sample and is from the ThrowWorkFlow.cs file. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][Throw Sample](http://msdn.microsoft.com/en-us/aa5b9546-ec95-4e43-8337-20e26f8d71cc).  \n  \n [!code-cs[WF_Samples#179](~/add/codesnippet/csharp/wf_snippets/snippets11.cs#179)]\n [!code-vb[WF_Samples#179](~/add/codesnippet/visualbasic/wf_snippets/snippets11.vb#179)]"
   syntax:
     content: public string Name { get; set; }
     return:
       type: System.String
-      description: "The name of this instance."
+      description: "このインスタンスの名前。"
   overload: System.Workflow.ComponentModel.Activity.Name*
   exceptions: []
   platform:
@@ -889,13 +889,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Called by the workflow runtime whenever an <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref> is loaded. For example, this method is called during the creation of an <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref> as well as every time the <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref> is reincarnated when a workflow instance is loaded from persistent storage."
+  summary: "ワークフロー ランタイムによって呼び出されるたびに、 <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;> </xref>が読み込まれる。 たとえば、このメソッドは作成するときに、 <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;> </xref>たびにだけでなく、 <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;> </xref>ワークフロー インスタンスが永続ストレージから読み込まれるときにばかりです。"
   syntax:
     content: protected virtual void OnActivityExecutionContextLoad (IServiceProvider provider);
     parameters:
     - id: provider
       type: System.IServiceProvider
-      description: "The <xref:System.IServiceProvider> that provides the service."
+      description: "<xref:System.IServiceProvider>サービスを提供する</xref:System.IServiceProvider>。"
   overload: System.Workflow.ComponentModel.Activity.OnActivityExecutionContextLoad*
   exceptions: []
   platform:
@@ -912,13 +912,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Called by the workflow runtime whenever an <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref> is unloaded. For example, this method is called during completion of an <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref> as well as every time the <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;></xref> is unloaded when a workflow instance is persisted."
+  summary: "ワークフロー ランタイムによって呼び出されるたびに、 <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;> </xref>がアンロードします。 たとえば、このメソッドはの完了中に、 <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;> </xref>たびにだけでなく、 <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionContext&quot;> </xref>はワークフロー インスタンスが永続化されるときに読み込まれます。"
   syntax:
     content: protected virtual void OnActivityExecutionContextUnload (IServiceProvider provider);
     parameters:
     - id: provider
       type: System.IServiceProvider
-      description: "The <xref:System.IServiceProvider> that provides the service."
+      description: "<xref:System.IServiceProvider>サービスを提供する</xref:System.IServiceProvider>。"
   overload: System.Workflow.ComponentModel.Activity.OnActivityExecutionContextUnload*
   exceptions: []
   platform:
@@ -935,14 +935,14 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Called by the workflow runtime as part of the activity&quot;s transition to the closed state."
-  remarks: "This method provides the activity with an opportunity to clean up resources utilized during its execution."
+  summary: "Closed 状態へのアクティビティの遷移の一部として、ワークフロー ランタイムによって呼び出されます。"
+  remarks: "このメソッドは、実行中に利用されたリソースをクリーンアップすると、アクティビティを提供します。"
   syntax:
     content: protected virtual void OnClosed (IServiceProvider provider);
     parameters:
     - id: provider
       type: System.IServiceProvider
-      description: "The <xref:System.IServiceProvider> that provides the service."
+      description: "<xref:System.IServiceProvider>サービスを提供する</xref:System.IServiceProvider>。"
   overload: System.Workflow.ComponentModel.Activity.OnClosed*
   exceptions: []
   platform:
@@ -959,13 +959,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Gets the <xref href=&quot;System.Workflow.ComponentModel.CompositeActivity&quot;></xref> that contains this <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
-  remarks: "Returnsa null reference(`Nothing` in Visual Basic) if <xref:System.Workflow.ComponentModel.Activity> is a workflow or a root <xref:System.Workflow.ComponentModel.Activity>."
+  summary: "取得、 <xref href=&quot;System.Workflow.ComponentModel.CompositeActivity&quot;> </xref>を格納している<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>です。"
+  remarks: "Null 参照を返します (`Nothing` Visual Basic で) 場合<xref:System.Workflow.ComponentModel.Activity>は、ワークフローまたはルート<xref:System.Workflow.ComponentModel.Activity>。</xref:System.Workflow.ComponentModel.Activity> </xref:System.Workflow.ComponentModel.Activity> 。"
   syntax:
     content: public System.Workflow.ComponentModel.CompositeActivity Parent { get; }
     return:
       type: System.Workflow.ComponentModel.CompositeActivity
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> that is a parent to this <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>をこの親である<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>です。"
   overload: System.Workflow.ComponentModel.Activity.Parent*
   exceptions: []
   platform:
@@ -982,13 +982,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Gets the qualified name of the activity. Qualified activity names are always unique in a workflow instance."
-  remarks: "The qualified name is the name of this instance with the name of the custom activity that contains this instance appended to the front."
+  summary: "アクティビティの修飾名を取得します。 限定アクティビティ名は、ワークフロー インスタンス内で一意では常にします。"
+  remarks: "修飾名を先頭に追加されたこのインスタンスを含むカスタム アクティビティの名前をこのインスタンスの名前です。"
   syntax:
     content: public string QualifiedName { get; }
     return:
       type: System.String
-      description: "The qualified name of the instance."
+      description: "インスタンスの修飾名。"
   overload: System.Workflow.ComponentModel.Activity.QualifiedName*
   exceptions: []
   platform:
@@ -1005,7 +1005,7 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Raises an <xref href=&quot;System.Reflection.MemberTypes&quot;></xref> associated with the specified dependency property."
+  summary: "発生させる、 <xref href=&quot;System.Reflection.MemberTypes&quot;> </xref>指定した依存関係プロパティに関連付けられています。"
   remarks: ''
   example:
   - "The following code invokes this method to raise an event that is defined as a <xref:System.Workflow.ComponentModel.DependencyProperty>.  \n  \n This code example is part of the Send E-mail Activity sample and is from the SendEmailActivity.cs file. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][Send E-mail Activity Sample](http://msdn.microsoft.com/en-us/bfb5939e-60a9-4037-af4e-2cea9e654669)  \n  \n [!code-cs[WF_Samples#233](~/add/codesnippet/csharp/wf_snippets/snippets24.cs#233)]\n [!code-vb[WF_Samples#233](~/add/codesnippet/visualbasic/wf_snippets/snippets24.vb#233)]"
@@ -1014,13 +1014,13 @@ items:
     parameters:
     - id: dependencyEvent
       type: System.Workflow.ComponentModel.DependencyProperty
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;></xref> associated with this <xref href=&quot;System.Reflection.MemberTypes&quot;></xref>."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;> </xref>これに関連付けられている<xref href=&quot;System.Reflection.MemberTypes&quot;></xref>です。"
     - id: sender
       type: System.Object
-      description: "The <xref:System.Object> source of the <xref href=&quot;System.Reflection.MemberTypes&quot;></xref>."
+      description: "<xref:System.Object>のソース、 <xref href=&quot;System.Reflection.MemberTypes&quot;> </xref></xref:System.Object> 。"
     - id: e
       type: System.EventArgs
-      description: "The <xref:System.EventArgs> associated with the <xref href=&quot;System.Reflection.MemberTypes&quot;></xref>."
+      description: "<xref:System.EventArgs>に関連付けられている、 <xref href=&quot;System.Reflection.MemberTypes&quot;> </xref></xref:System.EventArgs> 。"
   overload: System.Workflow.ComponentModel.Activity.RaiseEvent*
   exceptions: []
   platform:
@@ -1042,13 +1042,13 @@ items:
     parameters:
     - id: dependencyEvent
       type: System.Workflow.ComponentModel.DependencyProperty
-      description: "To be added."
+      description: "追加します。"
     - id: sender
       type: System.Object
-      description: "To be added."
+      description: "追加します。"
     - id: e
       type: T
-      description: "To be added."
+      description: "追加します。"
   overload: System.Workflow.ComponentModel.Activity.RaiseGenericEvent<T>*
   exceptions: []
   platform:
@@ -1065,21 +1065,21 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Registers the specified <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;></xref> for the status change event."
+  summary: "指定した登録<xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;></xref>の状態変更イベント。"
   syntax:
     content: public void RegisterForStatusChange (System.Workflow.ComponentModel.DependencyProperty dependencyProp, System.Workflow.ComponentModel.IActivityEventListener<System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs> activityStatusChangeListener);
     parameters:
     - id: dependencyProp
       type: System.Workflow.ComponentModel.DependencyProperty
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;></xref> to register."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;> </xref>を登録します。"
     - id: activityStatusChangeListener
       type: System.Workflow.ComponentModel.IActivityEventListener{System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs}
-      description: "The object that implements the Event Listener interface for this registration."
+      description: "この登録のイベント リスナー インターフェイスを実装するオブジェクト。"
   overload: System.Workflow.ComponentModel.Activity.RegisterForStatusChange*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>dependencyProp</code> is not one of the following:      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.ExecutingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.CancelingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.ClosedEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.CompensatingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.FaultingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.StatusChangedEvent&quot;></xref>"
+    description: "<code>dependencyProp</code>次のいずれかの:-<xref href=&quot;System.Workflow.ComponentModel.Activity.ExecutingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.CancelingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.ClosedEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.CompensatingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.FaultingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.StatusChangedEvent&quot;></xref>"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Activity.Save(System.IO.Stream)
@@ -1094,18 +1094,18 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Writes the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> to a <xref:System.IO.Stream> for persistence."
+  summary: "書き込みます、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>を<xref:System.IO.Stream>永続化します</xref:System.IO.Stream>。"
   syntax:
     content: public void Save (System.IO.Stream stream);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The <xref:System.IO.Stream> to which to save the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
+      description: "<xref:System.IO.Stream>を保存する、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref></xref:System.IO.Stream> 。"
   overload: System.Workflow.ComponentModel.Activity.Save*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>stream</code>null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> Visual Basic で)。"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Activity.Save(System.IO.Stream,System.Runtime.Serialization.IFormatter)
@@ -1120,25 +1120,25 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Writes the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> to a <xref:System.IO.Stream> for persistence using the custom <xref href=&quot;System.Runtime.Serialization.IFormatter&quot;></xref> provided for serialization."
-  remarks: "Soap formatters are not supported by Windows Workflow Foundation."
+  summary: "書き込みます、 <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>を<xref:System.IO.Stream>ユーザー設定を使用して永続化<xref href=&quot;System.Runtime.Serialization.IFormatter&quot;></xref>シリアル化を提供します</xref:System.IO.Stream>。"
+  remarks: "Soap フォーマッタは、Windows Workflow Foundation ではサポートされていません。"
   syntax:
     content: public void Save (System.IO.Stream stream, System.Runtime.Serialization.IFormatter formatter);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The target <xref:System.IO.Stream> of the save operation."
+      description: "ターゲット<xref:System.IO.Stream>保存の操作</xref:System.IO.Stream>。"
     - id: formatter
       type: System.Runtime.Serialization.IFormatter
-      description: "The binary or custom <xref href=&quot;System.Runtime.Serialization.IFormatter&quot;></xref> for the serialization."
+      description: "バイナリまたはカスタム<xref href=&quot;System.Runtime.Serialization.IFormatter&quot;></xref>のシリアル化します。"
   overload: System.Workflow.ComponentModel.Activity.Save*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>formatter</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)."
+    description: "<code>formatter</code>null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This instance is in design mode."
+    description: "このインスタンスがデザイン モードです。"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Activity.StatusChanged
@@ -1153,13 +1153,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Occurs when the <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionStatus&quot;></xref> of a running <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> changes."
-  remarks: "Raising an event invokes the event handler through a delegate. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       The StatusChanged method also allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class.      > [!NOTE] >  When an activity (Activity A) subscribes to a different activity&quot;s (Activity B) `StatusChanged` event, the `Activity` property of the associated <xref:System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs> refers to the activity subscribed to (Activity B), and the associated `Sender` object refers to the execution context of the subscribing activity (Activity A)."
+  summary: "発生したときに、 <xref href=&quot;System.Workflow.ComponentModel.ActivityExecutionStatus&quot;> </xref> 、実行中の<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>変更します。"
+  remarks: "イベントを発生させるには、イベント ハンドラーがデリゲートからを呼び出されます。 [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][NIB: イベントを発生させる](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2)です。       メイル メソッドでは、派生クラスでデリゲートを結び付けずに、イベントを処理することもできます。 これは、派生クラスでイベントを処理するための手法をお勧めします。      > [!NOTE] > アクティビティ (アクティビティ A) が別のアクティビティの (アクティビティ B) をサブスクライブしているときに`StatusChanged`イベント、 `Activity` 、関連するプロパティ<xref:System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs>(アクティビティ B) をサブスクライブして、アクティビティを参照し、関連付けられた`Sender`オブジェクトは、定期受信するアクティビティ (アクティビティ A) の実行コンテキストを参照します</xref:System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs>。"
   syntax:
     content: public event EventHandler<System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs> StatusChanged;
     return:
       type: System.EventHandler{System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs}
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -1175,13 +1175,13 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Represents the <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;></xref> that targets the <xref href=&quot;System.Workflow.ComponentModel.Activity.StatusChanged&quot;></xref> event."
-  remarks: "You indirectly access each public property and event of this type by the resolution of a corresponding dependency property. This dependency property is the public static field named `XProperty` or `XEvent`, where X is the corresponding property.       [!INCLUDE[DependencyPropertyRemark](~/add/includes/dependencypropertyremark-md.md)]"
+  summary: "表す、 <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;> </xref>を対象とする、 <xref href=&quot;System.Workflow.ComponentModel.Activity.StatusChanged&quot;> </xref>イベント。"
+  remarks: "間接的にアクセス各パブリック プロパティとイベントがこの型の対応する依存関係プロパティの解決でします。 この依存関係プロパティがという名前のパブリック静的フィールド`XProperty`または`XEvent`X は対応するプロパティです。       [!INCLUDE[DependencyPropertyRemark](~/add/includes/dependencypropertyremark-md.md)]"
   syntax:
     content: public static readonly System.Workflow.ComponentModel.DependencyProperty StatusChangedEvent;
     return:
       type: System.Workflow.ComponentModel.DependencyProperty
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -1197,14 +1197,14 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Provides a string that represents this instance."
-  remarks: "The string returned is a combination of the <xref:System.Workflow.ComponentModel.Activity.QualifiedName%2A> and the <xref:System.Type.FullName%2A> of the type of this instance."
+  summary: "このインスタンスを表す文字列を提供します。"
+  remarks: "返される文字列の組み合わせ、<xref:System.Workflow.ComponentModel.Activity.QualifiedName%2A>と<xref:System.Type.FullName%2A>のこのインスタンスの型</xref:System.Type.FullName%2A></xref:System.Workflow.ComponentModel.Activity.QualifiedName%2A>。"
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "This instance."
+      description: "このインスタンス。"
   overload: System.Workflow.ComponentModel.Activity.ToString*
   exceptions: []
   platform:
@@ -1221,7 +1221,7 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Informs the run-time tracking infrastructure of pending tracking information."
+  summary: "保留中の追跡情報のランタイム追跡インフラストラクチャに通知します。"
   remarks: ''
   example:
   - "The following example shows a call to the `TrackData` method. This example is from the Termination Tracking Service SDK sample. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)][Termination Tracking Service Sample](http://msdn.microsoft.com/en-us/29b7c0d7-cece-4bb9-96d0-c5b6c6e14439).  \n  \n [!code-cs[WF_Samples#118](~/add/codesnippet/csharp/wf_snippets/snippets1.cs#118)]\n [!code-vb[WF_Samples#118](~/add/codesnippet/visualbasic/wf_snippets/snippets1.vb#118)]"
@@ -1230,12 +1230,12 @@ items:
     parameters:
     - id: userData
       type: System.Object
-      description: "<xref:System.Object> that contains the tracking information."
+      description: "<xref:System.Object>追跡情報を格納します。</xref:System.Object>"
   overload: System.Workflow.ComponentModel.Activity.TrackData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>userData</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>userData</code>null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> Visual Basic で)。"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Activity.TrackData(System.String,System.Object)
@@ -1250,21 +1250,21 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Informs the run-time tracking infrastructure of pending tracking information."
+  summary: "保留中の追跡情報のランタイム追跡インフラストラクチャに通知します。"
   syntax:
     content: protected void TrackData (string userDataKey, object userData);
     parameters:
     - id: userDataKey
       type: System.String
-      description: "The key to the user data that has changed."
+      description: "変更されたユーザー データへのキー。"
     - id: userData
       type: System.Object
-      description: "<xref:System.Object> that contains the tracking information."
+      description: "<xref:System.Object>追跡情報を格納します。</xref:System.Object>"
   overload: System.Workflow.ComponentModel.Activity.TrackData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>userData</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>userData</code>null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> Visual Basic で)。"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Activity.Uninitialize(System.IServiceProvider)
@@ -1279,14 +1279,14 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "When overridden in a derived class, provides un-initialization by a service provider for the activity."
-  remarks: "This method provides the activity with an opportunity to clean up resources allocated during initialization.       Uninitialize is called when an activity instance is guaranteed not to perform any more execution. For activities that do not implement <xref:System.Workflow.ComponentModel.ICompensatableActivity>, this occurs immediately after the activity closes, or, if the activity never executed, at workflow completion. For <xref:System.Workflow.ComponentModel.ICompensatableActivity> activities, this occurs either after compensation or at workflow completion."
+  summary: "派生クラスでオーバーライドされると、アクティビティのサービス プロバイダーによって初期化解除を提供します。"
+  remarks: "このメソッドは、初期化中に割り当てられているリソースをクリーンアップすると、アクティビティを提供します。       初期化アクティビティ インスタンスは、ことが保証されて実行時に呼び出されます。 実装していないアクティビティの<xref:System.Workflow.ComponentModel.ICompensatableActivity>、このアクティビティ決して実行された場合、ワークフローの終了時またはアクティビティが終了した直後に発生します</xref:System.Workflow.ComponentModel.ICompensatableActivity>。 <xref:System.Workflow.ComponentModel.ICompensatableActivity>アクティビティ、これが発生した補正の後、またはワークフローの終了時</xref:System.Workflow.ComponentModel.ICompensatableActivity>。"
   syntax:
     content: protected virtual void Uninitialize (IServiceProvider provider);
     parameters:
     - id: provider
       type: System.IServiceProvider
-      description: "The <xref:System.IServiceProvider> that provides the service."
+      description: "<xref:System.IServiceProvider>サービスを提供する</xref:System.IServiceProvider>。"
   overload: System.Workflow.ComponentModel.Activity.Uninitialize*
   exceptions: []
   platform:
@@ -1303,21 +1303,21 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Un-registers the specified <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;></xref> for the status change event."
+  summary: "登録解除、指定した<xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;></xref>の状態変更イベント。"
   syntax:
     content: public void UnregisterForStatusChange (System.Workflow.ComponentModel.DependencyProperty dependencyProp, System.Workflow.ComponentModel.IActivityEventListener<System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs> activityStatusChangeListener);
     parameters:
     - id: dependencyProp
       type: System.Workflow.ComponentModel.DependencyProperty
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;></xref> to un-register."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.DependencyProperty&quot;> </xref>の登録を解除します。"
     - id: activityStatusChangeListener
       type: System.Workflow.ComponentModel.IActivityEventListener{System.Workflow.ComponentModel.ActivityExecutionStatusChangedEventArgs}
-      description: "The object that implements the Event Listener interface for this registration."
+      description: "この登録のイベント リスナー インターフェイスを実装するオブジェクト。"
   overload: System.Workflow.ComponentModel.Activity.UnregisterForStatusChange*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>dependencyProp</code> is not one of the following:      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.ExecutingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.CancelingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.ClosedEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.CompensatingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.FaultingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.StatusChangedEvent&quot;></xref>"
+    description: "<code>dependencyProp</code>次のいずれかの:-<xref href=&quot;System.Workflow.ComponentModel.Activity.ExecutingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.CancelingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.ClosedEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.CompensatingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.FaultingEvent&quot;></xref>      -   <xref href=&quot;System.Workflow.ComponentModel.Activity.StatusChangedEvent&quot;></xref>"
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Activity.WorkflowInstanceId
@@ -1332,12 +1332,12 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Gets the <xref:System.Guid> associated with the instance."
+  summary: "取得、<xref:System.Guid>インスタンスに関連付けられている</xref:System.Guid>。"
   syntax:
     content: protected Guid WorkflowInstanceId { get; }
     return:
       type: System.Guid
-      description: "The <xref:System.Guid> associated with the instance."
+      description: "<xref:System.Guid>インスタンスに関連付けられている</xref:System.Guid>。"
   overload: System.Workflow.ComponentModel.Activity.WorkflowInstanceId*
   exceptions: []
   platform:

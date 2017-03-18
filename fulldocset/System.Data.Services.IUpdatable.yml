@@ -21,8 +21,8 @@ items:
   nameWithType: IUpdatable
   fullName: System.Data.Services.IUpdatable
   type: Interface
-  summary: "An interface used to insert or update a resource by the HTTP POST method."
-  remarks: "The IUpdatable interface is resource independent. The methods that return objects representing resources can return anything.       The returned object is an opaque object that represents the resource. To use the reference to read or update a value, the same opaque object is passed back to IUpdatable.       Implementation of IUpdatable must track the mapping between this opaque object to the object it represents. When the resource is serialized and a common language runtime (CLR) instance of the correct type is needed, the ResolveResource method on IUpdatable is called with the opaque object.       To serialize the object, call the <xref:System.Data.Services.IUpdatable.ResolveResource%2A> method on IUpdatable."
+  summary: "挿入またはリソースを更新する HTTP POST メソッドで使用されるインターフェイスです。"
+  remarks: "IUpdatable インターフェイスは、リソースに依存しません。 リソースを表すオブジェクトを返すメソッドは、何も返すことができます。       返されたオブジェクトは、リソースを表す不透明なオブジェクトです。 参照を使用すると、読み取り、または値を更新して、IUpdatable に戻るには、同じ不透明なオブジェクトが渡されます。       IUpdatable の実装は、この不透明なオブジェクトが表すオブジェクト間のマッピングを追跡する必要があります。 リソースはシリアル化し、適切な型の共通言語ランタイム (CLR) インスタンスが必要な不透明なオブジェクトで IUpdatable ResolveResource メソッドが呼び出されます。       オブジェクトのシリアル化を呼び出し、 <xref:System.Data.Services.IUpdatable.ResolveResource%2A>IUpdatable メソッド</xref:System.Data.Services.IUpdatable.ResolveResource%2A>。"
   syntax:
     content: public interface IUpdatable
   implements: []
@@ -40,19 +40,19 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Adds the specified value to the collection."
+  summary: "指定した値をコレクションに追加します。"
   syntax:
     content: public void AddReferenceToCollection (object targetResource, string propertyName, object resourceToBeAdded);
     parameters:
     - id: targetResource
       type: System.Object
-      description: "Target object that defines the property."
+      description: "プロパティを定義するターゲット オブジェクト。"
     - id: propertyName
       type: System.String
-      description: "The name of the collection property to which the resource should be added.."
+      description: "プロパティの名前、コレクション リソースを追加する必要があります."
     - id: resourceToBeAdded
       type: System.Object
-      description: "The opaque object representing the resource to be added."
+      description: "追加するリソースを表す不透明なオブジェクトです。"
   overload: System.Data.Services.IUpdatable.AddReferenceToCollection*
   exceptions: []
   platform:
@@ -69,7 +69,7 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Cancels a change to the data."
+  summary: "データの変更を取り消します。"
   syntax:
     content: public void ClearChanges ();
     parameters: []
@@ -89,20 +89,20 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Creates the resource of the specified type and that belongs to the specified container."
-  remarks: "CreateResource is called to insert a new resource by the HTTP POST method. The first parameter points to the container that the resource belongs to and the second parameter is the namespace-qualified name of the resource type that needs to be created.       The second parameter is most useful when using inheritance. The return type need not be the actual CLR instance of the resource. It can be anything, for example, a cookie, that the implementation requires."
+  summary: "指定したリソースを作成、指定されたコンテナーに属している種類とにします。"
+  remarks: "CreateResource は、新しいリソースを挿入する、HTTP POST メソッドによって呼び出されます。 最初のパラメーターへのポインターにリソースが属しているコンテナーと&2; 番目のパラメーターは、作成する必要があるリソースの種類の名前空間で修飾された名前です。       2 番目のパラメーターは、継承を使用する場合に最も便利です。 戻り値の型をリソースの実際の CLR インスタンスにする必要がありますはできません。 何も、たとえば、cookie、実装を必要とすることができます。"
   syntax:
     content: public object CreateResource (string containerName, string fullTypeName);
     parameters:
     - id: containerName
       type: System.String
-      description: "The name of the entity set to which the resource belongs."
+      description: "リソースが属しているをセットのエンティティの名前。"
     - id: fullTypeName
       type: System.String
-      description: "The full namespace-qualified type name of the resource."
+      description: "リソースの完全な名前空間で修飾型名。"
     return:
       type: System.Object
-      description: "The object representing a resource of specified type and belonging to the specified container."
+      description: "指定した型のリソースを表す、指定されたコンテナーに属しているオブジェクト。"
   overload: System.Data.Services.IUpdatable.CreateResource*
   exceptions: []
   platform:
@@ -119,14 +119,14 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Deletes the specified resource."
-  remarks: "The `targetResource` is the opaque object returned by <xref:System.Data.Services.IUpdatable.GetResource%2A> or <xref:System.Data.Services.IUpdatable.CreateResource%2A>."
+  summary: "指定したリソースを削除します。"
+  remarks: "`targetResource` <xref:System.Data.Services.IUpdatable.GetResource%2A>または<xref:System.Data.Services.IUpdatable.CreateResource%2A>.</xref:System.Data.Services.IUpdatable.CreateResource%2A></xref:System.Data.Services.IUpdatable.GetResource%2A>によって返される不透明なオブジェクトは、"
   syntax:
     content: public void DeleteResource (object targetResource);
     parameters:
     - id: targetResource
       type: System.Object
-      description: "The resource to be deleted."
+      description: "削除するリソースです。"
   overload: System.Data.Services.IUpdatable.DeleteResource*
   exceptions: []
   platform:
@@ -143,19 +143,19 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets the resource of the specified type identified by a query and type name."
+  summary: "クエリと型名によって識別される指定した型のリソースを取得します。"
   syntax:
     content: public object GetResource (System.Linq.IQueryable query, string fullTypeName);
     parameters:
     - id: query
       type: System.Linq.IQueryable
-      description: "Language integrated query (LINQ) pointing to a particular resource."
+      description: "統合言語クエリ (LINQ)、特定のリソースをポイントします。"
     - id: fullTypeName
       type: System.String
-      description: "The fully qualified type name of resource."
+      description: "リソースの完全修飾型名。"
     return:
       type: System.Object
-      description: "An opaque object representing a resource of the specified type, referenced by the specified query."
+      description: "指定されたクエリによって参照されている、指定した型のリソースを表す不透明なオブジェクト。"
   overload: System.Data.Services.IUpdatable.GetResource*
   exceptions: []
   platform:
@@ -172,20 +172,20 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets the value of the specified property on the target object."
-  remarks: "This method is called for scalar properties or complex properties. For a scalar property, the returned object should be the actual value."
+  summary: "対象のオブジェクトで指定したプロパティの値を取得します。"
+  remarks: "このメソッドは、スカラー プロパティまたは複合プロパティに対して呼び出されます。 スカラー プロパティの場合、返されたオブジェクトは、実際の値をする必要があります。"
   syntax:
     content: public object GetValue (object targetResource, string propertyName);
     parameters:
     - id: targetResource
       type: System.Object
-      description: "An opaque object that represents a resource."
+      description: "リソースを表す不透明なオブジェクト。"
     - id: propertyName
       type: System.String
-      description: "The name of the property whose value needs to be retrieved."
+      description: "取得する必要のある値を持つプロパティの名前。"
     return:
       type: System.Object
-      description: "The value of the object."
+      description: "オブジェクトの値です。"
   overload: System.Data.Services.IUpdatable.GetValue*
   exceptions: []
   platform:
@@ -202,20 +202,20 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Removes the specified value from the collection."
-  remarks: "Removes the specified resource from the collection identified by a navigation property on the target object. This operation deletes the relationship between the two resource objects bound by the relationship."
+  summary: "指定した値をコレクションから削除します。"
+  remarks: "ターゲット オブジェクトのナビゲーション プロパティで指定されたコレクションから指定したリソースを削除します。 この操作は、リレーションシップによってバインドされている&2; つのリソース オブジェクト間のリレーションシップを削除します。"
   syntax:
     content: public void RemoveReferenceFromCollection (object targetResource, string propertyName, object resourceToBeRemoved);
     parameters:
     - id: targetResource
       type: System.Object
-      description: "The target object that defines the property."
+      description: "プロパティを定義するターゲット オブジェクト。"
     - id: propertyName
       type: System.String
-      description: "The name of the property whose value needs to be updated."
+      description: "更新する必要のある値を持つプロパティの名前。"
     - id: resourceToBeRemoved
       type: System.Object
-      description: "The property value that needs to be removed."
+      description: "削除する必要があるプロパティ値です。"
   overload: System.Data.Services.IUpdatable.RemoveReferenceFromCollection*
   exceptions: []
   platform:
@@ -232,16 +232,16 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Resets the resource identified by the parameter <code>resource </code>to its default value."
+  summary: "パラメーターによって識別されるリソースをリセット<code> resource </code>を既定値にします。"
   syntax:
     content: public object ResetResource (object resource);
     parameters:
     - id: resource
       type: System.Object
-      description: "The resource to be updated."
+      description: "更新するリソースです。"
     return:
       type: System.Object
-      description: "The resource with its value reset to the default value."
+      description: "既定値にリセットされたリソースです。"
   overload: System.Data.Services.IUpdatable.ResetResource*
   exceptions: []
   platform:
@@ -258,17 +258,17 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Returns the instance of the resource represented by the specified resource object."
-  remarks: "This method is called to resolve the opaque object returned by the <xref:System.Data.Services.IUpdatable.CreateResource%2A> or <xref:System.Data.Services.IUpdatable.GetResource%2A> API into the CLR instance. This is normally called after <xref:System.Data.Services.IUpdatable.SaveChanges%2A> to serialize the resource for POST methods.       This method is also called if there are update interceptors invoked with the common language runtime (CLR) resource instances. It can be used if the provider supports optimistic concurrency and the resource type has concurrency tokens defined by <xref:System.Data.Services.ETagAttribute> in a CLR-based provider."
+  summary: "指定されたリソース オブジェクトによって表されるリソースのインスタンスを返します。"
+  remarks: "によって返される不透明なオブジェクトを解決するのにはこのメソッドは、<xref:System.Data.Services.IUpdatable.CreateResource%2A>または<xref:System.Data.Services.IUpdatable.GetResource%2A>CLR インスタンスに API</xref:System.Data.Services.IUpdatable.GetResource%2A> </xref:System.Data.Services.IUpdatable.CreateResource%2A> 。 これは通常、呼び出される後<xref:System.Data.Services.IUpdatable.SaveChanges%2A>POST メソッド用のリソースをシリアル化する</xref:System.Data.Services.IUpdatable.SaveChanges%2A>。       共通言語ランタイム (CLR) のリソース インスタンスで呼び出される更新インターセプターがある場合、このメソッドが呼び出されます。 プロバイダーがオプティミスティック同時実行制御をサポートし、リソースの種類がによって定義される同時実行トークンに使用できる<xref:System.Data.Services.ETagAttribute>で CLR ベースのプロバイダー</xref:System.Data.Services.ETagAttribute> 。"
   syntax:
     content: public object ResolveResource (object resource);
     parameters:
     - id: resource
       type: System.Object
-      description: "The object representing the resource whose instance needs to be retrieved."
+      description: "インスタンスを取得する必要があるリソースを表すオブジェクト。"
     return:
       type: System.Object
-      description: "Returns the instance of the resource represented by the specified resource object."
+      description: "指定されたリソース オブジェクトによって表されるリソースのインスタンスを返します。"
   overload: System.Data.Services.IUpdatable.ResolveResource*
   exceptions: []
   platform:
@@ -285,8 +285,8 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Saves all the changes that have been made by using the <xref href=&quot;System.Data.Services.IUpdatable&quot;></xref> APIs."
-  remarks: "The <xref:System.Data.Services.IUpdatable> implementation must track all changes until SaveChanges is called and then save all changes when SaveChanges is called. The <xref:System.Data.Services.IUpdatable> implementation is expected to save all of the changes or to reject all of the changes together."
+  summary: "使用して行われたすべての変更を保存、 <xref href=&quot;System.Data.Services.IUpdatable&quot;> </xref> Api です。"
+  remarks: "<xref:System.Data.Services.IUpdatable>実装が SaveChanges が呼び出されるまで、すべての変更を追跡して SaveChanges が呼び出されたときにすべての変更を保存する必要があります</xref:System.Data.Services.IUpdatable>。 <xref:System.Data.Services.IUpdatable>すべての変更を保存するか、同時にすべての変更を拒否する実装を想定します</xref:System.Data.Services.IUpdatable>。"
   syntax:
     content: public void SaveChanges ();
     parameters: []
@@ -306,19 +306,19 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Sets the value of the specified reference property on the target object."
+  summary: "対象のオブジェクトで指定された参照プロパティの値を設定します。"
   syntax:
     content: public void SetReference (object targetResource, string propertyName, object propertyValue);
     parameters:
     - id: targetResource
       type: System.Object
-      description: "The target object that defines the property."
+      description: "プロパティを定義するターゲット オブジェクト。"
     - id: propertyName
       type: System.String
-      description: "The name of the property whose value needs to be updated."
+      description: "更新する必要のある値を持つプロパティの名前。"
     - id: propertyValue
       type: System.Object
-      description: "The property value to be updated."
+      description: "プロパティの値を更新します。"
   overload: System.Data.Services.IUpdatable.SetReference*
   exceptions: []
   platform:
@@ -335,19 +335,19 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Sets the value of the property with the specified name on the target resource to the specified property value."
+  summary: "指定されたプロパティ値をターゲット リソースで指定した名前のプロパティの値を設定します。"
   syntax:
     content: public void SetValue (object targetResource, string propertyName, object propertyValue);
     parameters:
     - id: targetResource
       type: System.Object
-      description: "The target object that defines the property."
+      description: "プロパティを定義するターゲット オブジェクト。"
     - id: propertyName
       type: System.String
-      description: "The name of the property whose value needs to be updated."
+      description: "更新する必要のある値を持つプロパティの名前。"
     - id: propertyValue
       type: System.Object
-      description: "The property value for update."
+      description: "更新プログラムのプロパティ値です。"
   overload: System.Data.Services.IUpdatable.SetValue*
   exceptions: []
   platform:
