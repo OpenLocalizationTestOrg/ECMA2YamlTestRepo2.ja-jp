@@ -29,8 +29,8 @@ items:
   nameWithType: WriteableBitmap
   fullName: System.Windows.Media.Imaging.WriteableBitmap
   type: Class
-  summary: "Provides a <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;></xref> that can be written to and updated."
-  remarks: "Use the WriteableBitmap class to update and render a bitmap on a per-frame basis. This is useful for generating algorithmic content, such as a fractal image, and for data visualization, such as a music visualizer.       The WriteableBitmap class uses two buffers. The *back buffer* is allocated in system memory and accumulates content that is not currently displayed. The *front buffer* is allocated in system memory and contains the content that is currently displayed. The rendering system copies the front buffer to video memory for display.       Two threads use these buffers. The *user interface (UI) thread* generates the UI but does not present it to the screen. The UI thread responds to user input, timers, and other events. An application can have multiple UI threads. The *render thread* composes and renders changes from the UI thread. There is only one render thread per application.       The UI thread writes content to the back buffer. The render thread reads content from the front buffer and copies it to video memory. Changes to the back buffer are tracked with changed rectangular regions.       Call one of the <xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%2A> overloads to update and display content in the back buffer automatically.       For greater control over updates, and for multi-threaded access to the back buffer, use the following workflow.      1.  Call the <xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A> method to reserve the back buffer for updates.      2.  Obtain a pointer to the back buffer by accessing the <xref:System.Windows.Media.Imaging.WriteableBitmap.BackBuffer%2A> property.      3.  Write changes to the back buffer. Other threads may write changes to the back buffer when the WriteableBitmap is locked.      4.  Call the <xref:System.Windows.Media.Imaging.WriteableBitmap.AddDirtyRect%2A> method to indicate areas that have changed.      5.  Call the <xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> method to release the back buffer and allow presentation to the screen.       When updates are sent to the rendering thread, the rendering thread copies the changed rectangles from the back buffer to the front buffer. The rendering system controls this exchange to avoid deadlocks and redraw artifacts, such as &quot;tearing&quot;."
+  summary: "提供、 <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;> </xref>に書き込まれ、更新するには、です。"
+  remarks: "更新して、フレーム ベースのビットマップを描画するには、WriteableBitmap クラスを使用します。 これは、フラクタル イメージなどのアルゴリズム コンテンツの生成と音楽ビジュアライザーなどのデータの視覚化に役立ちます。       WriteableBitmap クラスでは、2 つのバッファーを使用します。 *バック バッファー*システム メモリ内で割り当てられているし、コンテンツが表示されていないを累積します。 *フロント バッファー*システム メモリ内で割り当てられているし、現在表示されているコンテンツが含まれています。 レンダリング システムは、フロントのバッファーを表示するためのビデオ メモリにコピーします。       2 つのスレッドは、これらのバッファーを使用します。 *ユーザー インターフェイス (UI) スレッド*UI が生成されますが、画面には表示しません。 UI スレッドは、ユーザー入力、タイマー、およびその他のイベントに応答します。 アプリケーションは、複数の UI スレッドでことができます。 *レンダリング スレッド*を作成して、UI スレッドからの変更を描画します。 アプリケーションごとの&1; つだけのレンダーのスレッドがあります。       UI スレッドでは、バック バッファーにコンテンツを書き込みます。 レンダーのスレッドでは、フロント バッファーからコンテンツを読み取り、ビデオ メモリにコピーします。 バック バッファーへの変更は、変更された四角形の領域を使って追跡されます。       1 つを呼び出して、<xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%2A>オーバー ロードを更新して自動的にバック バッファーの内容を表示します</xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%2A>。       更新プログラムより詳細に制御およびバック バッファーへのマルチ スレッド アクセスでは、次のワークフローを使用します。      1.  呼び出す、<xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A>に更新プログラムのバック バッファーを予約するメソッド</xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A>。      2.  アクセスして、バック バッファーへのポインターを取得、<xref:System.Windows.Media.Imaging.WriteableBitmap.BackBuffer%2A>プロパティ</xref:System.Windows.Media.Imaging.WriteableBitmap.BackBuffer%2A>。      3.  バック バッファーへの変更を記述します。 他のスレッドがバック バッファーへの変更を作成するには、WriteableBitmap がロックされている場合。      4.  呼び出す、<xref:System.Windows.Media.Imaging.WriteableBitmap.AddDirtyRect%2A>メソッドが変更された領域を示します</xref:System.Windows.Media.Imaging.WriteableBitmap.AddDirtyRect%2A>。      5.  呼び出す、<xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A>バック バッファーを解放し、画面に表示できるようにするメソッド</xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A>。       更新プログラムは、レンダリング スレッドに送信すると、レンダリング スレッドでは、バック バッファーから変更された四角形をフロントのバッファーにコピーします。 レンダリング システムでは、デッドロックを回避して「解除」などのアイテムを再描画するには、この exchange を制御します。"
   example:
   - "The following example demonstrates how a WriteableBitmap can be used as the source of an <xref:System.Windows.Controls.Image> to draw pixels when the mouse moves.  \n  \n [!code-cs[WriteableBitmap2#WriteableBitmapFullPage](~/add/codesnippet/csharp/WriteableBitmapDemo/Program.cs#writeablebitmapfullpage)]"
   syntax:
@@ -123,14 +123,14 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref> class using the given <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;></xref>."
-  remarks: "The <xref:System.Windows.Media.Imaging.WriteableBitmap.%23ctor%28System.Int32%2CSystem.Int32%2CSystem.Double%2CSystem.Double%2CSystem.Windows.Media.PixelFormat%2CSystem.Windows.Media.Imaging.BitmapPalette%29> constructor is preferred over using this constructor.       If `source` does not use a natively supported bitmap format, format conversions are applied for each frame update, which reduces performance."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;> </xref>クラスを使用して、指定された<xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;></xref>です。"
+  remarks: "<xref:System.Windows.Media.Imaging.WriteableBitmap.%23ctor%28System.Int32%2CSystem.Int32%2CSystem.Double%2CSystem.Double%2CSystem.Windows.Media.PixelFormat%2CSystem.Windows.Media.Imaging.BitmapPalette%29>コンス トラクターは、このコンス トラクターを使用する場合より優先されます</xref:System.Windows.Media.Imaging.WriteableBitmap.%23ctor%28System.Int32%2CSystem.Int32%2CSystem.Double%2CSystem.Double%2CSystem.Windows.Media.PixelFormat%2CSystem.Windows.Media.Imaging.BitmapPalette%29>。       場合`source`フレーム更新プログラムごとに、パフォーマンスが低下する変換が適用される形式、ネイティブにサポートされているビットマップ形式を使用しません。"
   syntax:
     content: public WriteableBitmap (System.Windows.Media.Imaging.BitmapSource source);
     parameters:
     - id: source
       type: System.Windows.Media.Imaging.BitmapSource
-      description: "The <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;></xref> to use for initialization."
+      description: "<xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;> </xref>初期化に使用します。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.#ctor*
   exceptions: []
   platform:
@@ -147,29 +147,29 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref> class with the specified parameters."
-  remarks: "The preferred values for `pixelFormat` are <xref:System.Windows.Media.PixelFormats.Bgr32%2A> and <xref:System.Windows.Media.PixelFormats.Pbgra32%2A>. These formats are natively supported and do not require a format conversion. Other `pixelFormat` values require a format conversion for each frame update, which reduces performance."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;> </xref>指定されたパラメーターを持つクラス。"
+  remarks: "に対して優先値`pixelFormat`は<xref:System.Windows.Media.PixelFormats.Bgr32%2A>および<xref:System.Windows.Media.PixelFormats.Pbgra32%2A>.</xref:System.Windows.Media.PixelFormats.Pbgra32%2A> </xref:System.Windows.Media.PixelFormats.Bgr32%2A> これらの形式は、ネイティブでサポートされ、形式の変換は必要ありません。 その他の`pixelFormat`値フレーム更新プログラムごとに、パフォーマンスが低下形式変換を必要とします。"
   syntax:
     content: public WriteableBitmap (int pixelWidth, int pixelHeight, double dpiX, double dpiY, System.Windows.Media.PixelFormat pixelFormat, System.Windows.Media.Imaging.BitmapPalette palette);
     parameters:
     - id: pixelWidth
       type: System.Int32
-      description: "The desired width of the bitmap."
+      description: "ビットマップの幅。"
     - id: pixelHeight
       type: System.Int32
-      description: "The desired height of the bitmap."
+      description: "ビットマップの高さ。"
     - id: dpiX
       type: System.Double
-      description: "The horizontal [!INCLUDE[TLA#tla_dpi](~/add/includes/ajax-current-ext-md.md)] of the bitmap."
+      description: "水平[!INCLUDE[TLA#tla_dpi](~/add/includes/ajax-current-ext-md.md)]のビットマップ。"
     - id: dpiY
       type: System.Double
-      description: "The vertical [!INCLUDE[TLA#tla_dpi](../Token/TLA%23tla_dpi_md.md)] of the bitmap."
+      description: "垂直[!INCLUDE[TLA#tla_dpi](../Token/TLA%23tla_dpi_md.md)]のビットマップ。"
     - id: pixelFormat
       type: System.Windows.Media.PixelFormat
-      description: "The <xref href=&quot;System.Windows.Media.PixelFormat&quot;></xref> of the bitmap."
+      description: "<xref href=&quot;System.Windows.Media.PixelFormat&quot;> </xref>のビットマップ。"
     - id: palette
       type: System.Windows.Media.Imaging.BitmapPalette
-      description: "The <xref href=&quot;System.Windows.Media.Imaging.BitmapPalette&quot;></xref> of the bitmap."
+      description: "<xref href=&quot;System.Windows.Media.Imaging.BitmapPalette&quot;> </xref>のビットマップ。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.#ctor*
   exceptions: []
   platform:
@@ -186,8 +186,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Specifies the area of the bitmap that changed."
-  remarks: "Call the AddDirtyRect method to indicate changes your code has made to the back buffer.       When you call this method multiple times, the changed areas are accumulated in a sufficient, but not necessarily minimal, representation. For efficiency, only the areas that are marked as dirty are guaranteed to be copied forward to the front buffer. However, any portion of the bitmap may be copied forward, so you must ensure that the entire back buffer is always valid.       Call the AddDirtyRect method only between calls to the <xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A> and <xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> methods, as described in the <xref:System.Windows.Media.Imaging.WriteableBitmap> class remarks."
+  summary: "変更するビットマップの領域を指定します。"
+  remarks: "コードがバック バッファーに加えられた変更を示すために AddDirtyRect メソッドを呼び出します。       このメソッドを複数回呼び出すと、変更された領域が必ずしも最小限ではない、十分な表現では蓄積されます。 効率を高めるため、ダーティとマークされている領域のみを前面のバッファーにコピーされる保証されます。 ただし、ビットマップの任意の部分は、バック バッファー全体が常に有効であることを確認する必要がありますように、転送、コピーして可能性があります。       呼び出し間でのみ AddDirtyRect メソッドを呼び出して、<xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A>と<xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A>メソッド、」の説明に従って、<xref:System.Windows.Media.Imaging.WriteableBitmap>クラスの「解説」</xref:System.Windows.Media.Imaging.WriteableBitmap> </xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> </xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A> 。"
   example:
   - "The following code example shows how to specify the area of the back buffer that changed by using the AddDirtyRect method.  \n  \n [!code-cs[WriteableBitmap2#2](~/add/codesnippet/csharp/WriteableBitmapDemo/Program.cs#2)]"
   syntax:
@@ -195,15 +195,15 @@ items:
     parameters:
     - id: dirtyRect
       type: System.Windows.Int32Rect
-      description: "An <xref href=&quot;System.Windows.Int32Rect&quot;></xref> representing the area that changed. Dimensions are in pixels."
+      description: "<xref href=&quot;System.Windows.Int32Rect&quot;> </xref>変更領域を表すです。 ディメンションでは、(ピクセル単位) です。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.AddDirtyRect*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The bitmap has not been locked by a call to the <xref:System.Windows.Media.Imaging.WriteableBitmap.Lock*> or <xref:System.Windows.Media.Imaging.WriteableBitmap.TryLock*> methods."
+    description: "呼び出しによって、ビットマップがロックされていない、 <> </> *> または<> *> メソッドです。"
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>dirtyRect</code> falls outside the bounds of the <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref>."
+    description: "<code>dirtyRect</code>境界の外側にある、 <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Windows.Media.Imaging.WriteableBitmap.BackBuffer
@@ -218,13 +218,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Gets a pointer to the back buffer."
-  remarks: "The back buffer contains the bitmap contents in the pixel format requested by the user.       Update the back buffer only between calls to the <xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A> and <xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> methods. If you do not follow the Lock/Unlock workflow described in the <xref:System.Windows.Media.Imaging.WriteableBitmap> class remarks, undefined behaviors, such as tearing, can occur.       The address of the back buffer does not change.      ## Thread Safety    You can pass the BackBuffer pointer to external components and other threads for processing, but if you do, you must provide you own thread coordination. In particular, you must ensure that the UI thread specifies changed areas by calling the <xref:System.Windows.Media.Imaging.WriteableBitmap.AddDirtyRect%2A> method, and that the UI thread unlocks the buffer by calling the <xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> method."
+  summary: "バック バッファーへのポインターを取得します。"
+  remarks: "バック バッファーには、ユーザーによって指定されたピクセル形式のビットマップのコンテンツが含まれています。       バック バッファーへの呼び出し間でのみを更新、<xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A>と<xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A>メソッド</xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A></xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A>。 記述されたロック/ロック解除のワークフローを実行しないかどうか、<xref:System.Windows.Media.Imaging.WriteableBitmap>クラスの「解説」を、設定解除を行うなど、未定義の動作が発生することができます。</xref:System.Windows.Media.Imaging.WriteableBitmap>       バック バッファーのアドレスは変更されません。      ## スレッドの安全性を外部コンポーネントおよびその他のスレッド処理のために、バック バッファー ポインターを渡すことができますが場合は、必要がありますを指定する、独自のスレッド調整します。 UI スレッドが呼び出すことによって変更された領域を指定することを確認する必要があります具体的には、<xref:System.Windows.Media.Imaging.WriteableBitmap.AddDirtyRect%2A>メソッド、および UI スレッドが、呼び出すことにより、バッファーをロック解除こと、<xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A>メソッド</xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A></xref:System.Windows.Media.Imaging.WriteableBitmap.AddDirtyRect%2A>。"
   syntax:
     content: public IntPtr BackBuffer { get; }
     return:
       type: System.IntPtr
-      description: "An <xref:System.IntPtr> that points to the base address of the back buffer."
+      description: "<xref:System.IntPtr>バック バッファーのベース アドレスを指す</xref:System.IntPtr>。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.BackBuffer*
   exceptions: []
   platform:
@@ -241,12 +241,12 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Gets a value indicating the number of bytes in a single row of pixel data."
+  summary: "ピクセル データの単一行のバイト数を示す値を取得します。"
   syntax:
     content: public int BackBufferStride { get; }
     return:
       type: System.Int32
-      description: "An integer indicating the number of bytes in a single row of pixel data."
+      description: "ピクセル データの単一行のバイト数を示す整数。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.BackBufferStride*
   exceptions: []
   platform:
@@ -263,14 +263,14 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Creates a modifiable clone of this <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref>, making deep copies of this object&quot;s values. When copying dependency properties, this method copies resource references and data bindings (but they might no longer resolve) but not animations or their current values."
-  remarks: "This method is used to produce modifiable copies of frozen <xref:System.Windows.Freezable> objects (or any <xref:System.Windows.Freezable> object). For convenience, this method shadows the inherited version with a strongly typed implementation.       For more information, see <xref:System.Windows.Freezable.Clone%2A?displayProperty=fullName>."
+  summary: "この変更可能な複製を作成<xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;> </xref>、このオブジェクトの値の詳細コピーを作成します。 依存関係プロパティをコピーするときにこのメソッドはコピー リソース参照とデータ バインディング (ただし、解決できなくなる可能性があります)、アニメーションやその現在の値ではありません。"
+  remarks: "変更可能なコピーを生成するためにこのメソッドが使用される固定された<xref:System.Windows.Freezable>オブジェクト (または any<xref:System.Windows.Freezable>オブジェクト).</xref:System.Windows.Freezable> </xref:System.Windows.Freezable> 便宜上は、このメソッドは、厳密に型指定された実装が継承したバージョンをシャドウします。       詳細については、 <xref:System.Windows.Freezable.Clone%2A?displayProperty=fullName>.</xref:System.Windows.Freezable.Clone%2A?displayProperty=fullName>を参照してください。"
   syntax:
     content: public System.Windows.Media.Imaging.WriteableBitmap Clone ();
     parameters: []
     return:
       type: System.Windows.Media.Imaging.WriteableBitmap
-      description: "A modifiable clone of the current object. The cloned object&quot;s <xref:System.Windows.Freezable.IsFrozen*> property will be <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> even if the source&quot;s <xref:System.Windows.Freezable.IsFrozen*> property was <xref uid=&quot;langword_csharp_true.&quot; name=&quot;true.&quot; href=&quot;&quot;></xref>"
+      description: "現在のオブジェクトの変更可能な複製。 複製されたオブジェクトの<> *> プロパティになります<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>場合でも、ソースの<> *> プロパティ<xref uid=&quot;langword_csharp_true.&quot; name=&quot;true.&quot; href=&quot;&quot;></xref>"
   overload: System.Windows.Media.Imaging.WriteableBitmap.Clone*
   exceptions: []
   platform:
@@ -292,7 +292,7 @@ items:
     parameters:
     - id: sourceFreezable
       type: System.Windows.Freezable
-      description: "To be added."
+      description: "追加します。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.CloneCore*
   exceptions: []
   platform:
@@ -309,14 +309,14 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Creates a modifiable clone of this <xref href=&quot;System.Windows.Media.Animation.ByteAnimationUsingKeyFrames&quot;></xref> object, making deep copies of this object&quot;s current values. Resource references, data bindings, and animations are not copied, but their current values are."
-  remarks: "This method is used to produce modifiable copies of frozen <xref:System.Windows.Freezable> objects (or any <xref:System.Windows.Freezable> object). For convenience, this method shadows the inherited version with a strongly typed implementation.       For more information, see <xref:System.Windows.Freezable.CloneCurrentValue%2A?displayProperty=fullName>."
+  summary: "この変更可能な複製を作成<xref href=&quot;System.Windows.Media.Animation.ByteAnimationUsingKeyFrames&quot;></xref>オブジェクト、このオブジェクトの現在の値の詳細コピーを作成します。 リソース参照、データ バインディング、およびアニメーションはコピーされませんが、現在の値。"
+  remarks: "変更可能なコピーを生成するためにこのメソッドが使用される固定された<xref:System.Windows.Freezable>オブジェクト (または any<xref:System.Windows.Freezable>オブジェクト).</xref:System.Windows.Freezable> </xref:System.Windows.Freezable> 便宜上は、このメソッドは、厳密に型指定された実装が継承したバージョンをシャドウします。       詳細については、 <xref:System.Windows.Freezable.CloneCurrentValue%2A?displayProperty=fullName>。</xref:System.Windows.Freezable.CloneCurrentValue%2A?displayProperty=fullName>を参照してください。"
   syntax:
     content: public System.Windows.Media.Imaging.WriteableBitmap CloneCurrentValue ();
     parameters: []
     return:
       type: System.Windows.Media.Imaging.WriteableBitmap
-      description: "A modifiable clone of the current object. The cloned object&quot;s <xref:System.Windows.Freezable.IsFrozen*> property will be <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> even if the source&quot;s <xref:System.Windows.Freezable.IsFrozen*> property was <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "現在のオブジェクトの変更可能な複製。 複製されたオブジェクトの<> *> プロパティ<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>場合でも、ソースの<> *> プロパティが<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>です。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.CloneCurrentValue*
   exceptions: []
   platform:
@@ -338,7 +338,7 @@ items:
     parameters:
     - id: sourceFreezable
       type: System.Windows.Freezable
-      description: "To be added."
+      description: "追加します。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.CloneCurrentValueCore*
   exceptions: []
   platform:
@@ -360,7 +360,7 @@ items:
     parameters: []
     return:
       type: System.Windows.Freezable
-      description: "To be added."
+      description: "追加します。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.CreateInstanceCore*
   exceptions: []
   platform:
@@ -382,10 +382,10 @@ items:
     parameters:
     - id: isChecking
       type: System.Boolean
-      description: "To be added."
+      description: "追加します。"
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "追加します。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.FreezeCore*
   exceptions: []
   platform:
@@ -407,7 +407,7 @@ items:
     parameters:
     - id: sourceFreezable
       type: System.Windows.Freezable
-      description: "To be added."
+      description: "追加します。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.GetAsFrozenCore*
   exceptions: []
   platform:
@@ -429,7 +429,7 @@ items:
     parameters:
     - id: sourceFreezable
       type: System.Windows.Freezable
-      description: "To be added."
+      description: "追加します。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.GetCurrentValueAsFrozenCore*
   exceptions: []
   platform:
@@ -446,8 +446,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Reserves the back buffer for updates."
-  remarks: "The Lock method increments the lock count. When a <xref:System.Windows.Media.Imaging.WriteableBitmap> is locked, the rendering system does not send updates until the <xref:System.Windows.Media.Imaging.WriteableBitmap> is fully unlocked by calls to the <xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> method.       You can use the Lock method to support multi-threaded implementations. In these scenarios, the UI thread locks the bitmap and exposes the back buffer to other threads. When the worker thread has finished a frame, the UI thread adds changed rectangles and unlocks the buffer.       The UI thread can block when the render thread acquires a lock on the back buffer to copy it forward to the front buffer. If the latency from this block is too long, use the <xref:System.Windows.Media.Imaging.WriteableBitmap.TryLock%2A> method to wait for a short time and then unblock the UI thread to perform other tasks while the back buffer is locked."
+  summary: "更新プログラムのバック バッファーを予約します。"
+  remarks: "Lock メソッドは、ロック カウントをインクリメントします。 ときに、<xref:System.Windows.Media.Imaging.WriteableBitmap>がロックされると、レンダリング システム更新を送信しませんまで、<xref:System.Windows.Media.Imaging.WriteableBitmap>への呼び出しによって完全にロック解除、<xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A>メソッド</xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A></xref:System.Windows.Media.Imaging.WriteableBitmap></xref:System.Windows.Media.Imaging.WriteableBitmap>。       Lock メソッドは、マルチ スレッドの実装をサポートするために使用できます。 これらのシナリオでは、UI スレッドは、ビットマップをロックし、他のスレッドのバック バッファーを公開します。 ワーカー スレッドには、フレームが完了したら、UI スレッドが変更された四角形を追加し、バッファーのロックを解除します。       レンダーのスレッドがバック バッファー フロントのバッファーにコピーして転送のロックを取得すると、UI スレッドをブロックできます。 このブロックからの待機時間が長すぎる場合を使用して、<xref:System.Windows.Media.Imaging.WriteableBitmap.TryLock%2A>メソッドを短い時間待機し、バック バッファーのロック中に、その他のタスクを実行する UI スレッドのブロックを解除します</xref:System.Windows.Media.Imaging.WriteableBitmap.TryLock%2A>。"
   example:
   - "The following code example shows how to reserve the back buffer by using the Lock method.  \n  \n [!code-cs[WriteableBitmap2#2](~/add/codesnippet/csharp/WriteableBitmapDemo/Program.cs#2)]"
   syntax:
@@ -469,22 +469,22 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Attempts to lock the bitmap, waiting for no longer than the specified length of time."
-  remarks: "When a lock is acquired, the behavior of the TryLock method is the same as the <xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A> method."
+  summary: "ビットマップのロックしようと待機時間の指定された長さよりもします。"
+  remarks: "TryLock メソッドの動作が同じでは、ロックが取得されるときに、<xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A>メソッド</xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A>。"
   syntax:
     content: public bool TryLock (System.Windows.Duration timeout);
     parameters:
     - id: timeout
       type: System.Windows.Duration
-      description: "A <xref href=&quot;System.Windows.Duration&quot;></xref> that represents the length of time to wait. A value of 0 returns immediately. A value of <xref:System.Windows.Duration.Forever*> blocks indefinitely."
+      description: "A <xref href=&quot;System.Windows.Duration&quot;> </xref>待機する時間の長さを表すです。 0 の値が直ちに返されます。 値<xref:System.Windows.Duration.Forever*>無期限にブロックされます</xref:System.Windows.Duration.Forever*>。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the lock was acquired; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>ロックが取得された場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.TryLock*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>timeout</code> is set to <xref:System.Windows.Duration.Automatic*>."
+    description: "<code>timeout</code>設定されている<xref:System.Windows.Duration.Automatic*>です。"
   platform:
   - net462
 - uid: System.Windows.Media.Imaging.WriteableBitmap.Unlock
@@ -499,8 +499,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Releases the back buffer to make it available for display."
-  remarks: "The Unlock method decrements the lock count. When the lock count reaches 0, a render pass is requested if the <xref:System.Windows.Media.Imaging.WriteableBitmap.AddDirtyRect%2A> method has been called."
+  summary: "表示するために使用可能にするバック バッファーを解放します。"
+  remarks: "ロック カウントをロック解除メソッド デクリメントします。 場合、レンダリング パスが要求されたロック数が 0 に達したときに、<xref:System.Windows.Media.Imaging.WriteableBitmap.AddDirtyRect%2A>メソッドが呼び出されました</xref:System.Windows.Media.Imaging.WriteableBitmap.AddDirtyRect%2A>。"
   example:
   - "The following code example shows how to release the back buffer by using the Unlock method.  \n  \n [!code-cs[WriteableBitmap2#2](~/add/codesnippet/csharp/WriteableBitmapDemo/Program.cs#2)]"
   syntax:
@@ -510,7 +510,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The bitmap has not been locked by a call to the <xref:System.Windows.Media.Imaging.WriteableBitmap.Lock*> or <xref:System.Windows.Media.Imaging.WriteableBitmap.TryLock*> methods."
+    description: "呼び出しによって、ビットマップがロックされていない、 <> </> *> または<> *> メソッドです。"
   platform:
   - net462
 - uid: System.Windows.Media.Imaging.WriteableBitmap.WritePixels(System.Windows.Int32Rect,System.Array,System.Int32,System.Int32)
@@ -525,8 +525,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Updates the pixels in the specified region of the bitmap."
-  remarks: "The <xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.Array%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29> and <xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.IntPtr%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29> overloads are preferred over using this method.      > [!NOTE] >  In partial trust, use the <xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.Array%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29> overload."
+  summary: "ビットマップの指定した領域のピクセルを更新します。"
+  remarks: "<xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.Array%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29>と<xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.IntPtr%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29>オーバー ロードが、このメソッドを使用してより優先されます</xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.IntPtr%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29></xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.Array%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29>。      > [!NOTE] >、部分信頼で使用して、<xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.Array%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29>オーバー ロードします</xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.Array%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29>。"
   example:
   - "The following code example shows how to update a pixel in the back buffer by using the WritePixels method.  \n  \n [!code-cs[WriteableBitmap2#3](~/add/codesnippet/csharp/WriteableBitmapDemo/Program.cs#3)]"
   syntax:
@@ -534,27 +534,27 @@ items:
     parameters:
     - id: sourceRect
       type: System.Windows.Int32Rect
-      description: "The rectangle of the <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref> to update."
+      description: "四角形、 <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;> </xref>を更新します。"
     - id: pixels
       type: System.Array
-      description: "The pixel array used to update the bitmap."
+      description: "ビットマップの更新に使用されるピクセルの配列。"
     - id: stride
       type: System.Int32
-      description: "The stride of the update region in `pixels`."
+      description: "更新領域のストライド`pixels`です。"
     - id: offset
       type: System.Int32
-      description: "The input buffer offset."
+      description: "入力バッファーのオフセット。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.WritePixels*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "One or more of the following conditions is true.       <code>sourceRect</code> falls outside the bounds of the <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref>.       <code>stride</code> &lt; 1       <code>offset</code> &lt; 0"
+    description: "1 つ以上の次の条件は true です。       <code>sourceRect</code>境界の外側にある、 <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref>です。       <code>stride</code> &lt; 1       <code>offset</code> &lt; 0"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>pixels</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>pixels</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>pixels</code> has a rank other than 1 or 2, or its length is less than or equal to 0."
+    description: "<code>pixels</code>ランクが 1 または 2、以外またはその長さが 0 以下です。"
   platform:
   - net462
 - uid: System.Windows.Media.Imaging.WriteableBitmap.WritePixels(System.Windows.Int32Rect,System.IntPtr,System.Int32,System.Int32)
@@ -569,31 +569,31 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Updates the pixels in the specified region of the bitmap."
-  remarks: "The <xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.Array%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29> and <xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.IntPtr%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29> overloads are preferred over using this method.      > [!NOTE] >  In partial trust, use the <xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.Array%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29> overload."
+  summary: "ビットマップの指定した領域のピクセルを更新します。"
+  remarks: "<xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.Array%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29>と<xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.IntPtr%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29>オーバー ロードが、このメソッドを使用してより優先されます</xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.IntPtr%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29></xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.Array%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29>。      > [!NOTE] >、部分信頼で使用して、<xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.Array%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29>オーバー ロードします</xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.Array%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29>。"
   syntax:
     content: public void WritePixels (System.Windows.Int32Rect sourceRect, IntPtr buffer, int bufferSize, int stride);
     parameters:
     - id: sourceRect
       type: System.Windows.Int32Rect
-      description: "The rectangle of the <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref> to update."
+      description: "四角形、 <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;> </xref>を更新します。"
     - id: buffer
       type: System.IntPtr
-      description: "The input buffer used to update the bitmap."
+      description: "ビットマップの更新に使用する入力バッファー。"
     - id: bufferSize
       type: System.Int32
-      description: "The size of the input buffer."
+      description: "入力バッファーのサイズ。"
     - id: stride
       type: System.Int32
-      description: "The stride of the update region in `buffer`."
+      description: "更新領域のストライド`buffer`です。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.WritePixels*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "One or more of the following conditions is true.       <code>sourceRect</code> falls outside the bounds of the <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref>.       <code>bufferSize</code> &lt; 1       <code>stride</code> &lt; 1"
+    description: "1 つ以上の次の条件は true です。       <code>sourceRect</code>境界の外側にある、 <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref>です。       <code>bufferSize</code> &lt; 1       <code>stride</code> &lt; 1"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>buffer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>buffer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Windows.Media.Imaging.WriteableBitmap.WritePixels(System.Windows.Int32Rect,System.Array,System.Int32,System.Int32,System.Int32)
@@ -608,37 +608,37 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Updates the pixels in the specified region of the bitmap."
-  remarks: "Call the <xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%2A> method to update the <xref:System.Windows.Media.Imaging.WriteableBitmap> automatically with the contents of `sourceBuffer`. Calling this method is the equivalent of using the <xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A> and <xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> workflow described in the <xref:System.Windows.Media.Imaging.WriteableBitmap> class remarks.      > [!NOTE] >  Use this overload in partial trust."
+  summary: "ビットマップの指定した領域のピクセルを更新します。"
+  remarks: "呼び出す、<xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%2A>を更新するメソッド、<xref:System.Windows.Media.Imaging.WriteableBitmap>の内容を自動的に`sourceBuffer`</xref:System.Windows.Media.Imaging.WriteableBitmap></xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%2A>。 使用しての該当するショートカットは、このメソッドを呼び出す、<xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A>と<xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A>で説明されているワークフロー、<xref:System.Windows.Media.Imaging.WriteableBitmap>クラスの「解説」</xref:System.Windows.Media.Imaging.WriteableBitmap> </xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> </xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A> 。      > [!NOTE] > 部分的な信頼でのこのオーバー ロードを使用します。"
   syntax:
     content: public void WritePixels (System.Windows.Int32Rect sourceRect, Array sourceBuffer, int sourceBufferStride, int destinationX, int destinationY);
     parameters:
     - id: sourceRect
       type: System.Windows.Int32Rect
-      description: "The rectangle in `sourceBuffer` to copy."
+      description: "四角形に`sourceBuffer`をコピーします。"
     - id: sourceBuffer
       type: System.Array
-      description: "The input buffer used to update the bitmap."
+      description: "ビットマップの更新に使用する入力バッファー。"
     - id: sourceBufferStride
       type: System.Int32
-      description: "The stride of the input buffer, in bytes."
+      description: "(バイト単位) の入力バッファーのストライド。"
     - id: destinationX
       type: System.Int32
-      description: "The destination x-coordinate of the left-most pixel in the back buffer."
+      description: "バック バッファーの左端のピクセルの宛先の x 座標。"
     - id: destinationY
       type: System.Int32
-      description: "The destination y-coordinate of the top-most pixel in the back buffer."
+      description: "バック バッファー内の最上位のピクセルの宛先の y 座標。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.WritePixels*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "One or more of the following conditions is true.       <code>sourceRect</code> falls outside the bounds of the <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref>.       <code>destinationX</code> or <code>destinationY</code> is outside the bounds of the <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref>.       <code>sourceBufferStride</code> &lt; 1"
+    description: "1 つ以上の次の条件は true です。       <code>sourceRect</code>境界の外側にある、 <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref>です。       <code>destinationX</code>または<code> destinationY </code>がの境界外の<xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref>です。       <code>sourceBufferStride</code> &lt; 1"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>sourceBuffer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>sourceBuffer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>sourceBuffer</code> has a rank other than 1 or 2, or its length is less than or equal to 0."
+    description: "<code>sourceBuffer</code>ランクが 1 または 2、以外またはその長さが 0 以下です。"
   platform:
   - net462
 - uid: System.Windows.Media.Imaging.WriteableBitmap.WritePixels(System.Windows.Int32Rect,System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32)
@@ -653,37 +653,37 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Imaging
-  summary: "Updates the pixels in the specified region of the bitmap."
-  remarks: "Call the WritePixels method to update the <xref:System.Windows.Media.Imaging.WriteableBitmap> automatically with the contents of `sourceBuffer`. Calling this method is the equivalent of using the <xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A> and <xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> workflow described in the <xref:System.Windows.Media.Imaging.WriteableBitmap> class remarks.      > [!NOTE] >  In partial trust, use the <xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.Array%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29> overload."
+  summary: "ビットマップの指定した領域のピクセルを更新します。"
+  remarks: "更新 WritePixels メソッドを呼び出して、<xref:System.Windows.Media.Imaging.WriteableBitmap>の内容を自動的に`sourceBuffer`</xref:System.Windows.Media.Imaging.WriteableBitmap>。 使用しての該当するショートカットは、このメソッドを呼び出す、<xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A>と<xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A>で説明されているワークフロー、<xref:System.Windows.Media.Imaging.WriteableBitmap>クラスの「解説」</xref:System.Windows.Media.Imaging.WriteableBitmap> </xref:System.Windows.Media.Imaging.WriteableBitmap.Unlock%2A> </xref:System.Windows.Media.Imaging.WriteableBitmap.Lock%2A> 。      > [!NOTE] >、部分信頼で使用して、<xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.Array%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29>オーバー ロードします</xref:System.Windows.Media.Imaging.WriteableBitmap.WritePixels%28System.Windows.Int32Rect%2CSystem.Array%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%29>。"
   syntax:
     content: public void WritePixels (System.Windows.Int32Rect sourceRect, IntPtr sourceBuffer, int sourceBufferSize, int sourceBufferStride, int destinationX, int destinationY);
     parameters:
     - id: sourceRect
       type: System.Windows.Int32Rect
-      description: "The rectangle in `sourceBuffer` to copy."
+      description: "四角形に`sourceBuffer`をコピーします。"
     - id: sourceBuffer
       type: System.IntPtr
-      description: "The input buffer used to update the bitmap."
+      description: "ビットマップの更新に使用する入力バッファー。"
     - id: sourceBufferSize
       type: System.Int32
-      description: "The size of the input buffer."
+      description: "入力バッファーのサイズ。"
     - id: sourceBufferStride
       type: System.Int32
-      description: "The stride of the input buffer, in bytes."
+      description: "(バイト単位) の入力バッファーのストライド。"
     - id: destinationX
       type: System.Int32
-      description: "The destination x-coordinate of the left-most pixel in the back buffer."
+      description: "バック バッファーの左端のピクセルの宛先の x 座標。"
     - id: destinationY
       type: System.Int32
-      description: "The destination y-coordinate of the top-most pixel in the back buffer."
+      description: "バック バッファー内の最上位のピクセルの宛先の y 座標。"
   overload: System.Windows.Media.Imaging.WriteableBitmap.WritePixels*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "One or more of the following conditions is true.       <code>sourceRect</code> falls outside the bounds of the <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref>.       <code>destinationX</code> or <code>destinationY</code> is outside the bounds of the <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref>.       <code>sourceBufferSize</code> &lt; 1       <code>sourceBufferStride</code> &lt; 1"
+    description: "1 つ以上の次の条件は true です。       <code>sourceRect</code>境界の外側にある、 <xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref>です。       <code>destinationX</code>または<code> destinationY </code>がの境界外の<xref href=&quot;System.Windows.Media.Imaging.WriteableBitmap&quot;></xref>です。       <code>sourceBufferSize</code> &lt; 1       <code>sourceBufferStride</code> &lt; 1"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>sourceBuffer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>sourceBuffer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:
