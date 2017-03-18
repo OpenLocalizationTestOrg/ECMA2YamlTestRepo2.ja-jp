@@ -16,8 +16,8 @@ items:
   nameWithType: ISessionIDManager
   fullName: System.Web.SessionState.ISessionIDManager
   type: Interface
-  summary: "Defines the contract that a custom session-state identifier manager must implement."
-  remarks: "The ISessionIDManager interface identifies the methods that you must implement to create a custom manager for session-identifier values. An ISessionIDManager interface implementation creates and validates session-identifier values, and manages the storage of a session identifier in the HTTP response as well as the retrieval of a session-identifier value from the HTTP request. You enable the custom session-ID manager using the `sessionIDManagerType` attribute of the [sessionState Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/bda6fb8c-0076-43e3-9ce2-8cf1f8bdaa7d) configuration element.       If your ISessionIDManager interface implementation will support cookieless session identifiers, you will need to implement a solution for sending and retrieving session identifiers in the URL, such as an ISAPI filter.       If you only want to supply custom session-identifier values to be used by ASP.NET session state, you can create a class that inherits the <xref:System.Web.SessionState.SessionIDManager> class and override only the <xref:System.Web.SessionState.SessionIDManager.CreateSessionID%2A> and <xref:System.Web.SessionState.SessionIDManager.Validate%2A> methods with your own custom implementation. This enables you to supply your own session-identifier values, while relying on the base <xref:System.Web.SessionState.SessionIDManager> class to store values to the HTTP response and retrieve values from the HTTP request. For an example of overriding the <xref:System.Web.SessionState.SessionIDManager> class and implementing these methods, see the example provided for the <xref:System.Web.SessionState.SessionIDManager.CreateSessionID%2A> method of the <xref:System.Web.SessionState.SessionIDManager> class."
+  summary: "カスタム セッション状態識別子マネージャーを実装する必要があるコントラクトを定義します。"
+  remarks: "ISessionIDManager インターフェイスでは、セッション識別子の値のカスタム マネージャーを作成するために実装する必要がありますメソッドを識別します。 ISessionIDManager インターフェイスの実装を作成し、セッション識別子の値を検証し、HTTP 要求から HTTP 応答でセッション識別子の記憶域だけでなく、セッション識別子の値の取得を管理します。 使用して、カスタムのセッション ID マネージャーを有効にする、`sessionIDManagerType`の属性、 [sessionState 要素 (ASP.NET 設定スキーマ)](http://msdn.microsoft.com/en-us/bda6fb8c-0076-43e3-9ce2-8cf1f8bdaa7d)構成要素。       ISessionIDManager インターフェイスの実装が cookie なしのセッション識別子をサポートする場合は、送信および ISAPI フィルターなど、URL 内のセッション id を取得するためのソリューションを実装する必要があります。       ASP.NET セッション状態で使用するカスタムのセッション id 値を指定する場合は、継承するクラスを作成することができます、<xref:System.Web.SessionState.SessionIDManager>クラスのみさせ、<xref:System.Web.SessionState.SessionIDManager.CreateSessionID%2A>と<xref:System.Web.SessionState.SessionIDManager.Validate%2A>独自のカスタム実装を持つメソッドです</xref:System.Web.SessionState.SessionIDManager.Validate%2A></xref:System.Web.SessionState.SessionIDManager.CreateSessionID%2A></xref:System.Web.SessionState.SessionIDManager>。 これにより、ベースの証明書利用者の中に、独自のセッション id 値を入力する<xref:System.Web.SessionState.SessionIDManager>クラスを HTTP 応答への値を格納および HTTP 要求から値を取得します</xref:System.Web.SessionState.SessionIDManager>。 <xref:System.Web.SessionState.SessionIDManager>クラスおよび<xref:System.Web.SessionState.SessionIDManager.CreateSessionID%2A><xref:System.Web.SessionState.SessionIDManager>クラス</xref:System.Web.SessionState.SessionIDManager>のメソッド</xref:System.Web.SessionState.SessionIDManager.CreateSessionID%2A>に指定された例を参照して、これらのメソッドの実装</xref:System.Web.SessionState.SessionIDManager>をオーバーライドする例については"
   example:
   - "The following code example shows a class that implements a cookie-based session-ID manager.  \n  \n [!code-vb[System.Web.SessionState.ISessionIDModule#1](~/add/codesnippet/visualbasic/t-system.web.sessionstat_1_1.vb)]\n [!code-cs[System.Web.SessionState.ISessionIDModule#1](~/add/codesnippet/csharp/t-system.web.sessionstat_1_1.cs)]"
   syntax:
@@ -37,8 +37,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Creates a unique session identifier."
-  remarks: "The CreateSessionID method is used to generate a unique session identifier that the <xref:System.Web.SessionState.SessionStateModule> object will use to identify a new session. The value returned by CreateSessionID must be unique and must contain valid characters that can be stored in an HTTP response and request. If it is possible that the value returned by your CreateSessionID implementation contains characters that are not valid in an HTTP response or request, you should use the <xref:System.Web.HttpUtility.UrlEncode%2A> method to encode the session-identifier value in your <xref:System.Web.SessionState.ISessionIDManager.SaveSessionID%2A> method implementation and the <xref:System.Web.HttpUtility.UrlDecode%2A> method to decode the session-identifier value in your <xref:System.Web.SessionState.ISessionIDManager.GetSessionID%2A> method implementation."
+  summary: "一意のセッション識別子を作成します。"
+  remarks: "一意のセッション識別子を生成する CreateSessionID メソッドを使用する、<xref:System.Web.SessionState.SessionStateModule>新しいセッションを識別するオブジェクトが使用されます</xref:System.Web.SessionState.SessionStateModule>。 CreateSessionID によって返される値は一意である必要があり、HTTP 応答と要求に格納できる有効な文字を含める必要があります。 使用する必要があります、CreateSessionID 実装によって返される値が、HTTP 応答または要求に無効な文字が含まれている可能性がある場合、<xref:System.Web.HttpUtility.UrlEncode%2A>でセッション id 値をエンコードする方法、<xref:System.Web.SessionState.ISessionIDManager.SaveSessionID%2A>メソッドの実装と<xref:System.Web.HttpUtility.UrlDecode%2A>でセッション id 値をデコードする方法、<xref:System.Web.SessionState.ISessionIDManager.GetSessionID%2A>メソッドの実装</xref:System.Web.SessionState.ISessionIDManager.GetSessionID%2A></xref:System.Web.HttpUtility.UrlDecode%2A></xref:System.Web.SessionState.ISessionIDManager.SaveSessionID%2A></xref:System.Web.HttpUtility.UrlEncode%2A>。"
   example:
   - "The following code example implements the CreateSessionID method. The method creates a new <xref:System.Guid> to be used as a session identifier.  \n  \n [!code-vb[System.Web.SessionState.ISessionIDModule#3](~/add/codesnippet/visualbasic/873b6fcc-0b1f-453f-806c-_1.vb)]\n [!code-cs[System.Web.SessionState.ISessionIDModule#3](~/add/codesnippet/csharp/873b6fcc-0b1f-453f-806c-_1.cs)]"
   syntax:
@@ -46,10 +46,10 @@ items:
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The current <xref href=&quot;System.Web.HttpContext&quot;></xref> object that references server objects used to process HTTP requests (for example, the <xref:System.Web.HttpContext.Request*> and <xref:System.Web.HttpContext.Response*> properties)."
+      description: "現在<xref href=&quot;System.Web.HttpContext&quot;> </xref> HTTP 要求を処理するサーバー オブジェクトを参照するオブジェクトを使用 (たとえば、 <> </> *> と<> *> プロパティ)。"
     return:
       type: System.String
-      description: "A unique session identifier."
+      description: "一意のセッション識別子です。"
   overload: System.Web.SessionState.ISessionIDManager.CreateSessionID*
   exceptions: []
   platform:
@@ -66,8 +66,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets the session identifier from the context of the current HTTP request."
-  remarks: "The GetSessionID method is called by the <xref:System.Web.SessionState.SessionStateModule> during the <xref:System.Web.HttpApplication.AcquireRequestState?displayProperty=fullName> and <xref:System.Web.HttpApplication.EndRequest?displayProperty=fullName> events. If you cannot retrieve a valid session identifier from the HTTP request, return `null`. If the <xref:System.Web.SessionState.SessionStateModule> receives `null` from the GetSessionID method, it will call the <xref:System.Web.SessionState.ISessionIDManager.CreateSessionID%2A> method to get a new session identifier for a new session.       If it is possible that the value returned by your <xref:System.Web.SessionState.ISessionIDManager.CreateSessionID%2A> implementation contains characters that are not valid in an HTTP response or request, you should use the <xref:System.Web.HttpUtility.UrlEncode%2A> method to encode the session-identifier value in your <xref:System.Web.SessionState.ISessionIDManager.SaveSessionID%2A> method implementation and the <xref:System.Web.HttpUtility.UrlDecode%2A> method to decode the session-identifier value in your GetSessionID method implementation."
+  summary: "現在の HTTP 要求のコンテキストからのセッション識別子を取得します。"
+  remarks: "GetSessionID メソッドによって呼び出されます、<xref:System.Web.SessionState.SessionStateModule>中に、<xref:System.Web.HttpApplication.AcquireRequestState?displayProperty=fullName>と<xref:System.Web.HttpApplication.EndRequest?displayProperty=fullName>イベント</xref:System.Web.HttpApplication.EndRequest?displayProperty=fullName></xref:System.Web.HttpApplication.AcquireRequestState?displayProperty=fullName></xref:System.Web.SessionState.SessionStateModule>。 場合は、HTTP 要求から有効なセッション識別子を取得することはできません、返す`null`です。 場合、<xref:System.Web.SessionState.SessionStateModule>受信`null`GetSessionID メソッドからは呼び出すことが、<xref:System.Web.SessionState.ISessionIDManager.CreateSessionID%2A>新しいセッションのため、新しいセッション識別子を取得するメソッド</xref:System.Web.SessionState.ISessionIDManager.CreateSessionID%2A></xref:System.Web.SessionState.SessionStateModule>。       値がによって返される可能性がある場合、<xref:System.Web.SessionState.ISessionIDManager.CreateSessionID%2A>実装には、HTTP 応答または要求に無効な文字が含まれています、使用する必要があります、<xref:System.Web.HttpUtility.UrlEncode%2A>でセッション id 値をエンコードする方法、<xref:System.Web.SessionState.ISessionIDManager.SaveSessionID%2A>メソッドの実装と<xref:System.Web.HttpUtility.UrlDecode%2A>GetSessionID メソッドの実装でセッション id 値をデコードするメソッド</xref:System.Web.HttpUtility.UrlDecode%2A></xref:System.Web.SessionState.ISessionIDManager.SaveSessionID%2A></xref:System.Web.HttpUtility.UrlEncode%2A></xref:System.Web.SessionState.ISessionIDManager.CreateSessionID%2A>。"
   example:
   - "The following code example shows a partially implemented GetSessionID method. If your custom session-ID manager supports cookieless session identifiers, you will need to implement a solution for sending and retrieving session identifiers in the URL, such as an ISAPI filter.  \n  \n [!code-vb[System.Web.SessionState.ISessionIDModule#2](~/add/codesnippet/visualbasic/m-system.web.sessionstat_10_1.vb)]\n [!code-cs[System.Web.SessionState.ISessionIDModule#2](~/add/codesnippet/csharp/m-system.web.sessionstat_10_1.cs)]"
   syntax:
@@ -75,10 +75,10 @@ items:
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The current <xref href=&quot;System.Web.HttpContext&quot;></xref> object that references server objects used to process HTTP requests (for example, the <xref:System.Web.HttpContext.Request*> and <xref:System.Web.HttpContext.Response*> properties)."
+      description: "現在<xref href=&quot;System.Web.HttpContext&quot;> </xref> HTTP 要求を処理するサーバー オブジェクトを参照するオブジェクトを使用 (たとえば、 <> </> *> と<> *> プロパティ)。"
     return:
       type: System.String
-      description: "The current session identifier sent with the HTTP request."
+      description: "HTTP 要求と一緒に送信の現在のセッション識別子です。"
   overload: System.Web.SessionState.ISessionIDManager.GetSessionID*
   exceptions: []
   platform:
@@ -95,8 +95,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Initializes the <xref href=&quot;System.Web.SessionState.SessionIDManager&quot;></xref> object."
-  remarks: "Use the Initialize method to initialize the <xref:System.Web.SessionState.ISessionIDManager> object."
+  summary: "初期化、 <xref href=&quot;System.Web.SessionState.SessionIDManager&quot;> </xref>オブジェクト。"
+  remarks: "Initialize メソッドを使用して初期化するために、<xref:System.Web.SessionState.ISessionIDManager>オブジェクト</xref:System.Web.SessionState.ISessionIDManager>。"
   syntax:
     content: public void Initialize ();
     parameters: []
@@ -116,23 +116,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Performs per-request initialization of the <xref href=&quot;System.Web.SessionState.SessionIDManager&quot;></xref> object."
-  remarks: "The InitializeRequest method is called for each request handled by the <xref:System.Web.SessionState.ISessionIDManager> object. Use the InitializeRequest method to initialize per-request data for the <xref:System.Web.SessionState.SessionIDManager> object.       When the `suppressAutoDetectRedirect` parameter is `true`, the <xref:System.Web.SessionState.ISessionIDManager> object should not use redirection to determine whether the browser supports cookies.       The `supportSessionIDReissue` parameter should be returned `false` if cookies are used for session identification; otherwise, return `true` if your <xref:System.Web.SessionState.ISessionIDManager> implementation supports re-issuing session IDs."
+  summary: "要求ごとの初期化を実行、 <xref href=&quot;System.Web.SessionState.SessionIDManager&quot;> </xref>オブジェクト。"
+  remarks: "InitializeRequest メソッドによって処理される各要求に対して、<xref:System.Web.SessionState.ISessionIDManager>オブジェクト</xref:System.Web.SessionState.ISessionIDManager>。 要求ごとのデータを初期化する InitializeRequest メソッドを使用して、<xref:System.Web.SessionState.SessionIDManager>オブジェクト</xref:System.Web.SessionState.SessionIDManager>。       ときに、`suppressAutoDetectRedirect`パラメーターは`true`、<xref:System.Web.SessionState.ISessionIDManager>オブジェクトでは、ブラウザーが cookie をサポートしているかどうかを決定するリダイレクトを使用しないでください</xref:System.Web.SessionState.ISessionIDManager>。       `supportSessionIDReissue`パラメーターを返す必要がある`false`セッション id です cookie が使用される場合を返しますそれ以外の場合、`true`場合、<xref:System.Web.SessionState.ISessionIDManager>実装は、再度発行元のセッション Id をサポートしています。</xref:System.Web.SessionState.ISessionIDManager> 。"
   syntax:
     content: public bool InitializeRequest (System.Web.HttpContext context, bool suppressAutoDetectRedirect, out bool supportSessionIDReissue);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The <xref href=&quot;System.Web.HttpContext&quot;></xref> object that contains information about the current request."
+      description: "<xref href=&quot;System.Web.HttpContext&quot;> </xref>現在の要求に関する情報を含むオブジェクト。"
     - id: suppressAutoDetectRedirect
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the session-ID manager should redirect to determine cookie support; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to suppress automatic redirection to determine cookie support."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、セッション ID マネージャーが cookie のサポートを確認するリダイレクトする必要があります。それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>クッキー サポートの決定に自動リダイレクトを抑制します。"
     - id: supportSessionIDReissue
       type: System.Boolean
-      description: "When this method returns, contains a Boolean that indicates whether the <xref href=&quot;System.Web.SessionState.ISessionIDManager&quot;></xref> object supports issuing new session IDs when the original ID is out of date. This parameter is passed uninitialized.       Session ID reuse is appropriate when the session-state ID is encoded on a URL and the potential exists for the URL to be shared or emailed.       If a custom session-state implementation partitions cookies by virtual path, session state should also be supported."
+      description: "このメソッドが戻るときを示すブール値を格納するかどうか、 <xref href=&quot;System.Web.SessionState.ISessionIDManager&quot;> </xref>オブジェクトは、元の ID が古い場合に、発行元の新しいセッション Id をサポートしています。 このパラメーターは初期化せずに渡されます。       セッション状態の ID が URL でエンコードされたおよび共有または電子メールで送信する url が存在する可能性があるセッション ID の再利用が適しています。       仮想パスを使用してカスタム セッション状態の実装のパーティション cookie をセッションの状態もサポートされる必要があります。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to indicate that the initialization performed a redirect; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>初期化が、リダイレクトを実行することを示すためにそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.SessionState.ISessionIDManager.InitializeRequest*
   exceptions: []
   platform:
@@ -149,8 +149,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Deletes the session identifier from the cookie or from the URL."
-  remarks: "The <xref:System.Web.SessionState.SessionStateModule> calls the <xref:System.Web.SessionState.SessionIDManager.RemoveSessionID%2A> method during the <xref:System.Web.HttpApplication.ReleaseRequestState?displayProperty=fullName> event to remove the session identifier from the <xref:System.Web.HttpResponse.Cookies%2A?displayProperty=fullName> collection if a new session was created but was not used."
+  summary: "Cookie とは、URL からセッションの識別子を削除します。"
+  remarks: "<xref:System.Web.SessionState.SessionStateModule>呼び出し、<xref:System.Web.SessionState.SessionIDManager.RemoveSessionID%2A>メソッド中に、<xref:System.Web.HttpApplication.ReleaseRequestState?displayProperty=fullName>からのセッション識別子を削除するイベント、<xref:System.Web.HttpResponse.Cookies%2A?displayProperty=fullName>コレクションの場合は、新しいセッションが作成されましたが、使用されませんでした</xref:System.Web.HttpResponse.Cookies%2A?displayProperty=fullName></xref:System.Web.HttpApplication.ReleaseRequestState?displayProperty=fullName></xref:System.Web.SessionState.SessionIDManager.RemoveSessionID%2A></xref:System.Web.SessionState.SessionStateModule>。"
   example:
   - "The following code example implements the RemoveSessionID method.  \n  \n [!code-vb[System.Web.SessionState.ISessionIDModule#4](~/add/codesnippet/visualbasic/ee24c797-ce26-45a5-8119-_1.vb)]\n [!code-cs[System.Web.SessionState.ISessionIDModule#4](~/add/codesnippet/csharp/ee24c797-ce26-45a5-8119-_1.cs)]"
   syntax:
@@ -158,7 +158,7 @@ items:
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The current <xref href=&quot;System.Web.HttpContext&quot;></xref> object that references server objects used to process HTTP requests (for example, the <xref:System.Web.HttpContext.Request*> and <xref:System.Web.HttpContext.Response*> properties)."
+      description: "現在<xref href=&quot;System.Web.HttpContext&quot;> </xref> HTTP 要求を処理するサーバー オブジェクトを参照するオブジェクトを使用 (たとえば、 <> </> *> と<> *> プロパティ)。"
   overload: System.Web.SessionState.ISessionIDManager.RemoveSessionID*
   exceptions: []
   platform:
@@ -175,8 +175,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Saves a newly created session identifier to the HTTP response."
-  remarks: "The SaveSessionID method is called by the <xref:System.Web.SessionState.SessionStateModule> object during the <xref:System.Web.HttpApplication.AcquireRequestState?displayProperty=fullName> event. The SaveSessionID method stores the session identifier either in the URL (when cookieless session state is used) or in a non-expiring session cookie.       If it is possible that the value returned from your <xref:System.Web.SessionState.ISessionIDManager.CreateSessionID%2A> implementation contains characters that are not valid in an HTTP response or request, you should use the <xref:System.Web.HttpUtility.UrlEncode%2A> method to encode the session-identifier value in your SaveSessionID method implementation and the <xref:System.Web.HttpUtility.UrlDecode%2A> method to decode the session-identifier value in your <xref:System.Web.SessionState.ISessionIDManager.GetSessionID%2A> method implementation."
+  summary: "HTTP 応答には、新しく作成されたセッション識別子を保存します。"
+  remarks: "SaveSessionID メソッドによって呼び出されます、<xref:System.Web.SessionState.SessionStateModule>中に、<xref:System.Web.HttpApplication.AcquireRequestState?displayProperty=fullName>イベント</xref:System.Web.HttpApplication.AcquireRequestState?displayProperty=fullName></xref:System.Web.SessionState.SessionStateModule>。 SaveSessionID メソッドは、URL (cookie なしのセッション状態を使用) する場合または期限切れのないセッションの cookie、セッション識別子を格納します。       値を返す可能性がある場合、<xref:System.Web.SessionState.ISessionIDManager.CreateSessionID%2A>実装には、HTTP 応答または要求に無効な文字が含まれています、使用する必要があります、 <xref:System.Web.HttpUtility.UrlEncode%2A>SaveSessionID メソッドの実装でセッション id 値をエンコードする方法、および<xref:System.Web.HttpUtility.UrlDecode%2A>でセッション id 値をデコードする方法、<xref:System.Web.SessionState.ISessionIDManager.GetSessionID%2A>メソッドの実装</xref:System.Web.SessionState.ISessionIDManager.GetSessionID%2A></xref:System.Web.HttpUtility.UrlDecode%2A></xref:System.Web.HttpUtility.UrlEncode%2A></xref:System.Web.SessionState.ISessionIDManager.CreateSessionID%2A>。"
   example:
   - "The following code example shows a partially implemented <xref:System.Web.SessionState.ISessionIDManager.GetSessionID%2A> method. If your custom session-ID manager supports cookieless session identifiers, you will need to implement a solution for sending and retrieving session identifiers in the URL, such as an ISAPI filter.  \n  \n [!code-vb[System.Web.SessionState.ISessionIDModule#5](~/add/codesnippet/visualbasic/c9e7b38d-d963-4c81-9ebb-_1.vb)]\n [!code-cs[System.Web.SessionState.ISessionIDModule#5](~/add/codesnippet/csharp/c9e7b38d-d963-4c81-9ebb-_1.cs)]"
   syntax:
@@ -184,16 +184,16 @@ items:
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The current <xref href=&quot;System.Web.HttpContext&quot;></xref> object that references server objects used to process HTTP requests (for example, the <xref:System.Web.HttpContext.Request*> and <xref:System.Web.HttpContext.Response*> properties)."
+      description: "現在<xref href=&quot;System.Web.HttpContext&quot;> </xref> HTTP 要求を処理するサーバー オブジェクトを参照するオブジェクトを使用 (たとえば、 <> </> *> と<> *> プロパティ)。"
     - id: id
       type: System.String
-      description: "The session identifier."
+      description: "セッションの識別子です。"
     - id: redirected
       type: System.Boolean
-      description: "When this method returns, contains a Boolean value that is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the response is redirected to the current URL with the session identifier added to the URL; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "このメソッドが戻るときに、ブール値が含まれています<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>応答が、URL に追加したセッション識別子を持つ現在の URL にリダイレクトされる、それ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
     - id: cookieAdded
       type: System.Boolean
-      description: "When this method returns, contains a Boolean value that is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a cookie has been added to the HTTP response; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "このメソッドが戻るときに、ブール値が含まれています<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> HTTP 応答に追加されます。 それ以外の場合、cookie があった場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.SessionState.ISessionIDManager.SaveSessionID*
   exceptions: []
   platform:
@@ -210,8 +210,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Confirms that the supplied session identifier is valid."
-  remarks: "The Validate method verifies that the supplied `id` is a valid session identifier.       Your <xref:System.Web.SessionState.ISessionIDManager> implementation should call the Validate method from the <xref:System.Web.SessionState.ISessionIDManager.GetSessionID%2A> method when retrieving a session identifier from an HTTP request to ensure that the supplied session identifier is properly formatted."
+  summary: "指定したセッション識別子が有効であることを確認します。"
+  remarks: "タスクの Validate メソッドであることを確認、指定された`id`有効なセッション識別子を指定します。       <xref:System.Web.SessionState.ISessionIDManager>実装から検証メソッドを呼び出す必要があります、<xref:System.Web.SessionState.ISessionIDManager.GetSessionID%2A>メソッド提供されているセッション識別子が正しくフォーマットされていることを確認する HTTP 要求からのセッション識別子を取得するときにします</xref:System.Web.SessionState.ISessionIDManager.GetSessionID%2A></xref:System.Web.SessionState.ISessionIDManager>。"
   example:
   - "The following code example implements the Validate method and ensures the session-identifier value is a valid <xref:System.Guid>.  \n  \n [!code-vb[System.Web.SessionState.ISessionIDModule#6](~/add/codesnippet/visualbasic/m-system.web.sessionstat_0_1.vb)]\n [!code-cs[System.Web.SessionState.ISessionIDModule#6](~/add/codesnippet/csharp/m-system.web.sessionstat_0_1.cs)]"
   syntax:
@@ -219,10 +219,10 @@ items:
     parameters:
     - id: id
       type: System.String
-      description: "The session identifier to validate."
+      description: "検証するセッション識別子。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the session identifier is valid; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>セッション識別子が無効である場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.SessionState.ISessionIDManager.Validate*
   exceptions: []
   platform:

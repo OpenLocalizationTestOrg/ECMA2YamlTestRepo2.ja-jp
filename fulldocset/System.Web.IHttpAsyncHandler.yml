@@ -11,8 +11,8 @@ items:
   nameWithType: IHttpAsyncHandler
   fullName: System.Web.IHttpAsyncHandler
   type: Interface
-  summary: "Defines the contract that HTTP asynchronous handler objects must implement."
-  remarks: "An IHttpAsyncHandler class can be associated with a file name extension or a particular URL by a configuration file, in the `httpHandlers` configuration section. The ASP.NET infrastructure will then instantiate and call the handler when the corresponding request is received. Alternatively, the handler can be defined in an .ashx file and when the corresponding request is received for the .ashx file the hander will be executed."
+  summary: "HTTP の非同期ハンドラー オブジェクトを実装する必要があるコントラクトを定義します。"
+  remarks: "IHttpAsyncHandler クラスでは、関連付けることができるファイル名拡張子、または、構成ファイルで特定の URL で、`httpHandlers`構成セクション。 ASP.NET のインフラストラクチャのインスタンスを作成し、対応する要求が受信したときにハンドラーを呼び出します。 または、.ashx ファイルで、ハンドラーが実行される .ashx ファイルの対応する要求が受信したときにハンドラーを定義することができます。"
   syntax:
     content: 'public interface IHttpAsyncHandler : System.Web.IHttpHandler'
   implements:
@@ -31,22 +31,22 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Initiates an asynchronous call to the HTTP handler."
+  summary: "HTTP ハンドラーへの非同期呼び出しを開始します。"
   syntax:
     content: public IAsyncResult BeginProcessRequest (System.Web.HttpContext context, AsyncCallback cb, object extraData);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "An <xref href=&quot;System.Web.HttpContext&quot;></xref> object that provides references to intrinsic server objects (for example, <xref uid=&quot;langword_csharp_Request&quot; name=&quot;Request&quot; href=&quot;&quot;></xref>, <xref uid=&quot;langword_csharp_Response&quot; name=&quot;Response&quot; href=&quot;&quot;></xref>, <xref uid=&quot;langword_csharp_Session&quot; name=&quot;Session&quot; href=&quot;&quot;></xref>, and <xref uid=&quot;langword_csharp_Server&quot; name=&quot;Server&quot; href=&quot;&quot;></xref>) used to service HTTP requests."
+      description: "<xref href=&quot;System.Web.HttpContext&quot;> </xref>組み込みサーバー オブジェクトへの参照を提供するオブジェクト (たとえば、 <xref uid=&quot;langword_csharp_Request&quot; name=&quot;Request&quot; href=&quot;&quot;> </xref>、 <xref uid=&quot;langword_csharp_Response&quot; name=&quot;Response&quot; href=&quot;&quot;> </xref>、 <xref uid=&quot;langword_csharp_Session&quot; name=&quot;Session&quot; href=&quot;&quot;> </xref>、および<xref uid=&quot;langword_csharp_Server&quot; name=&quot;Server&quot; href=&quot;&quot;> </xref>) HTTP 要求を処理するために使用します。"
     - id: cb
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> to call when the asynchronous method call is complete. If `cb` is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the delegate is not called."
+      description: "<xref:System.AsyncCallback>非同期メソッドの呼び出しが完了したときに呼び出す</xref:System.AsyncCallback>。 場合`cb`は<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>デリゲートは呼び出されません。"
     - id: extraData
       type: System.Object
-      description: "Any extra data needed to process the request."
+      description: "要求を処理するために必要な追加データ。"
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that contains information about the status of the process."
+      description: "<xref:System.IAsyncResult>プロセスの状態に関する情報を格納します</xref:System.IAsyncResult>。"
   overload: System.Web.IHttpAsyncHandler.BeginProcessRequest*
   exceptions: []
   platform:
@@ -63,14 +63,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Provides an asynchronous process End method when the process ends."
-  remarks: "You can use EndProcessRequest to raise any exceptions caught during the asynchronous process."
+  summary: "プロセスの終了時に、非同期処理の終了メソッドを提供します。"
+  remarks: "EndProcessRequest を使用すると、非同期プロセスでキャッチされた例外が発生します。"
   syntax:
     content: public void EndProcessRequest (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that contains information about the status of the process."
+      description: "<xref:System.IAsyncResult>プロセスの状態に関する情報を格納します</xref:System.IAsyncResult>。"
   overload: System.Web.IHttpAsyncHandler.EndProcessRequest*
   exceptions: []
   platform:

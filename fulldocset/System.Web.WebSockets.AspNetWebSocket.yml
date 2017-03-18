@@ -19,7 +19,7 @@ items:
   nameWithType: AspNetWebSocket
   fullName: System.Web.WebSockets.AspNetWebSocket
   type: Class
-  summary: "Represents a real-time full-duplex connection between a web server and a client in an ASP.NET application."
+  summary: "Web サーバーと ASP.NET アプリケーション内のクライアントの間でリアルタイムの全二重接続を表します。"
   syntax:
     content: 'public sealed class AspNetWebSocket : System.Net.WebSockets.WebSocket'
   inheritance:
@@ -49,8 +49,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.WebSockets
-  summary: "Cancels any pending I/O operations on the <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;></xref> object and sets the state of the object so that it cannot be used to start additional I/O operations."
-  remarks: "After the Abort method has been called, you can still access properties and methods that do not involve I/O operations."
+  summary: "保留中の I/O 操作のキャンセル、 <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;> </xref>オブジェクトし、その他の I/O 操作を開始するために使用できないように、オブジェクトの状態を設定します。"
+  remarks: "Abort メソッドが呼び出された後は、プロパティとメソッドの I/O 操作は含まれませんが引き続きアクセスできます。"
   syntax:
     content: public override void Abort ();
     parameters: []
@@ -58,7 +58,7 @@ items:
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object was previously disposed."
+    description: "オブジェクトは、以前に廃棄されています。"
   platform:
   - net462
 - uid: System.Web.WebSockets.AspNetWebSocket.CloseAsync(System.Net.WebSockets.WebSocketCloseStatus,System.String,System.Threading.CancellationToken)
@@ -73,31 +73,31 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.WebSockets
-  summary: "Sends an asynchronous message to a client to close the connection. If the server initiates the request to close the connection, the method waits for the client to acknowledge the request before it returns."
-  remarks: "You can use the CloseAsync and <xref:System.Web.WebSockets.AspNetWebSocket.CloseOutputAsync%2A> methods for both client-initiated and server-initiated requests to close an <xref:System.Web.WebSockets.AspNetWebSocket> connection. The two methods handle client-initiated requests in the same way: After the client sends a message to the server to close the connection, the server calls one of these methods and sends an acknowledgment to the client, and then the method returns.       For server-initiated requests, the two methods work differently. The CloseAsync method sends a message to the client to close the connection, waits for a response, and then returns. The server does not wait for any additional data sent by the client. In contrast, the <xref:System.Web.WebSockets.AspNetWebSocket.CloseOutputAsync%2A> method sends a message to the client to close the connection and returns without waiting for a response. After the method returns, you can call the <xref:System.Web.WebSockets.AspNetWebSocket.ReceiveAsync%2A> method and handle either additional data or the acknowledgment that the client sends."
+  summary: "クライアント接続を閉じるには、非同期メッセージを送信します。 サーバーは、接続を閉じる要求を開始する場合は、クライアントに返す前に、要求を確認するメソッドが待機します。"
+  remarks: "CloseAsync を使用して<xref:System.Web.WebSockets.AspNetWebSocket.CloseOutputAsync%2A>クライアントによって開始され、サーバーによって開始される両方の要求を閉じるためのメソッド、<xref:System.Web.WebSockets.AspNetWebSocket>接続</xref:System.Web.WebSockets.AspNetWebSocket></xref:System.Web.WebSockets.AspNetWebSocket.CloseOutputAsync%2A>。 2 つの方法は、同じ方法でクライアントによって開始される要求を処理します。 クライアントが接続を終了するためにサーバー メッセージを送信し、サーバーがこれらのメソッドの&1; つを呼び出すと、クライアントに受信確認を送信してとメソッドを返します。       サーバーによって開始される要求の&2; つのメソッドに動作が異なります。 CloseAsync メソッドは、接続を閉じるには、クライアントにメッセージが、応答を待つし、しを返しますを送信します。 サーバーは、クライアントによって送信されるその他のデータには待機しません。 これに対し、<xref:System.Web.WebSockets.AspNetWebSocket.CloseOutputAsync%2A>メソッドは、接続を閉じる、クライアントにメッセージを送信し、応答を待機することがなくを返します</xref:System.Web.WebSockets.AspNetWebSocket.CloseOutputAsync%2A>。 このメソッドが戻る呼び出すことができます、<xref:System.Web.WebSockets.AspNetWebSocket.ReceiveAsync%2A>メソッドおよび追加のデータまたはクライアントが送信する受信確認を処理します</xref:System.Web.WebSockets.AspNetWebSocket.ReceiveAsync%2A>。"
   syntax:
     content: public override System.Threading.Tasks.Task CloseAsync (System.Net.WebSockets.WebSocketCloseStatus closeStatus, string statusDescription, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: closeStatus
       type: System.Net.WebSockets.WebSocketCloseStatus
-      description: "The status code of the close operation."
+      description: "クローズ操作のステータス コード。"
     - id: statusDescription
       type: System.String
-      description: "The status message of the close operation."
+      description: "クローズ操作のステータス メッセージ。"
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "The object that cancels a pending operation."
+      description: "保留中の操作をキャンセルするオブジェクト。"
     return:
       type: System.Threading.Tasks.Task
-      description: "A reference to the operation."
+      description: "操作への参照。"
   overload: System.Web.WebSockets.AspNetWebSocket.CloseAsync*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;></xref> object was previously disposed."
+    description: "<xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;> </xref>オブジェクトが以前に廃棄されています。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;></xref> object is in an aborted state.       -or-       Sending operations are unavailable.       -or-       Receiving operations are unavailable."
+    description: "<xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;> </xref>オブジェクトが中止された状態にします。       または、送信側の操作は利用できません。       - または - 受信操作は利用できません。"
   platform:
   - net462
 - uid: System.Web.WebSockets.AspNetWebSocket.CloseOutputAsync(System.Net.WebSockets.WebSocketCloseStatus,System.String,System.Threading.CancellationToken)
@@ -112,31 +112,31 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.WebSockets
-  summary: "Sends an asynchronous message to a client to close the connection. If the server initiates the request to close the connection, the method returns without waiting for a response."
-  remarks: "You can use the <xref:System.Web.WebSockets.AspNetWebSocket.CloseAsync%2A> and CloseOutputAsync methods for both client-initiated and server-initiated requests to close an <xref:System.Web.WebSockets.AspNetWebSocket> connection. The two methods handle client-initiated requests in the same way: After the client sends a message to the server to close the connection, the server calls one of these methods and sends an acknowledgment to the client, and then the method returns.       For server-initiated requests, the two methods work differently. The <xref:System.Web.WebSockets.AspNetWebSocket.CloseAsync%2A> method sends a message to the client to close the connection, waits for a response, and then returns. The server does not wait for any additional data sent by the client. In contrast, the CloseOutputAsync method sends a message to the client to close the connection and returns without waiting for a response. After the method returns, you can call the <xref:System.Web.WebSockets.AspNetWebSocket.ReceiveAsync%2A> method and handle either additional data or the acknowledgment that the client sends."
+  summary: "クライアント接続を閉じるには、非同期メッセージを送信します。 サーバーは、接続を閉じる要求を開始する場合は、応答を待機することがなく返します。"
+  remarks: "使用することができます、<xref:System.Web.WebSockets.AspNetWebSocket.CloseAsync%2A>およびクライアントによって開始され、サーバーによって開始される両方への要求を閉じる CloseOutputAsync メソッド、<xref:System.Web.WebSockets.AspNetWebSocket>接続</xref:System.Web.WebSockets.AspNetWebSocket></xref:System.Web.WebSockets.AspNetWebSocket.CloseAsync%2A>。 2 つの方法は、同じ方法でクライアントによって開始される要求を処理します。 クライアントが接続を終了するためにサーバー メッセージを送信し、サーバーがこれらのメソッドの&1; つを呼び出すと、クライアントに受信確認を送信してとメソッドを返します。       サーバーによって開始される要求の&2; つのメソッドに動作が異なります。 <xref:System.Web.WebSockets.AspNetWebSocket.CloseAsync%2A>メソッド接続を閉じる、クライアントにメッセージを送信、応答を待って、を返します</xref:System.Web.WebSockets.AspNetWebSocket.CloseAsync%2A>。 サーバーは、クライアントによって送信されるその他のデータには待機しません。 これに対し、CloseOutputAsync メソッドは、クライアント接続を閉じるにメッセージを送信し、応答を待機することがなくを返します。 このメソッドが戻る呼び出すことができます、<xref:System.Web.WebSockets.AspNetWebSocket.ReceiveAsync%2A>メソッドおよび追加のデータまたはクライアントが送信する受信確認を処理します</xref:System.Web.WebSockets.AspNetWebSocket.ReceiveAsync%2A>。"
   syntax:
     content: public override System.Threading.Tasks.Task CloseOutputAsync (System.Net.WebSockets.WebSocketCloseStatus closeStatus, string statusDescription, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: closeStatus
       type: System.Net.WebSockets.WebSocketCloseStatus
-      description: "The status code of the close operation."
+      description: "クローズ操作のステータス コード。"
     - id: statusDescription
       type: System.String
-      description: "The status message of the close operation."
+      description: "クローズ操作のステータス メッセージ。"
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "The object that cancels a pending operation."
+      description: "保留中の操作をキャンセルするオブジェクト。"
     return:
       type: System.Threading.Tasks.Task
-      description: "A reference to the operation."
+      description: "操作への参照。"
   overload: System.Web.WebSockets.AspNetWebSocket.CloseOutputAsync*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object was previously disposed."
+    description: "オブジェクトは、以前に廃棄されています。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;></xref> object is in an aborted state.       -or-       Sending operations are unavailable."
+    description: "<xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;> </xref>オブジェクトが中止された状態にします。       または、送信側の操作は利用できません。"
   platform:
   - net462
 - uid: System.Web.WebSockets.AspNetWebSocket.CloseStatus
@@ -151,17 +151,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.WebSockets
-  summary: "Gets a status code that indicates why an <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;></xref> object was closed."
+  summary: "その理由を示すステータス コードを取得、 <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;> </xref>オブジェクトが閉じられました。"
   syntax:
     content: public override Nullable<System.Net.WebSockets.WebSocketCloseStatus> CloseStatus { get; }
     return:
       type: System.Nullable{System.Net.WebSockets.WebSocketCloseStatus}
-      description: "The status code."
+      description: "ステータス コード。"
   overload: System.Web.WebSockets.AspNetWebSocket.CloseStatus*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object was previously disposed."
+    description: "オブジェクトは、以前に廃棄されています。"
   platform:
   - net462
 - uid: System.Web.WebSockets.AspNetWebSocket.CloseStatusDescription
@@ -176,17 +176,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.WebSockets
-  summary: "Gets a status message that explains why an <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;></xref> object was closed."
+  summary: "その理由を説明するステータス メッセージを取得、 <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;> </xref>オブジェクトが閉じられました。"
   syntax:
     content: public override string CloseStatusDescription { get; }
     return:
       type: System.String
-      description: "The status message."
+      description: "ステータス メッセージ。"
   overload: System.Web.WebSockets.AspNetWebSocket.CloseStatusDescription*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object was previously disposed."
+    description: "オブジェクトは、以前に廃棄されています。"
   platform:
   - net462
 - uid: System.Web.WebSockets.AspNetWebSocket.Dispose
@@ -201,8 +201,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.WebSockets
-  summary: "Releases all resources used by an <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;></xref> object."
-  remarks: "ASP.NET automatically calls the Dispose method on a <xref:System.Web.WebSockets.AspNetWebSocket> object to release any resources that remain after your code has finished executing."
+  summary: "によって使用されるすべてのリソースを解放する<xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;></xref>オブジェクト。"
+  remarks: "ASP.NET は自動的の Dispose メソッドを呼び出し、<xref:System.Web.WebSockets.AspNetWebSocket>まま、コードが完了した後に実行されているリソースを解放するオブジェクト</xref:System.Web.WebSockets.AspNetWebSocket>。"
   syntax:
     content: public override void Dispose ();
     parameters: []
@@ -222,27 +222,27 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.WebSockets
-  summary: "Receives a single message fragment from a remote client."
+  summary: "リモート クライアントから&1; つのメッセージ フラグメントを受信します。"
   syntax:
     content: public override System.Threading.Tasks.Task<System.Net.WebSockets.WebSocketReceiveResult> ReceiveAsync (ArraySegment<byte> buffer, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: buffer
       type: System.ArraySegment{System.Byte}
-      description: "The array that contains the message data."
+      description: "メッセージ データを格納する配列。"
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "The object that cancels a pending operation."
+      description: "保留中の操作をキャンセルするオブジェクト。"
     return:
       type: System.Threading.Tasks.Task{System.Net.WebSockets.WebSocketReceiveResult}
-      description: "A reference to the task of receiving a message."
+      description: "メッセージを受信するタスクへの参照。"
   overload: System.Web.WebSockets.AspNetWebSocket.ReceiveAsync*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;></xref> object was previously disposed."
+    description: "<xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;> </xref>オブジェクトが以前に廃棄されています。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;></xref> object is in an aborted state.       -or-       Receiving operations are unavailable."
+    description: "<xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;> </xref>オブジェクトが中止された状態にします。       - または - 受信操作は利用できません。"
   platform:
   - net462
 - uid: System.Web.WebSockets.AspNetWebSocket.SendAsync(System.ArraySegment{System.Byte},System.Net.WebSockets.WebSocketMessageType,System.Boolean,System.Threading.CancellationToken)
@@ -257,33 +257,33 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.WebSockets
-  summary: "Sends a single message fragment to a remote client."
+  summary: "1 つのメッセージ フラグメントをリモート クライアントに送信します。"
   syntax:
     content: public override System.Threading.Tasks.Task SendAsync (ArraySegment<byte> buffer, System.Net.WebSockets.WebSocketMessageType messageType, bool endOfMessage, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: buffer
       type: System.ArraySegment{System.Byte}
-      description: "The array that contains the message data."
+      description: "メッセージ データを格納する配列。"
     - id: messageType
       type: System.Net.WebSockets.WebSocketMessageType
-      description: "The message type."
+      description: "メッセージの型。"
     - id: endOfMessage
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to indicate that a fragment is the end of a complete message; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>フラグメントが完全なメッセージの最後であることを示しますそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "The object that cancels a pending operation."
+      description: "保留中の操作をキャンセルするオブジェクト。"
     return:
       type: System.Threading.Tasks.Task
-      description: "A reference to the task of sending a message."
+      description: "メッセージを送信するタスクへの参照。"
   overload: System.Web.WebSockets.AspNetWebSocket.SendAsync*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;></xref> object is disposed."
+    description: "<xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;> </xref>オブジェクトを破棄します。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;></xref> object is in an aborted state.       -or-       Sending operations are unavailable."
+    description: "<xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;> </xref>オブジェクトが中止された状態にします。       または、送信側の操作は利用できません。"
   platform:
   - net462
 - uid: System.Web.WebSockets.AspNetWebSocket.State
@@ -298,17 +298,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.WebSockets
-  summary: "Gets a value that indicates the open or closed state of an <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;></xref> object."
+  summary: "オープンかクローズ状態を示す値を取得、 <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;> </xref>オブジェクト。"
   syntax:
     content: public override System.Net.WebSockets.WebSocketState State { get; }
     return:
       type: System.Net.WebSockets.WebSocketState
-      description: "The current state."
+      description: "現在の状態。"
   overload: System.Web.WebSockets.AspNetWebSocket.State*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object was previously disposed."
+    description: "オブジェクトは、以前に廃棄されています。"
   platform:
   - net462
 - uid: System.Web.WebSockets.AspNetWebSocket.SubProtocol
@@ -323,17 +323,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.WebSockets
-  summary: "Gets the name of an application-specific protocol that a remote client and a server can use to exchange data over an <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;></xref> connection."
+  summary: "リモート クライアントとサーバーを使用して経由でデータを交換するアプリケーション固有のプロトコルの名前を取得、 <xref href=&quot;System.Web.WebSockets.AspNetWebSocket&quot;> </xref>接続します。"
   syntax:
     content: public override string SubProtocol { get; }
     return:
       type: System.String
-      description: "The name of the protocol."
+      description: "プロトコルの名前です。"
   overload: System.Web.WebSockets.AspNetWebSocket.SubProtocol*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object was previously disposed."
+    description: "オブジェクトは、以前に廃棄されています。"
   platform:
   - net462
 references:
