@@ -54,8 +54,8 @@ items:
   nameWithType: EncryptedXml
   fullName: System.Security.Cryptography.Xml.EncryptedXml
   type: Class
-  summary: "Represents the process model for implementing XML encryption."
-  remarks: "The EncryptedXml class is the main class used for XML encryption in the .NET Framework. XML Encryption is a standards-based, interoperable way to encrypt all or part of an XML document or any arbitrary data. The .NET Framework XML encryption classes implement the World Wide Web Consortium (W3C) specification for XML encryption located at http://www.w3.org/TR/xmlenc-core/.       Use the EncryptedXml class whenever you need to share encrypted XML data between applications or organizations in a standard way. Any data encrypted using this class can be decrypted by any implementation of the W3C specification for XML encryption.       XML encryption replaces any plain text XML element or document with the `<EncryptedData>` element, which contains an encrypted (or cipher text) representation of plain text XML or any arbitrary data. The `<EncryptedData>` element can optionally contain information about where to find a key that will decrypt the cipher text, and which cryptographic algorithm was used to encrypt the plain text.       The `<EncryptedKey>` element is similar to the `<EncryptedData>` element in style and usage, except that it allows you to encrypt a key that will decrypt the value of the `<EncryptedData>` element. Note that the `<EncryptedKey>` element and the `<EncryptedData>` element will never contain an unencrypted key.       Use one of the following methods to exchange key information:      -   Do not include any key information. If you choose this option, both parties must agree on an algorithm and key before they exchange encrypted data.      -   Include the location of the key in the Uniform Resource Identifier (URI) attribute of the `<RetrievalMethod>` element. Both parties must agree on the key location ahead of time and this location must be kept secret.      -   Include a string name that maps to a key in the `<KeyName>` element. Both parties must agree on the key name mapping before they exchange encrypted data and this mapping must be kept secret.      -   Include an encrypted key in the `<EncryptedKey>` element. Both parties must agree on the key that decrypts the encrypted key before they exchange encrypted data. You can optionally include a name or location of the key that will decrypt the key in the `<EncryptedKey>` element."
+  summary: "XML 暗号化を実装するためのプロセス モデルを表します。"
+  remarks: "EncryptedXml クラスは、.NET Framework における XML の暗号化に使用するメイン クラスです。 XML 暗号化は、XML ドキュメントまたは任意のデータの一部またはすべてを暗号化する、標準ベースの相互運用可能な方法です。 .NET Framework XML の暗号化クラスは、http://www.w3.org/TR/xmlenc-core/ ある XML 暗号化の World Wide Web Consortium (W3C) 仕様を実装します。       標準的な方法でアプリケーションまたは組織の間で暗号化された XML データを共有する必要がある場合は、EncryptedXml クラスを使用します。 このクラスを使用して暗号化されたデータは、XML の暗号化は、W3C 仕様の実装によって暗号化解除できます。       XML 暗号化では任意のプレーン テキストの XML 要素またはドキュメントで、`<EncryptedData>`要素を含む、暗号化された (または暗号テキスト) プレーン テキストの XML 表現または任意のデータ。 `<EncryptedData>`要素では、暗号テキストを復号化キーを検索する場所についての情報を含めることができます必要に応じてされ、プレーン テキストの暗号化に使用されている暗号アルゴリズム。       `<EncryptedKey>`要素がに似ていますが、`<EncryptedData>`内の要素のスタイルおよび使用状況、許可することの値を復号化キーを暗号化する点を除いて、`<EncryptedData>`要素。 なお、`<EncryptedKey>`要素および`<EncryptedData>`要素は暗号化されていないキーを含めることはありません。       次の方法のいずれかを使用してキー情報を交換:-キー情報を含めないでください。 このオプションを選択する場合は、暗号化されたデータを交換する前にアルゴリズムとキーの双方が合意する必要があります。      -キーの場所、(Uniform Resource Identifier) の属性に含める、`<RetrievalMethod>`要素。 前もってキーの場所の双方が合意する必要があり、この場所は、秘密保持する必要があります。      -Include 内のキーにマップされる文字列名、`<KeyName>`要素。 暗号化されたデータを交換して、このマッピングは、秘密保持する必要がある前にキー名のマッピングの双方が合意する必要があります。      -Include で暗号化されたキー、`<EncryptedKey>`要素。 暗号化されたデータを交換する前に、暗号化されたキーを復号化キーの双方が合意する必要があります。 名前または内のキーは復号化キーの場所を含めることができます必要に応じて、`<EncryptedKey>`要素。"
   example:
   - "The following code example demonstrates how to create a simple utility class that uses the <xref:System.Security.Cryptography.TripleDES> algorithm to encrypt an XML document.  \n  \n [!code-cpp[Cryptography.XML.MainXMLEncDecryptDataOOP#1](~/add/codesnippet/cpp/t-system.security.crypto_84_1.cpp)]\n [!code-vb[Cryptography.XML.MainXMLEncDecryptDataOOP#1](~/add/codesnippet/visualbasic/t-system.security.crypto_84_1.vb)]\n [!code-cs[Cryptography.XML.MainXMLEncDecryptDataOOP#1](~/add/codesnippet/csharp/t-system.security.crypto_84_1.cs)]  \n  \n The following code example demonstrates how to encrypt an XML document using a symmetric key. This example does not include any key information in the encrypted XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/cpp/t-system.security.crypto_84_2.cpp)]\n [!code-vb[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/visualbasic/t-system.security.crypto_84_2.vb)]\n [!code-cs[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/csharp/t-system.security.crypto_84_2.cs)]  \n  \n The following code example demonstrates how to encrypt an XML document using a symmetric key. This example embeds a key name in the encrypted XML document that the decrypting method uses to find the appropriate decryption key.  \n  \n [!code-vb[Cryptography.XML.XMLEncMapKey#1](~/add/codesnippet/visualbasic/t-system.security.crypto_84_3.vb)]\n [!code-cs[Cryptography.XML.XMLEncMapKey#1](~/add/codesnippet/csharp/t-system.security.crypto_84_3.cs)]\n [!code-cpp[Cryptography.XML.XMLEncMapKey#1](~/add/codesnippet/cpp/t-system.security.crypto_84_3.cpp)]  \n  \n The following code example demonstrates how to encrypt an XML document using an asymmetric key. This example creates a symmetric session key to encrypt the document and then uses the asymmetric key to embed an encrypted version of the session key into the XML document.  \n  \n [!code-cs[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/csharp/t-system.security.crypto_84_4.cs)]\n [!code-vb[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/visualbasic/t-system.security.crypto_84_4.vb)]\n [!code-cpp[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/cpp/t-system.security.crypto_84_4.cpp)]  \n  \n The following code example demonstrates how to encrypt an XML document using an X.509 certificate. This example creates a symmetric session key to encrypt the document and then uses the X.509 certificate to embed an encrypted version of the session key into the XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMapKeyX509#1](~/add/codesnippet/cpp/t-system.security.crypto_84_5.cpp)]\n [!code-cs[Cryptography.XML.XMLEncMapKeyX509#1](~/add/codesnippet/csharp/t-system.security.crypto_84_5.cs)]\n [!code-vb[Cryptography.XML.XMLEncMapKeyX509#1](~/add/codesnippet/visualbasic/t-system.security.crypto_84_5.vb)]"
   syntax:
@@ -78,8 +78,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Cryptography.Xml.EncryptedXml&quot;></xref> class."
-  remarks: "This is the default constructor for the main class for XML encryption in the .NET Framework."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Cryptography.Xml.EncryptedXml&quot;> </xref>クラスです。"
+  remarks: "これは、.NET Framework における XML の暗号化のメイン クラスの既定のコンス トラクターです。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using a symmetric key. This example does not include any key information in the encrypted XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/cpp/m-system.security.crypto_40_1.cpp)]\n [!code-vb[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/visualbasic/m-system.security.crypto_40_1.vb)]\n [!code-cs[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/csharp/m-system.security.crypto_40_1.cs)]  \n  \n The following code example demonstrates how to encrypt an XML document using a symmetric key. This example embeds a key name in the encrypted XML document that the decrypting method uses to find the appropriate decryption key.  \n  \n [!code-vb[Cryptography.XML.XMLEncMapKey#1](~/add/codesnippet/visualbasic/m-system.security.crypto_40_2.vb)]\n [!code-cs[Cryptography.XML.XMLEncMapKey#1](~/add/codesnippet/csharp/m-system.security.crypto_40_2.cs)]\n [!code-cpp[Cryptography.XML.XMLEncMapKey#1](~/add/codesnippet/cpp/m-system.security.crypto_40_2.cpp)]  \n  \n The following code example demonstrates how to encrypt an XML document using an asymmetric key. This example creates a symmetric session key to encrypt the document and then uses the asymmetric key to embed an encrypted version of the session key into the XML document.  \n  \n [!code-cs[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/csharp/m-system.security.crypto_40_3.cs)]\n [!code-vb[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/visualbasic/m-system.security.crypto_40_3.vb)]\n [!code-cpp[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/cpp/m-system.security.crypto_40_3.cpp)]  \n  \n The following code example demonstrates how to encrypt an XML document using an X.509 certificate. This example creates a symmetric session key to encrypt the document and then uses the X.509 certificate to embed an encrypted version of the session key into the XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMapKeyX509#1](~/add/codesnippet/cpp/m-system.security.crypto_40_4.cpp)]\n [!code-cs[Cryptography.XML.XMLEncMapKeyX509#1](~/add/codesnippet/csharp/m-system.security.crypto_40_4.cs)]\n [!code-vb[Cryptography.XML.XMLEncMapKeyX509#1](~/add/codesnippet/visualbasic/m-system.security.crypto_40_4.vb)]"
   syntax:
@@ -101,8 +101,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Cryptography.Xml.EncryptedXml&quot;></xref> class using the specified XML document."
-  remarks: "Use this constructor to create an <xref:System.Security.Cryptography.Xml.EncryptedXml> object when you want to specify the XML document to encrypt.  The `document` parameter comprises the XML elements that later form the encrypted XML."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Cryptography.Xml.EncryptedXml&quot;> </xref>クラス、指定された XML ドキュメントを使用します。"
+  remarks: "このコンス トラクターを使って作成、<xref:System.Security.Cryptography.Xml.EncryptedXml>オブジェクトを暗号化する XML ドキュメントを指定するとき</xref:System.Security.Cryptography.Xml.EncryptedXml>。  `document`パラメーターは後で、暗号化された XML を形成する XML 要素で構成します。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using a symmetric key. This example embeds a key name in the encrypted XML document that the decrypting method uses to find the appropriate decryption key.  \n  \n [!code-vb[Cryptography.XML.XMLEncMapKey#1](~/add/codesnippet/visualbasic/bed2a575-be89-45fe-b5dc-_1.vb)]\n [!code-cs[Cryptography.XML.XMLEncMapKey#1](~/add/codesnippet/csharp/bed2a575-be89-45fe-b5dc-_1.cs)]\n [!code-cpp[Cryptography.XML.XMLEncMapKey#1](~/add/codesnippet/cpp/bed2a575-be89-45fe-b5dc-_1.cpp)]  \n  \n The following code example demonstrates how to encrypt an XML document using an asymmetric key. This example creates a symmetric session key to encrypt the document and then uses the asymmetric key to embed an encrypted version of the session key into the XML document.  \n  \n [!code-cs[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/csharp/bed2a575-be89-45fe-b5dc-_2.cs)]\n [!code-vb[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/visualbasic/bed2a575-be89-45fe-b5dc-_2.vb)]\n [!code-cpp[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/cpp/bed2a575-be89-45fe-b5dc-_2.cpp)]"
   syntax:
@@ -110,7 +110,7 @@ items:
     parameters:
     - id: document
       type: System.Xml.XmlDocument
-      description: "An <xref href=&quot;System.Xml.XmlDocument&quot;></xref> object used to initialize the <xref href=&quot;System.Security.Cryptography.Xml.EncryptedXml&quot;></xref> object."
+      description: "<xref href=&quot;System.Xml.XmlDocument&quot;> </xref>初期化するために使用されるオブジェクト、 <xref href=&quot;System.Security.Cryptography.Xml.EncryptedXml&quot;> </xref>オブジェクト。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.#ctor*
   exceptions: []
   platform:
@@ -127,17 +127,17 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Cryptography.Xml.EncryptedXml&quot;></xref> class using the specified XML document and evidence."
-  remarks: "Use this constructor to create an <xref:System.Security.Cryptography.Xml.EncryptedXml> object when you want to specify the XML document to encrypt and provide security evidence. The `document` parameter comprises the XML elements that later form the encrypted XML."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Cryptography.Xml.EncryptedXml&quot;> </xref>クラスの指定された XML ドキュメントおよび証拠を使用します。"
+  remarks: "このコンス トラクターを使って作成、<xref:System.Security.Cryptography.Xml.EncryptedXml>オブジェクトを暗号化し、セキュリティ証拠を提供する XML ドキュメントを指定するとき</xref:System.Security.Cryptography.Xml.EncryptedXml>。 `document`パラメーターは後で、暗号化された XML を形成する XML 要素で構成します。"
   syntax:
     content: public EncryptedXml (System.Xml.XmlDocument document, System.Security.Policy.Evidence evidence);
     parameters:
     - id: document
       type: System.Xml.XmlDocument
-      description: "An <xref href=&quot;System.Xml.XmlDocument&quot;></xref> object used to initialize the <xref href=&quot;System.Security.Cryptography.Xml.EncryptedXml&quot;></xref> object."
+      description: "<xref href=&quot;System.Xml.XmlDocument&quot;> </xref>初期化するために使用されるオブジェクト、 <xref href=&quot;System.Security.Cryptography.Xml.EncryptedXml&quot;> </xref>オブジェクト。"
     - id: evidence
       type: System.Security.Policy.Evidence
-      description: "An <xref href=&quot;System.Security.Policy.Evidence&quot;></xref> object associated with the <xref href=&quot;System.Xml.XmlDocument&quot;></xref> object."
+      description: "<xref href=&quot;System.Security.Policy.Evidence&quot;> </xref>オブジェクトに関連付けられている、 <xref href=&quot;System.Xml.XmlDocument&quot;> </xref>オブジェクト。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.#ctor*
   exceptions: []
   platform:
@@ -154,8 +154,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Defines a mapping between a key name and a symmetric key or an asymmetric key."
-  remarks: "The AddKeyNameMapping method allows you to map a symmetric key or an asymmetric key to a string name. This method adds the values of the `keyName` and `keyObject` parameters to a table of valid key name mappings.       Use the <xref:System.Security.Cryptography.Xml.EncryptedXml.ClearKeyNameMappings%2A> method to clear the key name mappings table."
+  summary: "キー名と対称キーまたは非対称キーの間のマッピングを定義します。"
+  remarks: "AddKeyNameMapping メソッドでは、対称キーまたは非対称キーを文字列名にマップすることができます。 このメソッドは、の値を追加、`keyName`と`keyObject`有効なキーのテーブルへのパラメーターのマッピングの名前します。       使用して、<xref:System.Security.Cryptography.Xml.EncryptedXml.ClearKeyNameMappings%2A>キー名のマッピング テーブルをクリアします</xref:System.Security.Cryptography.Xml.EncryptedXml.ClearKeyNameMappings%2A>。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using a symmetric key. This example embeds a key name in the encrypted XML document that the decrypting method uses to find the appropriate decryption key.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMinimalDecrypt#1](~/add/codesnippet/cpp/a586411f-1e2f-4c31-afeb-_1.cpp)]\n [!code-cs[Cryptography.XML.XMLEncMinimalDecrypt#1](~/add/codesnippet/csharp/a586411f-1e2f-4c31-afeb-_1.cs)]\n [!code-vb[Cryptography.XML.XMLEncMinimalDecrypt#1](~/add/codesnippet/visualbasic/a586411f-1e2f-4c31-afeb-_1.vb)]"
   syntax:
@@ -163,18 +163,18 @@ items:
     parameters:
     - id: keyName
       type: System.String
-      description: "The name to map to `keyObject`."
+      description: "マップする名前`keyObject`です。"
     - id: keyObject
       type: System.Object
-      description: "The symmetric key to map to `keyName`."
+      description: "対称キーにマップする`keyName`です。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.AddKeyNameMapping*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value of the <code>keyName</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The value of the <code>keyObject</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "値、 <code> keyName </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。       - または - の値、 <code> keyObject </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The value of the <code>keyObject</code> parameter is not an RSA algorithm or a symmetric key."
+    description: "値、 <code> keyObject </code>パラメーターは、RSA アルゴリズムまたは対称キーではありません。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.ClearKeyNameMappings
@@ -189,8 +189,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Resets all key name mapping."
-  remarks: "Use this method to clear all key name mapping that you have set using the <xref:System.Security.Cryptography.Xml.EncryptedXml.AddKeyNameMapping%2A> method."
+  summary: "すべてのキー名マップをリセットします。"
+  remarks: "このメソッドを使用して設定したすべてのキー名マッピングが消去を使用して、<xref:System.Security.Cryptography.Xml.EncryptedXml.AddKeyNameMapping%2A>メソッド</xref:System.Security.Cryptography.Xml.EncryptedXml.AddKeyNameMapping%2A>。"
   syntax:
     content: public void ClearKeyNameMappings ();
     parameters: []
@@ -210,8 +210,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Decrypts an <xref uid=&quot;langword_csharp_&lt;EncryptedData&gt;&quot; name=&quot;&lt;EncryptedData&gt;&quot; href=&quot;&quot;></xref> element using the specified symmetric algorithm."
-  remarks: "Use the DecryptData method to decrypt an <xref:System.Security.Cryptography.Xml.EncryptedData> element using a symmetric key.       Note that the DecryptData method only decrypts top-level <`EncryptedData`> tags.  In cases where one or more <`EncryptedData`> tags have been encrypted and are contained within higher level <`EncryptedData`> tags, you can call the <xref:System.Security.Cryptography.Xml.EncryptedXml.DecryptDocument%2A> method separately for each one.  See the <xref:System.Security.Cryptography.Xml.EncryptedXml.DecryptDocument%2A> method for a code example."
+  summary: "復号化、 <xref uid=&quot;langword_csharp_&lt;EncryptedData&gt;&quot; name=&quot;&lt;EncryptedData&gt;&quot; href=&quot;&quot;> </xref>要素が、指定した対称アルゴリズムを使用します。"
+  remarks: "DecryptData メソッドを使用して復号化、<xref:System.Security.Cryptography.Xml.EncryptedData>対称キーを使用して要素</xref:System.Security.Cryptography.Xml.EncryptedData>。       ある DecryptData メソッドのみを復号化最上位レベルに注意してください`EncryptedData`> タグ。  場合、1 つまたは複数`EncryptedData`> タグが暗号化されているしより高いレベルに含まれる`EncryptedData`> タグに呼び出すことができます、<xref:System.Security.Cryptography.Xml.EncryptedXml.DecryptDocument%2A>とは別に&1; つのメソッド</xref:System.Security.Cryptography.Xml.EncryptedXml.DecryptDocument%2A>。  参照してください、<xref:System.Security.Cryptography.Xml.EncryptedXml.DecryptDocument%2A>コード例のメソッド</xref:System.Security.Cryptography.Xml.EncryptedXml.DecryptDocument%2A>。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using a symmetric key. This example does not include any key information in the encrypted XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/cpp/ff5da254-8fa1-47c6-b66b-_1.cpp)]\n [!code-vb[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/visualbasic/ff5da254-8fa1-47c6-b66b-_1.vb)]\n [!code-cs[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/csharp/ff5da254-8fa1-47c6-b66b-_1.cs)]"
   syntax:
@@ -219,18 +219,18 @@ items:
     parameters:
     - id: encryptedData
       type: System.Security.Cryptography.Xml.EncryptedData
-      description: "The data to decrypt."
+      description: "復号化するデータ。"
     - id: symmetricAlgorithm
       type: System.Security.Cryptography.SymmetricAlgorithm
-      description: "The symmetric key used to decrypt `encryptedData`."
+      description: "復号化に使用する対称キー`encryptedData`です。"
     return:
       type: System.Byte[]
-      description: "A byte array that contains the raw decrypted plain text."
+      description: "生の復号化されたプレーン テキストを含むバイト配列。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.DecryptData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value of the <code>encryptedData</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The value of the <code>symmetricAlgorithm</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "値、 <code> encryptedData </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。       - または - の値、 <code> symmetricAlgorithm </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.DecryptDocument
@@ -245,8 +245,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Decrypts all <xref uid=&quot;langword_csharp_&lt;EncryptedData&gt;&quot; name=&quot;&lt;EncryptedData&gt;&quot; href=&quot;&quot;></xref> elements of the XML document that were specified during initialization of the <xref href=&quot;System.Security.Cryptography.Xml.EncryptedXml&quot;></xref> class."
-  remarks: "The DecryptDocument method decrypts all `<EncryptedData>` elements of the XML document loaded during initialization. After you call this method, all `<EncryptedData>` elements in the document are replaced with plain text versions.       The DecryptDocument method decrypts only top-level `<EncryptedData>` elements.  If you need to decrypt a super-encrypted document (a document that is encrypted more than once), you must call the DecryptDocument method repeatedly until all the `<EncryptedData>` elements have been decrypted.      > [!NOTE] >  The DecryptDocument method decrypts only valid XML data. To decrypt arbitrary data, use the <xref:System.Security.Cryptography.Xml.EncryptedXml.DecryptData%2A> method.       To use XML Encryption with X.509 certificates, you must have the Microsoft Enhanced Cryptographic Provider installed and the X.509 certificate must use the Enhanced Provider. If you do not have the Microsoft Enhanced Cryptographic Provider installed or the X.509 certificate does not use the Enhanced Provider, a <xref:System.Security.Cryptography.CryptographicException> with an &quot;Unknown Error&quot; will be thrown when you decrypt an XML document."
+  summary: "すべての暗号化を解除<xref uid=&quot;langword_csharp_&lt;EncryptedData&gt;&quot; name=&quot;&lt;EncryptedData&gt;&quot; href=&quot;&quot;></xref>の初期化時に指定された XML ドキュメントの要素、 <xref href=&quot;System.Security.Cryptography.Xml.EncryptedXml&quot;> </xref>クラスです。"
+  remarks: "DecryptDocument メソッドには、すべてが復号化`<EncryptedData>`の初期化中に、XML ドキュメントの要素が読み込まれます。 このメソッドを呼び出した後すべて`<EncryptedData>`ドキュメント内の要素はテキスト形式のバージョンに置き換えられます。       DecryptDocument メソッドが最上位レベルのみ復号化`<EncryptedData>`要素。  スーパーで暗号化されたドキュメント (複数回暗号化するドキュメント) の暗号化を解除する必要がある場合に、DecryptDocument メソッドはすべてされるまでの繰り返し呼び出す必要があります、`<EncryptedData>`要素が復号化されています。      > [!NOTE] >、DecryptDocument メソッドには、有効な XML データのみが復号化します。 任意のデータの暗号化を解除するには、<xref:System.Security.Cryptography.Xml.EncryptedXml.DecryptData%2A>メソッド</xref:System.Security.Cryptography.Xml.EncryptedXml.DecryptData%2A>。       X.509 証明書で XML の暗号化を使用するには、Microsoft Enhanced Cryptographic Provider がインストールされているが必要し、X.509 証明書は、拡張プロバイダーを使用する必要があります。 Microsoft Enhanced Cryptographic Provider がインストールされているがないか、または X.509 証明書は、拡張プロバイダーを使用しない場合、 <xref:System.Security.Cryptography.CryptographicException>&quot;Unknown Error&quot;の場合にスローされる XML ドキュメントを復号化します</xref:System.Security.Cryptography.CryptographicException>。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using an asymmetric key. This example creates a symmetric session key to encrypt the document and then uses the asymmetric key to embed an encrypted version of the session key into the XML document.  \n  \n [!code-cs[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/csharp/m-system.security.crypto_11_1.cs)]\n [!code-vb[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/visualbasic/m-system.security.crypto_11_1.vb)]\n [!code-cpp[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/cpp/m-system.security.crypto_11_1.cpp)]  \n  \n The following code example demonstrates how to encrypt an XML document using an X.509 certificate. This example creates a symmetric session key to encrypt the document and then uses the X.509 certificate to embed an encrypted version of the session key into the XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMapKeyX509#1](~/add/codesnippet/cpp/m-system.security.crypto_11_2.cpp)]\n [!code-cs[Cryptography.XML.XMLEncMapKeyX509#1](~/add/codesnippet/csharp/m-system.security.crypto_11_2.cs)]\n [!code-vb[Cryptography.XML.XMLEncMapKeyX509#1](~/add/codesnippet/visualbasic/m-system.security.crypto_11_2.vb)]  \n  \n The following code example demonstrates how to decrypt a high level <`EncryptedData`> tag that contains another encrypted <`EncryptedData`> tag.  \n  \n [!code-vb[Cryptography.XML.EncryptedDocument.DecryptDocument-SuperEncryption#1](~/add/codesnippet/visualbasic/m-system.security.crypto_11_3.vb)]\n [!code-cs[Cryptography.XML.EncryptedDocument.DecryptDocument-SuperEncryption#1](~/add/codesnippet/csharp/m-system.security.crypto_11_3.cs)]"
   syntax:
@@ -256,7 +256,7 @@ items:
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The cryptographic key used to decrypt the document was not found."
+    description: "ドキュメントを復号化に使用される暗号化キーが見つかりませんでした。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.DecryptEncryptedKey(System.Security.Cryptography.Xml.EncryptedKey)
@@ -271,25 +271,25 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Determines the key represented by the <xref href=&quot;System.Security.Cryptography.Xml.EncryptedKey&quot;></xref> element."
-  remarks: "The DecryptEncryptedKey method decrypts an encrypted key contained within the `<EncryptedKey>` element of an XML document.       This recursive method finds the key represented by the <xref:System.Security.Cryptography.Xml.EncryptedKey> object. Note that an <xref:System.Security.Cryptography.Xml.EncryptedKey> object can contain another <xref:System.Security.Cryptography.Xml.EncryptedKey> object that specifies its <xref:System.Security.Cryptography.Xml.KeyInfo> value."
+  summary: "によって表されるキーの決定、 <xref href=&quot;System.Security.Cryptography.Xml.EncryptedKey&quot;> </xref>要素。"
+  remarks: "DecryptEncryptedKey メソッド内に含まれる暗号化キーを復号化、 `<EncryptedKey>` XML ドキュメントの要素。       この再帰的な方法で表されるキーの検索、<xref:System.Security.Cryptography.Xml.EncryptedKey>オブジェクト</xref:System.Security.Cryptography.Xml.EncryptedKey>。 なお、<xref:System.Security.Cryptography.Xml.EncryptedKey>オブジェクトは別に含めることができます<xref:System.Security.Cryptography.Xml.EncryptedKey>を指定するオブジェクト、<xref:System.Security.Cryptography.Xml.KeyInfo>値</xref:System.Security.Cryptography.Xml.KeyInfo></xref:System.Security.Cryptography.Xml.EncryptedKey></xref:System.Security.Cryptography.Xml.EncryptedKey>。"
   syntax:
     content: public virtual byte[] DecryptEncryptedKey (System.Security.Cryptography.Xml.EncryptedKey encryptedKey);
     parameters:
     - id: encryptedKey
       type: System.Security.Cryptography.Xml.EncryptedKey
-      description: "The <xref href=&quot;System.Security.Cryptography.Xml.EncryptedKey&quot;></xref> object that contains the key to retrieve."
+      description: "<xref href=&quot;System.Security.Cryptography.Xml.EncryptedKey&quot;> </xref>を取得するキーを含むオブジェクト。"
     return:
       type: System.Byte[]
-      description: "A byte array that contains the key."
+      description: "キーを含むバイト配列。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.DecryptEncryptedKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value of the <code>encryptedKey</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "値、 <code> encryptedKey </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The value of the <code>encryptedKey</code> parameter is not the Triple DES Key Wrap algorithm or the Advanced Encryption Standard (AES) Key Wrap algorithm (also called Rijndael)."
+    description: "値、 <code> encryptedKey </code>パラメーターは、Triple DES キー ラップ アルゴリズムまたは、Advanced Encryption Standard (AES) キー ラップ アルゴリズム (Rijndael とも呼ばれます)。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.DecryptKey(System.Byte[],System.Security.Cryptography.SymmetricAlgorithm)
@@ -304,28 +304,28 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Decrypts an <xref uid=&quot;langword_csharp_&lt;EncryptedKey&gt;&quot; name=&quot;&lt;EncryptedKey&gt;&quot; href=&quot;&quot;></xref> element using a symmetric algorithm."
-  remarks: "The <xref:System.Security.Cryptography.Xml.EncryptedXml.DecryptKey%2A> method decrypts an encrypted key contained within the `<EncryptedKey>` element of an XML document. This method accepts a value for the `symmetricAlgorithm` parameter that represents either the Triple DES algorithm or the AES key wrap algorithm (also called Rijndael)."
+  summary: "復号化、 <xref uid=&quot;langword_csharp_&lt;EncryptedKey&gt;&quot; name=&quot;&lt;EncryptedKey&gt;&quot; href=&quot;&quot;> </xref>対称アルゴリズムを使用して要素。"
+  remarks: "<xref:System.Security.Cryptography.Xml.EncryptedXml.DecryptKey%2A>メソッド内に含まれる暗号化キーを復号化、 `<EncryptedKey>` XML ドキュメントの要素</xref:System.Security.Cryptography.Xml.EncryptedXml.DecryptKey%2A>。 このメソッドは、の値を受け取り、`symmetricAlgorithm`トリプル DES アルゴリズムまたは AES キー ラップ アルゴリズム (Rijndael とも呼ばれます) のいずれかを表すパラメーター。"
   syntax:
     content: public static byte[] DecryptKey (byte[] keyData, System.Security.Cryptography.SymmetricAlgorithm symmetricAlgorithm);
     parameters:
     - id: keyData
       type: System.Byte[]
-      description: "An array of bytes that represents an encrypted <xref uid=&quot;langword_csharp_&lt;EncryptedKey&gt;&quot; name=&quot;&lt;EncryptedKey&gt;&quot; href=&quot;&quot;></xref> element."
+      description: "暗号化されたを表すバイト配列<xref uid=&quot;langword_csharp_&lt;EncryptedKey&gt;&quot; name=&quot;&lt;EncryptedKey&gt;&quot; href=&quot;&quot;></xref>要素。"
     - id: symmetricAlgorithm
       type: System.Security.Cryptography.SymmetricAlgorithm
-      description: "The symmetric key used to decrypt `keyData`."
+      description: "復号化に使用する対称キー`keyData`です。"
     return:
       type: System.Byte[]
-      description: "A byte array that contains the plain text key."
+      description: "プレーン テキストのキーを格納するバイト配列。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.DecryptKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value of the <code>keyData</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The value of the <code>symmetricAlgorithm</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "値、 <code> keyData </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。       - または - の値、 <code> symmetricAlgorithm </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The value of the <code>symmetricAlgorithm</code> element is not the Triple DES Key Wrap algorithm or the Advanced Encryption Standard (AES) Key Wrap algorithm (also called Rijndael)."
+    description: "値、 <code> symmetricAlgorithm </code>要素は、Triple DES キー ラップ アルゴリズムや、高度暗号化標準 (AES) キー ラップ アルゴリズム (Rijndael とも呼ばれます) ではありません。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.DecryptKey(System.Byte[],System.Security.Cryptography.RSA,System.Boolean)
@@ -340,28 +340,28 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Decrypts an <xref uid=&quot;langword_csharp_&lt;EncryptedKey&gt;&quot; name=&quot;&lt;EncryptedKey&gt;&quot; href=&quot;&quot;></xref> element using an asymmetric algorithm."
-  remarks: "The DecryptKey method decrypts an encrypted key contained within the `<EncryptedKey>` element of an XML document. This method accepts a value for the `rsa` parameter that represents either the RSA PKCS#1 v1.5 algorithm or the RSA PKCS#1 type 2 algorithm (also called OAEP padding)."
+  summary: "復号化、 <xref uid=&quot;langword_csharp_&lt;EncryptedKey&gt;&quot; name=&quot;&lt;EncryptedKey&gt;&quot; href=&quot;&quot;> </xref>非対称アルゴリズムを使用して要素。"
+  remarks: "DecryptKey メソッド内に含まれる暗号化キーを復号化、 `<EncryptedKey>` XML ドキュメントの要素。 このメソッドは、の値を受け取り、 `rsa` RSA PKCS #1 v1.5 アルゴリズムまたは RSA PKCS #1 タイプ 2 アルゴリズム (OAEP パディングとも呼ばれます) のいずれかを表すパラメーター。"
   syntax:
     content: public static byte[] DecryptKey (byte[] keyData, System.Security.Cryptography.RSA rsa, bool useOAEP);
     parameters:
     - id: keyData
       type: System.Byte[]
-      description: "An array of bytes that represents an encrypted <xref uid=&quot;langword_csharp_&lt;EncryptedKey&gt;&quot; name=&quot;&lt;EncryptedKey&gt;&quot; href=&quot;&quot;></xref> element."
+      description: "暗号化されたを表すバイト配列<xref uid=&quot;langword_csharp_&lt;EncryptedKey&gt;&quot; name=&quot;&lt;EncryptedKey&gt;&quot; href=&quot;&quot;></xref>要素。"
     - id: rsa
       type: System.Security.Cryptography.RSA
-      description: "The asymmetric key used to decrypt `keyData`."
+      description: "復号化に使用する非対称キー`keyData`です。"
     - id: useOAEP
       type: System.Boolean
-      description: "A value that specifies whether to use Optimal Asymmetric Encryption Padding (OAEP)."
+      description: "OAEP Optimal Asymmetric Encryption Padding () を使用するかどうかを指定する値。"
     return:
       type: System.Byte[]
-      description: "A byte array that contains the plain text key."
+      description: "プレーン テキストのキーを格納するバイト配列。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.DecryptKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value of the <code>keyData</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The value of the <code>rsa</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "値、 <code> keyData </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。       - または - の値、 <code> rsa </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.DocumentEvidence
@@ -376,13 +376,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Gets or sets the evidence of the <xref href=&quot;System.Xml.XmlDocument&quot;></xref> object from which the <xref href=&quot;System.Security.Cryptography.Xml.EncryptedXml&quot;></xref> object is constructed."
-  remarks: "If the XML document used to create the <xref:System.Security.Cryptography.Xml.EncryptedXml> object has any security evidence, you should add the evidence to the DocumentEvidence property.  If you do not set this property, any associated <xref:System.Security.Cryptography.Xml.CipherReference> objects will not be dereferenced because they will not be granted the required permission set."
+  summary: "取得または設定の証拠に基づいて、 <xref href=&quot;System.Xml.XmlDocument&quot;> </xref>元のオブジェクト、 <xref href=&quot;System.Security.Cryptography.Xml.EncryptedXml&quot;> </xref>オブジェクトを構築します。"
+  remarks: "XML ドキュメントを作成するために使用する場合、<xref:System.Security.Cryptography.Xml.EncryptedXml>オブジェクトには、セキュリティ証拠、DocumentEvidence プロパティに証拠を追加する必要があります</xref:System.Security.Cryptography.Xml.EncryptedXml>。  このプロパティは、関連付けられているいずれかが設定されていない場合<xref:System.Security.Cryptography.Xml.CipherReference>オブジェクトが逆参照しないでこれらはで許可されていなかったため、必要なアクセス許可セット</xref:System.Security.Cryptography.Xml.CipherReference>。"
   syntax:
     content: public System.Security.Policy.Evidence DocumentEvidence { get; set; }
     return:
       type: System.Security.Policy.Evidence
-      description: "An <xref href=&quot;System.Security.Policy.Evidence&quot;></xref> object."
+      description: "<xref href=&quot;System.Security.Policy.Evidence&quot;> </xref>オブジェクト。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.DocumentEvidence*
   exceptions: []
   platform:
@@ -399,13 +399,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Gets or sets the encoding used for XML encryption."
-  remarks: "UTF-8 encoding is the default encoding for XML encryption. You can use this property to specify other types of encoding from the <xref:System.Text.Encoding> class, such as UTF-16 or ASCII."
+  summary: "取得または XML 暗号化に使用されるエンコーディングを設定します。"
+  remarks: "XML 暗号化の既定のエンコーディングは、utf-8 エンコードします。 このプロパティを使用してエンコードからの他の種類を指定することができます、 <xref:System.Text.Encoding>utf-16 や ASCII などのクラス</xref:System.Text.Encoding>。"
   syntax:
     content: public System.Text.Encoding Encoding { get; set; }
     return:
       type: System.Text.Encoding
-      description: "An <xref:System.Text.Encoding> object."
+      description: "<xref:System.Text.Encoding>オブジェクト</xref:System.Text.Encoding>。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.Encoding*
   exceptions: []
   platform:
@@ -422,8 +422,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Encrypts the outer XML of an element using the specified X.509 certificate."
-  remarks: "The Encrypt method is a convenient way to encrypt the outer XML of an element using a certificate. This method generates a 256-bit Advanced Encryption Standard (AES) session key to encrypt an XML element and then encrypts and signs the AES key using the <xref:System.Security.Cryptography.X509Certificates.X509Certificate2> object. The Encrypt method then returns the resulting XML as an <xref:System.Security.Cryptography.Xml.EncryptedData> element.       If you need more control over the encryption, so you can place the encrypted information into a `<CipherReference>` element or specify whether the entire XML element or just its contents should be encrypted, use the <xref:System.Security.Cryptography.Xml.EncryptedXml.EncryptData%2A> method overloads.       To use XML Encryption with X.509 certificates, you must have the Microsoft Enhanced Cryptographic Provider installed and the X.509 certificate must use the Enhanced Provider. If you do not have the Microsoft Enhanced Cryptographic Provider installed or the X.509 certificate does not use the Enhanced Provider, a <xref:System.Security.Cryptography.CryptographicException> with an &quot;Unknown Error&quot; will be thrown when you decrypt an XML document."
+  summary: "指定された X.509 証明書を使用して、要素の外側の XML を暗号化します。"
+  remarks: "暗号化メソッドは、証明書を使用して、要素の外側の XML を暗号化する便利な方法です。 このメソッドで XML 要素を暗号化するには、256 ビット高度暗号化標準 (AES) セッション キーが生成されますとし、暗号化して AES キーを使用して、署名、<xref:System.Security.Cryptography.X509Certificates.X509Certificate2>オブジェクト</xref:System.Security.Cryptography.X509Certificates.X509Certificate2>。 暗号化し、返しますとして結果の XML、<xref:System.Security.Cryptography.Xml.EncryptedData>要素</xref:System.Security.Cryptography.Xml.EncryptedData>。       暗号化より詳細に制御する場合は、することが行われるのでに暗号化された情報、`<CipherReference>`要素全体の XML 要素またはその内容だけができるかどうかを指定するか、暗号化を使用して、<xref:System.Security.Cryptography.Xml.EncryptedXml.EncryptData%2A>メソッドのオーバー ロード</xref:System.Security.Cryptography.Xml.EncryptedXml.EncryptData%2A>。       X.509 証明書で XML の暗号化を使用するには、Microsoft Enhanced Cryptographic Provider がインストールされているが必要し、X.509 証明書は、拡張プロバイダーを使用する必要があります。 Microsoft Enhanced Cryptographic Provider がインストールされているがないか、または X.509 証明書は、拡張プロバイダーを使用しない場合、 <xref:System.Security.Cryptography.CryptographicException>&quot;Unknown Error&quot;の場合にスローされる XML ドキュメントを復号化します</xref:System.Security.Cryptography.CryptographicException>。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using an X.509 certificate. This example creates a symmetric session key to encrypt the document and then uses the X.509 certificate to embed an encrypted version of the session key into the XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMapKeyX509#1](~/add/codesnippet/cpp/7bb06d56-e2dc-41d6-92d8-_1.cpp)]\n [!code-cs[Cryptography.XML.XMLEncMapKeyX509#1](~/add/codesnippet/csharp/7bb06d56-e2dc-41d6-92d8-_1.cs)]\n [!code-vb[Cryptography.XML.XMLEncMapKeyX509#1](~/add/codesnippet/visualbasic/7bb06d56-e2dc-41d6-92d8-_1.vb)]"
   syntax:
@@ -431,21 +431,21 @@ items:
     parameters:
     - id: inputElement
       type: System.Xml.XmlElement
-      description: "The XML element to encrypt."
+      description: "暗号化する XML 要素です。"
     - id: certificate
       type: System.Security.Cryptography.X509Certificates.X509Certificate2
-      description: "The X.509 certificate to use for encryption."
+      description: "暗号化に使用する X.509 証明書。"
     return:
       type: System.Security.Cryptography.Xml.EncryptedData
-      description: "An <xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;></xref> element that represents the encrypted XML data."
+      description: "<xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;> </xref>暗号化された XML データを表す要素。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.Encrypt*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value of the <code>inputElement</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The value of the <code>certificate</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "値、 <code> inputElement </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。       - または - の値、 <code> certificate </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The value of the <code>certificate</code> parameter does not represent an RSA key algorithm."
+    description: "値、 <code> certificate </code>パラメーターには、RSA キーのアルゴリズムは表しません。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.Encrypt(System.Xml.XmlElement,System.String)
@@ -460,8 +460,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Encrypts the outer XML of an element using the specified key in the key mapping table."
-  remarks: "This method is a convenient way to encrypt the outer XML of an element using a key name. If you need more control over the encryption, so you can place the encrypted information into a `<CipherReference>` element or specify whether the entire XML element or just its contents should be encrypted, use the <xref:System.Security.Cryptography.Xml.EncryptedXml.EncryptData%2A> method overloads.       For a list of all supported algorithms, see the list of constant fields associated with the <xref:System.Security.Cryptography.Xml.EncryptedXml> class."
+  summary: "キー マップ テーブル内の指定したキーを使用して、要素の外側の XML を暗号化します。"
+  remarks: "このメソッドは、キー名を使用して、要素の外側の XML を暗号化する便利な方法です。 暗号化より詳細に制御する場合は、することが行われるのでに暗号化された情報、`<CipherReference>`要素全体の XML 要素またはその内容だけができるかどうかを指定するか、暗号化を使用して、<xref:System.Security.Cryptography.Xml.EncryptedXml.EncryptData%2A>メソッドのオーバー ロード</xref:System.Security.Cryptography.Xml.EncryptedXml.EncryptData%2A>。       サポートされているすべてのアルゴリズムの一覧は、<xref:System.Security.Cryptography.Xml.EncryptedXml>クラス</xref:System.Security.Cryptography.Xml.EncryptedXml>に関連付けられている定数のフィールドの一覧を参照してください。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using a symmetric key.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMinimalDecrypt#1](~/add/codesnippet/cpp/2d0ce5a9-0f26-45bd-862b-_1.cpp)]\n [!code-cs[Cryptography.XML.XMLEncMinimalDecrypt#1](~/add/codesnippet/csharp/2d0ce5a9-0f26-45bd-862b-_1.cs)]\n [!code-vb[Cryptography.XML.XMLEncMinimalDecrypt#1](~/add/codesnippet/visualbasic/2d0ce5a9-0f26-45bd-862b-_1.vb)]"
   syntax:
@@ -469,21 +469,21 @@ items:
     parameters:
     - id: inputElement
       type: System.Xml.XmlElement
-      description: "The XML element to encrypt."
+      description: "暗号化する XML 要素です。"
     - id: keyName
       type: System.String
-      description: "A key name that can be found in the key mapping table."
+      description: "キー マップ テーブルに含まれているキーの名前。"
     return:
       type: System.Security.Cryptography.Xml.EncryptedData
-      description: "An <xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;></xref> object that represents the encrypted XML data."
+      description: "<xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;> </xref>暗号化された XML データを表すオブジェクト。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.Encrypt*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value of the <code>inputElement</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The value of the <code>keyName</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "値、 <code> inputElement </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。       - または - の値、 <code> keyName </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The value of the <code>keyName</code> parameter does not match a registered key name pair.       -or-       The cryptographic key described by the <code>keyName</code> parameter is not supported."
+    description: "値、 <code> keyName </code>パラメーターが登録されているキーの名前の組み合わせと一致しません。       - または - で説明されている暗号化キー、 <code> keyName </code>パラメーターはサポートされていません。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.EncryptData(System.Byte[],System.Security.Cryptography.SymmetricAlgorithm)
@@ -498,8 +498,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Encrypts data in the specified byte array using the specified symmetric algorithm."
-  remarks: "The returned byte array can be placed into a `<CipherValue>` element. This method assumes that the data specified in the `plaintext` parameter is a byte array that contains XML data."
+  summary: "指定した対称アルゴリズムを使用して、指定したバイト配列内のデータを暗号化します。"
+  remarks: "返されるバイト配列に配置できる、`<CipherValue>`要素。 このメソッドは、データがで指定されている前提としています。、`plaintext`パラメーターは、XML データを格納するバイト配列。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using a symmetric key. This example does not include any key information in the encrypted XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/cpp/b0a4c1de-8575-4f7f-8804-_1.cpp)]\n [!code-vb[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/visualbasic/b0a4c1de-8575-4f7f-8804-_1.vb)]\n [!code-cs[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/csharp/b0a4c1de-8575-4f7f-8804-_1.cs)]  \n  \n The following code example demonstrates how to encrypt an XML document using a symmetric key. This example embeds a key name in the encrypted XML document that the decrypting method uses to find the appropriate decryption key.  \n  \n [!code-vb[Cryptography.XML.XMLEncMapKey#1](~/add/codesnippet/visualbasic/b0a4c1de-8575-4f7f-8804-_2.vb)]\n [!code-cs[Cryptography.XML.XMLEncMapKey#1](~/add/codesnippet/csharp/b0a4c1de-8575-4f7f-8804-_2.cs)]\n [!code-cpp[Cryptography.XML.XMLEncMapKey#1](~/add/codesnippet/cpp/b0a4c1de-8575-4f7f-8804-_2.cpp)]  \n  \n The following code example demonstrates how to encrypt an XML document using an asymmetric key. This example creates a symmetric session key to encrypt the document and then uses the asymmetric key to embed an encrypted version of the session key into the XML document.  \n  \n [!code-cs[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/csharp/b0a4c1de-8575-4f7f-8804-_3.cs)]\n [!code-vb[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/visualbasic/b0a4c1de-8575-4f7f-8804-_3.vb)]\n [!code-cpp[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/cpp/b0a4c1de-8575-4f7f-8804-_3.cpp)]"
   syntax:
@@ -507,21 +507,21 @@ items:
     parameters:
     - id: plaintext
       type: System.Byte[]
-      description: "The data to encrypt."
+      description: "暗号化するデータ。"
     - id: symmetricAlgorithm
       type: System.Security.Cryptography.SymmetricAlgorithm
-      description: "The symmetric algorithm to use for encryption."
+      description: "暗号化に使用する対称アルゴリズム。"
     return:
       type: System.Byte[]
-      description: "A byte array of encrypted data."
+      description: "暗号化されたデータのバイト配列。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.EncryptData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value of the <code>plaintext</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The value of the <code>symmetricAlgorithm</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "値、 <code> plaintext </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。       - または - の値、 <code> symmetricAlgorithm </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The data could not be encrypted using the specified parameters."
+    description: "指定されたパラメーターを使用してデータを暗号化できませんでした。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.EncryptData(System.Xml.XmlElement,System.Security.Cryptography.SymmetricAlgorithm,System.Boolean)
@@ -536,8 +536,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Encrypts the specified element or its contents using the specified symmetric algorithm."
-  remarks: "The returned byte array data is the value of the `<CipherValue>` element."
+  summary: "指定された要素または指定した対称アルゴリズムを使用してその内容を暗号化します。"
+  remarks: "返されるバイト配列のデータの値、`<CipherValue>`要素。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using a symmetric key. This example does not include any key information in the encrypted XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/cpp/58e919c7-3675-40a5-8022-_1.cpp)]\n [!code-vb[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/visualbasic/58e919c7-3675-40a5-8022-_1.vb)]\n [!code-cs[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/csharp/58e919c7-3675-40a5-8022-_1.cs)]"
   syntax:
@@ -545,21 +545,21 @@ items:
     parameters:
     - id: inputElement
       type: System.Xml.XmlElement
-      description: "The element or its contents to encrypt."
+      description: "要素またはその内容を暗号化します。"
     - id: symmetricAlgorithm
       type: System.Security.Cryptography.SymmetricAlgorithm
-      description: "The symmetric algorithm to use for encryption."
+      description: "暗号化に使用する対称アルゴリズム。"
     - id: content
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to encrypt only the contents of the element; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to encrypt the entire element."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>要素の内容のみを暗号化するには<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>要素全体を暗号化します。"
     return:
       type: System.Byte[]
-      description: "A byte array that contains the encrypted data."
+      description: "暗号化されたデータを格納するバイト配列。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.EncryptData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value of the <code>inputElement</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The value of the <code>symmetricAlgorithm</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "値、 <code> inputElement </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。       - または - の値、 <code> symmetricAlgorithm </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.EncryptKey(System.Byte[],System.Security.Cryptography.SymmetricAlgorithm)
@@ -574,28 +574,28 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Encrypts a key using a symmetric algorithm that a recipient uses to decrypt an <xref uid=&quot;langword_csharp_&lt;EncryptedData&gt;&quot; name=&quot;&lt;EncryptedData&gt;&quot; href=&quot;&quot;></xref> element."
-  remarks: "Use the EncryptKey method to encrypt the key that a recipient uses to decrypt an `<EncryptedData>` element. This method accepts a value for the `symmetricAlgorithm` parameter that represents either the Triple DES algorithm or the AES key wrap algorithm (also called Rijndael).       Note that this method does not automatically place the encrypted key within an `<EncryptedKey>` element.  You must manually create the `<EncryptedKey>` element within your document."
+  summary: "受信者が復号化に使用する対称アルゴリズムを使用してキーを暗号化する<xref uid=&quot;langword_csharp_&lt;EncryptedData&gt;&quot; name=&quot;&lt;EncryptedData&gt;&quot; href=&quot;&quot;></xref>要素。"
+  remarks: "受信者が復号化に使用するキーの暗号化に EncryptKey メソッドを使用して、`<EncryptedData>`要素。 このメソッドは、の値を受け取り、`symmetricAlgorithm`トリプル DES アルゴリズムまたは AES キー ラップ アルゴリズム (Rijndael とも呼ばれます) のいずれかを表すパラメーター。       このメソッドが、暗号化キーを自動的に配置していないことに注意してください、`<EncryptedKey>`要素。  手動で作成する必要があります、`<EncryptedKey>`ドキュメント内の要素。"
   syntax:
     content: public static byte[] EncryptKey (byte[] keyData, System.Security.Cryptography.SymmetricAlgorithm symmetricAlgorithm);
     parameters:
     - id: keyData
       type: System.Byte[]
-      description: "The key to encrypt."
+      description: "暗号化するキー。"
     - id: symmetricAlgorithm
       type: System.Security.Cryptography.SymmetricAlgorithm
-      description: "The symmetric key used to encrypt `keyData`."
+      description: "暗号化に使用する対称キー`keyData`です。"
     return:
       type: System.Byte[]
-      description: "A byte array that represents the encrypted value of the <code>keyData</code> parameter."
+      description: "暗号化された値を表すバイト配列、 <code> keyData </code>パラメーター。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.EncryptKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value of the <code>keyData</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The value of the <code>symmetricAlgorithm</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "値、 <code> keyData </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。       - または - の値、 <code> symmetricAlgorithm </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The value of the <code>symmetricAlgorithm</code> parameter is not the Triple DES Key Wrap algorithm or the Advanced Encryption Standard (AES) Key Wrap algorithm (also called Rijndael)."
+    description: "値、 <code> symmetricAlgorithm </code>パラメーターは、Triple DES キー ラップ アルゴリズムまたは、Advanced Encryption Standard (AES) キー ラップ アルゴリズム (Rijndael とも呼ばれます)。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.EncryptKey(System.Byte[],System.Security.Cryptography.RSA,System.Boolean)
@@ -610,8 +610,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Encrypts the key that a recipient uses to decrypt an <xref uid=&quot;langword_csharp_&lt;EncryptedData&gt;&quot; name=&quot;&lt;EncryptedData&gt;&quot; href=&quot;&quot;></xref> element."
-  remarks: "Use the EncryptKey method to encrypt the key that a recipient uses to decrypt an `<EncryptedData>` element. This method accepts a value for `rsa` that represents either the RSA PKCS#1 v1.5 algorithm or the RSA PKCS#1 type 2 algorithm (also called OAEP).       Note that this method does not automatically place the encrypted key within an `<EncryptedKey>` element.  You must manually create the `<EncryptedKey>` element within your document."
+  summary: "受信者が復号化に使用するキーを暗号化する<xref uid=&quot;langword_csharp_&lt;EncryptedData&gt;&quot; name=&quot;&lt;EncryptedData&gt;&quot; href=&quot;&quot;></xref>要素。"
+  remarks: "受信者が復号化に使用するキーの暗号化に EncryptKey メソッドを使用して、`<EncryptedData>`要素。 このメソッドは、の値を受け入れる`rsa`RSA PKCS #1 v1.5 アルゴリズムまたは RSA PKCS #1 タイプ 2 アルゴリズム (OAEP とも呼ばれます) のいずれかを表すです。       このメソッドが、暗号化キーを自動的に配置していないことに注意してください、`<EncryptedKey>`要素。  手動で作成する必要があります、`<EncryptedKey>`ドキュメント内の要素。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using an asymmetric key. This example creates a symmetric session key to encrypt the document and then uses the asymmetric key to embed an encrypted version of the session key into the XML document.  \n  \n [!code-cs[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/csharp/f1ea466e-2516-4b63-bd31-_1.cs)]\n [!code-vb[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/visualbasic/f1ea466e-2516-4b63-bd31-_1.vb)]\n [!code-cpp[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/cpp/f1ea466e-2516-4b63-bd31-_1.cpp)]"
   syntax:
@@ -619,21 +619,21 @@ items:
     parameters:
     - id: keyData
       type: System.Byte[]
-      description: "The key to encrypt."
+      description: "暗号化するキー。"
     - id: rsa
       type: System.Security.Cryptography.RSA
-      description: "The asymmetric key used to encrypt `keyData`."
+      description: "暗号化に使用する非対称キー`keyData`です。"
     - id: useOAEP
       type: System.Boolean
-      description: "A value that specifies whether to use Optimal Asymmetric Encryption Padding (OAEP)."
+      description: "OAEP Optimal Asymmetric Encryption Padding () を使用するかどうかを指定する値。"
     return:
       type: System.Byte[]
-      description: "A byte array that represents the encrypted value of the <code>keyData</code> parameter."
+      description: "暗号化された値を表すバイト配列、 <code> keyData </code>パラメーター。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.EncryptKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value of the <code>keyData</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The value of the <code>rsa</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "値、 <code> keyData </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。       - または - の値、 <code> rsa </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.GetDecryptionIV(System.Security.Cryptography.Xml.EncryptedData,System.String)
@@ -648,28 +648,28 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Retrieves the decryption initialization vector (IV) from an <xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;></xref> object."
-  remarks: "Given an <xref:System.Security.Cryptography.Xml.EncryptedData> object, this method retrieves the decryption initialization vector (IV). The default behavior retrieves the IV as the first bytes of the <xref:System.Security.Cryptography.Xml.CipherData.CipherValue%2A> byte array.       For a list of Uniform Resource Identifier (URI) values supported by the `symmetricAlgorithmUri` parameter, see the list of constant fields associated with the <xref:System.Security.Cryptography.Xml.EncryptedXml> class."
+  summary: "復号化初期化ベクター (IV) の取得、 <xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;> </xref>オブジェクト。"
+  remarks: "指定された、<xref:System.Security.Cryptography.Xml.EncryptedData>オブジェクト、このメソッドは、復号化初期化ベクター (IV) を取得します</xref:System.Security.Cryptography.Xml.EncryptedData>。 既定の動作の最初のバイトとしての IV の取得、<xref:System.Security.Cryptography.Xml.CipherData.CipherValue%2A>バイト配列</xref:System.Security.Cryptography.Xml.CipherData.CipherValue%2A>。       サポートされている (Uniform Resource Identifier) の値の一覧については、`symmetricAlgorithmUri`パラメーター、<xref:System.Security.Cryptography.Xml.EncryptedXml>クラス</xref:System.Security.Cryptography.Xml.EncryptedXml>に関連付けられている定数のフィールドの一覧を参照してください。"
   syntax:
     content: public virtual byte[] GetDecryptionIV (System.Security.Cryptography.Xml.EncryptedData encryptedData, string symmetricAlgorithmUri);
     parameters:
     - id: encryptedData
       type: System.Security.Cryptography.Xml.EncryptedData
-      description: "The <xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;></xref> object that contains the initialization vector (IV) to retrieve."
+      description: "<xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;> </xref>を取得する初期化ベクター (IV) を格納しているオブジェクト。"
     - id: symmetricAlgorithmUri
       type: System.String
-      description: "The Uniform Resource Identifier (URI) that describes the cryptographic algorithm associated with the `encryptedData` value."
+      description: "Uniform Resource Identifier () に関連付けられている暗号化アルゴリズムを表す、`encryptedData`値。"
     return:
       type: System.Byte[]
-      description: "A byte array that contains the decryption initialization vector (IV)."
+      description: "復号化初期化ベクター (IV) を格納するバイト配列。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.GetDecryptionIV*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value of the <code>encryptedData</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "値、 <code> encryptedData </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The value of the <code>encryptedData</code> parameter has an <xref:System.Security.Cryptography.Xml.EncryptedType.EncryptionMethod*> property that is null.       -or-       The value of the <code>symmetricAlgorithmUrisymAlgUri</code> parameter is not a supported algorithm."
+    description: "値、 <code> encryptedData </code>パラメーターには、<xref:System.Security.Cryptography.Xml.EncryptedType.EncryptionMethod*>プロパティが null です</xref:System.Security.Cryptography.Xml.EncryptedType.EncryptionMethod*>。       - または - の値、 <code> symmetricAlgorithmUrisymAlgUri </code>パラメーターはサポートされているアルゴリズムではありません。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.GetDecryptionKey(System.Security.Cryptography.Xml.EncryptedData,System.String)
@@ -684,28 +684,28 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Retrieves the decryption key from the specified <xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;></xref> object."
-  remarks: "Given an <xref:System.Security.Cryptography.Xml.EncryptedData> object, this method looks for the decryption key that can be used to retrieve the plain text data. If a key name is specified, the method looks for the symmetric algorithm or asymmetric algorithm that is associated with the key name as defined in the key name mapping. Otherwise, if a retrieval method or an <xref:System.Security.Cryptography.Xml.EncryptedKey> object is specified, the method loads the <xref:System.Security.Cryptography.Xml.EncryptedKey> object and calls the GetDecryptionKey method."
+  summary: "指定された対象から復号化キーを取得<xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;></xref>オブジェクト。"
+  remarks: "指定された、<xref:System.Security.Cryptography.Xml.EncryptedData>オブジェクト、このメソッドはプレーン テキスト データを取得するために使用する暗号化解除キーを検索します</xref:System.Security.Cryptography.Xml.EncryptedData>。 キー名が指定されている場合、メソッドは、対称アルゴリズムまたはキー名のマッピングで定義されているキーの名前に関連付けられている非対称アルゴリズムを検索します。 それ以外の場合、取得メソッドか、<xref:System.Security.Cryptography.Xml.EncryptedKey>オブジェクトが指定されている場合、メソッドのロード、<xref:System.Security.Cryptography.Xml.EncryptedKey>オブジェクトおよび GetDecryptionKey メソッドを呼び出します</xref:System.Security.Cryptography.Xml.EncryptedKey></xref:System.Security.Cryptography.Xml.EncryptedKey>。"
   syntax:
     content: public virtual System.Security.Cryptography.SymmetricAlgorithm GetDecryptionKey (System.Security.Cryptography.Xml.EncryptedData encryptedData, string symmetricAlgorithmUri);
     parameters:
     - id: encryptedData
       type: System.Security.Cryptography.Xml.EncryptedData
-      description: "The <xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;></xref> object that contains the decryption key to retrieve."
+      description: "<xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;> </xref>を取得する復号化キーを含むオブジェクト。"
     - id: symmetricAlgorithmUri
       type: System.String
-      description: "The size of the decryption key to retrieve."
+      description: "取得する復号化キーのサイズ。"
     return:
       type: System.Security.Cryptography.SymmetricAlgorithm
-      description: "A <xref href=&quot;System.Security.Cryptography.SymmetricAlgorithm&quot;></xref> object associated with the decryption key."
+      description: "A <xref href=&quot;System.Security.Cryptography.SymmetricAlgorithm&quot;> </xref>復号化キーに関連付けられているオブジェクト。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.GetDecryptionKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value of the <code>encryptedData</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "値、 <code> encryptedData </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The encryptedData parameter has an <xref:System.Security.Cryptography.Xml.EncryptedType.EncryptionMethod*> property that is null.       -or-       The encrypted key cannot be retrieved using the specified parameters."
+    description: "EncryptedData パラメーターには、<xref:System.Security.Cryptography.Xml.EncryptedType.EncryptionMethod*>プロパティが null です</xref:System.Security.Cryptography.Xml.EncryptedType.EncryptionMethod*>。       または、指定されたパラメーターを使用して暗号化されたキーを取得できません。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.GetIdElement(System.Xml.XmlDocument,System.String)
@@ -720,20 +720,20 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Determines how to resolve internal Uniform Resource Identifier (URI) references."
-  remarks: "The GetIdElement method determines how to resolve internal Uniform Resource Identifiers (URIs). It looks for elements with a specified value or for elements with an ID attribute that has a specified value."
+  summary: "内部の (Uniform Resource Identifier) 参照を解決する方法を決定します。"
+  remarks: "GetIdElement メソッドでは、内部の Uniform Resource Identifier (Uri) を解決する方法を決定します。 値を指定して要素または指定された値を持つ ID 属性を持つ要素を検索します。"
   syntax:
     content: public virtual System.Xml.XmlElement GetIdElement (System.Xml.XmlDocument document, string idValue);
     parameters:
     - id: document
       type: System.Xml.XmlDocument
-      description: "An <xref href=&quot;System.Xml.XmlDocument&quot;></xref> object that contains an element with an ID value."
+      description: "<xref href=&quot;System.Xml.XmlDocument&quot;> </xref> ID 値を持つ要素を含むオブジェクトです。"
     - id: idValue
       type: System.String
-      description: "A string that represents the ID value."
+      description: "ID 値を表す文字列。"
     return:
       type: System.Xml.XmlElement
-      description: "An <xref href=&quot;System.Xml.XmlElement&quot;></xref> object that contains an ID indicating how internal Uniform Resource Identifiers (URIs) are to be resolved."
+      description: "<xref href=&quot;System.Xml.XmlElement&quot;> </xref>をどのように内部 Uniform Resource Identifier (Uri) を示す ID を格納しているオブジェクトが解決されるべきです。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.GetIdElement*
   exceptions: []
   platform:
@@ -750,13 +750,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Gets or sets the cipher mode used for XML encryption."
-  remarks: "Cipher Block Chaining (CBC) mode is the default cipher mode for XML encryption. You can use this property to specify other cipher modes of the <xref:System.Security.Cryptography.CipherMode> enumeration, such as Cipher Feedback (CFB) mode."
+  summary: "取得または XML 暗号化に使用する暗号モードを設定します。"
+  remarks: "暗号ブロック チェーン (CBC) モードは、XML 暗号化の既定の暗号モードです。 場合は、その他の暗号モードを指定するこのプロパティを使用することができます、<xref:System.Security.Cryptography.CipherMode>暗号フィードバック (CFB) モードなどの列挙</xref:System.Security.Cryptography.CipherMode>。"
   syntax:
     content: public System.Security.Cryptography.CipherMode Mode { get; set; }
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "One of the <xref href=&quot;System.Security.Cryptography.CipherMode&quot;></xref> values."
+      description: "1 つ、 <xref href=&quot;System.Security.Cryptography.CipherMode&quot;> </xref>値。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.Mode*
   exceptions: []
   platform:
@@ -773,13 +773,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Gets or sets the padding mode used for XML encryption."
-  remarks: "ISO-10126 padding is the default padding mode for XML encryption. You can use this property to specify other padding modes of the <xref:System.Security.Cryptography.PaddingMode> enumeration, such as ANSI X9.23 or PKCS#5."
+  summary: "取得または XML 暗号化に使用されるパディング モードを設定します。"
+  remarks: "Iso-10126 パディングは、XML 暗号化の既定のパディング モードです。 場合は、その他のパディング モードを指定するこのプロパティを使用することができます、 <xref:System.Security.Cryptography.PaddingMode>ANSI X9.23 または PKCS&#5; などの列挙</xref:System.Security.Cryptography.PaddingMode>。"
   syntax:
     content: public System.Security.Cryptography.PaddingMode Padding { get; set; }
     return:
       type: System.Security.Cryptography.PaddingMode
-      description: "One of the <xref href=&quot;System.Security.Cryptography.PaddingMode&quot;></xref> values that specifies the type of padding used for encryption."
+      description: "1 つ、 <xref href=&quot;System.Security.Cryptography.PaddingMode&quot;> </xref>暗号化に使用するパディングの種類を指定する値。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.Padding*
   exceptions: []
   platform:
@@ -796,13 +796,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Gets or sets the recipient of the encrypted key information."
-  remarks: "You can access the <xref:System.Security.Cryptography.Xml.EncryptedXml> object referenced by a key name by examining the <xref:System.Security.Cryptography.Xml.EncryptedKey.CarriedKeyName%2A> property.       Use the Recipient property to identify the <xref:System.Security.Cryptography.Xml.EncryptedXml> element that the current recipient can decrypt to retrieve a decryption key."
+  summary: "取得または暗号化されたキー情報の受信者を設定します。"
+  remarks: "アクセスすることができます、<xref:System.Security.Cryptography.Xml.EncryptedXml>確認するには、キー名によって参照されるオブジェクト、<xref:System.Security.Cryptography.Xml.EncryptedKey.CarriedKeyName%2A>プロパティ</xref:System.Security.Cryptography.Xml.EncryptedKey.CarriedKeyName%2A></xref:System.Security.Cryptography.Xml.EncryptedXml>。       識別する、受信者のプロパティを使用して、<xref:System.Security.Cryptography.Xml.EncryptedXml>要素を復号化キーを取得する現在の受信者の暗号化を解除できます</xref:System.Security.Cryptography.Xml.EncryptedXml>。"
   syntax:
     content: public string Recipient { get; set; }
     return:
       type: System.String
-      description: "The recipient of the encrypted key information."
+      description: "暗号化されたキー情報の受信者。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.Recipient*
   exceptions: []
   platform:
@@ -819,8 +819,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Replaces an <xref uid=&quot;langword_csharp_&lt;EncryptedData&gt;&quot; name=&quot;&lt;EncryptedData&gt;&quot; href=&quot;&quot;></xref> element with a specified decrypted sequence of bytes."
-  remarks: "The ReplaceData method replaces an `<EncryptedData>` element with the value of the `decryptedData` parameter."
+  summary: "置換、 <xref uid=&quot;langword_csharp_&lt;EncryptedData&gt;&quot; name=&quot;&lt;EncryptedData&gt;&quot; href=&quot;&quot;> </xref>要素を復号化されたバイト シーケンスを指定します。"
+  remarks: "ReplaceData メソッドは、置換、`<EncryptedData>`の値を持つ要素、`decryptedData`パラメーター。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using a symmetric key. This example does not include any key information in the encrypted XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/cpp/0a737bfb-9606-4369-9de9-_1.cpp)]\n [!code-vb[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/visualbasic/0a737bfb-9606-4369-9de9-_1.vb)]\n [!code-cs[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/csharp/0a737bfb-9606-4369-9de9-_1.cs)]"
   syntax:
@@ -828,15 +828,15 @@ items:
     parameters:
     - id: inputElement
       type: System.Xml.XmlElement
-      description: "The <xref uid=&quot;langword_csharp_&lt;EncryptedData&gt;&quot; name=&quot;&lt;EncryptedData&gt;&quot; href=&quot;&quot;></xref> element to replace."
+      description: "<xref uid=&quot;langword_csharp_&lt;EncryptedData&gt;&quot; name=&quot;&lt;EncryptedData&gt;&quot; href=&quot;&quot;> </xref>を置換する要素。"
     - id: decryptedData
       type: System.Byte[]
-      description: "The decrypted data to replace `inputElement` with."
+      description: "復号化されたデータを交換できる`inputElement`とします。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.ReplaceData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value of the <code>inputElement</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The value of the <code>decryptedData</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "値、 <code> inputElement </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。       - または - の値、 <code> decryptedData </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.ReplaceElement(System.Xml.XmlElement,System.Security.Cryptography.Xml.EncryptedData,System.Boolean)
@@ -851,8 +851,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Replaces the specified element with the specified <xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;></xref> object."
-  remarks: "The ReplaceElement method replaces the `inputElement` parameter with the value specified by the `encryptedData` parameter."
+  summary: "指定した、指定した要素を置き換えます<xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;></xref>オブジェクト。"
+  remarks: "ReplaceElement メソッドは、置換、`inputElement`パラメーターで指定された値と、`encryptedData`パラメーター。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using a symmetric key. This example does not include any key information in the encrypted XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/cpp/3d927817-a643-42d1-b283-_1.cpp)]\n [!code-vb[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/visualbasic/3d927817-a643-42d1-b283-_1.vb)]\n [!code-cs[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/csharp/3d927817-a643-42d1-b283-_1.cs)]"
   syntax:
@@ -860,18 +860,18 @@ items:
     parameters:
     - id: inputElement
       type: System.Xml.XmlElement
-      description: "The element to replace with an <xref uid=&quot;langword_csharp_&lt;EncryptedData&gt;&quot; name=&quot;&lt;EncryptedData&gt;&quot; href=&quot;&quot;></xref> element."
+      description: "置換する要素、 <xref uid=&quot;langword_csharp_&lt;EncryptedData&gt;&quot; name=&quot;&lt;EncryptedData&gt;&quot; href=&quot;&quot;> </xref>要素。"
     - id: encryptedData
       type: System.Security.Cryptography.Xml.EncryptedData
-      description: "The <xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;></xref> object to replace the `inputElement` parameter with."
+      description: "<xref href=&quot;System.Security.Cryptography.Xml.EncryptedData&quot;> </xref>置換するオブジェクト、`inputElement`のパラメーターです。"
     - id: content
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to replace only the contents of the element; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to replace the entire element."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>要素の内容のみを置き換える<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>全体の要素を置換します。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.ReplaceElement*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value of the <code>inputElement</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The value of the <code>encryptedData</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "値、 <code> inputElement </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。       - または - の値、 <code> encryptedData </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Security.Cryptography.Xml.EncryptedXml.Resolver
@@ -886,13 +886,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Gets or sets the <xref href=&quot;System.Xml.XmlResolver&quot;></xref> object used by the Document Object Model (DOM) to resolve external XML references."
-  remarks: "This property contains an <xref:System.Xml.XmlResolver> object used to resolve external XML resources such as entities, document type definitions (DTDs), or schemas."
+  summary: "取得または設定、 <xref href=&quot;System.Xml.XmlResolver&quot;> </xref>ドキュメント オブジェクト モデル (DOM) によって外部 XML 参照を解決するために使用します。"
+  remarks: "このプロパティが含まれています、<xref:System.Xml.XmlResolver>エンティティ、ドキュメント型定義 (Dtd) やスキーマなどの外部の XML リソースの解決に使用されるオブジェクト</xref:System.Xml.XmlResolver>。"
   syntax:
     content: public System.Xml.XmlResolver Resolver { get; set; }
     return:
       type: System.Xml.XmlResolver
-      description: "An <xref href=&quot;System.Xml.XmlResolver&quot;></xref> object."
+      description: "<xref href=&quot;System.Xml.XmlResolver&quot;> </xref>オブジェクト。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.Resolver*
   exceptions: []
   platform:
@@ -909,12 +909,12 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Gets or sets the XML digital signature recursion depth to prevent infinite recursion and stack overflow. This might happen if the digital signature XML contains the URI which then points back to the original XML."
+  summary: "取得または無限再帰とスタック オーバーフローを防ぐために XML デジタル署名再帰深度を設定します。 これは、XML デジタル署名には、元の xml をポイントしている URI が含まれている場合に発生する可能性があります。"
   syntax:
     content: public int XmlDSigSearchDepth { get; set; }
     return:
       type: System.Int32
-      description: "Returns <xref:System.Int32>."
+      description: "<xref:System.Int32>。</xref:System.Int32>を返します。"
   overload: System.Security.Cryptography.Xml.EncryptedXml.XmlDSigSearchDepth*
   exceptions: []
   platform:
@@ -931,13 +931,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for the 128-bit Advanced Encryption Standard (AES) Key Wrap algorithm (also known as the Rijndael Key Wrap algorithm). This field is constant."
-  remarks: "The value of the XmlEncAES128KeyWrapUrl field is &quot;http://www.w3.org/2001/04/xmlenc#kw-aes128&quot;."
+  summary: "128 ビット高度暗号化標準 (AES) キー ラップ アルゴリズム (Rijndael キー ラップ アルゴリズムとも呼ばれます) の名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncAES128KeyWrapUrl フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#kw-aes128&quot;です。"
   syntax:
     content: public const string XmlEncAES128KeyWrapUrl;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -953,15 +953,15 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for the 128-bit Advanced Encryption Standard (AES) algorithm (also known as the Rijndael algorithm). This field is constant."
-  remarks: "The value of the XmlEncAES128Url field is &quot;http://www.w3.org/2001/04/xmlenc#aes128-cbc&quot;."
+  summary: "128 ビット高度暗号化標準 (AES) アルゴリズム (Rijndael アルゴリズムとも呼ばれます) の名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncAES128Url フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#aes128-cbc&quot;です。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using a symmetric key. This example does not include any key information in the encrypted XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/cpp/f-system.security.crypto_11_1.cpp)]\n [!code-vb[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/visualbasic/f-system.security.crypto_11_1.vb)]\n [!code-cs[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/csharp/f-system.security.crypto_11_1.cs)]"
   syntax:
     content: public const string XmlEncAES128Url;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -977,13 +977,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for the 192-bit Advanced Encryption Standard (AES) Key Wrap algorithm (also known as the Rijndael Key Wrap algorithm). This field is constant."
-  remarks: "The value of the XmlEncAES192KeyWrapUrl field is &quot;http://www.w3.org/2001/04/xmlenc#kw-aes192&quot;."
+  summary: "192 ビット高度暗号化標準 (AES) キー ラップ アルゴリズム (Rijndael キー ラップ アルゴリズムとも呼ばれます) の名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncAES192KeyWrapUrl フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#kw-aes192&quot;です。"
   syntax:
     content: public const string XmlEncAES192KeyWrapUrl;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -999,15 +999,15 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for the 192-bit Advanced Encryption Standard (AES) algorithm (also known as the Rijndael algorithm). This field is constant."
-  remarks: "The value of the XmlEncAES192Url field is &quot;http://www.w3.org/2001/04/xmlenc#aes192-cbc&quot;."
+  summary: "192 ビット高度暗号化標準 (AES) アルゴリズム (Rijndael アルゴリズムとも呼ばれます) の名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncAES192Url フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#aes192-cbc&quot;です。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using a symmetric key. This example does not include any key information in the encrypted XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/cpp/f-system.security.crypto_10_1.cpp)]\n [!code-vb[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/visualbasic/f-system.security.crypto_10_1.vb)]\n [!code-cs[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/csharp/f-system.security.crypto_10_1.cs)]"
   syntax:
     content: public const string XmlEncAES192Url;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -1023,13 +1023,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for the 256-bit Advanced Encryption Standard (AES) Key Wrap algorithm (also known as the Rijndael Key Wrap algorithm). This field is constant."
-  remarks: "The value of the XmlEncAES256KeyWrapUrl field is &quot;http://www.w3.org/2001/04/xmlenc#kw-aes256&quot;."
+  summary: "256 ビット高度暗号化標準 (AES) キー ラップ アルゴリズム (Rijndael キー ラップ アルゴリズムとも呼ばれます) の名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncAES256KeyWrapUrl フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#kw-aes256&quot;です。"
   syntax:
     content: public const string XmlEncAES256KeyWrapUrl;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -1045,15 +1045,15 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for the 256-bit Advanced Encryption Standard (AES) algorithm (also known as the Rijndael algorithm). This field is constant."
-  remarks: "The value of the XmlEncAES256Url field is &quot;http://www.w3.org/2001/04/xmlenc#aes256-cbc&quot;."
+  summary: "256 ビット高度暗号化標準 (AES) アルゴリズム (Rijndael アルゴリズムとも呼ばれます) の名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncAES256Url フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#aes256-cbc&quot;です。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using a symmetric key. This example does not include any key information in the encrypted XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/cpp/f-system.security.crypto_12_1.cpp)]\n [!code-vb[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/visualbasic/f-system.security.crypto_12_1.vb)]\n [!code-cs[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/csharp/f-system.security.crypto_12_1.cs)]"
   syntax:
     content: public const string XmlEncAES256Url;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -1069,15 +1069,15 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for the Digital Encryption Standard (DES) algorithm. This field is constant."
-  remarks: "The value of the XmlEncDESUrl field is &quot;http://www.w3.org/2001/04/xmlenc#des-cbc&quot;."
+  summary: "デジタル暗号化標準 (DES) アルゴリズムの名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncDESUrl フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#des-cbc&quot;です。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using a symmetric key. This example does not include any key information in the encrypted XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/cpp/f-system.security.crypto_5_1.cpp)]\n [!code-vb[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/visualbasic/f-system.security.crypto_5_1.vb)]\n [!code-cs[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/csharp/f-system.security.crypto_5_1.cs)]"
   syntax:
     content: public const string XmlEncDESUrl;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -1093,13 +1093,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for XML encryption element content. This field is constant."
-  remarks: "The value of the XmlEncElementContentUrl field is &quot;http://www.w3.org/2001/04/xmlenc#Content&quot;."
+  summary: "XML 暗号化要素のコンテンツの名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncElementContentUrl フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#Content&quot;です。"
   syntax:
     content: public const string XmlEncElementContentUrl;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -1115,15 +1115,15 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for an XML encryption element. This field is constant."
-  remarks: "The value of the XmlEncElementUrl field is &quot;http://www.w3.org/2001/04/xmlenc#Element&quot;."
+  summary: "XML 暗号化要素の名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncElementUrl フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#Element&quot;です。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using a symmetric key. This example does not include any key information in the encrypted XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/cpp/f-system.security.crypto_7_1.cpp)]\n [!code-vb[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/visualbasic/f-system.security.crypto_7_1.vb)]\n [!code-cs[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/csharp/f-system.security.crypto_7_1.cs)]"
   syntax:
     content: public const string XmlEncElementUrl;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -1139,13 +1139,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for the XML encryption <xref uid=&quot;langword_csharp_&lt;EncryptedKey&gt;&quot; name=&quot;&lt;EncryptedKey&gt;&quot; href=&quot;&quot;></xref> element. This field is constant."
-  remarks: "The value of the XmlEncEncryptedKeyUrl field is &quot;http://www.w3.org/2001/04/xmlenc#EncryptedKey&quot;."
+  summary: "XML 暗号化の名前空間 (Uniform Resource Identifier) を表す<xref uid=&quot;langword_csharp_&lt;EncryptedKey&gt;&quot; name=&quot;&lt;EncryptedKey&gt;&quot; href=&quot;&quot;></xref>要素。 このフィールドは定数です。"
+  remarks: "XmlEncEncryptedKeyUrl フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#EncryptedKey&quot;です。"
   syntax:
     content: public const string XmlEncEncryptedKeyUrl;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -1161,13 +1161,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for XML encryption syntax and processing. This field is constant."
-  remarks: "The value of the XmlEncNamespaceUrl field is &quot;http://www.w3.org/2001/04/xmlenc#&quot;."
+  summary: "XML 暗号化の構文と処理のための名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncNamespaceUrl フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#&quot;です。"
   syntax:
     content: public const string XmlEncNamespaceUrl;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -1183,15 +1183,15 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for the RSA Public Key Cryptography Standard (PKCS) Version 1.5 algorithm. This field is constant."
-  remarks: "The value of the XmlEncRSA15Url field is &quot;http://www.w3.org/2001/04/xmlenc#rsa-1_5&quot;."
+  summary: "RSA 公開キー暗号化標準 (PKCS) Version 1.5 アルゴリズムの名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncRSA15Url フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#rsa-1_5&quot;です。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using an asymmetric key. This example creates a symmetric session key to encrypt the document and then uses the asymmetric key to embed an encrypted version of the session key into the XML document.  \n  \n [!code-cs[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/csharp/f-system.security.crypto_2_1.cs)]\n [!code-vb[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/visualbasic/f-system.security.crypto_2_1.vb)]\n [!code-cpp[Cryptography.XML.XMLEncImbedKey#1](~/add/codesnippet/cpp/f-system.security.crypto_2_1.cpp)]"
   syntax:
     content: public const string XmlEncRSA15Url;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -1207,13 +1207,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for the RSA Optimal Asymmetric Encryption Padding (OAEP) encryption algorithm. This field is constant."
-  remarks: "The value of the XmlEncRSAOAEPUrl field is &quot;http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p&quot;."
+  summary: "RSA OAEP Optimal Asymmetric Encryption Padding () の暗号化アルゴリズムの名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncRSAOAEPUrl フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p&quot;です。"
   syntax:
     content: public const string XmlEncRSAOAEPUrl;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -1229,13 +1229,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for the SHA-256 algorithm. This field is constant."
-  remarks: "The value of the XmlEncSHA256Url field is &quot;http://www.w3.org/2001/04/xmlenc#sha256&quot;."
+  summary: "Sha-256 アルゴリズムの名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncSHA256Url フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#sha256&quot;です。"
   syntax:
     content: public const string XmlEncSHA256Url;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -1251,13 +1251,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for the SHA-512 algorithm. This field is constant."
-  remarks: "The value of the XmlEncSHA512Url field is &quot;http://www.w3.org/2001/04/xmlenc#sha512&quot;."
+  summary: "Sha-512 アルゴリズムの名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncSHA512Url フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#sha512&quot;です。"
   syntax:
     content: public const string XmlEncSHA512Url;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -1273,13 +1273,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for the TRIPLEDES key wrap algorithm. This field is constant."
-  remarks: "The value of the XmlEncTripleDESKeyWrapUrl field is &quot;http://www.w3.org/2001/04/xmlenc#kw-tripledes&quot;."
+  summary: "TRIPLEDES キー ラップ アルゴリズムの名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncTripleDESKeyWrapUrl フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#kw-tripledes&quot;です。"
   syntax:
     content: public const string XmlEncTripleDESKeyWrapUrl;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -1295,15 +1295,15 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Xml
-  summary: "Represents the namespace Uniform Resource Identifier (URI) for the Triple DES algorithm. This field is constant."
-  remarks: "The value of the XmlEncTripleDESUrl field is &quot;http://www.w3.org/2001/04/xmlenc#tripledes-cbc&quot;."
+  summary: "トリプル DES アルゴリズムの名前空間 (Uniform Resource Identifier) を表します。 このフィールドは定数です。"
+  remarks: "XmlEncTripleDESUrl フィールドの値は、&quot;http://www.w3.org/2001/04/xmlenc#tripledes-cbc&quot;です。"
   example:
   - "The following code example demonstrates how to encrypt an XML document using a symmetric key. This example does not include any key information in the encrypted XML document.  \n  \n [!code-cpp[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/cpp/f-system.security.crypto_13_1.cpp)]\n [!code-vb[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/visualbasic/f-system.security.crypto_13_1.vb)]\n [!code-cs[Cryptography.XML.XMLEncMinimalDecryptData#1](~/add/codesnippet/csharp/f-system.security.crypto_13_1.cs)]"
   syntax:
     content: public const string XmlEncTripleDESUrl;
     return:
       type: System.String
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462

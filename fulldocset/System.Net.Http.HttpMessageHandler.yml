@@ -13,8 +13,8 @@ items:
   nameWithType: HttpMessageHandler
   fullName: System.Net.Http.HttpMessageHandler
   type: Class
-  summary: "A base type for HTTP message handlers."
-  remarks: "There are various HTTP message handles that can be used. These include the following.      1.  <xref:System.Net.Http.DelegatingHandler> - A class used to plug a handler into a handler chain.      2.  HttpMessageHandler - A simple to class to derive from that supports the most common requirements for most applications.      3.  <xref:System.Net.Http.HttpClientHandler> - A class that operates at the bottom of the handler chain that actually handles the HTTP transport operations.      4.  <xref:System.Net.Http.WebRequestHandler> - A specialty class that operates at the bottom of the handler chain class that handles HTTP transport operations with options that are specific to the <xref:System.Net.HttpWebRequest?displayProperty=fullName> object.       If developers derive classes from HttpMessageHandler and override the <xref:System.Net.Http.HttpMessageHandler.SendAsync%2A> method, they must make sure that <xref:System.Net.Http.HttpMessageHandler.SendAsync%2A> can get called concurrently by different threads.       This is necessary since methods on <xref:System.Net.Http.HttpClient> can be called concurrently and need a guarantee of thread safety. So if a handler is assigned to an <xref:System.Net.Http.HttpClient> instance, the <xref:System.Net.Http.HttpMessageHandler.SendAsync%2A> method of the handler may get called concurrently by the <xref:System.Net.Http.HttpClient> instance and needs to be thread safe."
+  summary: "HTTP メッセージ ハンドラーの基本データ型。"
+  remarks: "使用できるさまざまな HTTP メッセージ ハンドルがあります。 次が含まれます。      1.  <xref:System.Net.Http.DelegatingHandler>-、クラス ハンドラー チェーンにハンドラーを接続するために使用します。</xref:System.Net.Http.DelegatingHandler>      2.  HttpMessageHandler - をから派生するクラスに、単純なは、ほとんどのアプリケーションの最も一般的な要件をサポートします。      3.  <xref:System.Net.Http.HttpClientHandler>に実際に操作を処理する、HTTP トランスポート ハンドラー チェーンの下部にある動作は、クラスです。</xref:System.Net.Http.HttpClientHandler>      4.  <xref:System.Net.Http.WebRequestHandler>に固有のオプションで HTTP トランスポートの操作を処理するハンドラー チェーン クラスの下部に動作するは、専門分野クラス、<xref:System.Net.HttpWebRequest?displayProperty=fullName>オブジェクト</xref:System.Net.HttpWebRequest?displayProperty=fullName>。</xref:System.Net.Http.WebRequestHandler>       開発者は、HttpMessageHandler とオーバーライドからクラスを派生させる場合、<xref:System.Net.Http.HttpMessageHandler.SendAsync%2A>メソッド、する必要があることを確認<xref:System.Net.Http.HttpMessageHandler.SendAsync%2A>別のスレッドで同時に呼び出すことができますを取得します</xref:System.Net.Http.HttpMessageHandler.SendAsync%2A></xref:System.Net.Http.HttpMessageHandler.SendAsync%2A>。       これは、必要なメソッドを以降<xref:System.Net.Http.HttpClient>同時に呼び出すことができる、スレッド セーフの保証を必要とします</xref:System.Net.Http.HttpClient>。 ハンドラーに割り当てられている場合は、 <xref:System.Net.Http.HttpClient>、インスタンス、<xref:System.Net.Http.HttpMessageHandler.SendAsync%2A>ハンドラーのメソッドが同時に、呼び出される、<xref:System.Net.Http.HttpClient>インスタンスとするスレッド セーフである必要があります</xref:System.Net.Http.HttpClient></xref:System.Net.Http.HttpMessageHandler.SendAsync%2A></xref:System.Net.Http.HttpClient>。"
   syntax:
     content: 'public abstract class HttpMessageHandler : IDisposable'
   inheritance:
@@ -36,7 +36,7 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Http.HttpMessageHandler&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Net.Http.HttpMessageHandler&quot;> </xref>クラスです。"
   syntax:
     content: protected HttpMessageHandler ();
     parameters: []
@@ -56,7 +56,7 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Releases the unmanaged resources and disposes of the managed resources used by the <xref href=&quot;System.Net.Http.HttpMessageHandler&quot;></xref>."
+  summary: "リリースで使用されるアンマネージ リソースおよびマネージ リソースを破棄、 <xref href=&quot;System.Net.Http.HttpMessageHandler&quot;></xref>です。"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -76,14 +76,14 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.Net.Http.HttpMessageHandler&quot;></xref> and optionally disposes of the managed resources."
-  remarks: "This method is called by the public `Dispose()` method and the <xref:System.Object.Finalize%2A> method. `Dispose()` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.When the `disposing` parameter is `true`, this method releases all resources held by any managed objects that this <xref:System.Net.Http.HttpMessageHandler> references. This method invokes the `Dispose()` method of each referenced object."
+  summary: "によって使用されるアンマネージ リソースを解放、 <xref href=&quot;System.Net.Http.HttpMessageHandler&quot;> </xref>オプションでマネージ リソースを破棄します。"
+  remarks: "このメソッドは、パブリック`Dispose()`メソッドおよび<xref:System.Object.Finalize%2A>メソッド</xref:System.Object.Finalize%2A>。 `Dispose()`プロテクト呼び出します`Dispose(Boolean)`メソッドを`disposing`パラメーターに設定`true`です。 <xref:System.Object.Finalize%2A>呼び出す`Dispose`で`disposing`&quot;éý&quot;`false`です。ときに、`disposing`パラメーターは`true`、このメソッドは、すべてのマネージ オブジェクトによって保持されているすべてのリソースを解放しますこの<xref:System.Net.Http.HttpMessageHandler>参照。</xref:System.Net.Http.HttpMessageHandler> 。</xref:System.Object.Finalize%2A> このメソッドを呼び出して、`Dispose()`参照される各オブジェクトのメソッドです。"
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to releases only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>マネージ コードとアンマネージ リソースを解放するには<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>アンマネージ リソースだけを解放します。"
   overload: System.Net.Http.HttpMessageHandler.Dispose*
   exceptions: []
   platform:
@@ -100,20 +100,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send an HTTP request as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete once the entire response including content is read.       The SendAsync method is used primarily by the system. This method is called by the system one of the  <xref:System.Net.Http.HttpClient.SendAsync%2A?displayProperty=fullName> methods is called. Most apps will never call this method."
+  summary: "非同期操作として HTTP 要求を送信します。"
+  remarks: "この操作はブロックされません。 返された<xref:System.Threading.Tasks.Task%601>オブジェクトは、コンテンツを含む応答全体が読み取られた後に完了します</xref:System.Threading.Tasks.Task%601>。       SendAsync メソッドは、主に、システムによって使用されます。 このメソッドは、1 つのシステム、<xref:System.Net.Http.HttpClient.SendAsync%2A?displayProperty=fullName>メソッドが呼び出されます</xref:System.Net.Http.HttpClient.SendAsync%2A?displayProperty=fullName>。 ほとんどのアプリでは、このメソッドは呼び出さないでください。"
   syntax:
     content: protected abstract System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> SendAsync (System.Net.Http.HttpRequestMessage request, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage
-      description: "The HTTP request message to send."
+      description: "送信する HTTP 要求メッセージ。"
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "The cancellation token to cancel operation."
+      description: "操作を取り消すキャンセル トークン。"
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "非同期操作を表すタスク オブジェクト。"
   overload: System.Net.Http.HttpMessageHandler.SendAsync*
   exceptions:
   - type: System.ArgumentNullException

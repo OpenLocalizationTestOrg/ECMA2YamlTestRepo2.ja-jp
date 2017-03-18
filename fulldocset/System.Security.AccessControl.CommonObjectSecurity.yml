@@ -25,7 +25,7 @@ items:
   nameWithType: CommonObjectSecurity
   fullName: System.Security.AccessControl.CommonObjectSecurity
   type: Class
-  summary: "Controls access to objects without direct manipulation of access control lists (ACLs). This class is the abstract base class for the <xref href=&quot;System.Security.AccessControl.NativeObjectSecurity&quot;></xref> class."
+  summary: "アクセス制御リスト (Acl) を直接操作せずオブジェクトへのアクセスを制御します。 このクラスは、の抽象基本クラス、 <xref href=&quot;System.Security.AccessControl.NativeObjectSecurity&quot;> </xref>クラスです。"
   syntax:
     content: 'public abstract class CommonObjectSecurity : System.Security.AccessControl.ObjectSecurity'
   inheritance:
@@ -86,13 +86,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;> </xref>クラスです。"
   syntax:
     content: protected CommonObjectSecurity (bool isContainer);
     parameters:
     - id: isContainer
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the new object is a container object."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>新しいオブジェクトがコンテナー オブジェクトである場合。"
   overload: System.Security.AccessControl.CommonObjectSecurity.#ctor*
   exceptions: []
   platform:
@@ -109,14 +109,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Adds the specified access rule to the Discretionary Access Control List (DACL) associated with this <xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref> object."
-  remarks: "Adding an access rule might cause existing access rules in the DACL to be merged.       To avoid unintentionally allowing access to principals, applications should check for the existence of an allow everyone full access (AEFA) access control entry (ACE) and remove it before modifying a DACL."
+  summary: "これに関連付けられている随意アクセス制御リスト (DACL) に指定されたアクセス規則を追加<xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref>オブジェクト。"
+  remarks: "アクセス規則を追加すると、マージする DACL で既存のアクセス規則があります可能性。       プリンシパルへのアクセスを許可する意図を避けるためには、アプリケーションする必要がありますの有無を確認、許可のすべてのユーザー アクセス (AEFA) アクセス制御エントリ (ACE) の完全および DACL を変更する前に削除します。"
   syntax:
     content: protected void AddAccessRule (System.Security.AccessControl.AccessRule rule);
     parameters:
     - id: rule
       type: System.Security.AccessControl.AccessRule
-      description: "The access rule to add."
+      description: "追加するアクセス規則。"
   overload: System.Security.AccessControl.CommonObjectSecurity.AddAccessRule*
   exceptions: []
   platform:
@@ -133,14 +133,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Adds the specified audit rule to the System Access Control List (SACL) associated with this <xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref> object."
-  remarks: "Adding an audit rule might cause existing access rules in the SACL to be merged."
+  summary: "これに関連付けられているシステム アクセス制御リスト (SACL) に指定された監査規則を追加<xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref>オブジェクト。"
+  remarks: "監査規則を追加すると、マージする SACL の既存のアクセス規則があります可能性。"
   syntax:
     content: protected void AddAuditRule (System.Security.AccessControl.AuditRule rule);
     parameters:
     - id: rule
       type: System.Security.AccessControl.AuditRule
-      description: "The audit rule to add."
+      description: "追加する監査規則。"
   overload: System.Security.AccessControl.CommonObjectSecurity.AddAuditRule*
   exceptions: []
   platform:
@@ -157,22 +157,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Gets a collection of the access rules associated with the specified security identifier."
+  summary: "指定したセキュリティ識別子に関連付けられているアクセス規則のコレクションを取得します。"
   syntax:
     content: public System.Security.AccessControl.AuthorizationRuleCollection GetAccessRules (bool includeExplicit, bool includeInherited, Type targetType);
     parameters:
     - id: includeExplicit
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to include access rules explicitly set for the object."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>アクセスを含める規則はオブジェクトに対して明示的に設定します。"
     - id: includeInherited
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to include inherited access rules."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>継承されたアクセス規則を含めます。"
     - id: targetType
       type: System.Type
-      description: "Specifies whether the security identifier for which to retrieve access rules is of type T:System.Security.Principal.SecurityIdentifier or type T:System.Security.Principal.NTAccount. The value of this parameter must be a type that can be translated to  the <xref href=&quot;System.Security.Principal.SecurityIdentifier&quot;></xref> type."
+      description: "アクセス規則を取得する対象のセキュリティ識別子があるかどうかを指定しますユーザー、または T:System.Security.Principal.NTAccount を入力します。 このパラメーターの値に変換できる型である必要があります、 <xref href=&quot;System.Security.Principal.SecurityIdentifier&quot;> </xref>型です。"
     return:
       type: System.Security.AccessControl.AuthorizationRuleCollection
-      description: "The collection of access rules associated with the specified <xref href=&quot;System.Security.Principal.SecurityIdentifier&quot;></xref> object."
+      description: "指定された関連付けられているアクセス規則のコレクション<xref href=&quot;System.Security.Principal.SecurityIdentifier&quot;></xref>オブジェクト。"
   overload: System.Security.AccessControl.CommonObjectSecurity.GetAccessRules*
   exceptions: []
   platform:
@@ -189,22 +189,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Gets a collection of the audit rules associated with the specified security identifier."
+  summary: "指定したセキュリティ id に関連付けられた監査規則のコレクションを取得します。"
   syntax:
     content: public System.Security.AccessControl.AuthorizationRuleCollection GetAuditRules (bool includeExplicit, bool includeInherited, Type targetType);
     parameters:
     - id: includeExplicit
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to include audit rules explicitly set for the object."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>監査を含める規則はオブジェクトに対して明示的に設定します。"
     - id: includeInherited
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to include inherited audit rules."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>継承された監査規則を含めます。"
     - id: targetType
       type: System.Type
-      description: "The security identifier for which to retrieve audit rules. This must be an object that can be cast as a <xref href=&quot;System.Security.Principal.SecurityIdentifier&quot;></xref> object."
+      description: "監査規則を取得する対象のセキュリティ識別子です。 これは、としてキャスト可能なオブジェクトである必要があります、 <xref href=&quot;System.Security.Principal.SecurityIdentifier&quot;> </xref>オブジェクト。"
     return:
       type: System.Security.AccessControl.AuthorizationRuleCollection
-      description: "The collection of audit rules associated with the specified <xref href=&quot;System.Security.Principal.SecurityIdentifier&quot;></xref> object."
+      description: "指定した関連付けられた監査規則のコレクション<xref href=&quot;System.Security.Principal.SecurityIdentifier&quot;></xref>オブジェクト。"
   overload: System.Security.AccessControl.CommonObjectSecurity.GetAuditRules*
   exceptions: []
   platform:
@@ -221,23 +221,23 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Applies the specified modification to the Discretionary Access Control List (DACL) associated with this <xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref> object."
-  remarks: "To avoid unintentionally allowing access to principals, applications should check for the existence of an allow everyone full access (AEFA) access control entry (ACE) and remove it before modifying a DACL."
+  summary: "指定された変更を随意アクセス制御リスト (DACL) に関連付けられたを適用<xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref>オブジェクト。"
+  remarks: "プリンシパルへのアクセスを許可する意図を避けるためには、アプリケーションする必要がありますの有無を確認、許可のすべてのユーザー アクセス (AEFA) アクセス制御エントリ (ACE) の完全および DACL を変更する前に削除します。"
   syntax:
     content: protected override bool ModifyAccess (System.Security.AccessControl.AccessControlModification modification, System.Security.AccessControl.AccessRule rule, out bool modified);
     parameters:
     - id: modification
       type: System.Security.AccessControl.AccessControlModification
-      description: "The modification to apply to the DACL."
+      description: "DACL に適用する変更です。"
     - id: rule
       type: System.Security.AccessControl.AccessRule
-      description: "The access rule to modify."
+      description: "変更するアクセス規則。"
     - id: modified
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the DACL is successfully modified; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>DACL が正常に変更されている場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the DACL is successfully modified; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>DACL が正常に変更されている場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Security.AccessControl.CommonObjectSecurity.ModifyAccess*
   exceptions: []
   platform:
@@ -254,22 +254,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Applies the specified modification to the System Access Control List (SACL) associated with this <xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref> object."
+  summary: "指定された変更をシステム アクセス制御リスト (SACL) に関連付けられたを適用<xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref>オブジェクト。"
   syntax:
     content: protected override bool ModifyAudit (System.Security.AccessControl.AccessControlModification modification, System.Security.AccessControl.AuditRule rule, out bool modified);
     parameters:
     - id: modification
       type: System.Security.AccessControl.AccessControlModification
-      description: "The modification to apply to the SACL."
+      description: "SACL に適用する変更です。"
     - id: rule
       type: System.Security.AccessControl.AuditRule
-      description: "The audit rule to modify."
+      description: "変更する監査規則。"
     - id: modified
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the SACL is successfully modified; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>SACL が正常に変更されている場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the SACL is successfully modified; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>SACL が正常に変更されている場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Security.AccessControl.CommonObjectSecurity.ModifyAudit*
   exceptions: []
   platform:
@@ -286,17 +286,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Removes access rules that contain the same security identifier and access mask as the specified access rule from the Discretionary Access Control List (DACL) associated with this <xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref> object."
-  remarks: "Access removal is accomplished by using a complex algorithm that might add access control rules in addition to removing them.       This method fails to remove the access rule and returns `false` if the inheritance rules associated with the access rule are too complex for the removal algorithm to succeed.       To avoid unintentionally allowing access to principals, applications should check for the existence of an allow everyone full access (AEFA) access control entry (ACE) and remove it before modifying a DACL."
+  summary: "指定されたアクセス ルールから、随意アクセス制御リスト (DACL) がこれに関連付けられている同じセキュリティ id とアクセス マスクを含むアクセス規則を削除<xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref>オブジェクト。"
+  remarks: "アクセスの削除は、それらを削除するだけでなく、アクセス制御規則を追加する複雑なアルゴリズムを使用して行われます。       このメソッドは、アクセス規則の削除に失敗し、返します`false`アクセス規則に関連付けられているこの継承ルールが正常に削除アルゴリズムの複雑すぎる場合です。       プリンシパルへのアクセスを許可する意図を避けるためには、アプリケーションする必要がありますの有無を確認、許可のすべてのユーザー アクセス (AEFA) アクセス制御エントリ (ACE) の完全および DACL を変更する前に削除します。"
   syntax:
     content: protected bool RemoveAccessRule (System.Security.AccessControl.AccessRule rule);
     parameters:
     - id: rule
       type: System.Security.AccessControl.AccessRule
-      description: "The access rule to remove."
+      description: "削除するアクセス規則。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the access rule was successfully removed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、アクセス ルールが正常に削除されました。それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Security.AccessControl.CommonObjectSecurity.RemoveAccessRule*
   exceptions: []
   platform:
@@ -313,14 +313,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Removes all access rules that have the same security identifier as the specified access rule from the Discretionary Access Control List (DACL) associated with this <xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref> object."
-  remarks: "To avoid unintentionally allowing access to principals, applications should check for the existence of an allow everyone full access (AEFA) access control entry (ACE) and remove it before modifying a DACL."
+  summary: "指定されたアクセス ルールから、随意アクセス制御リスト (DACL) がこれに関連付けられている同じセキュリティ識別子を持つすべてのアクセス規則を削除<xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref>オブジェクト。"
+  remarks: "プリンシパルへのアクセスを許可する意図を避けるためには、アプリケーションする必要がありますの有無を確認、許可のすべてのユーザー アクセス (AEFA) アクセス制御エントリ (ACE) の完全および DACL を変更する前に削除します。"
   syntax:
     content: protected void RemoveAccessRuleAll (System.Security.AccessControl.AccessRule rule);
     parameters:
     - id: rule
       type: System.Security.AccessControl.AccessRule
-      description: "The access rule to remove."
+      description: "削除するアクセス規則。"
   overload: System.Security.AccessControl.CommonObjectSecurity.RemoveAccessRuleAll*
   exceptions: []
   platform:
@@ -337,14 +337,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Removes all access rules that exactly match the specified access rule from the Discretionary Access Control List (DACL) associated with this <xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref> object."
-  remarks: "To avoid unintentionally allowing access to principals, applications should check for the existence of an allow everyone full access (AEFA) access control entry (ACE) and remove it before modifying a DACL."
+  summary: "指定されたアクセス ルールから、随意アクセス制御リスト (DACL) に関連付けられたを完全に一致するすべてのアクセス規則を削除<xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref>オブジェクト。"
+  remarks: "プリンシパルへのアクセスを許可する意図を避けるためには、アプリケーションする必要がありますの有無を確認、許可のすべてのユーザー アクセス (AEFA) アクセス制御エントリ (ACE) の完全および DACL を変更する前に削除します。"
   syntax:
     content: protected void RemoveAccessRuleSpecific (System.Security.AccessControl.AccessRule rule);
     parameters:
     - id: rule
       type: System.Security.AccessControl.AccessRule
-      description: "The access rule to remove."
+      description: "削除するアクセス規則。"
   overload: System.Security.AccessControl.CommonObjectSecurity.RemoveAccessRuleSpecific*
   exceptions: []
   platform:
@@ -361,17 +361,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Removes audit rules that contain the same security identifier and access mask as the specified audit rule from the System Access Control List (SACL) associated with this <xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref> object."
-  remarks: "Audit removal is accomplished by using a complex algorithm that might add audit control rules in addition to removing them.       This method fails to remove the audit rule and returns `false` if the inheritance rules associated with the audit rule are too complex for the removal algorithm to succeed."
+  summary: "これに関連付けられているシステム アクセス制御リスト (SACL) から指定された監査規則、同じセキュリティ id とアクセス マスクを含む監査規則を削除<xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref>オブジェクト。"
+  remarks: "監査の削除は、それらを削除するだけでなく監査の制御規則を追加が複雑なアルゴリズムを使用して行われます。       このメソッドは、監査規則の削除に失敗し、返します`false`監査規則に関連付けられているこの継承ルールが正常に削除アルゴリズムの複雑すぎる場合です。"
   syntax:
     content: protected bool RemoveAuditRule (System.Security.AccessControl.AuditRule rule);
     parameters:
     - id: rule
       type: System.Security.AccessControl.AuditRule
-      description: "The audit rule to remove."
+      description: "削除する監査規則。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the audit rule was successfully removed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>監査規則が正常に削除された場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Security.AccessControl.CommonObjectSecurity.RemoveAuditRule*
   exceptions: []
   platform:
@@ -388,13 +388,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Removes all audit rules that have the same security identifier as the specified audit rule from the System Access Control List (SACL) associated with this <xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref> object."
+  summary: "これに関連付けられているシステム アクセス制御リスト (SACL) から指定された監査規則、同じセキュリティ識別子を持つすべての監査規則を削除<xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref>オブジェクト。"
   syntax:
     content: protected void RemoveAuditRuleAll (System.Security.AccessControl.AuditRule rule);
     parameters:
     - id: rule
       type: System.Security.AccessControl.AuditRule
-      description: "The audit rule to remove."
+      description: "削除する監査規則。"
   overload: System.Security.AccessControl.CommonObjectSecurity.RemoveAuditRuleAll*
   exceptions: []
   platform:
@@ -411,13 +411,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Removes all audit rules that exactly match the specified audit rule from the System Access Control List (SACL) associated with this <xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref> object."
+  summary: "指定された監査規則からのシステム アクセス制御リスト (SACL) に関連付けられたを完全に一致するすべての監査規則を削除<xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref>オブジェクト。"
   syntax:
     content: protected void RemoveAuditRuleSpecific (System.Security.AccessControl.AuditRule rule);
     parameters:
     - id: rule
       type: System.Security.AccessControl.AuditRule
-      description: "The audit rule to remove."
+      description: "削除する監査規則。"
   overload: System.Security.AccessControl.CommonObjectSecurity.RemoveAuditRuleSpecific*
   exceptions: []
   platform:
@@ -434,14 +434,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Removes all access rules in the Discretionary Access Control List (DACL) associated with this <xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref> object and then adds the specified access rule."
-  remarks: "To avoid unintentionally allowing access to principals, applications should check for the existence of an allow everyone full access (AEFA) access control entry (ACE) and remove it before modifying a DACL."
+  summary: "随意アクセス制御リスト (DACL) に関連付けられたすべてのアクセス規則を削除<xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref>オブジェクトし、指定されたアクセス規則を追加します。"
+  remarks: "プリンシパルへのアクセスを許可する意図を避けるためには、アプリケーションする必要がありますの有無を確認、許可のすべてのユーザー アクセス (AEFA) アクセス制御エントリ (ACE) の完全および DACL を変更する前に削除します。"
   syntax:
     content: protected void ResetAccessRule (System.Security.AccessControl.AccessRule rule);
     parameters:
     - id: rule
       type: System.Security.AccessControl.AccessRule
-      description: "The access rule to reset."
+      description: "リセットするアクセス規則。"
   overload: System.Security.AccessControl.CommonObjectSecurity.ResetAccessRule*
   exceptions: []
   platform:
@@ -458,14 +458,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Removes all access rules that contain the same security identifier and qualifier as the specified access rule in the Discretionary Access Control List (DACL) associated with this <xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref> object and then adds the specified access rule."
-  remarks: "To avoid unintentionally allowing access to principals, applications should check for the existence of an allow everyone full access (AEFA) access control entry (ACE) and remove it before modifying a DACL."
+  summary: "これに関連付けられている随意アクセス制御リスト (DACL) で指定されたアクセス規則は、同じセキュリティ id と修飾子を含むすべてのアクセス規則を削除<xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref>オブジェクトし、指定されたアクセス規則を追加します。"
+  remarks: "プリンシパルへのアクセスを許可する意図を避けるためには、アプリケーションする必要がありますの有無を確認、許可のすべてのユーザー アクセス (AEFA) アクセス制御エントリ (ACE) の完全および DACL を変更する前に削除します。"
   syntax:
     content: protected void SetAccessRule (System.Security.AccessControl.AccessRule rule);
     parameters:
     - id: rule
       type: System.Security.AccessControl.AccessRule
-      description: "The access rule to set."
+      description: "設定するアクセス規則。"
   overload: System.Security.AccessControl.CommonObjectSecurity.SetAccessRule*
   exceptions: []
   platform:
@@ -482,13 +482,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Removes all audit rules that contain the same security identifier and qualifier as the specified audit rule in the System Access Control List (SACL) associated with this <xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref> object and then adds the specified audit rule."
+  summary: "これに関連付けられているシステム アクセス制御リスト (SACL) で指定された監査規則、同じセキュリティ id と修飾子を含むすべての監査規則を削除<xref href=&quot;System.Security.AccessControl.CommonObjectSecurity&quot;></xref>オブジェクトし、指定された監査規則を追加します。"
   syntax:
     content: protected void SetAuditRule (System.Security.AccessControl.AuditRule rule);
     parameters:
     - id: rule
       type: System.Security.AccessControl.AuditRule
-      description: "The audit rule to set."
+      description: "設定する監査規則。"
   overload: System.Security.AccessControl.CommonObjectSecurity.SetAuditRule*
   exceptions: []
   platform:
