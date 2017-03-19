@@ -16,8 +16,8 @@ items:
   nameWithType: PrefixEndpointAddressMessageFilter
   fullName: System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter
   type: Class
-  summary: "Represents a query that tests whether a message matches an EndpointAddress using a *Longest-Prefix Match* for the URI component."
-  remarks: "An <xref:System.ServiceModel.EndpointAddress> object includes a URI and an optional collection of addressing headers. The addressing and message headers are canonicalized to be compared for equality. If a parameter appears more than once in an <xref:System.ServiceModel.EndpointAddress>, the corresponding header must appear in the message at least that many times.       This filter performs the same query as <xref:System.ServiceModel.Dispatcher.EndpointAddressMessageFilter>, except that the test for whether a message matches an endpoint address is done by a *Longest-Prefix Match*. This means that the URI specified in the filter does not have to match the message&quot;s URI exactly, but must be contained in that URI as a prefix. For example, if a filter specifies the address &quot;www.foo.com&quot;, and a message is addressed to &quot;www.foo.com/customerA&quot;, then the URI part of the filter query condition will be met. However, the header portion of the filter query still has to be done.       Internet Information Services (IIS) and the underlying file system (NTFS or FAT) are case-insensitive. URI comparisons done by this class are also case-insensitive. So, for example, http://www.microsoft.com is evaluated as equal to http://WWW.microsoft.com."
+  summary: "EndpointAddress を使用して、メッセージに一致するかどうかを検査するクエリを表す、*最長プレフィックス マッチ*URI コンポーネントです。"
+  remarks: "<xref:System.ServiceModel.EndpointAddress>オブジェクトには、URI とオプションのアドレス指定ヘッダーのコレクションが含まれています</xref:System.ServiceModel.EndpointAddress>。 アドレス指定とメッセージ ヘッダーは、等しいかどうか比較する正規化します。 パラメーターが&1; 回に複数の表示された場合、<xref:System.ServiceModel.EndpointAddress>を対応するヘッダーは少なくともその回数メッセージに表示される必要があります</xref:System.ServiceModel.EndpointAddress>。       このフィルターと同じクエリを実行する<xref:System.ServiceModel.Dispatcher.EndpointAddressMessageFilter>によって、メッセージがエンドポイント アドレスに一致するかどうかのテストを実行する点を除いて、*最長プレフィックス マッチ*</xref:System.ServiceModel.Dispatcher.EndpointAddressMessageFilter>。 つまり、フィルターで指定された URI は、メッセージの URI を完全に一致する必要はありませんが、プレフィックスとしてその URI に含まれる必要があります。 たとえば、フィルターがアドレス&quot;www.foo.com&quot;を指定すると、メッセージが&quot;www.foo.com/customerA&quot;宛て、フィルター クエリ条件の URI 部分は満たされます。 ただし、フィルター クエリのヘッダー部分べきことがあります。       インターネット インフォメーション サービス (IIS) と、基になるファイル システム (NTFS または FAT) は区別されません。 このクラスによって実行される URI の比較は、大文字と小文字もです。 そのため、たとえば、http://www.microsoft.com 評価 http://WWW.microsoft.com に等しいとされます。"
   syntax:
     content: 'public class PrefixEndpointAddressMessageFilter : System.ServiceModel.Dispatcher.MessageFilter'
   inheritance:
@@ -39,13 +39,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter&quot;> </xref>クラスです。"
   syntax:
     content: public PrefixEndpointAddressMessageFilter (System.ServiceModel.EndpointAddress address);
     parameters:
     - id: address
       type: System.ServiceModel.EndpointAddress
-      description: "The <xref:System.ServiceModel.EndpointAddress> against which messages are tested."
+      description: "<xref:System.ServiceModel.EndpointAddress>どのメッセージの判定します</xref:System.ServiceModel.EndpointAddress>。"
   overload: System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -65,17 +65,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter&quot;></xref> class."
-  remarks: "If you have a web service installed on your local machine, there are many equivalent ways to reference it, including the following:      -   http://localhost/foo.svc      -   http://192.168.1.100/foo.svc      -   http://[my-machine-name]/foo.svc      -   http://[my-machine-name].[my-company].com/foo.svc.       If the value of the `includeHostNameInComparison` parameter is `false`, the above URIs all resolve to the same endpoint."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter&quot;> </xref>クラスです。"
+  remarks: "ローカル コンピューターにインストールされている web サービスがあれば、方法は多数あります等価を参照する、次を含む: - http://localhost/foo.svc - http://192.168.1.100/foo.svc - http://[my-machine-name]/foo.svc - http://[my-machine-name] です。[my-company].com/foo.svc です。       場合の値、`includeHostNameInComparison`パラメーターは`false`では、上記の Uri はすべて同じエンドポイントに解決します。"
   syntax:
     content: public PrefixEndpointAddressMessageFilter (System.ServiceModel.EndpointAddress address, bool includeHostNameInComparison);
     parameters:
     - id: address
       type: System.ServiceModel.EndpointAddress
-      description: "The <xref:System.ServiceModel.EndpointAddress> against which messages are tested."
+      description: "<xref:System.ServiceModel.EndpointAddress>どのメッセージの判定します</xref:System.ServiceModel.EndpointAddress>。"
     - id: includeHostNameInComparison
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the host name is included in the endpoint address comparison; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>エンドポイントのアドレス比較にホスト名が含まれている場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -95,12 +95,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Gets the Endpoint Address that the <xref href=&quot;System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter&quot;></xref> tests messages against."
+  summary: "エンドポイントのアドレスを取得、 <xref href=&quot;System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter&quot;> </xref>メッセージを検査します。"
   syntax:
     content: public System.ServiceModel.EndpointAddress Address { get; }
     return:
       type: System.ServiceModel.EndpointAddress
-      description: "The <xref:System.ServiceModel.EndpointAddress> that the <xref href=&quot;System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter&quot;></xref> tests messages against."
+      description: "<xref:System.ServiceModel.EndpointAddress>を<xref href=&quot;System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter&quot;></xref>メッセージを検査します</xref:System.ServiceModel.EndpointAddress>。"
   overload: System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter.Address*
   exceptions: []
   platform:
@@ -122,7 +122,7 @@ items:
     parameters: []
     return:
       type: System.ServiceModel.Dispatcher.IMessageFilterTable{FilterData}
-      description: "To be added."
+      description: "追加します。"
   overload: System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter.CreateFilterTable<FilterData>*
   exceptions: []
   platform:
@@ -139,13 +139,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Gets a value that indicates whether the host name is included in the endpoint address comparison."
-  remarks: "If you have a web service installed on your local machine, there are many equivalent ways to reference it, including the following:      -   http://localhost/foo.svc      -   http://192.168.1.100/foo.svc      -   http://[my-machine-name]/foo.svc      -   http://[my-machine-name].[my-company].com/foo.svc.       The default value of this property is `false`, so the above URIs all resolve to the same endpoint, unless you change this property."
+  summary: "エンドポイント アドレスの比較にホスト名が含まれるかどうかを示す値を取得します。"
+  remarks: "ローカル コンピューターにインストールされている web サービスがあれば、方法は多数あります等価を参照する、次を含む: - http://localhost/foo.svc - http://192.168.1.100/foo.svc - http://[my-machine-name]/foo.svc - http://[my-machine-name] です。[my-company].com/foo.svc です。       このプロパティの既定値は`false`ので、上記の Uri はすべて解決するには、同じエンドポイントにこのプロパティを変更する場合を除きます。"
   syntax:
     content: public bool IncludeHostNameInComparison { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the host name is included in the endpoint address comparison; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>エンドポイントのアドレス比較にホスト名が含まれている場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter.IncludeHostNameInComparison*
   exceptions: []
   platform:
@@ -162,22 +162,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Tests whether a message satisfies the specified endpoint address."
-  remarks: "The two overloads of this method are equivalent because this filter does not examine the message body, only the address, to do a longest-prefix match, and then the headers."
+  summary: "指定したエンドポイント アドレスをメッセージが満たすかどうかをテストします。"
+  remarks: "このフィルターがメッセージの本文を最長プレフィックス一致し、ヘッダーを行うには、アドレスだけをチェックしていないために、このメソッドの&2; つのオーバー ロードは等価です。"
   syntax:
     content: public override bool Match (System.ServiceModel.Channels.Message message);
     parameters:
     - id: message
       type: System.ServiceModel.Channels.Message
-      description: "The <xref:System.ServiceModel.Channels.Message> object to test."
+      description: "<xref:System.ServiceModel.Channels.Message>オブジェクト</xref:System.ServiceModel.Channels.Message>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref:System.ServiceModel.Channels.Message> object satisfies the endpoint address specified in the filter; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合、<xref:System.ServiceModel.Channels.Message>オブジェクトがフィルターに指定されたエンドポイント アドレスを満たす場合は、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref></xref:System.ServiceModel.Channels.Message> 。"
   overload: System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter.Match*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>message</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>message</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter.Match(System.ServiceModel.Channels.MessageBuffer)
@@ -192,22 +192,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Tests whether a buffered message satisfies the specified endpoint address."
-  remarks: "The two overloads of this method are equivalent because this filter does not examine the message body, only the address, to do a longest-prefix match, and then the headers."
+  summary: "バッファー内のメッセージは、指定したエンドポイント アドレスを満たすかどうかをテストします。"
+  remarks: "このフィルターがメッセージの本文を最長プレフィックス一致し、ヘッダーを行うには、アドレスだけをチェックしていないために、このメソッドの&2; つのオーバー ロードは等価です。"
   syntax:
     content: public override bool Match (System.ServiceModel.Channels.MessageBuffer messageBuffer);
     parameters:
     - id: messageBuffer
       type: System.ServiceModel.Channels.MessageBuffer
-      description: "The <xref:System.ServiceModel.Channels.MessageBuffer> object to test."
+      description: "<xref:System.ServiceModel.Channels.MessageBuffer>オブジェクト</xref:System.ServiceModel.Channels.MessageBuffer>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref:System.ServiceModel.Channels.MessageBuffer> object satisfies the endpoint address; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合、<xref:System.ServiceModel.Channels.MessageBuffer>オブジェクトがエンドポイント アドレスを満たす、それ以外の<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref></xref:System.ServiceModel.Channels.MessageBuffer> 。"
   overload: System.ServiceModel.Dispatcher.PrefixEndpointAddressMessageFilter.Match*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>messageBuffer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>messageBuffer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:

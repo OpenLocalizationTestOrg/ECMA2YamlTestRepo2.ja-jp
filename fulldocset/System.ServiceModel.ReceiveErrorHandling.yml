@@ -13,8 +13,8 @@ items:
   nameWithType: ReceiveErrorHandling
   fullName: System.ServiceModel.ReceiveErrorHandling
   type: Enum
-  summary: "An enumeration that specifies handling for a poison message."
-  remarks: "A poison message is a message that fails repeated attempts to deliver to the application. This is applicable only when using a Message Queuing (MSMQ)-based binding. The default value is `Fault`, which faults the listener and therefore the ServiceHost. In the case where the service was to fault because of a poison message, a <xref:System.ServiceModel.MsmqPoisonMessageException> is thrown. The exception contains the `LookupId` of the MSMQ message that can be used to move the message out of the way using System.Messaging API. Certain values of the ReceiveErrorHandling enumeration such as `Reject` and `Move` are only available on [!INCLUDE[wv](~/add/includes/wv-md.md)]. You control poison message handling by setting the <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A> property to one of the values of this enumeration."
+  summary: "有害なメッセージの処理を指定する列挙です。"
+  remarks: "有害メッセージは、アプリケーションへの配信が繰り返し試行に失敗したメッセージです。 これは、メッセージ キュー (MSMQ) ベースのバインディングを使用する場合にのみ適用されます。 既定値は`Fault`リスナーとそのため、ServiceHost エラーが発生します。 サービスがの場合、有害なメッセージのためフォールトを<xref:System.ServiceModel.MsmqPoisonMessageException>がスローされます</xref:System.ServiceModel.MsmqPoisonMessageException>。 例外が含まれています、`LookupId`を邪魔 System.Messaging API を使用してメッセージの移動に使用できる、MSMQ メッセージのです。 など、ReceiveErrorHandling 列挙の値を特定`Reject`と`Move`の利用[!INCLUDE[wv](~/add/includes/wv-md.md)]です。 有害メッセージを設定して処理を制御する、<xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A>プロパティをこの列挙体の値のいずれか</xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A>。"
   example:
   - "The following configuration code illustrates how to set this property in the service configuration file:  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -35,13 +35,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This option drops the poison message. The message never gets delivered to the application. If the message&quot;s TTL had already expired at this point, then the message may appear in the sender&quot;s Dead Letter Queue. If not, the message does not appear anywhere. This option indicates that the user does not really care if the message is lost."
-  remarks: 'Applicable platforms: [!INCLUDE[wxp](~/add/includes/wxp-md.md)], [!INCLUDE[ws2003](~/add/includes/ws2003-md.md)], and [!INCLUDE[wv](~/add/includes/wv-md.md)].'
+  summary: "このオプションは、有害なメッセージを削除します。 しないメッセージは、アプリケーションに配信を取得します。 切れている場合、メッセージの TTL がこの時点でメッセージが送信者の配信不能キューに表示されます。 ない場合は、任意の場所、メッセージは表示されません。 このオプションは、こと、ユーザー本当にしない場合は、メッセージが失われることを示します。"
+  remarks: '適用可能なプラットフォーム: [!INCLUDE[wxp](~/add/includes/wxp-md.md)]、 [!INCLUDE[ws2003](~/add/includes/ws2003-md.md)]、および[!INCLUDE[wv](~/add/includes/wv-md.md)]です。'
   syntax:
     content: Drop
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -57,13 +57,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This option sends a fault to the listener that caused the ServiceHost to fault. The message must be removed from the application queue by some external mechanism before the application can continue to process messages from the queue."
-  remarks: 'Applicable platforms: Windows XP, Windows Server 2003, and Windows Vista.'
+  summary: "このオプションは、ServiceHost エラーが発生の原因となったリスナーにエラーを送信します。 メッセージはキューからメッセージを処理するアプリケーションを続行する前になんらかの外部機構によってアプリケーション キューからは削除する必要があります。"
+  remarks: '適用可能なプラットフォーム: Windows XP、Windows Server 2003、および Windows Vista。'
   syntax:
     content: Fault
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -79,13 +79,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This moves the poison message to a Poison Message Queue for later processing by a poison message handling application."
-  remarks: 'Applicable platforms: [!INCLUDE[wv](~/add/includes/wv-md.md)] only.'
+  summary: "後で有害メッセージ処理アプリケーションによって処理するため、有害メッセージ キューに、有害なメッセージを移動します。"
+  remarks: '適用可能なプラットフォーム:[!INCLUDE[wv](~/add/includes/wv-md.md)]のみです。'
   syntax:
     content: Move
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -101,13 +101,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This instructs MSMQ to send a negative acknowledgement back to the sending queue manager that the message cannot be received by the application. The message is placed in the sending queue manager&quot;s Dead Letter Queue."
-  remarks: 'Applicable platforms: [!INCLUDE[wv](~/add/includes/wv-md.md)] only.'
+  summary: "これは、アプリケーションでメッセージを受信できないこと、送信側キュー マネージャーに否定受信確認を送信するように MSMQ を指示します。 メッセージは、送信側キュー マネージャーの配信不能キューに配置されます。"
+  remarks: '適用可能なプラットフォーム:[!INCLUDE[wv](~/add/includes/wv-md.md)]のみです。'
   syntax:
     content: Reject
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462

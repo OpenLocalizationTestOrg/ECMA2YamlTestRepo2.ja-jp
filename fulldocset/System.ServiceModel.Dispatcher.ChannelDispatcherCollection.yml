@@ -13,8 +13,8 @@ items:
   nameWithType: ChannelDispatcherCollection
   fullName: System.ServiceModel.Dispatcher.ChannelDispatcherCollection
   type: Class
-  summary: "Provides a thread-safe collection that contains channel dispatchers."
-  remarks: "This collection is used by <xref:System.ServiceModel.ServiceHostBase> to manage the channel dispatchers associated with the host. A ChannelDispatcherCollection is created when <xref:System.ServiceModel.ServiceHostBase.%23ctor%2A> is called and the collection can be accessed using the <xref:System.ServiceModel.ServiceHostBase.ChannelDispatchers%2A> property.       The collection contains <xref:System.ServiceModel.Dispatcher.ChannelDispatcherBase> objects (and not just instances of <xref:System.ServiceModel.Dispatcher.ChannelDispatcher>) because it is also used by developers who want to keep the [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)]programming model but replace the system-provided runtime. They derive a class from <xref:System.ServiceModel.Dispatcher.ChannelDispatcherBase> and extend <xref:System.ServiceModel.ServiceHost> (which inherits from <xref:System.ServiceModel.ServiceHostBase>) by overriding <xref:System.ServiceModel.ServiceHostBase.InitializeRuntime%2A>, adding instances of the class derived from <xref:System.ServiceModel.Dispatcher.ChannelDispatcherBase> to <xref:System.ServiceModel.ServiceHostBase.ChannelDispatchers%2A>.       This class has no public constructors and is not intended to be used outside of the <xref:System.ServiceModel.ServiceHost>."
+  summary: "チャネル ディスパッチャーを格納するスレッド セーフなコレクションを提供します。"
+  remarks: "このプロパティを使用して<xref:System.ServiceModel.ServiceHostBase>ホストに関連付けられたチャネル ディスパッチャーを管理する</xref:System.ServiceModel.ServiceHostBase>。 場合は、作成する、ChannelDispatcherCollection<xref:System.ServiceModel.ServiceHostBase.%23ctor%2A>が呼び出されたを使用して、コレクションにアクセスできると、<xref:System.ServiceModel.ServiceHostBase.ChannelDispatchers%2A>プロパティ</xref:System.ServiceModel.ServiceHostBase.ChannelDispatchers%2A></xref:System.ServiceModel.ServiceHostBase.%23ctor%2A>。       コレクションに含まれて<xref:System.ServiceModel.Dispatcher.ChannelDispatcherBase>オブジェクト (およびのインスタンスだけでなく<xref:System.ServiceModel.Dispatcher.ChannelDispatcher>) も保持する開発者によって使用されているため、[!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)]プログラミング モデル、ランタイムは置き換えようシステムによって提供される</xref:System.ServiceModel.Dispatcher.ChannelDispatcher></xref:System.ServiceModel.Dispatcher.ChannelDispatcherBase>。 クラスを派生させ、<xref:System.ServiceModel.Dispatcher.ChannelDispatcherBase>および拡張<xref:System.ServiceModel.ServiceHost>(から継承される<xref:System.ServiceModel.ServiceHostBase>)<xref:System.ServiceModel.ServiceHostBase.InitializeRuntime%2A><xref:System.ServiceModel.Dispatcher.ChannelDispatcherBase><xref:System.ServiceModel.ServiceHostBase.ChannelDispatchers%2A></xref:System.ServiceModel.ServiceHostBase.ChannelDispatchers%2A></xref:System.ServiceModel.Dispatcher.ChannelDispatcherBase>から派生したクラスのインスタンスを追加、</xref:System.ServiceModel.ServiceHostBase.InitializeRuntime%2A>上書きすることで</xref:System.ServiceModel.ServiceHostBase></xref:System.ServiceModel.ServiceHost></xref:System.ServiceModel.Dispatcher.ChannelDispatcherBase>。       このクラスのパブリック コンス トラクターを持たないし、 <xref:System.ServiceModel.ServiceHost>。</xref:System.ServiceModel.ServiceHost>外で使用するものではありません。"
   syntax:
     content: 'public class ChannelDispatcherCollection : System.Collections.Generic.SynchronizedCollection<System.ServiceModel.Dispatcher.ChannelDispatcherBase>'
   inheritance:
@@ -64,7 +64,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Removes all channel dispatchers from the collection."
+  summary: "すべてのチャネル ディスパッチャーをコレクションから削除します。"
   syntax:
     content: protected override void ClearItems ();
     parameters: []
@@ -84,27 +84,27 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Inserts a channel dispatcher into the collection at a specified index."
+  summary: "コレクション内の指定したインデックス位置にあるチャネル ディスパッチャーを挿入します。"
   syntax:
     content: protected override void InsertItem (int index, System.ServiceModel.Dispatcher.ChannelDispatcherBase item);
     parameters:
     - id: index
       type: System.Int32
-      description: "The zero-based index of the channel dispatcher to be retrieved from the collection."
+      description: "チャネル ディスパッチャーをコレクションから取得するの&0; から始まるインデックス。"
     - id: item
       type: System.ServiceModel.Dispatcher.ChannelDispatcherBase
-      description: "The channel dispatcher to be inserted into the collection as an element."
+      description: "要素としてコレクションに挿入するチャネル ディスパッチャー。"
   overload: System.ServiceModel.Dispatcher.ChannelDispatcherCollection.InsertItem*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The service host associated with the channel dispatcher collection is closed."
+    description: "チャネル ディスパッチャー コレクションに関連付けられているサービス ホストが閉じています。"
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The <code>index</code> specified is less than zero or greater than the number of items in the collection."
+    description: "<code> index </code>はゼロ未満か、コレクション内の項目数よりも大きい値で指定します。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The commutation object is not in a state"
+    description: "交換オブジェクトが、状態にありません。"
   platform:
   - net462
 - uid: System.ServiceModel.Dispatcher.ChannelDispatcherCollection.RemoveItem(System.Int32)
@@ -119,18 +119,18 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Removes a channel dispatcher at a specified index from the collection."
+  summary: "指定したインデックス位置にあるチャネル ディスパッチャーをコレクションから削除します。"
   syntax:
     content: protected override void RemoveItem (int index);
     parameters:
     - id: index
       type: System.Int32
-      description: "The zero-based index of the channel dispatcher to be removed from the collection."
+      description: "チャネル ディスパッチャーをコレクションから削除するの&0; から始まるインデックス。"
   overload: System.ServiceModel.Dispatcher.ChannelDispatcherCollection.RemoveItem*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The <code>index</code> specified is less than zero or greater than the number of items in the collection."
+    description: "<code> index </code>はゼロ未満か、コレクション内の項目数よりも大きい値で指定します。"
   platform:
   - net462
 - uid: System.ServiceModel.Dispatcher.ChannelDispatcherCollection.SetItem(System.Int32,System.ServiceModel.Dispatcher.ChannelDispatcherBase)
@@ -145,24 +145,24 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Replaces the channel dispatcher at a specified index with another item."
+  summary: "指定したインデックス位置にあるチャネル ディスパッチャーを別の項目に置き換えます。"
   syntax:
     content: protected override void SetItem (int index, System.ServiceModel.Dispatcher.ChannelDispatcherBase item);
     parameters:
     - id: index
       type: System.Int32
-      description: "The zero-based index of the channel dispatcher to be replaced."
+      description: "置き換えるチャネル ディスパッチャーの&0; から始まるインデックス。"
     - id: item
       type: System.ServiceModel.Dispatcher.ChannelDispatcherBase
-      description: "The channel dispatcher to replace"
+      description: "置き換えるチャネル ディスパッチャー"
   overload: System.ServiceModel.Dispatcher.ChannelDispatcherCollection.SetItem*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The service associated with this collection of channel dispatchers is in a <xref:System.ServiceModel.CommunicationState> state."
+    description: "このチャネル ディスパッチャーのコレクションに関連付けられているサービスが、<xref:System.ServiceModel.CommunicationState>状態</xref:System.ServiceModel.CommunicationState>。"
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The <code>index</code> specified is less than zero or greater than the number of items in the collection."
+    description: "<code> index </code>はゼロ未満か、コレクション内の項目数よりも大きい値で指定します。"
   platform:
   - net462
 references:

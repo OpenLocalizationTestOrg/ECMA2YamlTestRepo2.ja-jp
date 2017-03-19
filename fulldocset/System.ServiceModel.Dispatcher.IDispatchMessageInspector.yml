@@ -11,8 +11,8 @@ items:
   nameWithType: IDispatchMessageInspector
   fullName: System.ServiceModel.Dispatcher.IDispatchMessageInspector
   type: Interface
-  summary: "Defines the methods that enable custom inspection or modification of inbound and outbound application messages in service applications."
-  remarks: "Implement IDispatchMessageInspector to inspect or modify inbound or outbound application messages either prior to dispatching a request message to an operation or before returning a reply message to a caller. There are a large number of scenarios that require intercepting messages prior to invoking the operation for which it is destined. For example, you can log incoming application messages or perform some feature based on a message header.       Typically, message inspectors are inserted by a service behavior (<xref:System.ServiceModel.Description.IServiceBehavior?displayProperty=fullName>), an endpoint behavior (<xref:System.ServiceModel.Description.IEndpointBehavior?displayProperty=fullName>), or a contract behavior (<xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName>). The behavior then adds the message inspector to the <xref:System.ServiceModel.Dispatcher.DispatchRuntime.MessageInspectors%2A?displayProperty=fullName> collection. For more information about extending the runtime using behaviors, see [Extending ServiceHost and the Service Model Layer](~/add/includes/ajax-current-ext-md.md).      -   The <xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.AfterReceiveRequest%2A> method enables custom behavior after receiving the message but before dispatching it to the intended operation.      -   The <xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.BeforeSendReply%2A> method enables custom behavior after the operation returns but before the reply is sent.      > [!NOTE] >  IDispatchMessageInspector objects are always called at the same point during message dispatch regardless of whether an operation is one-way or request-reply."
+  summary: "サービス アプリケーションで受信および送信アプリケーション メッセージのカスタム検査または変更を有効にするメソッドを定義します。"
+  remarks: "受信または送信アプリケーション メッセージ操作または呼び出し元に応答メッセージを返すまでには、要求メッセージをディスパッチする前にいずれかを検査または変更 IDispatchMessageInspector を実装します。 多数の宛先の操作を呼び出す前にメッセージをインターセプトし、必要とするシナリオがあります。 たとえば、受信アプリケーション メッセージのログまたはメッセージ ヘッダーに基づいてなんらかの機能を実行できます。       サービス動作を使用して、通常、メッセージ インスペクターを挿入 (<xref:System.ServiceModel.Description.IServiceBehavior?displayProperty=fullName>)、エンドポイントの動作 (<xref:System.ServiceModel.Description.IEndpointBehavior?displayProperty=fullName>)、またはコントラクト動作 (<xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName>).</xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName> </xref:System.ServiceModel.Description.IEndpointBehavior?displayProperty=fullName> </xref:System.ServiceModel.Description.IServiceBehavior?displayProperty=fullName> 動作をメッセージ インスペクタを追加し、<xref:System.ServiceModel.Dispatcher.DispatchRuntime.MessageInspectors%2A?displayProperty=fullName>コレクションです</xref:System.ServiceModel.Dispatcher.DispatchRuntime.MessageInspectors%2A?displayProperty=fullName>。 動作を使用してランタイムを拡張する方法の詳細については、次を参照してください。 [ServiceHost を拡張すると、サービス モデル レイヤー](~/add/includes/ajax-current-ext-md.md)です。      -<xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.AfterReceiveRequest%2A>メソッドは、メッセージを受信した後は、目的の操作にディスパッチする前にカスタム動作を有効します</xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.AfterReceiveRequest%2A>。      -<xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.BeforeSendReply%2A>メソッド操作が返されますが、応答を送信する前にカスタム動作を有効にします</xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.BeforeSendReply%2A>。      > [!NOTE] > IDispatchMessageInspector オブジェクトが同じ時点かどうか、操作が一方向または要求-応答に関係なくメッセージのディスパッチ中に常に呼び出されます。"
   example:
   - "The following code example shows a basic IDispatchMessageInspector that writes a string to the console when it is invoked.  \n  \n [!code-vb[Interceptors#7](~/add/codesnippet/visualbasic/interceptors.client/interceptors.vb#7)]\n [!code-cs[Interceptors#7](~/add/codesnippet/csharp/interceptors.client/interceptors.cs#7)]  \n  \n The following code example shows the implementation of an <xref:System.ServiceModel.Description.IServiceBehavior> that adds the `Inspector`IDispatchMessageInspector to the <xref:System.ServiceModel.Dispatcher.DispatchRuntime.MessageInspectors%2A?displayProperty=fullName> collection.  \n  \n [!code-vb[Interceptors#8](~/add/codesnippet/visualbasic/interceptors.client/insertingbehaviors.vb#8)]\n [!code-cs[Interceptors#8](~/add/codesnippet/csharp/interceptors.client/insertingbehaviors.cs#8)]  \n  \n The following code example shows the use of an application configuration file to load the service behavior that inserts the `Inspector`IDispatchMessageInspector.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -32,8 +32,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Called after an inbound message has been received but before the message is dispatched to the intended operation."
-  remarks: "Use the AfterReceiveRequest method to inspect or modify the incoming message, the client channel that provided it, and the current service instance. The return value can be any object that you want to use for correlation purposes; it is returned to you as the `correlationState` parameter in the <xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.BeforeSendReply%2A> method.      > [!IMPORTANT] >  You cannot use the body of the message unless you buffer the entire message and make a copy. If you do this, you must make two copies of the message: one to inspect, and the other to overwrite the `request` parameter."
+  summary: "受信メッセージの受信後にその前と呼ばれるメッセージは、目的の操作にディスパッチされます。"
+  remarks: "検査または変更、受信メッセージと、現在のサービス インスタンスを提供したクライアント チャネル AfterReceiveRequest メソッドを使用します。 戻り値は、相関関係の目的で使用する任意のオブジェクトを指定できます。として返される、`correlationState`内のパラメーター、<xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.BeforeSendReply%2A>メソッド</xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.BeforeSendReply%2A>。      > [!IMPORTANT] > メッセージ全体をバッファーしてコピーを作成しない限り、メッセージの本文を使用することはできません。 これを行う場合は、メッセージの&2; つのコピーを行う必要があります。 いずれかを検査、および上書きする、その他の、`request`パラメーター。"
   example:
   - "The following code example shows a basic <xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector> that writes a string to the console when it is invoked.  \n  \n [!code-vb[Interceptors#7](~/add/codesnippet/visualbasic/interceptors.client/interceptors.vb#7)]\n [!code-cs[Interceptors#7](~/add/codesnippet/csharp/interceptors.client/interceptors.cs#7)]  \n  \n The following code example shows the implementation of an <xref:System.ServiceModel.Description.IServiceBehavior> that adds the `Inspector`<xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector> to the <xref:System.ServiceModel.Dispatcher.DispatchRuntime.MessageInspectors%2A?displayProperty=fullName> collection.  \n  \n [!code-vb[Interceptors#8](~/add/codesnippet/visualbasic/interceptors.client/insertingbehaviors.vb#8)]\n [!code-cs[Interceptors#8](~/add/codesnippet/csharp/interceptors.client/insertingbehaviors.cs#8)]  \n  \n The following code example shows the use of an application configuration file to load the service behavior that inserts the `Inspector`<xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector>.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -41,16 +41,16 @@ items:
     parameters:
     - id: request
       type: System.ServiceModel.Channels.Message
-      description: "The request message."
+      description: "要求メッセージ。"
     - id: channel
       type: System.ServiceModel.IClientChannel
-      description: "The incoming channel."
+      description: "受信チャネル。"
     - id: instanceContext
       type: System.ServiceModel.InstanceContext
-      description: "The current service instance."
+      description: "現在のサービス インスタンス。"
     return:
       type: System.Object
-      description: "The object used to correlate state. This object is passed back in the <xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.BeforeSendReply*> method."
+      description: "状態を関連付けるために使用するオブジェクト。 このオブジェクトで戻された、<xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.BeforeSendReply*>メソッド</xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.BeforeSendReply*>。"
   overload: System.ServiceModel.Dispatcher.IDispatchMessageInspector.AfterReceiveRequest*
   exceptions: []
   platform:
@@ -67,8 +67,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Called after the operation has returned but before the reply message is sent."
-  remarks: "Use the BeforeSendReply method to perform custom behavior prior to sending the return message. The `correlationState` is the object returned from the <xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.AfterReceiveRequest%2A> method that you can use to perform correlation between inbound and outbound calls to support your behavior."
+  summary: "操作が返されましたが、返信する前にメッセージが送信された後に呼び出されます。"
+  remarks: "BeforeSendReply メソッドを使用すると、応答メッセージを送信する前にカスタム動作を実行できます。 `correlationState`から、オブジェクトが返されます、<xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.AfterReceiveRequest%2A>を実行して動作をサポートするために受信および送信の呼び出しの間の相関関係を使用できるメソッド</xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.AfterReceiveRequest%2A>。"
   example:
   - "The following code example shows a basic <xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector> that writes a string to the console when it is invoked.  \n  \n [!code-vb[Interceptors#7](~/add/codesnippet/visualbasic/interceptors.client/interceptors.vb#7)]\n [!code-cs[Interceptors#7](~/add/codesnippet/csharp/interceptors.client/interceptors.cs#7)]  \n  \n The following code example shows the implementation of an <xref:System.ServiceModel.Description.IServiceBehavior> that adds the `Inspector`<xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector> to the <xref:System.ServiceModel.Dispatcher.DispatchRuntime.MessageInspectors%2A?displayProperty=fullName> collection.  \n  \n [!code-vb[Interceptors#8](~/add/codesnippet/visualbasic/interceptors.client/insertingbehaviors.vb#8)]\n [!code-cs[Interceptors#8](~/add/codesnippet/csharp/interceptors.client/insertingbehaviors.cs#8)]  \n  \n The following code example shows the use of an application configuration file to load the service behavior that inserts the `Inspector`<xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector>.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -76,10 +76,10 @@ items:
     parameters:
     - id: reply
       type: System.ServiceModel.Channels.Message
-      description: "The reply message. This value is null if the operation is one way."
+      description: "応答メッセージです。 この値は、操作が一方向の場合は null です。"
     - id: correlationState
       type: System.Object
-      description: "The correlation object returned from the <xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.AfterReceiveRequest*> method."
+      description: "返された相関オブジェクト、<xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.AfterReceiveRequest*>メソッド</xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.AfterReceiveRequest*>。"
   overload: System.ServiceModel.Dispatcher.IDispatchMessageInspector.BeforeSendReply*
   exceptions: []
   platform:

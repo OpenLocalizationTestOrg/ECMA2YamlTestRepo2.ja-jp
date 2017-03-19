@@ -11,8 +11,8 @@ items:
   nameWithType: ICallContextInitializer
   fullName: System.ServiceModel.Dispatcher.ICallContextInitializer
   type: Interface
-  summary: "Defines the methods that enable the initialization and recycling of thread-local storage with the thread that invokes user code."
-  remarks: "Implement the ICallContextInitializer interface and add it to the <xref:System.ServiceModel.Dispatcher.DispatchOperation.CallContextInitializers%2A?displayProperty=fullName> property to initialize and clean up thread-local storage for the thread that invokes user code. Typical usage is to set some value, such as impersonation or changing the <xref:System.Globalization.CultureInfo?displayProperty=fullName>. If you wanted to establish some custom context, this is the extension point to initialize the static context property, which is then available for developers in the course of the operation."
+  summary: "ユーザー コードを呼び出したスレッドでスレッド ローカル ストレージの初期化およびリサイクルをできるようにするメソッドを定義します。"
+  remarks: "ICallContextInitializer インターフェイスを実装し、それを追加、<xref:System.ServiceModel.Dispatcher.DispatchOperation.CallContextInitializers%2A?displayProperty=fullName>プロパティを初期化し、ユーザー コードを呼び出したスレッドのスレッド ローカル ストレージをクリーンアップします</xref:System.ServiceModel.Dispatcher.DispatchOperation.CallContextInitializers%2A?displayProperty=fullName>。 一般的な使用方法は、権限の借用または<xref:System.Globalization.CultureInfo?displayProperty=fullName>。</xref:System.Globalization.CultureInfo?displayProperty=fullName>を変更するなど、いくつかの値を設定するには いくつかのカスタムのコンテキストを確立する場合は、これは、操作の過程で開発者は、静的コンテキスト プロパティを初期化する拡張ポイントになります。"
   syntax:
     content: public interface ICallContextInitializer
   implements: []
@@ -30,14 +30,14 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Implement to participate in cleaning up the thread that invoked the operation."
-  remarks: "Use this method to perform any necessary cleaning up of the operation thread."
+  summary: "操作を呼び出したスレッドのクリーンアップに参加するために実装します。"
+  remarks: "このメソッドを使用すると、必要なクリーンアップが操作スレッドを実行できます。"
   syntax:
     content: public void AfterInvoke (object correlationState);
     parameters:
     - id: correlationState
       type: System.Object
-      description: "The correlation object returned from the <xref:System.ServiceModel.Dispatcher.ICallContextInitializer.BeforeInvoke*> method."
+      description: "返された相関オブジェクト、<xref:System.ServiceModel.Dispatcher.ICallContextInitializer.BeforeInvoke*>メソッド</xref:System.ServiceModel.Dispatcher.ICallContextInitializer.BeforeInvoke*>。"
   overload: System.ServiceModel.Dispatcher.ICallContextInitializer.AfterInvoke*
   exceptions: []
   platform:
@@ -54,23 +54,23 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Implement to participate in the initialization of the operation thread."
-  remarks: "Implement the BeforeInvoke method to initialize and clean up thread-local storage for the thread that invokes user code. Typical usage is to set some value, such as impersonation or changing the <xref:System.Globalization.CultureInfo?displayProperty=fullName>. If you wanted to establish some custom context, this is the extension point to initialize the static context property, which is then available for developers in the course of the operation."
+  summary: "操作スレッドの初期化に参加するために実装します。"
+  remarks: "初期化し、ユーザー コードを呼び出したスレッドのスレッド ローカル ストレージをクリーンアップするには、BeforeInvoke メソッドを実装します。 一般的な使用方法は、権限の借用または<xref:System.Globalization.CultureInfo?displayProperty=fullName>。</xref:System.Globalization.CultureInfo?displayProperty=fullName>を変更するなど、いくつかの値を設定するには いくつかのカスタムのコンテキストを確立する場合は、これは、操作の過程で開発者は、静的コンテキスト プロパティを初期化する拡張ポイントになります。"
   syntax:
     content: public object BeforeInvoke (System.ServiceModel.InstanceContext instanceContext, System.ServiceModel.IClientChannel channel, System.ServiceModel.Channels.Message message);
     parameters:
     - id: instanceContext
       type: System.ServiceModel.InstanceContext
-      description: "The service instance for the operation."
+      description: "操作のサービス インスタンス。"
     - id: channel
       type: System.ServiceModel.IClientChannel
-      description: "The client channel."
+      description: "クライアント チャネル。"
     - id: message
       type: System.ServiceModel.Channels.Message
-      description: "The incoming message."
+      description: "受信メッセージ。"
     return:
       type: System.Object
-      description: "A correlation object passed back as the parameter of the <xref:System.ServiceModel.Dispatcher.ICallContextInitializer.AfterInvoke*> method."
+      description: "パラメーターとして返された相関オブジェクト、<xref:System.ServiceModel.Dispatcher.ICallContextInitializer.AfterInvoke*>メソッド</xref:System.ServiceModel.Dispatcher.ICallContextInitializer.AfterInvoke*>。"
   overload: System.ServiceModel.Dispatcher.ICallContextInitializer.BeforeInvoke*
   exceptions: []
   platform:
