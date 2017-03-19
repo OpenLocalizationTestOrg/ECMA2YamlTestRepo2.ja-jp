@@ -27,8 +27,8 @@ items:
   nameWithType: CodeAccessPermission
   fullName: System.Security.CodeAccessPermission
   type: Class
-  summary: "Defines the underlying structure of all code access permissions."
-  remarks: "Code access permissions use a stack walk to ensure that all callers of the code have been granted a permission. If a permission object is `null`, it is handled the same as a permission object with the state <xref:System.Security.Permissions.PermissionState?displayProperty=fullName>.       The call stack is typically represented as growing down, so that methods higher in the call stack call methods lower in the call stack.       Inheritors of the CodeAccessPermission class must be granted full trust to function correctly as permissions extending the security infrastructure. To determine that the inheritors are fully trusted, CodeAccessPermission issues an <xref:System.Security.Permissions.SecurityAction> for <xref:System.Security.Permissions.SecurityPermissionFlag> = `true` and <xref:System.Security.Permissions.SecurityPermissionFlag> = `true`."
+  summary: "すべてのコード アクセス許可の基になる構造を定義します。"
+  remarks: "コード アクセス許可では、スタック ウォークを使用して、アクセス許可がコードのすべての呼び出し元に付与されていることを確認します。 権限オブジェクトが場合`null`、 <xref:System.Security.Permissions.PermissionState?displayProperty=fullName>.</xref:System.Security.Permissions.PermissionState?displayProperty=fullName>の状態でアクセス許可オブジェクトと同様に処理には       通常、呼び出し履歴はコール スタックに呼び出し履歴の上位にあるメソッドが下位にあるメソッドを呼び出すようにダウン、成長として表されます。       CodeAccessPermission クラスの継承元には、セキュリティ インフラストラクチャを拡張するアクセス許可として正しく機能する完全な信頼を付与する必要があります。 継承元が完全に信頼された、CodeAccessPermission 問題であるため、<xref:System.Security.Permissions.SecurityAction>の<xref:System.Security.Permissions.SecurityPermissionFlag>=`true`と<xref:System.Security.Permissions.SecurityPermissionFlag>= `true`</xref:System.Security.Permissions.SecurityPermissionFlag> </xref:System.Security.Permissions.SecurityPermissionFlag> </xref:System.Security.Permissions.SecurityAction> 。"
   example:
   - "The following code example shows a permission derived from the CodeAccessPermission class.  \n  \n [!code-cs[System.Security.Permissions.NameIdPermission#1](~/add/codesnippet/csharp/t-system.security.codeac_1.cs)]\n [!code-cpp[System.Security.Permissions.NameIdPermission#1](~/add/codesnippet/cpp/t-system.security.codeac_1.cpp)]\n [!code-vb[System.Security.Permissions.NameIdPermission#1](~/add/codesnippet/visualbasic/t-system.security.codeac_1.vb)]"
   syntax:
@@ -56,8 +56,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.CodeAccessPermission&quot;></xref> class."
-  remarks: "This constructor is called to initialize state in the type whenever an instance of the derived class is created. Although you can explicitly call this constructor in the constructor declaration of the derived class constructor, this is not usually necessary; most compilers will automatically generate the call for you."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.CodeAccessPermission&quot;> </xref>クラスです。"
+  remarks: "このコンス トラクターは、派生クラスのインスタンスが作成されるたびに、型の状態を初期化するために呼び出されます。 派生クラスのコンス トラクターのコンス トラクター宣言で、このコンス トラクターを明示的に呼び出すことができますが一致しない通常必要です。ほとんどのコンパイラでは、呼び出しを自動的に生成されます。"
   syntax:
     content: protected CodeAccessPermission ();
     parameters: []
@@ -77,8 +77,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Declares that the calling code can access the resource protected by a permission demand through the code that calls this method, even if callers higher in the stack have not been granted permission to access the resource. Using Assert can create security issues."
-  remarks: "The call stack is typically represented as growing down, so that methods higher in the call stack call methods lower in the call stack. Calling Assert prevents a stack walk originating lower in the call stack from proceeding up the call stack beyond the code that calls this method. Therefore, even if callers higher on the call stack do not have the requisite permissions to access a resource, they can still access it through the code that calls this method on the necessary permission. An assertion is effective only if the code that calls Assert passes the security check for the permission that it is asserting.       The call to Assert is effective until the calling code returns to its caller. Only one Assert can be active on a frame. An attempt to call Assert when an active Assert exists on the frame results in a <xref:System.Security.SecurityException>. Call <xref:System.Security.CodeAccessPermission.RevertAssert%2A> or <xref:System.Security.CodeAccessPermission.RevertAll%2A> to remove an active Assert.       Assert is ignored for a permission not granted because a demand for that permission will not succeed. However, if code lower on the call stack calls <xref:System.Security.CodeAccessPermission.Demand%2A> for that permission, a <xref:System.Security.SecurityException> is thrown when the stack walk reaches the code that tried to call Assert. This happens because the code that called Assert has not been granted the permission, even though it tried to Assert it.      > [!CAUTION] >  Because calling Assert removes the requirement that all code in the call chain must be granted permission to access the specified resource, it can open up security issues if used incorrectly or inappropriately. Therefore, it should be used with great caution."
+  summary: "呼び出し元のコードがスタック内の上位の呼び出し元がリソースにアクセスする権限が許可されていない場合でも、このメソッドを呼び出すコードを通じてアクセス許可要求によって保護されているリソースにアクセスできることを宣言します。 Assert を使用すると、セキュリティの問題を作成できます。"
+  remarks: "通常、呼び出し履歴はコール スタックに呼び出し履歴の上位にあるメソッドが下位にあるメソッドを呼び出すようにダウン、成長として表されます。 Assert を呼び出すには、元このメソッドを呼び出すコードを超える呼び出し履歴を先に進むからのコール スタックの下位のスタック ウォークができなくなります。 そのため、場合でも、呼び出し履歴の上位の呼び出し元には、リソースにアクセスするために必要なアクセス許可がない、それらにアクセスできることにより、コードをこのメソッドを呼び出すために必要なアクセス許可。 アサーションは、アサートを呼び出すコードをアサートしている、権限のセキュリティ チェックに合格する場合にのみ有効です。       Assert への呼び出しは、呼び出し元のコードは、呼び出し元に返されるまで有効です。 1 つだけのアサートはフレーム上でアクティブにすることはできます。 アクティブなアサートが<xref:System.Security.SecurityException>。</xref:System.Security.SecurityException>フレーム結果に存在する場合は、アサートを呼び出そうとすると 呼び出す<xref:System.Security.CodeAccessPermission.RevertAssert%2A>または<xref:System.Security.CodeAccessPermission.RevertAll%2A>active アサートを削除する</xref:System.Security.CodeAccessPermission.RevertAll%2A></xref:System.Security.CodeAccessPermission.RevertAssert%2A>。       アサートはそのアクセス許可の確認要求は成功しませんので許可されていなかった権限は無視されます。 ただし、コール スタックの下部のコードを呼び出す場合<xref:System.Security.CodeAccessPermission.Demand%2A>そのアクセス許可、<xref:System.Security.SecurityException>スタック ウォークがアサートを呼び出すしようとしたコードに達した場合にスローされます</xref:System.Security.SecurityException></xref:System.Security.CodeAccessPermission.Demand%2A>。 これはことをアサートするしようとした場合でも、アサートを呼び出したコードに、アクセス許可が与えられていないためです。      > [!CAUTION] > Assert を呼び出すには、呼び出しチェーン内のすべてのコードに対して、指定されたリソースにアクセスする権限を付与する必要がある要件が解除されます、ために開くことができるセキュリティの問題を誤ってまたは不適切に使用する場合。 そのため、注意深く使用してください。"
   syntax:
     content: public void Assert ();
     parameters: []
@@ -86,7 +86,7 @@ items:
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The calling code does not have <xref href=&quot;System.Security.Permissions.SecurityPermissionFlag&quot;></xref>.       -or-       There is already an active Assert for the current frame."
+    description: "呼び出し元のコードはありません<xref href=&quot;System.Security.Permissions.SecurityPermissionFlag&quot;></xref>です。       または、現在のフレームのアクティブなアサートが既に存在します。"
   platform:
   - net462
 - uid: System.Security.CodeAccessPermission.Copy
@@ -101,8 +101,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "When implemented by a derived class, creates and returns an identical copy of the current permission object."
-  remarks: "A copy of a permission object represents the same access to resources as the original permission object."
+  summary: "派生クラスで実装された場合、作成し、現在のアクセス許可オブジェクトの完全なコピーを返します。"
+  remarks: "アクセス許可オブジェクトのコピーは、元のアクセス許可オブジェクトと、リソースに対して同じアクセス権を表します。"
   example:
   - "The following code example shows an override of the Copy method. This code example is part of a larger example provided for the <xref:System.Security.CodeAccessPermission> class.  \n  \n [!code-cs[System.Security.Permissions.NameIdPermission#2](~/add/codesnippet/csharp/m-system.security.codeac_0_1.cs)]\n [!code-cpp[System.Security.Permissions.NameIdPermission#2](~/add/codesnippet/cpp/m-system.security.codeac_0_1.cpp)]\n [!code-vb[System.Security.Permissions.NameIdPermission#2](~/add/codesnippet/visualbasic/m-system.security.codeac_0_1.vb)]"
   syntax:
@@ -110,7 +110,7 @@ items:
     parameters: []
     return:
       type: System.Security.IPermission
-      description: "A copy of the current permission object."
+      description: "現在のアクセス許可オブジェクトのコピー。"
   overload: System.Security.CodeAccessPermission.Copy*
   exceptions: []
   platform:
@@ -127,8 +127,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Forces a <xref:System.Security.SecurityException> at run time if all callers higher in the call stack have not been granted the permission specified by the current instance."
-  remarks: "This method is typically used by secure libraries to ensure that callers have permission to access a resource. For example, a file class in a secure class library calls Demand for the necessary <xref:System.Security.Permissions.FileIOPermission> before performing a file operation requested by the caller.       The permissions of the code that calls this method are not examined; the check begins from the immediate caller of that code and proceeds up the stack. The call stack is typically represented as growing down, so that methods higher in the call stack call methods lower in the call stack. Demand succeeds only if no <xref:System.Security.SecurityException> is raised."
+  summary: "強制的な<xref:System.Security.SecurityException>実行時に現在のインスタンスによって指定されたアクセス許可が呼び出し履歴内の上位にあるすべての呼び出し元に付与されていない場合</xref:System.Security.SecurityException>。"
+  remarks: "このメソッドは呼び出し元がリソースにアクセスする権限を持っていることを確認する、セキュリティで保護されたライブラリで通常使用されます。 たとえば、安全なクラス ライブラリ内のファイル クラスが、必要なの需要を呼び出します<xref:System.Security.Permissions.FileIOPermission>、呼び出し元によって要求されたファイルの操作を実行する前にします</xref:System.Security.Permissions.FileIOPermission>。       このメソッドを呼び出すコードのアクセス許可はチェックされません。チェックは、そのコードの直前の呼び出し元から開始され、スタックの上位に進みます。 通常、呼び出し履歴はコール スタックに呼び出し履歴の上位にあるメソッドが下位にあるメソッドを呼び出すようにダウン、成長として表されます。 しかない場合、要求が成功した<xref:System.Security.SecurityException>が発生します</xref:System.Security.SecurityException>。"
   syntax:
     content: public void Demand ();
     parameters: []
@@ -136,7 +136,7 @@ items:
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "A caller higher in the call stack does not have the permission specified by the current instance.       -or-       A caller higher in the call stack has called <xref:System.Security.CodeAccessPermission.Deny*> on the current permission object."
+    description: "呼び出し履歴の上位の呼び出し元には、現在のインスタンスによって指定されたアクセス許可がありません。       - または - 呼び出し履歴の上位の呼び出し元が呼び出されて<xref:System.Security.CodeAccessPermission.Deny*>、現在のアクセス許可オブジェクトです</xref:System.Security.CodeAccessPermission.Deny*>。"
   platform:
   - net462
 - uid: System.Security.CodeAccessPermission.Deny
@@ -151,8 +151,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Prevents callers higher in the call stack from using the code that calls this method to access the resource specified by the current instance."
-  remarks: "> [!IMPORTANT] >  The Deny method should be used only to protect resources from accidental access by fully trusted code. It should not be used to protect resources from intentional misuse by untrusted code. For example, if method `A` issues a Deny for a permission and then calls method `B`, method `B` can overtly override the Deny by issuing an <xref:System.Security.CodeAccessPermission.Assert%2A>. The called method is always higher in the stack. Therefore, if method `B` tries to access a protected resource, the security system begins checking for permissions with it because method `B` is the immediate caller, and then walks down the stack to confirm that there is no Deny or <xref:System.Security.CodeAccessPermission.PermitOnly%2A> lower in the stack. Method `B`, which is trying to access the resource, can stop the stack walk immediately by using the <xref:System.Security.CodeAccessPermission.Assert%2A> method. In that case, the Deny placed on the stack by method `A` (the calling method) is never discovered.       This method prevents callers higher in the call stack from accessing the protected resource through the code that calls this method, even if those callers have been granted permission to access it. The call stack is typically represented as growing down, so that methods higher in the call stack call methods lower in the call stack.       Deny can limit the liability of the programmer or help prevent accidental security issues because it helps prevent the method that calls Deny from being used to access the resource protected by the denied permission. If a method calls Deny on a permission, and if a <xref:System.Security.CodeAccessPermission.Demand%2A> for that permission is invoked by a caller lower in the call stack, that security check will fail when it reaches the Deny.       The call to Deny is effective until the calling code returns to its caller. Only one Deny can be active on a frame. An attempt to call Deny when an active Deny exists on the frame results in a <xref:System.Security.SecurityException>. Call <xref:System.Security.CodeAccessPermission.RevertDeny%2A> or <xref:System.Security.CodeAccessPermission.RevertAll%2A> to remove an active Deny. Deny is ignored for a permission not granted because a demand for that permission will not succeed."
+  summary: "呼び出し履歴の上位の呼び出し元が現在のインスタンスによって指定されたリソースにアクセスするには、このメソッドを呼び出すコードを使用するを防ぎます。"
+  remarks: "> [!IMPORTANT]> 完全に信頼されたコードでは、偶発的なアクセスからリソースを保護する場合にのみ Deny メソッドを使用してください。 指定しないでリソースを意図的な誤用から保護する信頼されていないコードでします。 たとえば場合、メソッド`A`権限の拒否を発行し、メソッドを呼び出して、 `B`、メソッド`B` <xref:System.Security.CodeAccessPermission.Assert%2A>.</xref:System.Security.CodeAccessPermission.Assert%2A>を発行して拒否する を上書き獲得できます 呼び出されたメソッドは、スタック内の上位は常にします。 したがって場合、メソッド`B`保護されたリソース、セキュリティ システムへのアクセスの試行がためアクセス許可と、その確認を開始メソッド`B`直前の呼び出し元は、上下してウォーク Deny がないことを確認するスタックまたは<xref:System.Security.CodeAccessPermission.PermitOnly%2A>、スタック内の下位</xref:System.Security.CodeAccessPermission.PermitOnly%2A>。 メソッド`B`、リソースにアクセスしようとするは直ちに停止できるスタック ウォークを使用して、<xref:System.Security.CodeAccessPermission.Assert%2A>メソッド</xref:System.Security.CodeAccessPermission.Assert%2A>。 その場合は、Deny スタック上に配置メソッドによって`A`(呼び出し元のメソッド) が検出されることはありません。       このメソッドは、コール スタックの上位の呼び出し元がそれらの呼び出し元にはそれにアクセスする権限が付与されている場合でもこのメソッドを呼び出すコードを保護されたリソースにアクセスすることを防ぎます。 通常、呼び出し履歴はコール スタックに呼び出し履歴の上位にあるメソッドが下位にあるメソッドを呼び出すようにダウン、成長として表されます。       Deny では、プログラマの責任を制限したり、拒否されたアクセス許可によって保護されているリソースへのアクセスに使用されるを拒否を呼び出されるメソッドを防ぐのに役立つので偶発的なセキュリティの問題を防止することができます。 メソッドでアクセス許可、拒否を呼び出す場合と場合、 <xref:System.Security.CodeAccessPermission.Demand%2A>Deny になったときにそのアクセス許可は、呼び出し履歴内の下位にある呼び出し元によって呼び出されるのセキュリティ チェックは失敗します</xref:System.Security.CodeAccessPermission.Demand%2A>。       拒否への呼び出しは、呼び出し元のコードは、呼び出し元に返されるまで有効です。 1 つだけの拒否はフレーム上でアクティブにすることはできます。 アクティブな拒否は<xref:System.Security.SecurityException>。</xref:System.Security.SecurityException>フレーム結果に存在する場合は、拒否を呼び出そうとすると 呼び出す<xref:System.Security.CodeAccessPermission.RevertDeny%2A>または<xref:System.Security.CodeAccessPermission.RevertAll%2A>active 拒否を削除する</xref:System.Security.CodeAccessPermission.RevertAll%2A></xref:System.Security.CodeAccessPermission.RevertDeny%2A>。 拒否した権限を与えないため、そのアクセス許可の確認要求は成功しませんは無視されます。"
   syntax:
     content: public void Deny ();
     parameters: []
@@ -160,7 +160,7 @@ items:
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "There is already an active Deny for the current frame."
+    description: "現在のフレームの作業中の Deny が既に存在します。"
   platform:
   - net462
 - uid: System.Security.CodeAccessPermission.Equals(System.Object)
@@ -175,17 +175,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Determines whether the specified <xref href=&quot;System.Security.CodeAccessPermission&quot;></xref> object is equal to the current <xref href=&quot;System.Security.CodeAccessPermission&quot;></xref>."
-  remarks: "For more information, see <xref:System.Object.Equals%2A>."
+  summary: "決定するかどうか、指定した<xref href=&quot;System.Security.CodeAccessPermission&quot;></xref>オブジェクトが現在<xref href=&quot;System.Security.CodeAccessPermission&quot;></xref>です。"
+  remarks: "詳細については、 <xref:System.Object.Equals%2A>。</xref:System.Object.Equals%2A>を参照してください。"
   syntax:
     content: public override bool Equals (object obj);
     parameters:
     - id: obj
       type: System.Object
-      description: "The <xref href=&quot;System.Security.CodeAccessPermission&quot;></xref> object to compare with the current <xref href=&quot;System.Security.CodeAccessPermission&quot;></xref>."
+      description: "<xref href=&quot;System.Security.CodeAccessPermission&quot;> </xref>現在と比較するオブジェクト<xref href=&quot;System.Security.CodeAccessPermission&quot;></xref>です。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified <xref href=&quot;System.Security.CodeAccessPermission&quot;></xref> object is equal to the current <xref href=&quot;System.Security.CodeAccessPermission&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合、指定した<xref href=&quot;System.Security.CodeAccessPermission&quot;></xref>オブジェクトが現在<xref href=&quot;System.Security.CodeAccessPermission&quot;> </xref>、それ以外の<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Security.CodeAccessPermission.Equals*
   exceptions: []
   platform:
@@ -202,8 +202,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "When overridden in a derived class, reconstructs a security object with a specified state from an XML encoding."
-  remarks: "Custom code that extends security objects needs to implement the <xref:System.Security.CodeAccessPermission.ToXml%2A> and FromXml methods to make the objects security-encodable."
+  summary: "派生クラスでオーバーライドされると、XML エンコードから指定された状態で、セキュリティ オブジェクトを再構築します。"
+  remarks: "セキュリティ オブジェクトを拡張するカスタム コードを実装する必要があります、<xref:System.Security.CodeAccessPermission.ToXml%2A>とする、オブジェクトはセキュリティ encodable FromXml メソッド</xref:System.Security.CodeAccessPermission.ToXml%2A>。"
   example:
   - "The following code example shows an override of the FromXml method. This code example is part of a larger example provided for the <xref:System.Security.CodeAccessPermission> class.  \n  \n [!code-cs[System.Security.Permissions.NameIdPermission#10](~/add/codesnippet/csharp/m-system.security.codeac_1_1.cs)]\n [!code-cpp[System.Security.Permissions.NameIdPermission#10](~/add/codesnippet/cpp/m-system.security.codeac_1_1.cpp)]\n [!code-vb[System.Security.Permissions.NameIdPermission#10](~/add/codesnippet/visualbasic/m-system.security.codeac_1_1.vb)]"
   syntax:
@@ -211,7 +211,7 @@ items:
     parameters:
     - id: elem
       type: System.Security.SecurityElement
-      description: "The XML encoding to use to reconstruct the security object."
+      description: "XML は、セキュリティ オブジェクトを再構築に使用するエンコーディングします。"
   overload: System.Security.CodeAccessPermission.FromXml*
   exceptions:
   - type: System.ArgumentNullException
@@ -219,7 +219,7 @@ items:
     description: "The <code>elem</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>elem</code> parameter does not contain the XML encoding for an instance of the same type as the current instance.       -or-       The version number of the <code>elem</code> parameter is not supported."
+    description: "<code> elem </code>パラメーターには、現在のインスタンスと同じ型のインスタンスの XML エンコードが含まれていません。       - または - のバージョン番号、 <code> elem </code>パラメーターはサポートされていません。"
   platform:
   - net462
 - uid: System.Security.CodeAccessPermission.GetHashCode
@@ -234,14 +234,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Gets a hash code for the <xref href=&quot;System.Security.CodeAccessPermission&quot;></xref> object that is suitable for use in hashing algorithms and data structures such as a hash table."
-  remarks: "The hash code for two instances of the same permission might be different, hence a hash code should not be used to compare two <xref:System.Security.CodeAccessPermission> objects."
+  summary: "ハッシュ コードを取得、 <xref href=&quot;System.Security.CodeAccessPermission&quot;> </xref>ハッシュ ハッシュ テーブルなどのアルゴリズムとデータ構造で使用するために適切なオブジェクトです。"
+  remarks: "同じアクセス許可の&2; つのインスタンスのハッシュ コードが異なる可能性があります、ためハッシュ コードを比較する&2; つ使用するされません<xref:System.Security.CodeAccessPermission>オブジェクト</xref:System.Security.CodeAccessPermission>。"
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "A hash code for the current <xref href=&quot;System.Security.CodeAccessPermission&quot;></xref> object."
+      description: "現在のハッシュ コード<xref href=&quot;System.Security.CodeAccessPermission&quot;></xref>オブジェクト。"
   overload: System.Security.CodeAccessPermission.GetHashCode*
   exceptions: []
   platform:
@@ -258,8 +258,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "When implemented by a derived class, creates and returns a permission that is the intersection of the current permission and the specified permission."
-  remarks: "The intersection of two permissions is a permission that describes the set of operations they both describe in common. Only a demand that passes both original permissions will pass the intersection."
+  summary: "派生クラスで実装された場合、作成し、現在のアクセス許可と指定したアクセス許可の積集合であるアクセス許可を返します。"
+  remarks: "2 つのアクセス許可の積集合は、一連の両方に共通する操作を説明する権限です。 元の両方の権限を通過する要求だけでは、積集合を渡されます。"
   example:
   - "The following code example shows an override of the Intersect method. This code example is part of a larger example provided for the <xref:System.Security.CodeAccessPermission> class.  \n  \n [!code-cs[System.Security.Permissions.NameIdPermission#5](~/add/codesnippet/csharp/m-system.security.codeac_3_1.cs)]\n [!code-cpp[System.Security.Permissions.NameIdPermission#5](~/add/codesnippet/cpp/m-system.security.codeac_3_1.cpp)]\n [!code-vb[System.Security.Permissions.NameIdPermission#5](~/add/codesnippet/visualbasic/m-system.security.codeac_3_1.vb)]"
   syntax:
@@ -267,15 +267,15 @@ items:
     parameters:
     - id: target
       type: System.Security.IPermission
-      description: "A permission to intersect with the current permission. It must be of the same type as the current permission."
+      description: "現在のアクセス許可と交差するアクセス許可。 これは、現在のアクセス許可と同じ型でなければなりません。"
     return:
       type: System.Security.IPermission
-      description: "A new permission that represents the intersection of the current permission and the specified permission. This new permission is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the intersection is empty."
+      description: "現在のアクセス許可と指定したアクセス許可の積集合を表す新しいアクセス許可。 この新しいアクセス許可は<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>積集合が空の場合。"
   overload: System.Security.CodeAccessPermission.Intersect*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>target</code> parameter is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> and is not an instance of the same class as the current permission."
+    description: "<code> target </code>パラメーターではありません<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>し、現在のアクセス許可と同じクラスのインスタンスではありません。"
   platform:
   - net462
 - uid: System.Security.CodeAccessPermission.IsSubsetOf(System.Security.IPermission)
@@ -290,7 +290,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "When implemented by a derived class, determines whether the current permission is a subset of the specified permission."
+  summary: "派生クラスで実装された場合、現在のアクセス許可、指定した権限のサブセットであるかどうかを判断します。"
   remarks: "The current permission is a subset of the specified permission if the current permission specifies a set of operations that is wholly contained by the specified permission. For example, a permission that represents access to C:\\example.txt is a subset of a permission that represents access to C:\\\\. If this method returns `true`, the current permission represents no more access to the protected resource than does the specified permission.  \n  \n The following statements are required to be `true` for all overrides of the IsSubsetOf method. *X*, *Y*, and *Z* represent custom code access permission objects that are not null references, *U* represents an unrestricted code access permission, and *N* represents an empty permission with a <xref:System.Security.Permissions.PermissionState> of <xref:System.Security.Permissions.PermissionState>.  \n  \n-   *X*.IsSubsetOf(*X*) returns `true`.  \n  \n-   *X*.IsSubsetOf(*Y*) returns the same value as *Y*.IsSubsetOf(*X*) if and only if *X* and *Y* represent the same set of permissions.  \n  \n-   If *X*.IsSubsetOf(*Y*) and *Y*.IsSubsetOf(*Z*) both return `true`, *X*.IsSubsetOf(*Z*) returns `true`.  \n  \n-   *X*.IsSubsetOf(*U*) returns `true`.  \n  \n-   *X*.IsSubsetOf(*N*) returns `false`.  \n  \n-   *N*.IsSubsetOf(*X*) returns `true`.  \n  \n If *X* and *Y* represent custom code access permission objects that are null references, *X*.IsSubsetOf(*Y*) returns `true`. If *Z* is also null, the compound set operation *X*.Union(*Y*).IsSubsetOf(*Z*) also returns `true` because the union of two null permissions is a null permission."
   example:
   - "The following code example shows an override of the IsSubsetOf method. This code example is part of a larger example provided for the <xref:System.Security.CodeAccessPermission> class.  \n  \n [!code-cs[System.Security.Permissions.NameIdPermission#4](~/add/codesnippet/csharp/m-system.security.codeac_5_1.cs)]\n [!code-cpp[System.Security.Permissions.NameIdPermission#4](~/add/codesnippet/cpp/m-system.security.codeac_5_1.cpp)]\n [!code-vb[System.Security.Permissions.NameIdPermission#4](~/add/codesnippet/visualbasic/m-system.security.codeac_5_1.vb)]"
@@ -299,15 +299,15 @@ items:
     parameters:
     - id: target
       type: System.Security.IPermission
-      description: "A permission that is to be tested for the subset relationship. This permission must be of the same type as the current permission."
+      description: "サブセットの関係をテストするのには権限です。 このアクセス許可は、現在のアクセス許可と同じ型でなければなりません。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current permission is a subset of the specified permission; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>現在のアクセス許可が指定した権限のサブセットの場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Security.CodeAccessPermission.IsSubsetOf*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>target</code> parameter is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> and is not of the same type as the current permission."
+    description: "<code> target </code>パラメーターではありません<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>と現在のアクセス許可と同じ型でもありません。"
   platform:
   - net462
 - uid: System.Security.CodeAccessPermission.PermitOnly
@@ -322,8 +322,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Prevents callers higher in the call stack from using the code that calls this method to access all resources except for the resource specified by the current instance."
-  remarks: "> [!IMPORTANT] >  The PermitOnly method should be used only to protect resources from accidental access by fully trusted code. It should not be used to protect resources from intentional misuse by untrusted code. For example, if method `A` issues a PermitOnly for a permission and then calls method `B`, method `B` can overtly override the PermitOnly by issuing an <xref:System.Security.CodeAccessPermission.Assert%2A>. The called method is always higher in the stack. Therefore, if method `B` tries to access a protected resource, the security system begins checking for permissions with it because method `B` is the immediate caller, and then walks down the stack to confirm that there is no <xref:System.Security.CodeAccessPermission.Deny%2A> or PermitOnly lower in the stack. Method `B`, which is trying to access the resource, can stop the stack walk immediately by using the <xref:System.Security.CodeAccessPermission.Assert%2A> method. In that case, the PermitOnly placed on the stack by method `A` (the calling method) is never discovered.       PermitOnly is similar to <xref:System.Security.CodeAccessPermission.Deny%2A>, in that both cause stack walks to fail when they would otherwise succeed. The difference is that <xref:System.Security.CodeAccessPermission.Deny%2A> specifies permissions that will cause the stack walk to fail, but PermitOnly specifies the only permissions that do not cause the stack walk to fail.       Call this method to ensure that your code can be used to access only the specified resources. The call to PermitOnly is effective until the calling code returns to its caller. Only one PermitOnly can be active on a frame. An attempt to call PermitOnly when an active PermitOnly exists on the frame results in a <xref:System.Security.SecurityException>. Call <xref:System.Security.CodeAccessPermission.RevertPermitOnly%2A> or <xref:System.Security.CodeAccessPermission.RevertAll%2A> to remove an active PermitOnly.       PermitOnly is ignored for a permission not granted because a demand for that permission will not succeed. However, if code lower on the call stack later calls <xref:System.Security.CodeAccessPermission.Demand%2A> for that permission, a <xref:System.Security.SecurityException> is thrown when the stack walk reaches the code that tried to call PermitOnly. This is because the code that called PermitOnly has not been granted the permission, even though it called PermitOnly for that permission. The call stack is typically represented as growing down, so that methods higher in the call stack call methods lower in the call stack."
+  summary: "呼び出し履歴の上位の呼び出し元が現在のインスタンスによって指定されたリソースを除くすべてのリソースにアクセスするには、このメソッドを呼び出すコードを使用するを防ぎます。"
+  remarks: "> [!IMPORTANT]> 完全に信頼されたコードでは、偶発的なアクセスからリソースを保護する場合にのみ PermitOnly メソッドを使用してください。 指定しないでリソースを意図的な誤用から保護する信頼されていないコードでします。 たとえば場合、メソッド`A`アクセス許可の PermitOnly を発行し、メソッドを呼び出して、 `B`、メソッド`B` <xref:System.Security.CodeAccessPermission.Assert%2A>.</xref:System.Security.CodeAccessPermission.Assert%2A>を発行することで、PermitOnly をオーバーライドできます獲得 呼び出されたメソッドは、スタック内の上位は常にします。 したがって場合、メソッド`B`保護されたリソース、セキュリティ システムへのアクセスの試行がためアクセス許可と、その確認を開始メソッド`B`直前の呼び出し元は、上下しウォークがあることを確認するスタックありません<xref:System.Security.CodeAccessPermission.Deny%2A>または PermitOnly、スタック内の下位</xref:System.Security.CodeAccessPermission.Deny%2A>。 メソッド`B`、リソースにアクセスしようとするは直ちに停止できるスタック ウォークを使用して、<xref:System.Security.CodeAccessPermission.Assert%2A>メソッド</xref:System.Security.CodeAccessPermission.Assert%2A>。 その場合は、PermitOnly スタック上に配置メソッドによって`A`(呼び出し元のメソッド) が検出されることはありません。       PermitOnly と似ています<xref:System.Security.CodeAccessPermission.Deny%2A>、それ以外の場合操作が成功すると失敗するスタック ウォークが発生する両方でその</xref:System.Security.CodeAccessPermission.Deny%2A>。 その違いは<xref:System.Security.CodeAccessPermission.Deny%2A>を指定するスタックを原因となるアクセス許可が失敗するため、説明は PermitOnly は失敗するスタック ウォークが発生しないのみのアクセス許可を指定します</xref:System.Security.CodeAccessPermission.Deny%2A>。       このメソッドを呼び出して、指定されたリソースのみにアクセスするコードを使用できることを確認してください。 PermitOnly への呼び出しは、呼び出し元のコードは、呼び出し元に返されるまで有効です。 1 つだけ PermitOnly はフレーム上でアクティブにすることはできます。 アクティブな PermitOnly は<xref:System.Security.SecurityException>。</xref:System.Security.SecurityException>フレーム結果に存在する場合は、PermitOnly を呼び出そうとすると 呼び出す<xref:System.Security.CodeAccessPermission.RevertPermitOnly%2A>または<xref:System.Security.CodeAccessPermission.RevertAll%2A>active PermitOnly を削除する</xref:System.Security.CodeAccessPermission.RevertAll%2A></xref:System.Security.CodeAccessPermission.RevertPermitOnly%2A>。       そのアクセス許可の確認要求は成功しませんので許可されていなかった権限 PermitOnly は無視されます。 ただし、コードのコール スタックを後で場合呼び出し<xref:System.Security.CodeAccessPermission.Demand%2A>そのアクセス許可、<xref:System.Security.SecurityException>スタック ウォークが PermitOnly を呼び出すしようとしたコードに達した場合にスローされます</xref:System.Security.SecurityException></xref:System.Security.CodeAccessPermission.Demand%2A>。 これは、そのアクセス許可に対して PermitOnly が呼び出されていなくても、PermitOnly を呼び出したコードに、アクセス許可が与えられていないためです。 通常、呼び出し履歴はコール スタックに呼び出し履歴の上位にあるメソッドが下位にあるメソッドを呼び出すようにダウン、成長として表されます。"
   syntax:
     content: public void PermitOnly ();
     parameters: []
@@ -331,7 +331,7 @@ items:
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "There is already an active PermitOnly for the current frame."
+    description: "現在のフレームの作業中の PermitOnly が既に存在します。"
   platform:
   - net462
 - uid: System.Security.CodeAccessPermission.RevertAll
@@ -346,8 +346,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Causes all previous overrides for the current frame to be removed and no longer in effect."
-  remarks: "If there are no overrides (<xref:System.Security.CodeAccessPermission.Assert%2A>, <xref:System.Security.CodeAccessPermission.Deny%2A>, or <xref:System.Security.CodeAccessPermission.PermitOnly%2A>) for the current frame, an <xref:System.ExecutionEngineException> is thrown."
+  summary: "現在のフレームを削除して効果で不要になったすべての以前の上書きが発生します。"
+  remarks: "上書きがない場合 (<xref:System.Security.CodeAccessPermission.Assert%2A>、 <xref:System.Security.CodeAccessPermission.Deny%2A>、または<xref:System.Security.CodeAccessPermission.PermitOnly%2A>) 現在のフレーム、<xref:System.ExecutionEngineException>がスローされます</xref:System.ExecutionEngineException></xref:System.Security.CodeAccessPermission.PermitOnly%2A></xref:System.Security.CodeAccessPermission.Deny%2A></xref:System.Security.CodeAccessPermission.Assert%2A>。"
   syntax:
     content: public static void RevertAll ();
     parameters: []
@@ -355,7 +355,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "There is no previous <xref:System.Security.CodeAccessPermission.Assert*>, <xref:System.Security.CodeAccessPermission.Deny*>, or <xref:System.Security.CodeAccessPermission.PermitOnly*> for the current frame."
+    description: "ない<> *>、 <> </> *>、または<xref:System.Security.CodeAccessPermission.PermitOnly*>現在のフレーム</xref:System.Security.CodeAccessPermission.PermitOnly*>。"
   platform:
   - net462
 - uid: System.Security.CodeAccessPermission.RevertAssert
@@ -370,8 +370,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Causes any previous <xref:System.Security.CodeAccessPermission.Assert*> for the current frame to be removed and no longer in effect."
-  remarks: "If there is no <xref:System.Security.CodeAccessPermission.Assert%2A> for the current frame, an <xref:System.ExecutionEngineException> is thrown."
+  summary: "以前のど<xref:System.Security.CodeAccessPermission.Assert*>現在のフレームを削除して効果で不要になった</xref:System.Security.CodeAccessPermission.Assert*>。"
+  remarks: "ある場合ありません<xref:System.Security.CodeAccessPermission.Assert%2A>現在のフレーム、<xref:System.ExecutionEngineException>がスローされます</xref:System.ExecutionEngineException></xref:System.Security.CodeAccessPermission.Assert%2A>。"
   syntax:
     content: public static void RevertAssert ();
     parameters: []
@@ -379,7 +379,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "There is no previous <xref:System.Security.CodeAccessPermission.Assert*> for the current frame."
+    description: "ない<xref:System.Security.CodeAccessPermission.Assert*>現在のフレーム</xref:System.Security.CodeAccessPermission.Assert*>。"
   platform:
   - net462
 - uid: System.Security.CodeAccessPermission.RevertDeny
@@ -394,8 +394,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Causes any previous <xref:System.Security.CodeAccessPermission.Deny*> for the current frame to be removed and no longer in effect."
-  remarks: "If there is no <xref:System.Security.CodeAccessPermission.Deny%2A> for the current frame, an <xref:System.ExecutionEngineException> is thrown."
+  summary: "以前のど<xref:System.Security.CodeAccessPermission.Deny*>現在のフレームを削除して効果で不要になった</xref:System.Security.CodeAccessPermission.Deny*>。"
+  remarks: "ある場合ありません<xref:System.Security.CodeAccessPermission.Deny%2A>現在のフレーム、<xref:System.ExecutionEngineException>がスローされます</xref:System.ExecutionEngineException></xref:System.Security.CodeAccessPermission.Deny%2A>。"
   syntax:
     content: public static void RevertDeny ();
     parameters: []
@@ -403,7 +403,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "There is no previous <xref:System.Security.CodeAccessPermission.Deny*> for the current frame."
+    description: "ない<xref:System.Security.CodeAccessPermission.Deny*>現在のフレーム</xref:System.Security.CodeAccessPermission.Deny*>。"
   platform:
   - net462
 - uid: System.Security.CodeAccessPermission.RevertPermitOnly
@@ -418,8 +418,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Causes any previous <xref:System.Security.CodeAccessPermission.PermitOnly*> for the current frame to be removed and no longer in effect."
-  remarks: "If there is no <xref:System.Security.CodeAccessPermission.PermitOnly%2A> for the current frame, an <xref:System.ExecutionEngineException> is thrown."
+  summary: "以前のど<xref:System.Security.CodeAccessPermission.PermitOnly*>現在のフレームを削除して効果で不要になった</xref:System.Security.CodeAccessPermission.PermitOnly*>。"
+  remarks: "ある場合ありません<xref:System.Security.CodeAccessPermission.PermitOnly%2A>現在のフレーム、<xref:System.ExecutionEngineException>がスローされます</xref:System.ExecutionEngineException></xref:System.Security.CodeAccessPermission.PermitOnly%2A>。"
   syntax:
     content: public static void RevertPermitOnly ();
     parameters: []
@@ -427,7 +427,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "There is no previous <xref:System.Security.CodeAccessPermission.PermitOnly*> for the current frame."
+    description: "ない<xref:System.Security.CodeAccessPermission.PermitOnly*>現在のフレーム</xref:System.Security.CodeAccessPermission.PermitOnly*>。"
   platform:
   - net462
 - uid: System.Security.CodeAccessPermission.ToString
@@ -442,14 +442,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Creates and returns a string representation of the current permission object."
-  remarks: "This method is useful in debugging when you need to display the permission as a string."
+  summary: "作成し、現在のアクセス許可オブジェクトの文字列表現を返します。"
+  remarks: "このメソッドは、文字列として、アクセス許可を表示する必要がある場合のデバッグに役立ちます。"
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "A string representation of the current permission object."
+      description: "現在のアクセス許可オブジェクトの文字列形式。"
   overload: System.Security.CodeAccessPermission.ToString*
   exceptions: []
   platform:
@@ -466,8 +466,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "When overridden in a derived class, creates an XML encoding of the security object and its current state."
-  remarks: "Custom code that extends security objects needs to implement the ToXml and <xref:System.Security.CodeAccessPermission.FromXml%2A> methods to make the objects security-encodable."
+  summary: "派生クラスでオーバーライドされると、セキュリティ オブジェクトと現在の状態の XML エンコードを作成します。"
+  remarks: "セキュリティ オブジェクトを拡張するカスタム コードを ToXml を実装する必要があると<xref:System.Security.CodeAccessPermission.FromXml%2A>セキュリティ encodable オブジェクトを作成する方法</xref:System.Security.CodeAccessPermission.FromXml%2A>。"
   example:
   - "The following code example shows an override of the ToXml method. This code example is part of a larger example provided for the <xref:System.Security.CodeAccessPermission> class.  \n  \n [!code-cs[System.Security.Permissions.NameIdPermission#11](~/add/codesnippet/csharp/m-system.security.codeac_4_1.cs)]\n [!code-cpp[System.Security.Permissions.NameIdPermission#11](~/add/codesnippet/cpp/m-system.security.codeac_4_1.cpp)]\n [!code-vb[System.Security.Permissions.NameIdPermission#11](~/add/codesnippet/visualbasic/m-system.security.codeac_4_1.vb)]"
   syntax:
@@ -475,7 +475,7 @@ items:
     parameters: []
     return:
       type: System.Security.SecurityElement
-      description: "An XML encoding of the security object, including any state information."
+      description: "状態情報を含む、セキュリティ オブジェクトの XML エンコード。"
   overload: System.Security.CodeAccessPermission.ToXml*
   exceptions: []
   platform:
@@ -492,8 +492,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "When overridden in a derived class, creates a permission that is the union of the current permission and the specified permission."
-  remarks: "The result of a call to Union is a permission that represents all the operations represented by both the current permission and the specified permission. Any demand that passes either permission passes their union."
+  summary: "派生クラスでオーバーライドされると、現在のアクセス許可と、指定した権限の和集合であるアクセス許可を作成します。"
+  remarks: "共用体への呼び出しの結果は、現在のアクセス許可と、指定した権限の両方で表されるすべての操作を表すアクセス許可です。 いずれかのアクセス許可に適合する要求は、その共用体を渡します。"
   example:
   - "The following code example shows an override of the Union method. This code example is part of a larger example provided for the <xref:System.Security.CodeAccessPermission> class.  \n  \n [!code-cs[System.Security.Permissions.NameIdPermission#12](~/add/codesnippet/csharp/m-system.security.codeac_2_1.cs)]\n [!code-cpp[System.Security.Permissions.NameIdPermission#12](~/add/codesnippet/cpp/m-system.security.codeac_2_1.cpp)]\n [!code-vb[System.Security.Permissions.NameIdPermission#12](~/add/codesnippet/visualbasic/m-system.security.codeac_2_1.vb)]"
   syntax:
@@ -501,15 +501,15 @@ items:
     parameters:
     - id: other
       type: System.Security.IPermission
-      description: "A permission to combine with the current permission. It must be of the same type as the current permission."
+      description: "現在のアクセス許可と結合するアクセス許可。 これは、現在のアクセス許可と同じ型でなければなりません。"
     return:
       type: System.Security.IPermission
-      description: "A new permission that represents the union of the current permission and the specified permission."
+      description: "現在のアクセス許可と、指定した権限の和集合を表す新しいアクセス許可。"
   overload: System.Security.CodeAccessPermission.Union*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The <code>other</code> parameter is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>. This method is only supported at this level when passed <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "The <code>other</code> parameter is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>. このメソッドは渡されたときに、このレベルでのみサポート<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 references:

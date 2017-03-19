@@ -17,8 +17,8 @@ items:
   nameWithType: RegexCompilationInfo
   fullName: System.Text.RegularExpressions.RegexCompilationInfo
   type: Class
-  summary: "Provides information about a regular expression that is used to compile a regular expression to a stand-alone assembly."
-  remarks: "An array of RegexCompilationInfo objects is passed to the <xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A> method to provide information about each regular expression to be included in the assembly. Each compiled regular expression that is included in the assembly is represented as a class derived from <xref:System.Text.RegularExpressions.Regex>. The properties of the RegexCompilationInfo type define the regular expression&quot;s class name, its fully qualified name (that is, its namespace and its type name), its regular expression pattern, any additional options (such as whether the regular expression is case-insensitive), and a time-out interval that specifies how long the regular expression engine should search for a match.       You can instantiate a RegexCompilationInfo object by calling its overloaded class constructor."
+  summary: "スタンドアロンのアセンブリを正規表現のコンパイルに使用される正規表現について説明します。"
+  remarks: "RegexCompilationInfo オブジェクトの配列が渡される、<xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A>各正規表現をアセンブリに含まれる情報を提供するメソッド</xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A>。 アセンブリに含まれているコンパイル済みの各正規表現は、 <xref:System.Text.RegularExpressions.Regex>。</xref:System.Text.RegularExpressions.Regex>から派生するクラスとして表されます。 RegexCompilationInfo 型のプロパティは、正規表現のクラス名、完全修飾名 (つまり、その名前空間とその型の名前)、正規表現パターン、(かどうか、正規表現が区別されません) などその他のオプションおよび、正規表現エンジンが一致を検索する必要があります期間で指定されたタイムアウト期間を定義します。       クラスのオーバー ロードされたコンス トラクターを呼び出して RegexCompilationInfo オブジェクトをインスタンス化することができます。"
   syntax:
     content: public class RegexCompilationInfo
   inheritance:
@@ -39,8 +39,8 @@ items:
   assemblies:
   - System
   namespace: System.Text.RegularExpressions
-  summary: "Initializes a new instance of the <xref href=&quot;System.Text.RegularExpressions.RegexCompilationInfo&quot;></xref> class that contains information about a regular expression to be included in an assembly."
-  remarks: "Each parameter of the RegexCompilationInfo constructor directly corresponds to a property of the <xref:System.Text.RegularExpressions.RegexCompilationInfo> class. Because all properties are read/write, their values can also be assigned directly.       The <xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A> method generates an assembly that contains compiled regular expressions. Therefore, you should not specify <xref:System.Text.RegularExpressions.RegexOptions> as one of the values of `options`.       If `ispublic` is `true`, the compiled regular expression class is given public accessibility. That is, it can be instantiated from code that executes in any assembly. If `ispublic` is `false`, the compiled regular expression class is given `internal` (in C#) or `Friend` (in Visual Basic) accessibility. That is, it can be instantiated only from code that executes in the same assembly as the regular expression class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Text.RegularExpressions.RegexCompilationInfo&quot;> </xref>アセンブリに含まれる正規表現に関する情報を格納するクラス。"
+  remarks: "RegexCompilationInfo コンス トラクターの各パラメーターは、<xref:System.Text.RegularExpressions.RegexCompilationInfo>クラス</xref:System.Text.RegularExpressions.RegexCompilationInfo>のプロパティに直接対応します。 すべてのプロパティは読み取り/書き込みであるためは、その値が直接割り当てることもできます。       <xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A>メソッドには、コンパイルされた正規表現を格納するアセンブリが生成されます</xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A>。 そのため、指定しないでください<xref:System.Text.RegularExpressions.RegexOptions>の値の&1; つとして`options`</xref:System.Text.RegularExpressions.RegexOptions>。       場合`ispublic`は`true`、コンパイルされた正規表現クラスは、パブリック アクセシビリティを指定します。 つまり、任意のアセンブリで実行するコードからインスタンス化することができます。 場合`ispublic`は`false`、コンパイルされた正規表現クラスが指定された`internal`(C# の場合) または`Friend`(Visual Basic) のアクセシビリティ。 つまり、正規表現クラスと同じアセンブリで実行するコードからのみインスタンス化することができます。"
   example:
   - "The following example creates and uses a compiled regular expression in two steps.  \n  \n In the first step, compile and execute the following code example. The RegexCompilationInfo constructor in the code example defines a compiled regular expression. The result of executing the code is an assembly named FishRegex.dll that contains a compiled regular expression type named `FishRegex`.  \n  \n [!code-cs[sys.txt.rgxCompInfo#1](~/add/codesnippet/csharp/7e273a6c-e154-4435-ab93-_1.cs)]\n [!code-vb[sys.txt.rgxCompInfo#1](~/add/codesnippet/visualbasic/7e273a6c-e154-4435-ab93-_1.vb)]  \n  \n In the second step, compile the following code example using a reference to FishRegex.dll, and then run the resulting executable file. The executable file matches a target string by using the `FishRegex` type, and displays the match, group, capture group, and index position of the matches in the target string.  \n  \n [!code-vb[sys.txt.rgxCompInfo#2](~/add/codesnippet/visualbasic/7e273a6c-e154-4435-ab93-_2.vb)]\n [!code-cs[sys.txt.rgxCompInfo#2](~/add/codesnippet/csharp/7e273a6c-e154-4435-ab93-_2.cs)]"
   syntax:
@@ -48,27 +48,27 @@ items:
     parameters:
     - id: pattern
       type: System.String
-      description: "The regular expression to compile."
+      description: "コンパイルする正規表現。"
     - id: options
       type: System.Text.RegularExpressions.RegexOptions
-      description: "The regular expression options to use when compiling the regular expression."
+      description: "正規表現をコンパイルするときに使用する正規表現のオプションです。"
     - id: name
       type: System.String
-      description: "The name of the type that represents the compiled regular expression."
+      description: "コンパイルされた正規表現を表す型の名前です。"
     - id: fullnamespace
       type: System.String
-      description: "The namespace to which the new type belongs."
+      description: "新しい型が属する名前空間。"
     - id: ispublic
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to make the compiled regular expression publicly visible; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>コンパイル済みの正規表現をパブリックに表示されるようにするにはそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Text.RegularExpressions.RegexCompilationInfo.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>name</code> is &lt;xref:System.String?displayProperty=fullName&gt;."
+    description: "<code>name</code>&lt;xref:System.String?displayProperty=fullName&gt;です。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>pattern</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>fullnamespace</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>pattern</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>fullnamespace</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Text.RegularExpressions.RegexCompilationInfo.#ctor(System.String,System.Text.RegularExpressions.RegexOptions,System.String,System.String,System.Boolean,System.TimeSpan)
@@ -83,8 +83,8 @@ items:
   assemblies:
   - System
   namespace: System.Text.RegularExpressions
-  summary: "Initializes a new instance of the <xref href=&quot;System.Text.RegularExpressions.RegexCompilationInfo&quot;></xref> class that contains information about a regular expression with a specified time-out value to be included in an assembly."
-  remarks: "Each parameter of the <xref:System.Text.RegularExpressions.RegexCompilationInfo.%23ctor%28System.String%2CSystem.Text.RegularExpressions.RegexOptions%2CSystem.String%2CSystem.String%2CSystem.Boolean%29> constructor directly corresponds to a property of the <xref:System.Text.RegularExpressions.RegexCompilationInfo> class. Because all properties are read/write, their values can also be assigned directly.       The <xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A> method generates an assembly that contains compiled regular expressions. Therefore, you should not specify <xref:System.Text.RegularExpressions.RegexOptions> as one of the values of `options`.       If `ispublic` is `true`, the compiled regular expression class is given public accessibility. That is, it can be instantiated from code that executes in any assembly. If `ispublic` is `false`, the compiled regular expression class is given `internal` (in C#) or `Friend` (in Visual Basic) accessibility. That is, it can be instantiated only from code that executes in the same assembly as the regular expression class.       The `matchTimeout` parameter defines the default time-out interval for the compiled regular expression. This value represents the approximate amount of time that a compiled regular expression object will execute a single matching operation before the operation times out and the regular expression engine throws a <xref:System.Text.RegularExpressions.RegexMatchTimeoutException> exception during its next timing check. For additional information about the time-out value, see the <xref:System.Text.RegularExpressions.RegexCompilationInfo.MatchTimeout%2A> property.      > [!IMPORTANT] >  We recommend that you always set a default time-out value for a compiled regular expression. Consumers of your regular expression library can override that time-out value by passing a <xref:System.TimeSpan> value that represents the new time-out interval to this constructor overload."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Text.RegularExpressions.RegexCompilationInfo&quot;> </xref>アセンブリに含まれる指定したタイムアウト値を持つ、正規表現に関する情報を格納するクラス。"
+  remarks: "各パラメーターの<xref:System.Text.RegularExpressions.RegexCompilationInfo.%23ctor%28System.String%2CSystem.Text.RegularExpressions.RegexOptions%2CSystem.String%2CSystem.String%2CSystem.Boolean%29>直接コンス トラクターは、<xref:System.Text.RegularExpressions.RegexCompilationInfo>クラス</xref:System.Text.RegularExpressions.RegexCompilationInfo>のプロパティに対応しています</xref:System.Text.RegularExpressions.RegexCompilationInfo.%23ctor%28System.String%2CSystem.Text.RegularExpressions.RegexOptions%2CSystem.String%2CSystem.String%2CSystem.Boolean%29> すべてのプロパティは読み取り/書き込みであるためは、その値が直接割り当てることもできます。       <xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A>メソッドには、コンパイルされた正規表現を格納するアセンブリが生成されます</xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A>。 そのため、指定しないでください<xref:System.Text.RegularExpressions.RegexOptions>の値の&1; つとして`options`</xref:System.Text.RegularExpressions.RegexOptions>。       場合`ispublic`は`true`、コンパイルされた正規表現クラスは、パブリック アクセシビリティを指定します。 つまり、任意のアセンブリで実行するコードからインスタンス化することができます。 場合`ispublic`は`false`、コンパイルされた正規表現クラスが指定された`internal`(C# の場合) または`Friend`(Visual Basic) のアクセシビリティ。 つまり、正規表現クラスと同じアセンブリで実行するコードからのみインスタンス化することができます。       `matchTimeout`パラメーターは、コンパイルされた正規表現の既定のタイムアウト間隔を定義します。 この値は概算の操作がタイムアウトになると、正規表現エンジンをスローする前に、コンパイルされた正規表現オブジェクトは&1; つの一致操作を実行する時間を表す、 <xref:System.Text.RegularExpressions.RegexMatchTimeoutException>、次のタイミング チェック中に例外です</xref:System.Text.RegularExpressions.RegexMatchTimeoutException>。 タイムアウト値の詳細については、次を参照してください、<xref:System.Text.RegularExpressions.RegexCompilationInfo.MatchTimeout%2A>プロパティ。</xref:System.Text.RegularExpressions.RegexCompilationInfo.MatchTimeout%2A> 。      > [!IMPORTANT] > 常にコンパイルされる正規表現の既定のタイムアウト値を設定することをお勧めします。 渡すことによって、正規表現ライブラリのコンシューマーがそのタイムアウト値をオーバーライドできます、<xref:System.TimeSpan>をこのコンス トラクター オーバー ロードに新しいタイムアウト間隔を表す値</xref:System.TimeSpan>。"
   example:
   - "The following example defines a single compiled regular expression named `DuplicateChars` that identifies two or more occurrences of the same character in an input string. The compiled regular expression has a default time-out of 2 seconds. When you execute the example, it creates a class library named RegexLib.dll that contains the compiled regular expression.  \n  \n [!code-cs[System.Text.RegularExpressions.RegexCompilationInfo.MatchTimeout#1](~/add/codesnippet/csharp/caa070a5-44ee-405f-81e7-_1.cs)]\n [!code-vb[System.Text.RegularExpressions.RegexCompilationInfo.MatchTimeout#1](~/add/codesnippet/visualbasic/caa070a5-44ee-405f-81e7-_1.vb)]  \n  \n The regular expression pattern `(\\w)\\1+` is defined as shown in the following table.  \n  \n|Pattern|Description|  \n|-------------|-----------------|  \n|`(\\w)`|Match any word character and assign it to the first capturing group.|  \n|`\\1+`|Match one or more occurrences of the value of the first captured group.|  \n  \n The following example uses the `DuplicatedChars` regular expression to identify duplicate characters in a string array. When it calls the `DuplicatedChars` constructor, it changes the time-out interval to .5 seconds.  \n  \n [!code-cs[System.Text.RegularExpressions.RegexCompilationInfo.MatchTimeout#2](~/add/codesnippet/csharp/caa070a5-44ee-405f-81e7-_2.cs)]\n [!code-vb[System.Text.RegularExpressions.RegexCompilationInfo.MatchTimeout#2](~/add/codesnippet/visualbasic/caa070a5-44ee-405f-81e7-_2.vb)]"
   syntax:
@@ -92,33 +92,33 @@ items:
     parameters:
     - id: pattern
       type: System.String
-      description: "The regular expression to compile."
+      description: "コンパイルする正規表現。"
     - id: options
       type: System.Text.RegularExpressions.RegexOptions
-      description: "The regular expression options to use when compiling the regular expression."
+      description: "正規表現をコンパイルするときに使用する正規表現のオプションです。"
     - id: name
       type: System.String
-      description: "The name of the type that represents the compiled regular expression."
+      description: "コンパイルされた正規表現を表す型の名前です。"
     - id: fullnamespace
       type: System.String
-      description: "The namespace to which the new type belongs."
+      description: "新しい型が属する名前空間。"
     - id: ispublic
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to make the compiled regular expression publicly visible; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>コンパイル済みの正規表現をパブリックに表示されるようにするにはそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
     - id: matchTimeout
       type: System.TimeSpan
-      description: "The default time-out interval for the regular expression."
+      description: "正規表現の既定のタイムアウト間隔です。"
   overload: System.Text.RegularExpressions.RegexCompilationInfo.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>name</code> is &lt;xref:System.String?displayProperty=fullName&gt;."
+    description: "<code>name</code>&lt;xref:System.String?displayProperty=fullName&gt;です。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>pattern</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>fullnamespace</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>pattern</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>fullnamespace</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>matchTimeout</code> is negative, zero, or greater than approximately 24 days."
+    description: "<code>matchTimeout</code>負の値、0、または約 24 日より大きい。"
   platform:
   - net462
 - uid: System.Text.RegularExpressions.RegexCompilationInfo.IsPublic
@@ -133,13 +133,13 @@ items:
   assemblies:
   - System
   namespace: System.Text.RegularExpressions
-  summary: "Gets or sets a value that indicates whether the compiled regular expression has public visibility."
-  remarks: "If the IsPublic property is `false`, the regular expression class defined by the current instance can be instantiated only by code that is executing in the assembly that contains the class. However, because the <xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A?displayProperty=fullName> method generates an assembly that contains only compiled regular expressions and does not allow additional code to be added, there is generally no reason to assign this property a value of `false`."
+  summary: "取得またはコンパイルされた正規表現がパブリックな可視性を持つかどうかを示す値を設定します。"
+  remarks: "IsPublic プロパティが場合`false`、現在のインスタンスで定義された正規表現クラスは、クラスが含まれているアセンブリで実行されているコードでのみインスタンス化できます。 ただし、ため、<xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A?displayProperty=fullName>コンパイルされる正規表現のみを含み、追加する追加のコードを許可しないアセンブリを生成するメソッド、通常、このプロパティの値を代入する必要はありません`false`</xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A?displayProperty=fullName>。"
   syntax:
     content: public bool IsPublic { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the regular expression has public visibility; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、正規表現があるパブリックな可視性です。それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Text.RegularExpressions.RegexCompilationInfo.IsPublic*
   exceptions: []
   platform:
@@ -156,15 +156,15 @@ items:
   assemblies:
   - System
   namespace: System.Text.RegularExpressions
-  summary: "Gets or sets the regular expression&quot;s default time-out interval."
-  remarks: "The MatchTimeout property defines the default time-out interval for the compiled regular expression. This value represents the approximate amount of time that a compiled regular expression will execute a single matching operation before the operation times out and the regular expression engine throws a <xref:System.Text.RegularExpressions.RegexMatchTimeoutException> exception during its next timing check.      > [!IMPORTANT] >  We recommend that you always set a default time-out value for a compiled regular expression. Consumers of your regular expression library can override that time-out value by passing a <xref:System.TimeSpan> value that represents the new time-out interval to the compiled regular expression&quot;s class constructor.       You can assign a default time-out value to a <xref:System.Text.RegularExpressions.RegexCompilationInfo> object in any of the following ways:      -   By calling the <xref:System.AppDomain.SetData%2A?displayProperty=fullName> method and providing the string representation of a <xref:System.TimeSpan> value for the &quot;REGEX_DEFAULT_MATCH_TIMEOUT&quot; property.      -   By calling the <xref:System.Text.RegularExpressions.RegexCompilationInfo.%23ctor%28System.String%2CSystem.Text.RegularExpressions.RegexOptions%2CSystem.String%2CSystem.String%2CSystem.Boolean%2CSystem.TimeSpan%29> constructor and providing a value for the `matchTimeout` parameter.      -   By setting the value of this property.       To set a reasonable time-out interval, consider the following factors:      -   The length and complexity of the regular expression pattern. Longer and more complex regular expressions require more time than shorter and simpler ones.      -   The expected machine load. Processing takes more time on systems with high CPU and memory utilization."
+  summary: "取得または正規表現の既定のタイムアウト間隔を設定します。"
+  remarks: "MatchTimeout プロパティでは、コンパイルされた正規表現の既定のタイムアウト間隔を定義します。 この値は概算の操作がタイムアウトになると、正規表現エンジンをスローする前に、コンパイルされた正規表現は単一の一致操作を実行する時間を表す、 <xref:System.Text.RegularExpressions.RegexMatchTimeoutException>、次のタイミング チェック中に例外です</xref:System.Text.RegularExpressions.RegexMatchTimeoutException>。      > [!IMPORTANT] > 常にコンパイルされる正規表現の既定のタイムアウト値を設定することをお勧めします。 渡すことによって、正規表現ライブラリのコンシューマーがそのタイムアウト値をオーバーライドできます、<xref:System.TimeSpan>コンパイルされた正規表現のクラスのコンス トラクターへの新しいタイムアウト間隔を表す値</xref:System.TimeSpan>。       既定のタイムアウト値を割り当てることができます、<xref:System.Text.RegularExpressions.RegexCompilationInfo>で、次の方法のいずれかのオブジェクト: - を呼び出して、<xref:System.AppDomain.SetData%2A?displayProperty=fullName>メソッドとの文字列表現を提供する、 <xref:System.TimeSpan>&quot;REGEX_DEFAULT_MATCH_TIMEOUT&quot;プロパティの値</xref:System.TimeSpan></xref:System.AppDomain.SetData%2A?displayProperty=fullName></xref:System.Text.RegularExpressions.RegexCompilationInfo>。      呼び出して、<xref:System.Text.RegularExpressions.RegexCompilationInfo.%23ctor%28System.String%2CSystem.Text.RegularExpressions.RegexOptions%2CSystem.String%2CSystem.String%2CSystem.Boolean%2CSystem.TimeSpan%29>コンス トラクターとの値を提供する、`matchTimeout`パラメーター</xref:System.Text.RegularExpressions.RegexCompilationInfo.%23ctor%28System.String%2CSystem.Text.RegularExpressions.RegexOptions%2CSystem.String%2CSystem.String%2CSystem.Boolean%2CSystem.TimeSpan%29> 。      -によってこのプロパティの値を設定します。       妥当なタイムアウトの間隔を設定するには、次の要因を検討してください:-の長さと複雑さ、正規表現パターンです。 時間が長く、複雑な正規表現では、短くてわかりやすいものよりも時間が必要です。      予想されるマシン負荷します。 処理では、CPU およびメモリ使用率が高いシステムでより多くの時間がかかります。"
   example:
   - "The following example defines a single compiled regular expression named `DuplicateChars` that identifies two or more occurrences of the same character in an input string. The compiled regular expression has a default time-out of 2 seconds. When you execute the example, it creates a class library named RegexLib.dll that contains the compiled regular expression.  \n  \n [!code-cs[System.Text.RegularExpressions.RegexCompilationInfo.MatchTimeout#1](~/add/codesnippet/csharp/p-system.text.regularexp_1.cs)]\n [!code-vb[System.Text.RegularExpressions.RegexCompilationInfo.MatchTimeout#1](~/add/codesnippet/visualbasic/p-system.text.regularexp_1.vb)]  \n  \n The regular expression pattern `(\\w)\\1+` is defined as shown in the following table.  \n  \n|Pattern|Description|  \n|-------------|-----------------|  \n|`(\\w)`|Match any word character and assign it to the first capturing group.|  \n|`\\1+`|Match one or more occurrences of the value of the first captured group.|  \n  \n The following example uses the `DuplicatedChars` regular expression to identify duplicate characters in a string array. When it calls the `DuplicatedChars` constructor, it changes the time-out interval to .5 seconds.  \n  \n [!code-cs[System.Text.RegularExpressions.RegexCompilationInfo.MatchTimeout#2](~/add/codesnippet/csharp/p-system.text.regularexp_2.cs)]\n [!code-vb[System.Text.RegularExpressions.RegexCompilationInfo.MatchTimeout#2](~/add/codesnippet/visualbasic/p-system.text.regularexp_2.vb)]"
   syntax:
     content: public TimeSpan MatchTimeout { get; set; }
     return:
       type: System.TimeSpan
-      description: "The default maximum time interval that can elapse in a pattern-matching operation before a <xref:System.Text.RegularExpressions.RegexMatchTimeoutException> is thrown, or &lt;xref:System.Text.RegularExpressions.Regex.InfiniteMatchTimeout?displayProperty=fullName&gt; if time-outs are disabled."
+      description: "前に、のパターン マッチング操作で経過できる既定の最大時間間隔、<xref:System.Text.RegularExpressions.RegexMatchTimeoutException>スローされると、または&lt;xref:System.Text.RegularExpressions.Regex.InfiniteMatchTimeout?displayProperty=fullName&gt;タイムアウトが無効になっている場合</xref:System.Text.RegularExpressions.RegexMatchTimeoutException>。"
   overload: System.Text.RegularExpressions.RegexCompilationInfo.MatchTimeout*
   exceptions: []
   platform:
@@ -181,21 +181,21 @@ items:
   assemblies:
   - System
   namespace: System.Text.RegularExpressions
-  summary: "Gets or sets the name of the type that represents the compiled regular expression."
-  remarks: "The <xref:System.Text.RegularExpressions.RegexCompilationInfo> class is used to define a compiled regular expression, which is represented as a class derived from <xref:System.Text.RegularExpressions.Regex>. The Name property defines the class name of the regular expression type, and the <xref:System.Text.RegularExpressions.RegexCompilationInfo.Namespace%2A> and Name properties together define its fully qualified name."
+  summary: "取得またはコンパイルされた正規表現を表す型の名前を設定します。"
+  remarks: "<xref:System.Text.RegularExpressions.RegexCompilationInfo> <xref:System.Text.RegularExpressions.Regex>。</xref:System.Text.RegularExpressions.Regex>から派生するクラスとして表されますが、コンパイルされた正規表現を定義するクラスを使用</xref:System.Text.RegularExpressions.RegexCompilationInfo>する Name プロパティが、正規表現型のクラス名を定義し、<xref:System.Text.RegularExpressions.RegexCompilationInfo.Namespace%2A>し、名前のプロパティは一緒に、完全修飾名を定義します</xref:System.Text.RegularExpressions.RegexCompilationInfo.Namespace%2A>。"
   syntax:
     content: public string Name { get; set; }
     return:
       type: System.String
-      description: "The name of the new type."
+      description: "新しい型の名前です。"
   overload: System.Text.RegularExpressions.RegexCompilationInfo.Name*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value for this property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "このプロパティの値は<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value for this property is an empty string."
+    description: "このプロパティの値は、空の文字列です。"
   platform:
   - net462
 - uid: System.Text.RegularExpressions.RegexCompilationInfo.Namespace
@@ -210,18 +210,18 @@ items:
   assemblies:
   - System
   namespace: System.Text.RegularExpressions
-  summary: "Gets or sets the namespace to which the new type belongs."
-  remarks: "The <xref:System.Text.RegularExpressions.RegexCompilationInfo> class is used to define a compiled regular expression, which is represented as a class derived from <xref:System.Text.RegularExpressions.Regex>. The Namespace property defines the namespace that contains the compiled regular expression type, and the Namespace and <xref:System.Text.RegularExpressions.RegexCompilationInfo.Name%2A> properties together define its fully qualified name."
+  summary: "取得または新しい型が属する名前空間を設定します。"
+  remarks: "<xref:System.Text.RegularExpressions.RegexCompilationInfo> <xref:System.Text.RegularExpressions.Regex>。</xref:System.Text.RegularExpressions.Regex>から派生するクラスとして表されますが、コンパイルされた正規表現を定義するクラスを使用</xref:System.Text.RegularExpressions.RegexCompilationInfo>する Namespace プロパティを定義、コンパイルされた正規表現の種類、および、Namespace を含む名前空間と<xref:System.Text.RegularExpressions.RegexCompilationInfo.Name%2A>プロパティが同時に、完全修飾名を定義します</xref:System.Text.RegularExpressions.RegexCompilationInfo.Name%2A>。"
   syntax:
     content: public string Namespace { get; set; }
     return:
       type: System.String
-      description: "The namespace of the new type."
+      description: "新しい型の名前空間です。"
   overload: System.Text.RegularExpressions.RegexCompilationInfo.Namespace*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value for this property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "このプロパティの値は<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Text.RegularExpressions.RegexCompilationInfo.Options
@@ -236,13 +236,13 @@ items:
   assemblies:
   - System
   namespace: System.Text.RegularExpressions
-  summary: "Gets or sets the options to use when compiling the regular expression."
-  remarks: "The <xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A> method generates an assembly that contains compiled regular expressions. Therefore, you do not have to specify <xref:System.Text.RegularExpressions.RegexOptions> as one of the values of this property. If it is present, the <xref:System.Text.RegularExpressions.RegexOptions> option is ignored."
+  summary: "取得または正規表現をコンパイルするときに使用するオプションを設定します。"
+  remarks: "<xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A>メソッドには、コンパイルされた正規表現を格納するアセンブリが生成されます</xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A>。 そのためを指定する必要はいない<xref:System.Text.RegularExpressions.RegexOptions>としてこのプロパティの値のいずれか</xref:System.Text.RegularExpressions.RegexOptions>。 これが存在する場合、<xref:System.Text.RegularExpressions.RegexOptions>オプションは無視されます</xref:System.Text.RegularExpressions.RegexOptions>。"
   syntax:
     content: public System.Text.RegularExpressions.RegexOptions Options { get; set; }
     return:
       type: System.Text.RegularExpressions.RegexOptions
-      description: "A bitwise combination of the enumeration values."
+      description: "列挙値のビットごとの組み合わせ。"
   overload: System.Text.RegularExpressions.RegexCompilationInfo.Options*
   exceptions: []
   platform:
@@ -259,18 +259,18 @@ items:
   assemblies:
   - System
   namespace: System.Text.RegularExpressions
-  summary: "Gets or sets the regular expression to compile."
-  remarks: "The Pattern property can contain any valid regular expression. If the value of the Pattern property is not a syntactically correct regular expression pattern, the call to the <xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A> method throws an <xref:System.ArgumentException>."
+  summary: "取得またはコンパイルする正規表現を設定します。"
+  remarks: "パターン プロパティは、任意の有効な正規表現を含めることができます。 パターンのプロパティの値が正しい構文の正規表現パターンでは、<xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A>メソッドはスロー <xref:System.ArgumentException>。</xref:System.ArgumentException></xref:System.Text.RegularExpressions.Regex.CompileToAssembly%2A>への呼び出しではない場合"
   syntax:
     content: public string Pattern { get; set; }
     return:
       type: System.String
-      description: "The regular expression to compile."
+      description: "コンパイルする正規表現。"
   overload: System.Text.RegularExpressions.RegexCompilationInfo.Pattern*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value for this property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "このプロパティの値は<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 references:

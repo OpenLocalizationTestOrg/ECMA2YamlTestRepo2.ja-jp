@@ -11,8 +11,8 @@ items:
   nameWithType: EnlistmentOptions
   fullName: System.Transactions.EnlistmentOptions
   type: Enum
-  summary: "Determines whether the object should be enlisted during the prepare phase."
-  remarks: "This enumeration is passed into the <xref:System.Transactions.Transaction.EnlistVolatile%2A> and <xref:System.Transactions.Transaction.EnlistDurable%2A> and methods to notify the transaction manager whether the resource manager needs to create another enlistment during the Prepare phase. For more information on enlistment, see [Enlisting Resources as Participants in a Transaction](http://msdn.microsoft.com/en-us/7bf66ce7-4190-4910-89d7-df4ad43e9f31).       If EnlistDuringPrepareRequired is specified during enlistment, the resource manager indicates that it wants to receive a Prepare notification while new enlistments are still allowed for the transaction. A resource manager who acts as a cache for another durable resource, such as a backend database, would probably use this option during enlistment. When the caching resource gets its Prepare notification, it transfers its content to the durable resource. By doing so, the durable resource enlists on the transaction to become a participant of the 2 Phase Commit (2PC) protocol. Before this happens, only the caching resource (not the durable resource) was enlisted.       If None is specified, the enlistment indicates that it will not receive a Prepare notification until it is too late to create new enlistments in 2PC. In our preceding scenario, if a caching resource specifies this option during enlistment, and attempts to flush its cache during the Prepare notification, the durable resource gets an exception when it attempts on enlisting since it is too late.       None should be used as a default."
+  summary: "オブジェクトが準備フェーズ中に参加させるかどうかを判断します。"
+  remarks: "この列挙体に渡される、<xref:System.Transactions.Transaction.EnlistVolatile%2A>と<xref:System.Transactions.Transaction.EnlistDurable%2A>およびリソース マネージャーが準備フェーズ中に別の参加リストを作成する必要があるかどうかをトランザクション マネージャーに通知するメソッド</xref:System.Transactions.Transaction.EnlistDurable%2A></xref:System.Transactions.Transaction.EnlistVolatile%2A>。 参加リストの詳細については、次を参照してください。[リソースをトランザクションの参加者として参加](http://msdn.microsoft.com/en-us/7bf66ce7-4190-4910-89d7-df4ad43e9f31)です。       EnlistDuringPrepareRequired は参加処理中に指定する場合、リソース マネージャーでは、通知を準備する新しい参加リストがトランザクションの許可が必要であることを示します。 バックエンド データベースなどの別の持続性のあるリソースのキャッシュとして機能するリソース マネージャーでは、参加処理中には、このオプションを使用可能性があります。 キャッシュのリソースでは、その準備通知を取得、ときに、持続性のあるリソースへのコンテンツを転送します。 これにより、永続的なリソースは、2 フェーズ コミット (2 pc) プロトコルの参加者がトランザクションに参加します。 以前は、キャッシュのリソース (持続性のあるリソースではなく) のみが参加します。       指定されていない場合、参加リストは、2 pc で新しい参加リストを作成するには遅すぎますまで準備通知を受信はことを示します。 この前のシナリオではキャッシュ リソース参加中に、このオプションを指定して準備通知中にそのキャッシュをフラッシュしようとすると、持続性のあるリソースを取得例外は遅すぎますためにを参加させることを試みるときにします。       既定では、[なし] を使用してください。"
   syntax:
     content: >-
       [System.Flags]
@@ -34,12 +34,12 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "The object must enlist during the initial phase of the commitment process."
+  summary: "オブジェクトは、コミット プロセスの最初のフェーズ中に参加する必要があります。"
   syntax:
     content: EnlistDuringPrepareRequired
     return:
       type: System.Transactions.EnlistmentOptions
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -55,12 +55,12 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "The object does not require enlistment during the initial phase of the commitment process."
+  summary: "オブジェクトには、コミット プロセスの初期フェーズの間の登録は不要です。"
   syntax:
     content: None
     return:
       type: System.Transactions.EnlistmentOptions
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462

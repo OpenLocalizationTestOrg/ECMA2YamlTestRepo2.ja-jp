@@ -13,8 +13,8 @@ items:
   nameWithType: ResolveEventArgs
   fullName: System.ResolveEventArgs
   type: Class
-  summary: "Provides data for loader resolution events, such as the <xref href=&quot;System.AppDomain.TypeResolve&quot;></xref>, <xref href=&quot;System.AppDomain.ResourceResolve&quot;></xref>, <xref href=&quot;System.AppDomain.ReflectionOnlyAssemblyResolve&quot;></xref>, and <xref href=&quot;System.AppDomain.AssemblyResolve&quot;></xref> events."
-  remarks: "When the loader cannot resolve an assembly reference and a handler has been provided for the appropriate loader resolution event, the event is raised and the ResolveEventArgs contains information about the item to be resolved.      -   The <xref:System.ResolveEventArgs.Name%2A> property contains the name of the item to be resolved.      -   Beginning with the [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)], the <xref:System.ResolveEventArgs.RequestingAssembly%2A> property contains the assembly that requested an assembly that can provide the named item. For more information, see the <xref:System.ResolveEventArgs.RequestingAssembly%2A> property."
+  summary: "イベントを提供データ ローダーの解像度、ように、 <xref href=&quot;System.AppDomain.TypeResolve&quot;> </xref>、 <xref href=&quot;System.AppDomain.ResourceResolve&quot;> </xref>、 <xref href=&quot;System.AppDomain.ReflectionOnlyAssemblyResolve&quot;> </xref>、および<xref href=&quot;System.AppDomain.AssemblyResolve&quot;></xref>イベント。"
+  remarks: "ときに、ローダーは、アセンブリ参照とハンドラーとされている、適切なローダーの解像度イベントのイベントが発生し、ResolveEventArgs には、解決する項目に関する情報が含まれています。 解決できません。      -<xref:System.ResolveEventArgs.Name%2A>プロパティに解決するアイテムの名前が含まれています</xref:System.ResolveEventArgs.Name%2A>。      -で始まる、 [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)]、<xref:System.ResolveEventArgs.RequestingAssembly%2A>プロパティには、要求された名前付きの項目を提供できるアセンブリのアセンブリが含まれています</xref:System.ResolveEventArgs.RequestingAssembly%2A>。 詳細については、次を参照してください、<xref:System.ResolveEventArgs.RequestingAssembly%2A>プロパティ。</xref:System.ResolveEventArgs.RequestingAssembly%2A> 。"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -38,14 +38,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Initializes a new instance of the <xref href=&quot;System.ResolveEventArgs&quot;></xref> class, specifying the name of the item to resolve."
-  remarks: "This constructor is typically called only by the common language runtime."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ResolveEventArgs&quot;> </xref>クラス、解決するのには、項目の名前を指定します。"
+  remarks: "このコンス トラクターは通常、共通言語ランタイムによってのみ呼び出されます。"
   syntax:
     content: public ResolveEventArgs (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of an item to resolve."
+      description: "解決するのには項目の名前。"
   overload: System.ResolveEventArgs.#ctor*
   exceptions: []
   platform:
@@ -62,16 +62,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Initializes a new instance of the <xref href=&quot;System.ResolveEventArgs&quot;></xref> class, specifying the name of the item to resolve and the assembly whose dependency is being resolved."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ResolveEventArgs&quot;> </xref>クラス、解決するのには、アイテムと依存関係が解決されるアセンブリの名前を指定します。"
   syntax:
     content: public ResolveEventArgs (string name, System.Reflection.Assembly requestingAssembly);
     parameters:
     - id: name
       type: System.String
-      description: "The name of an item to resolve."
+      description: "解決するのには項目の名前。"
     - id: requestingAssembly
       type: System.Reflection.Assembly
-      description: "The assembly whose dependency is being resolved."
+      description: "依存関係が解決されるアセンブリ。"
   overload: System.ResolveEventArgs.#ctor*
   exceptions: []
   platform:
@@ -88,13 +88,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Gets the name of the item to resolve."
-  remarks: "For the <xref:System.AppDomain.AssemblyResolve> event, Name is the assembly name before policy is applied."
+  summary: "解決するのには、項目の名前を取得します。"
+  remarks: "<xref:System.AppDomain.AssemblyResolve>、イベント名は、アセンブリ名ポリシーが適用される前にします</xref:System.AppDomain.AssemblyResolve>。"
   syntax:
     content: public string Name { get; }
     return:
       type: System.String
-      description: "The name of the item to resolve."
+      description: "解決するのには、項目の名前。"
   overload: System.ResolveEventArgs.Name*
   exceptions: []
   platform:
@@ -111,13 +111,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Gets the assembly whose dependency is being resolved."
-  remarks: "The assembly that is returned by this property is an assembly that was unable to resolve the item specified by the <xref:System.ResolveEventArgs.Name%2A> property, because the item did not exist in that assembly, in any of its loaded dependencies, or in any dependencies the loader could find through probing.       For example, suppose the current assembly uses the <xref:System.Reflection.Assembly.LoadFile%2A?displayProperty=fullName> method to load assembly A from a directory outside the probing path, in order to use class CA. Suppose further that class CA uses class CB, in assembly B, and that assembly A has a compile-time reference to assembly B, also located outside the probing path. When the current assembly attempts to instantiate CA, the loader attempts to resolve the reference to assembly B. However, because assembly A was loaded by using the <xref:System.Reflection.Assembly.LoadFile%2A?displayProperty=fullName> method, the loader cannot resolve the dependency. If there is a handler for the <xref:System.AppDomain.AssemblyResolve?displayProperty=fullName> event, the event is raised, and the RequestingAssembly property of the resulting <xref:System.ResolveEventArgs> object contains assembly A, because assembly A is the assembly that is missing a dependency.       The semantics of the RequestingAssembly property vary, depending on how the requesting assembly was loaded:      -   Load context: The value of the property might be `null`. The load context is load-order independent, and the identity of the requesting assembly is not necessarily meaningful. A non-null example occurs when the <xref:System.Type.GetType%2A?displayProperty=fullName> method is called and the specified type is not known to the requesting assembly or any of its dependencies.      -   Load-from context: The property can be used as a probing hint, but the event handler should not get more than one request for a given assembly name.      -   No context (that is, the requesting assembly was loaded by using the <xref:System.Reflection.Assembly.LoadFile%2A?displayProperty=fullName> method, or as a byte stream, or in mixed mode): The handler can use the RequestingAssembly property to load different implementations of the same assembly based on the identity of the requesting assembly."
+  summary: "依存関係が解決されるアセンブリを取得します。"
+  remarks: "このプロパティによって返されたアセンブリはアセンブリで指定した項目を解決できなかった、<xref:System.ResolveEventArgs.Name%2A>プロパティ、そのアセンブリ内の項目が存在しないため、読み込まれた依存関係や依存関係、ローダーが見つかりませんでしたプローブによる</xref:System.ResolveEventArgs.Name%2A>。       たとえば、現在のアセンブリは、<xref:System.Reflection.Assembly.LoadFile%2A?displayProperty=fullName>クラス CA を使用するために、ディレクトリのプローブ パスの外側からアセンブリ A を読み込みます</xref:System.Reflection.Assembly.LoadFile%2A?displayProperty=fullName>。 さらにそのクラスの CA は、クラス CB を使用するとアセンブリ B、およびアセンブリ A が B のアセンブリへのコンパイル時参照も外にありますプローブ パス。 現在のアセンブリでは、CA のインスタンスを作成しようとして、ローダーとしようと B. のアセンブリへの参照を解決するのにはただし、アセンブリ A を使用して読み込まれたため、<xref:System.Reflection.Assembly.LoadFile%2A?displayProperty=fullName>メソッド、ローダーは、依存関係を解決することはできません</xref:System.Reflection.Assembly.LoadFile%2A?displayProperty=fullName>。 ハンドラーがある場合、<xref:System.AppDomain.AssemblyResolve?displayProperty=fullName>イベント、イベントが発生して、その結果の RequestingAssembly プロパティ<xref:System.ResolveEventArgs>オブジェクトは、アセンブリ A を含む、アセンブリ A は、アセンブリでは、依存関係がありません</xref:System.ResolveEventArgs></xref:System.AppDomain.AssemblyResolve?displayProperty=fullName>。       要求元のアセンブリが読み込まれた方法によって、RequestingAssembly プロパティのセマンティクスが異なります:-読み込みコンテキスト: プロパティの値があります`null`です。 読み込みコンテキストは、要求 id と読み込み順序に関係なく、アセンブリは必ずしも意味のあるではありません。 Null 以外の使用例が発生したときに、<xref:System.Type.GetType%2A?displayProperty=fullName>メソッドが呼び出され、要求元のアセンブリまたはその依存関係のいずれかを指定した型が不明です</xref:System.Type.GetType%2A?displayProperty=fullName>。      読み込み元コンテキスト: プロパティは、プローブのヒントとして使用できますが、イベント ハンドラーが指定されたアセンブリ名の&1; つ以上の要求を取得できません。      -コンテキスト (を使用して要求元のアセンブリが読み込まれた、<xref:System.Reflection.Assembly.LoadFile%2A?displayProperty=fullName>メソッド、バイト ストリーム、または混在モードで): ハンドラーは、要求元のアセンブリの id に基づく、同じアセンブリの異なる実装を読み込むには RequestingAssembly プロパティを使用しています</xref:System.Reflection.Assembly.LoadFile%2A?displayProperty=fullName>。"
   syntax:
     content: public System.Reflection.Assembly RequestingAssembly { get; }
     return:
       type: System.Reflection.Assembly
-      description: "The assembly that requested the item specified by the <xref:System.ResolveEventArgs.Name*> property."
+      description: "指定した項目を要求したアセンブリ、<xref:System.ResolveEventArgs.Name*>プロパティ</xref:System.ResolveEventArgs.Name*>。"
   overload: System.ResolveEventArgs.RequestingAssembly*
   exceptions: []
   platform:

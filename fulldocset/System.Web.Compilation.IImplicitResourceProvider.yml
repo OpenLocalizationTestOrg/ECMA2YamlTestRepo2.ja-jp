@@ -11,8 +11,8 @@ items:
   nameWithType: IImplicitResourceProvider
   fullName: System.Web.Compilation.IImplicitResourceProvider
   type: Interface
-  summary: "Defines methods a class implements to act as an implicit resource provider."
-  remarks: "Resources can be declared explicitly or implicitly within a page. Implicit resources allow the developer to assign a collection of resource values to a control in one statement rather than assigning each value individually. When the page parser encounters an implicit resource in the form of `meta:resourcekey=&quot;WelcomeLabel&quot;`, it assigns all the values with the `WelcomeLabel` resource key prefix to the corresponding values in the control. For example, if a resource file defines values for `WelcomeLabel.Text` and `WelcomeLabel.ToolTip`, those values would be assigned to a `Label` control with an implicit reference to `WelcomeLabel`.       The IImplicitResourceProvider interface defines the methods a resource provider implements to access implicit resources. You can obtain a particular value using the <xref:System.Web.Compilation.IImplicitResourceProvider.GetObject%2A> method.       If you create a custom resource provider, you do not need to provide customized support for implicit resource localization. Implicit localization will work with your resource provider."
+  summary: "暗黙のリソース プロバイダーとして機能するクラスを実装するメソッドを定義します。"
+  remarks: "リソースは、ページ内で明示的または暗黙的に宣言できます。 暗黙的なリソースを使用すると、開発者がそれぞれの値を個別に割り当てるのではなく、1 つのステートメントに制御するリソース値のコレクションを割り当てます。 ページのパーサーがの形式で暗黙のリソースを検出すると`meta:resourcekey=&quot;WelcomeLabel&quot;`を持つすべての値が割り当てられます、`WelcomeLabel`リソース コントロール内の対応する値のキーのプレフィックス。 リソース ファイルの値を定義する場合など、`WelcomeLabel.Text`と`WelcomeLabel.ToolTip`、それらの値に割り当てられます、`Label`への暗黙的な参照を持つコントロール`WelcomeLabel`です。       IImplicitResourceProvider インターフェイスは、暗黙的なリソースにアクセスするリソース プロバイダーを実装するメソッドを定義します。 使用して、特定の値を取得することができます、<xref:System.Web.Compilation.IImplicitResourceProvider.GetObject%2A>メソッド</xref:System.Web.Compilation.IImplicitResourceProvider.GetObject%2A>。       カスタム リソース プロバイダーを作成する場合は、暗黙のリソースのローカライズ用カスタムのサポートを提供する必要はありません。 暗黙のローカリゼーションには、リソース プロバイダーが機能します。"
   syntax:
     content: public interface IImplicitResourceProvider
   implements: []
@@ -30,17 +30,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets a collection of implicit resource keys as specified by the prefix."
-  remarks: "When implemented, the method returns a collection of implicit resource keys for a particular prefix. For example, `WelcomeLabel` is specified as the prefix in the expression `meta:resourcekey=&quot;WelcomeLabel&quot;`. Any properties in a local resource file with `WelcomeLabel` as a prefix should be returned with this method."
+  summary: "プレフィックスで指定された暗黙のリソース キーのコレクションを取得します。"
+  remarks: "実装された場合、メソッドは、特定のプレフィックスに暗黙のリソース キーのコレクションを返します。 たとえば、`WelcomeLabel`式にプレフィックスとして指定された`meta:resourcekey=&quot;WelcomeLabel&quot;`です。 ローカル リソース ファイルでプロパティ`WelcomeLabel`ように、プレフィックスは、このメソッドで返される必要があります。"
   syntax:
     content: public System.Collections.ICollection GetImplicitResourceKeys (string keyPrefix);
     parameters:
     - id: keyPrefix
       type: System.String
-      description: "The prefix of the implicit resource keys to be collected."
+      description: "収集する暗黙のリソース キーのプレフィックス。"
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> of implicit resource keys."
+      description: "<xref:System.Collections.ICollection>の暗黙のリソース キー</xref:System.Collections.ICollection> 。"
   overload: System.Web.Compilation.IImplicitResourceProvider.GetImplicitResourceKeys*
   exceptions: []
   platform:
@@ -57,20 +57,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets an object representing the value of the specified resource key."
-  remarks: "When implemented, the method returns the object for the value represented by the implicit resource key."
+  summary: "指定されたリソース キーの値を表すオブジェクトを取得します。"
+  remarks: "実装された場合、メソッドは、暗黙のリソース キーによって表される値のオブジェクトを返します。"
   syntax:
     content: public object GetObject (System.Web.Compilation.ImplicitResourceKey key, System.Globalization.CultureInfo culture);
     parameters:
     - id: key
       type: System.Web.Compilation.ImplicitResourceKey
-      description: "The resource key containing the prefix, filter, and property."
+      description: "プレフィックス、フィルター、およびプロパティを含むリソース キー。"
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "The <xref:System.Globalization.CultureInfo> that represents the culture for which the resource is localized."
+      description: "<xref:System.Globalization.CultureInfo>リソースのローカライズ カルチャを表す</xref:System.Globalization.CultureInfo>。"
     return:
       type: System.Object
-      description: "An <xref:System.Object> representing the localized value of an implicit resource key."
+      description: "<xref:System.Object>暗黙のリソース キーのローカライズされた値を表すします</xref:System.Object>。"
   overload: System.Web.Compilation.IImplicitResourceProvider.GetObject*
   exceptions: []
   platform:

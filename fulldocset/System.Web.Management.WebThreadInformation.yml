@@ -14,8 +14,8 @@ items:
   nameWithType: WebThreadInformation
   fullName: System.Web.Management.WebThreadInformation
   type: Class
-  summary: "Provides information about the state of a thread in an ASP.NET process."
-  remarks: "ASP.NET health monitoring allows production and operations staff to manage deployed Web applications. The <xref:System.Web.Management> namespace contains the health-event types responsible for packaging application health-status data and the provider types responsible for processing this data. It also contains supporting types that help during the management of health events.       Instances of the WebThreadInformation class contain information that is obtained using either the <xref:System.Web.Management.WebErrorEvent> type or the <xref:System.Web.Management.WebRequestErrorEvent> type.       Your application needs the appropriate permissions to access protected information provided by this type.      > [!NOTE] >  In most cases you will be able to use the ASP.NET health-monitoring types as implemented, and you will control the health-monitoring system by specifying values in the `healthMonitoring` configuration section. You can also derive from the health-monitoring types to create your own custom events and providers. For an example of creating a custom event class, see the example provided in this topic."
+  summary: "ASP.NET プロセス内のスレッドの状態に関する情報を提供します。"
+  remarks: "配置済みの Web アプリケーションの管理を運用環境と運用スタッフは、ASP.NET の状態監視できます。 <xref:System.Web.Management>名前空間には、アプリケーションの正常性状態のデータおよびプロバイダーの種類は、このデータ処理をパッケージ化する正常性イベントの種類が含まれています</xref:System.Web.Management>。 正常性イベントの管理を支援するサポート型も含まれています。       WebThreadInformation クラスのインスタンスには、いずれかを使用して取得される情報が含まれて、<xref:System.Web.Management.WebErrorEvent>型または<xref:System.Web.Management.WebRequestErrorEvent>型です</xref:System.Web.Management.WebRequestErrorEvent></xref:System.Web.Management.WebErrorEvent>。       アプリケーションでは、この型によって提供される保護された情報にアクセスする適切なアクセス許可が必要です。      > [!NOTE] > ほとんどの場合はできる実装されると、ASP.NET の稼働状況の監視の種類を使用して、内の値を指定することで、稼働状況の監視システムを制御する、`healthMonitoring`構成セクション。 独自のカスタム イベントおよびプロバイダーを作成する正常性の監視の種類からも派生できます。 カスタム イベント クラスの作成の例は、このトピックで例を参照してください。"
   example:
   - "The following code example has two parts. The first is an excerpt of a configuration file that enables ASP.NET to use a custom event that uses the WebThreadInformation type. The second shows how to implement the custom event that uses the WebThreadInformation type.  \n  \n Ensure that your custom event is raised at the proper time, that is, when the equivalent system health event it replaces would be raised.  \n  \n```  \n<healthMonitoring  \n    heartBeatInterval=\"0\" enabled=\"true\">  \n  \n  <profiles>  \n    <add name=\"Custom\"   \n      minInstances=\"1\"   \n      maxLimit=\"Infinite\"   \n      minInterval=\"00:00:00\" />  \n  </profiles>  \n  \n  <eventMappings>  \n  \n    <add   \n      name=\"SampleWebThreadInformation\"   \ntype=\"SamplesAspNet.SampleWebThreadInformation,webthreadinformation, Version=1.0.1782.29648, Culture=neutral, PublicKeyToken=b3283a2de7dd3f27, processorArchitecture=MSIL\" />  \n  \n  </eventMappings>  \n  \n  <rules>  \n  \n    <add name=\"Custom Web Thread Info Event\"   \n      eventName=\"SampleWebThreadInformation\"   \n      provider=\"EventLogProvider\"  \n      profile=\"Custom\" />  \n  \n  </rules>  \n  \n</healthMonitoring>  \n```  \n  \n [!code-cs[System.Web.Management.WebThreadInformation#1](~/add/codesnippet/csharp/t-system.web.management._17_1.cs)]\n [!code-vb[System.Web.Management.WebThreadInformation#1](~/add/codesnippet/visualbasic/t-system.web.management._17_1.vb)]"
   syntax:
@@ -38,8 +38,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Formats thread-related information."
-  remarks: "The FormatToString method provides a uniform format for event information, which is useful if the event data must be logged and later presented to the user. It is called internally when the provider invokes one of the <xref:System.Web.Management.WebBaseEvent.ToString%2A> methods."
+  summary: "スレッドに関連する情報を書式設定します。"
+  remarks: "FormatToString メソッドは、イベントについては、イベント データをログに記録され後で、ユーザーに提示する必要がある場合に便利です、同一の形式を提供します。 プロバイダーは、のいずれかを呼び出したときに内部的に呼び出されます、<xref:System.Web.Management.WebBaseEvent.ToString%2A>メソッド</xref:System.Web.Management.WebBaseEvent.ToString%2A>。"
   example:
   - "The following code example shows how to format custom information.  \n  \n [!code-cs[System.Web.Management.WebThreadInformation#8](~/add/codesnippet/csharp/3f4138bf-4e4f-4608-8d65-_1.cs)]\n [!code-vb[System.Web.Management.WebThreadInformation#8](~/add/codesnippet/visualbasic/3f4138bf-4e4f-4608-8d65-_1.vb)]"
   syntax:
@@ -47,7 +47,7 @@ items:
     parameters:
     - id: formatter
       type: System.Web.Management.WebEventFormatter
-      description: "The <xref href=&quot;System.Web.Management.WebEventFormatter&quot;></xref> that contains the tab and indentation settings used to format the Web health event information."
+      description: "<xref href=&quot;System.Web.Management.WebEventFormatter&quot;> </xref> Web 状態のイベント情報を書式設定に使用タブとインデントの設定値を格納します。"
   overload: System.Web.Management.WebThreadInformation.FormatToString*
   exceptions: []
   platform:
@@ -64,7 +64,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the current thread-impersonation mode."
+  summary: "現在のスレッドの権限借用モードを取得します。"
   remarks: ''
   example:
   - "The following code example shows how to get the thread-impersonation mode.  \n  \n [!code-cs[System.Web.Management.WebThreadInformation#4](~/add/codesnippet/csharp/p-system.web.management._11_1.cs)]\n [!code-vb[System.Web.Management.WebThreadInformation#4](~/add/codesnippet/visualbasic/p-system.web.management._11_1.vb)]"
@@ -72,7 +72,7 @@ items:
     content: public bool IsImpersonating { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the thread is executing in impersonation mode; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>スレッドは、権限借用モードで実行されている場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.Management.WebThreadInformation.IsImpersonating*
   exceptions: []
   platform:
@@ -89,7 +89,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the current thread-managed stack trace."
+  summary: "現在のスレッドで管理されたスタック トレースを取得します。"
   remarks: ''
   example:
   - "The following code example shows how to get the thread stack trace.  \n  \n [!code-cs[System.Web.Management.WebThreadInformation#5](~/add/codesnippet/csharp/p-system.web.management._22_1.cs)]\n [!code-vb[System.Web.Management.WebThreadInformation#5](~/add/codesnippet/visualbasic/p-system.web.management._22_1.vb)]"
@@ -97,7 +97,7 @@ items:
     content: public string StackTrace { get; }
     return:
       type: System.String
-      description: "The thread-managed stack trace."
+      description: "スレッドで管理されたスタック トレース。"
   overload: System.Web.Management.WebThreadInformation.StackTrace*
   exceptions: []
   platform:
@@ -114,15 +114,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the thread account name."
-  remarks: "The account returned by this property might be arbitrary if the thread is executing in impersonation mode."
+  summary: "スレッド アカウント名を取得します。"
+  remarks: "このプロパティによって返されるアカウントは、スレッドは、権限借用モードで実行されている場合は、任意である可能性があります。"
   example:
   - "The following code example shows how to get the thread account name.  \n  \n [!code-cs[System.Web.Management.WebThreadInformation#6](~/add/codesnippet/csharp/p-system.web.management._9_1.cs)]\n [!code-vb[System.Web.Management.WebThreadInformation#6](~/add/codesnippet/visualbasic/p-system.web.management._9_1.vb)]"
   syntax:
     content: public string ThreadAccountName { get; }
     return:
       type: System.String
-      description: "The thread account name."
+      description: "スレッド アカウント名。"
   overload: System.Web.Management.WebThreadInformation.ThreadAccountName*
   exceptions: []
   platform:
@@ -139,15 +139,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the current thread identifier."
-  remarks: "Even if managed threads might not have direct mapping to the OS threads, for debugging purposes, it is always useful to isolate a specific thread where problems might exist."
+  summary: "現在のスレッドの識別子を取得します。"
+  remarks: "マネージ スレッドがデバッグのため、OS スレッドへ直接マッピングがあるない場合でも問題があるスレッドを特定すると便利ですが常にします。"
   example:
   - "The following code example shows how to get the thread identifier.  \n  \n [!code-cs[System.Web.Management.WebThreadInformation#7](~/add/codesnippet/csharp/p-system.web.management._54_1.cs)]\n [!code-vb[System.Web.Management.WebThreadInformation#7](~/add/codesnippet/visualbasic/p-system.web.management._54_1.vb)]"
   syntax:
     content: public int ThreadID { get; }
     return:
       type: System.Int32
-      description: "The current thread identifier."
+      description: "現在のスレッドの識別子。"
   overload: System.Web.Management.WebThreadInformation.ThreadID*
   exceptions: []
   platform:

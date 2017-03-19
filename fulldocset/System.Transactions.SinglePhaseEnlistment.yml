@@ -14,8 +14,8 @@ items:
   nameWithType: SinglePhaseEnlistment
   fullName: System.Transactions.SinglePhaseEnlistment
   type: Class
-  summary: "Provides a set of callbacks that facilitate communication between a participant enlisted for Single Phase Commit and the transaction manager when the <xref:System.Transactions.ISinglePhaseNotification.SinglePhaseCommit*> notification is received."
-  remarks: "When a resource manager&quot;s implementation of <xref:System.Transactions.ISinglePhaseNotification.SinglePhaseCommit%2A> is called, and an instance of this type is passsed in, the participant then notifies the transaction manager via the <xref:System.Transactions.SinglePhaseEnlistment.Committed%2A> method or the <xref:System.Transactions.SinglePhaseEnlistment.Aborted%2A> method to indicate whether the transaction should be committed or rolled back."
+  summary: "単一フェーズのコミットとトランザクション マネージャーの参加している参加者間の通信を容易にするためのコールバックのセットを提供時に、<xref:System.Transactions.ISinglePhaseNotification.SinglePhaseCommit*>通知を受信します</xref:System.Transactions.ISinglePhaseNotification.SinglePhaseCommit*>。"
+  remarks: "ときのリソース マネージャーの実装<xref:System.Transactions.ISinglePhaseNotification.SinglePhaseCommit%2A>が呼び出されると、し、この型のインスタンスで passsed は、参加者しに通知を使用して、トランザクション マネージャー、<xref:System.Transactions.SinglePhaseEnlistment.Committed%2A>メソッドまたは<xref:System.Transactions.SinglePhaseEnlistment.Aborted%2A>トランザクションをコミットまたはロールバックするかどうかを示すためにメソッド</xref:System.Transactions.SinglePhaseEnlistment.Aborted%2A></xref:System.Transactions.SinglePhaseEnlistment.Committed%2A></xref:System.Transactions.ISinglePhaseNotification.SinglePhaseCommit%2A>。"
   syntax:
     content: 'public class SinglePhaseEnlistment : System.Transactions.Enlistment'
   inheritance:
@@ -38,8 +38,8 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Represents a callback that is used to indicate to the transaction manager that the transaction should be rolled back."
-  remarks: "A transaction participant implementing the <xref:System.Transactions.ISinglePhaseNotification> interface uses this method to notify the transaction manager that it cannot commit, and that the transaction should be rolled back."
+  summary: "トランザクション マネージャーにトランザクションをロールバックする必要があることを示すために使用されるコールバックを表します。"
+  remarks: "トランザクション参加要素を実装する、<xref:System.Transactions.ISinglePhaseNotification>インターフェイスでは、このメソッドを使用して、トランザクション マネージャー、トランザクションをロールバックする必要があること、およびコミットできないことを通知します</xref:System.Transactions.ISinglePhaseNotification>。"
   syntax:
     content: public void Aborted ();
     parameters: []
@@ -59,13 +59,13 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Represents a callback that is used to indicate to the transaction manager that the transaction should be rolled back, and provides an explanation."
+  summary: "トランザクションがロールバックする必要があります、説明を提供するトランザクション マネージャーを示すために使用されるコールバックを表します。"
   syntax:
     content: public void Aborted (Exception e);
     parameters:
     - id: e
       type: System.Exception
-      description: "An explanation of why a rollback is initiated."
+      description: "ロールバックを実行する理由の説明。"
   overload: System.Transactions.SinglePhaseEnlistment.Aborted*
   exceptions: []
   platform:
@@ -82,8 +82,8 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Represents a callback that is used to indicate to the transaction manager that the SinglePhaseCommit was successful."
-  remarks: "A transaction participant implementing the <xref:System.Transactions.ISinglePhaseNotification> interface uses this method to notify the transaction manager that the transaction should be committed."
+  summary: "トランザクション マネージャーに、単一フェーズのコミットが成功したことを示すために使用されるコールバックを表します。"
+  remarks: "トランザクション参加要素を実装する、<xref:System.Transactions.ISinglePhaseNotification>インターフェイスでは、このメソッドを使用して、トランザクションをコミットすることをトランザクション マネージャーに通知します</xref:System.Transactions.ISinglePhaseNotification>。"
   syntax:
     content: public void Committed ();
     parameters: []
@@ -103,8 +103,8 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Represents a callback that is used to indicate to the transaction manager that the status of the transaction is in doubt."
-  remarks: "A transaction participant implementing the <xref:System.Transactions.ISinglePhaseNotification> interface uses this method to notify the transaction manager that the transaction is in doubt. A transaction is in doubt when one or more of the enlisted resource managers cannot be contacted."
+  summary: "トランザクション マネージャーに、トランザクションの状態が不明であるを示すために使用されるコールバックを表します。"
+  remarks: "トランザクション参加要素を実装する、<xref:System.Transactions.ISinglePhaseNotification>インターフェイスでは、このメソッドを使用して、トランザクションが不明なトランザクション マネージャーに通知します</xref:System.Transactions.ISinglePhaseNotification>。 ときに&1; つの不明なトランザクションは、または以上の参加しているリソース マネージャーに接続できません。"
   syntax:
     content: public void InDoubt ();
     parameters: []
@@ -124,13 +124,13 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Represents a callback that is used to indicate to the transaction manager that the status of the transaction is in doubt, and provides an explanation."
+  summary: "トランザクションの状態が不明ながあり、説明を提供するトランザクション マネージャーに使用されるコールバックを表します。"
   syntax:
     content: public void InDoubt (Exception e);
     parameters:
     - id: e
       type: System.Exception
-      description: "An explanation of why the transaction is in doubt."
+      description: "トランザクションが不明な理由の説明。"
   overload: System.Transactions.SinglePhaseEnlistment.InDoubt*
   exceptions: []
   platform:

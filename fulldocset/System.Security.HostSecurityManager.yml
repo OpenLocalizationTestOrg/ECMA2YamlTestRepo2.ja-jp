@@ -20,8 +20,8 @@ items:
   nameWithType: HostSecurityManager
   fullName: System.Security.HostSecurityManager
   type: Class
-  summary: "Allows the control and customization of security behavior for application domains."
-  remarks: "When you create a new <xref:System.AppDomain>, the common language runtime queries the <xref:System.AppDomainManager> for the presence of a HostSecurityManager, which participates in making security decisions for the <xref:System.AppDomain>.  Host providers should implement a host security manager that inherits from the HostSecurityManager class."
+  summary: "コントロールとアプリケーション ドメインのセキュリティ動作のカスタマイズを使用できます。"
+  remarks: "新しい<xref:System.AppDomain>共通言語ランタイムを照会、 <xref:System.AppDomainManager> <xref:System.AppDomain>。</xref:System.AppDomain>セキュリティ上の決定をする際に参加するの HostSecurityManager の存在</xref:System.AppDomainManager></xref:System.AppDomain>を作成する場合  ホストのプロバイダーは、HostSecurityManager クラスから継承するホスト セキュリティ マネージャーを実装する必要があります。"
   example:
   - "The following example shows a very simple implementation of a HostSecurityManager.  \n  \n [!code-cs[System.Security.HostSecurityManager#1](~/add/codesnippet/csharp/t-system.security.hostse_1.cs)]\n [!code-vb[System.Security.HostSecurityManager#1](~/add/codesnippet/visualbasic/t-system.security.hostse_1.vb)]"
   syntax:
@@ -49,7 +49,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.HostSecurityManager&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.HostSecurityManager&quot;> </xref>クラスです。"
   syntax:
     content: public HostSecurityManager ();
     parameters: []
@@ -69,8 +69,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Determines whether an application should be executed."
-  remarks: "This method can be overridden by a derived class. The base implementation calls the application security manager to determine if the application should be executed.       The base implementation does not use the activator evidence. However, an overridden implementation could use the activator evidence to determine the security evidence for the application domain attempting to activate the application."
+  summary: "アプリケーションを実行する必要があるかどうかを判断します。"
+  remarks: "このメソッドは、派生クラスでオーバーライドできます。 基底の実装では、アプリケーションを実行する必要があるかどうかを決定するアプリケーションのセキュリティ マネージャーを呼び出します。       基底の実装では、アクティベーターの証拠を使用しません。 ただし、オーバーライドされた実装では、アプリケーションを有効にしようとすると、アプリケーション ドメインのセキュリティ証拠を決定するのにアクティベーターの証拠を使用できます。"
   example:
   - "The following example shows how to override the DetermineApplicationTrust method for a custom host security manager. This example is part of a larger example provided for the <xref:System.Security.HostSecurityManager> class.  \n  \n [!code-cs[System.Security.HostSecurityManager#3](~/add/codesnippet/csharp/c64c31c7-d035-4489-84b0-_1.cs)]\n [!code-vb[System.Security.HostSecurityManager#3](~/add/codesnippet/visualbasic/c64c31c7-d035-4489-84b0-_1.vb)]"
   syntax:
@@ -78,27 +78,27 @@ items:
     parameters:
     - id: applicationEvidence
       type: System.Security.Policy.Evidence
-      description: "The evidence for the application to be activated."
+      description: "アクティブ化するアプリケーションの証拠。"
     - id: activatorEvidence
       type: System.Security.Policy.Evidence
-      description: "Optionally, the evidence for the activating application domain."
+      description: "必要に応じて、アクティブ化のアプリケーション ドメインの証拠。"
     - id: context
       type: System.Security.Policy.TrustManagerContext
-      description: "The trust context."
+      description: "信頼できるコンテキスト。"
     return:
       type: System.Security.Policy.ApplicationTrust
-      description: "An object that contains trust information about the application."
+      description: "アプリケーションの信頼情報を格納するオブジェクト。"
   overload: System.Security.HostSecurityManager.DetermineApplicationTrust*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>applicationEvidence</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>applicationEvidence</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An <xref href=&quot;System.Runtime.Hosting.ActivationArguments&quot;></xref> object could not be found in the application evidence.       -or-       The <xref:System.Runtime.Hosting.ActivationArguments.ActivationContext*> property in the activation arguments is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<xref href=&quot;System.Runtime.Hosting.ActivationArguments&quot;> </xref>オブジェクトは、アプリケーションの証拠で見つかりませんでした。       - または -、<xref:System.Runtime.Hosting.ActivationArguments.ActivationContext*>アクティベーション引数ではプロパティは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref></xref:System.Runtime.Hosting.ActivationArguments.ActivationContext*> 。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Security.Policy.ApplicationTrust&quot;></xref> grant set does not contain the minimum request set specified by the <xref href=&quot;System.ActivationContext&quot;></xref>."
+    description: "<xref href=&quot;System.Security.Policy.ApplicationTrust&quot;> </xref>許可セットに、最小要求セットの指定が含まれていない、 <xref href=&quot;System.ActivationContext&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Security.HostSecurityManager.DomainPolicy
@@ -113,18 +113,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "When overridden in a derived class, gets the security policy for the current application domain."
-  remarks: "This property can be overridden in a derived class. The base implementation always returns `null`.       This property is called at <xref:System.AppDomain> creation time. It allows a host to supply a policy for the current <xref:System.AppDomain>.  A policy level consists of the following:      -   A set of code groups organized into a single rooted tree.      -   A set of named permission sets that are referenced by the code groups to specify permissions to be granted to code belonging to the code group.      -   A list of fully trusted assemblies.      > [!IMPORTANT] >  See the Notes to Inheritors for the <xref:System.Security.HostSecurityManager> class for critical implementation information."
+  summary: "派生クラスでオーバーライドされるは、現在のアプリケーション ドメインのセキュリティ ポリシーを取得します。"
+  remarks: "このプロパティは、派生クラスでオーバーライドできます。 基本の実装は常に返します`null`です。       このプロパティで呼び出される<xref:System.AppDomain>作成時間</xref:System.AppDomain>。 これにより、ホストは、現在<xref:System.AppDomain>。</xref:System.AppDomain>のポリシーを指定するには  次のポリシー レベルで構成されます:-コード グループのセットが&1; つのツリーに編成します。      -コード グループに属するコードに付与されるアクセス許可を指定するのには、コード グループによって参照されている名前付き権限セットのセット。      -完全に信頼されたアセンブリの一覧です。      > [!IMPORTANT] > の継承時の注意を参照してください、<xref:System.Security.HostSecurityManager>実装の重要な情報のクラス</xref:System.Security.HostSecurityManager>。"
   syntax:
     content: public virtual System.Security.Policy.PolicyLevel DomainPolicy { get; }
     return:
       type: System.Security.Policy.PolicyLevel
-      description: "The security policy for the current application domain. The default is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "現在のアプリケーション ドメインのセキュリティ ポリシー。 既定値は<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   overload: System.Security.HostSecurityManager.DomainPolicy*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "This method uses code access security (CAS) policy, which is obsolete in the [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)]. To enable CAS policy for compatibility with earlier versions of the .NET Framework, use the [&lt;legacyCasPolicy&gt; element](../Topic/%3CNetFx40_LegacySecurityPolicy%3E%20Element.md)."
+    description: "このメソッドが残されているコード アクセス セキュリティ (CAS) ポリシーを使用して、[!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)]です。 .NET Framework の旧バージョンとの互換性のための CAS ポリシーを有効にするには、 [ &lt;legacyCasPolicy&gt;要素](../Topic/%3CNetFx40_LegacySecurityPolicy%3E%20Element.md)です。"
   platform:
   - net462
 - uid: System.Security.HostSecurityManager.Flags
@@ -139,15 +139,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Gets the flag representing the security policy components of concern to the host."
-  remarks: "This property can be overridden in a derived class. The base implementation always returns <xref:System.Security.HostSecurityManagerOptions>.       The derived host can change the value of this property when only a subset of the <xref:System.Security.HostSecurityManagerOptions> is of interest.  The possible subsets include none, the refused set, the policy level, and assembly evidence."
+  summary: "ホストに重要なセキュリティ ポリシーのコンポーネントを表すフラグを取得します。"
+  remarks: "このプロパティは、派生クラスでオーバーライドできます。 基本の実装は常に返します<xref:System.Security.HostSecurityManagerOptions>。</xref:System.Security.HostSecurityManagerOptions>       派生ホストのサブセットだけの場合に、このプロパティの値を変更することができます、<xref:System.Security.HostSecurityManagerOptions>は対象とします</xref:System.Security.HostSecurityManagerOptions>。  可能なサブセットには、none、拒否されたセットで、ポリシー レベル、およびアセンブリの証拠が含まれます。"
   example:
   - "The following example shows how to override the Flags property for a custom host security manager. This example is part of a larger example provided for the <xref:System.Security.HostSecurityManager> class.  \n  \n [!code-cs[System.Security.HostSecurityManager#2](~/add/codesnippet/csharp/p-system.security.hostse_1.cs)]\n [!code-vb[System.Security.HostSecurityManager#2](~/add/codesnippet/visualbasic/p-system.security.hostse_1.vb)]"
   syntax:
     content: public virtual System.Security.HostSecurityManagerOptions Flags { get; }
     return:
       type: System.Security.HostSecurityManagerOptions
-      description: "One of the enumeration values that specifies security policy components. The default is <xref href=&quot;System.Security.HostSecurityManagerOptions&quot;></xref>."
+      description: "セキュリティ ポリシーのコンポーネントを指定する列挙値の&1; つ。 既定値は<xref href=&quot;System.Security.HostSecurityManagerOptions&quot;></xref>です。"
   overload: System.Security.HostSecurityManager.Flags*
   exceptions: []
   platform:
@@ -164,8 +164,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Requests a specific evidence type for the application domain."
-  remarks: "This method can be overridden by a derived class. The base implementation returns `null`.       The common language runtime calls this method when evidence of the specified type is needed for the current <xref:System.AppDomain>. The returned value is used as host-supplied evidence, and is stored in the <xref:System.AppDomain.Evidence%2A> collection of the <xref:System.AppDomain.CurrentDomain%2A> property. You can use the <xref:System.Security.Policy.Evidence.GetAssemblyEvidence%2A?displayProperty=fullName> method to obtain the generated evidence from the collection.       To get a callback to this method, hosts must specify the <xref:System.Security.HostSecurityManagerOptions> flag in the <xref:System.Security.HostSecurityManager.Flags%2A> property.       This method of generating evidence allows hosts to delay evidence generation for an <xref:System.AppDomain> until the evidence is needed. In the .NET Framework version 3.5 and earlier versions, it was necessary to provide <xref:System.AppDomain> evidence at load time by overriding the <xref:System.Security.HostSecurityManager.ProvideAppDomainEvidence%2A> method. We recommend that you use GenerateAppDomainEvidence to provide evidence instead of overriding <xref:System.Security.HostSecurityManager.ProvideAppDomainEvidence%2A>.       The GenerateAppDomainEvidence method is called back into only for types of evidence that the host has specified in the override of the <xref:System.Security.HostSecurityManager.GetHostSuppliedAppDomainEvidenceTypes%2A> method.       A return value of `null` indicates that the host cannot generate evidence of this specific type."
+  summary: "アプリケーション ドメインの特定の証拠の種類を要求します。"
+  remarks: "このメソッドは、派生クラスでオーバーライドできます。 基本の実装を返します`null`です。       指定した型の証拠が現在<xref:System.AppDomain>。</xref:System.AppDomain>の必要なときに、共通言語ランタイムはこのメソッドを呼び出します 返される値は、ホストが指定した証拠、として使用されに格納されて、<xref:System.AppDomain.Evidence%2A>のコレクション、<xref:System.AppDomain.CurrentDomain%2A>プロパティ</xref:System.AppDomain.CurrentDomain%2A></xref:System.AppDomain.Evidence%2A>。 使用することができます、<xref:System.Security.Policy.Evidence.GetAssemblyEvidence%2A?displayProperty=fullName>をコレクションから生成された証拠を取得するメソッド</xref:System.Security.Policy.Evidence.GetAssemblyEvidence%2A?displayProperty=fullName>。       このメソッドへのコールバックを取得するホストを指定する必要があります、<xref:System.Security.HostSecurityManagerOptions>フラグ、<xref:System.Security.HostSecurityManager.Flags%2A>プロパティ</xref:System.Security.HostSecurityManager.Flags%2A></xref:System.Security.HostSecurityManagerOptions>。       証拠を生成するには、このメソッドにより、ホストの証拠の生成を遅延させる、<xref:System.AppDomain>証拠が必要になるまで</xref:System.AppDomain>。 .NET Framework バージョン 3.5 と以前のバージョンで提供する必要がある<xref:System.AppDomain>証拠読み込み時にオーバーライドすることで、<xref:System.Security.HostSecurityManager.ProvideAppDomainEvidence%2A>メソッド</xref:System.Security.HostSecurityManager.ProvideAppDomainEvidence%2A></xref:System.AppDomain>。 GenerateAppDomainEvidence を使用して、 <xref:System.Security.HostSecurityManager.ProvideAppDomainEvidence%2A>。</xref:System.Security.HostSecurityManager.ProvideAppDomainEvidence%2A>をオーバーライドする代わりに証拠を提供することをお勧めします。       GenerateAppDomainEvidence メソッドがコールバックに、ホストのオーバーライドで指定された証拠の種類に対してのみ、<xref:System.Security.HostSecurityManager.GetHostSuppliedAppDomainEvidenceTypes%2A>メソッド</xref:System.Security.HostSecurityManager.GetHostSuppliedAppDomainEvidenceTypes%2A>。       戻り値の`null`ホストがこの特定の種類の証拠を生成できないことを示します。"
   example:
   - "The following example shows how to override the <xref:System.Security.HostSecurityManager.ProvideAppDomainEvidence%2A> method for a custom host security manager. This example is part of a larger example provided for the <xref:System.Security.HostSecurityManager> class.  \n  \n [!code-cs[System.Security.HostSecurityManager#6](~/add/codesnippet/csharp/m-system.security.hostse_1.cs)]\n [!code-vb[System.Security.HostSecurityManager#6](~/add/codesnippet/visualbasic/m-system.security.hostse_1.vb)]"
   syntax:
@@ -173,10 +173,10 @@ items:
     parameters:
     - id: evidenceType
       type: System.Type
-      description: "The evidence type."
+      description: "証拠の型。"
     return:
       type: System.Security.Policy.EvidenceBase
-      description: "The requested application domain evidence."
+      description: "要求されたアプリケーション ドメインの証拠。"
   overload: System.Security.HostSecurityManager.GenerateAppDomainEvidence*
   exceptions: []
   platform:
@@ -193,20 +193,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Requests a specific evidence type for the assembly."
-  remarks: "This method can be overridden by a derived class. The base implementation returns `null`.       The common language runtime calls this method when evidence of the specified type is needed for the current assembly. The returned value is used as host-supplied evidence, and is stored in the <xref:System.Reflection.Assembly.Evidence%2A> property. You can use the <xref:System.Security.Policy.Evidence.GetAssemblyEvidence%2A?displayProperty=fullName> method to obtain the generated evidence from the <xref:System.Reflection.Assembly.Evidence%2A> property.       To get a callback to this method, hosts must specify the <xref:System.Security.HostSecurityManagerOptions> flag in the <xref:System.Security.HostSecurityManager.Flags%2A> property.       This method of generating evidence allows hosts to delay evidence generation for an <xref:System.AppDomain> until the evidence is needed. In the .NET Framework 3.5 and earlier versions, it was necessary to provide <xref:System.AppDomain> evidence at load time by overriding the <xref:System.Security.HostSecurityManager.ProvideAppDomainEvidence%2A> method. We recommend that you use GenerateAssemblyEvidence to provide evidence instead of overriding <xref:System.Security.HostSecurityManager.ProvideAssemblyEvidence%2A>.       The GenerateAssemblyEvidence method is called back into only for types of evidence that the host has specified in the override of the <xref:System.Security.HostSecurityManager.GetHostSuppliedAssemblyEvidenceTypes%2A> method.       A return value of `null` indicates that the host cannot generate evidence of this specific type."
+  summary: "アセンブリの特定の証拠の種類を要求します。"
+  remarks: "このメソッドは、派生クラスでオーバーライドできます。 基本の実装を返します`null`です。       共通言語ランタイムは、指定した型の証拠が現在のアセンブリに必要な場合、このメソッドを呼び出します。 返される値は、ホストが指定した証拠、として使用されに格納されて、<xref:System.Reflection.Assembly.Evidence%2A>プロパティ</xref:System.Reflection.Assembly.Evidence%2A>。 使用することができます、<xref:System.Security.Policy.Evidence.GetAssemblyEvidence%2A?displayProperty=fullName>から生成された証拠を入手する方法、<xref:System.Reflection.Assembly.Evidence%2A>プロパティ</xref:System.Reflection.Assembly.Evidence%2A></xref:System.Security.Policy.Evidence.GetAssemblyEvidence%2A?displayProperty=fullName>。       このメソッドへのコールバックを取得するホストを指定する必要があります、<xref:System.Security.HostSecurityManagerOptions>フラグ、<xref:System.Security.HostSecurityManager.Flags%2A>プロパティ</xref:System.Security.HostSecurityManager.Flags%2A></xref:System.Security.HostSecurityManagerOptions>。       証拠を生成するには、このメソッドにより、ホストの証拠の生成を遅延させる、<xref:System.AppDomain>証拠が必要になるまで</xref:System.AppDomain>。 .NET Framework 3.5 と以前のバージョンで提供する必要がある<xref:System.AppDomain>証拠読み込み時にオーバーライドすることで、<xref:System.Security.HostSecurityManager.ProvideAppDomainEvidence%2A>メソッド</xref:System.Security.HostSecurityManager.ProvideAppDomainEvidence%2A></xref:System.AppDomain>。 GenerateAssemblyEvidence を使用して、 <xref:System.Security.HostSecurityManager.ProvideAssemblyEvidence%2A>。</xref:System.Security.HostSecurityManager.ProvideAssemblyEvidence%2A>をオーバーライドする代わりに証拠を提供することをお勧めします。       GenerateAssemblyEvidence メソッドがコールバックに、ホストのオーバーライドで指定された証拠の種類に対してのみ、<xref:System.Security.HostSecurityManager.GetHostSuppliedAssemblyEvidenceTypes%2A>メソッド</xref:System.Security.HostSecurityManager.GetHostSuppliedAssemblyEvidenceTypes%2A>。       戻り値の`null`ホストがこの特定の種類の証拠を生成できないことを示します。"
   syntax:
     content: public virtual System.Security.Policy.EvidenceBase GenerateAssemblyEvidence (Type evidenceType, System.Reflection.Assembly assembly);
     parameters:
     - id: evidenceType
       type: System.Type
-      description: "The evidence type."
+      description: "証拠の型。"
     - id: assembly
       type: System.Reflection.Assembly
-      description: "The target assembly."
+      description: "対象のアセンブリ。"
     return:
       type: System.Security.Policy.EvidenceBase
-      description: "The requested assembly evidence."
+      description: "要求されたアセンブリの証拠。"
   overload: System.Security.HostSecurityManager.GenerateAssemblyEvidence*
   exceptions: []
   platform:
@@ -223,14 +223,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Determines which evidence types the host can supply for the application domain, if requested."
-  remarks: "This method can be overridden by a derived class. The base implementation returns `null`.       The types returned by this method determine whether the <xref:System.Security.HostSecurityManager.GenerateAppDomainEvidence%2A> method is called back into. The presence of a type in this list does not mean that the host must be able to generate this evidence type, but that it may be able to. For that reason, it is best to over-specify rather than under-specify the types in this list."
+  summary: "要求された場合は、アプリケーション ドメインのホストが提供できる証拠の型を決定します。"
+  remarks: "このメソッドは、派生クラスでオーバーライドできます。 基本の実装を返します`null`です。       このメソッドによって返される型を決定するかどうか、<xref:System.Security.HostSecurityManager.GenerateAppDomainEvidence%2A>にメソッドが戻ると呼ばれます</xref:System.Security.HostSecurityManager.GenerateAppDomainEvidence%2A>。 この一覧に種類の存在ないわけでは、ホストがこの証拠の種類を生成できることができなければ、可能性があります。 この理由から、下の種類を指定するこの一覧によりもすぎたことを指定することをお勧めします。"
   syntax:
     content: public virtual Type[] GetHostSuppliedAppDomainEvidenceTypes ();
     parameters: []
     return:
       type: System.Type[]
-      description: "An array of evidence types."
+      description: "証拠の種類の配列。"
   overload: System.Security.HostSecurityManager.GetHostSuppliedAppDomainEvidenceTypes*
   exceptions: []
   platform:
@@ -247,17 +247,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Determines which evidence types the host can supply for the assembly, if requested."
-  remarks: "This method can be overridden by a derived class. The base implementation returns `null`.       The types returned by this method determine whether the <xref:System.Security.HostSecurityManager.GenerateAssemblyEvidence%2A> method is called back into. The presence of a type in this list does not mean that the host must be able to generate this evidence type, but that it may be able to. For that reason, it is best to over-specify rather than under-specify the types in this list."
+  summary: "要求された場合は、ホストが、アセンブリの提供できる証拠の型を決定します。"
+  remarks: "このメソッドは、派生クラスでオーバーライドできます。 基本の実装を返します`null`です。       このメソッドによって返される型を決定するかどうか、<xref:System.Security.HostSecurityManager.GenerateAssemblyEvidence%2A>にメソッドが戻ると呼ばれます</xref:System.Security.HostSecurityManager.GenerateAssemblyEvidence%2A>。 この一覧に種類の存在ないわけでは、ホストがこの証拠の種類を生成できることができなければ、可能性があります。 この理由から、下の種類を指定するこの一覧によりもすぎたことを指定することをお勧めします。"
   syntax:
     content: public virtual Type[] GetHostSuppliedAssemblyEvidenceTypes (System.Reflection.Assembly assembly);
     parameters:
     - id: assembly
       type: System.Reflection.Assembly
-      description: "The target assembly."
+      description: "対象のアセンブリ。"
     return:
       type: System.Type[]
-      description: "An array of evidence types."
+      description: "証拠の種類の配列。"
   overload: System.Security.HostSecurityManager.GetHostSuppliedAssemblyEvidenceTypes*
   exceptions: []
   platform:
@@ -274,17 +274,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Provides the application domain evidence for an assembly being loaded."
-  remarks: "This method can be overridden in a derived class.       This method is called whenever an <xref:System.AppDomain> object is created. The `inputEvidence` parameter is the computed evidence from the common language runtime. The host implementation can choose to extend or reduce the evidence. The return value is the evidence to be used for the application domain.  The base implementation always returns the evidence object passed in as the `inputEvidence` parameter.      > [!IMPORTANT] >  See the Notes to Inheritors for the <xref:System.Security.HostSecurityManager> class for critical implementation information."
+  summary: "読み込まれるアセンブリをアプリケーション ドメインの証拠を提供します。"
+  remarks: "このメソッドは、派生クラスでオーバーライドできます。       このメソッドを呼び出すたびに、<xref:System.AppDomain>オブジェクトを作成します</xref:System.AppDomain>。 `inputEvidence`パラメーターは、共通言語ランタイムからの証拠を計算します。 ホストの実装は、拡大または縮小、証拠を選択できます。 戻り値は、アプリケーション ドメインに使用する証拠です。  基本の実装は常には、として渡された証拠オブジェクトを返します、`inputEvidence`パラメーター。      > [!IMPORTANT] > の継承時の注意を参照してください、<xref:System.Security.HostSecurityManager>実装の重要な情報のクラス</xref:System.Security.HostSecurityManager>。"
   syntax:
     content: public virtual System.Security.Policy.Evidence ProvideAppDomainEvidence (System.Security.Policy.Evidence inputEvidence);
     parameters:
     - id: inputEvidence
       type: System.Security.Policy.Evidence
-      description: "Additional evidence to add to the <xref href=&quot;System.AppDomain&quot;></xref> evidence."
+      description: "追加する証拠の<xref href=&quot;System.AppDomain&quot;></xref>証拠。"
     return:
       type: System.Security.Policy.Evidence
-      description: "The evidence to be used for the <xref href=&quot;System.AppDomain&quot;></xref>."
+      description: "使用する証拠の<xref href=&quot;System.AppDomain&quot;></xref>です。"
   overload: System.Security.HostSecurityManager.ProvideAppDomainEvidence*
   exceptions: []
   platform:
@@ -301,8 +301,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Provides the assembly evidence for an assembly being loaded."
-  remarks: "This method can be overridden in a derived class.       This method is called whenever an assembly is loaded, either implicitly or explicitly. The passed in parameters are the assembly being loaded, and the computed evidence from the common language runtime. The host implementation can choose to extend or reduce the evidence. The return value is the evidence to be used for the assembly.  The base implementation always returns the evidence object passed in as the `inputEvidence` parameter.      > [!IMPORTANT] >  See the Notes to Inheritors for the <xref:System.Security.HostSecurityManager> class for critical implementation information."
+  summary: "読み込まれるアセンブリのアセンブリの証拠を提供します。"
+  remarks: "このメソッドは、派生クラスでオーバーライドできます。       このメソッドは、暗黙的または明示的には、アセンブリが読み込まれるたびに呼び出されます。 渡されたパラメーターは、読み込まれるアセンブリおよび共通言語ランタイムから計算された証拠です。 ホストの実装は、拡大または縮小、証拠を選択できます。 戻り値は、アセンブリに使用する証拠です。  基本の実装は常には、として渡された証拠オブジェクトを返します、`inputEvidence`パラメーター。      > [!IMPORTANT] > の継承時の注意を参照してください、<xref:System.Security.HostSecurityManager>実装の重要な情報のクラス</xref:System.Security.HostSecurityManager>。"
   example:
   - "The following example shows how to override the ProvideAssemblyEvidence method for a custom host security manager. This example is part of a larger example provided for the <xref:System.Security.HostSecurityManager> class.  \n  \n [!code-cs[System.Security.HostSecurityManager#5](~/add/codesnippet/csharp/b37483ba-2dfe-4c5d-87e6-_1.cs)]\n [!code-vb[System.Security.HostSecurityManager#5](~/add/codesnippet/visualbasic/b37483ba-2dfe-4c5d-87e6-_1.vb)]"
   syntax:
@@ -310,13 +310,13 @@ items:
     parameters:
     - id: loadedAssembly
       type: System.Reflection.Assembly
-      description: "The loaded assembly."
+      description: "読み込まれたアセンブリ。"
     - id: inputEvidence
       type: System.Security.Policy.Evidence
-      description: "Additional evidence to add to the assembly evidence."
+      description: "アセンブリの証拠を追加する証拠。"
     return:
       type: System.Security.Policy.Evidence
-      description: "The evidence to be used for the assembly."
+      description: "アセンブリに使用する証拠。"
   overload: System.Security.HostSecurityManager.ProvideAssemblyEvidence*
   exceptions: []
   platform:
@@ -333,22 +333,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Determines what permissions to grant to code based on the specified evidence."
-  remarks: "This method invokes the security policy engine, providing it with the specified evidence. The result is determined by the security policy."
+  summary: "指定された証拠に基づいて、コードに与えるアクセス許可を決定します。"
+  remarks: "このメソッドは、指定された証拠を提供、セキュリティ ポリシー エンジンを呼び出します。 結果は、セキュリティ ポリシーによって決定されます。"
   syntax:
     content: public virtual System.Security.PermissionSet ResolvePolicy (System.Security.Policy.Evidence evidence);
     parameters:
     - id: evidence
       type: System.Security.Policy.Evidence
-      description: "The evidence set used to evaluate policy."
+      description: "ポリシーを評価する際に使用する証拠。"
     return:
       type: System.Security.PermissionSet
-      description: "The permission set that can be granted by the security system."
+      description: "セキュリティ システムで許可できる権限のセット。"
   overload: System.Security.HostSecurityManager.ResolvePolicy*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>evidence</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>evidence</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:

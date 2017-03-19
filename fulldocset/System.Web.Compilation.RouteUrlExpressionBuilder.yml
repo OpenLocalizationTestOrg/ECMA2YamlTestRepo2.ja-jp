@@ -15,8 +15,8 @@ items:
   nameWithType: RouteUrlExpressionBuilder
   fullName: System.Web.Compilation.RouteUrlExpressionBuilder
   type: Class
-  summary: "Creates a URL that corresponds to specified URL parameter values."
-  remarks: "The RouteUrlExpressionBuilder class makes it possible to set the property of a server control to the URL of a route by providing a list of URL parameter values."
+  summary: "指定した URL パラメーター値に対応する URL を作成します。"
+  remarks: "RouteUrlExpressionBuilder クラスでは、URL パラメーター値の一覧を提供することによって、ルートの URL をサーバー コントロールのプロパティを設定することもできます。"
   example:
   - "The following example shows how to create markup that generates a hyperlink with a URL that is formatted for a route. The route is defined by using `http://www.contoso.com/search/{searchterm}` as the URL pattern.  \n  \n```  \n<asp:HyperLink ID=\"HyperLink1\" runat=\"server\"  \n               NavigateUrl=\"<%$ RouteUrl:searchterm=Bicycles %>\">  \n  Search for Bicycles  \n</asp:HyperLink>  \n```  \n  \n The URL generated for this hyperlink would be `http://www.contoso.com/search/Bicycles`.  \n  \n If the URL parameters provided to the `RouteUrl` expression are not sufficient to uniquely identify a route, you must include the route name. For example, if a Web application has two routes with `searchterm` as the sole URL parameter, the routes would have to be defined by using route names, and the hyperlink markup would resemble the following example:  \n  \n```  \n<asp:HyperLink ID=\"HyperLink1\" runat=\"server\"  \n               NavigateUrl=\"<%$ RouteUrl:searchterm=Bicycles,  \n               routename=BasicSearchRoute %>\">  \n  Search for Bicycles  \n</asp:HyperLink>  \n```"
   syntax:
@@ -46,7 +46,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Compilation.RouteUrlExpressionBuilder&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Web.Compilation.RouteUrlExpressionBuilder&quot;> </xref>クラスです。"
   syntax:
     content: public RouteUrlExpressionBuilder ();
     parameters: []
@@ -66,26 +66,26 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Creates a URL that corresponds to specified URL parameter values and to a route URL format."
-  remarks: "ASP.NET calls this method when an expression of the following form is encountered in markup:       `<%$ RouteUrl: urlparameter=value %>`       This method generates the appropriate URL for the specified route-key values for the current <xref:System.Web.Routing.Route> object. This method overrides the <xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A> method. It gets from the `entry` parameter a reference to the control to which the expression is bound, it gets from the `context` parameter the expression to be evaluated, and it calls the <xref:System.Web.Compilation.RouteUrlExpressionBuilder.GetRouteUrl%2A> method to generate the URL."
+  summary: "URL パラメーター値を指定して、ルート URL の形式を対応する URL を作成します。"
+  remarks: "ASP.NET がマークアップで、次の形式の式が検出されたときに、このメソッドを呼び出します:`<%$ RouteUrl: urlparameter=value %>`このメソッドは、現在の指定されたルート キーの値の適切な URL を生成<xref:System.Web.Routing.Route>オブジェクト</xref:System.Web.Routing.Route>。 このメソッドは、<xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A>メソッド</xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A>。 取得された、`entry`から取得された式がバインドされているコントロールへの参照をパラメーター、`context`パラメーターに評価される式とそれを呼び出す、 <xref:System.Web.Compilation.RouteUrlExpressionBuilder.GetRouteUrl%2A>URL を生成する方法</xref:System.Web.Compilation.RouteUrlExpressionBuilder.GetRouteUrl%2A>。"
   syntax:
     content: public override object EvaluateExpression (object target, System.Web.UI.BoundPropertyEntry entry, object parsedData, System.Web.Compilation.ExpressionBuilderContext context);
     parameters:
     - id: target
       type: System.Object
-      description: "Not used in this implementation."
+      description: "この実装では使用されません。"
     - id: entry
       type: System.Web.UI.BoundPropertyEntry
-      description: "The property that the expression is bound to."
+      description: "このプロパティは、式のバインド先です。"
     - id: parsedData
       type: System.Object
-      description: "Not used in this implementation."
+      description: "この実装では使用されません。"
     - id: context
       type: System.Web.Compilation.ExpressionBuilderContext
-      description: "Properties for the control or page."
+      description: "コントロールまたはページのプロパティです。"
     return:
       type: System.Object
-      description: "The URL that corresponds to the specified URL parameter values and to the selected route. The route is selected by matching route URL patterns to the specified list of parameters. In case more than one route matches a specified list of parameters, a route name can also be specified to indicate which route to select."
+      description: "選択したルートに指定された URL パラメーター値に対応する URL です。 指定されたパラメーターのリストをルートの URL パターンに一致するルートが選択されます。 複数のルートには、指定されたパラメーターの一覧が一致すると、場合を選択するルートを示すこともこのルート名を指定できます。"
   overload: System.Web.Compilation.RouteUrlExpressionBuilder.EvaluateExpression*
   exceptions: []
   platform:
@@ -102,23 +102,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Returns a code expression that is used to perform the property assignment in the generated page class."
-  remarks: "This method is called when the CodeDOM is created for a page or control. The <xref:System.CodeDom.CodeExpression> object that is returned represents the code expression to add to the property assignment in the generated page class."
+  summary: "生成されたページ クラスのプロパティの割り当てを実行するために使用されるコード式を返します。"
+  remarks: "このメソッドは、CodeDOM のページまたはコントロールの作成時に呼び出されます。 <xref:System.CodeDom.CodeExpression>返されるオブジェクトが生成されるページ クラスのプロパティの割り当てを追加するコード式を表します</xref:System.CodeDom.CodeExpression>"
   syntax:
     content: public override System.CodeDom.CodeExpression GetCodeExpression (System.Web.UI.BoundPropertyEntry entry, object parsedData, System.Web.Compilation.ExpressionBuilderContext context);
     parameters:
     - id: entry
       type: System.Web.UI.BoundPropertyEntry
-      description: "The property that the expression is bound to."
+      description: "このプロパティは、式のバインド先です。"
     - id: parsedData
       type: System.Object
-      description: "The object that represents parsed data as returned by <xref:System.Web.Compilation.RouteUrlExpressionBuilder.TryParseRouteExpression*>."
+      description: "表すオブジェクトを解析済みデータが<xref:System.Web.Compilation.RouteUrlExpressionBuilder.TryParseRouteExpression*>。</xref:System.Web.Compilation.RouteUrlExpressionBuilder.TryParseRouteExpression*>によって返される"
     - id: context
       type: System.Web.Compilation.ExpressionBuilderContext
-      description: "Properties for the control or page."
+      description: "コントロールまたはページのプロパティです。"
     return:
       type: System.CodeDom.CodeExpression
-      description: "A <xref href=&quot;System.CodeDom.CodeExpression&quot;></xref> instance that is used in the property assignment."
+      description: "A <xref href=&quot;System.CodeDom.CodeExpression&quot;> </xref>プロパティの割り当てで使用されているインスタンス。"
   overload: System.Web.Compilation.RouteUrlExpressionBuilder.GetCodeExpression*
   exceptions: []
   platform:
@@ -135,20 +135,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Creates a URL that corresponds to specified route keys for a route URL format."
-  remarks: "This method generates the appropriate value for the URL by calling the <xref:System.Web.Routing.RouteCollection.GetVirtualPath%2A> method of the <xref:System.Web.Routing.RouteCollection> object. It gets the <xref:System.Web.Routing.RequestContext> object from the `control` parameter, and it parses the route name and route parameters from the `expression` parameter."
+  summary: "ルート URL の形式の指定されたルート キーに対応する URL を作成します。"
+  remarks: "このメソッドは、URL の適切な値を呼び出すことによって生成、<xref:System.Web.Routing.RouteCollection.GetVirtualPath%2A>のメソッド、<xref:System.Web.Routing.RouteCollection>オブジェクト</xref:System.Web.Routing.RouteCollection></xref:System.Web.Routing.RouteCollection.GetVirtualPath%2A>。 取得、<xref:System.Web.Routing.RequestContext>オブジェクトから、`control`パラメーター、およびそのからルート名およびルートのパラメーターを解析して、`expression`パラメーター</xref:System.Web.Routing.RequestContext> 。"
   syntax:
     content: public static string GetRouteUrl (System.Web.UI.Control control, string expression);
     parameters:
     - id: control
       type: System.Web.UI.Control
-      description: "The control that the expression is bound to."
+      description: "式がバインドされているコントロール。"
     - id: expression
       type: System.String
-      description: "The expression as specified in markup."
+      description: "マークアップで指定された式です。"
     return:
       type: System.String
-      description: "The URL that corresponds to the route URL format of the current <xref:System.Web.Routing.Route> object."
+      description: "現在のルート URL の形式に対応する URL<xref:System.Web.Routing.Route>オブジェクト</xref:System.Web.Routing.Route>。"
   overload: System.Web.Compilation.RouteUrlExpressionBuilder.GetRouteUrl*
   exceptions:
   - type: System.ArgumentNullException
@@ -156,7 +156,7 @@ items:
     description: "The <code>control</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The method was unable to parse the expression that was specified in markup. For more information, see <xref:System.Web.Compilation.RouteUrlExpressionBuilder.TryParseRouteExpression*>."
+    description: "メソッドは、マークアップで指定された式を解析できませんでした。 詳細については、 <xref:System.Web.Compilation.RouteUrlExpressionBuilder.TryParseRouteExpression*>。</xref:System.Web.Compilation.RouteUrlExpressionBuilder.TryParseRouteExpression*>を参照してください。"
   platform:
   - net462
 - uid: System.Web.Compilation.RouteUrlExpressionBuilder.SupportsEvaluate
@@ -171,8 +171,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets a value that indicates whether an expression can be evaluated in a page that is not compiled."
-  remarks: "The SupportsEvaluate property indicates whether the <xref:System.Web.Compilation.RouteUrlExpressionBuilder.EvaluateExpression%2A> method has been implemented in the class and can return a value for the expression in a page that is not compiled. The <xref:System.Web.Compilation.RouteUrlExpressionBuilder> class can evaluate an expression in a page that is not compiled. Therefore, the SupportsEvaluate property always returns `true`."
+  summary: "コンパイルされていない ページで、式を評価できるかどうかを示す値を取得します。"
+  remarks: "SupportsEvaluate プロパティを示すかどうか、<xref:System.Web.Compilation.RouteUrlExpressionBuilder.EvaluateExpression%2A>メソッドがクラスに実装されていて、コンパイルされていない ページで、式の値を返すことができます</xref:System.Web.Compilation.RouteUrlExpressionBuilder.EvaluateExpression%2A>。 <xref:System.Web.Compilation.RouteUrlExpressionBuilder>クラスがコンパイルされていないページで、式を評価することができます</xref:System.Web.Compilation.RouteUrlExpressionBuilder>。 したがって、SupportsEvaluate 常に返します`true`です。"
   syntax:
     content: public override bool SupportsEvaluate { get; }
     return:
@@ -194,23 +194,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Parses an expression into a collection of route keys and values, and optionally into a route name."
-  remarks: "The TryParseRouteExpression method strips leading and trailing spaces from the expression, and then splits it into key/value pairs by using commas as delimiters. If the route key named `RouteName` is found, that value is passed back in the `routeName` parameter and not in `routeValues`. Otherwise, `null` is returned for `routeName`. Leading and trailing spaces are also stripped from individual keys and values.       The TryParseRouteExpression method returns `false` if the expression is not composed of at least one key/value pair that is in the format *key*`=`*value*, and that uses commas to separate multiple pairs."
+  summary: "ルート キーと値のコレクションと必要に応じて、ルート名に式を解析します。"
+  remarks: "TryParseRouteExpression メソッドは、先頭と末尾のスペース、式を削除し、区切り記号としてコンマを使用して、キー/値ペアに分割します。 ルート キーの名前を付けて場合`RouteName`が見つかるに戻り値が渡されること、`routeName`パラメーターではなく`routeValues`です。 それ以外の場合、`null`に対して返される`routeName`です。 先頭および末尾のスペースは個々 のキーと値からも削除されます。       TryParseRouteExpression メソッドを返します`false`式がない形式では、少なくとも&1; つのキー/値ペアので構成される場合*キー*`=`*値*、複数のペアを区切るコンマを使用するとします。"
   syntax:
     content: public static bool TryParseRouteExpression (string expression, System.Web.Routing.RouteValueDictionary routeValues, out string routeName);
     parameters:
     - id: expression
       type: System.String
-      description: "The expression as specified in markup."
+      description: "マークアップで指定された式です。"
     - id: routeValues
       type: System.Web.Routing.RouteValueDictionary
-      description: "The collection of route keys and their associated values."
+      description: "ルート キーと関連付けられた値のコレクションです。"
     - id: routeName
       type: System.String
-      description: "When this method returns, contains a string that represents the name of the route, if `expression` contains a route key named `RouteName`. This parameter is passed uninitialized."
+      description: "このメソッドが戻るときに場合、ルートの名前を表す文字列を含む`expression`という名前のルート キーを含む`RouteName`です。 このパラメーターは初期化されていない状態で渡されます。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if parsing was successful; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>解析が成功した場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.Compilation.RouteUrlExpressionBuilder.TryParseRouteExpression*
   exceptions: []
   platform:

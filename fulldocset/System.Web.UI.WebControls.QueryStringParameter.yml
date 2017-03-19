@@ -18,8 +18,8 @@ items:
   nameWithType: QueryStringParameter
   fullName: System.Web.UI.WebControls.QueryStringParameter
   type: Class
-  summary: "Binds the value of an HTTP request query-string field to a parameter object."
-  remarks: "You can use the QueryStringParameter class to bind the value of a field that is passed as part of an HTTP request query string to a parameter that is used in a parameterized query or command. The field is retrieved from the <xref:System.Web.HttpRequest.QueryString%2A> collection.       Controls that bind data to the parameter might throw an exception if a QueryStringParameter object is referenced, but no corresponding query-string name/value pair is passed. Similarly, they might display no data if the query-string field name is passed without a corresponding value. To avoid these situations, set the <xref:System.Web.UI.WebControls.Parameter.DefaultValue%2A> property where appropriate.       The QueryStringParameter class provides the <xref:System.Web.UI.WebControls.QueryStringParameter.QueryStringField%2A> property, which identifies the name of the query string value to bind to. It also provides the properties that are inherited from the <xref:System.Web.UI.WebControls.Parameter> class.      > [!IMPORTANT] >  The QueryStringParameter class does not validate the value that is passed; it provides the raw value. However, you can validate the value of a QueryStringParameter object in a data source control. To do so, handle the `Selecting`, `Updating`, `Inserting`, or `Deleting` event of the data source control and check the parameter value in the event handler. If the value of the parameter does not pass the validation tests, you can cancel the data operation by setting the <xref:System.ComponentModel.CancelEventArgs.Cancel%2A> property of the associated <xref:System.ComponentModel.CancelEventArgs> class to `true`."
+  summary: "HTTP 要求のクエリ文字列フィールドの値をパラメーター オブジェクトにバインドします。"
+  remarks: "QueryStringParameter クラスを使用して、HTTP 要求クエリ文字列の一部としてパラメーター化されたクエリまたはコマンドで使用されるパラメーターに渡されるフィールドの値をバインドできます。 フィールドがから取得した、<xref:System.Web.HttpRequest.QueryString%2A>コレクションです</xref:System.Web.HttpRequest.QueryString%2A>。       パラメーターにデータをバインドするコントロールは、QueryStringParameter オブジェクトを参照すると、対応するクエリ文字列の名前/値ペアが渡されない場合、例外をスロー可能性があります。 同様に、クエリ文字列フィールドの名前が対応する値を指定せずに渡された場合、データは表示されません。 このような状況を避けるためには、次のように設定します、<xref:System.Web.UI.WebControls.Parameter.DefaultValue%2A>プロパティに応じて。</xref:System.Web.UI.WebControls.Parameter.DefaultValue%2A> 。       QueryStringParameter クラスは、提供、<xref:System.Web.UI.WebControls.QueryStringParameter.QueryStringField%2A>プロパティにバインドするクエリ文字列の値の名前を指定します</xref:System.Web.UI.WebControls.QueryStringParameter.QueryStringField%2A>。 <xref:System.Web.UI.WebControls.Parameter>クラス</xref:System.Web.UI.WebControls.Parameter>から継承されているプロパティも用意されています。      > [!IMPORTANT] >、QueryStringParameter クラスが渡される値を検証しません。 生の値を提供します。 ただし、データ ソース コントロールで QueryStringParameter オブジェクトの値を検証することができます。 これを行うには、処理、 `Selecting`、 `Updating`、 `Inserting`、または`Deleting`データのイベントのソース管理と、イベント ハンドラーのパラメーター値を確認します。 パラメーターの値が検証テストに合格しなかった場合は、設定して、データ操作を取り消すことができます、 <xref:System.ComponentModel.CancelEventArgs.Cancel%2A>、関連するプロパティ<xref:System.ComponentModel.CancelEventArgs>クラスを`true`</xref:System.ComponentModel.CancelEventArgs></xref:System.ComponentModel.CancelEventArgs.Cancel%2A>。"
   example:
   - "The following example shows how to create a QueryStringParameter object to use as a filter when you display data in a <xref:System.Web.UI.WebControls.GridView> control. You add the QueryStringParameter object to the <xref:System.Web.UI.WebControls.AccessDataSource> control's <xref:System.Web.UI.WebControls.SqlDataSource.FilterParameters%2A> collection. The parameter object binds the value of the query-string field named `country` to its <xref:System.Web.UI.WebControls.SqlDataSource.FilterExpression%2A> string. Because no <xref:System.Web.UI.WebControls.Parameter.DefaultValue%2A> property is specified for the parameter, if no field named `country` is passed with the query string, the <xref:System.Web.UI.WebControls.AccessDataSource> control throws a <xref:System.NullReferenceException> exception. If a field named `country` is passed but has no value, the <xref:System.Web.UI.WebControls.GridView> control displays no data.  \n  \n [!code-cs[System.Web.UI.WebControls.QueryStringParameter_4#1](~/add/codesnippet/csharp/t-system.web.ui.webcontr_359_1.aspx)]\n [!code-vb[System.Web.UI.WebControls.QueryStringParameter_4#1](~/add/codesnippet/visualbasic/t-system.web.ui.webcontr_359_1.aspx)]  \n  \n The following example shows how to create a QueryStringParameter object to display data from an Access database by using a parameterized SQL query. The <xref:System.Web.UI.WebControls.AccessDataSource> object retrieves records that are then displayed in a <xref:System.Web.UI.WebControls.GridView> control. The <xref:System.Web.UI.WebControls.GridView> control is also editable, and lets users update the status of orders in the Northwind Traders Orders table.  \n  \n [!code-cs[System.Web.UI.WebControls.SqlDataSource_22sql#1](~/add/codesnippet/csharp/t-system.web.ui.webcontr_359_2.aspx)]\n [!code-vb[System.Web.UI.WebControls.SqlDataSource_22sql#1](~/add/codesnippet/visualbasic/t-system.web.ui.webcontr_359_2.aspx)]"
   syntax:
@@ -69,8 +69,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Initializes a new unnamed instance of the <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;></xref> class."
-  remarks: "A <xref:System.Web.UI.WebControls.QueryStringParameter> object that is created by using the QueryStringParameter constructor is initialized with default values for all its properties. The properties are initialized as follows:      -   <xref:System.Web.UI.WebControls.QueryStringParameter.QueryStringField%2A> is initialized to an empty string (&quot;&quot;).      -   <xref:System.Web.UI.WebControls.Parameter.Name%2A> is initialized to an empty string (&quot;&quot;).      -   <xref:System.Web.UI.WebControls.Parameter.Type%2A> is initialized to <xref:System.TypeCode?displayProperty=fullName>.      -   <xref:System.Web.UI.WebControls.Parameter.Direction%2A> is initialized to <xref:System.Data.ParameterDirection>.      -   <xref:System.Web.UI.WebControls.Parameter.DefaultValue%2A> is initialized to `null`."
+  summary: "新しい名前のないインスタンスを初期化、 <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;> </xref>クラスです。"
+  remarks: "A <xref:System.Web.UI.WebControls.QueryStringParameter>QueryStringParameter コンス トラクターを使用して作成されたオブジェクトには、すべてのプロパティの既定値で初期化します</xref:System.Web.UI.WebControls.QueryStringParameter>。 プロパティは次のように初期化されます- <xref:System.Web.UI.WebControls.QueryStringParameter.QueryStringField%2A>、空の文字列に初期化されます (&quot;&quot;)。</xref:System.Web.UI.WebControls.QueryStringParameter.QueryStringField%2A> 。      - <xref:System.Web.UI.WebControls.Parameter.Name%2A>、空の文字列に初期化されます (&quot;&quot;).</xref:System.Web.UI.WebControls.Parameter.Name%2A>      - <xref:System.Web.UI.WebControls.Parameter.Type%2A> <xref:System.TypeCode?displayProperty=fullName>.</xref:System.TypeCode?displayProperty=fullName>に初期化されます</xref:System.Web.UI.WebControls.Parameter.Type%2A>      - <xref:System.Web.UI.WebControls.Parameter.Direction%2A> <xref:System.Data.ParameterDirection>.</xref:System.Data.ParameterDirection>に初期化されます</xref:System.Web.UI.WebControls.Parameter.Direction%2A>      -<xref:System.Web.UI.WebControls.Parameter.DefaultValue%2A>に初期化される`null`</xref:System.Web.UI.WebControls.Parameter.DefaultValue%2A>。"
   example:
   - "The following example shows how to use the QueryStringParameter constructor to create a new <xref:System.Web.UI.WebControls.QueryStringParameter> parameter and add it to the <xref:System.Web.UI.WebControls.SqlDataSource.SelectParameters%2A> collection of an <xref:System.Web.UI.WebControls.AccessDataSource> control.  \n  \n [!code-cs[System.Web.UI.WebControls.QueryStringParameter_1#2](~/add/codesnippet/csharp/m-system.web.ui.webcontr_83_1.cs)]\n [!code-vb[System.Web.UI.WebControls.QueryStringParameter_1#2](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_83_1.vb)]  \n  \n The <xref:System.Web.UI.WebControls.QueryStringParameter> object is added to the <xref:System.Web.UI.WebControls.AccessDataSource> control and is declared in an ASP.NET Web page. The <xref:System.Web.UI.WebControls.ListBox> control uses the <xref:System.Web.UI.WebControls.AccessDataSource> control to bind and display data whenever the page is requested with a query string that contains a field that is named `empId` and that has a corresponding value.  \n  \n [!code-cs[System.Web.UI.WebControls.QueryStringParameter_1#3](~/add/codesnippet/csharp/m-system.web.ui.webcontr_83_2.aspx)]\n [!code-vb[System.Web.UI.WebControls.QueryStringParameter_1#3](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_83_2.aspx)]"
   syntax:
@@ -92,14 +92,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;></xref> class, using the values of the instance that is specified by the <code>original</code> parameter."
-  remarks: "The QueryStringParameter constructor is a protected copy constructor that is used to clone a <xref:System.Web.UI.WebControls.QueryStringParameter> instance. The values of the <xref:System.Web.UI.WebControls.QueryStringParameter.QueryStringField%2A>, <xref:System.Web.UI.WebControls.Parameter.Name%2A>, and <xref:System.Web.UI.WebControls.Parameter.Type%2A> properties are transferred to the new instance."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;> </xref>クラスで指定されているインスタンスの値を使用して、 <code> original </code>パラメーター。"
+  remarks: "QueryStringParameter コンス トラクターは、複製に使用される保護されたコピー コンス トラクター、<xref:System.Web.UI.WebControls.QueryStringParameter>インスタンス</xref:System.Web.UI.WebControls.QueryStringParameter>。 値、 <xref:System.Web.UI.WebControls.QueryStringParameter.QueryStringField%2A>、 <xref:System.Web.UI.WebControls.Parameter.Name%2A>、および<xref:System.Web.UI.WebControls.Parameter.Type%2A>プロパティは、新しいインスタンスに転送されます</xref:System.Web.UI.WebControls.Parameter.Type%2A></xref:System.Web.UI.WebControls.Parameter.Name%2A></xref:System.Web.UI.WebControls.QueryStringParameter.QueryStringField%2A>。"
   syntax:
     content: protected QueryStringParameter (System.Web.UI.WebControls.QueryStringParameter original);
     parameters:
     - id: original
       type: System.Web.UI.WebControls.QueryStringParameter
-      description: "A <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;></xref> instance from which the current instance is initialized."
+      description: "A <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;> </xref>インスタンスから現在のインスタンスを初期化します。"
   overload: System.Web.UI.WebControls.QueryStringParameter.#ctor*
   exceptions: []
   platform:
@@ -116,8 +116,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Initializes a new named instance of the <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;></xref> class, using the specified string to identify which query-string field to bind to."
-  remarks: "A <xref:System.Web.UI.WebControls.QueryStringParameter> object that is created by using the QueryStringParameter constructor is initialized with the specified parameter name that identifies the query-string field that the parameter binds to. The <xref:System.Web.UI.WebControls.Parameter.Type%2A> and <xref:System.Web.UI.WebControls.Parameter.Direction%2A> properties are initialized with default values."
+  summary: "新しい名前付きのインスタンスを初期化、 <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;> </xref>クラスにバインドするには、どのクエリ文字列フィールドを識別する、指定した文字列を使用します。"
+  remarks: "A <xref:System.Web.UI.WebControls.QueryStringParameter>QueryStringParameter コンス トラクターを使用して作成されたオブジェクトには、パラメーターのバインド先のクエリ文字列フィールドを識別する指定されたパラメーター名で初期化します</xref:System.Web.UI.WebControls.QueryStringParameter>。 <xref:System.Web.UI.WebControls.Parameter.Type%2A>と<xref:System.Web.UI.WebControls.Parameter.Direction%2A>プロパティは既定値で初期化されます</xref:System.Web.UI.WebControls.Parameter.Direction%2A></xref:System.Web.UI.WebControls.Parameter.Type%2A>。"
   example:
   - "The following example shows how to create two <xref:System.Web.UI.WebControls.QueryStringParameter> objects by using the QueryStringParameter constructor and add them to an <xref:System.Web.UI.WebControls.AccessDataSource> control's <xref:System.Web.UI.WebControls.SqlDataSource.SelectParameters%2A> collection. A <xref:System.Web.UI.WebControls.GridView> control displays data if the `employee` and `country` query-string fields are passed with the request and if they have valid values.  \n  \n [!code-vb[System.Web.UI.WebControls.QueryStringParameter_2#1](~/add/codesnippet/visualbasic/28eab08c-8b34-4ee2-bf96-_1.aspx)]\n [!code-cs[System.Web.UI.WebControls.QueryStringParameter_2#1](~/add/codesnippet/csharp/28eab08c-8b34-4ee2-bf96-_1.aspx)]"
   syntax:
@@ -125,10 +125,10 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter."
+      description: "パラメーターの名前。"
     - id: queryStringField
       type: System.String
-      description: "The name of the query-string field that the parameter object is bound to. The default is an empty string (&quot;&quot;)."
+      description: "パラメーター オブジェクトにバインドされるクエリ文字列フィールドの名前です。 既定値は空の文字列 (&quot;&quot;) です。"
   overload: System.Web.UI.WebControls.QueryStringParameter.#ctor*
   exceptions: []
   platform:
@@ -145,19 +145,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Initializes a new named instance of the <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;></xref> class, using the specified query-string field and the data type of the parameter."
+  summary: "新しい名前付きのインスタンスを初期化、 <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;> </xref>クラス、指定したクエリ文字列フィールドとパラメーターのデータ型を使用します。"
   syntax:
     content: public QueryStringParameter (string name, System.Data.DbType dbType, string queryStringField);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter."
+      description: "パラメーターの名前。"
     - id: dbType
       type: System.Data.DbType
-      description: "The data type of the parameter."
+      description: "パラメーターのデータ型。"
     - id: queryStringField
       type: System.String
-      description: "The name of the query-string field that the parameter object is bound to. The default is an empty string (&quot;&quot;)."
+      description: "パラメーター オブジェクトにバインドされるクエリ文字列フィールドの名前です。 既定値は空の文字列 (&quot;&quot;) です。"
   overload: System.Web.UI.WebControls.QueryStringParameter.#ctor*
   exceptions: []
   platform:
@@ -174,8 +174,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Initializes a new named and strongly typed instance of the <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;></xref> class, using the specified string to identify which query-string field to bind to."
-  remarks: "A <xref:System.Web.UI.WebControls.QueryStringParameter> object that is created by using the QueryStringParameter constructor is initialized with the specified parameter name, the parameter type, and a string that identifies the query-string field that the parameter binds to. The <xref:System.Web.UI.WebControls.Parameter.Direction%2A> and <xref:System.Web.UI.WebControls.Parameter.ConvertEmptyStringToNull%2A> properties are initialized with default values."
+  summary: "新しい名前付きと厳密に型指定されたインスタンスを初期化、 <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;> </xref>クラスにバインドするには、どのクエリ文字列フィールドを識別する、指定した文字列を使用します。"
+  remarks: "A <xref:System.Web.UI.WebControls.QueryStringParameter>QueryStringParameter コンス トラクターを使用して作成されたオブジェクトには、指定されたパラメーター名、パラメーターの型およびパラメーターのバインド先のクエリ文字列フィールドを識別する文字列で初期化します</xref:System.Web.UI.WebControls.QueryStringParameter>。 <xref:System.Web.UI.WebControls.Parameter.Direction%2A>と<xref:System.Web.UI.WebControls.Parameter.ConvertEmptyStringToNull%2A>プロパティは既定値で初期化されます</xref:System.Web.UI.WebControls.Parameter.ConvertEmptyStringToNull%2A></xref:System.Web.UI.WebControls.Parameter.Direction%2A>。"
   example:
   - "The following example shows how to create a <xref:System.Web.UI.WebControls.QueryStringParameter> object by using the QueryStringParameter constructor and add it to an <xref:System.Web.UI.WebControls.AccessDataSource> control's <xref:System.Web.UI.WebControls.SqlDataSource.FilterParameters%2A> collection. A <xref:System.Web.UI.WebControls.GridView> control displays data if the `employee` and `country` query-string fields are passed with the request and if they have valid values.  \n  \n [!code-cs[System.Web.UI.WebControls.QueryStringParameter_3#1](~/add/codesnippet/csharp/0cb36b7a-981d-4e88-acd1-_1.aspx)]\n [!code-vb[System.Web.UI.WebControls.QueryStringParameter_3#1](~/add/codesnippet/visualbasic/0cb36b7a-981d-4e88-acd1-_1.aspx)]"
   syntax:
@@ -183,13 +183,13 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter."
+      description: "パラメーターの名前。"
     - id: type
       type: System.TypeCode
-      description: "The type that the parameter represents. The default is <xref:System.TypeCode>."
+      description: "パラメーターを表す型。 既定値は<xref:System.TypeCode>。</xref:System.TypeCode>"
     - id: queryStringField
       type: System.String
-      description: "The name of the query-string field that the parameter object is bound to. The default is an empty string (&quot;&quot;)."
+      description: "パラメーター オブジェクトにバインドされるクエリ文字列フィールドの名前です。 既定値は空の文字列 (&quot;&quot;) です。"
   overload: System.Web.UI.WebControls.QueryStringParameter.#ctor*
   exceptions: []
   platform:
@@ -206,14 +206,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Returns a duplicate of the current <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;></xref> instance."
-  remarks: "The Clone method calls the <xref:System.Web.UI.WebControls.QueryStringParameter.%23ctor%2A> constructor to initialize a new instance of the <xref:System.Web.UI.WebControls.QueryStringParameter> class by using the values of the current instance."
+  summary: "現在の複製を返します<xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;></xref>インスタンス。"
+  remarks: "この複製メソッドの呼び出し、<xref:System.Web.UI.WebControls.QueryStringParameter.%23ctor%2A>の新しいインスタンスを初期化するコンス トラクター、<xref:System.Web.UI.WebControls.QueryStringParameter>現在のインスタンスの値を使用してクラス</xref:System.Web.UI.WebControls.QueryStringParameter></xref:System.Web.UI.WebControls.QueryStringParameter.%23ctor%2A>。"
   syntax:
     content: protected override System.Web.UI.WebControls.Parameter Clone ();
     parameters: []
     return:
       type: System.Web.UI.WebControls.Parameter
-      description: "A duplicate of the current instance."
+      description: "現在のインスタンスの複製。"
   overload: System.Web.UI.WebControls.QueryStringParameter.Clone*
   exceptions: []
   platform:
@@ -230,20 +230,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Updates and returns the value of the <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;></xref> object."
-  remarks: "The <xref:System.Web.UI.WebControls.QueryStringParameter> object tries to bind to the query-string field every time that the Evaluate method is called.       The `context` parameter is used by the Evaluate method to retrieve the value of the specified query-string field from the query string. The `control` parameter is ignored."
+  summary: "更新の値を返します、 <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;> </xref>オブジェクト。"
+  remarks: "<xref:System.Web.UI.WebControls.QueryStringParameter>Evaluate メソッドが呼び出されるたびに、クエリ文字列フィールドにバインドしようとするオブジェクト</xref:System.Web.UI.WebControls.QueryStringParameter>。       `context`パラメーターは、クエリ文字列から指定したクエリ文字列フィールドの値を取得する評価メソッドによって使用されます。 `control`パラメーターは無視されます。"
   syntax:
     content: protected override object Evaluate (System.Web.HttpContext context, System.Web.UI.Control control);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The current <xref href=&quot;System.Web.HttpContext&quot;></xref> instance of the request."
+      description: "現在<xref href=&quot;System.Web.HttpContext&quot;></xref>要求のインスタンス。"
     - id: control
       type: System.Web.UI.Control
-      description: "A Web server control that is associated with the ASP.NET Web page where the <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;></xref> object is used.       **Note** This parameter is not used."
+      description: "ASP.NET Web に関連付けられている Web サーバー コントロールの場所のページ、 <xref href=&quot;System.Web.UI.WebControls.QueryStringParameter&quot;> </xref>オブジェクトを使用します。       **注**このパラメーターは使用されません。"
     return:
       type: System.Object
-      description: "An object that represents the current value of the parameter. If the context or the request is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the Evaluate method returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "パラメーターの現在の値を表すオブジェクト。 コンテキストまたは要求がある場合<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>、Evaluate メソッドを返します<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.UI.WebControls.QueryStringParameter.Evaluate*
   exceptions: []
   platform:
@@ -260,15 +260,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the name of the query-string field that the parameter binds to."
-  remarks: "The QueryStringField property identifies a name/value pair that is passed with the query string. The QueryStringField property identifies the name of the pair, whereas the <xref:System.Web.UI.WebControls.QueryStringParameter> property binds to its corresponding value at run time. If the expected query-string name/value pair is not passed to the page with the query string, the <xref:System.Web.UI.WebControls.QueryStringParameter.Evaluate%2A> method then tries to bind the parameter to the value of the <xref:System.Web.UI.WebControls.Parameter.DefaultValue%2A> property. If the <xref:System.Web.UI.WebControls.Parameter.DefaultValue%2A> property is not set, the <xref:System.Web.UI.WebControls.QueryStringParameter.Evaluate%2A> method fails to bind the parameter to a value."
+  summary: "取得またはパラメーターのバインド先のクエリ文字列フィールドの名前を設定します。"
+  remarks: "QueryStringField プロパティでは、クエリ文字列で渡される名前/値ペアを識別します。 一方、QueryStringField プロパティは、ペアの名前を識別、<xref:System.Web.UI.WebControls.QueryStringParameter>プロパティは、実行時に、対応する値にバインドされています</xref:System.Web.UI.WebControls.QueryStringParameter>。 クエリ文字列を使用してページに期待されるクエリ文字列の名前/値ペアが渡されない場合、<xref:System.Web.UI.WebControls.QueryStringParameter.Evaluate%2A>メソッドは、パラメーターの値をバインドしよう、<xref:System.Web.UI.WebControls.Parameter.DefaultValue%2A>プロパティ</xref:System.Web.UI.WebControls.Parameter.DefaultValue%2A></xref:System.Web.UI.WebControls.QueryStringParameter.Evaluate%2A>。 場合、<xref:System.Web.UI.WebControls.Parameter.DefaultValue%2A>プロパティが設定されていない、<xref:System.Web.UI.WebControls.QueryStringParameter.Evaluate%2A>パラメーター値をバインドするメソッドは失敗します</xref:System.Web.UI.WebControls.QueryStringParameter.Evaluate%2A></xref:System.Web.UI.WebControls.Parameter.DefaultValue%2A>。"
   example:
   - "The following example shows how to use a <xref:System.Web.UI.WebControls.QueryStringParameter> object together with a <xref:System.Web.UI.WebControls.SqlDataSource> control to display data in a <xref:System.Web.UI.WebControls.ListBox> control. The QueryStringField property is set to the name of the expected query-string field, and the parameter is added to the <xref:System.Web.UI.WebControls.SqlDataSource.SelectParameters%2A> collection. A <xref:System.Web.UI.WebControls.Parameter.DefaultValue%2A> property is provided in case the name/value pair is not passed with the query string.  \n  \n [!code-cs[System.Web.UI.WebControls.QueryStringParameter_1#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_370_1.aspx)]\n [!code-vb[System.Web.UI.WebControls.QueryStringParameter_1#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_370_1.aspx)]  \n  \n The following example shows how to use a <xref:System.Web.UI.WebControls.QueryStringParameter> object together with a <xref:System.Web.UI.WebControls.SqlDataSource> control to display data in a <xref:System.Web.UI.WebControls.GridView> control. The <xref:System.Web.UI.WebControls.QueryStringParameter> object is added to the <xref:System.Web.UI.WebControls.SqlDataSource.SelectParameters%2A> collection, together with other parameter objects that are used for the output parameter and return value. To retrieve data, handle the values that are returned from the stored procedure. This code example is part of a larger example that is provided for the <xref:System.Web.UI.WebControls.SqlDataSourceStatusEventArgs> class.  \n  \n [!code-cs[System.Web.UI.WebControls.SqlDataSourceStatusEventArgs_1#2](~/add/codesnippet/csharp/p-system.web.ui.webcontr_370_2.aspx)]\n [!code-vb[System.Web.UI.WebControls.SqlDataSourceStatusEventArgs_1#2](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_370_2.aspx)]"
   syntax:
     content: public string QueryStringField { get; set; }
     return:
       type: System.String
-      description: "The name of the query-string field that the parameter binds to."
+      description: "パラメーターのバインド先のクエリ文字列フィールドの名前。"
   overload: System.Web.UI.WebControls.QueryStringParameter.QueryStringField*
   exceptions: []
   platform:
@@ -285,13 +285,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets whether the value of the query string parameter is being validated or not."
-  remarks: "If the page property <xref:System.Web.UI.Page.SkipFormActionValidation%2A> is set to `true`, and the ValidateInput property is set to `false`, the query string parameter will not be validated. However, if the page property <xref:System.Web.UI.Page.SkipFormActionValidation%2A> is set to `true`, and the ValidateInput property is set to `true`, the query string parameter will be validated. If the page property <xref:System.Web.UI.Page.SkipFormActionValidation%2A> is set to `false`, the query string parameter will be validated regardless of whether the ValidateInput property is set to `true` or `false`."
+  summary: "取得またはか、クエリ文字列パラメーターの値が検証されているかどうかを設定します。"
+  remarks: "場合のページ プロパティ<xref:System.Web.UI.Page.SkipFormActionValidation%2A>に設定されている`true`、ValidateInput プロパティに設定し、 `false`、クエリ文字列パラメーターは検証されません</xref:System.Web.UI.Page.SkipFormActionValidation%2A>。 ただし場合、page プロパティ<xref:System.Web.UI.Page.SkipFormActionValidation%2A>に設定されている`true`、ValidateInput プロパティに設定および`true`、クエリ文字列パラメーターが検証されます</xref:System.Web.UI.Page.SkipFormActionValidation%2A>。 場合 page プロパティ<xref:System.Web.UI.Page.SkipFormActionValidation%2A>に設定されている`false`、ValidateInput プロパティに設定するかどうかに関係なく、クエリ文字列パラメーターが検証される`true`または`false`</xref:System.Web.UI.Page.SkipFormActionValidation%2A>。"
   syntax:
     content: public bool ValidateInput { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the value of the query parameter is being validated; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>クエリ パラメーターの値が検証されている場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.UI.WebControls.QueryStringParameter.ValidateInput*
   exceptions: []
   platform:
