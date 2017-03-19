@@ -15,7 +15,7 @@ items:
   nameWithType: TcpConnectionPoolSettingsElement
   fullName: System.ServiceModel.Configuration.TcpConnectionPoolSettingsElement
   type: Class
-  summary: "Represents a configuration element that specifies additional connection pool settings for a TCP transport. This class cannot be inherited."
+  summary: "TCP トランスポートの追加の接続プール設定を指定する構成要素を表します。 このクラスは継承できません。"
   syntax:
     content: 'public sealed class TcpConnectionPoolSettingsElement : System.ServiceModel.Configuration.ServiceModelConfigurationElement'
   inheritance:
@@ -73,7 +73,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Configuration.TcpConnectionPoolSettingsElement&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ServiceModel.Configuration.TcpConnectionPoolSettingsElement&quot;> </xref>クラスです。"
   syntax:
     content: public TcpConnectionPoolSettingsElement ();
     parameters: []
@@ -93,13 +93,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets a string that defines the name of the connection pool used for outgoing channels."
-  remarks: "In streamed mode, connections are not shared, meaning that connection pooling is disabled. The default is a &quot;default&quot; string. You can modify this value to isolate the connections for a particular client into separate groups."
+  summary: "取得または送信チャネルに使用される接続プールの名前を定義する文字列を設定します。"
+  remarks: "ストリーミング モードは、接続が共有されません、接続プールが無効になっていることを意味します。 既定値は、&quot;default&quot;文字列です。 個別のグループに、特定のクライアント接続を分離するには、この値を変更することができます。"
   syntax:
     content: public string GroupName { get; set; }
     return:
       type: System.String
-      description: "The name of the connection pool used for outgoing channels."
+      description: "送信チャネルに使用される接続プールの名前。"
   overload: System.ServiceModel.Configuration.TcpConnectionPoolSettingsElement.GroupName*
   exceptions: []
   platform:
@@ -116,12 +116,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets the maximum time the connection can be idle before being disconnected."
+  summary: "取得または設定期間、接続は切断されるまでアイドル状態であることができます。"
   syntax:
     content: public TimeSpan IdleTimeout { get; set; }
     return:
       type: System.TimeSpan
-      description: "A positive <xref:System.TimeSpan> that specifies the maximum time the connection can be idle before being disconnected. The default is 00:02:00."
+      description: "正<xref:System.TimeSpan>接続は切断されるまでアイドル状態であることができます、最大時間を指定します</xref:System.TimeSpan>。 既定値は、00時 02分: 00 です。"
   overload: System.ServiceModel.Configuration.TcpConnectionPoolSettingsElement.IdleTimeout*
   exceptions: []
   platform:
@@ -138,13 +138,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets the time span after which an active connection is closed."
-  remarks: "A connection is closed after it is returned to the connection cache and not during active transmission. The connection cache used by the TCP transport creates new connections as required for each endpoint, up to the cache limit that is set by <xref:System.ServiceModel.Configuration.TcpConnectionPoolSettingsElement.MaxOutboundConnectionsPerEndpoint%2A>."
+  summary: "取得またはアクティブな接続が閉じられるまでの時間間隔を設定します。"
+  remarks: "アクティブに転送中ではなく、接続キャッシュに返された後、接続は閉じられます。 TCP トランスポートによって使用される接続キャッシュが上限はキャッシュ<xref:System.ServiceModel.Configuration.TcpConnectionPoolSettingsElement.MaxOutboundConnectionsPerEndpoint%2A>。</xref:System.ServiceModel.Configuration.TcpConnectionPoolSettingsElement.MaxOutboundConnectionsPerEndpoint%2A>で設定されている各エンドポイントの必要に応じて新しい接続を作成します。"
   syntax:
     content: public TimeSpan LeaseTimeout { get; set; }
     return:
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> structure that indicates the duration after which the TCP connection is closed."
+      description: "A<xref:System.TimeSpan>構造との TCP 接続が閉じられるまでの期間を指定します</xref:System.TimeSpan>。"
   overload: System.ServiceModel.Configuration.TcpConnectionPoolSettingsElement.LeaseTimeout*
   exceptions: []
   platform:
@@ -161,13 +161,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets the maximum number of connections to a remote endpoint initiated by the service."
-  remarks: "Connections in excess of the limit are queued until a space below the limit becomes available. This property limits the duration in which connections remain queued before an exception is thrown.       This property limits the number of simultaneous active connections from the client to a particular service endpoint. If this value is exceeded by having more active client connections, the service may appear unresponsive to the client. In this case, this value should be adjusted to exceed the maximum number of expected simultaneous client connections to a specific endpoint.       This setting can also be set on the service side, in which case the value is used to set the <xref:System.ServiceModel.Channels.MaxPooledConnections%2A> on the <xref:System.ServiceModel.Channels.TcpChannelListener>."
+  summary: "取得またはサービスによって開始されるリモート エンドポイントへの接続の最大数を設定します。"
+  remarks: "制限を超えた接続は、制限の下の領域が使用可能になるまでキューに格納します。 このプロパティは、接続入れたままにキューに置かれた例外をスローする前に期間を制限します。       このプロパティは、特定のサービス エンドポイントをクライアントから同時にアクティブな接続の数を制限します。 複数のアクティブなクライアント接続でこの値を超えると、サービスがクライアントに応答しないように見える可能性があります。 この場合、この値は、特定のエンドポイントへの予想される同時クライアント接続の最大数を超えるを調整する必要があります。       この設定は、 <xref:System.ServiceModel.Channels.MaxPooledConnections%2A> <xref:System.ServiceModel.Channels.TcpChannelListener>。</xref:System.ServiceModel.Channels.TcpChannelListener></xref:System.ServiceModel.Channels.MaxPooledConnections%2A>設定に使用される場合、値をサービス側で設定することもできます。"
   syntax:
     content: public int MaxOutboundConnectionsPerEndpoint { get; set; }
     return:
       type: System.Int32
-      description: "The maximum number of connections to a remote endpoint initiated by the service. The default is 10."
+      description: "サービスによって開始されるリモート エンドポイントへの接続の最大数。 既定値は 10 です。"
   overload: System.ServiceModel.Configuration.TcpConnectionPoolSettingsElement.MaxOutboundConnectionsPerEndpoint*
   exceptions: []
   platform:
@@ -188,7 +188,7 @@ items:
     content: protected override System.Configuration.ConfigurationPropertyCollection Properties { get; }
     return:
       type: System.Configuration.ConfigurationPropertyCollection
-      description: "To be added."
+      description: "追加します。"
   overload: System.ServiceModel.Configuration.TcpConnectionPoolSettingsElement.Properties*
   exceptions: []
   platform:
