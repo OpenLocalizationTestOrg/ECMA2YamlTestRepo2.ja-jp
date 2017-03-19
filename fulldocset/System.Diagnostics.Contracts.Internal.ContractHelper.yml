@@ -11,7 +11,7 @@ items:
   nameWithType: ContractHelper
   fullName: System.Diagnostics.Contracts.Internal.ContractHelper
   type: Class
-  summary: "Provides methods that the binary rewriter uses to handle contract failures."
+  summary: "バイナリ リライターがコントラクト エラーの処理に使用するメソッドを提供します。"
   syntax:
     content: >-
       [System.Obsolete("Use the ContractHelper class in the System.Runtime.CompilerServices namespace instead.")]
@@ -35,31 +35,31 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.Contracts.Internal
-  summary: "Used by the binary rewriter to activate the default failure behavior."
-  remarks: "The binary rewriter calls this method to notify listeners about a contract failure. The RaiseContractFailedEvent method does not perform the failure behavior (an assert or throw) itself. If the failure is handled by the listeners, the method returns `null`. If the failure is not handled by the listeners, a localized failure message is returned."
+  summary: "バイナリ リライターが既定のエラー動作をアクティブ化するために使用します。"
+  remarks: "バイナリ リライターがコントラクト エラー リスナーに通知するには、このメソッドを呼び出します。 RaiseContractFailedEvent メソッドがエラー時の動作 (アサートまたは throw) を実行していない自体です。 メソッドを返しますのかどうか、エラーは、リスナーによって処理、`null`です。 リスナーによって、エラーが処理されない場合は、ローカライズされたエラー メッセージが返されます。"
   syntax:
     content: public static string RaiseContractFailedEvent (System.Diagnostics.Contracts.ContractFailureKind failureKind, string userMessage, string conditionText, Exception innerException);
     parameters:
     - id: failureKind
       type: System.Diagnostics.Contracts.ContractFailureKind
-      description: "The type of failure."
+      description: "エラーの種類。"
     - id: userMessage
       type: System.String
-      description: "Additional user information."
+      description: "追加のユーザー情報。"
     - id: conditionText
       type: System.String
-      description: "The description of the condition that caused the failure."
+      description: "エラーの原因となった状態の説明。"
     - id: innerException
       type: System.Exception
-      description: "The inner exception that caused the current exception."
+      description: "現在の例外の原因となった内部例外。"
     return:
       type: System.String
-      description: "A null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic) if the event was handled and should not trigger a failure; otherwise, returns the localized failure message."
+      description: "Null 参照 (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> Visual Basic で) 場合は、イベントが処理されていて障害; をトリガーする必要がありますが、ローカライズされたエラー メッセージをそれ以外の場合を返します。"
   overload: System.Diagnostics.Contracts.Internal.ContractHelper.RaiseContractFailedEvent*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>failureKind</code> is not a valid <xref:System.Diagnostics.Contracts.ContractFailureKind> value."
+    description: "<code>failureKind</code>有効ではありません<xref:System.Diagnostics.Contracts.ContractFailureKind>値。"
   platform:
   - net462
 - uid: System.Diagnostics.Contracts.Internal.ContractHelper.TriggerFailure(System.Diagnostics.Contracts.ContractFailureKind,System.String,System.String,System.String,System.Exception)
@@ -74,26 +74,26 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.Contracts.Internal
-  summary: "Triggers the default failure behavior."
-  remarks: "The default failure behavior is to raise an <xref:System.Diagnostics.Debug.Assert%2A>, which causes the **Assert** dialog box to be displayed. You can change that behavior to throw an <xref:System.Exception> instead of displaying the dialog box."
+  summary: "既定のエラー動作をトリガーします。"
+  remarks: "既定のエラー動作をさせるは、 <xref:System.Diagnostics.Debug.Assert%2A>、これにより、 **Assert**  ダイアログ ボックスを表示します</xref:System.Diagnostics.Debug.Assert%2A>。 スローするには、その動作を変更することができます、 <xref:System.Exception> ダイアログ ボックスを表示する代わりにします</xref:System.Exception>。"
   syntax:
     content: public static void TriggerFailure (System.Diagnostics.Contracts.ContractFailureKind kind, string displayMessage, string userMessage, string conditionText, Exception innerException);
     parameters:
     - id: kind
       type: System.Diagnostics.Contracts.ContractFailureKind
-      description: "The type of failure."
+      description: "エラーの種類。"
     - id: displayMessage
       type: System.String
-      description: "The message to display."
+      description: "表示するメッセージ。"
     - id: userMessage
       type: System.String
-      description: "Additional user information."
+      description: "追加のユーザー情報。"
     - id: conditionText
       type: System.String
-      description: "The description of the condition that caused the failure."
+      description: "エラーの原因となった状態の説明。"
     - id: innerException
       type: System.Exception
-      description: "The inner exception that caused the current exception."
+      description: "現在の例外の原因となった内部例外。"
   overload: System.Diagnostics.Contracts.Internal.ContractHelper.TriggerFailure*
   exceptions: []
   platform:
