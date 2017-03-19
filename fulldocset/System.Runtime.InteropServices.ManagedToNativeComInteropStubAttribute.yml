@@ -12,8 +12,8 @@ items:
   nameWithType: ManagedToNativeComInteropStubAttribute
   fullName: System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute
   type: Class
-  summary: "Provides support for user customization of interop stubs in managed-to-COM interop scenarios."
-  remarks: "This attribute enables interop developers who have knowledge about marshaling and the inner workings of interop calls to do the following:      -   Take advantage of customized interop stubs at build time instead of run time.      -   Debug customized interop stubs.      -   Provide marshaling capabilities within a stub that the runtime does not provide.      -   Provide user-specific method dispatch capabilities.       You apply the attribute on a method in an interface to specify a corresponding stub method for managed-to-native COM interop.       If this attribute is encountered during run time, the common language runtime does not dynamically generate an interop stub. Instead, it invokes the custom stub that was created at build time.       The ManagedToNativeComInteropStubAttribute attribute has the following characteristics:      -   The attribute can be used only on methods from interfaces that are marked `[ComImport]`. If the attribute is applied to non-interface types, it is ignored by the runtime.      -   The attribute can be used only once on the same method in an interface. If it is used more than once, the compiler generates a duplicated attribute error.      -   The attribute is not inheritable from a base interface. Derived interfaces must explicitly assign the attribute.      -   The assembly that contains the attributed method must also contain the customized stub.       Overloaded stub methods are valid. Although you specify only the type and the name of the stub method, the runtime will discover the corresponding stub. It does this by examining all the arguments on the interface method, and then performing full signature matching by using an explicit `this` pointer.       It is also possible for multiple methods in an interface to share the same stub method; however, you should be careful when you use shared stubs.      > [!NOTE] >  Stub methods must be static.       You could inform the runtime to use a customized interop stub at build time instead of run time with the following C# code:      ```   [ComImport]   interface IMyInterface   {       [ManagedToNativeComInteropStubAttribute(typeof(TestStubClass),                 &quot;ForwardTestStub&quot;)]       void GetString (string arg);   }   ```       You could then use the following code to declare the corresponding stub method:      ```   class TestStubClass   {       internal static void ForwardTestStub(IMyInterface thisObject,                string arg) {…}   }   ```"
+  summary: "マネージ型から COM への相互運用シナリオでの相互運用機能のスタブのユーザーのカスタマイズのサポートを提供します。"
+  remarks: "この属性により、マーシャ リングの概要の知識と、次の操作への相互運用機能の呼び出しの内部動作開発者が相互運用機能:-実行時ではなく、ビルド時にカスタマイズされた相互運用機能のスタブを活用します。      デバッグは、相互運用機能のスタブをカスタマイズします。      ランタイムが提供していないスタブ内のマーシャ リングの機能を提供します。      機能を提供ユーザー固有メソッド ディスパッチします。       この属性は、マネージからネイティブへの COM 相互運用機能の対応するスタブ メソッドを指定するインターフェイスのメソッドに適用します。       この属性は、実行時に検出した場合、共通言語ランタイムの相互運用機能のスタブは動的に生成されません。 代わりに、ビルド時に作成されたカスタムのスタブを呼び出します。       ManagedToNativeComInteropStubAttribute 属性は、次の特性を持つ:-この属性は、マークされているインターフェイスのメソッドでのみ使用できます`[ComImport]`です。 属性はインターフェイス以外の型に適用する場合は、ランタイムによって無視されます。      -属性は、インターフェイス内で同じ方法で&1; 回だけ使用できます。 複数回使用されている場合、コンパイラは、属性の重複エラーを生成します。      -属性は、基本インターフェイスからは継承ではありません。 派生インターフェイスは、属性を明示的に割り当てる必要があります。      -属性付きメソッドを含むアセンブリには、カスタマイズされたスタブする必要がありますも含まれます。       オーバー ロードされたスタブ メソッドは、有効です。 型のみおよびスタブ メソッドの名前を指定すると、ランタイムは、対応するスタブを検出します。 これは、インターフェイス メソッド上のすべての引数を確認して、完全署名の明示的なを使用して照合を実行することで`this`ポインター。       同じスタブ メソッド; の共有へのインターフェイスで複数のメソッドのこともただし、必要がありますに注意する共有のスタブを使用するとします。      > [!NOTE] > スタブ メソッドは静的である必要があります。       次の c# コードの実行時ではなく、ビルド時にカスタマイズされた相互運用機能のスタブを使用するランタイムに通知する可能性があります:```   [ComImport]   interface IMyInterface   {       [ManagedToNativeComInteropStubAttribute(typeof(TestStubClass),                 &quot;ForwardTestStub&quot;)]       void GetString (string arg);   }   ```しを対応するスタブのメソッドを宣言する次のコードを使用する可能性があります。```   class TestStubClass   {       internal static void ForwardTestStub(IMyInterface thisObject,                string arg) {…}   }   ```"
   syntax:
     content: >-
       [System.AttributeUsage(System.AttributeTargets.Method, AllowMultiple=false, Inherited=false)]
@@ -39,24 +39,24 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices
-  summary: "Initializes a new instance of the <xref href=&quot;System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute&quot;></xref> class with the specified class type and method name."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute&quot;> </xref>指定したクラスの型とメソッドの名前を持つクラス。"
   syntax:
     content: public ManagedToNativeComInteropStubAttribute (Type classType, string methodName);
     parameters:
     - id: classType
       type: System.Type
-      description: "The class that contains the required stub method."
+      description: "必要なスタブ メソッドを含むクラスです。"
     - id: methodName
       type: System.String
-      description: "The name of the stub method."
+      description: "スタブ メソッドの名前。"
   overload: System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>methodName</code> cannot be found.       -or-       The method is not static or non-generic.       -or-       The method&quot;s parameter list does not match the expected parameter list for the stub."
+    description: "<code>methodName</code>見つかりません。       - または - メソッドは静的か非ジェネリックではありません。       または、メソッドのパラメーター リストが、スタブに必要なパラメーター リストと一致しません。"
   - type: System.MethodAccessException
     commentId: T:System.MethodAccessException
-    description: "The interface that contains the managed interop method has no access to the stub method, because the stub method has private or protected accessibility, or because of a security issue."
+    description: "スタブ メソッドがプライベートまたはプロテクトのアクセシビリティを持つため、またはセキュリティ上の問題のため、マネージ相互運用メソッドを格納しているインターフェイスは、スタブ メソッドへのアクセスがありません。"
   platform:
   - net462
 - uid: System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute.ClassType
@@ -71,12 +71,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices
-  summary: "Gets the class that contains the required stub method."
+  summary: "必要なスタブ メソッドを含むクラスを取得します。"
   syntax:
     content: public Type ClassType { get; }
     return:
       type: System.Type
-      description: "The class that contains the customized interop stub."
+      description: "このクラスは、カスタマイズされた相互運用機能のスタブが含まれています。"
   overload: System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute.ClassType*
   exceptions: []
   platform:
@@ -93,12 +93,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices
-  summary: "Gets the name of the stub method."
+  summary: "スタブ メソッドの名前を取得します。"
   syntax:
     content: public string MethodName { get; }
     return:
       type: System.String
-      description: "The name of a customized interop stub."
+      description: "カスタマイズされた相互運用機能のスタブの名前。"
   overload: System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute.MethodName*
   exceptions: []
   platform:
