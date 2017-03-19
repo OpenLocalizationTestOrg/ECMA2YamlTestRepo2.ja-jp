@@ -23,7 +23,7 @@ items:
   nameWithType: HttpContent
   fullName: System.Net.Http.HttpContent
   type: Class
-  summary: "A base class representing an HTTP entity body and content headers."
+  summary: "HTTP エンティティ本体およびコンテンツ ヘッダーを表す基本クラス。"
   syntax:
     content: 'public abstract class HttpContent : IDisposable'
   inheritance:
@@ -45,7 +45,7 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Http.HttpContent&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Net.Http.HttpContent&quot;> </xref>クラスです。"
   syntax:
     content: protected HttpContent ();
     parameters: []
@@ -65,17 +65,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content into a stream of bytes and copies it to the stream object provided as the <code>stream</code> parameter."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the content has been written to the stream object passed as the `stream` parameter."
+  summary: "HTTP コンテンツのバイト数とコピーとして指定されたストリーム オブジェクトにストリームにシリアル化、 <code> stream </code>のパラメーターです。"
+  remarks: "この操作はブロックされません。 返された<xref:System.Threading.Tasks.Task%601>オブジェクトは、すべてのコンテンツとして渡されるストリーム オブジェクトに書き込まれた後、完了、`stream`パラメーター</xref:System.Threading.Tasks.Task%601> 。"
   syntax:
     content: public System.Threading.Tasks.Task CopyToAsync (System.IO.Stream stream);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The target stream."
+      description: "対象のストリーム。"
     return:
       type: System.Threading.Tasks.Task
-      description: "The task object representing the asynchronous operation."
+      description: "非同期操作を表すタスク オブジェクト。"
   overload: System.Net.Http.HttpContent.CopyToAsync*
   exceptions: []
   platform:
@@ -92,20 +92,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content into a stream of bytes and copies it to the stream object provided as the <code>stream</code> parameter."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the content has been written to the stream object passed as the `stream` parameter."
+  summary: "HTTP コンテンツのバイト数とコピーとして指定されたストリーム オブジェクトにストリームにシリアル化、 <code> stream </code>のパラメーターです。"
+  remarks: "この操作はブロックされません。 返された<xref:System.Threading.Tasks.Task%601>オブジェクトは、すべてのコンテンツとして渡されるストリーム オブジェクトに書き込まれた後、完了、`stream`パラメーター</xref:System.Threading.Tasks.Task%601> 。"
   syntax:
     content: public System.Threading.Tasks.Task CopyToAsync (System.IO.Stream stream, System.Net.TransportContext context);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The target stream."
+      description: "対象のストリーム。"
     - id: context
       type: System.Net.TransportContext
-      description: "Information about the transport (channel binding token, for example). This parameter may be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "トランスポート (チャネル バインド トークンなど) について説明します。 このパラメーターがあります<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
     return:
       type: System.Threading.Tasks.Task
-      description: "The task object representing the asynchronous operation."
+      description: "非同期操作を表すタスク オブジェクト。"
   overload: System.Net.Http.HttpContent.CopyToAsync*
   exceptions: []
   platform:
@@ -122,14 +122,14 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content to a memory stream as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the content has been written to the memory stream.       Once the operation completes, the  <xref:System.Threading.Tasks.Task%601.Result%2A> property on the returned task object contains the memory stream that that represents the HTTP content. The returned stream can then be used to read the content using various stream APIs.       The CreateContentReadStreamAsync method buffers the content to a memory stream. Derived classes can override this behavior if there is a better way to retrieve the content as stream. For example, a byte array or a string could use a more efficient method way such as wrapping a read-only <xref:System.IO.MemoryStream> around the bytes or string.)"
+  summary: "非同期操作として HTTP コンテンツをメモリ ストリームにシリアル化します。"
+  remarks: "この操作はブロックされません。 返された<xref:System.Threading.Tasks.Task%601>オブジェクトは、すべてのコンテンツがメモリ ストリームに書き込まれた後に完了します</xref:System.Threading.Tasks.Task%601>。       操作の完了後、<xref:System.Threading.Tasks.Task%601.Result%2A>返されたタスク オブジェクトのプロパティには、HTTP コンテンツを表すメモリ ストリームが含まれています</xref:System.Threading.Tasks.Task%601.Result%2A>。 返されたストリームは、さまざまなストリーム Api を使用して、コンテンツの読み取りに使用できます。       CreateContentReadStreamAsync メソッドは、メモリ ストリームにコンテンツをバッファーします。 派生クラスは、内容をストリームとして取得する優れた方法がある場合、この動作をオーバーライドできます。 たとえば、バイト配列または文字列でしたを使用して読み取り専用の折り返しなどメソッド方法がより効率的<xref:System.IO.MemoryStream>バイトまたは文字列の周り)</xref:System.IO.MemoryStream> 。"
   syntax:
     content: protected virtual System.Threading.Tasks.Task<System.IO.Stream> CreateContentReadStreamAsync ();
     parameters: []
     return:
       type: System.Threading.Tasks.Task{System.IO.Stream}
-      description: "The task object representing the asynchronous operation."
+      description: "非同期操作を表すタスク オブジェクト。"
   overload: System.Net.Http.HttpContent.CreateContentReadStreamAsync*
   exceptions: []
   platform:
@@ -146,7 +146,7 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Releases the unmanaged resources and disposes of the managed resources used by the <xref href=&quot;System.Net.Http.HttpContent&quot;></xref>."
+  summary: "リリースで使用されるアンマネージ リソースおよびマネージ リソースを破棄、 <xref href=&quot;System.Net.Http.HttpContent&quot;></xref>です。"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -166,14 +166,14 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.Net.Http.HttpContent&quot;></xref> and optionally disposes of the managed resources."
-  remarks: "This method is called by the public `Dispose()` method and the <xref:System.Object.Finalize%2A> method. `Dispose()` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.When the `disposing` parameter is `true`, this method releases all resources held by any managed objects that this <xref:System.Net.Http.HttpContent> references. This method invokes the `Dispose()` method of each referenced object."
+  summary: "によって使用されるアンマネージ リソースを解放、 <xref href=&quot;System.Net.Http.HttpContent&quot;> </xref>オプションでマネージ リソースを破棄します。"
+  remarks: "このメソッドは、パブリック`Dispose()`メソッドおよび<xref:System.Object.Finalize%2A>メソッド</xref:System.Object.Finalize%2A>。 `Dispose()`プロテクト呼び出します`Dispose(Boolean)`メソッドを`disposing`パラメーターに設定`true`です。 <xref:System.Object.Finalize%2A>呼び出す`Dispose`で`disposing`&quot;éý&quot;`false`です。ときに、`disposing`パラメーターは`true`、このメソッドは、すべてのマネージ オブジェクトによって保持されているすべてのリソースを解放しますこの<xref:System.Net.Http.HttpContent>参照。</xref:System.Net.Http.HttpContent> 。</xref:System.Object.Finalize%2A> このメソッドを呼び出して、`Dispose()`参照される各オブジェクトのメソッドです。"
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to releases only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>マネージ コードとアンマネージ リソースを解放するには<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>アンマネージ リソースだけを解放します。"
   overload: System.Net.Http.HttpContent.Dispose*
   exceptions: []
   platform:
@@ -190,12 +190,12 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Gets the HTTP content headers as defined in RFC 2616."
+  summary: "RFC 2616 で定義されている HTTP コンテンツ ヘッダーを取得します。"
   syntax:
     content: public System.Net.Http.Headers.HttpContentHeaders Headers { get; }
     return:
       type: System.Net.Http.Headers.HttpContentHeaders
-      description: "The content headers as defined in RFC 2616."
+      description: "RFC 2616 で定義されているコンテンツ ヘッダー。"
   overload: System.Net.Http.HttpContent.Headers*
   exceptions: []
   platform:
@@ -212,14 +212,14 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content to a memory buffer as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task> object will complete after all of the content has been serialized to the memory buffer.       After content is serialized to a memory buffer, calls to one of the  <xref:System.Net.Http.HttpContent.CopyToAsync%2A> methods will copy the content of the memory buffer to the target stream."
+  summary: "非同期操作として HTTP コンテンツをメモリ バッファーにシリアル化します。"
+  remarks: "この操作はブロックされません。 返された<xref:System.Threading.Tasks.Task>オブジェクトは、すべてのコンテンツは、メモリ バッファーにシリアル化された後に完了します</xref:System.Threading.Tasks.Task>。       コンテンツがメモリ バッファーにシリアル化された後に呼び出しのいずれか、<xref:System.Net.Http.HttpContent.CopyToAsync%2A>メソッドは、対象のストリームにメモリ バッファーの内容をコピーします</xref:System.Net.Http.HttpContent.CopyToAsync%2A>。"
   syntax:
     content: public System.Threading.Tasks.Task LoadIntoBufferAsync ();
     parameters: []
     return:
       type: System.Threading.Tasks.Task
-      description: "The task object representing the asynchronous operation."
+      description: "非同期操作を表すタスク オブジェクト。"
   overload: System.Net.Http.HttpContent.LoadIntoBufferAsync*
   exceptions: []
   platform:
@@ -236,17 +236,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content to a memory buffer as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task> object will complete after all of the content has been serialized to the memory buffer.       After content is serialized to a memory buffer, calls to one of the  <xref:System.Net.Http.HttpContent.CopyToAsync%2A> methods will copy the content of the memory buffer to the target stream.       If the content exceeds the value  passed in the `maxBufferSize` parameter , an exception is thrown."
+  summary: "非同期操作として HTTP コンテンツをメモリ バッファーにシリアル化します。"
+  remarks: "この操作はブロックされません。 返された<xref:System.Threading.Tasks.Task>オブジェクトは、すべてのコンテンツは、メモリ バッファーにシリアル化された後に完了します</xref:System.Threading.Tasks.Task>。       コンテンツがメモリ バッファーにシリアル化された後に呼び出しのいずれか、<xref:System.Net.Http.HttpContent.CopyToAsync%2A>メソッドは、対象のストリームにメモリ バッファーの内容をコピーします</xref:System.Net.Http.HttpContent.CopyToAsync%2A>。       コンテンツに渡された値を超える場合、`maxBufferSize`パラメーター、例外がスローされます。"
   syntax:
     content: public System.Threading.Tasks.Task LoadIntoBufferAsync (long maxBufferSize);
     parameters:
     - id: maxBufferSize
       type: System.Int64
-      description: "The maximum size, in bytes, of the buffer to use."
+      description: "(バイト単位) を使用するバッファーの最大サイズ。"
     return:
       type: System.Threading.Tasks.Task
-      description: "The task object representing the asynchronous operation."
+      description: "非同期操作を表すタスク オブジェクト。"
   overload: System.Net.Http.HttpContent.LoadIntoBufferAsync*
   exceptions: []
   platform:
@@ -263,14 +263,14 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content to a byte array as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the content has been written as a byte array.       Once the operation completes, the  <xref:System.Threading.Tasks.Task%601.Result%2A> property on the returned task object contains the byte array with the HTTP content."
+  summary: "非同期操作として HTTP コンテンツをバイト配列にシリアル化します。"
+  remarks: "この操作はブロックされません。 返された<xref:System.Threading.Tasks.Task%601>オブジェクトは、すべてのコンテンツをバイト配列として書き込まれた後に完了します</xref:System.Threading.Tasks.Task%601>。       操作の完了後、 <xref:System.Threading.Tasks.Task%601.Result%2A>HTTP コンテンツを含むバイト配列が返されたタスク オブジェクトのプロパティに含まれています</xref:System.Threading.Tasks.Task%601.Result%2A>。"
   syntax:
     content: public System.Threading.Tasks.Task<byte[]> ReadAsByteArrayAsync ();
     parameters: []
     return:
       type: System.Threading.Tasks.Task{System.Byte[]}
-      description: "The task object representing the asynchronous operation."
+      description: "非同期操作を表すタスク オブジェクト。"
   overload: System.Net.Http.HttpContent.ReadAsByteArrayAsync*
   exceptions: []
   platform:
@@ -287,14 +287,14 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content and return a stream that represents the content as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the stream that represents content has been read.       Once the operation completes, the  <xref:System.Threading.Tasks.Task%601.Result%2A> property on the returned task object contains the stream that that represents the HTTP content. The returned stream can then be used to read the content using various stream APIs."
+  summary: "HTTP コンテンツをシリアル化し、非同期操作としてコンテンツを表すストリームを返します。"
+  remarks: "この操作はブロックされません。 返された<xref:System.Threading.Tasks.Task%601>オブジェクトは、完了後にすべてのストリームを表すコンテンツが読み取られたこと</xref:System.Threading.Tasks.Task%601>。       操作の完了後、<xref:System.Threading.Tasks.Task%601.Result%2A>返されたタスク オブジェクトのプロパティには、HTTP コンテンツを表すストリームが含まれています</xref:System.Threading.Tasks.Task%601.Result%2A>。 返されたストリームは、さまざまなストリーム Api を使用して、コンテンツの読み取りに使用できます。"
   syntax:
     content: public System.Threading.Tasks.Task<System.IO.Stream> ReadAsStreamAsync ();
     parameters: []
     return:
       type: System.Threading.Tasks.Task{System.IO.Stream}
-      description: "The task object representing the asynchronous operation."
+      description: "非同期操作を表すタスク オブジェクト。"
   overload: System.Net.Http.HttpContent.ReadAsStreamAsync*
   exceptions: []
   platform:
@@ -311,14 +311,14 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content to a string as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the content has been written as a string.       Once the operation completes, the  <xref:System.Threading.Tasks.Task%601.Result%2A> property on the returned task object contains the string with the HTTP content."
+  summary: "非同期操作として HTTP コンテンツを文字列にシリアル化します。"
+  remarks: "この操作はブロックされません。 返された<xref:System.Threading.Tasks.Task%601>オブジェクトは、すべてのコンテンツを文字列として書き込まれた後に完了します</xref:System.Threading.Tasks.Task%601>。       操作の完了後、<xref:System.Threading.Tasks.Task%601.Result%2A>返されたタスク オブジェクトのプロパティには、HTTP コンテンツを含む文字列が含まれています</xref:System.Threading.Tasks.Task%601.Result%2A>。"
   syntax:
     content: public System.Threading.Tasks.Task<string> ReadAsStringAsync ();
     parameters: []
     return:
       type: System.Threading.Tasks.Task{System.String}
-      description: "The task object representing the asynchronous operation."
+      description: "非同期操作を表すタスク オブジェクト。"
   overload: System.Net.Http.HttpContent.ReadAsStringAsync*
   exceptions: []
   platform:
@@ -335,20 +335,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content to a stream as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the content has been serialized to the stream object passed in the `stream` parameter."
+  summary: "非同期操作として HTTP コンテンツ ストリームにシリアル化します。"
+  remarks: "この操作はブロックされません。 返された<xref:System.Threading.Tasks.Task%601>オブジェクトは、すべてのコンテンツは、渡されたストリーム オブジェクトにシリアル化された後に、完了、`stream`パラメーター</xref:System.Threading.Tasks.Task%601> 。"
   syntax:
     content: protected abstract System.Threading.Tasks.Task SerializeToStreamAsync (System.IO.Stream stream, System.Net.TransportContext context);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The target stream."
+      description: "対象のストリーム。"
     - id: context
       type: System.Net.TransportContext
-      description: "Information about the transport (channel binding token, for example). This parameter may be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "トランスポート (チャネル バインド トークンなど) について説明します。 このパラメーターがあります<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
     return:
       type: System.Threading.Tasks.Task
-      description: "The task object representing the asynchronous operation."
+      description: "非同期操作を表すタスク オブジェクト。"
   overload: System.Net.Http.HttpContent.SerializeToStreamAsync*
   exceptions: []
   platform:
@@ -365,17 +365,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Determines whether the HTTP content has a valid length in bytes."
-  remarks: "The TryComputeLength method gives a HTTP content the ability to calculate the content length. This is useful for content types which are able to easily calculate the content length. If computing the content length is not possible or expensive (would require the system to buffer the whole content where the serialization would be expensive or require the system to allocate a lot of memory), this method can return `false`. If this method returns `false`, this implies that either chunked transfer is needed or the content must get buffered before being sent to the server."
+  summary: "HTTP コンテンツがバイト単位で有効な長さを持つかどうかを判断します。"
+  remarks: "TryComputeLength メソッドは、HTTP コンテンツをコンテンツの長さを計算することを示します。 これは、コンテンツ タイプを簡単にコンテンツの長さを計算することがあるに役立ちます。 コンテンツの長さが可能でないか、高価な (は必要なシリアル化高価なや、大量のメモリを割り当てることが必要に、コンテンツ全体をバッファーに書き込むシステム) を計算するには、このメソッドは返す`false`です。 このメソッドが戻る場合`false`、つまり、チャンク転送が必要かあるコンテンツをサーバーに送信される前にバッファーを取得する必要があります。"
   syntax:
     content: protected abstract bool TryComputeLength (out long length);
     parameters:
     - id: length
       type: System.Int64
-      description: "The length in bytes of the HTTP content."
+      description: "HTTP コンテンツの長さをバイト単位です。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>length</code> is a valid length; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合<code> length </code>有効な長さが、それ以外の<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>します。"
   overload: System.Net.Http.HttpContent.TryComputeLength*
   exceptions: []
   platform:

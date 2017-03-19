@@ -14,7 +14,7 @@ items:
   nameWithType: InstancePersistenceCommand
   fullName: System.Runtime.DurableInstancing.InstancePersistenceCommand
   type: Class
-  summary: "Base class for all persistence related commands. Commands are distinguished by their Name. Usually commands can also be distinguished by their derived type."
+  summary: "すべての永続性の基本クラスに関連するコマンドを指定します。 コマンドは、その名前で識別されます。 通常のコマンドは、派生型でも区別できます。"
   syntax:
     content: public abstract class InstancePersistenceCommand
   inheritance:
@@ -35,13 +35,13 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Initializes an instance of the <xref href=&quot;System.Runtime.DurableInstancing.InstancePersistenceCommand&quot;></xref> class."
+  summary: "インスタンスを初期化、 <xref href=&quot;System.Runtime.DurableInstancing.InstancePersistenceCommand&quot;> </xref>クラスです。"
   syntax:
     content: protected InstancePersistenceCommand (System.Xml.Linq.XName name);
     parameters:
     - id: name
       type: System.Xml.Linq.XName
-      description: "The XName (the combination of namespace and name) of the command."
+      description: "コマンドの XName (名前空間と名前の組み合わせ) です。"
   overload: System.Runtime.DurableInstancing.InstancePersistenceCommand.#ctor*
   exceptions: []
   platform:
@@ -58,13 +58,13 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Indicates whether the command could attempt to acquire a lock on the instance."
-  remarks: "The command classes that derive from this class can override this property to set it to `true`."
+  summary: "コマンドが、インスタンスのロックを取得しようとするかどうかを示します。"
+  remarks: "このクラスから派生したコマンド クラスに設定するには、このプロパティをオーバーライドできます`true`です。"
   syntax:
     content: protected virtual bool AutomaticallyAcquiringLock { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the command acquires a lock on the instance;, otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>コマンドは、インスタンスのロックを取得する場合、それ以外の場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。 既定値は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Runtime.DurableInstancing.InstancePersistenceCommand.AutomaticallyAcquiringLock*
   exceptions: []
   platform:
@@ -81,13 +81,13 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Returns a value that indicates whether the persistence provider may choose not to enlist in the ambient transaction (Transaction.Currnet) when executing this command."
-  remarks: "The command classes that derive from this class can override this property to set it to `true`."
+  summary: "永続化プロバイダーにこのコマンドを実行するときにアンビエント トランザクション (Transaction.Currnet) に参加しないように選択するかどうかを示す値を返します。"
+  remarks: "このクラスから派生したコマンド クラスに設定するには、このプロパティをオーバーライドできます`true`です。"
   syntax:
     content: protected virtual bool IsTransactionEnlistmentOptional { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref> if enlisting in the transaction is optional for this command, otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref>それ以外の場合、このコマンドでは省略可能、トランザクションに参加させることがある場合<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Runtime.DurableInstancing.InstancePersistenceCommand.IsTransactionEnlistmentOptional*
   exceptions: []
   platform:
@@ -104,12 +104,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the name of the persistence command."
+  summary: "永続化コマンドの名前を取得します。"
   syntax:
     content: public System.Xml.Linq.XName Name { get; }
     return:
       type: System.Xml.Linq.XName
-      description: "An XName (the combination of namespace and name)."
+      description: "XName (名前空間と名前の組み合わせ) です。"
   overload: System.Runtime.DurableInstancing.InstancePersistenceCommand.Name*
   exceptions: []
   platform:
@@ -126,14 +126,14 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Validates the command."
-  remarks: "Commands override Validate to ensure that a command is valid to execute at the current time. Implementations should throw an InvalidOperationException if the command is not valid to execute against the InstanceView passed as a parameter.  The Validate method is called by InstanceStore before the command is passed to InstanceStore.TryCommand."
+  summary: "コマンドを検証します。"
+  remarks: "コマンドは、コマンドが現在の時刻に実行する有効なことを確認する検証をオーバーライドします。 実装は、コマンドは、不適切なパラメーターとして渡された InstanceView に対して実行する場合、InvalidOperationException をスローする必要があります。  タスクの Validate メソッドは、コマンドが InstanceStore.TryCommand に渡される前に InstanceStore によって呼び出されます。"
   syntax:
     content: protected virtual void Validate (System.Runtime.DurableInstancing.InstanceView view);
     parameters:
     - id: view
       type: System.Runtime.DurableInstancing.InstanceView
-      description: "An <xref href=&quot;System.Runtime.DurableInstancing.InstanceView&quot;></xref> object representing the current state of the instance handle."
+      description: "<xref href=&quot;System.Runtime.DurableInstancing.InstanceView&quot;> </xref>インスタンス ハンドルの現在の状態を表すオブジェクト。"
   overload: System.Runtime.DurableInstancing.InstancePersistenceCommand.Validate*
   exceptions: []
   platform:

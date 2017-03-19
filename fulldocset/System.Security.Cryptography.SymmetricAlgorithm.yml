@@ -40,8 +40,8 @@ items:
   nameWithType: SymmetricAlgorithm
   fullName: System.Security.Cryptography.SymmetricAlgorithm
   type: Class
-  summary: "Represents the abstract base class from which all implementations of symmetric algorithms must inherit."
-  remarks: "The classes that derive from the SymmetricAlgorithm class use a chaining mode called cipher block chaining (CBC), which requires a key (<xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A>) and an initialization vector (<xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A>) to perform cryptographic transformations on data.  To decrypt data that was encrypted using one of the SymmetricAlgorithm classes, you must set the <xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A> property and the <xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A> property to the same values that were used for encryption.  For a symmetric algorithm to be useful, the secret key must be known only to the sender and the receiver.       <xref:System.Security.Cryptography.RijndaelManaged>, <xref:System.Security.Cryptography.DESCryptoServiceProvider>, <xref:System.Security.Cryptography.RC2CryptoServiceProvider>, and <xref:System.Security.Cryptography.TripleDESCryptoServiceProvider> are implementations of symmetric algorithms.       Note that when using derived classes, it is not enough, from a security perspective, to simply force a garbage collection after you have finished using the object. You must explicitly call the <xref:System.Security.Cryptography.SymmetricAlgorithm.Clear%2A> method on the object to zero out any sensitive data within the object before it is released. Note that garbage collection does not zero out the contents of collected objects but simply marks the memory as available for reallocation. Thus the data contained within a garbage collected object may still be present in the memory heap in unallocated memory. In the case of cryptographic objects, this data could contain sensitive information such as key data or a block of plain text.       All cryptographic classes in the .NET Framework that hold sensitive data implement a `Clear` method. When called, the `Clear` method overwrites all sensitive data within the object with zeros and then releases the object so that it can be safely garbage collected. When the object has been zeroed and released, you should then call the `Dispose` method with the `disposing` parameter set to `True` to dispose of all managed and unmanaged resources associated with the object."
+  summary: "対称アルゴリズムのすべての実装が継承する必要があります元となる抽象基本クラスを表します。"
+  remarks: "対称アルゴリズム クラスから派生したクラスは、暗号ブロック チェーン (CBC) と呼ばれるチェーン モードを使用するキーが必要です (<xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A>) と初期化ベクトル (<xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A>) データに対して暗号変換を実行します</xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A></xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A>。  対称アルゴリズム クラスの&1; つを使用して暗号化されたデータの暗号化を解除する設定する必要があります、<xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A>プロパティおよび<xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A>暗号化に使用されたものと同じ値をプロパティ</xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A></xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A>。  対称アルゴリズムを使用するためには、送信側と受信側にのみ、秘密キーを確認する必要があります。       <xref:System.Security.Cryptography.RijndaelManaged>、 <xref:System.Security.Cryptography.DESCryptoServiceProvider>、 <xref:System.Security.Cryptography.RC2CryptoServiceProvider>、および<xref:System.Security.Cryptography.TripleDESCryptoServiceProvider>は対称アルゴリズムの実装です。</xref:System.Security.Cryptography.TripleDESCryptoServiceProvider> </xref:System.Security.Cryptography.RC2CryptoServiceProvider> </xref:System.Security.Cryptography.DESCryptoServiceProvider></xref:System.Security.Cryptography.RijndaelManaged>       クラスの派生を使用して、ある十分にないため、セキュリティの観点から、単にオブジェクトを使用して完了した後、ガベージ コレクションを強制的に注意してください。 明示的に呼び出す必要があります、<xref:System.Security.Cryptography.SymmetricAlgorithm.Clear%2A>リリースされる前に、オブジェクト内で機密データをゼロにするオブジェクトのメソッド</xref:System.Security.Cryptography.SymmetricAlgorithm.Clear%2A>。 ガベージ コレクションは、収集されたオブジェクトの内容は&0; 以外は、メモリ割り当ての変更に使用可能としてマークするだけに注意してください。 したがってガベージ コレクション オブジェクト内に含まれるデータはまだメモリ ヒープ内に存在未割り当てのメモリにします。 暗号オブジェクトの場合、このデータにキーのデータまたはプレーン テキストのブロックなどの機密情報が含まれます。       すべての暗号化を実装の重要なデータを保持する .NET Framework クラス、`Clear`メソッドです。 呼び出されると、`Clear`メソッドがオブジェクト内のすべての機密データをゼロに上書きしができるように、安全にガベージ コレクション オブジェクトを解放します。 オブジェクトを&0; に設定され、解放を呼び出す必要がありますし、`Dispose`メソッドを`disposing`パラメーターに設定`True`を破棄するすべてマネージ リソースとアンマネージ オブジェクトに関連付けられているリソース。"
   example:
   - "The following code example uses the <xref:System.Security.Cryptography.RijndaelManaged> class with the specified <xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A> property and initialization vector (<xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A>) to encrypt a file specified by `inName`, and outputs the encrypted result to the file specified by `outName`. The `desKey` and `desIV` parameters to the method are 8-byte arrays. You must have the high encryption pack installed to run this example.  \n  \n [!code-cpp[Classic CryptoStream Example#1](~/add/codesnippet/cpp/t-system.security.crypto_19_1.cpp)]\n [!code-cs[Classic CryptoStream Example#1](~/add/codesnippet/csharp/t-system.security.crypto_19_1.cs)]\n [!code-vb[Classic CryptoStream Example#1](~/add/codesnippet/visualbasic/t-system.security.crypto_19_1.vb)]"
   syntax:
@@ -68,8 +68,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Cryptography.SymmetricAlgorithm&quot;></xref> class."
-  remarks: "You cannot create an instance of an abstract class. Application code creates a new instance of a derived class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Security.Cryptography.SymmetricAlgorithm&quot;> </xref>クラスです。"
+  remarks: "抽象クラスのインスタンスを作成することはできません。 アプリケーション コードでは、派生クラスの新しいインスタンスを作成します。"
   syntax:
     content: protected SymmetricAlgorithm ();
     parameters: []
@@ -77,7 +77,7 @@ items:
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The implementation of the class derived from the symmetric algorithm is not valid."
+    description: "対称アルゴリズムから派生したクラスの実装が正しくありません。"
   platform:
   - net462
 - uid: System.Security.Cryptography.SymmetricAlgorithm.BlockSize
@@ -92,18 +92,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets or sets the block size, in bits, of the cryptographic operation."
-  remarks: "The block size is the basic unit of data that can be encrypted or decrypted in one operation. Messages longer than the block size are handled as successive blocks; messages shorter than the block size must be padded with extra bits to reach the size of a block. Valid block sizes are determined by the symmetric algorithm used."
+  summary: "取得または暗号化操作のビット単位のブロック サイズを設定します。"
+  remarks: "ブロック サイズは、暗号化または&1; つの操作で復号化できるデータの基本単位です。 ブロック サイズよりも長いメッセージが連続するブロックと見なされますブロック サイズよりも短いメッセージは、ブロックのサイズに達するために余分なビットが埋め込まれている必要があります。 有効なブロック サイズは、使用する対称アルゴリズムによって決定されます。"
   syntax:
     content: public virtual int BlockSize { get; set; }
     return:
       type: System.Int32
-      description: "The block size, in bits."
+      description: "ブロック サイズをビット単位で。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.BlockSize*
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The block size is invalid."
+    description: "ブロック サイズが正しくありません。"
   platform:
   - net462
 - uid: System.Security.Cryptography.SymmetricAlgorithm.BlockSizeValue
@@ -118,13 +118,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Represents the block size, in bits, of the cryptographic operation."
-  remarks: "The block size is the basic unit of data that can be encrypted or decrypted in one operation. Messages longer than the block size are handled as successive blocks; messages shorter than the block size must be padded with extra bits to reach the size of a block. Valid block sizes are determined by the symmetric algorithm used.       This field is accessed through the <xref:System.Security.Cryptography.SymmetricAlgorithm.BlockSize%2A> property."
+  summary: "ブロック サイズをビット単位の暗号操作を表します。"
+  remarks: "ブロック サイズは、暗号化または&1; つの操作で復号化できるデータの基本単位です。 ブロック サイズよりも長いメッセージが連続するブロックと見なされますブロック サイズよりも短いメッセージは、ブロックのサイズに達するために余分なビットが埋め込まれている必要があります。 有効なブロック サイズは、使用する対称アルゴリズムによって決定されます。       このフィールドには、<xref:System.Security.Cryptography.SymmetricAlgorithm.BlockSize%2A>プロパティ</xref:System.Security.Cryptography.SymmetricAlgorithm.BlockSize%2A>。"
   syntax:
     content: protected int BlockSizeValue;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -140,8 +140,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Releases all resources used by the <xref href=&quot;System.Security.Cryptography.SymmetricAlgorithm&quot;></xref> class."
-  remarks: "Note that when using derived classes, it is not enough, from a security perspective, to simply force a garbage collection after you have finished using the object. You must explicitly call the Clear method on the object to zero out any sensitive data within the object before it is released. Note that garbage collection does not zero out the contents of collected objects but simply marks the memory as available for reallocation. Thus the data contained within a garbage collected object may still be present in the memory heap in unallocated memory. In the case of cryptographic objects, this data could contain sensitive information such as key data or a block of plain text.       All cryptographic classes in the .NET Framework that hold sensitive data implement a `Clear` method. When called, the `Clear` method overwrites all sensitive data within the object with zeros and then releases the object so that it can be safely garbage collected. When the object has been zeroed and released, you should then call the `Dispose` method with the `disposing` parameter set to `True` to dispose of all managed and unmanaged resources associated with the object."
+  summary: "によって使用されるすべてのリソースを解放、 <xref href=&quot;System.Security.Cryptography.SymmetricAlgorithm&quot;> </xref>クラスです。"
+  remarks: "クラスの派生を使用して、ある十分にないため、セキュリティの観点から、単にオブジェクトを使用して完了した後、ガベージ コレクションを強制的に注意してください。 Clear メソッドは、リリースされる前に、オブジェクト内の機微なデータ領域を解放するオブジェクトで明示的に呼び出す必要があります。 ガベージ コレクションは、収集されたオブジェクトの内容は&0; 以外は、メモリ割り当ての変更に使用可能としてマークするだけに注意してください。 したがってガベージ コレクション オブジェクト内に含まれるデータはまだメモリ ヒープ内に存在未割り当てのメモリにします。 暗号オブジェクトの場合、このデータにキーのデータまたはプレーン テキストのブロックなどの機密情報が含まれます。       すべての暗号化を実装の重要なデータを保持する .NET Framework クラス、`Clear`メソッドです。 呼び出されると、`Clear`メソッドがオブジェクト内のすべての機密データをゼロに上書きしができるように、安全にガベージ コレクション オブジェクトを解放します。 オブジェクトを&0; に設定され、解放を呼び出す必要がありますし、`Dispose`メソッドを`disposing`パラメーターに設定`True`を破棄するすべてマネージ リソースとアンマネージ オブジェクトに関連付けられているリソース。"
   syntax:
     content: public void Clear ();
     parameters: []
@@ -161,7 +161,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Creates a default cryptographic object used to perform the symmetric algorithm."
+  summary: "対称アルゴリズムを実行するために使用する既定の暗号オブジェクトを作成します。"
   remarks: ''
   example:
   - "The following code example uses the <xref:System.Security.Cryptography.RijndaelManaged> class with the specified <xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A> property and initialization vector (<xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A>) to encrypt a file specified by `inName`, and outputs the encrypted result to the file specified by `outName`. The `desKey` and `desIV` parameters to the method are 8-byte arrays. You must have the high encryption pack installed to run this example.  \n  \n [!code-cpp[Classic CryptoStream Example#1](~/add/codesnippet/cpp/m-system.security.crypto_114_1.cpp)]\n [!code-cs[Classic CryptoStream Example#1](~/add/codesnippet/csharp/m-system.security.crypto_114_1.cs)]\n [!code-vb[Classic CryptoStream Example#1](~/add/codesnippet/visualbasic/m-system.security.crypto_114_1.vb)]"
@@ -170,7 +170,7 @@ items:
     parameters: []
     return:
       type: System.Security.Cryptography.SymmetricAlgorithm
-      description: "A default cryptographic object used to perform the symmetric algorithm."
+      description: "対称アルゴリズムを実行するために使用、既定の暗号オブジェクト。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.Create*
   exceptions: []
   platform:
@@ -187,16 +187,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Creates the specified cryptographic object used to perform the symmetric algorithm."
+  summary: "対称アルゴリズムを実行するために使用する指定された暗号オブジェクトを作成します。"
   syntax:
     content: public static System.Security.Cryptography.SymmetricAlgorithm Create (string algName);
     parameters:
     - id: algName
       type: System.String
-      description: "The name of the specific implementation of the <xref href=&quot;System.Security.Cryptography.SymmetricAlgorithm&quot;></xref> class to use."
+      description: "特定の実装の名前、 <xref href=&quot;System.Security.Cryptography.SymmetricAlgorithm&quot;> </xref>クラスを使用します。"
     return:
       type: System.Security.Cryptography.SymmetricAlgorithm
-      description: "A cryptographic object used to perform the symmetric algorithm."
+      description: "対称アルゴリズムを実行するために使用する暗号オブジェクト。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.Create*
   exceptions: []
   platform:
@@ -213,14 +213,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Creates a symmetric decryptor object with the current <xref:System.Security.Cryptography.SymmetricAlgorithm.Key*> property and initialization vector (<xref:System.Security.Cryptography.SymmetricAlgorithm.IV*>)."
-  remarks: "This method decrypts an encrypted message created using the <xref:System.Security.Cryptography.SymmetricAlgorithm.CreateEncryptor%2A> overload with the same signature."
+  summary: "現在の対称復号化オブジェクトを作成<> *> プロパティおよび初期化ベクター (<>*>)。"
+  remarks: "このメソッドを使用して作成された、暗号化されたメッセージを復号化、<xref:System.Security.Cryptography.SymmetricAlgorithm.CreateEncryptor%2A>同じシグネチャを持つオーバー ロードします</xref:System.Security.Cryptography.SymmetricAlgorithm.CreateEncryptor%2A>。"
   syntax:
     content: public virtual System.Security.Cryptography.ICryptoTransform CreateDecryptor ();
     parameters: []
     return:
       type: System.Security.Cryptography.ICryptoTransform
-      description: "A symmetric decryptor object."
+      description: "対称復号化オブジェクト。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.CreateDecryptor*
   exceptions: []
   platform:
@@ -237,20 +237,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "When overridden in a derived class, creates a symmetric decryptor object with the specified <xref:System.Security.Cryptography.SymmetricAlgorithm.Key*> property and initialization vector (<xref:System.Security.Cryptography.SymmetricAlgorithm.IV*>)."
-  remarks: "This method decrypts an encrypted message created using the <xref:System.Security.Cryptography.SymmetricAlgorithm.CreateEncryptor%2A> overload with the same parameters."
+  summary: "派生クラスでオーバーライドされると、指定した対称復号化オブジェクトを作成<> *> プロパティおよび初期化ベクター (<>*>)。"
+  remarks: "このメソッドを使用して作成された、暗号化されたメッセージを復号化、<xref:System.Security.Cryptography.SymmetricAlgorithm.CreateEncryptor%2A>同じパラメーターを持つオーバー ロードします</xref:System.Security.Cryptography.SymmetricAlgorithm.CreateEncryptor%2A>。"
   syntax:
     content: public abstract System.Security.Cryptography.ICryptoTransform CreateDecryptor (byte[] rgbKey, byte[] rgbIV);
     parameters:
     - id: rgbKey
       type: System.Byte[]
-      description: "The secret key to use for the symmetric algorithm."
+      description: "対称アルゴリズムで使用する秘密キー。"
     - id: rgbIV
       type: System.Byte[]
-      description: "The initialization vector to use for the symmetric algorithm."
+      description: "対称アルゴリズムを使用する初期化ベクター。"
     return:
       type: System.Security.Cryptography.ICryptoTransform
-      description: "A symmetric decryptor object."
+      description: "対称復号化オブジェクト。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.CreateDecryptor*
   exceptions: []
   platform:
@@ -267,8 +267,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Creates a symmetric encryptor object with the current <xref:System.Security.Cryptography.SymmetricAlgorithm.Key*> property and initialization vector (<xref:System.Security.Cryptography.SymmetricAlgorithm.IV*>)."
-  remarks: "If the current <xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A> property is `null`, the <xref:System.Security.Cryptography.SymmetricAlgorithm.GenerateKey%2A> method is called to create a new random <xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A>. If the current <xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A> property is `null`, the <xref:System.Security.Cryptography.SymmetricAlgorithm.GenerateIV%2A> method is called to create a new random <xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A>.       Use the <xref:System.Security.Cryptography.SymmetricAlgorithm.CreateDecryptor%2A> overload with the same signature to decrypt the result of this method."
+  summary: "現在の対称暗号化オブジェクトを作成<> *> プロパティおよび初期化ベクター (<>*>)。"
+  remarks: "場合、現在<xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A>プロパティは`null`、<xref:System.Security.Cryptography.SymmetricAlgorithm.GenerateKey%2A>メソッドは、新しいランダムな<xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A>.</xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A>を作成する</xref:System.Security.Cryptography.SymmetricAlgorithm.GenerateKey%2A></xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A> 場合、現在<xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A>プロパティは`null`、<xref:System.Security.Cryptography.SymmetricAlgorithm.GenerateIV%2A>メソッドは、新しいランダムな<xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A>.</xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A>を作成する</xref:System.Security.Cryptography.SymmetricAlgorithm.GenerateIV%2A></xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A>       使用して、<xref:System.Security.Cryptography.SymmetricAlgorithm.CreateDecryptor%2A>このメソッドの結果を復号化に同じシグネチャを持つオーバー ロードします</xref:System.Security.Cryptography.SymmetricAlgorithm.CreateDecryptor%2A>。"
   example:
   - "The following example encrypts a string using the transform object returned from the CreateEncryptor method.  \n  \n [!code-cpp[System.Security.Cryptography.SymmetricAlgorithm#1](~/add/codesnippet/cpp/m-system.security.crypto_124_1.cpp)]\n [!code-cs[System.Security.Cryptography.SymmetricAlgorithm#1](~/add/codesnippet/csharp/m-system.security.crypto_124_1.cs)]\n [!code-vb[System.Security.Cryptography.SymmetricAlgorithm#1](~/add/codesnippet/visualbasic/m-system.security.crypto_124_1.vb)]"
   syntax:
@@ -276,7 +276,7 @@ items:
     parameters: []
     return:
       type: System.Security.Cryptography.ICryptoTransform
-      description: "A symmetric encryptor object."
+      description: "対称暗号化オブジェクト。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.CreateEncryptor*
   exceptions: []
   platform:
@@ -293,20 +293,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "When overridden in a derived class, creates a symmetric encryptor object with the specified <xref:System.Security.Cryptography.SymmetricAlgorithm.Key*> property and initialization vector (<xref:System.Security.Cryptography.SymmetricAlgorithm.IV*>)."
-  remarks: "Use the <xref:System.Security.Cryptography.SymmetricAlgorithm.CreateDecryptor%2A> overload with the same parameters to decrypt the result of this method."
+  summary: "派生クラスでオーバーライドされると、指定した対称暗号化オブジェクトを作成<> *> プロパティおよび初期化ベクター (<>*>)。"
+  remarks: "使用して、<xref:System.Security.Cryptography.SymmetricAlgorithm.CreateDecryptor%2A>このメソッドの結果を復号化に同じパラメーターを持つオーバー ロードします</xref:System.Security.Cryptography.SymmetricAlgorithm.CreateDecryptor%2A>。"
   syntax:
     content: public abstract System.Security.Cryptography.ICryptoTransform CreateEncryptor (byte[] rgbKey, byte[] rgbIV);
     parameters:
     - id: rgbKey
       type: System.Byte[]
-      description: "The secret key to use for the symmetric algorithm."
+      description: "対称アルゴリズムで使用する秘密キー。"
     - id: rgbIV
       type: System.Byte[]
-      description: "The initialization vector to use for the symmetric algorithm."
+      description: "対称アルゴリズムを使用する初期化ベクター。"
     return:
       type: System.Security.Cryptography.ICryptoTransform
-      description: "A symmetric encryptor object."
+      description: "対称暗号化オブジェクト。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.CreateEncryptor*
   exceptions: []
   platform:
@@ -323,8 +323,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Releases all resources used by the current instance of the <xref href=&quot;System.Security.Cryptography.SymmetricAlgorithm&quot;></xref> class."
-  remarks: "Call `Dispose` when you are finished using the <xref:System.Security.Cryptography.SymmetricAlgorithm>. The `Dispose` method leaves the <xref:System.Security.Cryptography.SymmetricAlgorithm> in an unusable state. After calling `Dispose`, you must release all references to the <xref:System.Security.Cryptography.SymmetricAlgorithm> so the garbage collector can reclaim the memory that the <xref:System.Security.Cryptography.SymmetricAlgorithm> was occupying.       For more information, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md) and [Implementing a Dispose Method](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  Always call `Dispose` before you release your last reference to the <xref:System.Security.Cryptography.SymmetricAlgorithm>. Otherwise, the resources it is using will not be freed until the garbage collector calls the <xref:System.Security.Cryptography.SymmetricAlgorithm> object&quot;s `Finalize` method."
+  summary: "現在のインスタンスによって使用されるすべてのリソースを解放、 <xref href=&quot;System.Security.Cryptography.SymmetricAlgorithm&quot;> </xref>クラスです。"
+  remarks: "呼び出す`Dispose` <xref:System.Security.Cryptography.SymmetricAlgorithm>.</xref:System.Security.Cryptography.SymmetricAlgorithm>の使用が終了したときに `Dispose`メソッドによって、<xref:System.Security.Cryptography.SymmetricAlgorithm>使用不可の状態</xref:System.Security.Cryptography.SymmetricAlgorithm>。 呼び出した後`Dispose`へのすべての参照を解放する必要があります、<xref:System.Security.Cryptography.SymmetricAlgorithm>ガベージ コレクターがメモリを再利用できるようにする、<xref:System.Security.Cryptography.SymmetricAlgorithm>占有されていた</xref:System.Security.Cryptography.SymmetricAlgorithm></xref:System.Security.Cryptography.SymmetricAlgorithm>。       詳細については、次を参照してください。[アンマネージ リソースのクリーンアップ](~/add/includes/ajax-current-ext-md.md)と[Dispose メソッドの実装](~/add/includes/ajax-current-ext-md.md)です。      > [!NOTE] > 常に呼び出し`Dispose`<xref:System.Security.Cryptography.SymmetricAlgorithm></xref:System.Security.Cryptography.SymmetricAlgorithm>の最後の参照を解放する前に。 それ以外の場合、使用されているリソースは解放されませんガベージ コレクター呼び出すまで、<xref:System.Security.Cryptography.SymmetricAlgorithm>オブジェクトの`Finalize`メソッド</xref:System.Security.Cryptography.SymmetricAlgorithm>。"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -344,14 +344,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.Security.Cryptography.SymmetricAlgorithm&quot;></xref> and optionally releases the managed resources."
-  remarks: "This method is called by the public `Dispose()` method and the `Finalize` method. `Dispose()` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. `Finalize` invokes `Dispose` with `disposing` set to `false`.       When the `disposing` parameter is `true`, this method releases all resources held by any managed objects that this <xref:System.Security.Cryptography.SymmetricAlgorithm> references. This method invokes the `Dispose()` method of each referenced object."
+  summary: "によって使用されるアンマネージ リソースを解放、 <xref href=&quot;System.Security.Cryptography.SymmetricAlgorithm&quot;> </xref>し、必要に応じてマネージ リソースを解放します。"
+  remarks: "このメソッドは、パブリック`Dispose()`メソッドおよび`Finalize`メソッドです。 `Dispose()`プロテクト呼び出します`Dispose(Boolean)`メソッドを`disposing`パラメーターに設定`true`です。 `Finalize`呼び出す`Dispose`で`disposing`&quot;éý&quot;`false`です。       ときに、`disposing`パラメーターは`true`、このメソッドは、すべてのマネージ オブジェクトによって保持されているすべてのリソースを解放しますこの<xref:System.Security.Cryptography.SymmetricAlgorithm>参照。</xref:System.Security.Cryptography.SymmetricAlgorithm> 。 このメソッドを呼び出して、`Dispose()`参照される各オブジェクトのメソッドです。"
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>マネージ コードとアンマネージ リソースを解放するには<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>アンマネージ リソースだけを解放します。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.Dispose*
   exceptions: []
   platform:
@@ -368,18 +368,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets or sets the feedback size, in bits, of the cryptographic operation."
-  remarks: "The feedback size determines the amount of data that is fed back to successive encryption or decryption operations. The feedback size cannot be greater than the block size."
+  summary: "取得または暗号化操作のビット単位のフィードバック サイズを設定します。"
+  remarks: "フィードバック サイズは、一連の暗号化または復号化操作にフィードバック データの量を決定します。 フィードバック サイズは、ブロック サイズを超えることはできません。"
   syntax:
     content: public virtual int FeedbackSize { get; set; }
     return:
       type: System.Int32
-      description: "The feedback size in bits."
+      description: "フィードバック サイズをビット単位で。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.FeedbackSize*
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The feedback size is larger than the block size."
+    description: "フィードバック サイズは、ブロック サイズを超えています。"
   platform:
   - net462
 - uid: System.Security.Cryptography.SymmetricAlgorithm.FeedbackSizeValue
@@ -394,13 +394,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Represents the feedback size, in bits, of the cryptographic operation."
-  remarks: "The feedback size determines the amount of data that is fed back to successive encryption or decryption operations. The feedback size cannot be greater than the block size.       This field is accessed through the <xref:System.Security.Cryptography.SymmetricAlgorithm.FeedbackSize%2A> property."
+  summary: "フィードバック サイズをビット単位の暗号操作を表します。"
+  remarks: "フィードバック サイズは、一連の暗号化または復号化操作にフィードバック データの量を決定します。 フィードバック サイズは、ブロック サイズを超えることはできません。       このフィールドには、<xref:System.Security.Cryptography.SymmetricAlgorithm.FeedbackSize%2A>プロパティ</xref:System.Security.Cryptography.SymmetricAlgorithm.FeedbackSize%2A>。"
   syntax:
     content: protected int FeedbackSizeValue;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -416,8 +416,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "When overridden in a derived class, generates a random initialization vector (<xref:System.Security.Cryptography.SymmetricAlgorithm.IV*>) to use for the algorithm."
-  remarks: "In general, there is no reason to use this method, because `CreateEncryptor()` or `CreateEncryptor(null, null)` automatically generates both an initialization vector and a key. However, you may want to use the GenerateIV method to reuse a symmetric algorithm instance with a different initialization vector."
+  summary: "派生クラスでオーバーライドされると、ランダムな初期化ベクトルが生成されます (<xref:System.Security.Cryptography.SymmetricAlgorithm.IV*>) アルゴリズムを使用する</xref:System.Security.Cryptography.SymmetricAlgorithm.IV*>。"
+  remarks: "一般に、理由はありません、このメソッドを使用するため`CreateEncryptor()`または`CreateEncryptor(null, null)`初期化ベクターとキーの両方が自動的に生成されます。 ただし、異なる初期化ベクターと対称アルゴリズムのインスタンスを再利用する GenerateIV メソッドを使用することがあります。"
   syntax:
     content: public abstract void GenerateIV ();
     parameters: []
@@ -437,8 +437,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "When overridden in a derived class, generates a random key (<xref:System.Security.Cryptography.SymmetricAlgorithm.Key*>) to use for the algorithm."
-  remarks: "In general, there is no reason to use this method, because `CreateEncryptor()` or `CreateEncryptor(null, null)` automatically generates both an initialization vector and a key. However, you may want to use the GenerateKey method to reuse a symmetric algorithm instance with a different key."
+  summary: "派生クラスでオーバーライドされると、ランダムなキーが生成されます (<xref:System.Security.Cryptography.SymmetricAlgorithm.Key*>) アルゴリズムを使用する</xref:System.Security.Cryptography.SymmetricAlgorithm.Key*>。"
+  remarks: "一般に、理由はありません、このメソッドを使用するため`CreateEncryptor()`または`CreateEncryptor(null, null)`初期化ベクターとキーの両方が自動的に生成されます。 ただし、異なるキーを使用して、対称アルゴリズムのインスタンスを再利用する GenerateKey メソッドを使用することがあります。"
   syntax:
     content: public abstract void GenerateKey ();
     parameters: []
@@ -458,21 +458,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets or sets the initialization vector (IV) for the symmetric algorithm."
-  remarks: "The IV property is automatically set to a new random value whenever you create a new instance of one of the <xref:System.Security.Cryptography.SymmetricAlgorithm> classes or when you manually call the <xref:System.Security.Cryptography.SymmetricAlgorithm.GenerateIV%2A> method.  The size of the IV property must be the same as the <xref:System.Security.Cryptography.SymmetricAlgorithm.BlockSize%2A> property divided by 8.       The classes that derive from the <xref:System.Security.Cryptography.SymmetricAlgorithm> class use a chaining mode called cipher block chaining (CBC), which requires a key and an initialization vector to perform cryptographic transformations on data.  To decrypt data that was encrypted using one of the <xref:System.Security.Cryptography.SymmetricAlgorithm> classes, you must set the <xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A> property and IV property to the same values that were used for encryption.       For a given secret key *k*, a simple block cipher that does not use an initialization vector will encrypt the same input block of plain text into the same output block of cipher text. If you have duplicate blocks within your plain text stream, you will have duplicate blocks within your cipher text stream. If unauthorized users know anything about the structure of a block of your plain text, they can use that information to decipher the known cipher text block and possibly recover your key. To combat this problem, information from the previous block is mixed into the process of encrypting the next block. Thus, the output of two identical plain text blocks is different. Because this technique uses the previous block to encrypt the next block, an initialization vector is needed to encrypt the first block of data."
+  summary: "取得または対称アルゴリズムの初期化ベクター (IV) を設定します。"
+  remarks: "IV プロパティはのいずれかの新しいインスタンスを作成するたびに、自動的に新しい値をランダムに設定、<xref:System.Security.Cryptography.SymmetricAlgorithm>クラスまたは手動で呼び出すと、<xref:System.Security.Cryptography.SymmetricAlgorithm.GenerateIV%2A>メソッド</xref:System.Security.Cryptography.SymmetricAlgorithm.GenerateIV%2A></xref:System.Security.Cryptography.SymmetricAlgorithm>。  IV のプロパティのサイズは同じである必要があります、<xref:System.Security.Cryptography.SymmetricAlgorithm.BlockSize%2A>プロパティが 8 で割った値します</xref:System.Security.Cryptography.SymmetricAlgorithm.BlockSize%2A>。       派生したクラス、<xref:System.Security.Cryptography.SymmetricAlgorithm>クラスは、暗号ブロック チェーン (CBC) と呼ばれるチェーン モードを使用する、キーと初期化ベクトル データを暗号変換を実行する必要があります</xref:System.Security.Cryptography.SymmetricAlgorithm>。  いずれかを使用して暗号化されたデータを復号化する、<xref:System.Security.Cryptography.SymmetricAlgorithm>設定する必要があります、クラス、<xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A>プロパティと暗号化に使用されたものと同じ値に IV プロパティ</xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A></xref:System.Security.Cryptography.SymmetricAlgorithm>。       指定された秘密キーの*k*、初期化ベクターを使用しない単純なブロック暗号を使用して、プレーン テキストの入力ブロックは同じを同じ暗号文の出力ブロックに暗号化されます。 をプレーン テキストには、ストリーム内で重複するブロックがある場合は、暗号文ストリーム内で重複するブロックがあります。 承認されていないユーザーに関する知識は、プレーン テキストのブロックの構造場合、は、その情報を使用して、既知の暗号文ブロックを解読して、キーを復元することができます、します。 この問題を解決するに、前のブロックからの情報は、次のブロックを暗号化するためのプロセスに mixed です。 したがって、2 つの同一のプレーン テキスト ブロックの出力は別です。 この手法は、次のブロックを暗号化する、前のブロックを使用するため、初期化ベクターがデータの最初のブロックの暗号化に必要です。"
   syntax:
     content: public virtual byte[] IV { get; set; }
     return:
       type: System.Byte[]
-      description: "The initialization vector."
+      description: "初期化ベクター。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.IV*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "An attempt was made to set the initialization vector to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "初期化ベクトルに設定しようとしましたが<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "An attempt was made to set the initialization vector to an invalid size."
+    description: "初期化ベクターを無効なサイズに設定しようとしました。"
   platform:
   - net462
 - uid: System.Security.Cryptography.SymmetricAlgorithm.IVValue
@@ -487,13 +487,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Represents the initialization vector (<xref:System.Security.Cryptography.SymmetricAlgorithm.IV*>) for the symmetric algorithm."
-  remarks: "This field is accessed through the <xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A> property."
+  summary: "初期化ベクターを表します (<xref:System.Security.Cryptography.SymmetricAlgorithm.IV*>) 対称アルゴリズム</xref:System.Security.Cryptography.SymmetricAlgorithm.IV*>。"
+  remarks: "このフィールドには、<xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A>プロパティ</xref:System.Security.Cryptography.SymmetricAlgorithm.IV%2A>。"
   syntax:
     content: protected byte[] IVValue;
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -509,21 +509,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets or sets the secret key for the symmetric algorithm."
-  remarks: "The secret key is used both for encryption and for decryption. For a symmetric algorithm to be successful, the secret key must be known only to the sender and the receiver. The valid key sizes are specified by the particular symmetric algorithm implementation and are listed in the <xref:System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes%2A> property.       If this property is `null` when it is used, the <xref:System.Security.Cryptography.SymmetricAlgorithm.GenerateKey%2A> method is called to create a new random value."
+  summary: "取得または対称アルゴリズムの秘密キーを設定します。"
+  remarks: "秘密キーは、暗号化と復号化の両方が使用されます。 正常に行う、対称アルゴリズムでは、送信者と受信者にのみ、秘密キーを確認する必要があります。 有効なキー サイズは、特定の対称アルゴリズムの実装によって指定されに記載されて、<xref:System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes%2A>プロパティ</xref:System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes%2A>。       場合は、このプロパティは`null`を使用するときに、<xref:System.Security.Cryptography.SymmetricAlgorithm.GenerateKey%2A>新しいランダムな値を作成するメソッドが呼び出されます</xref:System.Security.Cryptography.SymmetricAlgorithm.GenerateKey%2A>。"
   syntax:
     content: public virtual byte[] Key { get; set; }
     return:
       type: System.Byte[]
-      description: "The secret key to use for the symmetric algorithm."
+      description: "対称アルゴリズムで使用する秘密キー。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.Key*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "An attempt was made to set the key to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "キーを設定しようとしましたが<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The key size is invalid."
+    description: "キーのサイズが正しくありません。"
   platform:
   - net462
 - uid: System.Security.Cryptography.SymmetricAlgorithm.KeySize
@@ -538,18 +538,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets or sets the size, in bits, of the secret key used by the symmetric algorithm."
-  remarks: "The valid key sizes are specified by the particular symmetric algorithm implementation and are listed in the <xref:System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes%2A> property."
+  summary: "取得または対称アルゴリズムで使用される秘密キーのビット単位のサイズを設定します。"
+  remarks: "有効なキー サイズは、特定の対称アルゴリズムの実装によって指定されに記載されて、<xref:System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes%2A>プロパティ</xref:System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes%2A>。"
   syntax:
     content: public virtual int KeySize { get; set; }
     return:
       type: System.Int32
-      description: "The size, in bits, of the secret key used by the symmetric algorithm."
+      description: "対称アルゴリズムで使用される秘密キーのビット単位のサイズ。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.KeySize*
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The key size is not valid."
+    description: "キーのサイズが正しくありません。"
   platform:
   - net462
 - uid: System.Security.Cryptography.SymmetricAlgorithm.KeySizeValue
@@ -564,13 +564,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Represents the size, in bits, of the secret key used by the symmetric algorithm."
-  remarks: "The valid key sizes are specified by the particular symmetric algorithm implementation and are listed in the <xref:System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes%2A> property.       This field is accessed through the <xref:System.Security.Cryptography.SymmetricAlgorithm.KeySize%2A> property."
+  summary: "対称アルゴリズムで使用される秘密キーのビット単位のサイズを表します。"
+  remarks: "有効なキー サイズは、特定の対称アルゴリズムの実装によって指定されに記載されて、<xref:System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes%2A>プロパティ</xref:System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes%2A>。       このフィールドには、<xref:System.Security.Cryptography.SymmetricAlgorithm.KeySize%2A>プロパティ</xref:System.Security.Cryptography.SymmetricAlgorithm.KeySize%2A>。"
   syntax:
     content: protected int KeySizeValue;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -586,13 +586,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Represents the secret key for the symmetric algorithm."
-  remarks: "The secret key is used both for encryption and for decryption. For a symmetric algorithm to be successful, the secret key must be known only to the sender and the receiver. The valid key sizes are specified by the particular symmetric algorithm implementation and are listed in the <xref:System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes%2A> property.       This field is accessed through the <xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A> property."
+  summary: "対称アルゴリズムの秘密キーを表します。"
+  remarks: "秘密キーは、暗号化と復号化の両方が使用されます。 正常に行う、対称アルゴリズムでは、送信者と受信者にのみ、秘密キーを確認する必要があります。 有効なキー サイズは、特定の対称アルゴリズムの実装によって指定されに記載されて、<xref:System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes%2A>プロパティ</xref:System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes%2A>。       このフィールドには、<xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A>プロパティ</xref:System.Security.Cryptography.SymmetricAlgorithm.Key%2A>。"
   syntax:
     content: protected byte[] KeyValue;
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -608,15 +608,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets the block sizes, in bits, that are supported by the symmetric algorithm."
-  remarks: "The symmetric algorithm supports only block sizes that match an entry in this array."
+  summary: "対称アルゴリズムでサポートされているビット単位でブロック サイズを取得します。"
+  remarks: "対称アルゴリズムでは、この配列内のエントリに一致するブロック サイズのみがサポートされます。"
   example:
   - "The following example shows the value of LegalBlockSizes for the symmetric algorithms.  \n  \n [!code-vb[System.Security.Cryptography.SymmetricAlgorithm.BlockSize#1](~/add/codesnippet/visualbasic/p-system.security.crypto_95_1.vb)]\n [!code-cs[System.Security.Cryptography.SymmetricAlgorithm.BlockSize#1](~/add/codesnippet/csharp/p-system.security.crypto_95_1.cs)]"
   syntax:
     content: public virtual System.Security.Cryptography.KeySizes[] LegalBlockSizes { get; }
     return:
       type: System.Security.Cryptography.KeySizes[]
-      description: "An array that contains the block sizes supported by the algorithm."
+      description: "アルゴリズムによってサポートされているブロック サイズを格納する配列。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.LegalBlockSizes*
   exceptions: []
   platform:
@@ -633,13 +633,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Specifies the block sizes, in bits, that are supported by the symmetric algorithm."
-  remarks: "The symmetric algorithm supports only block sizes that match an entry in this array.       This field is accessed through the <xref:System.Security.Cryptography.SymmetricAlgorithm.LegalBlockSizes%2A> property."
+  summary: "対称アルゴリズムでサポートされているビットでブロック サイズを指定します。"
+  remarks: "対称アルゴリズムでは、この配列内のエントリに一致するブロック サイズのみがサポートされます。       このフィールドには、<xref:System.Security.Cryptography.SymmetricAlgorithm.LegalBlockSizes%2A>プロパティ</xref:System.Security.Cryptography.SymmetricAlgorithm.LegalBlockSizes%2A>。"
   syntax:
     content: protected System.Security.Cryptography.KeySizes[] LegalBlockSizesValue;
     return:
       type: System.Security.Cryptography.KeySizes[]
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -655,15 +655,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets the key sizes, in bits, that are supported by the symmetric algorithm."
-  remarks: "The symmetric algorithm supports only key sizes that match an entry in this array."
+  summary: "対称アルゴリズムでサポートされているビットのキーのサイズを取得します。"
+  remarks: "対称アルゴリズムには、この配列内のエントリに一致するキーのサイズのみがサポートされています。"
   example:
   - "The following example shows the value of LegalKeySizes for the symmetric algorithms.  \n  \n [!code-vb[System.Security.Cryptography.SymmetricAlgorithm.BlockSize#1](~/add/codesnippet/visualbasic/p-system.security.crypto_72_1.vb)]\n [!code-cs[System.Security.Cryptography.SymmetricAlgorithm.BlockSize#1](~/add/codesnippet/csharp/p-system.security.crypto_72_1.cs)]"
   syntax:
     content: public virtual System.Security.Cryptography.KeySizes[] LegalKeySizes { get; }
     return:
       type: System.Security.Cryptography.KeySizes[]
-      description: "An array that contains the key sizes supported by the algorithm."
+      description: "アルゴリズムでサポートされるキーのサイズを格納する配列。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes*
   exceptions: []
   platform:
@@ -680,13 +680,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Specifies the key sizes, in bits, that are supported by the symmetric algorithm."
-  remarks: "The symmetric algorithm supports only key sizes that match an entry in this array.       This field is accessed through the <xref:System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes%2A> property."
+  summary: "対称アルゴリズムでサポートされているビットのキーのサイズを指定します。"
+  remarks: "対称アルゴリズムには、この配列内のエントリに一致するキーのサイズのみがサポートされています。       このフィールドには、<xref:System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes%2A>プロパティ</xref:System.Security.Cryptography.SymmetricAlgorithm.LegalKeySizes%2A>。"
   syntax:
     content: protected System.Security.Cryptography.KeySizes[] LegalKeySizesValue;
     return:
       type: System.Security.Cryptography.KeySizes[]
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -702,18 +702,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets or sets the mode for operation of the symmetric algorithm."
-  remarks: "See <xref:System.Security.Cryptography.CipherMode> enumeration for a description of specific modes."
+  summary: "取得または対称アルゴリズムの操作モードを設定します。"
+  remarks: "参照してください<xref:System.Security.Cryptography.CipherMode>特定のモードの詳細については、列挙体です</xref:System.Security.Cryptography.CipherMode>。"
   syntax:
     content: public virtual System.Security.Cryptography.CipherMode Mode { get; set; }
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "The mode for operation of the symmetric algorithm. The default is <xref href=&quot;System.Security.Cryptography.CipherMode&quot;></xref>."
+      description: "対称アルゴリズムの操作モード。 既定値は<xref href=&quot;System.Security.Cryptography.CipherMode&quot;></xref>です。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.Mode*
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The cipher mode is not one of the <xref href=&quot;System.Security.Cryptography.CipherMode&quot;></xref> values."
+    description: "Cipher モードは、のいずれかではありません、 <xref href=&quot;System.Security.Cryptography.CipherMode&quot;> </xref>値。"
   platform:
   - net462
 - uid: System.Security.Cryptography.SymmetricAlgorithm.ModeValue
@@ -728,13 +728,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Represents the cipher mode used in the symmetric algorithm."
-  remarks: "See <xref:System.Security.Cryptography.CipherMode> enumeration for a description of specific modes.       This field is accessed through the <xref:System.Security.Cryptography.SymmetricAlgorithm.Mode%2A> property."
+  summary: "対称アルゴリズムで使用する暗号モードを表します。"
+  remarks: "参照してください<xref:System.Security.Cryptography.CipherMode>特定のモードの詳細については、列挙体です</xref:System.Security.Cryptography.CipherMode>。       このフィールドには、<xref:System.Security.Cryptography.SymmetricAlgorithm.Mode%2A>プロパティ</xref:System.Security.Cryptography.SymmetricAlgorithm.Mode%2A>。"
   syntax:
     content: protected System.Security.Cryptography.CipherMode ModeValue;
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -750,18 +750,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets or sets the padding mode used in the symmetric algorithm."
-  remarks: "Most plain text messages do not consist of a number of bytes that completely fill blocks. Often, there are not enough bytes to fill the last block. When this happens, a padding string is added to the text. For example, if the block length is 64 bits and the last block contains only 40 bits, 24 bits of padding are added. See the <xref:System.Security.Cryptography.PaddingMode> enumeration for a description of specific modes."
+  summary: "取得または対称アルゴリズムで使用されるパディング モードを設定します。"
+  remarks: "ほとんどのプレーン テキスト メッセージは、ブロックが完全に入力するバイト数ので構成されていません。 多くの場合、最後のブロックを格納するための十分なバイトがありません。 この場合、テキストに埋め込み文字列が追加されます。 たとえば、ブロックの長さは 64 ビット、最後のブロックには、40 ビットだけが含まれている場合は、24 ビットのパディングが追加されます。 参照してください、<xref:System.Security.Cryptography.PaddingMode>特定のモードの詳細については、列挙体です</xref:System.Security.Cryptography.PaddingMode>。"
   syntax:
     content: public virtual System.Security.Cryptography.PaddingMode Padding { get; set; }
     return:
       type: System.Security.Cryptography.PaddingMode
-      description: "The padding mode used in the symmetric algorithm. The default is <xref href=&quot;System.Security.Cryptography.PaddingMode&quot;></xref>."
+      description: "対称アルゴリズムで使用されるパディング モード。 既定値は<xref href=&quot;System.Security.Cryptography.PaddingMode&quot;></xref>です。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.Padding*
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The padding mode is not one of the <xref href=&quot;System.Security.Cryptography.PaddingMode&quot;></xref> values."
+    description: "パディング モードは、のいずれかではない、 <xref href=&quot;System.Security.Cryptography.PaddingMode&quot;> </xref>値。"
   platform:
   - net462
 - uid: System.Security.Cryptography.SymmetricAlgorithm.PaddingValue
@@ -776,13 +776,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Represents the padding mode used in the symmetric algorithm."
-  remarks: "Most plain text messages do not consist of a number of bytes that completely fill blocks. Often, there are not enough bytes to fill the last block. When this happens, a padding string is added to the text. For example, if the block length is 64 bits and the last block contains only 40 bits, 24 bits of padding are added. See the <xref:System.Security.Cryptography.PaddingMode> enumeration for a description of specific modes.       This field is accessed through the <xref:System.Security.Cryptography.SymmetricAlgorithm.Padding%2A> property."
+  summary: "対称アルゴリズムで使用されるパディング モードを表します。"
+  remarks: "ほとんどのプレーン テキスト メッセージは、ブロックが完全に入力するバイト数ので構成されていません。 多くの場合、最後のブロックを格納するための十分なバイトがありません。 この場合、テキストに埋め込み文字列が追加されます。 たとえば、ブロックの長さは 64 ビット、最後のブロックには、40 ビットだけが含まれている場合は、24 ビットのパディングが追加されます。 参照してください、<xref:System.Security.Cryptography.PaddingMode>特定のモードの詳細については、列挙体です</xref:System.Security.Cryptography.PaddingMode>。       このフィールドには、<xref:System.Security.Cryptography.SymmetricAlgorithm.Padding%2A>プロパティ</xref:System.Security.Cryptography.SymmetricAlgorithm.Padding%2A>。"
   syntax:
     content: protected System.Security.Cryptography.PaddingMode PaddingValue;
     return:
       type: System.Security.Cryptography.PaddingMode
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -798,16 +798,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Determines whether the specified key size is valid for the current algorithm."
+  summary: "指定されたキー サイズが現在のアルゴリズムに対して有効かどうかを判断します。"
   syntax:
     content: public bool ValidKeySize (int bitLength);
     parameters:
     - id: bitLength
       type: System.Int32
-      description: "The length, in bits, to check for a valid key size."
+      description: "有効なキー サイズを確認するビット単位の長さ。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified key size is valid for the current algorithm; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>指定されたキー サイズが現在のアルゴリズムに対して有効な場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Security.Cryptography.SymmetricAlgorithm.ValidKeySize*
   exceptions: []
   platform:
