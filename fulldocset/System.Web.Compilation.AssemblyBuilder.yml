@@ -16,8 +16,8 @@ items:
   nameWithType: AssemblyBuilder
   fullName: System.Web.Compilation.AssemblyBuilder
   type: Class
-  summary: "Provides a container for building an assembly from one or more virtual paths within an ASP.NET project."
-  remarks: "Instances of the AssemblyBuilder class are used with <xref:System.Web.Compilation.BuildProvider> class methods to build one or more files into a compiled assembly.       The <xref:System.Web.Compilation.BuildProvider> class defines build functionality for individual files, and the AssemblyBuilder class combines the source code contributed by each <xref:System.Web.Compilation.BuildProvider> instance into a single assembly. The ASP.NET build environment passes an AssemblyBuilder object to the <xref:System.Web.Compilation.BuildProvider> methods when building an assembly from one or more files, so that each <xref:System.Web.Compilation.BuildProvider> instance can contribute source code for its file to the overall assembly.       The ASP.NET build environment determines the language and compiler required by files within the project, based on the <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A?displayProperty=fullName> property. The build environment groups files based on their compiler settings and builds an assembly from files that require the same compiler.       The <xref:System.Web.Compilation.AssemblyBuilder.CodeDomProvider%2A> property indicates the <xref:System.CodeDom.Compiler.CodeDomProvider> implementation that the ASP.NET build environment uses to compile an assembly from the source code contributed by each <xref:System.Web.Compilation.BuildProvider> implementation.       A <xref:System.Web.Compilation.BuildProvider> object contributes source code in the form of a CodeDOM graph using the <xref:System.Web.Compilation.AssemblyBuilder.AddCodeCompileUnit%2A> method. A <xref:System.Web.Compilation.BuildProvider> object contributes source code stored in a physical file using the <xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A> method.       After each <xref:System.Web.Compilation.BuildProvider> object contributes source code using the appropriate AssemblyBuilder methods, the ASP.NET build environment uses the AssemblyBuilder class to compile the collected source code into an assembly."
+  summary: "ASP.NET プロジェクト内の&1; つまたは複数の仮想パスからアセンブリを構築するためのコンテナーを提供します。"
+  remarks: "AssemblyBuilder クラスのインスタンスの併用<xref:System.Web.Compilation.BuildProvider>クラスのメソッドに&1; つまたは複数のファイルをコンパイルされたアセンブリに組み込む</xref:System.Web.Compilation.BuildProvider>。       <xref:System.Web.Compilation.BuildProvider>クラスは、個々 のファイルのビルド機能を定義し、AssemblyBuilder クラスが提供された各ソース コードを組み合わせた<xref:System.Web.Compilation.BuildProvider>インスタンスを&1; つのアセンブリにします</xref:System.Web.Compilation.BuildProvider></xref:System.Web.Compilation.BuildProvider>。 ASP.NET ビルド環境に AssemblyBuilder オブジェクト、<xref:System.Web.Compilation.BuildProvider>メソッドの&1; つまたは複数のファイルからアセンブリを作成するときにそのように各<xref:System.Web.Compilation.BuildProvider>インスタンスは、全体的なアセンブリには、そのファイルのソース コードを行うことができます</xref:System.Web.Compilation.BuildProvider></xref:System.Web.Compilation.BuildProvider>。       ASP.NET ビルド環境を調べ、言語コンパイラを基に、プロジェクト内のファイルに必要な<xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A?displayProperty=fullName>プロパティ</xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A?displayProperty=fullName>。 ビルド環境のグループ ファイルは、コンパイラ設定に基づいており、同じコンパイラが必要なファイルからアセンブリをビルドします。       <xref:System.Web.Compilation.AssemblyBuilder.CodeDomProvider%2A>プロパティを示します、 <xref:System.CodeDom.Compiler.CodeDomProvider>ASP.NET ビルド環境を使用して、ソース コードからアセンブリをコンパイルするための実装が各によって得られた<xref:System.Web.Compilation.BuildProvider>実装</xref:System.Web.Compilation.BuildProvider></xref:System.CodeDom.Compiler.CodeDomProvider></xref:System.Web.Compilation.AssemblyBuilder.CodeDomProvider%2A>。       A<xref:System.Web.Compilation.BuildProvider>オブジェクトを使用して CodeDOM グラフの形式でソース コードの貢献、<xref:System.Web.Compilation.AssemblyBuilder.AddCodeCompileUnit%2A>メソッド</xref:System.Web.Compilation.AssemblyBuilder.AddCodeCompileUnit%2A></xref:System.Web.Compilation.BuildProvider>。 A<xref:System.Web.Compilation.BuildProvider>オブジェクトを使用して、物理ファイルに格納されているソース コードの貢献、<xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A>メソッド</xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A></xref:System.Web.Compilation.BuildProvider>。       各後<xref:System.Web.Compilation.BuildProvider>AssemblyBuilder の適切なメソッドを使用してソース コードを提供するオブジェクト、ASP.NET ビルド環境では、AssemblyBuilder クラスを使用して、収集されたソース コードをアセンブリにコンパイルします</xref:System.Web.Compilation.BuildProvider>。"
   example:
   - "The following code example illustrates a simple build provider implementation, inheriting from the abstract <xref:System.Web.Compilation.BuildProvider> base class. The build provider overrides the <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A>, <xref:System.Web.Compilation.BuildProvider.GetGeneratedType%2A>, and <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> members of the base class.  \n  \n In the <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> method implementation, the build provider adds the generated code for the assembly compilation using the <xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A> method. The example does not include the implementation of the `SampleClassGenerator` class. For more information, see <xref:System.CodeDom.CodeCompileUnit>.  \n  \n [!code-cs[System.Web.Compilation_SampleBuildProvider#2](~/add/codesnippet/csharp/t-system.web.compilation_10_1.cs)]\n [!code-vb[System.Web.Compilation_SampleBuildProvider#2](~/add/codesnippet/visualbasic/t-system.web.compilation_10_1.vb)]"
   syntax:
@@ -40,14 +40,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Adds an assembly that is referenced by source code generated for a file."
-  remarks: "A <xref:System.Web.Compilation.BuildProvider> implementation uses the AddAssemblyReference method when generating source code that references types within the input assembly.       The ASP.NET build environment initializes the default collection of assemblies available for reference through the build provider in the <xref:System.Web.Compilation.BuildProvider.ReferencedAssemblies%2A?displayProperty=fullName> property. If the build provider generates source code that references additional assemblies, the build provider adds the additional assemblies using the AddAssemblyReference method. The ASP.NET build environment resolves external types during assembly compilation using both the referenced assemblies added by build providers and the default collection of assemblies available for reference.       Typically, a <xref:System.Web.Compilation.BuildProvider> object adds source code to the <xref:System.Web.Compilation.AssemblyBuilder> object in the <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> method. If a build provider generates source code that uses an external type, the build provider adds the type&quot;s assembly using the AddAssemblyReference method.       Use the AddAssemblyReference method to add a referenced assembly required in source code generated by a <xref:System.Web.Compilation.BuildProvider> instance for a specific file type. Use the [assemblies Element for compilation (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/3811c448-af1c-498d-be2b-6ed2634c51e9) configuration element to configure an assembly for reference across multiple file types in a project."
+  summary: "ファイルに対して生成されたソース コードによって参照されるアセンブリを追加します。"
+  remarks: "A<xref:System.Web.Compilation.BuildProvider>入力アセンブリ内の型を参照するソース コードを生成するときに、実装が AddAssemblyReference メソッドを使用します</xref:System.Web.Compilation.BuildProvider>。       ASP.NET ビルド環境によって初期化でビルド プロバイダーによって参照に使用できるアセンブリの既定のコレクション、<xref:System.Web.Compilation.BuildProvider.ReferencedAssemblies%2A?displayProperty=fullName>プロパティ</xref:System.Web.Compilation.BuildProvider.ReferencedAssemblies%2A?displayProperty=fullName>。 ビルド プロバイダーがソース コードを生成する場合は、追加のアセンブリを参照する、ビルド プロバイダーが AddAssemblyReference メソッドを使用して、追加のアセンブリを追加します。 ASP.NET ビルド環境では、プロバイダーとの参照で使用できるアセンブリの既定のコレクションをビルドによって追加された両方の参照先アセンブリを使用してアセンブリのコンパイル時に外部のタイプを解決します。       通常、<xref:System.Web.Compilation.BuildProvider>オブジェクトは、ソース コードを追加、<xref:System.Web.Compilation.AssemblyBuilder>内のオブジェクト、<xref:System.Web.Compilation.BuildProvider.GenerateCode%2A>メソッド</xref:System.Web.Compilation.BuildProvider.GenerateCode%2A></xref:System.Web.Compilation.AssemblyBuilder></xref:System.Web.Compilation.BuildProvider>。 ビルド プロバイダーは、外部型を使用するソース コードを生成する場合、ビルド プロバイダーは AddAssemblyReference メソッドを使用して、型のアセンブリを追加します。       AddAssemblyReference メソッドによって生成されたソース コードで必要な参照先アセンブリを使用して、<xref:System.Web.Compilation.BuildProvider>特定のファイル タイプのインスタンス</xref:System.Web.Compilation.BuildProvider>。 使用して、 [compilation の assemblies 要素の (ASP.NET 設定スキーマ)](http://msdn.microsoft.com/en-us/3811c448-af1c-498d-be2b-6ed2634c51e9)プロジェクト内の複数のファイル種類で参照アセンブリを構成する構成要素。"
   syntax:
     content: public void AddAssemblyReference (System.Reflection.Assembly a);
     parameters:
     - id: a
       type: System.Reflection.Assembly
-      description: "An assembly referenced by a code compile unit or source file included in the assembly compilation."
+      description: "アセンブリ コンパイルに含まれるコード コンパイル単位またはソース ファイルによって参照されるアセンブリ。"
   overload: System.Web.Compilation.AssemblyBuilder.AddAssemblyReference*
   exceptions: []
   platform:
@@ -64,17 +64,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Adds source code for the assembly in the form of a CodeDOM graph."
-  remarks: "A <xref:System.Web.Compilation.BuildProvider> implementation calls the AddCodeCompileUnit method when generating a CodeDOM graph for a virtual path. Source code added with AddCodeCompileUnit is included in the assembly compilation.       Typically, a build provider&quot;s <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> method implementation reads the <xref:System.Web.Compilation.BuildProvider.VirtualPath%2A> property, parses the contents, and then adds the generated source code to the specified <xref:System.Web.Compilation.AssemblyBuilder> object. The build provider uses the AddCodeCompileUnit method to add source code as a CodeDOM graph to the assembly. Alternately, the build provider can use the <xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A> method to add source code as a physical file to the assembly."
+  summary: "CodeDOM グラフの形式でアセンブリのソース コードを追加します。"
+  remarks: "<xref:System.Web.Compilation.BuildProvider>実装は仮想パスの CodeDOM グラフを生成するときに AddCodeCompileUnit メソッドを呼び出す</xref:System.Web.Compilation.BuildProvider> アセンブリ コンパイルに AddCodeCompileUnit と共に追加のソース コードが含まれます。       通常、ビルド プロバイダーの<xref:System.Web.Compilation.BuildProvider.GenerateCode%2A>メソッドの実装の読み取り、<xref:System.Web.Compilation.BuildProvider.VirtualPath%2A>プロパティは、内容を解析しを指定した、生成されたソース コードを追加<xref:System.Web.Compilation.AssemblyBuilder>オブジェクト</xref:System.Web.Compilation.AssemblyBuilder></xref:System.Web.Compilation.BuildProvider.VirtualPath%2A></xref:System.Web.Compilation.BuildProvider.GenerateCode%2A>。 ビルド プロバイダーでは、AddCodeCompileUnit メソッドを使用して、CodeDOM グラフとしてソース コードをアセンブリに追加します。 または、ビルド プロバイダーを使用できる、<xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A>アセンブリへの物理ファイルとしてソース コードを追加するメソッド</xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A>。"
   syntax:
     content: public void AddCodeCompileUnit (System.Web.Compilation.BuildProvider buildProvider, System.CodeDom.CodeCompileUnit compileUnit);
     parameters:
     - id: buildProvider
       type: System.Web.Compilation.BuildProvider
-      description: "The build provider generating `compileUnit`."
+      description: "生成するためのビルド プロバイダー`compileUnit`です。"
     - id: compileUnit
       type: System.CodeDom.CodeCompileUnit
-      description: "The code compile unit to include in the assembly compilation."
+      description: "アセンブリのコンパイルに含めるコード コンパイル ユニット。"
   overload: System.Web.Compilation.AssemblyBuilder.AddCodeCompileUnit*
   exceptions: []
   platform:
@@ -91,13 +91,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets the compiler used to build source code into an assembly."
-  remarks: "The CodeDomProvider property indicates the <xref:System.CodeDom.Compiler.CodeDomProvider?displayProperty=fullName> implementation that the ASP.NET build environment uses to compile an assembly from the source code contributed by each <xref:System.Web.Compilation.BuildProvider> implementation.       The ASP.NET build environment determines the language and compiler required by files within the project, based on the <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A?displayProperty=fullName> property. The build environment groups files based on their compiler settings and builds an assembly from files that require the same compiler."
+  summary: "アセンブリにソース コードをビルドするためのコンパイラを取得します。"
+  remarks: "CodeDomProvider プロパティを示します、 <xref:System.CodeDom.Compiler.CodeDomProvider?displayProperty=fullName>ASP.NET ビルド環境を使用して、ソース コードからアセンブリをコンパイルするための実装が各によって得られた<xref:System.Web.Compilation.BuildProvider>実装</xref:System.Web.Compilation.BuildProvider></xref:System.CodeDom.Compiler.CodeDomProvider?displayProperty=fullName>。       ASP.NET ビルド環境を調べ、言語コンパイラを基に、プロジェクト内のファイルに必要な<xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A?displayProperty=fullName>プロパティ</xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A?displayProperty=fullName>。 ビルド環境のグループ ファイルは、コンパイラ設定に基づいており、同じコンパイラが必要なファイルからアセンブリをビルドします。"
   syntax:
     content: public System.CodeDom.Compiler.CodeDomProvider CodeDomProvider { get; }
     return:
       type: System.CodeDom.Compiler.CodeDomProvider
-      description: "A read-only <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;></xref> implementation used for compiling source code contributed by each build provider into an assembly."
+      description: "読み取り専用<xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;></xref>アセンブリにビルド プロバイダーによって提供された実装のソース コードのコンパイルに使用します。"
   overload: System.Web.Compilation.AssemblyBuilder.CodeDomProvider*
   exceptions: []
   platform:
@@ -114,8 +114,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Allows a build provider to create a temporary source file, and include the source file in the assembly compilation."
-  remarks: "A <xref:System.Web.Compilation.BuildProvider> implementation calls the CreateCodeFile method when generating a source file for a virtual path. Source code added with CreateCodeFile is included in the assembly compilation.       Typically, a build provider <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> method implementation reads the <xref:System.Web.Compilation.BuildProvider.VirtualPath%2A> property, parses the contents, and then adds the generated source code to the specified <xref:System.Web.Compilation.AssemblyBuilder> object. The build provider uses the CreateCodeFile method to add source code as a physical file to the assembly. Alternately, the build provider can use the <xref:System.Web.Compilation.AssemblyBuilder.AddCodeCompileUnit%2A> method to add source code as a CodeDOM graph to the assembly.       After calling CreateCodeFile, the build provider writes the source file contents using the returned <xref:System.IO.TextWriter> object. After writing the source file, the <xref:System.Web.Compilation.BuildProvider> object must use the <xref:System.IO.TextWriter.Close%2A> method to close the <xref:System.IO.TextWriter> object and free associated system resources."
+  summary: "ビルド プロバイダーに一時的なソース ファイルを作成し、アセンブリのコンパイルにソース ファイルを含めるを許可します。"
+  remarks: "<xref:System.Web.Compilation.BuildProvider>実装は仮想パスのソース ファイルを生成するときに CreateCodeFile メソッドを呼び出す</xref:System.Web.Compilation.BuildProvider> アセンブリ コンパイルに CreateCodeFile と共に追加のソース コードが含まれます。       ビルド プロバイダーでは通常、<xref:System.Web.Compilation.BuildProvider.GenerateCode%2A>メソッドの実装の読み取り、<xref:System.Web.Compilation.BuildProvider.VirtualPath%2A>プロパティは、内容を解析しを指定した、生成されたソース コードを追加<xref:System.Web.Compilation.AssemblyBuilder>オブジェクト</xref:System.Web.Compilation.AssemblyBuilder></xref:System.Web.Compilation.BuildProvider.VirtualPath%2A></xref:System.Web.Compilation.BuildProvider.GenerateCode%2A>。 ビルド プロバイダーでは、CreateCodeFile メソッドを使用して、アセンブリへの物理ファイルとしてソース コードを追加します。 または、ビルド プロバイダーを使用できる、 <xref:System.Web.Compilation.AssemblyBuilder.AddCodeCompileUnit%2A>CodeDOM グラフとしてアセンブリにソース コードを追加するメソッド</xref:System.Web.Compilation.AssemblyBuilder.AddCodeCompileUnit%2A>。       CreateCodeFile を呼び出した後、ビルド プロバイダーを書き込むソース ファイルの内容を使用して、返された<xref:System.IO.TextWriter>オブジェクト</xref:System.IO.TextWriter>。 ソース ファイルの書き込み後に、<xref:System.Web.Compilation.BuildProvider>オブジェクトを使用する必要があります、<xref:System.IO.TextWriter.Close%2A>を終了するメソッド、<xref:System.IO.TextWriter>オブジェクトし、関連付けられたシステム リソースを解放します</xref:System.IO.TextWriter></xref:System.IO.TextWriter.Close%2A></xref:System.Web.Compilation.BuildProvider>。"
   example:
   - "The following code example illustrates a simple build provider implementation, inheriting from the abstract <xref:System.Web.Compilation.BuildProvider> base class. The build provider overrides the <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A>, <xref:System.Web.Compilation.BuildProvider.GetGeneratedType%2A>, and <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> members of the base class.  \n  \n In the <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> method implementation, the build provider adds the generated code for the assembly compilation using the CreateCodeFile method. The example does not include the implementation of the `SampleClassGenerator` class. For more information, see <xref:System.CodeDom.CodeCompileUnit>.  \n  \n [!code-cs[System.Web.Compilation_SampleBuildProvider#2](~/add/codesnippet/csharp/3ed51741-a65c-4f55-993c-_1.cs)]\n [!code-vb[System.Web.Compilation_SampleBuildProvider#2](~/add/codesnippet/visualbasic/3ed51741-a65c-4f55-993c-_1.vb)]"
   syntax:
@@ -123,10 +123,10 @@ items:
     parameters:
     - id: buildProvider
       type: System.Web.Compilation.BuildProvider
-      description: "The build provider generating the code source file."
+      description: "コードのソース ファイルを生成するビルド プロバイダー。"
     return:
       type: System.IO.TextWriter
-      description: "An open <xref:System.IO.TextWriter> that can be used to write source code to a temporary file."
+      description: "開いている<xref:System.IO.TextWriter>を使用して、ソース コードを一時ファイルに書き込むことができます</xref:System.IO.TextWriter>。"
   overload: System.Web.Compilation.AssemblyBuilder.CreateCodeFile*
   exceptions: []
   platform:
@@ -143,25 +143,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Allows a build provider to create a resource file to include in the assembly compilation."
-  remarks: "After calling the CreateEmbeddedResource method, a <xref:System.Web.Compilation.BuildProvider> object writes the resource file contents using the returned <xref:System.IO.Stream> object. For example, the build provider can write the resources using a <xref:System.Resources.ResourceWriter> object. After writing the resource file, the build provider must use the <xref:System.IO.Stream.Close%2A> method to close the <xref:System.IO.Stream> object and free associated system resources."
+  summary: "アセンブリのコンパイルに含めるリソース ファイルを作成するビルド プロバイダーを使用します。"
+  remarks: "CreateEmbeddedResource メソッドを呼び出した後、<xref:System.Web.Compilation.BuildProvider>オブジェクトに書き込みますリソース ファイルの内容を使用して、返された<xref:System.IO.Stream>オブジェクト</xref:System.IO.Stream></xref:System.Web.Compilation.BuildProvider>。 ビルド プロバイダーが使用しているリソースを記述するなど、<xref:System.Resources.ResourceWriter>オブジェクト</xref:System.Resources.ResourceWriter>。 リソース ファイルを書き込み後のビルド プロバイダーを使用する必要があります、<xref:System.IO.Stream.Close%2A>を終了するメソッド、<xref:System.IO.Stream>オブジェクトし、関連付けられたシステム リソースを解放します</xref:System.IO.Stream></xref:System.IO.Stream.Close%2A>。"
   syntax:
     content: public System.IO.Stream CreateEmbeddedResource (System.Web.Compilation.BuildProvider buildProvider, string name);
     parameters:
     - id: buildProvider
       type: System.Web.Compilation.BuildProvider
-      description: "The build provider generating the resource."
+      description: "リソースを生成するビルド プロバイダー。"
     - id: name
       type: System.String
-      description: "The name of the resource file to be created."
+      description: "作成するリソース ファイルの名前。"
     return:
       type: System.IO.Stream
-      description: "An open <xref:System.IO.Stream> that can be used to write resources, which are included in the assembly compilation."
+      description: "開いている<xref:System.IO.Stream>アセンブリのコンパイルに含まれているリソースの記述に使用できる</xref:System.IO.Stream>。"
   overload: System.Web.Compilation.AssemblyBuilder.CreateEmbeddedResource*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>name</code> is not a valid file name."
+    description: "<code>name</code>有効なファイル名ではありません。"
   platform:
   - net462
 - uid: System.Web.Compilation.AssemblyBuilder.GenerateTypeFactory(System.String)
@@ -176,14 +176,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Inserts a fast object factory template for a type into the compiled assembly."
-  remarks: "A <xref:System.Web.Compilation.BuildProvider> implementation calls the GenerateTypeFactory method to optimize performance for frequent creations of type instances."
+  summary: "種類の高速のオブジェクト ファクトリ テンプレートをコンパイルされたアセンブリに挿入します。"
+  remarks: "A<xref:System.Web.Compilation.BuildProvider>実装型のインスタンスを頻繁に作成するためのパフォーマンスを最適化する GenerateTypeFactory メソッドを呼び出します</xref:System.Web.Compilation.BuildProvider>。"
   syntax:
     content: public void GenerateTypeFactory (string typeName);
     parameters:
     - id: typeName
       type: System.String
-      description: "The name of the type to generate."
+      description: "生成する型の名前。"
   overload: System.Web.Compilation.AssemblyBuilder.GenerateTypeFactory*
   exceptions: []
   platform:
@@ -200,17 +200,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Generates a temporary file path."
-  remarks: "A <xref:System.Web.Compilation.BuildProvider> implementation calls the GetTempFilePhysicalPath method to get a temporary file path that is deleted automatically after the assembly is compiled.       The GetTempFilePhysicalPath method generates a unique temporary file path, but does not create the file."
+  summary: "一時ファイルのパスを生成します。"
+  remarks: "A<xref:System.Web.Compilation.BuildProvider>実装アセンブリがコンパイルされた後に自動的に削除される一時ファイルのパスを取得する GetTempFilePhysicalPath メソッドを呼び出します</xref:System.Web.Compilation.BuildProvider>。       GetTempFilePhysicalPath メソッドは、一意の一時ファイルのパスが生成されますが、ファイルは作成されません。"
   syntax:
     content: public string GetTempFilePhysicalPath (string extension);
     parameters:
     - id: extension
       type: System.String
-      description: "The file extension to use for the temporary file."
+      description: "一時ファイルに使用するファイル拡張子。"
     return:
       type: System.String
-      description: "A path to a temporary file, with the specified file extension."
+      description: "指定したファイル拡張子を持つ、一時ファイルへのパス。"
   overload: System.Web.Compilation.AssemblyBuilder.GetTempFilePhysicalPath*
   exceptions: []
   platform:

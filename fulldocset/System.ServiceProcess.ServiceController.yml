@@ -39,8 +39,8 @@ items:
   nameWithType: ServiceController
   fullName: System.ServiceProcess.ServiceController
   type: Class
-  summary: "Represents a Windows service and allows you to connect to a running or stopped service, manipulate it, or get information about it."
-  remarks: "You can use the ServiceController class to connect to and control the behavior of existing services. When you create an instance of the ServiceController class, you set its properties so it interacts with a specific Windows service. You can then use the class to start, stop, and otherwise manipulate the service.       You will most likely use the ServiceController component in an administrative capacity. For example, you could create a Windows or Web application that sends custom commands to a service through the ServiceController instance. This would be useful, because the Service Control Manager (SCM) Microsoft Management Console snap-in does not support custom commands.       After you create an instance of ServiceController, you must set two properties on it to identify the service with which it interacts: the computer name and the name of the service you want to control.      > [!NOTE] >  By default, <xref:System.ServiceProcess.ServiceController.MachineName%2A> is set to the local computer, so you do not need to change it unless you want to set the instance to point to another computer.       Generally, the service author writes code that customizes the action associated with a specific command. For example, a service can contain code to respond to an <xref:System.ServiceProcess.ServiceBase.OnPause%2A?displayProperty=fullName> command. In that case, the custom processing for the <xref:System.ServiceProcess.ServiceController.Pause%2A> task runs before the system pauses the service.       The set of commands a service can process depends on its properties; for example, you can set the <xref:System.ServiceProcess.ServiceController.CanStop%2A> property for a service to `false`. This setting renders the `Stop` command unavailable on that particular service; it prevents you from stopping the service from the SCM by disabling the necessary button. If you try to stop the service from your code, the system raises an error and displays the error message &quot;Failed to stop `servicename`.&quot;"
+  summary: "Windows サービスを表し、実行中または停止したサービスへの接続、操作、またはそれに関する情報を取得することができます。"
+  remarks: "接続し、既存のサービスの動作を制御するには、ServiceController クラスを使用します。 ServiceController クラスのインスタンスを作成するときに、特定の Windows サービスとやり取りするためのプロパティを設定します。 クラスを使用して、開始、停止、およびそれ以外の場合、サービスを操作することができますし、します。       ServiceController コンポーネントを使用して、管理機能ではほとんどの場合。 たとえば、ServiceController インスタンスを通じてサービスにカスタム コマンドを送信する Windows または Web アプリケーションを作成できます。 サービス コントロール マネージャー (SCM) Microsoft 管理コンソール スナップインではサポートされていませんカスタムのコマンドは、便利になります。       ServiceController のインスタンスを作成した後で連携するサービスを識別するために&2; つのプロパティを設定する必要があります。 コンピューター名とを制御するサービスの名前。      > [!NOTE] > 既定では、<xref:System.ServiceProcess.ServiceController.MachineName%2A>ので、別のコンピューター をポイントするインスタンスを設定する場合を除き、これを変更する必要はありませんが、ローカル コンピューターに設定します</xref:System.ServiceProcess.ServiceController.MachineName%2A>。       一般に、サービスの作成者は、特定のコマンドに関連付けられているアクションをカスタマイズするコードを記述します。 たとえば、サービスに応答するコードを含めることができます、<xref:System.ServiceProcess.ServiceBase.OnPause%2A?displayProperty=fullName>コマンド</xref:System.ServiceProcess.ServiceBase.OnPause%2A?displayProperty=fullName>。 その場合、カスタム処理を<xref:System.ServiceProcess.ServiceController.Pause%2A>システム サービスを一時停止する前に、タスクが実行されます</xref:System.ServiceProcess.ServiceController.Pause%2A>。       サービスが処理できるコマンドのセットは、プロパティによって異なります。たとえば、設定、<xref:System.ServiceProcess.ServiceController.CanStop%2A>にサービスのプロパティ`false`</xref:System.ServiceProcess.ServiceController.CanStop%2A>。 この設定により、`Stop`コマンドの特定のサービスで使用できなくなった; できなくために必要なボタンを無効にして、SCM でサービスを停止します。 コードからサービスを停止しようとする場合、システムはエラーが発生し、エラー メッセージが表示されます&quot;を停止できませんでした`servicename`&quot;。"
   example:
   - "The following example demonstrates the use of the ServiceController class to control the `SimpleService` service example.  \n  \n [!code-cs[ServiceControllerClass#1](~/add/codesnippet/csharp/t-system.serviceprocess._6_1.cs)]\n [!code-vb[ServiceControllerClass#1](~/add/codesnippet/visualbasic/t-system.serviceprocess._6_1.vb)]"
   syntax:
@@ -83,7 +83,7 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref> class that is not associated with a specific service."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ServiceProcess.ServiceController&quot;> </xref>特定のサービスに関連付けられていないクラス。"
   syntax:
     content: public ServiceController ();
     parameters: []
@@ -103,7 +103,7 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref> class that is associated with an existing service on the local computer."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ServiceProcess.ServiceController&quot;> </xref>ローカル コンピューター上の既存のサービスに関連付けられているクラスです。"
   remarks: ''
   example:
   - "The following example demonstrates the use of the ServiceController constructor to create a <xref:System.ServiceProcess.ServiceController> object that is used to control a sample service. This example is part of a larger example that is provided for the <xref:System.ServiceProcess.ServiceController> class.  \n  \n [!code-cs[ServiceControllerClass#2](~/add/codesnippet/csharp/m-system.serviceprocess._0_1.cs)]\n [!code-vb[ServiceControllerClass#2](~/add/codesnippet/visualbasic/m-system.serviceprocess._0_1.vb)]"
@@ -112,12 +112,12 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name that identifies the service to the system. This can also be the display name for the service."
+      description: "システムにサービスを識別する名前です。 これには、サービスの表示名、ことができます。"
   overload: System.ServiceProcess.ServiceController.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>name</code> is invalid."
+    description: "<code>name</code>正しくありません。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.#ctor(System.String,System.String)
@@ -132,22 +132,22 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref> class that is associated with an existing service on the specified computer."
-  remarks: "For the `machineName` parameter, you can use &quot;.&quot; to represent the local computer."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ServiceProcess.ServiceController&quot;> </xref>指定したコンピューター上の既存のサービスに関連付けられているクラスです。"
+  remarks: "`machineName`使用するパラメーター、&quot;です。&quot;ローカル コンピューターを表すです。"
   syntax:
     content: public ServiceController (string name, string machineName);
     parameters:
     - id: name
       type: System.String
-      description: "The name that identifies the service to the system. This can also be the display name for the service."
+      description: "システムにサービスを識別する名前です。 これには、サービスの表示名、ことができます。"
     - id: machineName
       type: System.String
-      description: "The computer on which the service resides."
+      description: "サービスが存在するコンピューター。"
   overload: System.ServiceProcess.ServiceController.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>name</code> is invalid.       -or-       <code>machineName</code> is invalid."
+    description: "<code>name</code>正しくありません。       - または -<code>machineName</code>が無効です。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.CanPauseAndContinue
@@ -162,7 +162,7 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Gets a value indicating whether the service can be paused and resumed."
+  summary: "サービスの一時停止および再開するかどうかを示す値を取得します。"
   remarks: ''
   example:
   - "The following example demonstrates the use of the CanPauseAndContinue property to determine whether a service can pause and continue. This example is part of a larger example that is provided for the <xref:System.ServiceProcess.ServiceController> class.  \n  \n [!code-cs[ServiceControllerClass#2](~/add/codesnippet/csharp/p-system.serviceprocess._8_1.cs)]\n [!code-vb[ServiceControllerClass#2](~/add/codesnippet/visualbasic/p-system.serviceprocess._8_1.vb)]"
@@ -170,15 +170,15 @@ items:
     content: public bool CanPauseAndContinue { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the service can be paused; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、サービスを一時停止できます。それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.ServiceProcess.ServiceController.CanPauseAndContinue*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service was not found."
+    description: "サービスは見つかりませんでした。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.CanShutdown
@@ -193,7 +193,7 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Gets a value indicating whether the service should be notified when the system is shutting down."
+  summary: "システムのシャット ダウン時にサービスに通知するかどうかを示す値を取得します。"
   remarks: ''
   example:
   - "The following example demonstrates the use of the CanShutdown property to determine whether a service provides a handler for a shutdown event. This example is part of a larger example that is provided for the <xref:System.ServiceProcess.ServiceController> class.  \n  \n [!code-cs[ServiceControllerClass#2](~/add/codesnippet/csharp/p-system.serviceprocess._6_1.cs)]\n [!code-vb[ServiceControllerClass#2](~/add/codesnippet/visualbasic/p-system.serviceprocess._6_1.vb)]"
@@ -201,15 +201,15 @@ items:
     content: public bool CanShutdown { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the service should be notified when the system is shutting down; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、システムのシャット ダウン時にサービスに通知する必要があります。それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.ServiceProcess.ServiceController.CanShutdown*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service was not found."
+    description: "サービスは見つかりませんでした。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.CanStop
@@ -224,7 +224,7 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Gets a value indicating whether the service can be stopped after it has started."
+  summary: "開始した後、サービスを停止できるかどうかを示す値を取得します。"
   remarks: ''
   example:
   - "The following example demonstrates the use of the CanStop property to determine whether a service provides a handler for a stop event. This example is part of a larger example that is provided for the <xref:System.ServiceProcess.ServiceController> class.  \n  \n [!code-cs[ServiceControllerClass#2](~/add/codesnippet/csharp/p-system.serviceprocess._1_1.cs)]\n [!code-vb[ServiceControllerClass#2](~/add/codesnippet/visualbasic/p-system.serviceprocess._1_1.vb)]"
@@ -232,15 +232,15 @@ items:
     content: public bool CanStop { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the service can be stopped and the <xref:System.ServiceProcess.ServiceBase.OnStop*> method called; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>サービスを停止する場合、<xref:System.ServiceProcess.ServiceBase.OnStop*>メソッドが呼び出されますそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>。</xref:System.ServiceProcess.ServiceBase.OnStop*> 。"
   overload: System.ServiceProcess.ServiceController.CanStop*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service was not found."
+    description: "サービスは見つかりませんでした。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.Close
@@ -255,8 +255,8 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Disconnects this <xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref> instance from the service and frees all the resources that the instance allocated."
-  remarks: "Close releases all the handles associated with the <xref:System.ServiceProcess.ServiceController> instance."
+  summary: "この接続が切断<xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref>サービスからインスタンス化し、インスタンスが割り当てられているすべてのリソースを解放します。"
+  remarks: "関連付けられているすべてのハンドルを解放する閉じる、<xref:System.ServiceProcess.ServiceController>インスタンス</xref:System.ServiceProcess.ServiceController>。"
   syntax:
     content: public void Close ();
     parameters: []
@@ -276,8 +276,8 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Continues a service after it has been paused."
-  remarks: "When you call Continue for a service, its status is first changed to `ContinuePending` and then, when the Continue method returns, it is changed to `Running`.       You cannot call Continue for the service until the service controller status is `Paused`."
+  summary: "一時停止後は、サービスを続行します。"
+  remarks: "サービスの継続を呼び出すと、その状態は最初に変更`ContinuePending`し、その後、続行メソッドが戻るときに変更されます`Running`です。       サービス コント ローラーの状態になるまで、サービスの継続を呼び出すことはできません`Paused`です。"
   example:
   - "The following example demonstrates the use of the Continue method to continue a paused service. This example is part of a larger example that is provided for the <xref:System.ServiceProcess.ServiceController> class.  \n  \n [!code-cs[ServiceControllerClass#5](~/add/codesnippet/csharp/m-system.serviceprocess._2_1.cs)]\n [!code-vb[ServiceControllerClass#5](~/add/codesnippet/visualbasic/m-system.serviceprocess._2_1.vb)]"
   syntax:
@@ -287,10 +287,10 @@ items:
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service was not found."
+    description: "サービスは見つかりませんでした。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.DependentServices
@@ -305,23 +305,23 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Gets the set of services that depends on the service associated with this <xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref> instance."
-  remarks: "The DependentServices array represents the services that the system stops if your application calls <xref:System.ServiceProcess.ServiceController.Stop%2A> for this service."
+  summary: "これに関連付けられているサービスに依存するサービスのセットを取得<xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref>インスタンス。"
+  remarks: "DependentServices 配列は、アプリケーションが呼び出す場合、システムが停止したサービスを表す<xref:System.ServiceProcess.ServiceController.Stop%2A>このサービスを使用します</xref:System.ServiceProcess.ServiceController.Stop%2A>。"
   example:
   - "The following example uses the <xref:System.ServiceProcess.ServiceController> class to display the set of services that are dependent on the Event Log service.  \n  \n [!code-cs[ServiceController#3](~/add/codesnippet/csharp/p-system.serviceprocess._4_1.cs)]\n [!code-cpp[ServiceController#3](~/add/codesnippet/cpp/p-system.serviceprocess._4_1.cpp)]\n [!code-vb[ServiceController#3](~/add/codesnippet/visualbasic/p-system.serviceprocess._4_1.vb)]"
   syntax:
     content: public System.ServiceProcess.ServiceController[] DependentServices { get; }
     return:
       type: System.ServiceProcess.ServiceController[]
-      description: "An array of <xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref> instances, each of which is associated with a service that depends on this service."
+      description: "配列<xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref>インスタンス、それぞれがこのサービスに依存するサービスに関連付けられています。"
   overload: System.ServiceProcess.ServiceController.DependentServices*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service was not found."
+    description: "サービスは見つかりませんでした。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.DisplayName
@@ -336,26 +336,26 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Gets or sets a friendly name for the service."
-  remarks: "You can set the DisplayName to an empty string (&quot;&quot;), but setting the property to `null` throws an exception."
+  summary: "取得またはサービスのフレンドリ名を設定します。"
+  remarks: "DisplayName を空の文字列に設定することができます (&quot;&quot;)、プロパティを設定が、`null`例外をスローします。"
   example:
   - "The following example uses the <xref:System.ServiceProcess.ServiceController> class to display the set of services that are dependent on the Event Log service.  \n  \n [!code-cs[ServiceController#3](~/add/codesnippet/csharp/p-system.serviceprocess._3_1.cs)]\n [!code-cpp[ServiceController#3](~/add/codesnippet/cpp/p-system.serviceprocess._3_1.cpp)]\n [!code-vb[ServiceController#3](~/add/codesnippet/visualbasic/p-system.serviceprocess._3_1.vb)]"
   syntax:
     content: public string DisplayName { get; set; }
     return:
       type: System.String
-      description: "The friendly name of the service, which can be used to identify the service."
+      description: "サービスを識別するために使用すると、サービスのフレンドリ名。"
   overload: System.ServiceProcess.ServiceController.DisplayName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The DisplayName is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "DisplayName が<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service was not found."
+    description: "サービスは見つかりませんでした。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.Dispose(System.Boolean)
@@ -370,14 +370,14 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref> and optionally releases the managed resources."
-  remarks: "This method is called by the public `Dispose()`method and the <xref:System.Object.Finalize%2A> method. `Dispose()` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.       When the `disposing` parameter is true, this method releases all resources held by any managed objects that this <xref:System.ServiceProcess.ServiceController> references. This method invokes the `Dispose()` method of each referenced object."
+  summary: "によって使用されるアンマネージ リソースを解放、 <xref href=&quot;System.ServiceProcess.ServiceController&quot;> </xref>し、必要に応じてマネージ リソースを解放します。"
+  remarks: "このメソッドは、パブリック`Dispose()`メソッドおよび<xref:System.Object.Finalize%2A>メソッド</xref:System.Object.Finalize%2A>。 `Dispose()`プロテクト呼び出します`Dispose(Boolean)`メソッドを`disposing`パラメーターに設定`true`です。 <xref:System.Object.Finalize%2A>呼び出す`Dispose`で`disposing`&quot;éý&quot;`false`です。</xref:System.Object.Finalize%2A>       ときに、`disposing`パラメーターが true の場合、このメソッドは、すべてのマネージ オブジェクトによって保持されているすべてのリソースを解放しますこの<xref:System.ServiceProcess.ServiceController>参照。</xref:System.ServiceProcess.ServiceController> 。 このメソッドを呼び出して、`Dispose()`参照される各オブジェクトのメソッドです。"
   syntax:
     content: protected override void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>マネージ コードとアンマネージ リソースを解放するには<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>アンマネージ リソースだけを解放します。"
   overload: System.ServiceProcess.ServiceController.Dispose*
   exceptions: []
   platform:
@@ -394,8 +394,8 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Executes a custom command on the service."
-  remarks: "When you call ExecuteCommand, the status of the service does not change. If the service was started, the status remains `Running`. If the service was stopped, the status remains `Stopped`, and so on. To process the custom command, the service must override the <xref:System.ServiceProcess.ServiceBase.OnCustomCommand%2A> method and provide a handler for the command identified by the `command` parameter."
+  summary: "サービスにカスタム コマンドを実行します。"
+  remarks: "ExecuteCommand を呼び出すときに、サービスの状態は変わりません。 サービスが開始された場合、状態のまま`Running`です。 サービスが停止された場合、状態のまま`Stopped`のようにします。 カスタム コマンドを処理するサービスをオーバーライドする必要があります、<xref:System.ServiceProcess.ServiceBase.OnCustomCommand%2A>メソッドによって識別されるコマンドのハンドラーを用意し、`command`パラメーター</xref:System.ServiceProcess.ServiceBase.OnCustomCommand%2A> 。"
   example:
   - "The following code example shows the use of the ExecuteCommand method to execute custom commands in the `SimpleService` service example.  \n  \n [!code-cs[ServiceContoller_ExecuteCommand#1](~/add/codesnippet/csharp/m-system.serviceprocess._5_1.cs)]\n [!code-vb[ServiceContoller_ExecuteCommand#1](~/add/codesnippet/visualbasic/m-system.serviceprocess._5_1.vb)]"
   syntax:
@@ -403,15 +403,15 @@ items:
     parameters:
     - id: command
       type: System.Int32
-      description: "An application-defined command flag that indicates which custom command to execute. The value must be between 128 and 256, inclusive."
+      description: "実行するカスタム コマンドを示すアプリケーション定義のコマンド フラグ。 値は、128 ~ 256 の間にする必要があります。"
   overload: System.ServiceProcess.ServiceController.ExecuteCommand*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service was not found."
+    description: "サービスは見つかりませんでした。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.GetDevices
@@ -426,8 +426,8 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Retrieves the device driver services on the local computer."
-  remarks: "GetDevices returns only the device driver services from the local computer. To retrieve the non-device driver services or services that are not drivers, call the <xref:System.ServiceProcess.ServiceController.GetServices%2A> method. Together, the two methods provide access to all the services on a computer."
+  summary: "ローカル コンピューター上のデバイス ドライバー サービスを取得します。"
+  remarks: "GetDevices では、ローカル コンピューターからのみ、デバイス ドライバー サービスを返します。 デバイス ドライバー以外のサービスまたはドライバーではないサービスを取得する、<xref:System.ServiceProcess.ServiceController.GetServices%2A>メソッド</xref:System.ServiceProcess.ServiceController.GetServices%2A>。 同時に、2 つのメソッドは、コンピューター上のすべてのサービスへのアクセスを提供します。"
   example:
   - "The following example uses the <xref:System.ServiceProcess.ServiceController> class to display the device driver services on the local computer.  \n  \n [!code-cs[ServiceController#5](~/add/codesnippet/csharp/m-system.serviceprocess._6_1.cs)]\n [!code-cpp[ServiceController#5](~/add/codesnippet/cpp/m-system.serviceprocess._6_1.cpp)]\n [!code-vb[ServiceController#5](~/add/codesnippet/visualbasic/m-system.serviceprocess._6_1.vb)]"
   syntax:
@@ -435,12 +435,12 @@ items:
     parameters: []
     return:
       type: System.ServiceProcess.ServiceController[]
-      description: "An array of type <xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref> in which each element is associated with a device driver service on the local computer."
+      description: "型の配列<xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref>で各要素に、ローカル コンピューター上のデバイス ドライバー サービスに関連付けられています。"
   overload: System.ServiceProcess.ServiceController.GetDevices*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.GetDevices(System.String)
@@ -455,25 +455,25 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Retrieves the device driver services on the specified computer."
-  remarks: "<xref:System.ServiceProcess.ServiceController.GetDevices%2A> returns only the device driver services from the specified computer. To retrieve the non-device driver services or services that are not drivers, call the <xref:System.ServiceProcess.ServiceController.GetServices%2A> method. Together, the two methods provide access to all the services on a computer."
+  summary: "指定したコンピューター上のデバイス ドライバー サービスを取得します。"
+  remarks: "<xref:System.ServiceProcess.ServiceController.GetDevices%2A>指定したコンピューターからのみ、デバイス ドライバー サービスを返します。</xref:System.ServiceProcess.ServiceController.GetDevices%2A> デバイス ドライバー以外のサービスまたはドライバーではないサービスを取得する、<xref:System.ServiceProcess.ServiceController.GetServices%2A>メソッド</xref:System.ServiceProcess.ServiceController.GetServices%2A>。 同時に、2 つのメソッドは、コンピューター上のすべてのサービスへのアクセスを提供します。"
   syntax:
     content: public static System.ServiceProcess.ServiceController[] GetDevices (string machineName);
     parameters:
     - id: machineName
       type: System.String
-      description: "The computer from which to retrieve the device driver services."
+      description: "デバイス ドライバー サービスを取得する対象のコンピューター。"
     return:
       type: System.ServiceProcess.ServiceController[]
-      description: "An array of type <xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref> in which each element is associated with a device driver service on the specified computer."
+      description: "型の配列<xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref>で各要素に指定したコンピューター上のデバイス ドライバー サービスに関連付けられています。"
   overload: System.ServiceProcess.ServiceController.GetDevices*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>machineName</code> parameter has invalid syntax."
+    description: "<code> machineName </code>パラメーターが無効な構文を持ちます。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.GetServices
@@ -488,8 +488,8 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Retrieves all the services on the local computer, except for the device driver services."
-  remarks: "GetServices returns only the non-device driver services and the services that are not drivers from the local computer. To retrieve device driver services, call the <xref:System.ServiceProcess.ServiceController.GetDevices%2A> method. Together, the two methods provide access to all the services on a computer."
+  summary: "デバイス ドライバー サービス以外のローカル コンピューター上のすべてのサービスを取得します。"
+  remarks: "デバイス ドライバー以外のサービスだけと、ローカル コンピューターからドライバーではないサービス GetServices を返します。 デバイス ドライバー サービスを取得する、<xref:System.ServiceProcess.ServiceController.GetDevices%2A>メソッド</xref:System.ServiceProcess.ServiceController.GetDevices%2A>。 同時に、2 つのメソッドは、コンピューター上のすべてのサービスへのアクセスを提供します。"
   example:
   - "The following example uses the <xref:System.ServiceProcess.ServiceController> class to display the services that are running on the local computer.  \n  \n [!code-cs[ServiceController#6](~/add/codesnippet/csharp/m-system.serviceprocess._7_1.cs)]\n [!code-cpp[ServiceController#6](~/add/codesnippet/cpp/m-system.serviceprocess._7_1.cpp)]\n [!code-vb[ServiceController#6](~/add/codesnippet/visualbasic/m-system.serviceprocess._7_1.vb)]"
   syntax:
@@ -497,12 +497,12 @@ items:
     parameters: []
     return:
       type: System.ServiceProcess.ServiceController[]
-      description: "An array of type <xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref> in which each element is associated with a service on the local computer."
+      description: "型の配列<xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref>で各要素に関連付けられているローカル コンピューター上のサービスです。"
   overload: System.ServiceProcess.ServiceController.GetServices*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.GetServices(System.String)
@@ -517,25 +517,25 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Retrieves all the services on the specified computer, except for the device driver services."
-  remarks: "<xref:System.ServiceProcess.ServiceController.GetServices%2A> returns only the non-device driver services and the services that are not drivers from the specified computer. To retrieve device driver services, call the <xref:System.ServiceProcess.ServiceController.GetDevices%2A> method. Together, the two methods provide access to all the services on a computer."
+  summary: "デバイス ドライバー サービス以外の指定したコンピューター上のすべてのサービスを取得します。"
+  remarks: "<xref:System.ServiceProcess.ServiceController.GetServices%2A>デバイス ドライバー以外のサービスだけと、指定されたコンピューターからドライバーではないサービスを返します。</xref:System.ServiceProcess.ServiceController.GetServices%2A> デバイス ドライバー サービスを取得する、<xref:System.ServiceProcess.ServiceController.GetDevices%2A>メソッド</xref:System.ServiceProcess.ServiceController.GetDevices%2A>。 同時に、2 つのメソッドは、コンピューター上のすべてのサービスへのアクセスを提供します。"
   syntax:
     content: public static System.ServiceProcess.ServiceController[] GetServices (string machineName);
     parameters:
     - id: machineName
       type: System.String
-      description: "The computer from which to retrieve the services."
+      description: "サービスを取得する対象のコンピューター。"
     return:
       type: System.ServiceProcess.ServiceController[]
-      description: "An array of type <xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref> in which each element is associated with a service on the specified computer."
+      description: "型の配列<xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref>で各要素に指定したコンピューター上のサービスに関連付けられています。"
   overload: System.ServiceProcess.ServiceController.GetServices*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>machineName</code> parameter has invalid syntax."
+    description: "<code> machineName </code>パラメーターが無効な構文を持ちます。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.MachineName
@@ -550,18 +550,18 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Gets or sets the name of the computer on which this service resides."
-  remarks: "The computer name is the name of the server that is running this service, without the preceding backslash characters (\\\\\\\\)."
+  summary: "取得またはこのサービスが存在するコンピューターの名前を設定します。"
+  remarks: "コンピューター名が前にバック スラッシュ文字が、このサービスを実行しているサーバーの名前 (\\\\\\\\)。"
   syntax:
     content: public string MachineName { get; set; }
     return:
       type: System.String
-      description: "The name of the computer that is running the service associated with this <xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref> instance. The default is the local computer (&quot;.&quot;)."
+      description: "これに関連付けられているサービスを実行しているコンピューターの名前<xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref>インスタンス。 既定値は、ローカル コンピューター (&quot;です。&quot;) です。"
   overload: System.ServiceProcess.ServiceController.MachineName*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The MachineName syntax is invalid."
+    description: "MachineName 構文が正しくありません。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.Pause
@@ -576,8 +576,8 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Suspends a service&quot;s operation."
-  remarks: "You cannot call <xref:System.ServiceProcess.ServiceController.Continue%2A> for the service until the service controller status is `Paused`."
+  summary: "サービスの操作を中断します。"
+  remarks: "呼び出すことはできません<xref:System.ServiceProcess.ServiceController.Continue%2A>サービス コント ローラーの状態になるまで、サービスの`Paused`</xref:System.ServiceProcess.ServiceController.Continue%2A>。"
   example:
   - "The following example demonstrates the use of the Pause method to pause a service. This example is part of a larger example that is provided for the <xref:System.ServiceProcess.ServiceController> class.  \n  \n [!code-cs[ServiceControllerClass#4](~/add/codesnippet/csharp/m-system.serviceprocess._4_1.cs)]\n [!code-vb[ServiceControllerClass#4](~/add/codesnippet/visualbasic/m-system.serviceprocess._4_1.vb)]"
   syntax:
@@ -587,10 +587,10 @@ items:
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service was not found."
+    description: "サービスは見つかりませんでした。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.Refresh
@@ -605,8 +605,8 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Refreshes property values by resetting the properties to their current values."
-  remarks: "The Refresh method causes the <xref:System.ServiceProcess.ServiceController.ServicesDependedOn%2A>, <xref:System.ServiceProcess.ServiceController.DependentServices%2A>, and <xref:System.ServiceProcess.ServiceController.Status%2A> properties to be reset to their current values when they are next referenced."
+  summary: "プロパティをその現在の値にリセットすることにより、プロパティの値を更新します。"
+  remarks: "更新メソッドにより、 <xref:System.ServiceProcess.ServiceController.ServicesDependedOn%2A>、 <xref:System.ServiceProcess.ServiceController.DependentServices%2A>、および<xref:System.ServiceProcess.ServiceController.Status%2A>プロパティを次に参照されている場合、その現在の値にリセットされます</xref:System.ServiceProcess.ServiceController.Status%2A></xref:System.ServiceProcess.ServiceController.DependentServices%2A></xref:System.ServiceProcess.ServiceController.ServicesDependedOn%2A>。"
   example:
   - "The following example demonstrates the use of the Refresh method to obtain the status of a service. The code instructs a service to pause, and then waits for the status to reflect the change. This example is part of a larger example that is provided for the <xref:System.ServiceProcess.ServiceController> class.  \n  \n [!code-cs[ServiceControllerClass#4](~/add/codesnippet/csharp/m-system.serviceprocess._3_1.cs)]\n [!code-vb[ServiceControllerClass#4](~/add/codesnippet/visualbasic/m-system.serviceprocess._3_1.vb)]"
   syntax:
@@ -628,17 +628,17 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Gets the handle for the service."
+  summary: "サービスのハンドルを取得します。"
   syntax:
     content: public System.Runtime.InteropServices.SafeHandle ServiceHandle { get; }
     return:
       type: System.Runtime.InteropServices.SafeHandle
-      description: "A <xref:System.Runtime.InteropServices.SafeHandle> that contains the handle for the service."
+      description: "A<xref:System.Runtime.InteropServices.SafeHandle>サービスのハンドルを格納している</xref:System.Runtime.InteropServices.SafeHandle>。"
   overload: System.ServiceProcess.ServiceController.ServiceHandle*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service was not found."
+    description: "サービスは見つかりませんでした。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.ServiceName
@@ -653,24 +653,24 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Gets or sets the name that identifies the service that this instance references."
-  remarks: "The ServiceName identifies the service to the Service Control Manager. Changing this property causes the <xref:System.ServiceProcess.ServiceController> instance to bind to another service, it does not change what the Service Control Manager&quot;s Microsoft Management Console snap-in displays.       When you are implementing a custom service, the value of this property must be identical to the name recorded for the service in the <xref:System.ServiceProcess.ServiceInstaller.ServiceName%2A> property of the corresponding <xref:System.ServiceProcess.ServiceInstaller> class. In code, the ServiceName is usually set in the `main()` function of the executable.       When you reset the ServiceName property, the method that sets the property sets this instance&quot;s <xref:System.ServiceProcess.ServiceController.DisplayName%2A> to an empty string (&quot;&quot;)."
+  summary: "取得またはこのインスタンスが参照するサービスを識別する名前を設定します。"
+  remarks: "ServiceName は、サービス コントロール マネージャーに、サービスを識別します。 このプロパティを変更すると、<xref:System.ServiceProcess.ServiceController>インスタンスの別のサービスにバインドするには変更されませんどのようなサービス コントロール マネージャーの Microsoft 管理コンソール スナップインが表示されます。</xref:System.ServiceProcess.ServiceController> 。       カスタム サービスを実装しているときにこのプロパティの値が<xref:System.ServiceProcess.ServiceInstaller.ServiceName%2A>、対応する<xref:System.ServiceProcess.ServiceInstaller>クラス</xref:System.ServiceProcess.ServiceInstaller>のプロパティ</xref:System.ServiceProcess.ServiceInstaller.ServiceName%2A>そのサービスに対して記録された名前と同じにする必要があります。 コードでは、ServiceName は通常設定、`main()`実行可能ファイルの関数。       プロパティを設定するメソッドはこのインスタンスの設定 ServiceName プロパティをリセットすると、<xref:System.ServiceProcess.ServiceController.DisplayName%2A>に空の文字列 (&quot;&quot;).</xref:System.ServiceProcess.ServiceController.DisplayName%2A>"
   syntax:
     content: public string ServiceName { get; set; }
     return:
       type: System.String
-      description: "The name that identifies the service that this <xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref> instance references. The default is an empty string (&quot;&quot;)."
+      description: "サービスを識別する名前をこの<xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref>インスタンスの参照。 既定値は空の文字列 (&quot;&quot;) です。"
   overload: System.ServiceProcess.ServiceController.ServiceName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The ServiceName is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "ServiceName は<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The syntax of the ServiceName property is invalid."
+    description: "ServiceName プロパティの構文が正しくありません。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service was not found."
+    description: "サービスは見つかりませんでした。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.ServicesDependedOn
@@ -685,23 +685,23 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "The set of services that this service depends on."
-  remarks: "If any service in the ServicesDependedOn array is not running, you will not be able to start this service."
+  summary: "このサービスが依存するサービスのセット。"
+  remarks: "ServicesDependedOn 配列内のサービスが実行されていない場合は、このサービスを開始することができなきます。"
   example:
   - "The following example uses the <xref:System.ServiceProcess.ServiceController> class to display the set of services that the Messenger service is dependent on.  \n  \n [!code-cs[ServiceController#4](~/add/codesnippet/csharp/p-system.serviceprocess._2_1.cs)]\n [!code-cpp[ServiceController#4](~/add/codesnippet/cpp/p-system.serviceprocess._2_1.cpp)]\n [!code-vb[ServiceController#4](~/add/codesnippet/visualbasic/p-system.serviceprocess._2_1.vb)]"
   syntax:
     content: public System.ServiceProcess.ServiceController[] ServicesDependedOn { get; }
     return:
       type: System.ServiceProcess.ServiceController[]
-      description: "An array of <xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref> instances, each of which is associated with a service that must be running for this service to run."
+      description: "配列<xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref>インスタンス、それぞれを実行するには、このサービスが実行されている必要があります、サービスに関連付けられています。"
   overload: System.ServiceProcess.ServiceController.ServicesDependedOn*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service was not found."
+    description: "サービスは見つかりませんでした。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.ServiceType
@@ -716,23 +716,23 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Gets the type of service that this object references."
-  remarks: "The service type indicates how the service is used by the system. The value of the ServiceType property represents a set of flags combined using the bitwise OR operator."
+  summary: "このオブジェクトを参照するサービスの種類を取得します。"
+  remarks: "サービスの種類は、システムによって、サービスを使用する方法を示します。 ServiceType プロパティの値では、ビットごとの OR 演算子を使用して結合フラグのセットを表します。"
   example:
   - "The following example uses the <xref:System.ServiceProcess.ServiceController> class to display the device driver services on the local computer.  \n  \n [!code-cs[ServiceController#5](~/add/codesnippet/csharp/p-system.serviceprocess._9_1.cs)]\n [!code-cpp[ServiceController#5](~/add/codesnippet/cpp/p-system.serviceprocess._9_1.cpp)]\n [!code-vb[ServiceController#5](~/add/codesnippet/visualbasic/p-system.serviceprocess._9_1.vb)]"
   syntax:
     content: public System.ServiceProcess.ServiceType ServiceType { get; }
     return:
       type: System.ServiceProcess.ServiceType
-      description: "One of the <xref href=&quot;System.ServiceProcess.ServiceType&quot;></xref> values, used to indicate the network service type."
+      description: "1 つ、 <xref href=&quot;System.ServiceProcess.ServiceType&quot;> </xref>ネットワーク サービスの種類を示すために使用される値。"
   overload: System.ServiceProcess.ServiceController.ServiceType*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service was not found."
+    description: "サービスは見つかりませんでした。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.Start
@@ -747,8 +747,8 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Starts the service, passing no arguments."
-  remarks: "You cannot call <xref:System.ServiceProcess.ServiceController.Stop%2A> for the service until the service controller status is `Running`."
+  summary: "引数を渡さず、サービスを開始します。"
+  remarks: "呼び出すことはできません<xref:System.ServiceProcess.ServiceController.Stop%2A>サービス コント ローラーの状態になるまで、サービスの`Running`</xref:System.ServiceProcess.ServiceController.Stop%2A>。"
   example:
   - "The following example uses the <xref:System.ServiceProcess.ServiceController> class to check whether the Alerter service is stopped. If the service is stopped, the example starts the service and waits until the service status is set to <xref:System.ServiceProcess.ServiceControllerStatus>.  \n  \n [!code-cs[ServiceController#1](~/add/codesnippet/csharp/m-system.serviceprocess._8_1.cs)]\n [!code-cpp[ServiceController#1](~/add/codesnippet/cpp/m-system.serviceprocess._8_1.cpp)]\n [!code-vb[ServiceController#1](~/add/codesnippet/visualbasic/m-system.serviceprocess._8_1.vb)]"
   syntax:
@@ -758,10 +758,10 @@ items:
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service was not found."
+    description: "サービスは見つかりませんでした。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.Start(System.String[])
@@ -776,25 +776,25 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Starts a service, passing the specified arguments."
-  remarks: "You cannot call <xref:System.ServiceProcess.ServiceController.Stop%2A> for the service until the service controller status is `Running`."
+  summary: "指定した引数を渡して、サービスを開始します。"
+  remarks: "呼び出すことはできません<xref:System.ServiceProcess.ServiceController.Stop%2A>サービス コント ローラーの状態になるまで、サービスの`Running`</xref:System.ServiceProcess.ServiceController.Stop%2A>。"
   syntax:
     content: public void Start (string[] args);
     parameters:
     - id: args
       type: System.String[]
-      description: "An array of arguments to pass to the service when it starts."
+      description: "開始時に、サービスに渡す引数の配列。"
   overload: System.ServiceProcess.ServiceController.Start*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service cannot be started."
+    description: "サービスを開始することはできません。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>args</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       A member of the array is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>args</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       - または - 配列のメンバーが<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.StartType
@@ -809,17 +809,17 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Gets a value that indicates how the service represented by the <xref href=&quot;System.ServiceProcess.ServiceController&quot;></xref> object starts."
+  summary: "によって表されるサービスを示す値を取得、 <xref href=&quot;System.ServiceProcess.ServiceController&quot;> </xref>オブジェクトを開始します。"
   syntax:
     content: public System.ServiceProcess.ServiceStartMode StartType { get; }
     return:
       type: System.ServiceProcess.ServiceStartMode
-      description: "A value that indicates how the service starts."
+      description: "サービスの開始を示す値。"
   overload: System.ServiceProcess.ServiceController.StartType*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.Status
@@ -834,23 +834,23 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Gets the status of the service that is referenced by this instance."
-  remarks: "The status indicates the current state of the service. The set of possible values includes several that indicate whether a state-changing command is pending."
+  summary: "このインスタンスによって参照されているサービスの状態を取得します。"
+  remarks: "状態では、サービスの現在の状態を示します。 使用可能な値のセットには、いくつかの状態を変更するコマンドの保留中かどうかを示すことが含まれます。"
   example:
   - "The following example uses the <xref:System.ServiceProcess.ServiceController> class to check the current status of the Telnet service. If the service is stopped, the example starts the service. If the service is running, the example stops the service.  \n  \n [!code-cs[ServiceController#2](~/add/codesnippet/csharp/p-system.serviceprocess._0_1.cs)]\n [!code-cpp[ServiceController#2](~/add/codesnippet/cpp/p-system.serviceprocess._0_1.cpp)]\n [!code-vb[ServiceController#2](~/add/codesnippet/visualbasic/p-system.serviceprocess._0_1.vb)]"
   syntax:
     content: public System.ServiceProcess.ServiceControllerStatus Status { get; }
     return:
       type: System.ServiceProcess.ServiceControllerStatus
-      description: "One of the <xref href=&quot;System.ServiceProcess.ServiceControllerStatus&quot;></xref> values that indicates whether the service is running, stopped, or paused, or whether a start, stop, pause, or continue command is pending."
+      description: "1 つ、 <xref href=&quot;System.ServiceProcess.ServiceControllerStatus&quot;> </xref>サービスが実行されている、停止、または一時停止しているか、かどうか、開始、停止、停止、またはコマンドを続行が保留されているかどうかを示す値。"
   overload: System.ServiceProcess.ServiceController.Status*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service was not found."
+    description: "サービスは見つかりませんでした。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.Stop
@@ -865,8 +865,8 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Stops this service and any services that are dependent on this service."
-  remarks: "If any services depend on this service for their operation, they will be stopped before this service is stopped. The <xref:System.ServiceProcess.ServiceController.DependentServices%2A> property contains the set of services that depend on this one.       If you stop a service that this service depends on, call the Stop method on this service within the Stop method of the parent service. The <xref:System.ServiceProcess.ServiceController.ServicesDependedOn%2A> property contains the services that this service depends on."
+  summary: "このサービスであり、このサービスに依存するサービスを停止します。"
+  remarks: "すべてのサービスは、その操作には、このサービスに依存している、このサービスを停止するには、停止します。 <xref:System.ServiceProcess.ServiceController.DependentServices%2A>プロパティには、このいずれかに依存するサービスのセットが含まれています</xref:System.ServiceProcess.ServiceController.DependentServices%2A>。       このサービスが依存するサービスを停止する場合は、親サービスの停止メソッド内でこのサービスに停止メソッドを呼び出します。 <xref:System.ServiceProcess.ServiceController.ServicesDependedOn%2A>プロパティには、このサービスが依存するサービスが含まれています</xref:System.ServiceProcess.ServiceController.ServicesDependedOn%2A>。"
   example:
   - "The following example uses the <xref:System.ServiceProcess.ServiceController> class to check the current status of the Telnet service. If the service is stopped, the example starts the service. If the service is running, the example stops the service.  \n  \n [!code-cs[ServiceController#2](~/add/codesnippet/csharp/m-system.serviceprocess._1_1.cs)]\n [!code-cpp[ServiceController#2](~/add/codesnippet/cpp/m-system.serviceprocess._1_1.cpp)]\n [!code-vb[ServiceController#2](~/add/codesnippet/visualbasic/m-system.serviceprocess._1_1.vb)]"
   syntax:
@@ -876,10 +876,10 @@ items:
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "システム API にアクセスするときにエラーが発生しました。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The service was not found."
+    description: "サービスは見つかりませんでした。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.WaitForStatus(System.ServiceProcess.ServiceControllerStatus)
@@ -894,8 +894,8 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Infinitely waits for the service to reach the specified status."
-  remarks: "Use WaitForStatus to suspend an application&quot;s processing until the service has reached the required status.      > [!NOTE] >  The <xref:System.ServiceProcess.ServiceController.WaitForStatus%2A> method waits approximately 250 milliseconds between each status check.  <xref:System.ServiceProcess.ServiceController.WaitForStatus%2A> cannot detect the case of the observed service changing to the `desiredStatus` and then immediately to another status in that interval."
+  summary: "指定したステータスになるまでに、サービス、無期限に待機します。"
+  remarks: "WaitForStatus を使用して、アプリケーションのサービスが必要な状態に到達するまでの処理を中断します。      > [!NOTE] >、<xref:System.ServiceProcess.ServiceController.WaitForStatus%2A>メソッドは、約 250 ミリ秒間での各状態の確認を待機します</xref:System.ServiceProcess.ServiceController.WaitForStatus%2A>。  <xref:System.ServiceProcess.ServiceController.WaitForStatus%2A>変更する、検出されたサービスの大文字と小文字を検出することはできません、`desiredStatus`し、別の状態をすぐにその間隔でします。</xref:System.ServiceProcess.ServiceController.WaitForStatus%2A>"
   example:
   - "The following example uses the <xref:System.ServiceProcess.ServiceController> class to check whether the Alerter service is stopped. If the service is stopped, the example starts the service and waits until the service status is set to <xref:System.ServiceProcess.ServiceControllerStatus>.  \n  \n [!code-cs[ServiceController#1](~/add/codesnippet/csharp/82fc1460-0a6f-432e-81a5-_1.cs)]\n [!code-cpp[ServiceController#1](~/add/codesnippet/cpp/82fc1460-0a6f-432e-81a5-_1.cpp)]\n [!code-vb[ServiceController#1](~/add/codesnippet/visualbasic/82fc1460-0a6f-432e-81a5-_1.vb)]"
   syntax:
@@ -903,12 +903,12 @@ items:
     parameters:
     - id: desiredStatus
       type: System.ServiceProcess.ServiceControllerStatus
-      description: "The status to wait for."
+      description: "待機に対するステータス。"
   overload: System.ServiceProcess.ServiceController.WaitForStatus*
   exceptions:
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "The <code>desiredStatus</code> parameter is not any of the values defined in the <xref href=&quot;System.ServiceProcess.ServiceControllerStatus&quot;></xref> enumeration."
+    description: "<code> desiredStatus </code>パラメーターで定義されている値のいずれかではありません、 <xref href=&quot;System.ServiceProcess.ServiceControllerStatus&quot;> </xref>列挙します。"
   platform:
   - net462
 - uid: System.ServiceProcess.ServiceController.WaitForStatus(System.ServiceProcess.ServiceControllerStatus,System.TimeSpan)
@@ -923,25 +923,25 @@ items:
   assemblies:
   - System.ServiceProcess
   namespace: System.ServiceProcess
-  summary: "Waits for the service to reach the specified status or for the specified time-out to expire."
-  remarks: "Use <xref:System.ServiceProcess.ServiceController.WaitForStatus%2A> to suspend an application&quot;s processing until the service has reached the required status.      > [!NOTE] >  The <xref:System.ServiceProcess.ServiceController.WaitForStatus%2A> method waits approximately 250 milliseconds between each status check.  <xref:System.ServiceProcess.ServiceController.WaitForStatus%2A> cannot detect the case of the observed service changing to the `desiredStatus` and then immediately to another status in that interval."
+  summary: "指定された状態に到達するサービスまたは指定したタイムアウトの期限が切れるまで待機します。"
+  remarks: "使用して<xref:System.ServiceProcess.ServiceController.WaitForStatus%2A>アプリケーションを中断するのには、サービスが必要な状態に到達するまでの処理します</xref:System.ServiceProcess.ServiceController.WaitForStatus%2A>。      > [!NOTE] >、<xref:System.ServiceProcess.ServiceController.WaitForStatus%2A>メソッドは、約 250 ミリ秒間での各状態の確認を待機します</xref:System.ServiceProcess.ServiceController.WaitForStatus%2A>。  <xref:System.ServiceProcess.ServiceController.WaitForStatus%2A>変更する、検出されたサービスの大文字と小文字を検出することはできません、`desiredStatus`し、別の状態をすぐにその間隔でします。</xref:System.ServiceProcess.ServiceController.WaitForStatus%2A>"
   syntax:
     content: public void WaitForStatus (System.ServiceProcess.ServiceControllerStatus desiredStatus, TimeSpan timeout);
     parameters:
     - id: desiredStatus
       type: System.ServiceProcess.ServiceControllerStatus
-      description: "The status to wait for."
+      description: "待機に対するステータス。"
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> object specifying the amount of time to wait for the service to reach the specified status."
+      description: "A<xref:System.TimeSpan>サービスが指定された状態に到達するまで待機する時間数を指定するオブジェクト</xref:System.TimeSpan>。"
   overload: System.ServiceProcess.ServiceController.WaitForStatus*
   exceptions:
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "The <code>desiredStatus</code> parameter is not any of the values defined in the <xref href=&quot;System.ServiceProcess.ServiceControllerStatus&quot;></xref> enumeration."
+    description: "<code> desiredStatus </code>パラメーターで定義されている値のいずれかではありません、 <xref href=&quot;System.ServiceProcess.ServiceControllerStatus&quot;> </xref>列挙します。"
   - type: System.ServiceProcess.TimeoutException
     commentId: T:System.ServiceProcess.TimeoutException
-    description: "The value specified for the <code>timeout</code> parameter expires."
+    description: "指定された値、 <code> timeout </code>パラメーターの有効期限が切れた。"
   platform:
   - net462
 references:

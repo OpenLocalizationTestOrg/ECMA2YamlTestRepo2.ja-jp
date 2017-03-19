@@ -12,8 +12,8 @@ items:
   nameWithType: SecurityStateEncoder
   fullName: System.ServiceModel.Security.SecurityStateEncoder
   type: Class
-  summary: "An abstract class that can be implemented to encode the security state."
-  remarks: "This class is used to encode and decode the content of the security context token when a binding with message security that uses a stateful security context token is used. [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)] stateful security context tokens, see [How to: Create a Security Context Token for a Secure Session](~/add/includes/ajax-current-ext-md.md) topic.       Microsoft’s version of SecurityStateEncoder is <xref:System.ServiceModel.Security.DataProtectionSecurityStateEncoder>. It uses Microsoft’s [Windows Data Protection (DPAPI)](http://go.microsoft.com/fwlink/?LinkId=96704) technology to encrypt/decrypt the cookie. You can plug in a different mechanism for encrypting and decrypting cookies by implementing this class.       The encoding of the security state must ensure that the state is signed and encrypted for the service.       This class is used by the server when sending the security state as a cookie in the `SecurityContextToken` issued to the client.       An example implementation of this class is an `X509CertificateSecurityStateEncoder` that uses the service&quot;s certificate to sign and encrypt the security state."
+  summary: "セキュリティ状態のエンコードを実装できる抽象クラスです。"
+  remarks: "このクラスは、エンコードし、ステートフルなセキュリティ コンテキスト トークンを使用するメッセージ セキュリティを使用するバインディングを使用する場合は、セキュリティ コンテキスト トークンの内容をデコードに使用します。 [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)]ステートフルなセキュリティ コンテキスト トークンを参照してください[する方法: セキュリティで保護されたセッションのセキュリティ コンテキスト トークンを作成](~/add/includes/ajax-current-ext-md.md)トピックです。       Microsoft バージョンの SecurityStateEncoder は<xref:System.ServiceModel.Security.DataProtectionSecurityStateEncoder>。</xref:System.ServiceModel.Security.DataProtectionSecurityStateEncoder> Microsoft を使用して[Windows Data Protection (DPAPI)](http://go.microsoft.com/fwlink/?LinkId=96704)クッキーの暗号化/暗号解除するテクノロジです。 このクラスを実装することで cookie を暗号化および暗号化のためのさまざまなメカニズムで接続することができます。       セキュリティ状態のエンコードは状態が署名され、サービスの暗号化されていることを確認する必要があります。       内のクッキーとしてセキュリティ状態を送信するときに、このクラスは、サーバーによって使用、`SecurityContextToken`クライアントに発行します。       このクラスの実装の例は、`X509CertificateSecurityStateEncoder`サービスの証明書の署名し、暗号化されたセキュリティ状態を使用します。"
   syntax:
     content: public abstract class SecurityStateEncoder
   inheritance:
@@ -34,7 +34,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Security.SecurityStateEncoder&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ServiceModel.Security.SecurityStateEncoder&quot;> </xref>クラスです。"
   syntax:
     content: protected SecurityStateEncoder ();
     parameters: []
@@ -54,16 +54,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "Decodes the security state."
+  summary: "セキュリティ状態をデコードします。"
   syntax:
     content: protected abstract byte[] DecodeSecurityState (byte[] data);
     parameters:
     - id: data
       type: System.Byte[]
-      description: "Security data."
+      description: "セキュリティ データ。"
     return:
       type: System.Byte[]
-      description: "A byte array that represents the security state."
+      description: "セキュリティ状態を表すバイト配列。"
   overload: System.ServiceModel.Security.SecurityStateEncoder.DecodeSecurityState*
   exceptions: []
   platform:
@@ -80,16 +80,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "Encodes the security state."
+  summary: "セキュリティ状態をエンコードします。"
   syntax:
     content: protected abstract byte[] EncodeSecurityState (byte[] data);
     parameters:
     - id: data
       type: System.Byte[]
-      description: "The security state data."
+      description: "セキュリティ状態データ。"
     return:
       type: System.Byte[]
-      description: "A byte array that results from encoding the security state."
+      description: "セキュリティ状態のエンコードによって生成されるバイト配列。"
   overload: System.ServiceModel.Security.SecurityStateEncoder.EncodeSecurityState*
   exceptions: []
   platform:

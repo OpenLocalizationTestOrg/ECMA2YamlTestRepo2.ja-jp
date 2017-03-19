@@ -14,7 +14,7 @@ items:
   nameWithType: NonceCache
   fullName: System.ServiceModel.Security.NonceCache
   type: Class
-  summary: "An abstract base class that represents a cache for nonces."
+  summary: "検証済みの nonce のキャッシュを表す抽象基本クラス。"
   syntax:
     content: public abstract class NonceCache
   inheritance:
@@ -35,7 +35,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "Called from constructors in derived classes to initialize the <xref href=&quot;System.ServiceModel.Security.NonceCache&quot;></xref> class."
+  summary: "初期化するために派生クラスのコンス トラクターから呼び出される、 <xref href=&quot;System.ServiceModel.Security.NonceCache&quot;> </xref>クラスです。"
   syntax:
     content: protected NonceCache ();
     parameters: []
@@ -55,17 +55,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "Gets or sets the maximum size of the cache specified as the number of nonces that the cache can contain."
+  summary: "取得またはキャッシュを含めることができる検証済みの nonce の数として指定したキャッシュの最大サイズを設定します。"
   syntax:
     content: public int CacheSize { get; set; }
     return:
       type: System.Int32
-      description: "The maximum size of the cache specified as the number of nonces that the cache can contain."
+      description: "キャッシュの最大サイズは、キャッシュを含めることができる検証済みの nonce の数として指定します。"
   overload: System.ServiceModel.Security.NonceCache.CacheSize*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "An attempt to set a value that is less than zero occurs."
+    description: "0 より小さい値である値を設定しようとすると、発生します。"
   platform:
   - net462
 - uid: System.ServiceModel.Security.NonceCache.CachingTimeSpan
@@ -80,17 +80,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "Gets or sets the maximum timespan after which a nonce is deleted from the cache."
+  summary: "取得または nonce がキャッシュから削除する最大期間を設定します。"
   syntax:
     content: public TimeSpan CachingTimeSpan { get; set; }
     return:
       type: System.TimeSpan
-      description: "The maximum timespan after which a nonce is deleted from the cache. This value should be at least twice the maximum clock skew added to the replay window size."
+      description: "Nonce がキャッシュから削除する最大期間。 この値は、2 回以上、最大クロック スキュー リプレイ ウィンドウのサイズに追加をする必要があります。"
   overload: System.ServiceModel.Security.NonceCache.CachingTimeSpan*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "An attempt to set a value that is less than <xref:System.TimeSpan> occurs.       -or-       An attempt to set a value greater than the allowed maximum occurs."
+    description: "ある値を設定しようとするより小さい<xref:System.TimeSpan>に発生します</xref:System.TimeSpan>。       または、許可される最大値より大きい値を設定しようとします。"
   platform:
   - net462
 - uid: System.ServiceModel.Security.NonceCache.CheckNonce(System.Byte[])
@@ -105,16 +105,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "When overridden in a derived class, returns a value that indicates whether the specified nonce is already in the cache."
+  summary: "派生クラスでオーバーライドされると、指定された nonce がキャッシュ内に既にあるかどうかを示す値を返します。"
   syntax:
     content: public abstract bool CheckNonce (byte[] nonce);
     parameters:
     - id: nonce
       type: System.Byte[]
-      description: "The nonce to check."
+      description: "Nonce を確認します。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified nonce is already in the cache; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>指定された nonce が既にキャッシュ内にある場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.ServiceModel.Security.NonceCache.CheckNonce*
   exceptions: []
   platform:
@@ -131,16 +131,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "When overridden in a derived class, attempts to add the specified nonce to the cache."
+  summary: "派生クラスでオーバーライドされるは、指定された nonce をキャッシュに追加を試みます。"
   syntax:
     content: public abstract bool TryAddNonce (byte[] nonce);
     parameters:
     - id: nonce
       type: System.Byte[]
-      description: "The nonce to add to the cache."
+      description: "Nonce、キャッシュに追加します。"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the nonce was added to the cache; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>nonce がキャッシュに追加した場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.ServiceModel.Security.NonceCache.TryAddNonce*
   exceptions: []
   platform:

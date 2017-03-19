@@ -10,8 +10,8 @@ items:
   nameWithType: DependentTransaction
   fullName: System.Transactions.DependentTransaction
   type: Class
-  summary: "Describes a clone of a transaction providing guarantee that the transaction cannot be committed until the application comes to rest regarding work on the transaction. This class cannot be inherited."
-  remarks: "The DependentTransaction is a clone of a <xref:System.Transactions.Transaction> object created using the <xref:System.Transactions.Transaction.DependentClone%2A> method.  Its sole purpose is to allow the application to come to rest and guarantee that the transaction cannot commit while work is still being performed on the transaction (for example, on a worker thread).       When the work done within the cloned transaction is finally complete and ready to be committed, it can inform the creator of the transaction using the <xref:System.Transactions.DependentTransaction.Complete%2A> method. Thus you can preserve the consistency and correctness of data.       The <xref:System.Transactions.DependentCloneOption> enumeration is used to determine the behavior on commit.  This behavior control allows an application to come to rest, as well as provides concurrency support. For more information on how this enumeration is used, see [Managing Concurrency with DependentTransaction](http://msdn.microsoft.com/en-us/bdad8468-2a90-4b81-8375-278067120cab)."
+  summary: "アプリケーションからトランザクションの作業に関する rest までトランザクションをコミットすることはできませんの保証を提供するトランザクションの複製について説明します。 このクラスは継承できません。"
+  remarks: "クローンである、DependentTransaction、<xref:System.Transactions.Transaction>を使用して作成されたオブジェクト、<xref:System.Transactions.Transaction.DependentClone%2A>メソッド</xref:System.Transactions.Transaction.DependentClone%2A></xref:System.Transactions.Transaction>。  その唯一の目的では、アプリケーションを置くし、(たとえば、ワーカー スレッド) 上でトランザクションの作業が実行されているときにトランザクションをコミットできないことを保証するものを使用できるようにします。       使用して、トランザクションの作成者を通知できますが、複製されたトランザクション内で行われる処理を最後に完了してコミットする準備、<xref:System.Transactions.DependentTransaction.Complete%2A>メソッド</xref:System.Transactions.DependentTransaction.Complete%2A>。 したがって、整合性とデータの正確性を保持できます。       <xref:System.Transactions.DependentCloneOption>コミット時に動作を決定する列挙を使用します</xref:System.Transactions.DependentCloneOption>。  この動作の制御には、アプリケーションを停止できるだけでなく、同時実行のサポートができます。 この列挙体の使用方法の詳細については、次を参照してください。 [DependentTransaction で同時実行を管理する](http://msdn.microsoft.com/en-us/bdad8468-2a90-4b81-8375-278067120cab)です。"
   example:
   - "The following example shows you how to create a dependent transaction.  \n  \n [!code-vb[Tx_DependentTx#1](~/add/codesnippet/visualbasic/t-system.transactions.de_0_1.vb)]\n [!code-cs[Tx_DependentTx#1](~/add/codesnippet/csharp/t-system.transactions.de_0_1.cs)]"
   syntax:
@@ -59,8 +59,8 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Attempts to complete the dependent transaction."
-  remarks: "Call this method when the dependent clone wants to inform the creator of the transaction that it has finished its work, and the transaction can be committed if the parent is also ready.       After this call is invoked, you should not attempt any additional work on the transaction, or an exception is thrown.       If the application domain goes down after this method is called, and before the transaction is completed, the transaction might abort.       **Note** This method should be called only once during the dependent transaction&quot;s lifetime."
+  summary: "依存するトランザクションを完了しようとしています。"
+  remarks: "依存の複製が、作業を完了したことをトランザクションをコミットする場合は、親は準備ができても、トランザクションの作成者を通知する場合は、このメソッドを呼び出します。       この呼び出しを呼び出した後、トランザクションの追加作業がしないでまたは、例外がスローされます。       後に、アプリケーション ドメインがダウンした場合は、このメソッドが呼び出されますとトランザクションを完了する前にトランザクションが中止可能性があります。       **注**このメソッドは、依存するトランザクションの有効期間中に&1; 回だけ呼び出す必要があります。"
   syntax:
     content: public void Complete ();
     parameters: []
@@ -68,7 +68,7 @@ items:
   exceptions:
   - type: System.Transactions.TransactionException
     commentId: T:System.Transactions.TransactionException
-    description: "Any attempt for additional work on the transaction after this method is called. These include invoking methods such as <xref:System.Transactions.Transaction.EnlistVolatile*>, <xref:System.Transactions.Transaction.EnlistDurable*>, <xref:System.Transactions.Transaction.Clone*>, <xref:System.Transactions.Transaction.DependentClone*> , or any serialization operations on the transaction."
+    description: "このメソッドが呼び出された後、トランザクションに追加作業をしようとするとします。 メソッドの呼び出しなどが含まれます<> *>、 <> </> *>、 <> </> *>、 <> </> *>、またはトランザクションで任意のシリアル化操作。"
   platform:
   - net462
 references:

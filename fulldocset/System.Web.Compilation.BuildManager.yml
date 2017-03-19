@@ -30,8 +30,8 @@ items:
   nameWithType: BuildManager
   fullName: System.Web.Compilation.BuildManager
   type: Class
-  summary: "Provides a set of methods to help manage the compilation of an ASP.NET application."
-  remarks: "The BuildManager class manages the process of compiling assemblies and pages for an application. It is a sealed class and cannot be inherited.       BuildManager contains static members that provide information about the compiled assemblies."
+  summary: "ASP.NET アプリケーションのコンパイルを管理するためにメソッドのセットを提供します。"
+  remarks: "BuildManager クラスは、アセンブリおよびアプリケーションのページをコンパイルした場合のプロセスを管理します。 シール クラスし、継承できません。       BuildManager には、コンパイルされたアセンブリに関する情報を提供する静的メンバーが含まれています。"
   syntax:
     content: public sealed class BuildManager
   inheritance:
@@ -52,22 +52,22 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Specifies a string that represents a dependency that the build manager uses to help determine if a clean build is required."
-  remarks: "The method must be called during the `Application_PreStartInit` stage of the application."
+  summary: "クリーン ビルドが必要なかどうかを決定するために、ビルド マネージャーを使用する依存関係を表す文字列を指定します。"
+  remarks: "中に、メソッドを呼び出す必要があります、`Application_PreStartInit`アプリケーションのステージ。"
   syntax:
     content: public static void AddCompilationDependency (string dependency);
     parameters:
     - id: dependency
       type: System.String
-      description: "A string that represents a dependency."
+      description: "依存関係を表す文字列。"
   overload: System.Web.Compilation.BuildManager.AddCompilationDependency*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>dependency</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty string."
+    description: "<code> dependency </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>または空の文字列。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The method was called after the <xref uid=&quot;langword_csharp_Application_PreStartInit&quot; name=&quot;Application_PreStartInit&quot; href=&quot;&quot;></xref> stage of the application."
+    description: "後にメソッドが呼び出された、 <xref uid=&quot;langword_csharp_Application_PreStartInit&quot; name=&quot;Application_PreStartInit&quot; href=&quot;&quot;> </xref>アプリケーションのステージ。"
   platform:
   - net462
 - uid: System.Web.Compilation.BuildManager.AddReferencedAssembly(System.Reflection.Assembly)
@@ -82,22 +82,22 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Adds an assembly to the application&quot;s set of referenced assemblies."
-  remarks: "Calling this method is equivalent to adding the assembly to the application-level Web.config file. The method must be called during the `Application_PreStartInit` stage of the application.       The <xref:System.Web.Compilation.BuildManager.GetReferencedAssemblies%2A> method will return the set of assemblies that are determined from configuration files and any assemblies that were added by using this method.       If an attempt is made to add an assembly that has already been added, the duplicate entry is ignored.       This method must be called before the `Application_Start` event in the Global.asax file occurs."
+  summary: "参照されるアセンブリのアプリケーションのセットをアセンブリを追加します。"
+  remarks: "このメソッドを呼び出すことは、アプリケーション レベルの Web.config ファイルにアセンブリを追加すると同じです。 中に、メソッドを呼び出す必要があります、`Application_PreStartInit`アプリケーションのステージ。       <xref:System.Web.Compilation.BuildManager.GetReferencedAssemblies%2A>メソッドには、構成ファイルから決定されるアセンブリと、このメソッドを使用して追加されたすべてのアセンブリのセットが返されます</xref:System.Web.Compilation.BuildManager.GetReferencedAssemblies%2A>。       既に追加されているアセンブリを追加しようとすると、重複するエントリが無視されます。       このメソッドは、前に呼び出す必要があります、 `Application_Start` Global.asax ファイル内のイベントが発生します。"
   syntax:
     content: public static void AddReferencedAssembly (System.Reflection.Assembly assembly);
     parameters:
     - id: assembly
       type: System.Reflection.Assembly
-      description: "The assembly to add."
+      description: "追加するアセンブリ。"
   overload: System.Web.Compilation.BuildManager.AddReferencedAssembly*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <code>assembly</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or empty."
+    description: "<code> assembly </code>パラメーターは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>または空です。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The method was not called before the <xref uid=&quot;langword_csharp_Application_Start&quot; name=&quot;Application_Start&quot; href=&quot;&quot;></xref> event in the Global.asax file occurred."
+    description: "前に、メソッドが呼び出されなかった、 <xref uid=&quot;langword_csharp_Application_Start&quot; name=&quot;Application_Start&quot; href=&quot;&quot;> </xref> Global.asax ファイル内のイベントが発生しました。"
   platform:
   - net462
 - uid: System.Web.Compilation.BuildManager.BatchCompilationEnabled
@@ -112,18 +112,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets or sets a value that indicates whether batch compilation is enabled."
-  remarks: "This property enables you to turn batch compilation on or off programmatically. It corresponds to the `batch` attribute of the `compilation` element in the Web.config file. For more information, see [compilation Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/7c319582-074a-4d2a-a787-03b9d4541c12).       The property can be set only in the `PreApplicationStart` method. For more information about the `PreApplicationStart` method, see <xref:System.Web.PreApplicationStartMethodAttribute>."
+  summary: "取得またはバッチのコンパイルが有効になっているかどうかを示す値を設定します。"
+  remarks: "このプロパティでは、バッチ コンパイルを有効または無効にできます。 プログラムでします。 対応して、`batch`の属性、 `compilation` Web.config ファイル内の要素。 詳細については、次を参照してください。 [compilation 要素 (ASP.NET 設定スキーマ)](http://msdn.microsoft.com/en-us/7c319582-074a-4d2a-a787-03b9d4541c12)です。       のみ、プロパティを設定することができます、`PreApplicationStart`メソッドです。 詳細については、`PreApplicationStart`メソッド、 <xref:System.Web.PreApplicationStartMethodAttribute>.</xref:System.Web.PreApplicationStartMethodAttribute>を参照してください。"
   syntax:
     content: public static Nullable<bool> BatchCompilationEnabled { get; set; }
     return:
       type: System.Nullable{System.Boolean}
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if batch compilation is always enabled, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if batch compilation is never enabled, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the compilation setting is determined from the configuration file. The default value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>バッチ コンパイルは常に有効な場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>バッチ コンパイルを有効にしない場合または<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>場合は、コンパイルの設定は、構成ファイルから決定されます。 既定値は<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.Compilation.BuildManager.BatchCompilationEnabled*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The property was not set in the <xref uid=&quot;langword_csharp_PreApplicationStart&quot; name=&quot;PreApplicationStart&quot; href=&quot;&quot;></xref> method."
+    description: "プロパティ設定されていない、 <xref uid=&quot;langword_csharp_PreApplicationStart&quot; name=&quot;PreApplicationStart&quot; href=&quot;&quot;> </xref>メソッドです。"
   platform:
   - net462
 - uid: System.Web.Compilation.BuildManager.CodeAssemblies
@@ -138,12 +138,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets a list of assemblies built from the App_Code directory."
+  summary: "App_Code ディレクトリからビルドされたアセンブリの一覧を取得します。"
   syntax:
     content: public static System.Collections.IList CodeAssemblies { get; }
     return:
       type: System.Collections.IList
-      description: "An <xref:System.Collections.IList> collection that contains the assemblies built from the App_Code directory."
+      description: "<xref:System.Collections.IList>App_Code ディレクトリからビルドされたアセンブリを含むコレクション</xref:System.Collections.IList>。"
   overload: System.Web.Compilation.BuildManager.CodeAssemblies*
   exceptions: []
   platform:
@@ -160,17 +160,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Creates a cached file."
-  remarks: "This method and the <xref:System.Web.Compilation.BuildManager.ReadCachedFile%2A> method enable you to perform caching that persists across application domain restarts in partial-trust environments. It is used by the MVC framework to cache results of the controller lookup.       To cache data, you write to the <xref:System.IO.Stream> object that is returned by this method."
+  summary: "キャッシュされたファイルを作成します。"
+  remarks: "このメソッドと<xref:System.Web.Compilation.BuildManager.ReadCachedFile%2A>メソッドを使用すると、キャッシュ、部分信頼環境でアプリケーション ドメインが再起動の間で永続化を実行します</xref:System.Web.Compilation.BuildManager.ReadCachedFile%2A>。 コント ローラーの検索の結果をキャッシュに、MVC フレームワークによって使用されます。       データをキャッシュするへの書き込み、<xref:System.IO.Stream>このメソッドによって返されるオブジェクト</xref:System.IO.Stream>。"
   syntax:
     content: public static System.IO.Stream CreateCachedFile (string fileName);
     parameters:
     - id: fileName
       type: System.String
-      description: "The name of the file to create."
+      description: "作成するファイルの名前。"
     return:
       type: System.IO.Stream
-      description: "The <xref:System.IO.Stream> object for the new file."
+      description: "<xref:System.IO.Stream>、新しいファイルのオブジェクト</xref:System.IO.Stream>。"
   overload: System.Web.Compilation.BuildManager.CreateCachedFile*
   exceptions: []
   platform:
@@ -187,20 +187,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Processes a file, given its virtual path, and creates an instance of the result."
-  remarks: "The CreateInstanceFromVirtualPath method works for compiled and non-compile pages."
+  summary: "指定された仮想パス、ファイルを処理し、結果のインスタンスを作成します。"
+  remarks: "CreateInstanceFromVirtualPath メソッドは、コンパイルとコンパイル以外のページに機能します。"
   syntax:
     content: public static object CreateInstanceFromVirtualPath (string virtualPath, Type requiredBaseType);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path of the file to create an instance of."
+      description: "インスタンスを作成するファイルの仮想パス。"
     - id: requiredBaseType
       type: System.Type
-      description: "The base type that defines the object to be created."
+      description: "作成するオブジェクトを定義する基本データ型。"
     return:
       type: System.Object
-      description: "The <xref:System.Object> that represents the instance of the processed file."
+      description: "<xref:System.Object>処理されたファイルのインスタンスを表す</xref:System.Object>。"
   overload: System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath*
   exceptions: []
   platform:
@@ -217,19 +217,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Returns a build dependency set for a virtual path if the path is located in the ASP.NET cache."
+  summary: "ASP.NET キャッシュでパスが存在する場合は、仮想パスの設定、ビルドの依存関係を返します。"
   syntax:
     content: public static System.Web.Compilation.BuildDependencySet GetCachedBuildDependencySet (System.Web.HttpContext context, string virtualPath);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The context of the request."
+      description: "要求のコンテキスト。"
     - id: virtualPath
       type: System.String
-      description: "The virtual path from which to determine the build dependency set."
+      description: "ビルドの依存関係を決定するための仮想パスを設定します。"
     return:
       type: System.Web.Compilation.BuildDependencySet
-      description: "A <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;></xref> object that is stored in the cache, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;></xref> object cannot be retrieved from the cache."
+      description: "A <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;> </xref> 、キャッシュに格納されているオブジェクトまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>場合、 <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;> </xref>キャッシュからオブジェクトを取得することはできません。"
   overload: System.Web.Compilation.BuildManager.GetCachedBuildDependencySet*
   exceptions: []
   platform:
@@ -246,23 +246,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Returns a build dependency set for a virtual path if the path is located in the ASP.NET cache, even if the content is not current."
-  remarks: "If the `ensureIsUpToDate` parameter value is set to `true`, the GetCachedBuildDependencySet method overload behaves like the <xref:System.Web.Compilation.BuildManager.GetCachedBuildDependencySet%2A?displayProperty=fullName> method overload. Both overloads return a current build dependency set if one exists, otherwise they return `null`.       However, the GetCachedBuildDependencySet method overload includes the option to return any build dependency set that is available, even an outdated one. If the `ensureIsUpToDate` parameter value is set to `false`, the method will return any available build dependency set."
+  summary: "ビルド依存関係のコンテンツは最新ではない場合でも ASP.NET キャッシュでパスが存在する場合の仮想パスのセットを返します。"
+  remarks: "場合、`ensureIsUpToDate`パラメーターの値に設定されて`true`、GetCachedBuildDependencySet メソッドのオーバー ロードの動作と同様に、<xref:System.Web.Compilation.BuildManager.GetCachedBuildDependencySet%2A?displayProperty=fullName>メソッドのオーバー ロード</xref:System.Web.Compilation.BuildManager.GetCachedBuildDependencySet%2A?displayProperty=fullName>。 両方のオーバー ロードは、現在ビルドの依存関係が存在する場合は、設定を返す、それ以外の場合、返す`null`です。       ただし、GetCachedBuildDependencySet メソッドのオーバー ロードには、古い、1 つも、利用可能なビルドの依存関係のセットを取得するオプションが含まれています。 場合、`ensureIsUpToDate`パラメーターの値に設定されて`false`メソッドは、利用可能なビルドの依存関係のセットを返します。"
   syntax:
     content: public static System.Web.Compilation.BuildDependencySet GetCachedBuildDependencySet (System.Web.HttpContext context, string virtualPath, bool ensureIsUpToDate);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The context of the request."
+      description: "要求のコンテキスト。"
     - id: virtualPath
       type: System.String
-      description: "The virtual path from which to determine the build dependency set."
+      description: "ビルドの依存関係を決定するための仮想パスを設定します。"
     - id: ensureIsUpToDate
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to specify that only a current build dependency set should be returned, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to indicate that any available build dependency set should be returned, even if it is not current. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>現在のみが依存関係を構築することを指定するセットを返す、または<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>が最新でない場合でも、任意の利用可能なビルドの依存関係のセットを返すことを示すためにします。 既定値は<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>です。"
     return:
       type: System.Web.Compilation.BuildDependencySet
-      description: "A <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;></xref> object that is stored in the cache, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;></xref> object cannot be retrieved from the cache."
+      description: "A <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;> </xref> 、キャッシュに格納されているオブジェクトまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>場合、 <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;> </xref>キャッシュからオブジェクトを取得することはできません。"
   overload: System.Web.Compilation.BuildManager.GetCachedBuildDependencySet*
   exceptions: []
   platform:
@@ -279,16 +279,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Compiles a file into an assembly using the specified virtual path."
+  summary: "ファイルを指定した仮想パスを使用してアセンブリにコンパイルします。"
   syntax:
     content: public static System.Reflection.Assembly GetCompiledAssembly (string virtualPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to build into an assembly."
+      description: "アセンブリにビルドへの仮想パス。"
     return:
       type: System.Reflection.Assembly
-      description: "An <xref:System.Reflection.Assembly> object that is compiled from the specified virtual path, which is cached to either memory or to disk."
+      description: "<xref:System.Reflection.Assembly>が指定の仮想パスで、いずれかのメモリまたはディスクにキャッシュからコンパイルされたオブジェクト</xref:System.Reflection.Assembly>。"
   overload: System.Web.Compilation.BuildManager.GetCompiledAssembly*
   exceptions: []
   platform:
@@ -305,16 +305,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Compiles a file, given its virtual path, and returns a custom string that the build provider persists in cache."
+  summary: "仮想パスを指定のファイルをコンパイルし、キャッシュに保持するビルド プロバイダーをカスタム文字列を返します。"
   syntax:
     content: public static string GetCompiledCustomString (string virtualPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path of the file to build."
+      description: "ビルド対象のファイルの仮想パス。"
     return:
       type: System.String
-      description: "A string, as returned by the <xref:System.Web.Compilation.BuildProvider.GetCustomString*> method, that is cached to disk or memory."
+      description: "によって返される、文字列、<xref:System.Web.Compilation.BuildProvider.GetCustomString*>ディスクまたはメモリにキャッシュされているメソッド</xref:System.Web.Compilation.BuildProvider.GetCustomString*>。"
   overload: System.Web.Compilation.BuildManager.GetCompiledCustomString*
   exceptions: []
   platform:
@@ -331,24 +331,24 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Compiles a file, given its virtual path, and returns the compiled type."
+  summary: "指定された仮想パスをファイルをコンパイルし、コンパイルされた型を返します。"
   syntax:
     content: public static Type GetCompiledType (string virtualPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to build into a type."
+      description: "型を構築する仮想パス。"
     return:
       type: System.Type
-      description: "A <xref:System.Type> object that represents the type generated from compiling the virtual path."
+      description: "<xref:System.Type>仮想パスのコンパイルから生成された型を表すオブジェクト</xref:System.Type>"
   overload: System.Web.Compilation.BuildManager.GetCompiledType*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "An error occurred when compiling the virtual path."
+    description: "仮想パスをコンパイルするときにエラーが発生しました。"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>virtualPath</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>virtualPath</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.Compilation.BuildManager.GetGlobalAsaxType
@@ -363,19 +363,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets an object that represents the compiled type for the Global.asax file."
-  remarks: "An exception is thrown if this method is called before the Global.asax file has been compiled."
+  summary: "Global.asax ファイルのコンパイル済みの型を表すオブジェクトを取得します。"
+  remarks: "Global.asax ファイルのコンパイル前に、このメソッドが呼び出された場合、例外がスローされます。"
   syntax:
     content: public static Type GetGlobalAsaxType ();
     parameters: []
     return:
       type: System.Type
-      description: "An object that represents the compiled type for the Global.asax file."
+      description: "Global.asax ファイルのコンパイル済みの型を表すオブジェクト。"
   overload: System.Web.Compilation.BuildManager.GetGlobalAsaxType*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An attempt was made to call this method before the Global.asax page was compiled."
+    description: "Global.asax ページをコンパイルする前に、このメソッドを呼び出してしようとしました。"
   platform:
   - net462
 - uid: System.Web.Compilation.BuildManager.GetObjectFactory(System.String,System.Boolean)
@@ -390,25 +390,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets an object factory for the specified virtual path."
-  remarks: "This method returns an object that enables you to generate a type by compiling the virtual path. It returns an object regardless of whether the Web site is precompiled."
+  summary: "指定した仮想パスのオブジェクト ファクトリを取得します。"
+  remarks: "このメソッドは、仮想パスをコンパイルすることで、型の生成を有効にするオブジェクトを返します。 Web サイトをプリコンパイルするかどうかに関係なく、オブジェクトを返します。"
   syntax:
     content: public static System.Web.Util.IWebObjectFactory GetObjectFactory (string virtualPath, bool throwIfNotFound);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path."
+      description: "仮想パス。"
     - id: throwIfNotFound
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to throw an error if the virtual path does not exist; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. If the virtual path does not exist and `throwIfNotFound` is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, this method returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>仮想パスが存在しません。 場合、エラーをスローするにはそれ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。 仮想パスが存在しない場合および`throwIfNotFound`は<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>、このメソッドが戻る<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>です。"
     return:
       type: System.Web.Util.IWebObjectFactory
-      description: "The object factory."
+      description: "オブジェクトのファクトリです。"
   overload: System.Web.Compilation.BuildManager.GetObjectFactory*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "The virtual path does not exist.       -or-       A higher-level exception already existed when this method was called.       -or-       This method was called while the compilation process was building top-level files.       -or-       This is a precompiled application and the virtual path was not found in the cache.       -or-       A circular reference was detected."
+    description: "仮想パスが存在しません。       または、このメソッドが呼び出されたときに、上位レベルの例外は既にが存在します。       - または - コンパイル処理された最上位ファイルの構築時に、このメソッドが呼び出されました。       - または - これは、プリコンパイル済みアプリケーションとキャッシュ内の仮想パスが見つかりません。       - または - 循環参照が検出されました。"
   platform:
   - net462
 - uid: System.Web.Compilation.BuildManager.GetReferencedAssemblies
@@ -423,14 +423,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Returns a list of assembly references that all page compilations must reference."
-  remarks: "The collection of assemblies that is returned from the GetReferencedAssemblies method includes assemblies specified in the  element of the Web.config file, assemblies built from custom code in the App_Code directory, and assemblies in other top-level folders.       GetReferencedAssemblies is introduced in the .NET Framework version 3.5.  For more information, see [.NET Framework Versions and Dependencies](~/add/includes/ajax-current-ext-md.md)."
+  summary: "すべてのページ コンパイルが参照する必要がありますのあるアセンブリ参照の一覧を返します。"
+  remarks: "GetReferencedAssemblies メソッドから返されるアセンブリのコレクションには、Web.config ファイル、App_Code ディレクトリでのカスタム コードからビルドされたアセンブリおよびその他の最上位のフォルダー内のアセンブリの要素で指定されたアセンブリが含まれています。       GetReferencedAssemblies は、.NET Framework version 3.5 で導入されました。  詳細については、次を参照してください。 [.NET Framework のバージョンとの依存関係](~/add/includes/ajax-current-ext-md.md)です。"
   syntax:
     content: public static System.Collections.ICollection GetReferencedAssemblies ();
     parameters: []
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> collection of assembly references."
+      description: "<xref:System.Collections.ICollection>アセンブリ参照のコレクション</xref:System.Collections.ICollection>。"
   overload: System.Web.Compilation.BuildManager.GetReferencedAssemblies*
   exceptions: []
   platform:
@@ -447,20 +447,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Finds a type in the top-level assemblies or in assemblies that are defined in configuration, and optionally throws an exception on failure."
-  remarks: "A top-level assembly refers to the Global.asax file, or to a file that is in the App_GlobalResources, App_WebReferences, App_Code, or App_Browsers directory."
+  summary: "最上位レベルのアセンブリ内、または構成では、定義されているアセンブリで型を検索し、必要に応じてエラー発生時に例外をスローします。"
+  remarks: "最上位のアセンブリは、Global.asax ファイルでは、または App_GlobalResources、App_WebReferences、App_Code、または App_Browsers ディレクトリ内にあるファイルを参照します。"
   syntax:
     content: public static Type GetType (string typeName, bool throwOnError);
     parameters:
     - id: typeName
       type: System.String
-      description: "The name of the type."
+      description: "型の名前です。"
     - id: throwOnError
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to throw an exception if a <xref:System.Type> object cannot be generated for the type name; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合に例外をスローする、<xref:System.Type>オブジェクトは、それ以外の型名を生成することはできません<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref></xref:System.Type> 。"
     return:
       type: System.Type
-      description: "A <xref:System.Type> object that represents the requested <code>typeName</code> parameter."
+      description: "A<xref:System.Type>を表す、要求されたオブジェクト<code> typeName </code>パラメーター</xref:System.Type> 。"
   overload: System.Web.Compilation.BuildManager.GetType*
   exceptions:
   - type: System.Web.HttpException
@@ -480,23 +480,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Finds a type in the top-level assemblies, or in assemblies that are defined in configuration, by using a case-insensitive search and optionally throwing an exception on failure."
-  remarks: "A top-level assembly refers to the Global.asax file, or to a file that is in the App_GlobalResources, App_WebReferences, App_Code, or App_Browsers directory."
+  summary: "最上位レベルのアセンブリでまたはを使用して、大文字と小文字をエラー発生時に例外をスローさせることも、構成では、定義されているアセンブリでは、型を検索します。"
+  remarks: "最上位のアセンブリは、Global.asax ファイルでは、または App_GlobalResources、App_WebReferences、App_Code、または App_Browsers ディレクトリ内にあるファイルを参照します。"
   syntax:
     content: public static Type GetType (string typeName, bool throwOnError, bool ignoreCase);
     parameters:
     - id: typeName
       type: System.String
-      description: "The name of the type."
+      description: "型の名前です。"
     - id: throwOnError
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to throw an exception if a <xref:System.Type> cannot be generated for the type name; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合に例外をスローする、 <xref:System.Type>、それ以外の型名を生成することはできません<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref></xref:System.Type> 。"
     - id: ignoreCase
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if `typeName` is case-sensitive; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合`typeName`、それ以外の大文字小文字を区別<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
     return:
       type: System.Type
-      description: "A <xref:System.Type> object that represents the requested <code>typeName</code> parameter."
+      description: "A<xref:System.Type>を表す、要求されたオブジェクト<code> typeName </code>パラメーター</xref:System.Type> 。"
   overload: System.Web.Compilation.BuildManager.GetType*
   exceptions:
   - type: System.Web.HttpException
@@ -516,16 +516,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Provides a collection of virtual-path dependencies for a specified virtual path."
+  summary: "指定した仮想パスの仮想パスの依存関係のコレクションを提供します。"
   syntax:
     content: public static System.Collections.ICollection GetVirtualPathDependencies (string virtualPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path used to determine the dependencies."
+      description: "依存関係を決定するために使用する仮想パス。"
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> collection of files represented by virtual paths that are caching dependencies for the virtual path."
+      description: "<xref:System.Collections.ICollection>仮想パスの依存関係をキャッシュする仮想パスで表されるファイルのコレクション</xref:System.Collections.ICollection>"
   overload: System.Web.Compilation.BuildManager.GetVirtualPathDependencies*
   exceptions: []
   platform:
@@ -542,12 +542,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets a value that specifies whether the application is precompiled."
+  summary: "アプリケーションをプリコンパイルするかどうかを指定する値を取得します。"
   syntax:
     content: public static bool IsPrecompiledApp { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the application is precompiled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>場合は、アプリケーションがプリコンパイル済みです。それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.Compilation.BuildManager.IsPrecompiledApp*
   exceptions: []
   platform:
@@ -564,12 +564,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets a value that specifies whether the application is precompiled as updatable."
+  summary: "アプリケーションが更新可能としてプリコンパイルするかどうかを指定する値を取得します。"
   syntax:
     content: public static bool IsUpdatablePrecompiledApp { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the application is precompiled as updatable; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>アプリケーションが更新可能な; としてプリコンパイル済みの場合それ以外の場合、 <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>です。"
   overload: System.Web.Compilation.BuildManager.IsUpdatablePrecompiledApp*
   exceptions: []
   platform:
@@ -586,17 +586,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Reads a cached file."
-  remarks: "This method and the <xref:System.Web.Compilation.BuildManager.CreateCachedFile%2A> method enable you to perform caching that persists across application domain restarts in partial-trust environments. It is used by the MVC framework to cache results of the controller lookup.       To retrieve cached data, you read from the <xref:System.IO.Stream> object that is returned by this method."
+  summary: "キャッシュされたファイルを読み取ります。"
+  remarks: "このメソッドと<xref:System.Web.Compilation.BuildManager.CreateCachedFile%2A>メソッドを使用すると、キャッシュ、部分信頼環境でアプリケーション ドメインが再起動の間で永続化を実行します</xref:System.Web.Compilation.BuildManager.CreateCachedFile%2A>。 コント ローラーの検索の結果をキャッシュに、MVC フレームワークによって使用されます。       読み取り、キャッシュされたデータを取得する、<xref:System.IO.Stream>このメソッドによって返されるオブジェクト</xref:System.IO.Stream>。"
   syntax:
     content: public static System.IO.Stream ReadCachedFile (string fileName);
     parameters:
     - id: fileName
       type: System.String
-      description: "The name of the file to read."
+      description: "読み取るファイルの名前です。"
     return:
       type: System.IO.Stream
-      description: "The <xref:System.IO.Stream> object for the file, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the file does not exist."
+      description: "<xref:System.IO.Stream>ファイルは、オブジェクトまたは<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>ファイルが存在しない場合</xref:System.IO.Stream>。"
   overload: System.Web.Compilation.BuildManager.ReadCachedFile*
   exceptions: []
   platform:
@@ -613,13 +613,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets the target version of the .NET Framework for the current Web site."
-  remarks: "This property supports the ASP.NET multi-targeting feature, which enables you to use the latest version of [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] to develop applications that will run with earlier versions of the .NET Framework. A build provider can use this property to make sure that the provider generates code that is appropriate for the targeted version of the .NET Framework. For example, you might want to generate different code depending on whether a Web site targets the [!INCLUDE[net_v35_short](~/add/includes/net-v35-short-md.md)] or the [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)]. For more information about multi-targeting, see [.NET Framework Multi-Targeting for ASP.NET Web Projects](~/add/includes/ajax-current-ext-md.md).       If the Web site does not have a Web.config file, ASP.NET assumes that the target framework version is the version that is associated with the IIS application pool that the site is running under. For a file-system Web site that is running in Visual Studio, the default framework version is the current version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)].       If the Web site does have a Web.config file, ASP.NET determines the target framework by examining the Web.config file.      ## Web Sites that Target the .NET Framework 2.0    Web applications that target the [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)] are compiled as if the target were the [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)]. The build process does not differentiate between the [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)] and the [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)] because the Web.config file does not indicate compiler version or target framework when one of those versions is targeted. (For the [!INCLUDE[net_v35_short](~/add/includes/net-v35-short-md.md)], the Web.config file specifies the compiler version, and for the [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], the Web.config file specifies the target framework.) Therefore, for Web applications that target the [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)], this property returns a target framework moniker that indicates the [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)].       This normally will not cause any problems. [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] prevents you from creating references to [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)] features in a project that is targeted for the [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]. For example, [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] does not provide item templates for WCF services in a project that is targeted for [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)], because WCF was introduced with the [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)] and is not compatible with the [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)].       If you plan to deploy a Web site in a [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)] run-time environment and you use a tool other than [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] to reference features that are compatible only with [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)], the project might build without generating errors or warnings. However, the application might generate errors when the Web site runs on the [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]."
+  summary: "現在の Web サイトの .NET Framework のターゲット バージョンを取得します。"
+  remarks: "このプロパティは、ASP.NET のマルチ ターゲット機能の最新バージョンを使用することにより[!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)]は .NET Framework の以前のバージョンで実行するアプリケーションを開発します。 ビルド プロバイダーは、このプロパティを使用して、プロバイダーが .NET Framework の対象とするバージョンを適切なコードを生成することを確認してください。 Web サイトのターゲットかどうかに応じて異なるコードを生成するなど、[!INCLUDE[net_v35_short](~/add/includes/net-v35-short-md.md)]または[!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)]です。 マルチ ターゲットの詳細については、次を参照してください。 [ASP.NET Web プロジェクト用の .NET Framework のマルチ ターゲット](~/add/includes/ajax-current-ext-md.md)です。       Web サイトには、Web.config ファイルがない、ASP.NET はターゲット フレームワークのバージョンで、サイトが実行されている IIS アプリケーション プールに関連付けられているバージョンであることを想定します。 Visual Studio で実行されているファイル システム Web サイトを既定の framework バージョンは現在のバージョンの[!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]です。       Web サイトは、Web.config ファイルには、ASP.NET は、Web.config ファイルを確認するには、ターゲット フレームワークを決定します。      ## 対象とする .NET Framework 2.0 の Web アプリケーションを対象とする Web サイト、[!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]ターゲットが場合と同様にコンパイル、[!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)]です。 ビルド プロセスが区別されません、[!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]と[!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)]のため、これらのバージョンのいずれかが対象となる場合、Web.config ファイルはコンパイラのバージョンまたはターゲット フレームワークを示しません。 (の[!INCLUDE[net_v35_short](~/add/includes/net-v35-short-md.md)]、Web.config ファイルで指定して、コンパイラのバージョンとの[!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)]、Web.config ファイルがターゲット フレームワークを指定します)。そのための Web アプリケーションを対象とする、 [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]、このプロパティはターゲット フレームワーク モニカーを示すを返します、[!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)]です。       通常は発生しません問題です。 [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)]参照を作成することを防止する[!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)]の対象となるプロジェクトで機能、[!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]です。 たとえば、 [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] WCF サービスの対象となるプロジェクトの項目テンプレートを行いません[!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]WCF がで導入されたため、[!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)]と互換性がないと、[!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]です。       Web サイトを展開する場合、[!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]ランタイム環境とするツールを使用して、以外の[!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)]のみと互換性がある参照機能を[!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)]エラーや警告を生成せずにプロジェクトをビルド可能性があります。 ただし、アプリケーションがエラーを生成で実行されると、Web サイト、[!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]です。"
   syntax:
     content: public static System.Runtime.Versioning.FrameworkName TargetFramework { get; }
     return:
       type: System.Runtime.Versioning.FrameworkName
-      description: "The target version of the .NET Framework for the current Web site."
+      description: "現在の Web サイトの .NET Framework のターゲット バージョンです。"
   overload: System.Web.Compilation.BuildManager.TargetFramework*
   exceptions: []
   platform:

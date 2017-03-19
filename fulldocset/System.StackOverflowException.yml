@@ -12,8 +12,8 @@ items:
   nameWithType: StackOverflowException
   fullName: System.StackOverflowException
   type: Class
-  summary: "The exception that is thrown when the execution stack overflows because it contains too many nested method calls. This class cannot be inherited."
-  remarks: "StackOverflowException is thrown for execution stack overflow errors, typically in case of a very deep or unbounded recursion.       StackOverflowException uses the HRESULT COR_E_STACKOVERFLOW, which has the value 0x800703E9. The <xref:System.Reflection.Emit.OpCodes.Localloc> intermediate language (IL) instruction throws StackOverflowException. For a list of initial property values for a StackOverflowException object, see the <xref:System.StackOverflowException.%23ctor%2A> constructors.      ## Version Considerations    In the .NET Framework 1.0 and 1.1, you could catch a StackOverflowException object (for example, to recover from unbounded recursion). Starting with the .NET Framework 2.0, you can’t catch a StackOverflowException object with a `try`/`catch` block, and the corresponding process is terminated by default. Consequently, you should write your code to detect and prevent a stack overflow. For example, if your app depends on recursion, use a counter or a state condition to terminate the recursive loop. The following example uses a counter to ensure that the number of recursive calls to the `Execute` method do not exceed a maximum defined by the MAX_RECURSIVE_CALLS constant.       [!code-vb[System.StackOverflowException.Class#1](~/add/codesnippet/visualbasic/t-system.stackoverflowex_1.vb)]  [!code-cs[System.StackOverflowException.Class#1](~/add/codesnippet/csharp/t-system.stackoverflowex_1.cs)]      > [!NOTE] >  Applying the <xref:System.Runtime.ExceptionServices.HandleProcessCorruptedStateExceptionsAttribute> attribute to a method that throws a StackOverflowException has no effect. You still cannot handle the exception from user code.       If your app hosts the common language runtime (CLR), it can specify that the CLR should unload the application domain where the stack overflow exception occurs and let the corresponding process continue. For more information, see [ICLRPolicyManager Interface](~/add/includes/ajax-current-ext-md.md)."
+  summary: "入れ子になったメソッド呼び出しが多すぎますが含まれているために、実行スタックがオーバーフローした場合にスローされる例外。 このクラスは継承できません。"
+  remarks: "通常、非常に深いか、無限再帰が発生した場合、実行スタックのオーバーフロー エラーの例外がスローされます。       StackOverflowException は、値は 0x800703E9 HRESULT COR_E_STACKOVERFLOW を使用します。 <xref:System.Reflection.Emit.OpCodes.Localloc>中間言語 (IL) の命令が例外をスローします</xref:System.Reflection.Emit.OpCodes.Localloc>。 StackOverflowException オブジェクトの初期プロパティ値の一覧は、次を参照してください、<xref:System.StackOverflowException.%23ctor%2A>コンス トラクター。</xref:System.StackOverflowException.%23ctor%2A> 。      ## .NET Framework 1.0 および 1.1 でのバージョンの考慮事項、(たとえば、無限再帰から回復する場合)、StackOverflowException オブジェクトをキャッチする可能性があります。 以降、.NET Framework 2.0 では、使用して、例外オブジェクトをキャッチすることはできません、 `try` / `catch`ブロック、および対応するプロセスは既定では終了します。 そのため、検出し、スタック オーバーフローを防止するコードを記述する必要があります。 たとえば、アプリは、再帰に依存している場合を使用してカウンターまたは状態の条件を再帰的なループを終了します。 次の例に再帰の数が呼び出していることを確認するカウンターを使用して、 `Execute` MAX_RECURSIVE_CALLS 定数によって定義されている最大数を超えないメソッドです。       [!code-vb[System.StackOverflowException.Class#1](~/add/codesnippet/visualbasic/t-system.stackoverflowex_1.vb)][!code-cs[System.StackOverflowException.Class#1](~/add/codesnippet/csharp/t-system.stackoverflowex_1.cs) ]       >  [!NOTE] > 適用、 <xref:System.Runtime.ExceptionServices.HandleProcessCorruptedStateExceptionsAttribute>、例外をスローするメソッドに属性が影響を与えません</xref:System.Runtime.ExceptionServices.HandleProcessCorruptedStateExceptionsAttribute>。   引き続き、ユーザー コードから例外を処理することはできません。       アプリでは、共通言語ランタイム (CLR) をホストしている場合、CLR がスタック オーバーフロー例外が発生し、続行、対応するプロセスのアプリケーション ドメインをアンロードする必要がありますを指定できます。 詳細については、次を参照してください。 [ICLRPolicyManager インターフェイス](~/add/includes/ajax-current-ext-md.md)です。"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -38,8 +38,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Initializes a new instance of the <xref href=&quot;System.StackOverflowException&quot;></xref> class, setting the <xref:System.Exception.Message*> property of the new instance to a system-supplied message that describes the error, such as &quot;The requested operation caused a stack overflow.&quot; This message takes into account the current system culture."
-  remarks: "The following table shows the initial property values for an instance of <xref:System.StackOverflowException>.      |Property|Value|   |--------------|-----------|   |<xref:System.Exception.InnerException%2A>|`null`.|   |<xref:System.Exception.Message%2A>|The localized error message string.|"
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.StackOverflowException&quot;> </xref>クラス、 <xref:System.Exception.Message*>&quot;要求された操作、スタック オーバーフローが発生します&quot;などに、エラーを説明するシステム提供のメッセージの新しいインスタンスのプロパティ</xref:System.Exception.Message*>の設定。 このメッセージでは、現在のシステム カルチャが考慮されます。"
+  remarks: "次の表は、 <xref:System.StackOverflowException>。</xref:System.StackOverflowException>のインスタンスの初期プロパティ値を示しています。      |プロパティ |値 |  |--------------|-----------|  |<xref:System.Exception.InnerException%2A>|`null`.|  |<xref:System.Exception.Message%2A>|ローカライズされたエラー メッセージ文字列 |</xref:System.Exception.Message%2A> </xref:System.Exception.InnerException%2A> 。"
   syntax:
     content: public StackOverflowException ();
     parameters: []
@@ -59,14 +59,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Initializes a new instance of the <xref href=&quot;System.StackOverflowException&quot;></xref> class with a specified error message."
-  remarks: "The following table shows the initial property values for an instance of <xref:System.StackOverflowException>.      |Property|Value|   |--------------|-----------|   |<xref:System.Exception.InnerException%2A>|A null reference (`Nothing` in Visual Basic).|   |<xref:System.Exception.Message%2A>|The error message string.|"
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.StackOverflowException&quot;> </xref>指定したエラー メッセージを使用します。"
+  remarks: "次の表は、 <xref:System.StackOverflowException>。</xref:System.StackOverflowException>のインスタンスの初期プロパティ値を示しています。      |プロパティ |値 |  |--------------|-----------|  |<xref:System.Exception.InnerException%2A>|Null 参照 (`Nothing` Visual Basic で). |  |<xref:System.Exception.Message%2A>|エラー メッセージ文字列 |</xref:System.Exception.Message%2A> </xref:System.Exception.InnerException%2A> 。"
   syntax:
     content: public StackOverflowException (string message);
     parameters:
     - id: message
       type: System.String
-      description: "A <xref:System.String> that describes the error. The content of message is intended to be understood by humans. The caller of this constructor is required to ensure that this string has been localized for the current system culture."
+      description: "A<xref:System.String>エラーを説明する</xref:System.String>。 メッセージの内容は、ユーザーが理解できるものでは。 このコンス トラクターの呼び出し元は、この文字列が現在のシステムのカルチャに合わせてローカライズ済みであることを確認するために必要です。"
   overload: System.StackOverflowException.#ctor*
   exceptions: []
   platform:
@@ -83,17 +83,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Initializes a new instance of the <xref href=&quot;System.StackOverflowException&quot;></xref> class with a specified error message and a reference to the inner exception that is the cause of this exception."
-  remarks: "An exception that is thrown as a direct result of a previous exception can include a reference to the previous exception in the <xref:System.Exception.InnerException%2A> property. The <xref:System.Exception.InnerException%2A> property returns the same value that is passed into the constructor, or a null reference (`Nothing` in Visual Basic) if the <xref:System.Exception.InnerException%2A> property does not supply the inner exception value to the constructor.       The following table shows the initial property values for an instance of <xref:System.StackOverflowException>.      |Property|Value|   |--------------|-----------|   |<xref:System.Exception.InnerException%2A>|The inner exception reference.|   |<xref:System.Exception.Message%2A>|The error message string.|"
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.StackOverflowException&quot;> </xref>指定したエラー メッセージおよびこの例外の原因となった内部例外への参照を持つクラス。"
+  remarks: "前の例外への参照を含めることができます、前の例外の直接の結果としてスローされる例外、<xref:System.Exception.InnerException%2A>プロパティ</xref:System.Exception.InnerException%2A>。 <xref:System.Exception.InnerException%2A>コンス トラクター、または null 参照に渡されたものと同じ値を返します (`Nothing` Visual Basic で) 場合、<xref:System.Exception.InnerException%2A>プロパティがコンス トラクターには、内部例外値を指定していません</xref:System.Exception.InnerException%2A></xref:System.Exception.InnerException%2A>。       次の表は、 <xref:System.StackOverflowException>。</xref:System.StackOverflowException>のインスタンスの初期プロパティ値を示しています。      |プロパティ |値 |  |--------------|-----------|  |<xref:System.Exception.InnerException%2A>|内部例外の参照 |。  |<xref:System.Exception.Message%2A>|エラー メッセージ文字列 |</xref:System.Exception.Message%2A> </xref:System.Exception.InnerException%2A> 。"
   syntax:
     content: public StackOverflowException (string message, Exception innerException);
     parameters:
     - id: message
       type: System.String
-      description: "The error message that explains the reason for the exception."
+      description: "例外の原因を説明するエラー メッセージ。"
     - id: innerException
       type: System.Exception
-      description: "The exception that is the cause of the current exception. If the `innerException` parameter is not a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic), the current exception is raised in a <xref uid=&quot;langword_csharp_catch&quot; name=&quot;catch&quot; href=&quot;&quot;></xref> block that handles the inner exception."
+      description: "現在の例外の原因となった例外。 場合、`innerException`パラメーターが null 参照ではありません (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> Visual Basic で) で現在の例外が発生、 <xref uid=&quot;langword_csharp_catch&quot; name=&quot;catch&quot; href=&quot;&quot;> </xref>ブロックは、内部例外を処理します。"
   overload: System.StackOverflowException.#ctor*
   exceptions: []
   platform:

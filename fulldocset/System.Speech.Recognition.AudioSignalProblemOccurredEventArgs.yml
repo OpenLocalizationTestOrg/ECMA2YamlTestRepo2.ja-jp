@@ -13,8 +13,8 @@ items:
   nameWithType: AudioSignalProblemOccurredEventArgs
   fullName: System.Speech.Recognition.AudioSignalProblemOccurredEventArgs
   type: Class
-  summary: "Provides data for the `AudioSignalProblemOccurred` event of a <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;></xref> or a <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref>."
-  remarks: "An instance of AudioSignalProblemOccurredEventArgs is created when the <xref:System.Speech.Recognition.SpeechRecognitionEngine> or <xref:System.Speech.Recognition.SpeechRecognizer> object raises an `AudioSignalProblemOccurred` event. To obtain information related to an `AudioSignalProblemOccurred` event, access the following properties in the handler for the event:      -   <xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioLevel%2A>      -   <xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioPosition%2A>      -   <xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioSignalProblem%2A>      -   <xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.RecognizerAudioPosition%2A>       The <xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioPosition%2A> property references the input device&quot;s position in its generated audio stream. By contrast, the <xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.RecognizerAudioPosition%2A> property references the recognizer&quot;s position within its audio input. These positions can be different. For more information, see [Using Speech Recognition Events](http://msdn.microsoft.com/en-us/01c598ca-2e0e-4e89-b303-cd1cef9e8482).       The <xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioSignalProblem%2A> property indicates which problem occurred.       AudioSignalProblemOccurredEventArgs derives from <xref:System.EventArgs>."
+  summary: "データを提供、`AudioSignalProblemOccurred`のイベント、 <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;> </xref>または<xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref>です。"
+  remarks: "AudioSignalProblemOccurredEventArgs のインスタンスが作成されたときに、<xref:System.Speech.Recognition.SpeechRecognitionEngine>または<xref:System.Speech.Recognition.SpeechRecognizer>オブジェクト、`AudioSignalProblemOccurred`イベント</xref:System.Speech.Recognition.SpeechRecognizer></xref:System.Speech.Recognition.SpeechRecognitionEngine>。 関連する情報を取得する、`AudioSignalProblemOccurred`イベント、イベントのハンドラーで、次のプロパティへのアクセス:- <xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioLevel%2A>- <xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioPosition%2A>- <xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioSignalProblem%2A>- <xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.RecognizerAudioPosition%2A>、<xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioPosition%2A>プロパティは、生成されたオーディオ ストリーム内の入力デバイスの位置を参照します</xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioPosition%2A></xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.RecognizerAudioPosition%2A></xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioSignalProblem%2A></xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioPosition%2A></xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioLevel%2A>。 これに対し、<xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.RecognizerAudioPosition%2A>プロパティは、オーディオ入力内の認識エンジンの位置を参照します</xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.RecognizerAudioPosition%2A>。 これらの位置は別にすることはできます。 詳細については、次を参照してください。[音声認識イベントを使用した](http://msdn.microsoft.com/en-us/01c598ca-2e0e-4e89-b303-cd1cef9e8482)です。       <xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioSignalProblem%2A>プロパティは、どのような問題が発生したことを示します</xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioSignalProblem%2A>。       <xref:System.EventArgs>。</xref:System.EventArgs>から派生した AudioSignalProblemOccurredEventArgs"
   example:
   - "The following example defines an event handler that gathers information about an <xref:System.Speech.Recognition.SpeechRecognitionEngine.AudioSignalProblemOccurred> event.  \n  \n```c#  \n  \nprivate SpeechRecognitionEngine sre;  \n  \n// Initialize the speech recognition engine.  \nprivate void Initialize()  \n{  \n  sre = new SpeechRecognitionEngine();  \n  \n  // Add a handler for the AudioSignalProblemOccurred event.  \n  sre.AudioSignalProblemOccurred += new EventHandler<AudioSignalProblemOccurredEventArgs>(sre_AudioSignalProblemOccurred);  \n}  \n  \n// Gather information when the AudioSignalProblemOccurred event is raised.  \nvoid sre_AudioSignalProblemOccurred(object sender, AudioSignalProblemOccurredEventArgs e)  \n{  \n  StringBuilder details = new StringBuilder();  \n  \n  details.AppendLine(\"Audio signal problem information:\");  \n  details.AppendFormat(  \n    \" Audio level:               {0}\" + Environment.NewLine +  \n    \" Audio position:            {1}\" + Environment.NewLine +  \n    \" Audio signal problem:      {2}\" + Environment.NewLine +  \n    \" Recognition engine audio position: {3}\" + Environment.NewLine,  \n    e.AudioLevel, e.AudioPosition,  e.AudioSignalProblem,  \n    e.RecognizerAudioPosition);  \n  \n  // Insert additional event handler code here.  \n}  \n  \n```"
   syntax:
@@ -37,12 +37,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "Gets the audio level associated with the event."
+  summary: "イベントに関連付けられたオーディオ レベルを取得します。"
   syntax:
     content: public int AudioLevel { get; }
     return:
       type: System.Int32
-      description: "The level of audio input when the `AudioSignalProblemOccurred` event was raised."
+      description: "オーディオのレベルの入力時に、`AudioSignalProblemOccurred`イベントが発生しました。"
   overload: System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioLevel*
   exceptions: []
   platform:
@@ -59,13 +59,13 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "Gets the position in the input device&quot;s audio stream that indicates where the problem occurred."
-  remarks: "The AudioPosition property references the input device&quot;s position in its generated audio stream. By contrast, the <xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.RecognizerAudioPosition%2A> property references the recognizer&quot;s position within its audio input. These positions can be different. For more information, see [Using Speech Recognition Events](http://msdn.microsoft.com/en-us/01c598ca-2e0e-4e89-b303-cd1cef9e8482)."
+  summary: "問題の発生場所を示す、入力デバイスのオーディオ ストリーム内の位置を取得します。"
+  remarks: "AudioPosition プロパティは、生成されたそのオーディオ ストリーム内の入力デバイスの位置を参照します。 これに対し、<xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.RecognizerAudioPosition%2A>プロパティは、オーディオ入力内の認識エンジンの位置を参照します</xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.RecognizerAudioPosition%2A>。 これらの位置は別にすることはできます。 詳細については、次を参照してください。[音声認識イベントを使用した](http://msdn.microsoft.com/en-us/01c598ca-2e0e-4e89-b303-cd1cef9e8482)です。"
   syntax:
     content: public TimeSpan AudioPosition { get; }
     return:
       type: System.TimeSpan
-      description: "The position in the input device&quot;s audio stream when the `AudioSignalProblemOccurred` event was raised."
+      description: "入力デバイス内の位置のオーディオ ストリーム、`AudioSignalProblemOccurred`イベントが発生しました。"
   overload: System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioPosition*
   exceptions: []
   platform:
@@ -82,12 +82,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "Gets the audio signal problem."
+  summary: "信号のオーディオに関する問題を取得します。"
   syntax:
     content: public System.Speech.Recognition.AudioSignalProblem AudioSignalProblem { get; }
     return:
       type: System.Speech.Recognition.AudioSignalProblem
-      description: "The audio signal problem that caused the `AudioSignalProblemOccurred` event to be raised."
+      description: "オーディオ信号問題の原因となった、`AudioSignalProblemOccurred`イベントが発生します。"
   overload: System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioSignalProblem*
   exceptions: []
   platform:
@@ -104,13 +104,13 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "Gets the position in the audio input that the recognizer has received that indicates where the problem occurred."
-  remarks: "The <xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioPosition%2A> property references the input device&quot;s position in its generated audio stream. By contrast, the RecognizerAudioPosition property references the recognizer&quot;s position within its audio input. These positions can be different. For more information, see [Using Speech Recognition Events](http://msdn.microsoft.com/en-us/01c598ca-2e0e-4e89-b303-cd1cef9e8482)."
+  summary: "オーディオ入力を認識エンジンが受信した問題の発生場所を示す内の位置を取得します。"
+  remarks: "<xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioPosition%2A>プロパティは、生成されたオーディオ ストリーム内の入力デバイスの位置を参照します</xref:System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.AudioPosition%2A>。 これに対し、RecognizerAudioPosition プロパティは、そのオーディオ入力内の認識エンジンの位置を参照します。 これらの位置は別にすることはできます。 詳細については、次を参照してください。[音声認識イベントを使用した](http://msdn.microsoft.com/en-us/01c598ca-2e0e-4e89-b303-cd1cef9e8482)です。"
   syntax:
     content: public TimeSpan RecognizerAudioPosition { get; }
     return:
       type: System.TimeSpan
-      description: "The position in the audio input that the recognizer has received when the `AudioSignalProblemOccurred` event was raised."
+      description: "認識エンジンが受け取っている場合に、オーディオ入力内の位置、`AudioSignalProblemOccurred`イベントが発生しました。"
   overload: System.Speech.Recognition.AudioSignalProblemOccurredEventArgs.RecognizerAudioPosition*
   exceptions: []
   platform:

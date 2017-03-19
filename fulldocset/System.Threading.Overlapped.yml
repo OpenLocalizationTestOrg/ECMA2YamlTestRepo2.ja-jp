@@ -23,8 +23,8 @@ items:
   nameWithType: Overlapped
   fullName: System.Threading.Overlapped
   type: Class
-  summary: "Provides a managed representation of a Win32 `OVERLAPPED` structure, including methods to transfer information from an Overlapped instance to a <xref href=&quot;System.Threading.NativeOverlapped&quot;></xref> structure."
-  remarks: "The <xref:System.Threading.Overlapped.Pack%2A> and <xref:System.Threading.Overlapped.UnsafePack%2A> methods transfer information from an Overlapped object to a <xref:System.Threading.NativeOverlapped> structure that can be passed to Win32 API functions for asynchronous file I/O. The <xref:System.Threading.Overlapped.Unpack%2A> method transfers information from a <xref:System.Threading.NativeOverlapped> structure to an instance of the Overlapped class.       Changes to the properties of an Overlapped object affect its associated <xref:System.Threading.NativeOverlapped> structure, and vice versa."
+  summary: "Win32 のマネージ表現を提供`OVERLAPPED`構造体、Overlapped インスタンスから情報を転送する方法など、 <xref href=&quot;System.Threading.NativeOverlapped&quot;> </xref>構造体。"
+  remarks: "<xref:System.Threading.Overlapped.Pack%2A>と<xref:System.Threading.Overlapped.UnsafePack%2A>メソッドに Overlapped オブジェクトからの情報の転送、<xref:System.Threading.NativeOverlapped>構造を渡すことができますの Win32 API 関数を非同期ファイル I/O</xref:System.Threading.NativeOverlapped> </xref:System.Threading.Overlapped.UnsafePack%2A> </xref:System.Threading.Overlapped.Pack%2A> 。 <xref:System.Threading.Overlapped.Unpack%2A>メソッドの転送については<xref:System.Threading.NativeOverlapped>、Overlapped クラスのインスタンスに構造</xref:System.Threading.NativeOverlapped>から</xref:System.Threading.Overlapped.Unpack%2A>       Overlapped オブジェクトのプロパティへの変更に関連付けられた影響を与える<xref:System.Threading.NativeOverlapped>構造体、またはその逆</xref:System.Threading.NativeOverlapped>。"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -48,7 +48,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Initializes a new, empty instance of the <xref href=&quot;System.Threading.Overlapped&quot;></xref> class."
+  summary: "新しい、空のインスタンスを初期化、 <xref href=&quot;System.Threading.Overlapped&quot;> </xref>クラスです。"
   syntax:
     content: public Overlapped ();
     parameters: []
@@ -68,23 +68,23 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Initializes a new instance of the <xref href=&quot;System.Threading.Overlapped&quot;></xref> class with the specified file position, the 32-bit integer handle to an event that is signaled when the I/O operation is complete, and an interface through which to return the results of the operation."
-  remarks: "Use the <xref:System.Threading.WaitHandle.Handle%2A?displayProperty=fullName> property to get the handle of any managed synchronization event that derives from the <xref:System.Threading.WaitHandle> class.       Your implementation of <xref:System.IAsyncResult> provides status information on the I/O operation. Pass it to the constructor in the `ar` parameter, and retrieve it later with the <xref:System.Threading.Overlapped.AsyncResult%2A> property. If a callback method is specified for the <xref:System.Threading.Overlapped.Pack%2A> or <xref:System.Threading.Overlapped.UnsafePack%2A> method, the callback can retrieve your <xref:System.IAsyncResult> by unpacking the <xref:System.Threading.NativeOverlapped> structure it receives."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Threading.Overlapped&quot;> </xref>指定したファイルを持つクラスの位置、I/O 操作が完了したら、通知されるイベントと操作の結果を返すためのインターフェイスを 32 ビット整数のハンドル。"
+  remarks: "<xref:System.Threading.WaitHandle.Handle%2A?displayProperty=fullName><xref:System.Threading.WaitHandle>クラス</xref:System.Threading.WaitHandle>から派生した任意のマネージ同期イベントのハンドルを取得するプロパティ</xref:System.Threading.WaitHandle.Handle%2A?displayProperty=fullName>を使用します       実装<xref:System.IAsyncResult>、I/O 操作のステータス情報を提供します</xref:System.IAsyncResult>。 コンス トラクターに渡す、`ar`パラメーターと後でそれを取得し、<xref:System.Threading.Overlapped.AsyncResult%2A>プロパティ</xref:System.Threading.Overlapped.AsyncResult%2A>。 コールバック メソッドが指定されている場合、<xref:System.Threading.Overlapped.Pack%2A>または<xref:System.Threading.Overlapped.UnsafePack%2A>メソッド、コールバックを取得できます、<xref:System.IAsyncResult>をアンパックして、<xref:System.Threading.NativeOverlapped>構造体を受け取る</xref:System.Threading.NativeOverlapped></xref:System.IAsyncResult></xref:System.Threading.Overlapped.UnsafePack%2A></xref:System.Threading.Overlapped.Pack%2A>。"
   syntax:
     content: public Overlapped (int offsetLo, int offsetHi, int hEvent, IAsyncResult ar);
     parameters:
     - id: offsetLo
       type: System.Int32
-      description: "The low word of the file position at which to start the transfer."
+      description: "転送を開始する位置を示すファイルの位置の下位ワード。"
     - id: offsetHi
       type: System.Int32
-      description: "The high word of the file position at which to start the transfer."
+      description: "転送を開始する位置を示すファイルの位置の上位ワード。"
     - id: hEvent
       type: System.Int32
-      description: "The handle to an event that is signaled when the I/O operation is complete."
+      description: "I/O 操作が完了したら通知されるイベント ハンドルです。"
     - id: ar
       type: System.IAsyncResult
-      description: "An object that implements the <xref:System.IAsyncResult> interface and provides status information on the I/O operation."
+      description: "実装するオブジェクト、<xref:System.IAsyncResult>インターフェイスし、I/O 操作のステータス情報を提供します</xref:System.IAsyncResult>。"
   overload: System.Threading.Overlapped.#ctor*
   exceptions: []
   platform:
@@ -101,23 +101,23 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Initializes a new instance of the <xref href=&quot;System.Threading.Overlapped&quot;></xref> class with the specified file position, the handle to an event that is signaled when the I/O operation is complete, and an interface through which to return the results of the operation."
-  remarks: "To get the handle of a managed synchronization object that derives from the <xref:System.Threading.WaitHandle> class, use the <xref:System.Threading.WaitHandle.SafeWaitHandle%2A?displayProperty=fullName> property to get a <xref:Microsoft.Win32.SafeHandles.SafeWaitHandle> object, and then call the <xref:System.Runtime.InteropServices.SafeHandle.DangerousGetHandle%2A> method.       Your implementation of <xref:System.IAsyncResult> provides status information on the I/O operation. Pass it to the constructor in the `ar` parameter, and retrieve it later with the <xref:System.Threading.Overlapped.AsyncResult%2A> property. If a callback method is specified for the <xref:System.Threading.Overlapped.Pack%2A> or <xref:System.Threading.Overlapped.UnsafePack%2A> method, the callback can retrieve your <xref:System.IAsyncResult> by unpacking the <xref:System.Threading.NativeOverlapped> structure it receives."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Threading.Overlapped&quot;> </xref>指定したファイルを持つクラスを配置、および操作の結果を返すためのインターフェイスを I/O 操作が完了したら、通知されるイベントを識別するハンドル。"
+  remarks: "派生したマネージ同期オブジェクトのハンドルを取得する、<xref:System.Threading.WaitHandle>クラスを使用して、<xref:System.Threading.WaitHandle.SafeWaitHandle%2A?displayProperty=fullName>を取得するプロパティ、<xref:Microsoft.Win32.SafeHandles.SafeWaitHandle>オブジェクト、およびを呼び出す、<xref:System.Runtime.InteropServices.SafeHandle.DangerousGetHandle%2A>メソッド</xref:System.Runtime.InteropServices.SafeHandle.DangerousGetHandle%2A></xref:Microsoft.Win32.SafeHandles.SafeWaitHandle></xref:System.Threading.WaitHandle.SafeWaitHandle%2A?displayProperty=fullName></xref:System.Threading.WaitHandle>。       実装<xref:System.IAsyncResult>、I/O 操作のステータス情報を提供します</xref:System.IAsyncResult>。 コンス トラクターに渡す、`ar`パラメーターと後でそれを取得し、<xref:System.Threading.Overlapped.AsyncResult%2A>プロパティ</xref:System.Threading.Overlapped.AsyncResult%2A>。 コールバック メソッドが指定されている場合、<xref:System.Threading.Overlapped.Pack%2A>または<xref:System.Threading.Overlapped.UnsafePack%2A>メソッド、コールバックを取得できます、<xref:System.IAsyncResult>をアンパックして、<xref:System.Threading.NativeOverlapped>構造体を受け取る</xref:System.Threading.NativeOverlapped></xref:System.IAsyncResult></xref:System.Threading.Overlapped.UnsafePack%2A></xref:System.Threading.Overlapped.Pack%2A>。"
   syntax:
     content: public Overlapped (int offsetLo, int offsetHi, IntPtr hEvent, IAsyncResult ar);
     parameters:
     - id: offsetLo
       type: System.Int32
-      description: "The low word of the file position at which to start the transfer."
+      description: "転送を開始する位置を示すファイルの位置の下位ワード。"
     - id: offsetHi
       type: System.Int32
-      description: "The high word of the file position at which to start the transfer."
+      description: "転送を開始する位置を示すファイルの位置の上位ワード。"
     - id: hEvent
       type: System.IntPtr
-      description: "The handle to an event that is signaled when the I/O operation is complete."
+      description: "I/O 操作が完了したら通知されるイベント ハンドルです。"
     - id: ar
       type: System.IAsyncResult
-      description: "An object that implements the <xref:System.IAsyncResult> interface and provides status information on the I/O operation."
+      description: "実装するオブジェクト、<xref:System.IAsyncResult>インターフェイスし、I/O 操作のステータス情報を提供します</xref:System.IAsyncResult>。"
   overload: System.Threading.Overlapped.#ctor*
   exceptions: []
   platform:
@@ -134,12 +134,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Gets or sets the object that provides status information on the I/O operation."
+  summary: "取得または I/O 操作のステータス情報を提供するオブジェクトを設定します。"
   syntax:
     content: public IAsyncResult AsyncResult { get; set; }
     return:
       type: System.IAsyncResult
-      description: "An object that implements the <xref:System.IAsyncResult> interface."
+      description: "実装するオブジェクト、<xref:System.IAsyncResult>インターフェイス</xref:System.IAsyncResult>。"
   overload: System.Threading.Overlapped.AsyncResult*
   exceptions: []
   platform:
@@ -156,13 +156,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Gets or sets the 32-bit integer handle to a synchronization event that is signaled when the I/O operation is complete."
-  remarks: "This property cannot be used on 64-bit platforms. Use the <xref:System.Threading.Overlapped.EventHandleIntPtr%2A> property instead.       Use the <xref:System.Threading.WaitHandle.Handle%2A?displayProperty=fullName> property to get the handle of any managed synchronization event that derives from the <xref:System.Threading.WaitHandle> class."
+  summary: "取得または I/O 操作が完了したら通知される同期イベントを 32 ビット整数のハンドルを設定します。"
+  remarks: "このプロパティは、64 ビット プラットフォームでは使用できません。 使用して、<xref:System.Threading.Overlapped.EventHandleIntPtr%2A>プロパティ代わりにします</xref:System.Threading.Overlapped.EventHandleIntPtr%2A>。       <xref:System.Threading.WaitHandle.Handle%2A?displayProperty=fullName><xref:System.Threading.WaitHandle>クラス</xref:System.Threading.WaitHandle>から派生した任意のマネージ同期イベントのハンドルを取得するプロパティ</xref:System.Threading.WaitHandle.Handle%2A?displayProperty=fullName>を使用します"
   syntax:
     content: public int EventHandle { get; set; }
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> value representing the handle of the synchronization event."
+      description: "<xref:System.Int32>同期イベントのハンドルを表す値</xref:System.Int32>。"
   overload: System.Threading.Overlapped.EventHandle*
   exceptions: []
   platform:
@@ -179,13 +179,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Gets or sets the handle to the synchronization event that is signaled when the I/O operation is complete."
-  remarks: "To get the handle of a managed synchronization object that derives from the <xref:System.Threading.WaitHandle> class, use the <xref:System.Threading.WaitHandle.SafeWaitHandle%2A?displayProperty=fullName> property to get a <xref:Microsoft.Win32.SafeHandles.SafeWaitHandle> object, and then call the <xref:System.Runtime.InteropServices.SafeHandle.DangerousGetHandle%2A> method."
+  summary: "取得または I/O 操作が完了したら通知される同期イベントをハンドルを設定します。"
+  remarks: "派生したマネージ同期オブジェクトのハンドルを取得する、<xref:System.Threading.WaitHandle>クラスを使用して、<xref:System.Threading.WaitHandle.SafeWaitHandle%2A?displayProperty=fullName>を取得するプロパティ、<xref:Microsoft.Win32.SafeHandles.SafeWaitHandle>オブジェクト、およびを呼び出す、<xref:System.Runtime.InteropServices.SafeHandle.DangerousGetHandle%2A>メソッド</xref:System.Runtime.InteropServices.SafeHandle.DangerousGetHandle%2A></xref:Microsoft.Win32.SafeHandles.SafeWaitHandle></xref:System.Threading.WaitHandle.SafeWaitHandle%2A?displayProperty=fullName></xref:System.Threading.WaitHandle>。"
   syntax:
     content: public IntPtr EventHandleIntPtr { get; set; }
     return:
       type: System.IntPtr
-      description: "An <xref:System.IntPtr> representing the handle of the event."
+      description: "<xref:System.IntPtr>イベントのハンドルを表すします</xref:System.IntPtr>。"
   overload: System.Threading.Overlapped.EventHandleIntPtr*
   exceptions: []
   platform:
@@ -202,19 +202,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Frees the unmanaged memory associated with a native overlapped structure allocated by the <xref:System.Threading.Overlapped.Pack*> method."
-  remarks: "You must call the Free method exactly once on every <xref:System.Threading.NativeOverlapped> pointer you receive from the <xref:System.Threading.Overlapped.Pack%2A> method. If you don&quot;t call the Free method, you will leak memory. If you call the Free method more than once, memory will be corrupted."
+  summary: "によって割り当てられたネイティブ オーバー ラップ構造に関連付けられたアンマネージ メモリの解放、<xref:System.Threading.Overlapped.Pack*>メソッド</xref:System.Threading.Overlapped.Pack*>。"
+  remarks: "Free メソッドを正確に呼び出す必要がありますにすべて<xref:System.Threading.NativeOverlapped>から受信するポインター、<xref:System.Threading.Overlapped.Pack%2A>メソッド</xref:System.Threading.Overlapped.Pack%2A></xref:System.Threading.NativeOverlapped>。 Free メソッドが呼び出されない場合は、メモリがリークされます。 Free メソッドを複数回呼び出す場合は、メモリが破損します。"
   syntax:
     content: public static void Free (System.Threading.NativeOverlapped* nativeOverlappedPtr);
     parameters:
     - id: nativeOverlappedPtr
       type: System.Threading.NativeOverlapped*
-      description: "A pointer to the <xref href=&quot;System.Threading.NativeOverlapped&quot;></xref> structure to be freed."
+      description: "ポインター、 <xref href=&quot;System.Threading.NativeOverlapped&quot;> </xref>解放される構造です。"
   overload: System.Threading.Overlapped.Free*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>nativeOverlappedPtr</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>nativeOverlappedPtr</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Threading.Overlapped.OffsetHigh
@@ -229,12 +229,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Gets or sets the high-order word of the file position at which to start the transfer. The file position is a byte offset from the start of the file."
+  summary: "取得または設定の転送を開始する位置を示すファイルの位置の上位ワード。 ファイルの位置は、ファイルの先頭からのバイト オフセットです。"
   syntax:
     content: public int OffsetHigh { get; set; }
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> value representing the high word of the file position."
+      description: "<xref:System.Int32>ファイルの位置の上位ワードを表す値</xref:System.Int32>。"
   overload: System.Threading.Overlapped.OffsetHigh*
   exceptions: []
   platform:
@@ -251,12 +251,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Gets or sets the low-order word of the file position at which to start the transfer. The file position is a byte offset from the start of the file."
+  summary: "取得または転送を開始する位置を示すファイルの位置の下位ワードを設定します。 ファイルの位置は、ファイルの先頭からのバイト オフセットです。"
   syntax:
     content: public int OffsetLow { get; set; }
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> value representing the low word of the file position."
+      description: "<xref:System.Int32>ファイル位置の下位ワードを表す値</xref:System.Int32>。"
   overload: System.Threading.Overlapped.OffsetLow*
   exceptions: []
   platform:
@@ -273,22 +273,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Packs the current instance into a <xref href=&quot;System.Threading.NativeOverlapped&quot;></xref> structure, specifying the delegate to be invoked when the asynchronous I/O operation is complete."
-  remarks: "The unmanaged pointer returned by this method can be passed to the operating system in overlapped I/O operations. The <xref:System.Threading.NativeOverlapped> structure is fixed in physical memory until <xref:System.Threading.Overlapped.Unpack%2A> is called.      > [!IMPORTANT] >  The caller is responsible for pinning the buffer. If the application domain is unloaded, however, the handle to the pinned buffer is destroyed and the buffer is released, leaving the I/O operation to write to the freed address. For this reason, it is better to use the <xref:System.Threading.Overlapped.Pack%28System.Threading.IOCompletionCallback%2CSystem.Object%29> method overload, in which the runtime pins the buffer."
+  summary: "パックの現在のインスタンスに、 <xref href=&quot;System.Threading.NativeOverlapped&quot;> </xref>構造体、非同期 I/O 操作が完了したら呼び出されるデリゲートを指定します。"
+  remarks: "このメソッドによって返されるアンマネージ ポインターは、オーバー ラップされた I/O 操作で、オペレーティング システムに渡すことができます。 <xref:System.Threading.NativeOverlapped>まで物理メモリ内構造は固定されて<xref:System.Threading.Overlapped.Unpack%2A>と呼びます</xref:System.Threading.Overlapped.Unpack%2A></xref:System.Threading.NativeOverlapped>。      > [!IMPORTANT] > 呼び出し元が、バッファーをピン留めできません。 アプリケーション ドメインがアンロードされた場合、ただし、ピン留めされたバッファーへのハンドルが破棄され、バッファーが解放され、解放されたアドレスへの書き込み I/O 操作。 この理由を使用する方がよい、<xref:System.Threading.Overlapped.Pack%28System.Threading.IOCompletionCallback%2CSystem.Object%29>メソッドのオーバー ロードをランタイムが、バッファーをピン留めします</xref:System.Threading.Overlapped.Pack%28System.Threading.IOCompletionCallback%2CSystem.Object%29>。"
   syntax:
     content: public System.Threading.NativeOverlapped* Pack (System.Threading.IOCompletionCallback iocb);
     parameters:
     - id: iocb
       type: System.Threading.IOCompletionCallback
-      description: "An <xref href=&quot;System.Threading.IOCompletionCallback&quot;></xref> delegate that represents the callback method invoked when the asynchronous I/O operation completes."
+      description: "<xref href=&quot;System.Threading.IOCompletionCallback&quot;> </xref>非同期 I/O 操作が完了したときに呼び出されるコールバック メソッドを表すデリゲート。"
     return:
       type: System.Threading.NativeOverlapped*
-      description: "An unmanaged pointer to a <xref href=&quot;System.Threading.NativeOverlapped&quot;></xref> structure."
+      description: "アンマネージ ポインター、 <xref href=&quot;System.Threading.NativeOverlapped&quot;> </xref>構造体。"
   overload: System.Threading.Overlapped.Pack*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The current <xref href=&quot;System.Threading.Overlapped&quot;></xref> has already been packed."
+    description: "現在<xref href=&quot;System.Threading.Overlapped&quot;></xref>は既にパックされています。"
   platform:
   - net462
 - uid: System.Threading.Overlapped.Pack(System.Threading.IOCompletionCallback,System.Object)
@@ -303,25 +303,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Packs the current instance into a <xref href=&quot;System.Threading.NativeOverlapped&quot;></xref> structure, specifying a delegate that is invoked when the asynchronous I/O operation is complete and a managed object that serves as a buffer."
-  remarks: "The unmanaged pointer returned by this method can be passed to the operating system in overlapped I/O operations. The <xref:System.Threading.NativeOverlapped> structure is fixed in physical memory until <xref:System.Threading.Overlapped.Unpack%2A> is called.       The buffer or buffers specified in `userData` must be the same as those passed to the unmanaged operating system function that performs the asynchronous I/O.      > [!NOTE] >  The runtime pins the buffer or buffers specified in `userData` for the duration of the I/O operation. If the application domain is unloaded, the runtime keeps the memory pinned until the I/O operation completes."
+  summary: "パックの現在のインスタンスに、 <xref href=&quot;System.Threading.NativeOverlapped&quot;> </xref>構造体、非同期 I/O 操作が完了すると呼び出されるデリゲートとバッファーとして機能するマネージ オブジェクトを指定します。"
+  remarks: "このメソッドによって返されるアンマネージ ポインターは、オーバー ラップされた I/O 操作で、オペレーティング システムに渡すことができます。 <xref:System.Threading.NativeOverlapped>まで物理メモリ内構造は固定されて<xref:System.Threading.Overlapped.Unpack%2A>と呼びます</xref:System.Threading.Overlapped.Unpack%2A></xref:System.Threading.NativeOverlapped>。       指定されたバッファー、または`userData`非同期 I/O を実行するオペレーティング システムのアンマネージ関数に渡されたものと同じである必要があります。      > [!NOTE] > で指定されたバッファー、またはランタイムがピン留め`userData`I/O 操作の実行中です。 アプリケーション ドメインが読み込まれている場合、ランタイムは、I/O 操作が完了するまでの固定メモリを保持します。"
   syntax:
     content: public System.Threading.NativeOverlapped* Pack (System.Threading.IOCompletionCallback iocb, object userData);
     parameters:
     - id: iocb
       type: System.Threading.IOCompletionCallback
-      description: "An <xref href=&quot;System.Threading.IOCompletionCallback&quot;></xref> delegate that represents the callback method invoked when the asynchronous I/O operation completes."
+      description: "<xref href=&quot;System.Threading.IOCompletionCallback&quot;> </xref>非同期 I/O 操作が完了したときに呼び出されるコールバック メソッドを表すデリゲート。"
     - id: userData
       type: System.Object
-      description: "An object or array of objects representing the input or output buffer for the operation. Each object represents a buffer, for example an array of bytes."
+      description: "オブジェクトまたは操作の入力または出力バッファーを表すオブジェクトの配列。 各オブジェクトは、バッファー、たとえばバイトの配列を表します。"
     return:
       type: System.Threading.NativeOverlapped*
-      description: "An unmanaged pointer to a <xref href=&quot;System.Threading.NativeOverlapped&quot;></xref> structure."
+      description: "アンマネージ ポインター、 <xref href=&quot;System.Threading.NativeOverlapped&quot;> </xref>構造体。"
   overload: System.Threading.Overlapped.Pack*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The current <xref href=&quot;System.Threading.Overlapped&quot;></xref> has already been packed."
+    description: "現在<xref href=&quot;System.Threading.Overlapped&quot;></xref>は既にパックされています。"
   platform:
   - net462
 - uid: System.Threading.Overlapped.Unpack(System.Threading.NativeOverlapped*)
@@ -336,22 +336,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Unpacks the specified unmanaged <xref href=&quot;System.Threading.NativeOverlapped&quot;></xref> structure into a managed <xref href=&quot;System.Threading.Overlapped&quot;></xref> object."
-  remarks: "The <xref:System.Threading.NativeOverlapped> structure is not freed from physical memory until you call the <xref:System.Threading.Overlapped.Free%2A> method."
+  summary: "指定したアンマネージ アンパック<xref href=&quot;System.Threading.NativeOverlapped&quot;></xref>構造体をマネージ<xref href=&quot;System.Threading.Overlapped&quot;></xref>オブジェクト。"
+  remarks: "<xref:System.Threading.NativeOverlapped>が呼び出されるまで、構造体は物理メモリから解放されず、<xref:System.Threading.Overlapped.Free%2A>メソッド</xref:System.Threading.Overlapped.Free%2A></xref:System.Threading.NativeOverlapped>。"
   syntax:
     content: public static System.Threading.Overlapped Unpack (System.Threading.NativeOverlapped* nativeOverlappedPtr);
     parameters:
     - id: nativeOverlappedPtr
       type: System.Threading.NativeOverlapped*
-      description: "An unmanaged pointer to a <xref href=&quot;System.Threading.NativeOverlapped&quot;></xref> structure."
+      description: "アンマネージ ポインター、 <xref href=&quot;System.Threading.NativeOverlapped&quot;> </xref>構造体。"
     return:
       type: System.Threading.Overlapped
-      description: "An <xref href=&quot;System.Threading.Overlapped&quot;></xref> object containing the information unpacked from the native structure."
+      description: "<xref href=&quot;System.Threading.Overlapped&quot;> </xref>ネイティブ構造体から開梱済みの情報を含むオブジェクトします。"
   overload: System.Threading.Overlapped.Unpack*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>nativeOverlappedPtr</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>nativeOverlappedPtr</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Threading.Overlapped.UnsafePack(System.Threading.IOCompletionCallback)
@@ -366,22 +366,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Packs the current instance into a <xref href=&quot;System.Threading.NativeOverlapped&quot;></xref> structure specifying the delegate to invoke when the asynchronous I/O operation is complete. Does not propagate the calling stack."
-  remarks: "The unmanaged pointer returned by this method can be passed to the operating system in overlapped I/O operations. The <xref:System.Threading.NativeOverlapped> structure is fixed in physical memory until <xref:System.Threading.Overlapped.Unpack%2A> is called.       The caller is responsible for pinning the buffer. If the application domain is unloaded, however, the handle to the pinned buffer is destroyed and the buffer is released, leaving the I/O operation to write to the freed address. For this reason, it is better to use the <xref:System.Threading.Overlapped.UnsafePack%28System.Threading.IOCompletionCallback%2CSystem.Object%29> method overload, in which the runtime pins the buffer.      > [!CAUTION] >  Using the <xref:System.Threading.Overlapped.UnsafePack%2A> method could inadvertently open up a security hole. Code access security bases its permission checks on the permissions of all the callers on the stack. The <xref:System.Threading.Overlapped.UnsafePack%2A> method does not propagate the calling stack. Malicious code might be able to exploit this to avoid permission checks."
+  summary: "パックの現在のインスタンスに、 <xref href=&quot;System.Threading.NativeOverlapped&quot;> </xref>非同期 I/O 操作の完了時に呼び出すデリゲートを指定する構造体。 呼び出し元のスタックを反映しません。"
+  remarks: "このメソッドによって返されるアンマネージ ポインターは、オーバー ラップされた I/O 操作で、オペレーティング システムに渡すことができます。 <xref:System.Threading.NativeOverlapped>まで物理メモリ内構造は固定されて<xref:System.Threading.Overlapped.Unpack%2A>と呼びます</xref:System.Threading.Overlapped.Unpack%2A></xref:System.Threading.NativeOverlapped>。       呼び出し元は、バッファーをピン留めします。 アプリケーション ドメインがアンロードされた場合、ただし、ピン留めされたバッファーへのハンドルが破棄され、バッファーが解放され、解放されたアドレスへの書き込み I/O 操作。 この理由を使用する方がよい、<xref:System.Threading.Overlapped.UnsafePack%28System.Threading.IOCompletionCallback%2CSystem.Object%29>メソッドのオーバー ロードをランタイムが、バッファーをピン留めします</xref:System.Threading.Overlapped.UnsafePack%28System.Threading.IOCompletionCallback%2CSystem.Object%29>。      > [!CAUTION] > を使用して、<xref:System.Threading.Overlapped.UnsafePack%2A>メソッドは、セキュリティ ホールを誤って開けません</xref:System.Threading.Overlapped.UnsafePack%2A>。 コード アクセス セキュリティは、スタックに基づいて、すべての呼び出し元のアクセス許可をその権限のチェックを行います。 <xref:System.Threading.Overlapped.UnsafePack%2A>メソッドはコール スタックを反映しません</xref:System.Threading.Overlapped.UnsafePack%2A>。 悪意のあるコードは、アクセス許可のチェックを避けるためにこれを利用できる可能性があります。"
   syntax:
     content: public System.Threading.NativeOverlapped* UnsafePack (System.Threading.IOCompletionCallback iocb);
     parameters:
     - id: iocb
       type: System.Threading.IOCompletionCallback
-      description: "An <xref href=&quot;System.Threading.IOCompletionCallback&quot;></xref> delegate that represents the callback method invoked when the asynchronous I/O operation completes."
+      description: "<xref href=&quot;System.Threading.IOCompletionCallback&quot;> </xref>非同期 I/O 操作が完了したときに呼び出されるコールバック メソッドを表すデリゲート。"
     return:
       type: System.Threading.NativeOverlapped*
-      description: "An unmanaged pointer to a <xref href=&quot;System.Threading.NativeOverlapped&quot;></xref> structure."
+      description: "アンマネージ ポインター、 <xref href=&quot;System.Threading.NativeOverlapped&quot;> </xref>構造体。"
   overload: System.Threading.Overlapped.UnsafePack*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The current <xref href=&quot;System.Threading.Overlapped&quot;></xref> has already been packed."
+    description: "現在<xref href=&quot;System.Threading.Overlapped&quot;></xref>は既にパックされています。"
   platform:
   - net462
 - uid: System.Threading.Overlapped.UnsafePack(System.Threading.IOCompletionCallback,System.Object)
@@ -396,28 +396,28 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Packs the current instance into a <xref href=&quot;System.Threading.NativeOverlapped&quot;></xref> structure, specifying the delegate to invoke when the asynchronous I/O operation is complete and the managed object that serves as a buffer. Does not propagate the calling stack."
-  remarks: "The unmanaged pointer returned by this method can be passed to the operating system in overlapped I/O operations. The <xref:System.Threading.NativeOverlapped> structure is fixed in physical memory until <xref:System.Threading.Overlapped.Unpack%2A> is called.       The buffer or buffers specified in `userData` must be the same as those passed to the unmanaged operating system function that performs the asynchronous I/O.       The runtime pins the buffer or buffers specified in`userData` for the duration of the I/O operation. If the application domain is unloaded, the runtime keeps the memory pinned until the I/O operation completes.      > [!CAUTION] >  Using the UnsafePack method could inadvertently open up a security hole. Code access security bases its permission checks on the permissions of all the callers on the stack. The UnsafePack method does not propagate the calling stack. Malicious code might be able to exploit this to avoid permission checks."
+  summary: "パックの現在のインスタンスに、 <xref href=&quot;System.Threading.NativeOverlapped&quot;> </xref>構造体、非同期 I/O 操作が完了し、マネージ オブジェクトに呼び出すデリゲートは、バッファーとして機能を指定します。 呼び出し元のスタックを反映しません。"
+  remarks: "このメソッドによって返されるアンマネージ ポインターは、オーバー ラップされた I/O 操作で、オペレーティング システムに渡すことができます。 <xref:System.Threading.NativeOverlapped>まで物理メモリ内構造は固定されて<xref:System.Threading.Overlapped.Unpack%2A>と呼びます</xref:System.Threading.Overlapped.Unpack%2A></xref:System.Threading.NativeOverlapped>。       指定されたバッファー、または`userData`非同期 I/O を実行するオペレーティング システムのアンマネージ関数に渡されたものと同じである必要があります。       指定されたバッファー、またはランタイムがピン留め`userData`I/O 操作の実行中です。 アプリケーション ドメインが読み込まれている場合、ランタイムは、I/O 操作が完了するまでの固定メモリを保持します。      > [!CAUTION] > を使用して、UnsafePack メソッドが誤って開きますセキュリティ ホールをします。 コード アクセス セキュリティは、スタックに基づいて、すべての呼び出し元のアクセス許可をその権限のチェックを行います。 UnsafePack メソッドでは、呼び出し元のスタックは反映しません。 悪意のあるコードは、アクセス許可のチェックを避けるためにこれを利用できる可能性があります。"
   syntax:
     content: public System.Threading.NativeOverlapped* UnsafePack (System.Threading.IOCompletionCallback iocb, object userData);
     parameters:
     - id: iocb
       type: System.Threading.IOCompletionCallback
-      description: "An <xref href=&quot;System.Threading.IOCompletionCallback&quot;></xref> delegate that represents the callback method invoked when the asynchronous I/O operation completes."
+      description: "<xref href=&quot;System.Threading.IOCompletionCallback&quot;> </xref>非同期 I/O 操作が完了したときに呼び出されるコールバック メソッドを表すデリゲート。"
     - id: userData
       type: System.Object
-      description: "An object or array of objects representing the input or output buffer for the operation. Each object represents a buffer, for example an array of bytes."
+      description: "オブジェクトまたは操作の入力または出力バッファーを表すオブジェクトの配列。 各オブジェクトは、バッファー、たとえばバイトの配列を表します。"
     return:
       type: System.Threading.NativeOverlapped*
-      description: "An unmanaged pointer to a <xref href=&quot;System.Threading.NativeOverlapped&quot;></xref> structure."
+      description: "アンマネージ ポインター、 <xref href=&quot;System.Threading.NativeOverlapped&quot;> </xref>構造体。"
   overload: System.Threading.Overlapped.UnsafePack*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "呼び出し元には、必要なアクセス許可がありません。"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The current <xref href=&quot;System.Threading.Overlapped&quot;></xref> is already packed."
+    description: "現在<xref href=&quot;System.Threading.Overlapped&quot;></xref>既にパックします。"
   platform:
   - net462
 references:

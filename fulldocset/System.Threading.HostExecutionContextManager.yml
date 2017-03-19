@@ -13,8 +13,8 @@ items:
   nameWithType: HostExecutionContextManager
   fullName: System.Threading.HostExecutionContextManager
   type: Class
-  summary: "Provides the functionality that allows a common language runtime host to participate in the flow, or migration, of the execution context."
-  remarks: "If the current <xref:System.AppDomainManager> has a reference to a HostExecutionContextManager in its <xref:System.AppDomainManager.HostExecutionContextManager%2A> property, then the common language runtime calls the manager every time a call to the <xref:System.Threading.ExecutionContext.Run%2A?displayProperty=fullName> method occurs, to allow the host to participate in the flow of the execution context."
+  summary: "フロー、または、実行コンテキストの移行に参加する共通言語ランタイムのホストを可能にする機能を提供します。"
+  remarks: "場合、現在<xref:System.AppDomainManager>で HostExecutionContextManager への参照がその<xref:System.AppDomainManager.HostExecutionContextManager%2A>プロパティを共通言語ランタイム マネージャーを呼び出し、毎回の呼び出しを<xref:System.Threading.ExecutionContext.Run%2A?displayProperty=fullName>メソッド発生すると、ホストが、実行コンテキストのフローに参加できるようにする</xref:System.Threading.ExecutionContext.Run%2A?displayProperty=fullName></xref:System.AppDomainManager.HostExecutionContextManager%2A></xref:System.AppDomainManager>。"
   syntax:
     content: public class HostExecutionContextManager
   inheritance:
@@ -35,7 +35,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Initializes a new instance of the <xref href=&quot;System.Threading.HostExecutionContextManager&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.Threading.HostExecutionContextManager&quot;> </xref>クラスです。"
   syntax:
     content: public HostExecutionContextManager ();
     parameters: []
@@ -55,14 +55,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Captures the host execution context from the current thread."
-  remarks: "The <xref:System.Threading.HostExecutionContext> is created using a safe handle containing the `IUnknown` pointer for the host executing the current thread."
+  summary: "現在のスレッドからホストの実行コンテキストをキャプチャします。"
+  remarks: "<xref:System.Threading.HostExecutionContext>を表すセーフ ハンドルを使用して作成された、`IUnknown`現在のスレッドを実行しているホストへのポインター</xref:System.Threading.HostExecutionContext> 。"
   syntax:
     content: public virtual System.Threading.HostExecutionContext Capture ();
     parameters: []
     return:
       type: System.Threading.HostExecutionContext
-      description: "A <xref href=&quot;System.Threading.HostExecutionContext&quot;></xref> object representing the host execution context of the current thread."
+      description: "A <xref href=&quot;System.Threading.HostExecutionContext&quot;> </xref>を現在のスレッドのホストの実行コンテキストを表すオブジェクト。"
   overload: System.Threading.HostExecutionContextManager.Capture*
   exceptions: []
   platform:
@@ -79,19 +79,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Restores the host execution context to its prior state."
-  remarks: '`previousState` must be the object returned by the <xref:System.Threading.HostExecutionContextManager.SetHostExecutionContext%2A> method.'
+  summary: "ホストの実行コンテキストを以前の状態に復元します。"
+  remarks: '`previousState`オブジェクトによって返される、<xref:System.Threading.HostExecutionContextManager.SetHostExecutionContext%2A>メソッド</xref:System.Threading.HostExecutionContextManager.SetHostExecutionContext%2A>。'
   syntax:
     content: public virtual void Revert (object previousState);
     parameters:
     - id: previousState
       type: System.Object
-      description: "The previous context state to revert to."
+      description: "戻すには以前のコンテキスト状態。"
   overload: System.Threading.HostExecutionContextManager.Revert*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>previousState</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>previousState</code> was not created on the current thread.       -or-       <code>previousState</code> is not the last state for the <xref href=&quot;System.Threading.HostExecutionContext&quot;></xref>."
+    description: "<code>previousState</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       - または -<code>previousState</code>現在のスレッドは作成されませんでした。       - または -<code>previousState</code>が最新の状態を<xref href=&quot;System.Threading.HostExecutionContext&quot;></xref>です。"
   platform:
   - net462
 - uid: System.Threading.HostExecutionContextManager.SetHostExecutionContext(System.Threading.HostExecutionContext)
@@ -106,22 +106,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Sets the current host execution context to the specified host execution context."
-  remarks: "The SetHostExecutionContext method sets the host execution context for the current <xref:System.Threading.HostExecutionContext>.  A <xref:System.Threading.HostExecutionContext> that has been used as the argument to another SetHostExecutionContext method call cannot be passed in as the parameter for this method. Instead, use the <xref:System.Threading.HostExecutionContext.CreateCopy%2A?displayProperty=fullName> method to create a copy of a <xref:System.Threading.HostExecutionContext> object and then use the copy to set the host execution context.       Call the <xref:System.Threading.HostExecutionContextManager.Revert%2A> method using the object returned by this method to restore the <xref:System.Threading.HostExecutionContext> to its previous state."
+  summary: "指定したホストの実行コンテキストを現在のホストの実行コンテキストを設定します。"
+  remarks: "SetHostExecutionContext メソッドは、現在<xref:System.Threading.HostExecutionContext>。</xref:System.Threading.HostExecutionContext>のホストの実行コンテキストを設定します。  A<xref:System.Threading.HostExecutionContext>でこのメソッドのパラメーターとして渡すことはできません別 SetHostExecutionContext メソッドの呼び出しに引数として使用されている</xref:System.Threading.HostExecutionContext>。 代わりに、使用、<xref:System.Threading.HostExecutionContext.CreateCopy%2A?displayProperty=fullName>のコピーを作成する方法、<xref:System.Threading.HostExecutionContext>オブジェクトし、コピーを使用して、ホストの実行コンテキストを設定します</xref:System.Threading.HostExecutionContext></xref:System.Threading.HostExecutionContext.CreateCopy%2A?displayProperty=fullName>。       呼び出す、<xref:System.Threading.HostExecutionContextManager.Revert%2A>このメソッドによって返されるオブジェクトを使用して復元する方法、<xref:System.Threading.HostExecutionContext>を以前の状態</xref:System.Threading.HostExecutionContext></xref:System.Threading.HostExecutionContextManager.Revert%2A>。"
   syntax:
     content: public virtual object SetHostExecutionContext (System.Threading.HostExecutionContext hostExecutionContext);
     parameters:
     - id: hostExecutionContext
       type: System.Threading.HostExecutionContext
-      description: "The <xref href=&quot;System.Threading.HostExecutionContext&quot;></xref> to be set."
+      description: "<xref href=&quot;System.Threading.HostExecutionContext&quot;> </xref>を設定します。"
     return:
       type: System.Object
-      description: "An object for restoring the <xref href=&quot;System.Threading.HostExecutionContext&quot;></xref> to its previous state."
+      description: "オブジェクトを復元するため、 <xref href=&quot;System.Threading.HostExecutionContext&quot;> </xref>を以前の状態。"
   overload: System.Threading.HostExecutionContextManager.SetHostExecutionContext*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>hostExecutionContext</code> was not acquired through a capture operation.       -or-       <code>hostExecutionContext</code> has been the argument to a previous SetHostExecutionContext method call."
+    description: "<code>hostExecutionContext</code>キャプチャ操作で取得されませんでした。       - または -<code>hostExecutionContext</code>以前 SetHostExecutionContext メソッドの呼び出しに引数がされました。"
   platform:
   - net462
 references:
