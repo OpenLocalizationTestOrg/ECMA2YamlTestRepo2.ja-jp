@@ -17,8 +17,8 @@ items:
   nameWithType: AnnouncementService
   fullName: System.ServiceModel.Discovery.AnnouncementService
   type: Class
-  summary: "A self-hosted implementation of the announcement service."
-  remarks: "This class listens for incoming messages on a standard announcement endpoint (<xref:System.ServiceModel.Discovery.AnnouncementEndpoint>) and provides event notification when Hello or Bye announcement messages arrive. You can provide a custom announcement service implementation by deriving from this class."
+  summary: "アナウンス サービスの自己ホスト型の実装です。"
+  remarks: "このクラスは、標準のアナウンス エンドポイントで着信メッセージのリッスン (<xref:System.ServiceModel.Discovery.AnnouncementEndpoint>) し、こんにちはまたは Bye アナウンス メッセージが届いたときにイベント通知を提供します</xref:System.ServiceModel.Discovery.AnnouncementEndpoint>。 このクラスから派生することによって、カスタム アナウンス サービスの実装を提供できます。"
   syntax:
     content: >-
       [System.ServiceModel.ServiceBehavior(ConcurrencyMode=System.ServiceModel.ConcurrencyMode.Multiple, InstanceContextMode=System.ServiceModel.InstanceContextMode.Single)]
@@ -42,7 +42,7 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;></xref> class."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;> </xref>クラスです。"
   syntax:
     content: public AnnouncementService ();
     parameters: []
@@ -62,13 +62,13 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;></xref> class with the specified length of the duplicate message history."
+  summary: "新しいインスタンスを初期化、 <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;> </xref>重複メッセージ履歴の指定された長さを持つクラス。"
   syntax:
     content: public AnnouncementService (int duplicateMessageHistoryLength);
     parameters:
     - id: duplicateMessageHistoryLength
       type: System.Int32
-      description: "The maximum number of message hashes used by the transport for identifying duplicate messages. The default value is 0."
+      description: "重複したメッセージを識別するためにトランスポートによって使用されるメッセージ ハッシュの最大数。 既定値は 0 です。"
   overload: System.ServiceModel.Discovery.AnnouncementService.#ctor*
   exceptions: []
   platform:
@@ -85,12 +85,12 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Occurs when an offline announcement (Bye) message is received,"
+  summary: "オフライン アナウンス (Bye) メッセージを受け取ると発生します。"
   syntax:
     content: public event EventHandler<System.ServiceModel.Discovery.AnnouncementEventArgs> OfflineAnnouncementReceived;
     return:
       type: System.EventHandler{System.ServiceModel.Discovery.AnnouncementEventArgs}
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
@@ -106,26 +106,26 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Starts the processing of incoming offline announcement (Bye) messages."
-  remarks: "Classes that inherit from <xref:System.ServiceModel.Discovery.AnnouncementService> to implement a custom announcement listener service must override this method and begin to process incoming Bye messages."
+  summary: "入力方向の処理を開始オフライン アナウンス (Bye) メッセージ。"
+  remarks: "継承するクラス<xref:System.ServiceModel.Discovery.AnnouncementService>するカスタム アナウンスを実装するリスナー サービスにはこのメソッドをオーバーライドし、受信 Bye メッセージの処理を開始する</xref:System.ServiceModel.Discovery.AnnouncementService>。"
   syntax:
     content: protected virtual IAsyncResult OnBeginOfflineAnnouncement (System.ServiceModel.Discovery.DiscoveryMessageSequence messageSequence, System.ServiceModel.Discovery.EndpointDiscoveryMetadata endpointDiscoveryMetadata, AsyncCallback callback, object state);
     parameters:
     - id: messageSequence
       type: System.ServiceModel.Discovery.DiscoveryMessageSequence
-      description: "The position of this message in the sequence for the current notification."
+      description: "このメッセージの現在の通知のシーケンス内の位置。"
     - id: endpointDiscoveryMetadata
       type: System.ServiceModel.Discovery.EndpointDiscoveryMetadata
-      description: "An object that provides endpoint metadata, for example scopes, listen URI, contract names, and endpoint address."
+      description: "例のスコープに対して、エンドポイントのメタデータを提供するオブジェクトは、URI、コントラクト名、およびエンドポイント アドレスをリッスンします。"
     - id: callback
       type: System.AsyncCallback
-      description: "The method to call when the asynchronous operation is complete."
+      description: "非同期操作が完了したときに呼び出すメソッド。"
     - id: state
       type: System.Object
-      description: "Infrastructure-defined state data."
+      description: "インフラストラクチャ定義の状態データ。"
     return:
       type: System.IAsyncResult
-      description: "The status of the pending asynchronous request."
+      description: "保留中の非同期要求の状態。"
   overload: System.ServiceModel.Discovery.AnnouncementService.OnBeginOfflineAnnouncement*
   exceptions: []
   platform:
@@ -142,26 +142,26 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Starts the processing of incoming online announcement (Hello) messages."
-  remarks: "Classes that inherit from <xref:System.ServiceModel.Discovery.AnnouncementService> to implement a custom announcement listener service must override this method and begin to process incoming Hello messages."
+  summary: "入力方向の処理を開始オンライン アナウンス (こんにちは) メッセージ。"
+  remarks: "継承するクラス<xref:System.ServiceModel.Discovery.AnnouncementService>カスタム アナウンスを実装するリスナー サービスする必要がありますこのメソッドをオーバーライドし、受信こんにちはメッセージの処理を開始します</xref:System.ServiceModel.Discovery.AnnouncementService>。"
   syntax:
     content: protected virtual IAsyncResult OnBeginOnlineAnnouncement (System.ServiceModel.Discovery.DiscoveryMessageSequence messageSequence, System.ServiceModel.Discovery.EndpointDiscoveryMetadata endpointDiscoveryMetadata, AsyncCallback callback, object state);
     parameters:
     - id: messageSequence
       type: System.ServiceModel.Discovery.DiscoveryMessageSequence
-      description: "The position of this message in the sequence for the current notification."
+      description: "このメッセージの現在の通知のシーケンス内の位置。"
     - id: endpointDiscoveryMetadata
       type: System.ServiceModel.Discovery.EndpointDiscoveryMetadata
-      description: "An object that provides endpoint metadata, for example scopes, listen URI, contract names, and endpoint address."
+      description: "例のスコープに対して、エンドポイントのメタデータを提供するオブジェクトは、URI、コントラクト名、およびエンドポイント アドレスをリッスンします。"
     - id: callback
       type: System.AsyncCallback
-      description: "The method to call when the asynchronous operation is complete."
+      description: "非同期操作が完了したときに呼び出すメソッド。"
     - id: state
       type: System.Object
-      description: "Infrastructure-defined state data."
+      description: "インフラストラクチャ定義の状態データ。"
     return:
       type: System.IAsyncResult
-      description: "The status of the pending asynchronous request."
+      description: "保留中の非同期要求の状態。"
   overload: System.ServiceModel.Discovery.AnnouncementService.OnBeginOnlineAnnouncement*
   exceptions: []
   platform:
@@ -178,13 +178,13 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Users that inherit from <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;></xref> to implement a custom announcement listener service must override this method and begin to process incoming offline announcement (Bye) messages here."
+  summary: "継承したユーザー <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;> </xref>カスタム アナウンスを実装するリスナー サービスする必要がありますこのメソッドをオーバーライドし、受信処理を開始するオフライン アナウンス (Bye) メッセージは、ここです。"
   syntax:
     content: protected virtual void OnEndOfflineAnnouncement (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "An asynchronous result returned by the corresponding <xref:System.ServiceModel.Discovery.DiscoveryProxyBase.OnBeginOnlineAnnouncement*>."
+      description: "対応する<xref:System.ServiceModel.Discovery.DiscoveryProxyBase.OnBeginOnlineAnnouncement*>。</xref:System.ServiceModel.Discovery.DiscoveryProxyBase.OnBeginOnlineAnnouncement*>によって返される非同期の結果"
   overload: System.ServiceModel.Discovery.AnnouncementService.OnEndOfflineAnnouncement*
   exceptions: []
   platform:
@@ -201,13 +201,13 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Users that inherit from <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;></xref> to implement a custom announcement listener service must override this method and begin to process incoming offline announcement (Bye) messages here."
+  summary: "継承したユーザー <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;> </xref>カスタム アナウンスを実装するリスナー サービスする必要がありますこのメソッドをオーバーライドし、受信処理を開始するオフライン アナウンス (Bye) メッセージは、ここです。"
   syntax:
     content: protected virtual void OnEndOnlineAnnouncement (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "An asynchronous result returned by the corresponding <xref:System.ServiceModel.Discovery.DiscoveryProxyBase.OnBeginOnlineAnnouncement*>."
+      description: "対応する<xref:System.ServiceModel.Discovery.DiscoveryProxyBase.OnBeginOnlineAnnouncement*>。</xref:System.ServiceModel.Discovery.DiscoveryProxyBase.OnBeginOnlineAnnouncement*>によって返される非同期の結果"
   overload: System.ServiceModel.Discovery.AnnouncementService.OnEndOnlineAnnouncement*
   exceptions: []
   platform:
@@ -224,12 +224,12 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Occurs when an online announcement (Hello) is received."
+  summary: "オンライン アナウンス (こんにちは) を受信したときに発生します。"
   syntax:
     content: public event EventHandler<System.ServiceModel.Discovery.AnnouncementEventArgs> OnlineAnnouncementReceived;
     return:
       type: System.EventHandler{System.ServiceModel.Discovery.AnnouncementEventArgs}
-      description: "To be added."
+      description: "追加します。"
   exceptions: []
   platform:
   - net462
